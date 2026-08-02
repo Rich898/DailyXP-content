@@ -1,1 +1,27 @@
-{"student":"y8","status":"placeholder","date":"2026-08-02","day":"","title":"DailyXP","questions":[]}
+{
+  "student": "y8",
+  "date": "2026-08-02",
+  "dateLabel": "Sun 2 Aug 2026",
+  "day": "TEST",
+  "tag": "SYSTEM TEST",
+  "title": "DailyXP system test — not a real quiz",
+  "questions": [
+    {"id":"S1","phase":"speed","subject":"Maths",
+     "prompt":"System check: 7 × 8 =",
+     "options":["56","54","64","49"],
+     "answer":"56",
+     "why":"Just warming up the pipes. 7 × 8 = 56."},
+    {"id":"S2","phase":"speed","subject":"Science",
+     "prompt":"Which planet is closest to the Sun?",
+     "options":["Mercury","Venus","Mars","Jupiter"],
+     "answer":"Mercury",
+     "why":"Mercury — closest in, fastest around."},
+    {"id":"T1","phase":"steady","subject":"General",
+     "prompt":"In games, XP usually stands for…",
+     "options":["Experience Points","Extra Play","Xtra Power","Expert Player"],
+     "answer":"Experience Points",
+     "why":"Experience Points — you earn them by playing. Sound familiar?"},
+    {"id":"TB1","phase":"teach","subject":"General",
+     "prompt":"SYSTEM TEST: type any 80+ characters (anything at all — how your week went, what you had for dinner). This just tests that results send themselves to Dad."}
+  ]
+}
