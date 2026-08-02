@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#F7F8F4" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="DailyXP" />
+<title>DailyXP — __NAME__</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap');
+  :root{
+    --paper:#F7F8F4; --ink:#101B2D; --flare:#FF4D29; --reef:#0E6BA8;
+    --kelp:#0E8A5F; --haze:#7A8496; --line:#D9DDD3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+  .wrap{max-width:640px;margin:0 auto;padding:20px 16px 48px}
+  .display{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-0.01em}
+  .num{font-family:'Space Mono',ui-monospace,monospace;font-weight:700}
+  button{font-family:inherit}
+  button:focus-visible{outline:3px solid var(--reef);outline-offset:2px}
+  .hdr{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .hdr h1{font-size:26px;margin:0;cursor:pointer}
+  .hdr .pen{color:var(--haze);font-size:13px;font-family:'Space Grotesk';font-weight:400}
+  .score{text-align:right}
+  .score .pts{font-size:24px;color:var(--flare);line-height:1}
+  .score .lbl{font-size:11px;color:var(--haze);letter-spacing:.08em}
+  .rail{display:flex;gap:5px;margin:16px 0 26px;align-items:center}
+  .seg{height:10px;flex:1;border-radius:3px;background:#E4E7DF;border:1px solid var(--line)}
+  .seg.speed{transform:skewX(-18deg)}
+  .seg.teach{border-radius:99px}
+  .seg.on{border-color:transparent}
+  .seg.speed.on{background:var(--flare)}
+  .seg.steady.on{background:var(--reef)}
+  .seg.teach.on{background:var(--kelp)}
+  .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--haze)}
+  .eyebrow.f{color:var(--flare);font-weight:700}
+  .eyebrow.r{color:var(--reef);font-weight:700}
+  .eyebrow.k{color:var(--kelp);font-weight:700}
+  h2.big{font-size:40px;margin:10px 0 6px;line-height:1.05}
+  h2.q{font-size:22px;font-weight:700;margin:0 0 16px}
+  .opt{width:100%;text-align:left;padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-size:16px;font-weight:600;cursor:pointer;transition:transform .12s ease,border-color .12s ease}
+  .opt:active{transform:translateY(1px)}
+  .opts{display:grid;gap:10px}
+  .cta{background:var(--ink);color:var(--paper);font-size:18px;padding:15px 30px;border:none;border-radius:13px;cursor:pointer}
+  .cta:disabled{background:#C9CEC4;cursor:not-allowed}
+  .ghost{margin-top:12px;background:transparent;border:none;color:var(--haze);font-size:13px;text-decoration:underline;cursor:pointer;padding:4px;display:block}
+  .flash{margin-top:16px;padding:12px 16px;border-radius:12px;font-weight:600}
+  .flash.ok{background:#E8F4EE;border:2px solid var(--kelp)}
+  .flash.bad{background:#FCEBE6;border:2px solid var(--flare)}
+  .flash.skip{background:#EEF1EA;border:2px solid var(--line);color:var(--haze)}
+  .fusewrap{height:8px;background:#E4E7DF;border-radius:99px;overflow:hidden;margin-bottom:20px}
+  .fuse{height:100%;background:var(--ink);border-radius:99px;transition:width .1s linear}
+  .fuse.hot{background:var(--flare)}
+  .conf{display:flex;gap:8px}
+  .chip{padding:8px 14px;border-radius:99px;font-weight:700;font-size:14px;cursor:pointer;border:2px solid var(--line);background:#fff;color:var(--ink)}
+  .chip.onc{border-color:var(--reef);background:var(--reef);color:#fff}
+  .cards{display:flex;gap:10px;margin-bottom:18px}
+  .card{flex:1;border:2px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+  .flags{border-left:4px solid var(--flare);padding-left:12px;margin-bottom:18px}
+  .flags p{margin:4px 0;font-size:15px}
+  textarea{width:100%;padding:14px;font-size:16px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;resize:vertical}
+  .deal{border-top:2px dashed var(--line);padding-top:14px;margin-bottom:20px;font-size:14px;color:var(--haze)}
+  .note{font-size:14px;color:var(--haze)}
+  .box{border:2px solid var(--line);border-radius:12px;padding:12px;background:#fff;font-size:13px;white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;margin-top:12px}
+  .sendstat{margin:0 0 14px;padding:12px 14px;border-radius:12px;font-weight:600;font-size:15px}
+  .sendstat.wait{background:#EEF1EA;border:2px solid var(--line);color:var(--haze)}
+  .sendstat.good{background:#E8F4EE;border:2px solid var(--kelp)}
+  .sendstat.fail{background:#FCEBE6;border:2px solid var(--flare)}
+  @media (prefers-reduced-motion: reduce){ .fuse,.opt{transition:none !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <h1 class="display" id="appName">DailyXP<span class="pen"> ✎</span></h1>
+    <div class="score"><div class="num pts" id="pts">0</div><div class="lbl">POINTS</div></div>
+  </div>
+  <div class="rail" id="rail"></div>
+  <div id="stage"></div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// DailyXP — SHELL v3.0 · the permanent shell
+// This file no longer contains questions. It is deployed ONCE per boy
+// and never redeployed for content. Changes from H1.7:
+//  · questions fetched from GitHub (y9.json / y8.json) at load —
+//    day/date/title now come from the data, killing stale-label bugs
+//  · TIMING REBUILT: single clock discipline — a question's clock
+//    starts when it renders, stops when it's answered/locked/sent.
+//    active = sum of question clocks, elapsed = wall clock,
+//    idle = the gap. Invariant active ≤ elapsed now holds by
+//    construction (the old qStart never reset between speed
+//    questions, so each question absorbed all time before it).
+//  · AUTO-SUBMIT on finish: full results POST to the family results
+//    Sheet the moment the run ends. Offline-safe: unsent results
+//    queue on the phone and auto-send next open. Send-to-Dad email
+//    and copy remain as backups.
+//  · attempts / custom app name persist per boy (namespaced keys)
+//  · all game mechanics, scoring, and flag logic unchanged from H1.7
+// ─────────────────────────────────────────────
+var CONFIG = {
+  STUDENT: "__STUDENT__",   // y9 = Roshan, y8 = Harrison
+  NAME: "__NAME__",
+  QUESTIONS_URL: "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/__STUDENT__.json",
+  WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyqm-ejLSDP9F7wCjZCgx4E0Ugh285GJf7AjmH5TBeRJ44OTFI6H-CwJ2Gx7ZyE5f-mEQ/exec",
+  SHELL_VERSION: "3.0"
+};
+
+var SPEED_SECONDS = 30, SKIP = "__NOT_COVERED__";
+var SPEED_BASE=100, TIME_BONUS=3, COMBO_BONUS=50, STEADY_POINTS=250, TEACH_POINTS=150;
+
+// Filled by loadQuiz() from the fetched JSON:
+var QUIZ=null, QUESTIONS=[], speedQs=[], steadyQs=[], teachQ=null, MAX_SCORE=0, shuffled={};
+
+var state = { screen:"loading", idx:0, score:0, combo:0, records:[], picked:null, confidence:null, locked:false, appName:"DailyXP", sending:false, sent:false };
+var timer=null, tStart=0, answeredThis=false;
+var lastPayload=null;
+
+/*TIMING-CORE-START*/
+// Single source of truth for time. A question's clock starts when it is
+// shown (once — re-renders of the same question don't restart it) and
+// stops when it is answered / locked / submitted. Reveal-reading and
+// between-question pauses are idle by design.
+function makeTiming(now){
+  now = now || function(){ return Date.now(); };
+  var t = { sessionStart:0, qStart:null, activeMs:0,
+            phaseMs:{speed:0,steady:0,teach:0}, perQ:[] };
+  return {
+    startSession: function(){
+      t.sessionStart = now(); t.qStart = null; t.activeMs = 0;
+      t.phaseMs = {speed:0,steady:0,teach:0}; t.perQ = [];
+    },
+    questionShown: function(){ t.qStart = now(); },
+    questionDone: function(id, subject, phase, extra){
+      if(t.qStart === null) return null;        // double-fire safe: no open clock, no time booked
+      var ms = now() - t.qStart; t.qStart = null;
+      t.activeMs += ms;
+      if(t.phaseMs[phase] !== undefined) t.phaseMs[phase] += ms;
+      var rec = { id:id, subject:subject, phase:phase, secs:+(ms/1000).toFixed(1) };
+      if(extra){ for(var k in extra){ rec[k]=extra[k]; } }
+      t.perQ.push(rec);
+      return rec;
+    },
+    summary: function(){
+      var elapsedMs = now() - t.sessionStart;
+      var activeMs = Math.min(t.activeMs, elapsedMs); // defence vs device-clock jumps only
+      return {
+        elapsedSecs:+(elapsedMs/1000).toFixed(1),
+        activeSecs:+(activeMs/1000).toFixed(1),
+        idleSecs:+(Math.max(0,elapsedMs-activeMs)/1000).toFixed(1),
+        phases:{
+          speed:+(t.phaseMs.speed/1000).toFixed(1),
+          steady:+(t.phaseMs.steady/1000).toFixed(1),
+          teach:+(t.phaseMs.teach/1000).toFixed(1)
+        },
+        perQuestion: t.perQ.slice()
+      };
+    },
+    _raw: function(){ return { activeMs:t.activeMs, sessionStart:t.sessionStart }; }
+  };
+}
+/*TIMING-CORE-END*/
+var T = makeTiming();
+var shownKey = null;
+function markShown(key){ if(key !== shownKey){ shownKey = key; T.questionShown(); } }
+
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+// ── per-boy persistence (attempts + custom name), namespaced ──
+var ATTEMPT_KEY = "dxp_attempts_" + CONFIG.STUDENT;
+var NAME_KEY = "dxp_name_" + CONFIG.STUDENT;
+var OUTBOX_KEY = "dxp_outbox_" + CONFIG.STUDENT;
+(function migrateOldAttempts(){
+  try{
+    if(CONFIG.STUDENT==="y8" && !window.localStorage.getItem(ATTEMPT_KEY)){
+      var old = window.localStorage.getItem("harrison_daily_attempts");
+      if(old) window.localStorage.setItem(ATTEMPT_KEY, old);
+    }
+  }catch(e){}
+})();
+function _todayStr(){ return new Date().toLocaleDateString("en-CA"); } // YYYY-MM-DD
+function loadAttempts(){
+  try { var raw = window.localStorage.getItem(ATTEMPT_KEY); return raw ? JSON.parse(raw) : {total:0, byDay:{}}; }
+  catch(e){ return {total:0, byDay:{}}; }
+}
+function bumpAttempt(){
+  var a = loadAttempts(); var d = _todayStr();
+  a.total = (a.total||0) + 1;
+  a.byDay[d] = (a.byDay[d]||0) + 1;
+  if(!a.firstOfDay) a.firstOfDay = {};
+  if(!a.firstOfDay[d]) a.firstOfDay[d] = new Date().toLocaleTimeString("en-AU",{hour:"2-digit",minute:"2-digit"});
+  try { window.localStorage.setItem(ATTEMPT_KEY, JSON.stringify(a)); } catch(e){}
+  return a;
+}
+var ATTEMPTS = loadAttempts(); // snapshot for this run, set at start
+function fmtMMSS(sec){ sec=Math.round(sec); var m=Math.floor(sec/60), s2=sec%60; return m+":"+(s2<10?"0":"")+s2; }
+function fmtDate(){ return new Date().toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short",year:"numeric"}); }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function el(id){ return document.getElementById(id); }
+function quizLabel(){
+  if(!QUIZ) return fmtDate();
+  var d = QUIZ.dateLabel || QUIZ.date || fmtDate();
+  return (QUIZ.day ? QUIZ.day + " " : "") + d;
+}
+
+(function restoreName(){
+  try{ var n = window.localStorage.getItem(NAME_KEY); if(n) state.appName = n; }catch(e){}
+})();
+el("appName").innerHTML = esc(state.appName)+'<span class="pen"> ✎</span>';
+el("appName").addEventListener("click", function(){
+  var n = prompt("Name this thing (your call):", state.appName);
+  if(n){ state.appName = n.toUpperCase().slice(0,18);
+    el("appName").innerHTML = esc(state.appName)+'<span class="pen"> ✎</span>';
+    try{ window.localStorage.setItem(NAME_KEY, state.appName); }catch(e){}
+  }
+});
+
+function setScore(){ el("pts").textContent = state.score.toLocaleString(); }
+
+function railHTML(){
+  if(!QUESTIONS.length){ el("rail").innerHTML=""; return; }
+  var done = (state.screen==="start"||state.screen==="loading"||state.screen==="noquiz"||state.screen==="error")?0 : state.screen==="speed"?state.idx : state.screen==="steady"?speedQs.length+state.idx : state.screen==="teach"?speedQs.length+steadyQs.length : QUESTIONS.length;
+  var h="";
+  speedQs.forEach(function(q,i){ h+='<div class="seg speed'+(done>i?" on":"")+'"></div>'; });
+  steadyQs.forEach(function(q,i){ h+='<div class="seg steady'+(done>speedQs.length+i?" on":"")+'"></div>'; });
+  h+='<div class="seg teach'+(done>=QUESTIONS.length?" on":"")+'"></div>';
+  el("rail").innerHTML=h;
+}
+
+function render(){ railHTML(); setScore();
+  if(state.screen==="loading") renderLoading();
+  else if(state.screen==="noquiz") renderNoQuiz();
+  else if(state.screen==="error") renderLoadError();
+  else if(state.screen==="start") renderStart();
+  else if(state.screen==="speed") renderSpeed();
+  else if(state.screen==="steady") renderSteady();
+  else if(state.screen==="teach") renderTeach();
+  else renderDone();
+}
+
+// ── remote questions ──────────────────────────
+function boot(){ state.screen="loading"; render(); loadQuiz(); }
+function loadQuiz(){
+  var url = CONFIG.QUESTIONS_URL + "?t=" + Date.now();
+  fetch(url, {cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+    .then(function(j){
+      if(!j || !j.questions || !j.questions.length || j.status==="placeholder"){
+        QUIZ = j || null; state.screen="noquiz"; render(); flushOutbox(); return;
+      }
+      QUIZ = j; QUESTIONS = j.questions; deriveQuiz();
+      state.screen="start"; render(); flushOutbox();
+    })
+    .catch(function(e){ state.screen="error"; render(); });
+}
+function deriveQuiz(){
+  speedQs = QUESTIONS.filter(function(q){return q.phase==="speed"});
+  steadyQs = QUESTIONS.filter(function(q){return q.phase==="steady"});
+  teachQ = QUESTIONS.filter(function(q){return q.phase==="teach"})[0];
+  shuffled = {};
+  QUESTIONS.forEach(function(q){ if(q.options) shuffled[q.id]=shuffle(q.options); });
+  MAX_SCORE = speedQs.length*(SPEED_BASE+SPEED_SECONDS*TIME_BONUS) + (speedQs.length>0?(speedQs.length-1)*COMBO_BONUS:0) + steadyQs.length*STEADY_POINTS + (teachQ?TEACH_POINTS:0);
+}
+function renderLoading(){
+  el("stage").innerHTML =
+  '<div class="eyebrow">DAILYXP · '+esc(CONFIG.NAME.toUpperCase())+'</div>'+
+  '<h2 class="display big">Loading tonight\'s run…</h2>'+
+  '<p class="note">Grabbing the latest questions.</p>';
+}
+function renderNoQuiz(){
+  el("stage").innerHTML =
+  '<div class="eyebrow">DAILYXP · '+esc(CONFIG.NAME.toUpperCase())+'</div>'+
+  '<h2 class="display big">No quiz posted yet.</h2>'+
+  '<p style="font-size:16px">Tonight\'s run isn\'t up. New quizzes land Monday to Friday — check back later, or tell Dad his machine is slacking.</p>'+
+  '<button class="cta display" style="font-size:18px" onclick="boot()">Check again →</button>';
+}
+function renderLoadError(){
+  el("stage").innerHTML =
+  '<div class="eyebrow">DAILYXP · '+esc(CONFIG.NAME.toUpperCase())+'</div>'+
+  '<h2 class="display big">Couldn\'t load the quiz.</h2>'+
+  '<p style="font-size:16px">Probably no internet right now. Get back online and hit retry.</p>'+
+  '<button class="cta display" style="font-size:18px" onclick="boot()">Retry →</button>';
+}
+
+function renderStart(){
+  el("stage").innerHTML =
+  '<div class="eyebrow">SESSION SHEET · '+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' · '+esc(QUIZ.tag):'')+'</div>'+
+  '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>'+
+  '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>'+
+  '<p style="font-size:16px;margin:4px 0"><b style="color:var(--reef)">Heat 2 — Steady.</b> '+steadyQs.length+' questions, no clock. Only accuracy pays. Call how sure you are — be honest, it\'s how the thing works.</p>'+
+  '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Last wave — Teach-back.</b> One argument in your own words.</p>'+
+  '<p class="note" style="margin:0 0 18px">If class genuinely hasn\'t done a topic yet, hit <i>"haven\'t covered this yet"</i> — no penalty. It works: benched questions get checked against class later.</p>'+
+  '<div class="deal">The deal stands: run this, and Dad stays off your back about study. ~15 minutes. Weekends off.</div>'+
+  '<button class="cta display" style="font-size:20px" onclick="startRun()">Drop in →</button>';
+}
+function startRun(){
+  ATTEMPTS = bumpAttempt();
+  T.startSession(); shownKey=null;
+  state.idx=0; state.score=0; state.combo=0; state.records=[];
+  state.sending=false; state.sent=false; lastPayload=null;
+  state.screen="speed"; render();
+}
+
+function renderSpeed(){
+  var q=speedQs[state.idx]; answeredThis=false;
+  el("stage").innerHTML =
+  '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">'+
+    '<div class="eyebrow f">HEAT 1 · SPEED · '+(state.idx+1)+'/'+speedQs.length+' · '+esc(q.subject.toUpperCase())+'</div>'+
+    '<div class="num" id="clock" style="font-size:22px">'+SPEED_SECONDS.toFixed(1)+'</div>'+
+  '</div>'+
+  '<div class="fusewrap"><div class="fuse" id="fuse" style="width:100%"></div></div>'+
+  '<h2 class="q" style="min-height:58px">'+esc(q.prompt)+'</h2>'+
+  '<div class="opts">'+ shuffled[q.id].map(function(o){ return '<button class="opt" onclick="answerSpeed(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>'; }).join("") +'</div>'+
+  (q.fresh?'<button class="ghost" onclick="answerSpeed(null,true)">haven\'t covered this yet →</button>':'')+
+  (state.combo>=2?'<div class="num" style="margin-top:10px;color:var(--flare);font-size:14px">COMBO ×'+state.combo+' LIVE</div>':'')+
+  '<div id="flash"></div>';
+  markShown("speed:"+state.idx);
+  tStart=Date.now();
+  clearInterval(timer);
+  timer=setInterval(function(){
+    var left=Math.max(0,SPEED_SECONDS-(Date.now()-tStart)/1000);
+    var c=el("clock"), f=el("fuse");
+    if(c){ c.textContent=left.toFixed(1); c.style.color = left<6?"var(--flare)":"var(--ink)"; }
+    if(f){ f.style.width=(left/SPEED_SECONDS*100)+"%"; if(left<6) f.classList.add("hot"); }
+    if(left<=0){ clearInterval(timer); doSpeedAnswer(null,false); }
+  },100);
+}
+
+function answerSpeed(btn, isSkip){
+  if(answeredThis) return;
+  clearInterval(timer);
+  doSpeedAnswer(btn?btn.getAttribute("data-v"):null, !!isSkip);
+}
+
+function doSpeedAnswer(choice,isSkip){
+  if(answeredThis) return; answeredThis=true;
+  var q=speedQs[state.idx];
+  var timeUsed=Math.min(SPEED_SECONDS,(Date.now()-tStart)/1000);
+  var fl=el("flash");
+  document.querySelectorAll(".opt").forEach(function(b){ b.disabled=true; });
+
+  if(isSkip){
+    T.questionDone(q.id,q.subject,"speed",{skipped:true});
+    state.records.push({id:q.id,subject:q.subject,phase:"speed",skipped:true,pts:0});
+    if(fl) fl.innerHTML='<div class="flash skip">Noted — I\'ll check when your class gets there.</div>';
+    setTimeout(nextSpeed,700); return;
+  }
+  var ok = choice===q.answer;
+  T.questionDone(q.id,q.subject,"speed",{ok:ok,timeUsed:+timeUsed.toFixed(1)});
+  var newCombo = ok?state.combo+1:0;
+  var pts=0;
+  if(ok){ pts=SPEED_BASE+Math.round((SPEED_SECONDS-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
+  state.combo=newCombo; state.score+=pts; setScore();
+  state.records.push({id:q.id,subject:q.subject,phase:"speed",picked:choice,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts});
+  if(ok){
+    if(fl) fl.innerHTML = '<div class="flash ok">✓ Got it'+(newCombo>=2?'&nbsp;&nbsp;+'+COMBO_BONUS+' combo':'')+'</div>';
+    setTimeout(nextSpeed, 900);
+  } else {
+    if(fl) fl.innerHTML =
+      '<div class="flash bad">'+
+        (choice===null ? '⏱ Ran out of time.' : '✗ Not quite.')+
+        '<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div>'+
+        '<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>'+
+        '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">Worth knowing for next time this comes up.</div>'+
+      '</div>'+
+      '<button class="cta display" style="margin-top:12px;font-size:16px" onclick="nextSpeed()">Got it →</button>';
+  }
+}
+
+function nextSpeed(){
+  if(state.idx+1<speedQs.length){ state.idx++; render(); }
+  else { state.idx=0; state.screen="steady"; state.picked=null; state.confidence=null; state.locked=false; render(); }
+}
+
+function renderSteady(){
+  var q=steadyQs[state.idx];
+  var optsHTML = shuffled[q.id].map(function(o){
+    var style="";
+    if(state.locked){
+      if(o===q.answer) style="border-color:var(--kelp);background:#E8F4EE";
+      else if(o===state.picked) style="border-color:var(--flare);background:#FCEBE6";
+    } else if(o===state.picked){ style="border-color:var(--reef);background:#EAF2F8"; }
+    return '<button class="opt" style="'+style+'" '+(state.locked?'disabled':'')+' onclick="pickSteady(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>';
+  }).join("");
+
+  var lower="";
+  if(!state.locked){
+    lower =
+    '<div style="margin-top:18px">'+
+      '<div class="eyebrow" style="margin-bottom:8px;letter-spacing:.1em">HOW SURE?</div>'+
+      '<div class="conf">'+["Sure","Think so","Guessing"].map(function(c){
+        return '<button class="chip'+(state.confidence===c?' onc':'')+'" onclick="pickConf(\''+c+'\')">'+c+'</button>';
+      }).join("")+'</div>'+
+      '<button class="cta display" style="margin-top:16px;font-size:17px" '+((state.picked&&state.confidence)?'':'disabled')+' onclick="lockSteady()">Lock it in</button>'+
+      (q.fresh?'<button class="ghost" onclick="skipSteady()">haven\'t covered this yet →</button>':'')+
+    '</div>';
+  } else {
+    var ok = state.picked===q.answer;
+    lower =
+    '<div style="margin-top:16px">'+
+      '<div class="flash '+(ok?'ok':'bad')+'" style="margin-top:0">'+
+        (ok
+          ? ('✓ +'+STEADY_POINTS+'. '+esc(q.why))
+          : ('✗ Not quite.'+
+             '<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div>'+
+             '<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>'+
+             '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">Worth knowing for next time this comes up.</div>'))+
+      '</div>'+
+      '<button class="cta display" style="margin-top:14px;font-size:17px" onclick="nextSteady()">Next →</button>'+
+    '</div>';
+  }
+
+  el("stage").innerHTML =
+  '<div class="eyebrow r" style="margin-bottom:8px">HEAT 2 · STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>'+
+  '<h2 class="q">'+esc(q.prompt)+'</h2>'+
+  '<div class="opts">'+optsHTML+'</div>'+lower;
+  markShown("steady:"+state.idx);
+}
+function pickSteady(btn){ if(state.locked) return; state.picked=btn.getAttribute("data-v"); renderSteady(); }
+function pickConf(c){ if(state.locked) return; state.confidence=c; renderSteady(); }
+function lockSteady(){
+  if(!state.picked||!state.confidence||state.locked) return;
+  var q=steadyQs[state.idx]; var ok=state.picked===q.answer;
+  T.questionDone(q.id,q.subject,"steady",{ok:ok,confidence:state.confidence});
+  if(ok) state.score+=STEADY_POINTS; setScore();
+  state.records.push({id:q.id,subject:q.subject,phase:"steady",picked:state.picked,ok:ok,confidence:state.confidence,pts:ok?STEADY_POINTS:0});
+  state.locked=true; renderSteady();
+}
+function skipSteady(){
+  var q=steadyQs[state.idx];
+  T.questionDone(q.id,q.subject,"steady",{skipped:true});
+  state.records.push({id:q.id,subject:q.subject,phase:"steady",skipped:true,pts:0});
+  advanceSteady();
+}
+function nextSteady(){ advanceSteady(); }
+function advanceSteady(){
+  state.picked=null; state.confidence=null; state.locked=false;
+  if(state.idx+1<steadyQs.length){ state.idx++; render(); }
+  else { state.screen="teach"; render(); }
+}
+
+function renderTeach(){
+  el("stage").innerHTML =
+  '<div class="eyebrow k" style="margin-bottom:8px">LAST WAVE · TEACH-BACK · '+esc(teachQ.subject.toUpperCase())+'</div>'+
+  '<h2 class="q" style="margin-bottom:6px">'+esc(teachQ.prompt)+'</h2>'+
+  '<p class="note" style="margin:0 0 14px">Reasons, not a list of parts. Why would anyone bother?</p>'+
+  '<textarea id="tb" rows="6" placeholder="Nah mate, here\'s why…" oninput="tbInput()"></textarea>'+
+  '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">'+
+    '<span class="num" id="tbCount" style="font-size:13px;color:var(--haze)">0/80+</span>'+
+    '<button class="cta display" style="font-size:17px" id="tbBtn" disabled onclick="finishTeach()">Send it →</button>'+
+  '</div>';
+  markShown("teach:0");
+}
+function tbInput(){
+  var v=el("tb").value.trim();
+  el("tbCount").textContent=v.length+"/80+";
+  el("tbCount").style.color = v.length>=80?"var(--kelp)":"var(--haze)";
+  el("tbBtn").disabled = v.length<80;
+}
+function finishTeach(){
+  var v=el("tb").value.trim(); if(v.length<80) return;
+  T.questionDone(teachQ.id,teachQ.subject,"teach",{ok:true,chars:v.length});
+  state.score+=TEACH_POINTS; setScore();
+  state.records.push({id:teachQ.id,subject:teachQ.subject,phase:"teach",text:v,ok:true,pts:TEACH_POINTS});
+  state.screen="done"; render();
+}
+
+// ── flag logic ─────────────────────────────
+// fast-but-wrong is relative to HIS OWN pace, not a fixed number.
+// slow-but-wrong: worked at it, came up empty.
+function analyse(){
+  var speedRecs=state.records.filter(function(r){return r.phase==="speed" && !r.skipped});
+  var corrects=speedRecs.filter(function(r){return r.ok});
+  var mean = corrects.length>=2
+    ? corrects.reduce(function(a,r){return a+r.timeUsed},0)/corrects.length
+    : null;
+  var fastCut = mean!==null ? mean*0.7 : 5;
+  var slowCut = SPEED_SECONDS*0.6; // 18s of a 30s window
+  return {
+    speedRecs: speedRecs,
+    fast: speedRecs.filter(function(r){return !r.ok && r.timeUsed < fastCut}),
+    slow: speedRecs.filter(function(r){return !r.ok && r.timeUsed >= slowCut})
+  };
+}
+
+function flagSets(){
+  var a=analyse();
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  return {
+    a: a,
+    skips: state.records.filter(function(r){return r.skipped}),
+    cw: steadyRecs.filter(function(r){return !r.ok&&!r.skipped&&r.confidence==="Sure"}),
+    lg: steadyRecs.filter(function(r){return r.ok&&r.confidence==="Guessing"})
+  };
+}
+
+function summaryText(){
+  var f=flagSets(); var a=f.a;
+  var speedAll=state.records.filter(function(r){return r.phase==="speed"});
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  var L=[];
+  L.push(state.appName+" · "+CONFIG.NAME.toUpperCase()+" · "+quizLabel()+(QUIZ&&QUIZ.tag?" · "+QUIZ.tag:"")+" · shell v"+CONFIG.SHELL_VERSION);
+  var tm=T.summary();
+  L.push("Active time "+fmtMMSS(tm.activeSecs)+"  (speed "+fmtMMSS(tm.phases.speed)+" · steady "+fmtMMSS(tm.phases.steady)+" · teach-back "+fmtMMSS(tm.phases.teach)+")");
+  L.push("Elapsed "+fmtMMSS(tm.elapsedSecs)+(tm.idleSecs>90 ? "  (incl. "+fmtMMSS(tm.idleSecs)+" paused/away)" : "")+(tm.activeSecs>20*60 ? "  ⚠ 20+ active min — worth trimming" : ""));
+  var _d=_todayStr(); var _today=(ATTEMPTS.byDay&&ATTEMPTS.byDay[_d])||1; var _first=(ATTEMPTS.firstOfDay&&ATTEMPTS.firstOfDay[_d])||"";
+  L.push("Attempt "+_today+" today"+(_today>1?"  (⚠ repeat run — first was "+_first+"; first run is the honest one)":"")+"  · "+(ATTEMPTS.total||1)+" all-time");
+  L.push("Score "+state.score.toLocaleString()+" / "+MAX_SCORE.toLocaleString()+" · Speed "+speedAll.filter(function(r){return r.ok}).length+"/"+speedQs.length+" · Steady "+steadyRecs.filter(function(r){return r.ok}).length+"/"+steadyQs.length+" · Teach-back done");
+  if(f.skips.length) L.push("NOT COVERED IN CLASS YET: "+f.skips.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(f.cw.length) L.push("CONFIDENT-BUT-WRONG: "+f.cw.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(a.slow.length) L.push("SLOW-BUT-WRONG (real gap): "+a.slow.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(a.fast.length) L.push("FAST-BUT-WRONG (rushed): "+a.fast.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(f.lg.length) L.push("LUCKY GUESSES: "+f.lg.map(function(r){return r.subject+" "+r.id}).join(", "));
+  L.push("—");
+  state.records.forEach(function(r){
+    if(r.phase==="teach") return;
+    if(r.skipped){ L.push(r.id+" "+r.subject+" — skipped (not covered yet)"); return; }
+    L.push(r.id+" "+r.subject+" "+(r.ok?"✓":"✗")+(r.phase==="speed"?(" "+r.timeUsed+"s"):(" · felt: "+r.confidence))+(r.picked===null?" (no answer)":""));
+  });
+  var tb=state.records.filter(function(r){return r.phase==="teach"})[0];
+  if(tb) L.push('Teach-back ('+tb.subject+'): "'+tb.text+'"');
+  return L.join("\n");
+}
+
+// ── auto-submit to the family results Sheet ──
+function buildPayload(){
+  var f=flagSets(); var a=f.a;
+  var speedAll=state.records.filter(function(r){return r.phase==="speed"});
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  var tb=state.records.filter(function(r){return r.phase==="teach"})[0];
+  var _d=_todayStr();
+  return {
+    shell: CONFIG.SHELL_VERSION,
+    student: CONFIG.STUDENT,
+    name: CONFIG.NAME,
+    date: (QUIZ&&QUIZ.date)||_d,       // the quiz's date
+    day: (QUIZ&&QUIZ.day)||"",
+    tag: (QUIZ&&QUIZ.tag)||"",
+    deviceDate: _d,                     // the date it was actually run
+    ts: new Date().toISOString(),
+    attempt: (ATTEMPTS.byDay&&ATTEMPTS.byDay[_d])||1,
+    attemptsAllTime: ATTEMPTS.total||1,
+    score: state.score,
+    maxScore: MAX_SCORE,
+    speed: { right: speedAll.filter(function(r){return r.ok}).length, of: speedQs.length },
+    steady: { right: steadyRecs.filter(function(r){return r.ok}).length, of: steadyQs.length },
+    teach: tb ? { done:true, chars: tb.text.length, text: tb.text } : { done:false },
+    flags: {
+      skips: f.skips.map(function(r){return r.id}),
+      confidentWrong: f.cw.map(function(r){return r.id}),
+      slowWrong: a.slow.map(function(r){return r.id}),
+      fastWrong: a.fast.map(function(r){return r.id}),
+      luckyGuess: f.lg.map(function(r){return r.id})
+    },
+    records: state.records,
+    timing: T.summary(),
+    summaryText: summaryText()
+  };
+}
+function sendPayload(p, cb){
+  var ctl = (typeof AbortController!=="undefined") ? new AbortController() : null;
+  var to = ctl ? setTimeout(function(){ ctl.abort(); }, 12000) : null;
+  fetch(CONFIG.WEBHOOK_URL, {
+    method:"POST",
+    headers:{ "Content-Type":"text/plain;charset=utf-8" },
+    body: JSON.stringify(p),
+    signal: ctl ? ctl.signal : undefined
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(j){ if(to) clearTimeout(to); cb(!!(j && j.ok)); })
+  .catch(function(e){ if(to) clearTimeout(to); cb(false); });
+}
+function readOutbox(){ try{ return JSON.parse(window.localStorage.getItem(OUTBOX_KEY)||"[]"); }catch(e){ return []; } }
+function writeOutbox(a){ try{ window.localStorage.setItem(OUTBOX_KEY, JSON.stringify(a)); }catch(e){} }
+function flushOutbox(){
+  var a=readOutbox(); if(!a.length) return;
+  var p=a[0];
+  sendPayload(p, function(ok){
+    if(ok){ a.shift(); writeOutbox(a); if(a.length) flushOutbox(); }
+  });
+}
+function setSendStat(mode){
+  var s=el("sendStat"); if(!s) return;
+  if(mode==="send"){ s.className="sendstat wait"; s.innerHTML="⏳ Sending results to Dad…"; }
+  else if(mode==="ok"){ s.className="sendstat good"; s.innerHTML="✓ Results sent to Dad automatically — you\'re done."; }
+  else { s.className="sendstat fail"; s.innerHTML="⚠ Couldn\'t send (no internet?). Saved on this phone — it\'ll auto-send next time you open this. <a href=\"#\" onclick=\"retrySend();return false;\" style=\"color:var(--reef)\">Try again now</a>"; }
+}
+function autoSubmit(){
+  if(state.sent || state.sending) return;
+  state.sending=true; setSendStat("send");
+  lastPayload = buildPayload();
+  var p = lastPayload;
+  sendPayload(p, function(ok){
+    state.sending=false;
+    if(ok){ state.sent=true; setSendStat("ok"); }
+    else {
+      var a=readOutbox(); a.push(p); writeOutbox(a);
+      setSendStat("fail");
+    }
+  });
+}
+function retrySend(){
+  if(state.sent || state.sending || !lastPayload) return;
+  state.sending=true; setSendStat("send");
+  var p=lastPayload;
+  sendPayload(p, function(ok){
+    state.sending=false;
+    if(ok){
+      state.sent=true;
+      // it went through — pull the queued copy so it doesn't double-send later
+      var a=readOutbox().filter(function(x){ return x.ts!==p.ts; }); writeOutbox(a);
+      setSendStat("ok");
+    } else { setSendStat("fail"); }
+  });
+}
+
+function renderDone(){
+  var f=flagSets(); var a=f.a;
+  var speedAll=state.records.filter(function(r){return r.phase==="speed"});
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  var flags="";
+  if(f.cw.length||a.fast.length||a.slow.length||f.lg.length){
+    flags='<div class="flags">'+
+      f.cw.map(function(r){return '<p><b>Felt sure, wasn\'t:</b> '+r.subject+' ('+r.id+'). That\'s the sneaky one.</p>'}).join("")+
+      a.slow.map(function(r){return '<p><b>Worked at it, didn\'t have it:</b> '+r.subject+' ('+r.id+'), '+r.timeUsed+'s. Not carelessness — that one just needs learning.</p>'}).join("")+
+      a.fast.map(function(r){return '<p><b>Quick off the mark, wrong:</b> '+r.subject+' ('+r.id+'), '+r.timeUsed+'s. You had time left.</p>'}).join("")+
+      f.lg.map(function(r){return '<p><b>Lucky guess:</b> '+r.subject+' ('+r.id+'). Right answer, still going on the review pile.</p>'}).join("")+
+    '</div>';
+  }
+  el("stage").innerHTML =
+  '<div class="eyebrow">FULL TIME · '+esc(quizLabel().toUpperCase())+'</div>'+
+  '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
+  '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'+
+  '<div class="cards">'+
+    '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
+    '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
+    '<div class="card"><div class="num" style="font-size:22px;color:var(--kelp)">✓</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">TEACH-BACK</div></div>'+
+  '</div>'+
+  '<div id="sendStat" class="sendstat wait">⏳ Sending results to Dad…</div>'+
+  (f.skips.length?'<p class="note" style="margin:0 0 14px">'+f.skips.length+' marked "not covered yet" — that\'s intel, not a miss.</p>':'')+
+  flags+
+  '<button class="cta display" style="width:100%;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="mailToDad()">Backup: email it to Dad →</button>'+
+  '<button class="cta display" id="copyBtn" style="width:100%;margin-top:10px;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="copyResults()">or copy it instead</button>'+
+  '<button class="ghost" style="margin:10px auto 0;text-align:center" onclick="showRaw()">neither working? tap here</button>'+
+  '<div id="rawBox"></div>'+
+  '<p class="note" style="text-align:center;margin-top:10px">Results send themselves now. The buttons above are just backups.</p>';
+  autoSubmit();
+}
+
+function showRaw(){
+  el("rawBox").innerHTML = '<div class="box" id="rawText">'+esc(summaryText())+'</div>'+
+    '<p class="note" style="text-align:center;margin-top:6px">Long-press → Select All → Copy. Or just screenshot it.</p>';
+}
+
+var DAD_EMAIL = "richdrw@gmail.com";
+
+function mailToDad(){
+  var subject = state.appName + " — " + CONFIG.NAME + " — " + quizLabel();
+  var body = summaryText();
+  var href = "mailto:" + DAD_EMAIL +
+             "?subject=" + encodeURIComponent(subject) +
+             "&body=" + encodeURIComponent(body);
+  try { window.location.href = href; } catch(e){ showRaw(); }
+  setTimeout(function(){ if(!el("rawText")) showRawQuiet(); }, 2500);
+}
+
+function showRawQuiet(){
+  if(el("rawText")) return;
+  el("rawBox").innerHTML = '<p class="note" style="text-align:center;margin-top:12px">Mail app didn\'t open? <a href="#" onclick="showRaw();return false;" style="color:var(--reef)">tap here for the text</a></p>';
+}
+
+function copyResults(){
+  var text=summaryText();
+  function done(){ var b=el("copyBtn"); b.textContent="Copied ✓ — send it to Dad"; b.style.background="var(--kelp)";
+    setTimeout(function(){ b.textContent="or copy it instead"; b.style.background="transparent"; },2500); }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ legacy(); });
+  } else legacy();
+  function legacy(){
+    var ta=document.createElement("textarea"); ta.value=text;
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta); done();
+  }
+}
+
+boot();
+</script>
+</body>
+</html>
