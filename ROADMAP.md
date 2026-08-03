@@ -2,6 +2,7 @@
 
 ## This week (w/c 3 Aug) — shell FROZEN at v3.0
 Content-level changes only: teach-back prompt variety (argue-against, explain-to-a-younger-kid, mark-the-wrong-answer), difficulty pitched a notch harder (trivially-fast corrects = noise, not signal). Let the new pipeline bed in; keep Week-2 data comparable to Week 1.
+**Weekly cadence policy (locked):** Monday quizzes = ledger-driven consolidation by design (teachers rarely post the week's plan by Monday). Fresh Canvas content enters Tue–Fri, after the owner's weekly sweep — automated via student API tokens once the scheduler lands.
 
 ### Events this week (locked)
 - **Mon / Tue / Thu:** standard 7/4/1 sets — the comparable control.
