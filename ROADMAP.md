@@ -14,6 +14,7 @@ Content-level changes only: teach-back prompt variety (argue-against, explain-to
 - Ordering items (sequence the causal chain) + spot-the-error / cloze as steady-slot variants
 - Hidden double-XP question per night; Friday "Boss Round"; optional 2-question encore after finish
 - Skeleton (speed→steady→teach) unchanged — variety lives inside the slots
+- **Beta kit (same weekend):** one deploy per year level with per-student `?kid=` codes (link remembers the kid; pseudonymous k-codes in results, name-map kept private); per-family separation in the results store; link-preview branding (OG tags + branded card image so shared links unfurl as DailyXP); onboarding email + parent consent block (drafted); deletion script honouring the export/delete-on-request promise; ledger seeding from intake material
 - Ship only with all three tests green + new item-type tests; redeploy into same projects (URLs unchanged)
 
 ## Scheduler (build alongside v3.1)
