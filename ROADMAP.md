@@ -18,7 +18,7 @@ Content-level changes only: teach-back prompt variety (argue-against, explain-to
 - Ship only with all three tests green + new item-type tests; redeploy into same projects (URLs unchanged)
 
 ## Scheduler (build alongside v3.1)
-Goal: remove the daily "go". Leading candidate: GitHub Actions cron on this repo — reads results, updates state, composes+publishes daily sets via the Claude API; Canvas via per-student API access tokens (harvest tokens this week: Canvas → Account → Settings → New Access Token). Guardrails from day one: hard schema validation before publish; failure mode = yesterday's quiz or the no-quiz screen, never a broken one; visible publish log; parent reports stay human-reviewed initially.
+Goal: remove the daily "go". Leading candidate: GitHub Actions cron on this repo — reads results, updates state, composes+publishes daily sets via the Claude API; Canvas via per-student API access tokens (harvest tokens this week: Canvas → Account → Settings → New Access Token). **SMS delivery layer (in scope):** reports go out by text — branded one-way alphanumeric sender via an SMS API (Twilio-class); kid weekly recap + parent weekly summary as short texts, deep-dive report as an unguessable hosted link deployed by the same job; mobile numbers join the data register and deletion promise; provider key lives in Actions secrets. Guardrails from day one: hard schema validation before publish; failure mode = yesterday's quiz or the no-quiz screen, never a broken one; visible publish log; parent reports stay human-reviewed initially.
 
 ## Open input
 One make-it-more-fun idea per student, collected at the weekly sit-downs.
