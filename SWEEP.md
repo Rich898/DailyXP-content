@@ -27,5 +27,6 @@ only. End with "NEW OR CHANGED vs last week" and any assessment dates found.
 ```
 
 ## Known quirks
+- **y9:** Science and English live on per-teacher class pages (shared modules incomplete). **y8:** English is the per-teacher subject; Maths/Science/HSIE/Music use shared modules, with Maths and Science running week-by-week schedules on the course HOMEPAGE — sweep the homepage, not just modules, for those two.
 - Shared-module subjects are consistent across a year level; **Science and English live on per-teacher class pages** — a sweep that skips them looks complete but isn't.
 - The extension only works while the owner's Canvas session is open — it cannot log in itself and cannot be scheduled. Hence the token-based replacement on the roadmap.
