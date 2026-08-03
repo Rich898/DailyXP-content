@@ -11,6 +11,7 @@ Content-level changes only: teach-back prompt variety (argue-against, explain-to
 - Rationale: events on exactly two nights vs a stable control = honest read on engagement lift. Head-to-head/sibling formats deliberately shelved — mechanics must generalise to single-player universal adoption.
 
 ## Next weekend (~8–9 Aug) — shell v3.1
+- Universal skip: "haven't covered this yet" button unconditional on every question (no flag dependency)
 - Typed answers: numeric entry for maths, short text for terms/dates (normalised accepted-answer lists; instant feedback preserved)
 - Ordering items (sequence the causal chain) + spot-the-error / cloze as steady-slot variants
 - Hidden double-XP question per night; Friday "Boss Round"; optional 2-question encore after finish
