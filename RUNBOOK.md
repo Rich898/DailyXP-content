@@ -40,6 +40,7 @@ Note: trust `ts` (UTC ISO) over the sheet's local received_at column (sheet time
 
 ## Ops notes
 - Weekly content sweep drill: see `SWEEP.md`.
+- Content sourcing doctrine: see `CONTENT-MODEL.md`.
 - localStorage keys are namespaced per student: `dxp_attempts_*`, `dxp_name_*`, `dxp_outbox_*`.
 - Repo files are public: student files stay `y9`/`y8`, never names; no results, no secrets, ever, in this repo.
 - Publish auth: fine-grained GitHub PAT (Contents R/W, this repo only), held by the project owner, expires ~90 days from 2026-08-02.
