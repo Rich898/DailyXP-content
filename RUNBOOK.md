@@ -28,6 +28,7 @@
   ]
 }
 ```
+- **System rule: the no-penalty "haven't covered this yet" skip must exist on EVERY question.** Until shell v3.1 makes the button unconditional, every published speed/steady question MUST carry `fresh:true`. Skips are logged and benched for verification against class — never scored as misses.
 - Standard run: 7 speed + 4 steady + 1 teach. `fresh:true` shows the "haven't covered this yet" skip. `answer` must exactly match one option. Empty `questions` or `status:"placeholder"` → shell shows "No quiz posted yet".
 - `day`/`dateLabel`/`tag` are display-only and come from this file — never hardcode dates in the shell.
 
