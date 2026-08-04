@@ -26,5 +26,8 @@ Goal: remove the daily "go". Leading candidate: GitHub Actions cron on this repo
 - **Friday headlines** (+ link to the full report page): judge. 3 headlines, deep dive one tap away.
 Per-family config still applies at beta (each touchpoint on/off). Content format is being tested manually on the family this week (drafts delivered with each morning's run; owner forwards by text) before the SMS layer automates delivery. **Delivery idempotency:** results reader dedupes rows by (student, ts) — duplicate posts observed from retry taps; add doPost-side idempotency in v3.1. Guardrails from day one: hard schema validation before publish; failure mode = yesterday's quiz or the no-quiz screen, never a broken one; visible publish log; parent reports stay human-reviewed initially.
 
+## Domain (registered — owner holds it)
+Domains purchased (record exact set + registrar in handoff). **Not yet wired — deliberately parked until the beta-kit weekend.** Then: point the per-year quiz sites and the report pages at the custom domain (Netlify custom domain + auto HTTPS, ~20 min), shipped alongside the OG preview cards so branded links go out together. Cures the dead-link disease (repoint the domain, old links keep resolving) and lifts SMS link-trust for non-family texts. `.com.au`/`.au` require an ABN — confirm before relying on them.
+
 ## Open input
 One make-it-more-fun idea per student, collected at the weekly sit-downs.
