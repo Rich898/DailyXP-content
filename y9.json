@@ -1,181 +1,67 @@
 {
  "student": "y9",
- "date": "2026-08-03",
- "dateLabel": "Mon 3 Aug 2026",
- "day": "MON",
- "tag": "R2.1",
- "title": "DailyXP — Roshan · MON 3 Aug",
+ "date": "2026-08-04",
+ "dateLabel": "Tue 4 Aug 2026",
+ "day": "TUE",
+ "tag": "R2.2",
+ "title": "DailyXP — Roshan · TUE 4 Aug",
  "questions": [
-  {
-   "id": "S1",
-   "phase": "speed",
-   "subject": "History",
-   "prompt": "Under the Treaty of Versailles, Germany had to accept the blame for WWI. This was known as the…",
-   "options": [
-    "War Guilt Clause",
-    "Armistice Clause",
-    "Reparations Clause",
-    "Sovereignty Clause"
-   ],
-   "answer": "War Guilt Clause",
-   "why": "The War Guilt Clause forced Germany to accept blame — the humiliation that fed German anger for the next 20 years.",
-   "fresh": true
-  },
-  {
-   "id": "S2",
-   "phase": "speed",
-   "subject": "Maths",
-   "prompt": "Triangle: base 12 cm, height 5 cm. Area?",
-   "options": [
-    "30 cm²",
-    "60 cm²",
-    "17 cm²",
-    "35 cm²"
-   ],
-   "answer": "30 cm²",
-   "why": "½ × base × height = ½ × 12 × 5 = 30. The 60 trap is forgetting the half.",
-   "fresh": true
-  },
-  {
-   "id": "S3",
-   "phase": "speed",
-   "subject": "English",
-   "prompt": "Lord of the Flies: who blows the conch to call the very first assembly?",
-   "options": [
-    "Ralph",
-    "Piggy",
-    "Jack",
-    "Simon"
-   ],
-   "answer": "Ralph",
-   "why": "Piggy FINDS it and knows what it is — but Ralph blows it, and that's partly why the boys make him leader.",
-   "fresh": true
-  },
-  {
-   "id": "S4",
-   "phase": "speed",
-   "subject": "Commerce",
-   "prompt": "The section of a business plan that sums up the whole plan on one page is the…",
-   "options": [
-    "Executive summary",
-    "Market analysis",
-    "Mission statement",
-    "SWOT analysis"
-   ],
-   "answer": "Executive summary",
-   "why": "Executive summary = the whole plan in miniature, up front, for people who won't read the rest.",
-   "fresh": true
-  },
-  {
-   "id": "S5",
-   "phase": "speed",
-   "subject": "History",
-   "prompt": "In the MAIN causes of WWI, the M stands for…",
-   "options": [
-    "Militarism",
-    "Monarchy",
-    "Mobilisation",
-    "Marxism"
-   ],
-   "answer": "Militarism",
-   "why": "MAIN = Militarism, Alliances, Imperialism, Nationalism — the four pressures that primed Europe for war.",
-   "fresh": true
-  },
-  {
-   "id": "S6",
-   "phase": "speed",
-   "subject": "Science",
-   "prompt": "Which TWO particles sit inside the nucleus of an atom?",
-   "options": [
-    "Protons and neutrons",
-    "Protons and electrons",
-    "Neutrons and electrons",
-    "Electrons only"
-   ],
-   "answer": "Protons and neutrons",
-   "why": "Protons + neutrons pack the nucleus; electrons orbit outside it.",
-   "fresh": true
-  },
-  {
-   "id": "S7",
-   "phase": "speed",
-   "subject": "Maths",
-   "prompt": "Volume of a prism = ?",
-   "options": [
-    "Area of cross-section × length",
-    "Base × height ÷ 2",
-    "Length × width",
-    "π × r²"
-   ],
-   "answer": "Area of cross-section × length",
-   "why": "Find the area of the end face, multiply by how long the prism runs. You've got this one — no rush needed.",
-   "fresh": true
-  },
-  {
-   "id": "T1",
-   "phase": "steady",
-   "subject": "Geography",
-   "prompt": "A family leaves their drought-ruined farm because Sydney has jobs. In migration terms, the drought and the jobs are…",
-   "options": [
-    "Drought = push factor, jobs = pull factor",
-    "Drought = pull factor, jobs = push factor",
-    "Both are push factors",
-    "Both are pull factors"
-   ],
-   "answer": "Drought = push factor, jobs = pull factor",
-   "why": "Push DRIVES you out of where you are (drought at home). Pull DRAWS you toward somewhere new (jobs in Sydney). Out = push, in = pull.",
-   "fresh": true
-  },
-  {
-   "id": "T2",
-   "phase": "steady",
-   "subject": "Maths",
-   "prompt": "An L-shaped room is a 6 m × 4 m rectangle with a 2 m × 2 m square cut out of one corner. Floor area?",
-   "options": [
-    "20 m²",
-    "24 m²",
-    "22 m²",
-    "16 m²"
-   ],
-   "answer": "20 m²",
-   "why": "Full rectangle 6 × 4 = 24, minus the missing 2 × 2 = 4. → 20 m². Build big, subtract the hole.",
-   "fresh": true
-  },
-  {
-   "id": "T3",
-   "phase": "steady",
-   "subject": "History",
-   "prompt": "Put the chain in order: which of these came FIRST in the story of Hitler's rise?",
-   "options": [
-    "WWI defeat and the Treaty of Versailles",
-    "The Great Depression",
-    "Hitler becoming Chancellor",
-    "Germany rearming"
-   ],
-   "answer": "WWI defeat and the Treaty of Versailles",
-   "why": "The chain you nailed on Friday: WWI defeat → Versailles humiliation → Depression desperation → Hitler's rise. It starts with the defeat.",
-   "fresh": true
-  },
-  {
-   "id": "T4",
-   "phase": "steady",
-   "subject": "English",
-   "prompt": "The boys let the signal fire go out because they'd rather hunt. Golding uses this to show…",
-   "options": [
-    "Savagery winning over the hope of rescue",
-    "Keeping a fire alight was too difficult",
-    "Jack is a more practical leader than Ralph",
-    "The island was running out of firewood"
-   ],
-   "answer": "Savagery winning over the hope of rescue",
-   "why": "The fire = the link to civilisation and rescue. Choosing the hunt over the fire is the island choosing savagery — and a ship passes while it's out.",
-   "fresh": true
-  },
-  {
-   "id": "TB1",
-   "phase": "teach",
-   "subject": "English",
-   "prompt": "TEACHER MODE. A student wrote: \"The boys stop using the conch because it got old and boring.\" Mark their answer: what did they miss? Explain what the conch really stood for — and why abandoning it matters by the end of the book."
-  }
+  {"id":"S1","phase":"speed","subject":"History","fresh":true,
+   "prompt":"In 1923, Weimar Germany suffered HYPERINFLATION. What does that mean?",
+   "options":["Money lost value so fast that prices exploded daily","The banks ran out of coins","Wages were frozen for a decade","Gold replaced paper money"],
+   "answer":"Money lost value so fast that prices exploded daily",
+   "why":"Prices doubled in days — people carted wages in wheelbarrows. It shredded trust in the young Weimar Republic, and that lost trust matters later in your unit."},
+  {"id":"S2","phase":"speed","subject":"Maths","fresh":true,
+   "prompt":"Area of a parallelogram: base 8 cm, height 5 cm?",
+   "options":["40 cm²","20 cm²","13 cm²","80 cm²"],
+   "answer":"40 cm²",
+   "why":"Parallelogram = base × height, NO half. 20 is the trap — halving belongs to triangles only."},
+  {"id":"S3","phase":"speed","subject":"English","fresh":true,
+   "prompt":"Lord of the Flies: which boy is mocked for his weight and glasses — but does the clearest thinking?",
+   "options":["Piggy","Simon","Roger","Sam"],
+   "answer":"Piggy",
+   "why":"Piggy — the island's brain, treated as its joke. Watch how the boys use his ideas while refusing him respect. That gap IS one of Golding's points."},
+  {"id":"S4","phase":"speed","subject":"History","fresh":true,
+   "prompt":"The Weimar Republic was Germany's first real attempt at…",
+   "options":["Democracy","Monarchy","Communism","Empire"],
+   "answer":"Democracy",
+   "why":"Born from WWI defeat in 1919 — Germany's first democracy, and it carried the blame for Versailles from day one."},
+  {"id":"S5","phase":"speed","subject":"Geography","fresh":true,
+   "prompt":"URBANISATION means…",
+   "options":["A growing share of people living in cities","People moving between countries","Cities becoming older","Farms becoming larger"],
+   "answer":"A growing share of people living in cities",
+   "why":"Urbanisation = the city share growing. Migration = people MOVING (between places or countries). Related, not the same — a classic exam trap."},
+  {"id":"S6","phase":"speed","subject":"Commerce","fresh":true,
+   "prompt":"A MARKET ANALYSIS in a business plan mainly examines…",
+   "options":["Customers and competitors","The logo design","Staff salaries","Office furniture"],
+   "answer":"Customers and competitors",
+   "why":"Who will buy, and who else is selling to them — the two questions every market analysis must answer."},
+  {"id":"S7","phase":"speed","subject":"Maths","fresh":true,
+   "prompt":"½ × 10 × 9 = ?",
+   "options":["45","90","19","50"],
+   "answer":"45",
+   "why":"Triangle-area arithmetic: 10 × 9 = 90, halve it → 45. You know this cold — last question, no rush, take the extra second."},
+  {"id":"T1","phase":"steady","subject":"History","fresh":true,
+   "prompt":"How did the Great Depression help the Nazis win support?",
+   "options":["Mass unemployment made desperate voters open to extreme promises","It made Germany wealthy enough to rearm","It cancelled the Treaty of Versailles","It automatically ended the Weimar constitution"],
+   "answer":"Mass unemployment made desperate voters open to extreme promises",
+   "why":"Six million unemployed by 1932. Desperation makes radical voices sound reasonable — the middle link of the causal chain you already own."},
+  {"id":"T2","phase":"steady","subject":"English","fresh":true,
+   "prompt":"EXTRACT: \"His specs — use them as burning glasses!\" The boys grab Piggy's glasses to light the fire. What does this moment show about Piggy's role?",
+   "options":["His intelligence is useful to the group but exploited — they take from him without respect","He is secretly the strongest leader","He starts the fire to seize power","The glasses symbolise the beast"],
+   "answer":"His intelligence is useful to the group but exploited — they take from him without respect",
+   "why":"They need what Piggy has, never Piggy himself. Extract questions work exactly like this: small moment, big meaning — the same skill as your upcoming assessment."},
+  {"id":"T3","phase":"steady","subject":"Geography","fresh":true,
+   "prompt":"Which of these is a PULL factor for moving to a city?",
+   "options":["More job opportunities","Drought at home","War in your region","Failing farm income"],
+   "answer":"More job opportunities",
+   "why":"Pull = what draws you IN (jobs ahead of you). The other three all push you OUT of where you are. Same rule as last night, new angle."},
+  {"id":"T4","phase":"steady","subject":"Maths","fresh":true,
+   "prompt":"A prism's end face has area 12 cm² and the prism is 7 cm long. Volume?",
+   "options":["84 cm³","19 cm³","42 cm³","70 cm³"],
+   "answer":"84 cm³",
+   "why":"Cross-section × length: 12 × 7 = 84. (19 is the adding trap, 42 the phantom halving.) Same formula you answered at speed last night — now applied."},
+  {"id":"TB1","phase":"teach","subject":"English",
+   "prompt":"EXTRACT MODE — same skill as your upcoming assessment. Early in the novel, the boys vote Ralph chief 'with the conch in his hands', even though Jack already leads the choir. In your own words: WHY does holding the conch win Ralph the vote — and what does that tell us about what the boys value at the start? Point → evidence → explain."}
  ]
 }
