@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+"""
+run_daily.py — the daily pipeline (the cron's spine).
+
+For a school day, for each boy: derive the tag -> PLAN (planner) -> COMPOSE
+(API) -> PUBLISH (validate+write+archive+commit+VERIFY) -> NOTIFY (SMS). A
+FROZEN boy yields a placeholder (no API call, no SMS). Weekends are skipped.
+
+State ingestion (reading results, updating the ledger/state) is deliberately a
+STUB here — this week that stays human-reviewed: the reader's output is applied
+to the private ledger/state by hand, then committed, so state.json is current
+before this runs. That matches the roadmap's "reports/state human-reviewed
+initially; flip to full auto once boringly reliable."
+
+Layout (in Actions, both repos are checked out):
+  public checkout  = this repo (code + live y8/y9.json + publish target)
+  private checkout = ledger/state/targets/history       (--private-dir)
+
+Env / secrets consumed downstream:
+  ANTHROPIC_API_KEY            compose
+  DAILYXP_TOKEN / ~/.ghtoken   publish (push both repos)
+  MOBILE_MESSAGE_*             notify
+  DAILYXP_HISTORY_DIR          set here -> private history (archive + no-repeat)
+
+Usage:
+  python3 scripts/run_daily.py --private-dir ../DailyXP-private
+  python3 scripts/run_daily.py --private-dir ../DailyXP-private --date 2026-08-06 \
+        --student y8 --dry-run          # shadow-run one boy, no publish/SMS
+"""
+import argparse
+import datetime as dt
+import json
+import os
+import sys
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(REPO, "tools"))
+
+W1_MONDAY = dt.date(2026, 7, 27)          # project week 1 = w/c Mon 27 Jul 2026
+INITIAL = {"y8": "H", "y9": "R"}
+WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "blitz", 3: "standard", 4: "boss"}
+NUDGE = {
+    "standard": "Tonight's quiz is up 👊",
+    "blitz": "⚡ BLITZ night — double XP is live. Quiz is up 👊",
+    "boss": "🐉 BOSS night — your quiz is up. Go get it 👊",
+}
+
+
+def derive_tag(student, date):
+    week = ((date - W1_MONDAY).days // 7) + 1
+    wd = date.weekday() + 1                 # Mon=1..Fri=5
+    tag = f"{INITIAL[student]}{week}.{wd}"
+    if wd == 3:
+        tag += " · BLITZ"
+    elif wd == 5:
+        tag += " · BOSS"
+    return tag, week, wd
+
+
+def run(date, students, private_dir, directives_override, dry_run, push):
+    import planner
+    import compose
+    import publish as pub
+    import notify
+
+    if date.weekday() > 4:
+        print(f"{date} is a weekend — no run.")
+        return 0
+
+    # point archive + no-repeat at the PRIVATE history; load private state + targets
+    hist = os.path.join(private_dir, "history")
+    os.environ["DAILYXP_HISTORY_DIR"] = hist
+    state = json.load(open(os.path.join(private_dir, "work", "state.json")))
+    # pick the newest targets file in the private repo
+    tdir = os.path.join(private_dir, "targets")
+    tfiles = sorted(f for f in os.listdir(tdir) if f.endswith(".json"))
+    targets = json.load(open(os.path.join(tdir, tfiles[-1])))
+
+    day = date.strftime("%a").upper()
+    print(f"=== DailyXP run — {day} {date} {'(DRY RUN)' if dry_run else ''} ===")
+    print("NOTE: results→state ingestion is manual this week (stub) — assuming state.json is current.\n")
+
+    summary = []
+    for s in students:
+        tag, week, wd = derive_tag(s, date)
+        directive = directives_override.get(s) or WEEKDAY_DIRECTIVE.get(date.weekday(), "standard")
+        plan = planner.plan_set(s, date.isoformat(), day, tag, targets, state, directive)
+
+        if plan.get("status_gate") == "FROZEN":
+            print(f"[{s}] {tag}: FROZEN → placeholder (no compose, no SMS).")
+            cset = {"student": s, "status": "placeholder", "date": date.isoformat(),
+                    "day": "", "title": "DailyXP", "questions": []}
+            errs = []
+        else:
+            print(f"[{s}] {tag}: planning {plan['shape']} ({directive}) → composing…")
+            cset, errs = compose.compose_set(plan, model=os.environ.get("DAILYXP_MODEL", compose.DEFAULT_MODEL),
+                                             history_dir=hist)
+            if cset is None:
+                print(f"[{s}] COMPOSE FAILED — {errs}. Skipping publish (yesterday's set stays live).")
+                summary.append((s, tag, "compose-failed"))
+                continue
+
+        if dry_run:
+            n = len(cset.get("questions", []))
+            print(f"[{s}] would publish {tag} ({'placeholder' if cset.get('status')=='placeholder' else str(n)+' Qs'}); SMS suppressed.")
+            os.makedirs(os.path.join(REPO, "work"), exist_ok=True)
+            json.dump(cset, open(os.path.join(REPO, "work", f"dryrun_{s}.json"), "w"), indent=2, ensure_ascii=False)
+            summary.append((s, tag, "dry-run-ok"))
+            continue
+
+        # PUBLISH (validate→write→archive→commit→verify)
+        tmp = os.path.join(REPO, "work", f"set_{s}.json")
+        os.makedirs(os.path.dirname(tmp), exist_ok=True)
+        json.dump(cset, open(tmp, "w"), indent=2, ensure_ascii=False)
+        rc = pub.publish(tmp, push=push)
+        if rc != 0:
+            summary.append((s, tag, f"publish-rc{rc}"))
+            continue
+
+        # NOTIFY (real sets only)
+        if cset.get("status") != "placeholder":
+            ok, detail = notify.send_sms(s, NUDGE.get(directive, NUDGE["standard"]), ref=tag, dry_run=not push)
+            print(f"[{s}] SMS {'sent' if ok else 'FAILED'}: {detail.splitlines()[0] if detail else ''}")
+        summary.append((s, tag, "published"))
+
+    print("\n=== summary ===")
+    for s, tag, st in summary:
+        print(f"  {s}  {tag:<16} {st}")
+    # NOTE: after a real run, commit the private repo (updated history archive + any state
+    # writes) back — handled by the workflow's 'commit private' step.
+    return 0
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--private-dir", required=True, help="path to the DailyXP-private checkout")
+    ap.add_argument("--date", default=dt.date.today().isoformat())
+    ap.add_argument("--student", choices=["y8", "y9"], help="run a single boy (default: both)")
+    ap.add_argument("--directive-y8", default=None)
+    ap.add_argument("--directive-y9", default=None)
+    ap.add_argument("--dry-run", action="store_true", help="plan+compose only; no publish, no SMS")
+    ap.add_argument("--no-push", action="store_true", help="publish locally but don't git push / send SMS")
+    a = ap.parse_args()
+    date = dt.date.fromisoformat(a.date)
+    students = [a.student] if a.student else ["y8", "y9"]
+    overrides = {}
+    if a.directive_y8:
+        overrides["y8"] = a.directive_y8
+    if a.directive_y9:
+        overrides["y9"] = a.directive_y9
+    sys.exit(run(date, students, a.private_dir, overrides, dry_run=a.dry_run, push=not a.no_push))
+
+
+if __name__ == "__main__":
+    main()
