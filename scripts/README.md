@@ -27,6 +27,19 @@ manual **Run workflow** button (with date / student / dry-run inputs) for superv
 - The workflow — both-repo checkout, secret injection, private-state commit-back.
 
 ## Stubs to finish this weekend
+0. **Second-pass review before publish (TOP PRIORITY — the validator can't do this).**
+   `validate.py` checks the answer is one of the options — it CANNOT tell when a *distractor*
+   is also true, or when a question is factually wrong, off-syllabus, or trivially easy.
+   Real example caught in the first dry-run: an H2.4 variables question asked for "the
+   controlled variable" in a soil experiment and marked "amount of water" correct — but
+   "the plant species used" is *also* a controlled variable, so it had two defensible
+   answers, on the exact topic Harrison struggles with. Build a review pass (a second API
+   call, ideally a stronger model) that reads each composed set and flags: multiple-true
+   options / semantic ambiguity, factual errors, off-syllabus difficulty, and low-information
+   (trivially-easy) questions. On flag → recompose that slot, or hold the set for human
+   review. Until this exists, **every set needs a human glance before it goes live** — which
+   is exactly what the shadow-runs are for. The pipeline RUNS reliably; the OUTPUT still
+   needs eyes.
 1. **Results → state ingestion** (currently manual — the honest boundary). Right now the
    results reader's output is applied to the private ledger/state by hand and committed, so
    `state.json` is current before the run. To automate: give the headless job a way to read
