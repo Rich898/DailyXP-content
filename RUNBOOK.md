@@ -40,6 +40,10 @@ One rule: a question's clock starts when it renders (once — re-renders don't r
 Note: trust `ts` (UTC ISO) over the sheet's local received_at column (sheet timezone may be offset).
 
 ## Ops notes
+- **Publishing is now `tools/publish.py <set.json>` — never hand-edit `y8.json`/`y9.json`.** It validates → writes → archives → commits → and VERIFIES the live raw URL serves the intended tag (the fix for the 5 Aug rollback, where a re-push silently overwrote the Blitz). `--no-push` for a local dry run.
+- Before publish, a set must pass `tools/validate.py` (schema, answer∈options, `fresh:true`, no-repeat vs `history/`). The planner and publish-op both call it.
+- Slot planning (which topics get slots today): `tools/planner.py` — the deterministic brain. FROZEN→empty (absence gate in code), REPAIR guaranteed, assessment-aware, day-directive driven. Reads the private `targets/` + `work/state.json`. See `tools/README.md`.
+- **Keep names out of published `title` fields** (legacy sets embedded them; the shell renders the title publicly). Use a neutral title.
 - Morning results read: `tools/results_reader.py` (dedupe, signal extraction, ledger implications) — see `tools/README.md`.
 - Weekly content sweep drill: see `SWEEP.md`.
 - Content sourcing doctrine: see `CONTENT-MODEL.md`.
