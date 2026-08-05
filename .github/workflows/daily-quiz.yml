@@ -1,0 +1,97 @@
+# DailyXP — daily quiz pipeline
+#
+# Runs the whole loop for both boys: plan -> compose (API) -> publish (with live-URL
+# verify) -> SMS. A FROZEN boy gets a placeholder (no API, no SMS). See scripts/run_daily.py.
+#
+# SECRETS to add before this can run for real (repo Settings -> Secrets and variables -> Actions):
+#   DAILYXP_TOKEN            the fine-grained PAT that can read+write BOTH repos ("DailyXP both")
+#   ANTHROPIC_API_KEY        for compose
+#   MOBILE_MESSAGE_API_KEY   \
+#   MOBILE_MESSAGE_API_SECRET } for the SMS nudges (add when Mobile Message is set up)
+#   MOBILE_MESSAGE_SENDER    /  "XP Daily" once ACMA-approved, else the dedicated number
+#   MOBILE_MESSAGE_TO_Y8, MOBILE_MESSAGE_TO_Y9, MOBILE_MESSAGE_TO_PARENTS   recipient numbers
+#
+# Until the SMS secrets exist, notify falls back to a dry-run print (no send) — safe.
+
+name: daily-quiz
+
+on:
+  workflow_dispatch:          # manual "Run workflow" button — use this for the first supervised runs
+    inputs:
+      date:
+        description: "Override date (YYYY-MM-DD). Blank = today."
+        required: false
+        default: ""
+      student:
+        description: "Which boy"
+        required: false
+        default: "both"
+        type: choice
+        options: ["both", "y8", "y9"]
+      dry_run:
+        description: "Plan+compose only — no publish, no SMS"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    # 04:00 UTC = 14:00 AEST, Mon–Fri. (Sydney DST Oct–Apr shifts this to 15:00 AEDT —
+    # change the hour to 03 during DST if you want it pinned to 14:00 local.)
+    - cron: "0 4 * * 1-5"
+
+concurrency:
+  group: daily-quiz            # never let two runs overlap on the same files
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public repo (code + live files)
+        uses: actions/checkout@v4
+
+      - name: Checkout private repo (ledger/state/targets/history)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          path: private
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run the daily pipeline
+        env:
+          GH_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
+          MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
+          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
+        run: |
+          ARGS="--private-dir ./private"
+          [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
+          [ "${{ github.event.inputs.student }}" != "both" ] && [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          echo "run_daily $ARGS"
+          python scripts/run_daily.py $ARGS
+
+      - name: Commit private state back (history archive + any state writes)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "state: archive + ledger updates ($(date -u +%F))"
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+            echo "private state committed."
+          else
+            echo "no private changes to commit."
+          fi
