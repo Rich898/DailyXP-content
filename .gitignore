@@ -1,12 +1,15 @@
-# ── PRIVATE: performance data, names, state, secrets — NEVER in the public repo ──
-# (destination is the private repo, stood up this weekend, alongside the ledgers)
-work/                       # state.json, runs.json, plans, sheet dumps
-*_mastery_ledger.md         # the ledgers themselves
-schedule.json               # completion record — contains scores
-SCHEDULE.md                 # completion record — contains scores + names
-tools/schedule_build.py     # embeds the score/name records inline
-targets/                    # curriculum targets — public/private call deferred to the private-repo migration
-publish_log.jsonl           # publish audit trail
+# PRIVATE — performance data, names, state, secrets. NEVER in the public repo.
+# Destination is the private repo (stood up this weekend, alongside the ledgers).
+# NOTE: git does not support trailing comments on pattern lines — keep patterns bare.
+
+work/
+history/
+targets/
+schedule.json
+SCHEDULE.md
+tools/schedule_build.py
+publish_log.jsonl
+*_mastery_ledger.md
 .ghtoken
 .token
 tools/__pycache__/
