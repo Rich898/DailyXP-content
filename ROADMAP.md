@@ -10,7 +10,8 @@ Content-level changes only: teach-back prompt variety (argue-against, explain-to
 - **Fri — BOSS NIGHT:** per-student boss built from that student's ledger weaknesses — a chained 3–4 question steady sequence on the flagged gap, the week's actual misses resurfaced as "attacks", teach-back as the finishing move. Boss composed from ledger state as of Thu night.
 - Rationale: events on exactly two nights vs a stable control = honest read on engagement lift. Head-to-head/sibling formats deliberately shelved — mechanics must generalise to single-player universal adoption.
 
-## Next weekend (~8–9 Aug) — shell v3.1
+## Shell v3.1 — BUILD SESSION BOOKED: **Sunday morning (owner available)**
+*Needs Rich in-chat for a working session (~a few hours, built in chunks, tests green at each step) — nothing builds in the background. Full spec: SHELL-3.1-SPEC.md (scope: LARGE, game-only). After build: one redeploy per boy into existing Netlify projects (URLs unchanged) + phone play-test.*
 - Universal skip: "haven't covered this yet" button unconditional on every question (no flag dependency)
 - Typed answers: numeric entry for maths, short text for terms/dates (normalised accepted-answer lists; instant feedback preserved)
 - Ordering items (sequence the causal chain) + spot-the-error / cloze as steady-slot variants
