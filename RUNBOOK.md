@@ -40,6 +40,7 @@ One rule: a question's clock starts when it renders (once — re-renders don't r
 Note: trust `ts` (UTC ISO) over the sheet's local received_at column (sheet timezone may be offset).
 
 ## Ops notes
+- Morning results read: `tools/results_reader.py` (dedupe, signal extraction, ledger implications) — see `tools/README.md`.
 - Weekly content sweep drill: see `SWEEP.md`.
 - Content sourcing doctrine: see `CONTENT-MODEL.md`.
 - Family comms cadence + purpose: see `REPORTING.md`.
