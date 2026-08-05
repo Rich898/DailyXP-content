@@ -32,7 +32,7 @@ from validate import validate_set, seen_prompts  # noqa: E402
 
 API_URL = "https://api.anthropic.com/v1/messages"
 DEFAULT_MODEL = "claude-sonnet-5"   # strong + economical for language tasks; override with --model
-MAX_TOKENS = 4000
+MAX_TOKENS = 8000                   # a 12-Q set is ~2.4k out; headroom so JSON never truncates
 
 SYSTEM = """You write quiz questions for a spaced-repetition study tool used by two secondary-school boys.
 You are given a fixed plan of slots. You fill ONLY the language of each slot. You do not choose topics,
@@ -72,6 +72,7 @@ def build_user(plan, seen):
 def call_api(system, user, model, api_key):
     body = json.dumps({
         "model": model, "max_tokens": MAX_TOKENS, "system": system,
+        "thinking": {"type": "disabled"},   # structured JSON task — thinking wastes budget and truncated the set
         "messages": [{"role": "user", "content": user}],
     }).encode()
     req = urllib.request.Request(API_URL, data=body, method="POST", headers={
