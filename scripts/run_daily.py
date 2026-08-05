@@ -101,8 +101,16 @@ def run(date, students, private_dir, directives_override, dry_run, push):
                 continue
 
         if dry_run:
-            n = len(cset.get("questions", []))
-            print(f"[{s}] would publish {tag} ({'placeholder' if cset.get('status')=='placeholder' else str(n)+' Qs'}); SMS suppressed.")
+            if cset.get("status") == "placeholder":
+                print(f"[{s}] {tag}: placeholder (nothing to compose). SMS suppressed.")
+            else:
+                print(f"[{s}] {tag}: composed {len(cset['questions'])} Qs (DRY RUN — not published, SMS suppressed):")
+                for q in cset["questions"]:
+                    line = f"    {q['id']:<4} [{q['phase']}/{q['subject']}] {q['prompt']}"
+                    print(line)
+                    if q.get("options"):
+                        print(f"         options: {q['options']}   → answer: {q.get('answer')!r}")
+                        print(f"         why: {q.get('why','')}")
             os.makedirs(os.path.join(REPO, "work"), exist_ok=True)
             json.dump(cset, open(os.path.join(REPO, "work", f"dryrun_{s}.json"), "w"), indent=2, ensure_ascii=False)
             summary.append((s, tag, "dry-run-ok"))
