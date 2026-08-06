@@ -1,8 +1,182 @@
 {
-    "student": "y8",
-    "status": "placeholder",
-    "date": "2026-08-05",
-    "day": "",
-    "title": "DailyXP",
-    "questions": []
+  "student": "y8",
+  "date": "2026-08-06",
+  "day": "THU",
+  "tag": "H2.4",
+  "title": "DailyXP · THU 2026-08-06",
+  "questions": [
+    {
+      "id": "S1",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "A scientist tests how the amount of light (hours per day) affects how tall bean plants grow, keeping water and soil type the same for all plants. Which is the independent variable?",
+      "options": [
+        "Hours of light per day",
+        "Height of the plants",
+        "Amount of water given",
+        "Type of soil used"
+      ],
+      "answer": "Hours of light per day",
+      "why": "The independent variable is the one thing YOU deliberately change (light hours). The height is the dependent variable (what you measure), and water/soil are controlled variables (kept the same so they don't interfere).",
+      "fresh": true,
+      "repair": true
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Which detail from Romeo and Juliet best shows love and hate existing side by side within the same moment?",
+      "options": [
+        "Juliet says 'My only love sprung from my only hate' after learning Romeo's surname",
+        "Tybalt challenges Romeo to a duel at the party",
+        "The Prologue calls the families 'two households, both alike in dignity'",
+        "Friar Laurence agrees to marry Romeo and Juliet in secret"
+      ],
+      "answer": "Juliet says 'My only love sprung from my only hate' after learning Romeo's surname",
+      "why": "This line fuses the play's two central forces in one breath — Juliet falls in love with a Montague, her family's sworn enemy, showing love and hate are never fully separate in this play.",
+      "fresh": true
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Why was Jerusalem the central target of the Crusades for both Christians and Muslims?",
+      "options": [
+        "It was a holy city sacred to both faiths",
+        "It had the largest army in the region",
+        "It controlled all trade routes to China",
+        "It was the capital of the Byzantine Empire"
+      ],
+      "answer": "It was a holy city sacred to both faiths",
+      "why": "Jerusalem mattered because of religious significance, not military or trade power — it's holy to Christianity, Islam, and Judaism, which is exactly why control of it was fought over for centuries.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "Which of these is the best example of globalisation increasing interconnection between countries?",
+      "options": [
+        "A phone designed in the USA, with parts made in Japan, assembled in China, and sold worldwide",
+        "A country growing all its own food and refusing to trade with others",
+        "A village building a well for its own local use only",
+        "A country closing its borders to stop all imports and exports"
+      ],
+      "answer": "A phone designed in the USA, with parts made in Japan, assembled in China, and sold worldwide",
+      "why": "Globalisation is about countries becoming more linked through trade, production, and movement of goods/ideas — a product made across several countries and sold worldwide is a textbook example of that interconnection.",
+      "fresh": true
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A cereal box is a cuboid measuring 20 cm by 8 cm by 30 cm. What is its volume?",
+      "options": [
+        "4800 cm³",
+        "58 cm³",
+        "480 cm³",
+        "600 cm³"
+      ],
+      "answer": "4800 cm³",
+      "why": "Volume of a cuboid = length × width × height = 20 × 8 × 30 = 4800 cm³. Adding the sides (58) or only multiplying two of them (480, 600) misses that all three dimensions must be multiplied together.",
+      "fresh": true
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "In a natural disaster investigation, which factor would most likely increase the risk of severe flooding after heavy rainfall?",
+      "options": [
+        "The area has been built up with concrete, reducing how much water can soak into the ground",
+        "The area has thick forest covering the hillsides",
+        "The rainfall occurs steadily over several weeks instead of all at once",
+        "The nearby river has a wide, deep channel to hold extra water"
+      ],
+      "answer": "The area has been built up with concrete, reducing how much water can soak into the ground",
+      "why": "Concrete and other impermeable surfaces stop water soaking into the soil, so rain runs off quickly into rivers and drains, overwhelming them — a key reason urban areas flood more severely than natural, absorbent land.",
+      "fresh": true
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "In the feudal system, what did a lord give a knight in exchange for military service?",
+      "options": [
+        "Land (a fief)",
+        "A place in the church clergy",
+        "Full ownership of the kingdom",
+        "Freedom from all taxes forever"
+      ],
+      "answer": "Land (a fief)",
+      "why": "Feudalism worked through an exchange: the king granted land to lords, lords granted land (fiefs) to knights, and in return knights promised military service and loyalty.",
+      "fresh": true
+    },
+    {
+      "id": "T1",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "A student wants to find out if the temperature of water affects how quickly a sugar cube dissolves. They keep the amount of water and size of sugar cube the same each time. Identify the independent variable, dependent variable, and controlled variables.",
+      "options": [
+        "IV: water temperature; DV: time to dissolve; CV: amount of water and size of sugar cube",
+        "IV: time to dissolve; DV: water temperature; CV: amount of water and size of sugar cube",
+        "IV: amount of water; DV: water temperature; CV: time to dissolve",
+        "IV: size of sugar cube; DV: amount of water; CV: water temperature"
+      ],
+      "answer": "IV: water temperature; DV: time to dissolve; CV: amount of water and size of sugar cube",
+      "why": "The IV is what you deliberately change (temperature), the DV is what you measure as a result (dissolving time), and CVs are the things you deliberately keep the same (water amount, sugar cube size) so they can't be blamed for the result.",
+      "fresh": true,
+      "repair": true
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "Solve for x: 2(x + 3) = 16. A common slip under time pressure is to subtract 3 from both sides first, as if the +3 were loose. In one sentence, say why that doesn't work here — then give x.",
+      "options": [
+        "x = 5",
+        "x = 8",
+        "x = 11",
+        "x = 13"
+      ],
+      "answer": "x = 5",
+      "why": "Because the 2 multiplies the whole bracket, the +3 isn't free to move yet. Handle the ×2 first — expand to 2x + 6 = 16, or divide both sides by 2 to get x + 3 = 8 — then solve. Either route gives x = 5. Subtracting 3 from 16 first (getting 13) ignores that the bracket is doubled.",
+      "fresh": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "How does Shakespeare use the deaths of Romeo and Juliet at the end of the play to comment on the feud between their families?",
+      "options": [
+        "Their deaths finally shock the Capulets and Montagues into ending their feud and reconciling",
+        "Their deaths make the feud between the families even more violent than before",
+        "Their deaths are treated as unimportant and quickly forgotten by both families",
+        "Their deaths cause the Prince to banish both families from Verona forever"
+      ],
+      "answer": "Their deaths finally shock the Capulets and Montagues into ending their feud and reconciling",
+      "why": "The tragedy's ending shows love's ultimate cost forcing reconciliation — the families finally end their hatred, but only after losing their children, underlining the play's warning about hate's destructive power.",
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Why did the Crusades continue for so many waves over almost 200 years, rather than ending after the first campaign?",
+      "options": [
+        "Control of Jerusalem and the Holy Land kept shifting between Christian and Muslim forces, sparking new campaigns",
+        "Europe's kings had no other wars to fight during this period",
+        "The Pope only ever called for a single Crusade, and the rest were unofficial",
+        "The distances involved were too small to matter, so armies kept returning easily"
+      ],
+      "answer": "Control of Jerusalem and the Holy Land kept shifting between Christian and Muslim forces, sparking new campaigns",
+      "why": "Each time Jerusalem or the wider Holy Land changed hands, it triggered another call to arms — the ongoing back-and-forth over this sacred territory is why the Crusades came in repeated waves rather than one single conflict.",
+      "fresh": true
+    },
+    {
+      "id": "TB1",
+      "phase": "teach",
+      "subject": "Maths",
+      "prompt": "Your friend is confident he understands linear equations but keeps losing marks under test pressure. In your own words, explain what 'keeping the equation balanced' actually means, and describe one mistake students make when they rush through multiple steps (like with brackets or terms on both sides)."
+    }
+  ]
 }
