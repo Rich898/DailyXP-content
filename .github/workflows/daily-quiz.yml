@@ -6,6 +6,8 @@
 # SECRETS to add before this can run for real (repo Settings -> Secrets and variables -> Actions):
 #   DAILYXP_TOKEN            the fine-grained PAT that can read+write BOTH repos ("DailyXP both")
 #   ANTHROPIC_API_KEY        for compose
+#   RESULTS_URL              the read-only Apps Script /exec endpoint (Sheet -> runs.json ingestion)
+#   RESULTS_KEY              the shared secret matching the script's INGEST_KEY property
 #   MOBILE_MESSAGE_API_KEY   \
 #   MOBILE_MESSAGE_API_SECRET } for the SMS nudges (add when Mobile Message is set up)
 #   MOBILE_MESSAGE_SENDER    /  "XP Daily" once ACMA-approved, else the dedicated number
@@ -69,6 +71,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESULTS_URL: ${{ secrets.RESULTS_URL }}
+          RESULTS_KEY: ${{ secrets.RESULTS_KEY }}
           MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
           MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
           MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}

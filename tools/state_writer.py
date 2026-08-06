@@ -169,7 +169,7 @@ def process(private_dir, dry_run=False):
     for r in todo:
         s, tag, sd = r["student"], r.get("tag"), r.get("set_date")
         slotmap = load_plan(private_dir, s, sd)
-        head = f"{r.get('name', s)} ({s}) — {tag} — set {sd}, run {r.get('run_date')}"
+        head = f"{s} · {tag} — set {sd}, run {r.get('run_date')}"
         lines.append("\n" + head)
         lines.append("-" * min(len(head), 96))
         if slotmap is None:

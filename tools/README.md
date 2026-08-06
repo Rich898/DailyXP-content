@@ -110,6 +110,22 @@ Doctrine enforced in code:
 
 `--json plan.json` writes the plan for the composer step.
 
+## ingest_results.py — limb #1 (headless): Sheet → runs.json
+
+The cron can't read the results Sheet the way a chat session can. This fetches the rows from a
+**token-gated, read-only** Apps Script `doGet` endpoint (a *separate* deployment — it never touches
+the quiz `doPost` webhook) and refreshes `work/runs.json`. It reuses `results_reader` end to end
+(parse payloads → normalise → dedupe → drop SYSTEM TEST → mark canonical → phase medians) and writes
+the SAME JSON shape as `results_reader --json`, so nothing downstream changes.
+
+- Endpoint returns `{"rows": [[header…],[row…]]}`; columns mapped by name, payload parsed per row.
+- Config (Actions secrets, or `--url/--key`): `RESULTS_URL` (the `/exec`, no key) + `RESULTS_KEY`
+  (matches the script's `INGEST_KEY`). Clear errors on unauthorized / non-JSON / empty-tab.
+- Runs as step 0 in `run_daily` (gated on the secrets — skipped locally, uses committed runs.json).
+- Public-log safe: prints counts and y8/y9 codes only — never names, scores, or payloads.
+
+CLI: `RESULTS_URL=… RESULTS_KEY=… python3 tools/ingest_results.py --private-dir <priv>`.
+
 ## state_writer.py — limb #2b: the RETURN LEG (results → ledger)
 
 The other half of the loop. planner reads state; this **writes** it. Deterministic,

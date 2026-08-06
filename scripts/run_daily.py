@@ -70,6 +70,23 @@ def run(date, students, private_dir, directives_override, dry_run, push):
         print(f"{date} is a weekend — no run.")
         return 0
 
+    # STEP 0 — INGEST: refresh runs.json from the results Sheet (headless). Gated on RESULTS_URL
+    # so local/offline runs skip it and use the committed runs.json. The endpoint is a read-only
+    # doGet (never the quiz webhook). Network lives in Actions, not here.
+    if os.environ.get("RESULTS_URL") and os.environ.get("RESULTS_KEY"):
+        try:
+            import ingest_results
+            summary, ing_errors = ingest_results.ingest(
+                private_dir, os.environ["RESULTS_URL"], os.environ["RESULTS_KEY"])
+            print(f"--- ingest results (Sheet → runs.json) ---\n{summary}")
+            for e in ing_errors:
+                print(f"  ⚠ {e}")
+            print("------------------------------------------\n")
+        except SystemExit as e:
+            print(f"⚠ ingestion skipped ({e}) — using existing runs.json.\n")
+        except Exception as e:
+            print(f"⚠ ingestion step failed ({e}) — using existing runs.json.\n")
+
     # RETURN LEG (roadmap #2): bring the ledger current from results BEFORE we plan.
     # Idempotent (cursor) — a no-op when there are no new canonical runs. It needs runs.json
     # refreshed from the Sheet first; that ingestion is still manual until the Apps Script / CSV
@@ -96,8 +113,10 @@ def run(date, students, private_dir, directives_override, dry_run, push):
 
     day = date.strftime("%a").upper()
     print(f"=== DailyXP run — {day} {date} {'(DRY RUN)' if dry_run else ''} ===")
-    print("NOTE: the state-writer applies results→ledger automatically; refreshing runs.json from "
-          "the Sheet (ingestion) is still manual until the Apps Script/CSV job lands.\n")
+    ingest_on = bool(os.environ.get("RESULTS_URL") and os.environ.get("RESULTS_KEY"))
+    print("NOTE: full loop — ingest (Sheet→runs.json) → state-writer (results→ledger) → plan → "
+          "compose → review → publish. Ingestion is "
+          + ("ON (RESULTS_URL configured)." if ingest_on else "OFF here (no RESULTS_URL — using committed runs.json).") + "\n")
 
     summary = []
     for s in students:

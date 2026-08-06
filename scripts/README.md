@@ -6,14 +6,15 @@ testing, not designing.
 ## The pipeline (scripts/run_daily.py)
 For each school day, for each boy:
 
-    INGEST results → STATE-WRITER (state_writer.py: results → ledger, the return leg) →
+    INGEST results (ingest_results.py: Sheet → runs.json) →
+    STATE-WRITER (state_writer.py: results → ledger, the return leg) →
     derive tag  →  PLAN (planner.py)  →  COMPOSE (compose.py, API)  →
     REVIEW (review.py, stronger model — recompose flagged slots or HOLD)  →
     PUBLISH (publish.py: validate→write→archive→commit→VERIFY)  →  NOTIFY (notify.py, SMS)
 
-The state-writer runs first so the ledger reflects last night's results before we plan —
-that's what makes the loop adaptive rather than just composing. (Ingestion — refreshing
-runs.json from the Sheet — is the one piece still manual; see Stubs #1.)
+The loop is closed: ingestion pulls last night's results from the Sheet, the state-writer moves
+the ledger, then we plan against the fresh state — adaptive, not just composing. Ingestion is
+gated on `RESULTS_URL`/`RESULTS_KEY` (skipped locally → uses the committed runs.json).
 
 - FROZEN boy → placeholder, no API call, no SMS.
 - Weekends → skipped.
@@ -44,6 +45,11 @@ manual **Run workflow** button (with date / student / dry-run inputs) for superv
   (cursor), preserves the human `note`, logs every transition. Transition table regression-tested
   (10/10 cases: REPAIR confirm→exit, fast-wrong-holds, trivial-correct-no-promote, 2nd-CW→REPAIR,
   spaced-Sure→solid). Env: `DAILYXP_SKIP_STATE_WRITE=1` bypass.
+- `ingest_results.py` — headless ingestion: fetches the results Sheet from a token-gated read-only
+  Apps Script `doGet` (separate from the quiz webhook) and refreshes `runs.json`, reusing
+  `results_reader` (dedupe / drop SYSTEM TEST / mark canonical / medians) and writing the same JSON
+  shape. Parsing pipeline regression-tested; prints counts + y8/y9 codes only (public Actions logs).
+  Config: `RESULTS_URL` + `RESULTS_KEY` (gated — skipped when unset).
 - The workflow — both-repo checkout, secret injection, private-state commit-back.
 
 ## Stubs to finish this weekend
@@ -59,14 +65,15 @@ manual **Run workflow** button (with date / student / dry-run inputs) for superv
    rounds → HOLD (yesterday's set stays live, flagged for a human). Prior-term revision is
    explicitly on-syllabus. This is what lets the cron run without a human reading every set —
    though reports stay human-reviewed and the first live runs still get a morning glance.
-1. **Results → state ingestion** — the writer HALF is ✅ DONE (`tools/state_writer.py`, wired into
-   run_daily, applies `results_reader` verdicts to `state.json` per `LEDGER-RULES.md`). What
-   remains is **ingestion**: refreshing `runs.json` from the results Sheet automatically, since the
-   cron can't read the Sheet like a chat session can. Cleanest = the results-capture Apps Script
-   also POSTs each result into the private repo, or a published-CSV URL the job curls; then the
-   writer (already idempotent) closes the loop with no further change. Needs a console session on
-   the Sheet's Apps Script. Until then the writer no-ops on a stale runs.json and state stays
-   human-reviewed — the honest boundary.
+1. **Results → state loop — ✅ DONE (closed end-to-end).** The writer (`tools/state_writer.py`) applies
+   `results_reader` verdicts to `state.json` per `LEDGER-RULES.md`; ingestion (`tools/ingest_results.py`)
+   refreshes `runs.json` from the results Sheet via a token-gated read-only Apps Script `doGet`
+   endpoint (separate from the quiz webhook — the webhook is never touched). run_daily runs
+   ingest → state-writer as steps 0–1 before planning. Both are idempotent; the workflow commits the
+   refreshed `runs.json`, `state.json`, cursor and log back to the private repo. Owner set-up (one-off,
+   done): deploy the read-only endpoint, add `RESULTS_URL` + `RESULTS_KEY` as Actions secrets. If those
+   secrets are absent (e.g. local runs) ingestion is skipped and the committed `runs.json` is used —
+   the loop still applies whatever is already there.
 2. **SMS live send** — `notify.py` is built; confirm Mobile Message's exact request shape
    against their docs and add the secrets. Without the secrets it safely dry-runs (no send).
 3. **Canonical topic IDs** — shared by `state.json` and `targets/` (the planner join is
