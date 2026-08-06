@@ -1,8 +1,181 @@
 {
   "student": "y9",
-  "status": "placeholder",
-  "date": "2026-08-05",
-  "day": "",
-  "title": "DailyXP",
-  "questions": []
+  "date": "2026-08-06",
+  "day": "THU",
+  "tag": "R2.4",
+  "title": "DailyXP · THU 2026-08-06",
+  "questions": [
+    {
+      "id": "S1",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A student is drafting a business plan and wants to add a SWOT analysis. Which section of the plan is the correct home for it?",
+      "options": [
+        "A standalone section analysing internal Strengths/Weaknesses and external Opportunities/Threats",
+        "The executive summary, replacing the one-page overview",
+        "The financial plan, replacing cash flow forecasts",
+        "The market analysis, replacing customer and competitor research"
+      ],
+      "answer": "A standalone section analysing internal Strengths/Weaknesses and external Opportunities/Threats",
+      "why": "SWOT is its own tool for weighing internal factors (strengths/weaknesses) against external ones (opportunities/threats) — it doesn't replace the market analysis, executive summary, or financials, which each have their own specific job.",
+      "fresh": true
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The Weimar Republic refers to which period of German history?",
+      "options": [
+        "Germany's democratic government from 1919 to 1933",
+        "The Kaiser's empire before WWI",
+        "Nazi Germany from 1933 to 1945",
+        "Germany after WWII split into East and West"
+      ],
+      "answer": "Germany's democratic government from 1919 to 1933",
+      "why": "The Weimar Republic was the name for Germany's first democracy, set up after WWI in 1919 and ending when Hitler took power in 1933.",
+      "fresh": true
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Why did the Great Depression make ordinary Germans more willing to vote for the Nazi Party?",
+      "options": [
+        "Mass unemployment and poverty made extreme promises of recovery and strong leadership appealing",
+        "Germans had always supported Hitler and the Depression changed nothing",
+        "The Depression only affected other countries, not Germany",
+        "The Nazis caused the Depression, so people voted for them out of guilt"
+      ],
+      "answer": "Mass unemployment and poverty made extreme promises of recovery and strong leadership appealing",
+      "why": "Economic desperation made the Weimar government look weak and made Hitler's promises of jobs, order, and strong leadership far more attractive to struggling voters.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "A wave of skilled workers moves from the UK to Australia after WWII, drawn by government-assisted passage schemes. Which factor is this an example of?",
+      "options": [
+        "A pull factor, because opportunity in the destination drew them",
+        "A push factor, because conditions at home forced them out",
+        "Urbanisation, because it describes city growth",
+        "A push factor, because Australia had no role in it"
+      ],
+      "answer": "A pull factor, because opportunity in the destination drew them",
+      "why": "Pull factors are things that attract migrants to a new place, like assisted passage and job opportunities — the scheme actively drew people to Australia rather than driving them from the UK.",
+      "fresh": true
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A café redesigns its logo to use earthy green tones and a hand-drawn leaf icon. What is this logo mainly doing?",
+      "options": [
+        "Building brand identity by visually communicating the business's values",
+        "Legally protecting the business from competitors",
+        "Replacing the need for a market analysis",
+        "Setting the price of the café's products"
+      ],
+      "answer": "Building brand identity by visually communicating the business's values",
+      "why": "A logo is a branding tool — its colours and imagery are chosen to communicate what the business stands for (like being natural or eco-friendly) and to make it recognisable to customers.",
+      "fresh": true
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A hairdresser gives a customer a haircut. Which best describes what's being sold?",
+      "options": [
+        "A service, because it's an intangible action performed for the customer",
+        "A product, because it's a physical item the customer keeps",
+        "Both a product and a service equally, with no meaningful difference",
+        "Neither, because no exchange of money occurs"
+      ],
+      "answer": "A service, because it's an intangible action performed for the customer",
+      "why": "Services are intangible actions or skills performed for a customer, while products are tangible items you can hold — a haircut is an action, not a physical good, so it's a service.",
+      "fresh": true
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "How did the Treaty of Versailles act as a causal lever leading toward Hitler's rise?",
+      "options": [
+        "Its harsh terms created resentment and economic hardship that Hitler exploited for support",
+        "It gave Germany extra territory, making people support the government",
+        "It had no real effect on Germany's economy or politics",
+        "It directly installed Hitler as Chancellor in 1919"
+      ],
+      "answer": "Its harsh terms created resentment and economic hardship that Hitler exploited for support",
+      "why": "The Treaty's reparations, war guilt clause, and territorial losses crushed Germany's economy and pride, creating the resentment that Hitler later used to rally support and blame the Weimar government.",
+      "fresh": true
+    },
+    {
+      "id": "T1",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "A triangle has base 14 cm and height 6 cm. What is its area? Take your time — work through ½ × base × height calmly.",
+      "options": [
+        "42 cm²",
+        "84 cm²",
+        "40 cm²",
+        "20 cm²"
+      ],
+      "answer": "42 cm²",
+      "why": "Area of a triangle is ½ × base × height = ½ × 14 × 6 = 42 cm². Rushing often causes skipping the ½, or misreading which numbers are the base and height — go step by step.",
+      "fresh": true,
+      "repair": true
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
+      "subject": "Commerce",
+      "prompt": "Which of the following would correctly belong INSIDE a SWOT analysis for a new bakery, rather than in the market analysis section?",
+      "options": [
+        "A threat: a large supermarket chain opening nearby with cheaper bread",
+        "A description of the target customers' age and income",
+        "A survey of how many competing bakeries exist in the suburb",
+        "An estimate of total local demand for baked goods"
+      ],
+      "answer": "A threat: a large supermarket chain opening nearby with cheaper bread",
+      "why": "SWOT captures strengths, weaknesses, opportunities and threats — a competitor threat fits SWOT, whereas customer profiles, competitor counts, and demand estimates belong in the market analysis.",
+      "fresh": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Which statement best captures why the Weimar Republic struggled to gain public trust from its very beginning?",
+      "options": [
+        "It was blamed for accepting the humiliating Treaty of Versailles, seen by many as a betrayal",
+        "It was extremely popular and faced no serious opposition",
+        "It abolished elections almost immediately",
+        "It was set up by the Kaiser to strengthen his own power"
+      ],
+      "answer": "It was blamed for accepting the humiliating Treaty of Versailles, seen by many as a betrayal",
+      "why": "The Weimar government signed the Treaty of Versailles, and many Germans saw this as a 'stab in the back', undermining trust in the new democracy from the start.",
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Rank how confidently you'd explain this: rising unemployment during the Great Depression is best linked to Hitler's growing support because it…",
+      "options": [
+        "Made desperate voters turn to extreme parties promising quick solutions",
+        "Made the Nazi Party promise to keep the Weimar government exactly as it was",
+        "Had no link — Hitler's support grew for unrelated reasons",
+        "Convinced voters that Weimar democracy was working well"
+      ],
+      "answer": "Made desperate voters turn to extreme parties promising quick solutions",
+      "why": "Mass unemployment discredited the Weimar government's ability to cope, pushing many voters towards the Nazis, who promised jobs, national pride, and decisive action.",
+      "fresh": true
+    },
+    {
+      "id": "TB1",
+      "phase": "teach",
+      "subject": "Maths",
+      "prompt": "You've now shown calm, accurate triangle area work more than once. Explain in your own words: what was the actual mistake you used to make when finding triangle area, and what specific habit (not just 'try harder') fixed it?"
+    }
+  ]
 }
