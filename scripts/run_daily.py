@@ -70,6 +70,21 @@ def run(date, students, private_dir, directives_override, dry_run, push):
         print(f"{date} is a weekend — no run.")
         return 0
 
+    # RETURN LEG (roadmap #2): bring the ledger current from results BEFORE we plan.
+    # Idempotent (cursor) — a no-op when there are no new canonical runs. It needs runs.json
+    # refreshed from the Sheet first; that ingestion is still manual until the Apps Script / CSV
+    # job lands, so for now this applies only what's already in runs.json. Dry-run previews only.
+    if os.environ.get("DAILYXP_SKIP_STATE_WRITE") != "1" and \
+       os.path.exists(os.path.join(private_dir, "work", "runs.json")):
+        try:
+            import state_writer
+            _, sw_lines, _ = state_writer.process(private_dir, dry_run=dry_run)
+            print("--- results → ledger (state-writer) ---")
+            print("\n".join(sw_lines))
+            print("---------------------------------------\n")
+        except Exception as e:
+            print(f"⚠ state-writer step failed ({e}) — proceeding with state.json as-is.\n")
+
     # point archive + no-repeat at the PRIVATE history; load private state + targets
     hist = os.path.join(private_dir, "history")
     os.environ["DAILYXP_HISTORY_DIR"] = hist
@@ -81,13 +96,28 @@ def run(date, students, private_dir, directives_override, dry_run, push):
 
     day = date.strftime("%a").upper()
     print(f"=== DailyXP run — {day} {date} {'(DRY RUN)' if dry_run else ''} ===")
-    print("NOTE: results→state ingestion is manual this week (stub) — assuming state.json is current.\n")
+    print("NOTE: the state-writer applies results→ledger automatically; refreshing runs.json from "
+          "the Sheet (ingestion) is still manual until the Apps Script/CSV job lands.\n")
 
     summary = []
     for s in students:
         tag, week, wd = derive_tag(s, date)
         directive = directives_override.get(s) or WEEKDAY_DIRECTIVE.get(date.weekday(), "standard")
         plan = planner.plan_set(s, date.isoformat(), day, tag, targets, state, directive)
+
+        # Persist the plan (slot→topic/intent/phase) into the PRIVATE repo. This is the join
+        # the feedback loop needs: a result question carries id+subject but not topic; the plan
+        # is the authority on which topic each slot tested. Kept private (never in the public
+        # quiz file). Written for FROZEN/dry-run too, so shadow-runs and the writer stay honest.
+        try:
+            pdir = os.path.join(private_dir, "plans", s)
+            os.makedirs(pdir, exist_ok=True)
+            with open(os.path.join(pdir, f"{date.isoformat()}.json"), "w") as pf:
+                json.dump({"student": s, "set_date": date.isoformat(), "tag": tag, "day": day,
+                           "directive": directive, "slots": plan.get("slots", [])},
+                          pf, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"[{s}] ⚠ could not persist plan ({e}) — results→topic join will miss this run.")
 
         if plan.get("status_gate") == "FROZEN":
             print(f"[{s}] {tag}: FROZEN → placeholder (no compose, no SMS).")

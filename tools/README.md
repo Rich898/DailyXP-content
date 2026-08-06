@@ -110,6 +110,33 @@ Doctrine enforced in code:
 
 `--json plan.json` writes the plan for the composer step.
 
+## state_writer.py — limb #2b: the RETURN LEG (results → ledger)
+
+The other half of the loop. planner reads state; this **writes** it. Deterministic,
+no LLM, no network. Takes the results (`work/runs.json`), the persisted plan for each
+run (`plans/<student>/<set_date>.json` — the join from question→topic, since a result
+carries id+subject but not topic), and current `work/state.json`, and applies the
+transition table in **`LEDGER-RULES.md`**:
+
+- Box model `untested→shaky→developing→solid` with a **REPAIR** lane (a flag, not a box).
+- Verdict per question comes from **`results_reader.classify()`** — one source of doctrine,
+  not re-implemented here: CW→shaky (2nd CW→REPAIR), ✗/SW/GW demote one box, **FW leaves the
+  box unchanged** (rush ≠ gap), LUCKY/TRIV✓ never promote, ✓"Sure" calm+**spaced** is the only
+  route to `solid`, ✓"Think so"/plain cap at `developing`.
+- **REPAIR exits** after 2 calm confident confirms; any wrong/fast/lucky/trivial resets the count.
+  A fast-correct never promotes a REPAIR topic out (the whole point of the chronic cases).
+- Multi-slot same topic → governing badge by severity precedence.
+- **Human `note` is never overwritten** — the writer moves structured fields, adds a factual
+  `last_result`, bumps `times_seen`/`last_tested`. Every change is appended to
+  `work/state_writer_log.jsonl`. Idempotent via `work/state_writer_cursor.json` (only canonical,
+  non-test runs, processed once); `attempt>1` canonical caps promotions at `developing`.
+
+Runs first inside `run_daily` (state current before planning), dry-run-aware. Env
+`DAILYXP_SKIP_STATE_WRITE=1` bypasses. CLI: `python3 tools/state_writer.py --private-dir <priv>
+[--dry-run]`. Transition table regression-tested (10/10 doctrine cases). The one piece still
+manual is **ingestion** — refreshing `runs.json` from the Sheet (see scripts/README Stubs #1);
+the writer no-ops on a stale runs.json until then.
+
 ## publish.py — limb #1.5: the ONE atomic publish
 
 Replaces hand-editing `y8.json`/`y9.json` (the path that caused the 5 Aug
@@ -123,6 +150,11 @@ cache, or wrong-branch push now fails LOUD in the same call. Token from
 
 ### Private companions (NOT in this repo — see .gitignore → private repo)
 - `work/state.json` — machine twin of the ledgers (per-topic state, per-boy status).
+- `work/runs.json` — normalised results (the state-writer's input).
+- `plans/<student>/<set_date>.json` — the persisted plan per run (slot→topic); the
+  state-writer's join from a result question back to its topic.
+- `work/state_writer_cursor.json` / `work/state_writer_log.jsonl` — the writer's
+  idempotency cursor and per-transition audit trail. Carry scores/timing → private.
 - `targets/<week>.json` — curriculum targeting layer (topic/status/fresh/assessment).
 - `schedule.json` / `SCHEDULE.md` (+ `tools/schedule_build.py`) — the permanent
   completion record with the DONE / DONE-LATE+n / MISSED / NOT-PUBLISHED / ABSENT
