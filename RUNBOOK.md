@@ -42,6 +42,7 @@ Note: trust `ts` (UTC ISO) over the sheet's local received_at column (sheet time
 ## Ops notes
 - **Publishing is now `tools/publish.py <set.json>` — never hand-edit `y8.json`/`y9.json`.** It validates → writes → archives → commits → and VERIFIES the live raw URL serves the intended tag (the fix for the 5 Aug rollback, where a re-push silently overwrote the Blitz). `--no-push` for a local dry run.
 - Before publish, a set must pass `tools/validate.py` (schema, answer∈options, `fresh:true`, no-repeat vs `history/`). The planner and publish-op both call it.
+- **Second-pass review: `tools/review.py`** runs between compose and publish (wired into `run_daily`). It catches the meaning-level faults the validator can't — a distractor that's also true, a false `why`, off-syllabus, trivially-easy — using a stronger model. On a block it recomposes the flagged slot and re-reviews; still blocking after 2 rounds → HOLD (yesterday's set stays live). Emergency bypass: `DAILYXP_SKIP_REVIEW=1`. See `tools/README.md`.
 - Slot planning (which topics get slots today): `tools/planner.py` — the deterministic brain. FROZEN→empty (absence gate in code), REPAIR guaranteed, assessment-aware, day-directive driven. Reads the private `targets/` + `work/state.json`. See `tools/README.md`.
 - **Keep names out of published `title` fields** (legacy sets embedded them; the shell renders the title publicly). Use a neutral title.
 - Morning results read: `tools/results_reader.py` (dedupe, signal extraction, ledger implications) — see `tools/README.md`.

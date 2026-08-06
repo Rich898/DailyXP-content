@@ -7,6 +7,7 @@ testing, not designing.
 For each school day, for each boy:
 
     derive tag  →  PLAN (planner.py)  →  COMPOSE (compose.py, API)  →
+    REVIEW (review.py, stronger model — recompose flagged slots or HOLD)  →
     PUBLISH (publish.py: validate→write→archive→commit→VERIFY)  →  NOTIFY (notify.py, SMS)
 
 - FROZEN boy → placeholder, no API call, no SMS.
@@ -20,6 +21,13 @@ manual **Run workflow** button (with date / student / dry-run inputs) for superv
 ## Wired and tested ✓
 - `planner.py` — slot planning (FROZEN gate, REPAIR guaranteed, assessment-aware).
 - `validate.py` — the publish gate (schema, answer∈options, fresh, no-repeat).
+- `review.py` — the SECOND-PASS review gate (meaning-level faults the validator can't
+  see: multiple-true / factual-error / off-syllabus / trivial). Stronger model than
+  compose, adaptive-thinking. On a BLOCK, run_daily recomposes only the flagged slots and
+  re-reviews; still blocking after 2 rounds → HOLD (yesterday's set stays live). Prior-term
+  revision is treated as on-syllabus. Env: `DAILYXP_REVIEW_MODEL`, `DAILYXP_REVIEW_EFFORT`,
+  and `DAILYXP_SKIP_REVIEW=1` as an emergency bypass. Regression-tested against the 6 Aug
+  Harrison T2 bug (blocks the broken version, passes the fix).
 - `publish.py` — atomic publish + live-URL verify; history dir configurable (`DAILYXP_HISTORY_DIR`).
 - `compose.py` — plan → API → assembled+validated set, retrying on validation failure.
   Structure proven; the live API call runs once `ANTHROPIC_API_KEY` is in the environment.
@@ -27,19 +35,18 @@ manual **Run workflow** button (with date / student / dry-run inputs) for superv
 - The workflow — both-repo checkout, secret injection, private-state commit-back.
 
 ## Stubs to finish this weekend
-0. **Second-pass review before publish (TOP PRIORITY — the validator can't do this).**
+0. **Second-pass review before publish — ✅ DONE (`tools/review.py`, wired into run_daily).**
    `validate.py` checks the answer is one of the options — it CANNOT tell when a *distractor*
    is also true, or when a question is factually wrong, off-syllabus, or trivially easy.
-   Real example caught in the first dry-run: an H2.4 variables question asked for "the
-   controlled variable" in a soil experiment and marked "amount of water" correct — but
-   "the plant species used" is *also* a controlled variable, so it had two defensible
-   answers, on the exact topic Harrison struggles with. Build a review pass (a second API
-   call, ideally a stronger model) that reads each composed set and flags: multiple-true
-   options / semantic ambiguity, factual errors, off-syllabus difficulty, and low-information
-   (trivially-easy) questions. On flag → recompose that slot, or hold the set for human
-   review. Until this exists, **every set needs a human glance before it goes live** — which
-   is exactly what the shadow-runs are for. The pipeline RUNS reliably; the OUTPUT still
-   needs eyes.
+   Real examples this gate catches: (i) the first dry-run's H2.4 variables question that had
+   two defensible "controlled variable" answers; (ii) the 6 Aug H2.4 T2 that taught a false
+   rule ("must expand brackets first") in its `why` while keying a correct answer. The
+   reviewer reads each composed set with a stronger model (adaptive-thinking) and flags
+   multiple-true / factual-error / off-syllabus / trivial, with block vs warn severity. On a
+   block, run_daily recomposes ONLY the flagged slots and re-reviews; still blocking after 2
+   rounds → HOLD (yesterday's set stays live, flagged for a human). Prior-term revision is
+   explicitly on-syllabus. This is what lets the cron run without a human reading every set —
+   though reports stay human-reviewed and the first live runs still get a morning glance.
 1. **Results → state ingestion** (currently manual — the honest boundary). Right now the
    results reader's output is applied to the private ledger/state by hand and committed, so
    `state.json` is current before the run. To automate: give the headless job a way to read

@@ -33,9 +33,10 @@ on:
         required: false
         default: false
         type: boolean
-  # SCHEDULE DISABLED until the second-pass review exists (see scripts/README.md #0).
-  # Run supervised via the manual "Run workflow" button above. To re-enable auto-fire,
-  # uncomment the two lines below.
+  # The second-pass review gate now EXISTS (tools/review.py, wired into run_daily) — the
+  # blocker that kept this cron off is cleared. Cron is still commented pending the planned
+  # go-live (rollout: flip ON with a morning thumbs-up, per scripts/README). Run supervised
+  # via the manual "Run workflow" button until then; to auto-fire, uncomment the two lines below.
   # schedule:
   #   # 04:00 UTC = 14:00 AEST, Mon–Fri. (Sydney DST Oct–Apr shifts this to 15:00 AEDT —
   #   # change the hour to 03 during DST if you want it pinned to 14:00 local.)

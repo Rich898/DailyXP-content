@@ -54,6 +54,35 @@ student has already seen** (checked against the private `history/` archive).
 Placeholders (`status:"placeholder"`, empty questions) validate as the no-quiz
 state. Importable: `from validate import validate_set → (errors, warns)`.
 
+## review.py — the SECOND-PASS review gate (the eyes the validator isn't)
+
+The validator is mechanical — schema, answer∈options, no-repeat. It waves through a
+question whose keyed answer is right but whose *other* options are also defensible, whose
+`why` teaches something false, that's off-syllabus, or that's trivially easy. `review.py`
+is the critic for exactly that class: it reads each composed set with a **stronger model
+than compose** (default `claude-opus-4-8`, adaptive-thinking on — the reasoning is what
+lets it recompute a `why` and notice it's wrong) and returns a per-slot verdict:
+`clean` / `flag` + severity (`block`|`warn`) + category + a one-line note.
+
+Categories: `multiple_answers`, `factual_error`, `off_syllabus`, `trivial`, `ambiguous`.
+Severity law: any multiple-true, any factual error, and clear off-syllabus are **block**
+(must not go live); mild stuff is **warn** (publish, but worth a glance). It is told to be
+conservative — a false block costs a kid their quiz — so borderline → warn, not block.
+Prior-term topics (spaced-repetition revision) are **on-syllabus** and never off_syllabus.
+Teach-back slots are judged for factual soundness + clarity only.
+
+It is a CRITIC, not an editor — it never rewrites. The recompose-or-hold loop lives in
+`run_daily`: on a block it rebuilds only the flagged slots (a reduced plan through
+compose, seeded so the new slot can't collide with kept siblings) and re-reviews; still
+blocking after `MAX_REVIEW_ROUNDS` (2) → HOLD, leaving yesterday's set live. Fail-safe: if
+the reviewer can't return a verdict at all, that's a HOLD too (unknown safety ≠ publish).
+
+`review_set(cset, curriculum=…) -> (verdict, error|None)`; `curriculum_context(targets,
+student)` builds the compact live+revision context for the off-syllabus check. Env knobs:
+`DAILYXP_REVIEW_MODEL`, `DAILYXP_REVIEW_EFFORT` (default `high`), and
+`DAILYXP_SKIP_REVIEW=1` for an emergency bypass. CLI: `python3 tools/review.py <set.json>
+[--targets <week>.json]` (exit 0 = pass, 1 = hold, 2 = error).
+
 ## planner.py — limb #2a: the scheduler BRAIN
 
 Deterministic, no LLM, no network. Reads the private `targets/<week>.json`

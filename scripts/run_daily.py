@@ -37,6 +37,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 
 W1_MONDAY = dt.date(2026, 7, 27)          # project week 1 = w/c Mon 27 Jul 2026
+MAX_REVIEW_ROUNDS = 2                      # recompose a flagged slot at most twice, then HOLD (never publish a flagged set)
 INITIAL = {"y8": "H", "y9": "R"}
 WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "blitz", 3: "standard", 4: "boss"}
 NUDGE = {
@@ -60,8 +61,10 @@ def derive_tag(student, date):
 def run(date, students, private_dir, directives_override, dry_run, push):
     import planner
     import compose
+    import review
     import publish as pub
     import notify
+    from validate import seen_prompts
 
     if date.weekday() > 4:
         print(f"{date} is a weekend — no run.")
@@ -98,6 +101,49 @@ def run(date, students, private_dir, directives_override, dry_run, push):
             if cset is None:
                 print(f"[{s}] COMPOSE FAILED — {errs}. Skipping publish (yesterday's set stays live).")
                 summary.append((s, tag, "compose-failed"))
+                continue
+
+        # ---- SECOND-PASS REVIEW (roadmap #1): the gate the validator can't be ----
+        # The validator proved the schema; this reads MEANING (a distractor that's also
+        # true, a false `why`, off-syllabus, trivially-easy). On a BLOCK, recompose only
+        # the flagged slots and re-review; if it still won't clear after MAX_REVIEW_ROUNDS,
+        # HOLD (leave yesterday's set live). Two hard rules: never publish a flagged set,
+        # never fail silently. Runs in dry-run too, so shadow-runs exercise the gate.
+        if os.environ.get("DAILYXP_SKIP_REVIEW") == "1":
+            print(f"[{s}] {tag}: ⚠ REVIEW SKIPPED (DAILYXP_SKIP_REVIEW=1) — publishing UNREVIEWED.")
+        elif cset.get("status") != "placeholder" and cset.get("questions"):
+            curric = review.curriculum_context(targets, s)
+            base_seen = set(seen_prompts(s, hist))
+            rounds = 0
+            verdict, verr = review.review_set(cset, curriculum=curric)
+            while verdict and not verdict["ok"] and rounds < MAX_REVIEW_ROUNDS:
+                bad = verdict["blocking"]
+                print(f"[{s}] {tag}: REVIEW round {rounds+1} — {len(bad)} blocking, recomposing {bad}")
+                for sid, f in verdict["flags"].items():
+                    print(f"        ⛔ {sid} [{','.join(f['categories'])}] {f['note']}")
+                reduced = {**plan, "slots": [sl for sl in plan["slots"] if sl["slot"] in bad]}
+                kept = {q["prompt"] for q in cset["questions"] if q["id"] not in bad}
+                sub, serr = compose.compose_set(
+                    reduced, seen=base_seen | kept,
+                    model=os.environ.get("DAILYXP_MODEL", compose.DEFAULT_MODEL), history_dir=hist)
+                if sub is None:
+                    print(f"[{s}] recompose of {bad} FAILED: {serr}")
+                    break
+                repl = {q["id"]: q for q in sub["questions"]}
+                cset["questions"] = [repl.get(q["id"], q) for q in cset["questions"]]
+                rounds += 1
+                verdict, verr = review.review_set(cset, curriculum=curric)
+
+            if verr or verdict is None:
+                # fail-safe: no verdict = unknown safety → do NOT publish (yesterday's stays live)
+                print(f"[{s}] {tag}: REVIEW UNAVAILABLE ({verr}) — holding; yesterday's set stays live.")
+                summary.append((s, tag, "held-review-error"))
+                continue
+            review.print_verdict(verdict)
+            if not verdict["ok"]:
+                print(f"[{s}] {tag}: REVIEW HOLD — {verdict['blocking']} still blocking after {rounds} "
+                      f"recompose round(s). NOT publishing; yesterday's set stays live. Needs a human.")
+                summary.append((s, tag, f"held-review:{','.join(verdict['blocking'])}"))
                 continue
 
         if dry_run:
