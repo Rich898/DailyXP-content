@@ -19,6 +19,50 @@
 
 **Why the midweek matters most:** most parents don't lack interest, they lack a script. The check-in hands them one praise line and one 5-minute action — it productises the ledger's sit-down actions and channels parental energy into a single constructive touch instead of nightly questioning.
 
+## The weekly parent report (the "full report page" the Friday headlines link to)
+
+The Friday SMS is the teaser; this page is the report. Two surfaces:
+- **Friday SMS** — the *lead line* (below) + the three axis headlines (one line each) + a link. Short. A parent who never taps still got the lead + three headlines.
+- **The report page** (dashboard) — the full thing detailed below.
+
+### The lead (hero) line — carries TWO things fused
+Standing **and** trajectory in one sentence a parent can exhale on:
+> "{name} — strong week. Keeping pace with his coursework and moved two topics forward since last week."
+
+Standing = "keeping pace"; trajectory = "moved two forward"; activity is implied. This is the sentence that does the work if it's all they read.
+
+### The week-word (the tone-setter) — CODE picks it, from thresholds
+Four words, framed on effort/trajectory not outcome, so a hard week is never a rebuke of the kid:
+
+| Word | Means | Parent action it implies |
+|---|---|---|
+| **Strong** | high activity + forward movement | celebrate |
+| **Solid** | steady, on pace, undramatic (most weeks) | keep going |
+| **Quiet** | low activity / missed days — factual, no judgement | nudge the habit |
+| **Slower** | showed up, but things landed harder / a topic slid back | support the learning |
+
+- **Quiet ≠ slower, deliberately:** quiet = an *engagement* dip (didn't show up); slower = a *comprehension* dip (showed up, tougher). Opposite parent actions, so they stay distinct.
+- **Quiet outranks slower** when both are true: sparse activity means you can't honestly diagnose comprehension, so name the activity and don't stack a "slower" judgement on thin evidence.
+- The word is chosen **deterministically from thresholds** (days completed, net topic movement). The AI writes the sentence; code picks the word — so the tone can't drift run to run.
+
+### The three rows (one axis each, for the parent who wants the why)
+- **This week** (activity — reassurance): days done · topics practised · events cleared. Safe facts only.
+- **Where he stands** (standing — the insight): lead with the overall verdict, name only the exceptions ("on pace, except Maths — a step behind the current unit, pacing not a gap"). Full per-subject detail lives lower on the page, not in this row.
+- **Since last week** (trajectory — the movement): net + notable — "moved 2 forward," name the biggest ↑ and any ↓ that needs action. Not every wobble.
+
+### What "keeping pace" means (honest + computable)
+The targets layer knows what class is *currently teaching*; the ledger knows what's *mastered*. **Keeping pace** = live topics reaching developing/solid roughly as fast as they go live. **"A step behind"** = a topic's been live a while but is still shaky/untested — taught, not landing yet.
+- Never a bare "behind." Never against other children — there is no cohort, so "behind" can only ever mean behind *his own syllabus*. Always paired with the specific fixable thing.
+
+### Laws (parent-side)
+- **Code decides, language dresses:** the word, thresholds, standing verdict and movement list are computed; the AI only writes them into sentences.
+- **The no-anxiety rule** (parent-side of no-ammunition): a flagged area always arrives *with its fix*, never as bare worry. Under-claim when data is thin.
+- **Week 1 has no prior:** the first report drops trajectory, leans on standing + a "here's where he's starting" baseline; trajectory switches on from week 2.
+
+### Still under design (candidate additions to the page)
+A win/highlight to celebrate · a "what's coming next week" forward look · assessment-readiness when a test is near (the planner is already assessment-aware) · whether the warm narrative paragraph stays or the hero + rows replace it · whether the kid's achievements get a light, insight-framed mention.
+
+
 ## Config and delivery
 - Per-family on/off per touchpoint, set at onboarding.
 - Delivery: branded one-way SMS (sender = product name), with a "questions? text the operator" line since one-way can't receive replies.
