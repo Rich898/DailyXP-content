@@ -102,6 +102,19 @@ def run(date, students, private_dir, directives_override, dry_run, push):
         except Exception as e:
             print(f"⚠ state-writer step failed ({e}) — proceeding with state.json as-is.\n")
 
+    # ACHIEVEMENTS: badge the ledger from the just-updated state/log (ACHIEVEMENTS.md).
+    # Deterministic + idempotent; feeds the in-quiz screen and the kid dashboard. Dry-run previews.
+    if os.environ.get("DAILYXP_SKIP_ACHIEVEMENTS") != "1" and \
+       os.path.exists(os.path.join(private_dir, "work", "runs.json")):
+        try:
+            import achievements
+            awarded, ach_lines = achievements.process(private_dir, dry_run=dry_run)
+            print("--- achievements (badge the ledger) ---")
+            print("\n".join(ach_lines))
+            print("---------------------------------------\n")
+        except Exception as e:
+            print(f"⚠ achievements step failed ({e}) — continuing.\n")
+
     # point archive + no-repeat at the PRIVATE history; load private state + targets
     hist = os.path.join(private_dir, "history")
     os.environ["DAILYXP_HISTORY_DIR"] = hist

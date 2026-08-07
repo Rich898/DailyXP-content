@@ -50,6 +50,10 @@ manual **Run workflow** button (with date / student / dry-run inputs) for superv
   `results_reader` (dedupe / drop SYSTEM TEST / mark canonical / medians) and writing the same JSON
   shape. Parsing pipeline regression-tested; prints counts + y8/y9 codes only (public Actions logs).
   Config: `RESULTS_URL` + `RESULTS_KEY` (gated — skipped when unset).
+- `achievements.py` — badges the ledger after the state-writer (deterministic, idempotent): reads
+  runs.json + the state-writer log + state.json, awards the 12-badge set (`ACHIEVEMENTS.md`) deduped
+  against a private earned-ledger. Feeds the in-quiz screen + kid dashboard. Regression-tested (all
+  12 badge types + idempotency). Env `DAILYXP_SKIP_ACHIEVEMENTS=1` bypass.
 - The workflow — both-repo checkout, secret injection, private-state commit-back.
 
 ## Stubs to finish this weekend

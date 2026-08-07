@@ -153,6 +153,19 @@ Runs first inside `run_daily` (state current before planning), dry-run-aware. En
 manual is **ingestion** — refreshing `runs.json` from the Sheet (see scripts/README Stubs #1);
 the writer no-ops on a stale runs.json until then.
 
+## achievements.py — badge the ledger
+
+Deterministic, idempotent, no AI — the same shape as the state-writer, run right after it. Reads
+three event sources and awards any newly-unlocked badges, deduped against a private earned-ledger
+so nothing fires twice: `runs.json` for run-shaped badges (First Blood, Clean Run, Boss Slayer,
+Blitz Master, Perfect Week, Streak), `state_writer_log.jsonl` for transition badges (Locked It,
+Comeback, Untouchable, Calm Hands, Sure Shot), and `state.json` for snapshot badges (Full Clear).
+The 12-badge v1 set and its triggers live in **`ACHIEVEMENTS.md`**. Awarded badges feed the
+in-quiz end screen and the kid dashboard. Writes `work/achievements_earned.json` (the badge
+ledger, private) + `work/achievements_log.jsonl`. Public-log safe (y8/y9 codes + badge names
+only). Env `DAILYXP_SKIP_ACHIEVEMENTS=1` bypasses. CLI: `python3 tools/achievements.py
+--private-dir <priv> [--dry-run]`. Regression-tested (all 12 badge types + idempotency).
+
 ## publish.py — limb #1.5: the ONE atomic publish
 
 Replaces hand-editing `y8.json`/`y9.json` (the path that caused the 5 Aug
