@@ -19,11 +19,32 @@
 
 **Why the midweek matters most:** most parents don't lack interest, they lack a script. The check-in hands them one praise line and one 5-minute action — it productises the ledger's sit-down actions and channels parental energy into a single constructive touch instead of nightly questioning.
 
-## The weekly parent report (the "full report page" the Friday headlines link to)
+## Surfaces — SMS → weekly report → portal (what lives where)
 
-The Friday SMS is the teaser; this page is the report. Two surfaces:
-- **Friday SMS** — the *lead line* (below) + the three axis headlines (one line each) + a link. Short. A parent who never taps still got the lead + three headlines.
-- **The report page** (dashboard) — the full thing detailed below.
+Three surfaces, three time-frames. Only the SMS is *sent*; the other two are hosted pages (per-kid URLs, same model as the quiz).
+
+1. **Friday SMS** — the only thing pushed (one-way SMS is the channel). Lead line + three headlines + a link. Can't carry rich content — it's the teaser.
+2. **Weekly report** — a hosted HTML page the SMS link opens, self-contained so one tap gives the whole week. **A snapshot: this week, bounded.** Answers "how was *this* week?"
+3. **Portal** — a second hosted, evergreen, bookmarkable page reached from the report ("see {name}'s full picture →"). **The cumulative shape — the film and the full atlas.** Answers "how's he doing *overall*?" Organised around subjects and time, not this week.
+
+Flow: **SMS (teaser) → weekly report (this week, self-contained) → portal (cumulative, on tap).** The still frame is the report; the film and the atlas are the portal. Weekly reports are frames that drop into the portal's timeline.
+
+### Which surface does a thing belong to? — does it have a time dimension?
+A *number* is the report; a *trend* is the portal.
+- "Maths is behind this week" → report. "Maths has been slipping three weeks" → portal.
+- Where he stands *now* → report. Comprehension trend-lines *over the term* → portal.
+
+### What lives where
+- **Weekly report:** hero line · the three rows · the win · what's-next · assessment-readiness (when a test is near) · the action · a *compact* where-he-stands-now snapshot.
+- **Portal:** the full per-subject/per-topic mastery map · comprehension *over the term* (trends) · overall strengths-and-growth shape · the archive of past weekly reports.
+
+### Form + build order
+- SMS is sent (branded one-way). Report + portal are hosted HTML (per-kid URL, like the quiz), self-contained. Email is a later option if parents ask — SMS-first keeps the channel single.
+- **Build the weekly report first** (it's what the Friday touchpoint delivers); the portal is the depth behind it and can be lighter in week 1, filling in as history accumulates — trends need weeks to exist. (The parent dashboard mocked earlier is the *weekly report* view; the cumulative portal is a separate, not-yet-mocked screen.)
+
+## The weekly parent report (surface 2 — the "this-week" page the Friday SMS links to)
+
+Self-contained snapshot of the week. Detailed below; the cumulative view is the portal (above).
 
 ### The lead (hero) line — carries TWO things fused
 Standing **and** trajectory in one sentence a parent can exhale on:
