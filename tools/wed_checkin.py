@@ -81,22 +81,22 @@ MAX_TOKENS = 300
 # anchors handed to the model AND the shape of the deterministic fallback.
 APPROVED_VOICES = {
     ("strong", "up"):
-        "Midweek read: Harrison's kept both days and it's building on last "
+        "Midweek read: Alex's kept both days and it's building on last "
         "week. Tonight's ask: get him to explain how the Church held power "
         "over kings — saying it out loud cements it. Friday's wrap should "
         "be a good one.",
     ("solid", "flat"):
-        "Steady week for Harrison so far, tracking level with last week. One "
+        "Steady week for Alex so far, tracking level with last week. One "
         "thing worth five minutes: he's still circling 'variables in "
         "experiments' — ask him to set dinner up as the experiment: what "
         "changes, what gets measured, what stays the same. It's the one "
         "Friday's wrap will centre on.",
     ("quiet", "down"):
-        "Harrison's a bit behind last week — happens. If tonight allows, sit "
+        "Alex's a bit behind last week — happens. If tonight allows, sit "
         "with him for the first two questions when the quiz lands; the door "
         "back in is smaller than it looks. Full picture in Friday's wrap.",
     ("slower", "down"):
-        "Harrison's showing up but working harder for it than last week. "
+        "Alex's showing up but working harder for it than last week. "
         "Worth five minutes tonight: 'linear equations' — get him to talk "
         "you through one. Friday's wrap will show where it landed.",
 }
@@ -321,10 +321,10 @@ HARD RULES (the text is rejected if any is broken):
 - One paragraph, under four hundred characters, plain text, no emojis, no sign-off.
 
 Tone anchors (match this register exactly):
-1. "Midweek read: Harrison's kept both days and it's building on last week. Tonight's ask: get him to explain how the Church held power over kings — saying it out loud cements it. Friday's wrap should be a good one."
-2. "Steady week for Harrison so far, tracking level with last week. One thing worth five minutes: he's still circling 'variables in experiments' — ask him to set dinner up as the experiment: what changes, what gets measured, what stays the same. It's the one Friday's wrap will centre on."
-3. "Harrison's a bit behind last week — happens. If tonight allows, sit with him for the first two questions when the quiz lands; the door back in is smaller than it looks. Full picture in Friday's wrap."
-4. "Harrison's showing up but working harder for it than last week. Worth five minutes tonight: 'linear equations' — get him to talk you through one. Friday's wrap will show where it landed."
+1. "Midweek read: Alex's kept both days and it's building on last week. Tonight's ask: get him to explain how the Church held power over kings — saying it out loud cements it. Friday's wrap should be a good one."
+2. "Steady week for Alex so far, tracking level with last week. One thing worth five minutes: he's still circling 'variables in experiments' — ask him to set dinner up as the experiment: what changes, what gets measured, what stays the same. It's the one Friday's wrap will centre on."
+3. "Alex's a bit behind last week — happens. If tonight allows, sit with him for the first two questions when the quiz lands; the door back in is smaller than it looks. Full picture in Friday's wrap."
+4. "Alex's showing up but working harder for it than last week. Worth five minutes tonight: 'linear equations' — get him to talk you through one. Friday's wrap will show where it landed."
 
 Output ONLY the SMS text. No quotes, no preamble, no markdown."""
 
