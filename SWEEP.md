@@ -1,6 +1,6 @@
 # Weekly Canvas content sweep — drill
 
-*Runs once per week (Tue-ish; Monday quizzes are ledger-consolidation by design). Done via the Claude-in-Chrome extension panel riding the owner's logged-in browser. Retires when the scheduler's Canvas-API integration (student access tokens) lands.*
+*Runs once per week, **Monday ~12:00pm** (teachers post Sun night/Mon morning; this gets the week's targets in from Monday's 2pm run onward). LAW: **Monday's quiz never depends on it** — Monday is ledger-consolidation by design, and the pipeline falls back to the newest existing targets file, so a late or missed sweep costs freshness, never the day. Deadline that matters: the new `targets/<monday-date>.json` committed to the private repo before the 2pm run you want it to affect. Done via the Claude-in-Chrome extension panel riding the owner's logged-in browser; output is pasted into the build chat, which writes + commits the targets file. Retires when the scheduler's Canvas-API integration (student access tokens) lands.*
 
 ## Steps
 1. **Panel on the right account.** Open Chrome → Claude side panel (icon near the address bar). It MUST be signed into the same account as the project chat — a different (e.g. work) account fails silently. Check before anything else.

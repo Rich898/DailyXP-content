@@ -123,6 +123,12 @@ def run(date, students, private_dir, directives_override, dry_run, push):
     tdir = os.path.join(private_dir, "targets")
     tfiles = sorted(f for f in os.listdir(tdir) if f.endswith(".json"))
     targets = json.load(open(os.path.join(tdir, tfiles[-1])))
+    # Loud about staleness: a forgotten weekly sweep should be visible, never silent.
+    try:
+        t_age = (date - dt.date.fromisoformat(tfiles[-1][:10])).days
+        print(f"targets: {tfiles[-1]}" + (f"  \u26a0 {t_age} days old \u2014 has the weekly sweep run?" if t_age > 7 else ""))
+    except Exception:
+        print(f"targets: {tfiles[-1]}")
 
     day = date.strftime("%a").upper()
     print(f"=== DailyXP run — {day} {date} {'(DRY RUN)' if dry_run else ''} ===")
