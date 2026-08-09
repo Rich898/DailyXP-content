@@ -1,12 +1,9 @@
 # DailyXP — one-tap SMS pipe test ("does a real text arrive?")
 #
-# Press "Run workflow", pick a target, and one test text goes out via the
-# real Mobile Message pipe. Use this ONCE after adding the secrets, before
-# flipping the crons — the first live send should never be the 4pm nudge.
+# Press "Run workflow" (or dispatch via API), pick a target, and one test text
+# goes out via the real Mobile Message pipe. Targets: a kid code (y8 / t1) for
+# that kid's own phone, or "parents:<code>" for that kid's parent seat.
 # The log stays public, so notify runs --quiet (numbers/text never printed).
-
-name: test-sms
-
 
 name: test-sms
 
