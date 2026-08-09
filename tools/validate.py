@@ -120,6 +120,11 @@ def validate_set(s: dict, history_dir: str = None) -> tuple:
                 errors.append(f"[{qid}] speed/steady must carry fresh:true (skip-on-every-Q law until v3.1)")
 
     shape = (counts["speed"], counts["steady"], counts["teach"])
+    if counts["teach"] != 1:
+        errors.append(f"exactly ONE teach question required (got {counts['teach']}) — "
+                      "shell v3.0 unconditionally enters the teach-back screen after steady "
+                      "and crashes without one (learned the hard way, 9 Aug: no end screen, "
+                      "no submit)")
     if shape not in KNOWN_SHAPES:
         # boss chains and encores legitimately vary — warn, don't block
         warns.append(f"run shape {shape} is non-standard (known: 7/4/1 standard, 10/2/1 blitz) — intended?")
