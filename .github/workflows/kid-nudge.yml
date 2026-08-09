@@ -24,10 +24,10 @@ on:
         type: boolean
   # Cron commented pending go-live — flips ON with the others.
   # 4:00pm Sydney, Mon–Fri (school's out ~3:10; phones back in hands).
-  # schedule:
+  schedule:
   #   # AEST = UTC+10. (Sydney DST Oct–Apr: subtract 1 from the UTC hour to
   #   # pin 4pm local.)
-  #   - cron: "0 6 * * 1-5"     # 16:00 AEST
+    - cron: "0 6 * * 1-5"     # 16:00 AEST
 
 jobs:
   nudge:

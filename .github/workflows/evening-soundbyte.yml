@@ -31,12 +31,12 @@ on:
         type: boolean
   # Cron is commented pending go-live — flips ON together with daily-quiz's.
   # Three evening polls, Sydney time: 6:30pm, 8:00pm, 9:30pm (Mon–Fri).
-  # schedule:
+  schedule:
   #   # AEST = UTC+10. (Sydney DST Oct–Apr shifts these an hour later locally —
   #   # subtract 1 from the UTC hours during DST to pin the local times.)
-  #   - cron: "30 8 * * 1-5"    # 18:30 AEST
-  #   - cron: "0 10 * * 1-5"    # 20:00 AEST
-  #   - cron: "30 11 * * 1-5"   # 21:30 AEST
+    - cron: "30 8 * * 1-5"    # 18:30 AEST
+    - cron: "0 10 * * 1-5"    # 20:00 AEST
+    - cron: "30 11 * * 1-5"   # 21:30 AEST
 
 concurrency:
   group: daily-quiz             # serialize with the 2pm pipeline — never

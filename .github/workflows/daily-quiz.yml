@@ -35,10 +35,10 @@ on:
   # blocker that kept this cron off is cleared. Cron is still commented pending the planned
   # go-live (rollout: flip ON with a morning thumbs-up, per scripts/README). Run supervised
   # via the manual "Run workflow" button until then; to auto-fire, uncomment the two lines below.
-  # schedule:
+  schedule:
   #   # 04:00 UTC = 14:00 AEST, Mon–Fri. (Sydney DST Oct–Apr shifts this to 15:00 AEDT —
   #   # change the hour to 03 during DST if you want it pinned to 14:00 local.)
-  #   - cron: "0 4 * * 1-5"
+    - cron: "0 4 * * 1-5"
 
 concurrency:
   group: daily-quiz            # never let two runs overlap on the same files
