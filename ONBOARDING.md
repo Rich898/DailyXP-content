@@ -36,6 +36,16 @@ daily door. This is the complete sequence. Player = kid seat + parent seat.
    ("Open as window"), or just bookmark it — same door. Results submit identically.
 8. **Verify the loop**: kid adds icon + plays warm-up → fire one evening-soundbyte
    dispatch → parent seat receives the first "done ✅" text. Onboarding complete.
+9. **Parent welcome + the LEGEND** (fire once to `parents:<c>`, at onboarding):
+   *"XP Daily here — each school night you'll get one line when <name>'s run is
+   done: did it, tonight's XP, and a verdict. The verdict words are earned, not
+   vibes — code picks them from how much of that night's set landed:
+   'flew tonight' = 85%+ of everything on offer · 'good night's work' = 70%+ ·
+   'put in a shift' = 50%+ (the learning zone — where the system works hardest) ·
+   'the set bit back' = the quiz played rough, and finishing was the win.
+   No text just means the run hasn't landed yet."*
+   This is the ONLY place percentages are ever stated (REPORTING.md: the legend
+   law) — the nightly line itself never carries a %, a ratio, or a running total.
 
 ## Laws + open items
 - **The URL is currently the identity.** Anyone holding it can play (and submit) as

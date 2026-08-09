@@ -7,7 +7,7 @@
 |---|---|---|
 | Once, at onboarding | Access text: personal link + "Add to Home Screen" | — |
 | Mon–Fri **4:00pm** | **"XP Daily is up"** nudge (⚡ blitz flavour Wed, 🐉 boss Fri) — sent only after the live set is verified as *today's* | — |
-| Mon–Fri evening, **on completion** | — | **Soundbyte**: done + XP + streak, nothing else |
+| Mon–Fri evening, **on completion** | — | **Soundbyte**: did it + XP + verdict, nothing else |
 | **Wed** morning | — | **Check-in**: praise script + one 5-min help action |
 | **Fri** evening | **Weekly wrap** link + **kid portal** link | **Weekly report** link (the report carries the parent-portal link) |
 
@@ -23,13 +23,13 @@ Friday evening deliberately carries **two** parent texts — the soundbyte (fire
 ## Parent-facing — three touchpoints, three jobs
 | Touchpoint | Trigger | Job | Content |
 |---|---|---|---|
-| **Daily soundbyte** | run completion | **Reassure** | Done + points + streak. Nothing else. |
+| **Daily soundbyte** | run completion | **Reassure** | Did it + tonight's XP + a verdict closer. Nothing else. |
 | **Midweek check-in** | Wed morning | **Activate** | Momentum read + ONE "something to say" (specific, data-grounded praise script) + ONE "area where you can help" (~5-minute action) |
 | **Friday headlines** | Fri evening | **Judge** | Three headlines + link to the full report page |
 
 **The no-ammunition law (daily layer):** the soundbyte never carries misses, gaps, or anything interrogable — a parent cannot turn it into an interrogation because there is nothing in it to interrogate with. The only move it leaves open is praise. Gaps surface only where they arrive dressed as *help* (midweek) or *perspective* (Friday).
 
-**Open calibration (under live family test):** do ratios like "6/7" whisper *there was a miss*? If the test parent feels the pull to ask "which one?", the beta soundbyte drops to pure points-and-streak.
+**The daily soundbyte — final form (ratified 9 Aug 2026, day 1 of live).** Exactly three beats: **(a)** did it **(b)** tonight's +XP **(c)** a verdict closer. The verdict is what gives the score its meaning — a bare number means nothing to a parent. The verdict LADDER is effort/energy language, never grade-words, picked by code from score/max thresholds (85/70/50): *flew tonight* → *good night's work* → *put in a shift* → *the set bit back — hung in there*. **Banned from the daily layer:** percentages, ratios, running totals (a total belongs to the Friday report and the portal), misses, subjects, day-vs-day comparison. **Attribution law:** success belongs to the kid; difficulty belongs to the set — true, because the planner picks the difficulty — so even the floor verdict leaves only a praise-family move open. **The legend law:** the ladder's numeric definitions are published ONCE (the onboarding parent welcome; later the portal footer), so the words are precise claims to any parent who read the front door — without any specific night ever arriving as a grade. Tiny sets (warm-ups) carry no verdict. Silence remains the only "not done" signal.
 
 **Why the midweek matters most:** most parents don't lack interest, they lack a script. The check-in hands them one praise line and one 5-minute action — it productises the ledger's sit-down actions and channels parental energy into a single constructive touch instead of nightly questioning.
 

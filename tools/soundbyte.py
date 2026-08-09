@@ -4,18 +4,31 @@ soundbyte.py — the daily parent soundbyte (REPORTING.md, touchpoint 1: REASSUR
 
 Runs in the EVENING (its own workflow, evening-soundbyte.yml), separate from the
 2pm pipeline: polls the results Sheet, and when today's run has landed for a boy
-and no soundbyte has been sent yet, texts the parents ONE line — done + XP +
-streak. Nothing else. That is the whole job.
+and no soundbyte has been sent yet, texts the parents ONE line — did it +
+tonight's XP + a verdict closer. Nothing else. That is the whole job.
 
 Design laws (all enforced here, by construction):
-  * NO AI. The line is a deterministic template filled from three facts
-    (name, points, streak). Tone cannot drift; the evening path has zero
+  * NO AI. The line is a deterministic template filled from four facts
+    (name, points, band, streak). Tone cannot drift; the evening path has zero
     API dependency. (The architecture law — "AI only does language" — and
     this line has so little language that code owns even that.)
-  * NO AMMUNITION. Only additive facts go in: points and streak. Never
-    ratios (a "6/7" whispers *there was a miss*), never misses, never
-    subjects. A 1-day streak is NOT mentioned (saying "1-day streak"
-    whispers *the streak broke* — same law, quieter edge).
+  * NO AMMUNITION, HONESTLY (final form, Rich 9 Aug 2026). The daily
+    line is exactly three beats: (a) did it, (b) +XP, (c) a verdict
+    closer. Lightweight, never alarming. Legal daily facts: the done
+    mark, tonight's +XP, continuity (streak >= 2), and an HONEST tone
+    band computed from best_score/max_score — the ratio itself printed
+    NOWHERE. Never percentages, never running totals (totals belong to
+    the Friday report and the portal), never misses, subjects, or
+    day-vs-day. The verdict gives the score its meaning — a bare
+    number means nothing to a parent. The verdict ladder is
+    effort/energy language, no grade-words. ATTRIBUTION LAW: success
+    belongs to the kid, difficulty belongs to the set ("the set bit
+    back") — true, because the planner picks the difficulty — so even
+    the floor band leaves only a praise-family move open. Band
+    definitions live once in the onboarding LEGEND. A 1-day streak is
+    NOT mentioned (saying "1-day streak" whispers *the streak broke*).
+    Tiny sets (max < MIN_BANDED_MAX) don't band: a 4-question warm-up
+    can't carry a fair tone word.
   * SILENCE IS THE ONLY "NOT DONE" SIGNAL. If no run lands, no text is
     sent — ever, at any hour. Absence of the text is soft by design.
   * IDEMPOTENT. A cursor (private repo, work/soundbyte_cursor.json)
@@ -32,6 +45,13 @@ Design laws (all enforced here, by construction):
 
 Facts:
   points = best score across today's completed runs (replays count the best).
+  band   = tone word from that best run's points/max_score (>=85% huge,
+           >=70% strong, >=50% solid, else hard); None on tiny sets or
+           missing max. Computed here, printed nowhere.
+  total  = season bank: best-per-day points summed since SEASON_START
+           (Term 3 W1 = w/c 27 Jul 2026), plus an optional approx seed
+           (work/season_seed.json). COMPUTED FOR THE FRIDAY REPORT —
+           the daily line never prints it.
   streak = consecutive SCHOOL-days ending today with a completed run;
            weekends are skipped, not broken (Fri -> Mon continues) — the
            same school-day semantics as the achievements engine.
@@ -54,15 +74,46 @@ except ImportError:                                    # pragma: no cover
 
 CURSOR_FILE = os.path.join("work", "soundbyte_cursor.json")
 ERROR_FILE = os.path.join("work", "soundbyte_last_error.txt")
+SEED_FILE = os.path.join("work", "season_seed.json")
 
-# Three rotating phrasings so the nightly text doesn't feel stamped out by a
-# machine (even though it is). Picked deterministically from the date, so a
-# given evening always renders the same line. {streak} is "" when streak < 2.
-TEMPLATES = (
-    "{name} \u2705 tonight's XP Daily run is done \u2014 {pts} XP{streak}.",
-    "XP Daily: {name} finished tonight's run \u2014 {pts} XP{streak} \u2705",
-    "{name} done \u2705 {pts} XP tonight{streak}.",
-)
+# Season bank anchor: Term 3 W1 = w/c Mon 27 Jul 2026 (schedule.json).
+SEASON_START = "2026-07-27"
+
+# Honest tone bands, computed from best_score/max_score and NEVER printed as
+# a ratio. The floor band exists ("hard") because the kid saw his own end
+# screen — a warm lie would teach the family the texts are fluff. The
+# attribution law keeps the floor reassuring: difficulty belongs to the SET,
+# showing up belongs to the KID. Tiny sets can't carry a fair tone word.
+MIN_BANDED_MAX = 1500
+BAND_CUTS = ((0.85, "huge"), (0.70, "strong"), (0.50, "solid"))  # else "hard"
+
+# Two rotating phrasings PER BAND so the nightly text doesn't feel stamped
+# out by a machine (even though it is). Picked deterministically from the
+# date, so a given evening always renders the same line. {streak} is ""
+# when streak < 2. Structure (Rich, final): (a) did it (b) +XP (c) verdict
+# closer. Band keys are internal; the LADDER WORDS below are the product.
+TEMPLATES = {
+    "huge": (
+        "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. Flew tonight.",
+        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Absolutely flew.",
+    ),
+    "strong": (
+        "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. Good night's work.",
+        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. A good night's work.",
+    ),
+    "solid": (
+        "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. Put in a shift.",
+        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Proper shift tonight.",
+    ),
+    "hard": (
+        "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. The set bit back \u2014 hung in there.",
+        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Tough set \u2014 stuck at it.",
+    ),
+    None: (
+        "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}.",
+        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}.",
+    ),
+}
 
 
 # --------------------------------------------------------------------------- #
@@ -97,27 +148,59 @@ def current_school_streak(present_dates, today):
     return n
 
 
-def facts_for(runs, student, today_iso):
-    """(name, best_points, streak) for today's completed runs, else None."""
+def band_for(pts, max_score):
+    """Tone band from the best run's OWN max. None = no fair band exists.
+    The ratio lives and dies inside this function."""
+    try:
+        mx = int(max_score or 0)
+    except (TypeError, ValueError):
+        return None
+    if mx < MIN_BANDED_MAX or pts is None:
+        return None
+    ratio = pts / mx
+    for cut, word in BAND_CUTS:
+        if ratio >= cut:
+            return word
+    return "hard"
+
+
+def season_total(student_runs, today_iso, seed=0):
+    """Season bank: best-per-day points, SEASON_START..today incl., + seed."""
+    best = {}
+    for r in student_runs:
+        d = r.get("run_date") or ""
+        if SEASON_START <= d <= today_iso:
+            best[d] = max(best.get(d, 0), int(r.get("score") or 0))
+    return sum(best.values()) + int(seed or 0)
+
+
+def facts_for(runs, student, today_iso, seed=0):
+    """(name, pts, band, total, streak) for today's runs, else None."""
     todays = [r for r in runs
               if r.get("student") == student and r.get("run_date") == today_iso]
     if not todays:
         return None
-    present = {r.get("run_date") for r in runs if r.get("student") == student}
+    mine = [r for r in runs if r.get("student") == student]
+    present = {r.get("run_date") for r in mine}
     name = todays[0].get("name") or student.upper()
-    pts = max(int(r.get("score") or 0) for r in todays)
+    top = max(todays, key=lambda r: int(r.get("score") or 0))
+    pts = int(top.get("score") or 0)
+    band = band_for(pts, top.get("max_score") or top.get("maxScore"))
     streak = current_school_streak(present, date.fromisoformat(today_iso))
-    return {"student": student, "name": name, "pts": pts, "streak": streak}
+    total = season_total(mine, today_iso, seed)
+    return {"student": student, "name": name, "pts": pts, "band": band,
+            "total": total, "streak": streak}
 
 
 def render_line(f, today_iso):
     """One deterministic line from the facts. streak < 2 is silently omitted."""
-    t = TEMPLATES[sum(today_iso.encode()) % len(TEMPLATES)]
+    options = TEMPLATES[f.get("band")]
+    t = options[sum(today_iso.encode()) % len(options)]
     streak_bit = f" \u00b7 {f['streak']}-day streak" if f["streak"] >= 2 else ""
     return t.format(name=f["name"], pts=f"{f['pts']:,}", streak=streak_bit)
 
 
-def plan(runs, cursor, today_iso, students):
+def plan(runs, cursor, today_iso, students, seed=None):
     """Decide what (if anything) to send tonight — PER KID, to that kid's own
     parent seat ("parents:<code>"), never a shared blast. Different kids can
     have entirely different parents; the routing enforces it.
@@ -131,7 +214,7 @@ def plan(runs, cursor, today_iso, students):
         if today_iso in sent.get(s, []):
             log.append(f"[{s}] already sent for {today_iso} \u2014 no-op.")
             continue
-        f = facts_for(runs, s, today_iso)
+        f = facts_for(runs, s, today_iso, (seed or {}).get(s, 0))
         if not f:
             log.append(f"[{s}] no run for {today_iso} yet \u2014 silent.")
             continue
@@ -175,7 +258,10 @@ def main():
     cpath = os.path.join(priv, CURSOR_FILE)
     cursor = json.load(open(cpath)) if os.path.exists(cpath) else {"sent": {}}
 
-    sends, log = plan(runs, cursor, today_iso, roster.active())
+    spath = os.path.join(priv, SEED_FILE)
+    seed = json.load(open(spath)) if os.path.exists(spath) else {}
+
+    sends, log = plan(runs, cursor, today_iso, roster.active(), seed)
     for line in log:
         print(line)
 

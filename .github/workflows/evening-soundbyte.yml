@@ -2,10 +2,12 @@
 #
 # Separate from the 2pm pipeline on purpose: this job POLLS in the evening for
 # "did today's run land?" and, the first time it has, texts the parents one
-# deterministic line (done + XP + streak — nothing else, per the no-ammunition
-# law). Idempotent via a cursor in the private repo; polls that find nothing
-# are silent no-ops. No AI, no ledger writes — reads runs.json, writes only
-# its own cursor. See tools/soundbyte.py for the full design laws.
+# deterministic THREE-BEAT line: did it + tonight's XP + a verdict closer
+# (the verdict ladder — effort/energy words picked by code from score/max;
+# no percentages, no ratios, no running totals, per the no-ammunition law
+# final form, REPORTING.md). Idempotent via a cursor in the private repo;
+# polls that find nothing are silent no-ops. No AI, no ledger writes — reads
+# runs.json, writes only its own cursor. See tools/soundbyte.py for the laws.
 #
 # SECRETS used (already defined for daily-quiz — nothing new):
 #   DAILYXP_TOKEN, RESULTS_URL, RESULTS_KEY, MOBILE_MESSAGE_*
