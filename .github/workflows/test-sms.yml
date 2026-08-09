@@ -1,0 +1,41 @@
+# DailyXP — one-tap SMS pipe test ("does a real text arrive?")
+#
+# Press "Run workflow", pick a target, and one test text goes out via the
+# real Mobile Message pipe. Use this ONCE after adding the secrets, before
+# flipping the crons — the first live send should never be the 4pm nudge.
+# The log stays public, so notify runs --quiet (numbers/text never printed).
+
+name: test-sms
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Who gets the test text"
+        required: true
+        default: "parents"
+        type: choice
+        options: ["parents", "y8", "y9"]
+      text:
+        description: "Message"
+        required: false
+        default: "XP Daily ✅ the SMS pipe works."
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Send one test text
+        env:
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
+          MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
+          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
+        run: |
+          python tools/notify.py --to-student "${{ github.event.inputs.target }}" --text "${{ github.event.inputs.text }}" --quiet

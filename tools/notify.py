@@ -14,9 +14,10 @@ RECIPIENTS are injected, never hardcoded (phone numbers are PII):
   MOBILE_MESSAGE_TO_Y8, MOBILE_MESSAGE_TO_Y9           the boys
   MOBILE_MESSAGE_TO_PARENTS = comma-separated parent numbers
 
-NOTE: confirm the exact request shape against Mobile Message's current API docs
-(https://mobilemessage.com.au) before the first live send — the endpoint and
-field names below follow their documented REST pattern but should be verified.
+Request shape VERIFIED against Mobile Message's live API docs (Aug 2026):
+POST /v1/messages, Basic auth (API username:password base64), messages[] of
+{to, message, sender, custom_ref}; enable_unicode ON because every DailyXP
+text carries emoji (unicode SMS = 70-char segments — our lines are short).
 
 Usage:
   python3 tools/notify.py --to-student y8 --text "Tonight's quiz is up 👊"
@@ -64,7 +65,7 @@ def send_sms(target, text, ref=None, dry_run=False):
     if not (key and secret):
         return False, "MOBILE_MESSAGE_API_KEY/SECRET not set"
     auth = base64.b64encode(f"{key}:{secret}".encode()).decode()
-    body = json.dumps({"messages": messages}).encode()
+    body = json.dumps({"enable_unicode": True, "messages": messages}).encode()
     req = urllib.request.Request(API_URL, data=body, method="POST", headers={
         "Authorization": f"Basic {auth}", "Content-Type": "application/json",
     })
@@ -83,9 +84,14 @@ def main():
     ap.add_argument("--text", required=True)
     ap.add_argument("--ref", default=None)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--quiet", action="store_true",
+                    help="print only OK/FAIL — for public Actions logs (detail can echo numbers/text)")
     a = ap.parse_args()
     ok, detail = send_sms(a.target, a.text, ref=a.ref, dry_run=a.dry_run)
-    print(("OK " if ok else "FAIL ") + detail)
+    if a.quiet:
+        print("OK sent" if ok else "FAIL (detail withheld from public log — check the Mobile Message dashboard)")
+    else:
+        print(("OK " if ok else "FAIL ") + detail)
     sys.exit(0 if ok else 1)
 
 

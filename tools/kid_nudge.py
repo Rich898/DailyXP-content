@@ -110,6 +110,11 @@ def main():
             continue
         ok, detail = notify.send_sms(s, text, ref=f"xpd-nudge-{today.isoformat()}",
                                      dry_run=False)
+        if not ok and "no recipient configured" in (detail or ""):
+            # A kid without a number (e.g. the US-phone gap) is a known state,
+            # not an error — the icon is his channel until the fallback lands.
+            print(f"[{s}] no number configured \u2014 skipped (icon is his channel).")
+            continue
         print(f"[{s}] nudge {'sent \u2713' if ok else 'FAILED \u2717'}")
         if not ok:
             any_fail = True
