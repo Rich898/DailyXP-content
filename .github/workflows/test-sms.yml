@@ -29,11 +29,8 @@ jobs:
           python-version: "3.12"
       - name: Send one test text
         env:
-          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
-          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
-          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
           MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
           MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
-          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
         run: |
           python tools/notify.py --to-student "${{ github.event.inputs.target }}" --text "${{ github.event.inputs.text }}" --quiet

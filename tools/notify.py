@@ -35,6 +35,19 @@ import urllib.error
 API_URL = "https://api.mobilemessage.com.au/v1/messages"
 
 
+def _env(name):
+    """Env var, falling back to the Actions-wide SECRETS_CONTEXT JSON blob
+    (workflows pass `SECRETS_CONTEXT: ${{ toJson(secrets) }}` so adding a
+    player never requires editing workflow env blocks)."""
+    v = os.environ.get(name)
+    if v:
+        return v
+    try:
+        return json.loads(os.environ.get("SECRETS_CONTEXT", "{}")).get(name)
+    except Exception:
+        return None
+
+
 def _split(raw):
     return [x.strip() for x in (raw or "").split(",") if x.strip()]
 
@@ -50,11 +63,11 @@ def _recipients(target):
     """
     if target.startswith("parents:"):
         code = target.split(":", 1)[1].strip()
-        per = _split(os.environ.get(f"MOBILE_MESSAGE_PARENTS_{code.upper()}"))
-        return per or _split(os.environ.get("MOBILE_MESSAGE_TO_PARENTS"))
+        per = _split(_env(f"MOBILE_MESSAGE_PARENTS_{code.upper()}"))
+        return per or _split(_env("MOBILE_MESSAGE_TO_PARENTS"))
     if target == "parents":
-        return _split(os.environ.get("MOBILE_MESSAGE_TO_PARENTS"))
-    return _split(os.environ.get(f"MOBILE_MESSAGE_TO_{target.upper()}"))
+        return _split(_env("MOBILE_MESSAGE_TO_PARENTS"))
+    return _split(_env(f"MOBILE_MESSAGE_TO_{target.upper()}"))
 
 
 def send_sms(target, text, ref=None, dry_run=False):
@@ -69,8 +82,8 @@ def send_sms(target, text, ref=None, dry_run=False):
     if dry_run:
         return True, "DRY-RUN, not sent:\n" + json.dumps({"sender": sender, "messages": messages}, indent=2)
 
-    key = os.environ.get("MOBILE_MESSAGE_API_KEY")
-    secret = os.environ.get("MOBILE_MESSAGE_API_SECRET")
+    key = _env("MOBILE_MESSAGE_API_KEY")
+    secret = _env("MOBILE_MESSAGE_API_SECRET")
     if not (key and secret):
         return False, "MOBILE_MESSAGE_API_KEY/SECRET not set"
     auth = base64.b64encode(f"{key}:{secret}".encode()).decode()
