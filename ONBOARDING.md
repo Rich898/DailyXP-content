@@ -28,9 +28,12 @@ daily door. This is the complete sequence. Player = kid seat + parent seat.
    on every Q; subjects/topics OUTSIDE the ledger so playing it moves nothing;
    archive lands in PRIVATE `history/<c>/` (no-repeat memory).
 7. **Access text** (the front door): fire `test-sms` at target `<c>` with:
-   *"Welcome to XP Daily 👊 Your quiz lives here: <url> — open it, enter your name,
-   then Share → Add to Home Screen. That icon is your daily door."*
-   The name they enter must be their real first name (SYSTEM TEST = discard rows).
+   *"Welcome to XP Daily 👊 Your quiz lives here: <url> — open it, then add it to
+   your Home Screen. That icon is your daily door."*
+   NOTE: stamped pages carry the player's name baked in — there is NO name prompt.
+   (SYSTEM TEST discard rows require a page stamped with that name — operator tool.)
+   Desktop-only players (no smartphone): Chrome ⋮ → More tools → Create shortcut
+   ("Open as window"), or just bookmark it — same door. Results submit identically.
 8. **Verify the loop**: kid adds icon + plays warm-up → fire one evening-soundbyte
    dispatch → parent seat receives the first "done ✅" text. Onboarding complete.
 
