@@ -236,7 +236,8 @@ Actions secrets, per seat: `MOBILE_MESSAGE_TO_<CODE>` (the kid's own phone)
 and `MOBILE_MESSAGE_PARENTS_<CODE>` (that kid's parent set, comma-separated —
 per-kid on purpose: different kids can have different parents, even in one
 family). `targets_alias` lets a test player quiz another student's curriculum
-(t1 → y8). Adding a player = one roster entry + two secrets + a seeded
-state.json block + a stamped shell page; nothing else knows the student list.
+(t1 → y8). Adding a player = one roster entry + two secrets + the two matching env lines
+in the comms workflows (Actions can't wildcard secrets into env) + a seeded
+state.json block + a stamped shell page; no *code* knows the student list.
 The soundbyte sends per kid to `parents:<code>` with independent cursors — one
 family's failed send never blocks or repeats another's.

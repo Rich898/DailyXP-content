@@ -63,7 +63,13 @@ jobs:
 
       - name: Poll + send (log is public — script prints no names/scores/text)
         env:
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_PARENTS_Y8: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y8 }}
+          MOBILE_MESSAGE_PARENTS_Y9: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y9 }}
+          MOBILE_MESSAGE_PARENTS_T1: ${{ secrets.MOBILE_MESSAGE_PARENTS_T1 }}
+          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
           RESULTS_URL: ${{ secrets.RESULTS_URL }}
           RESULTS_KEY: ${{ secrets.RESULTS_KEY }}
         run: |
