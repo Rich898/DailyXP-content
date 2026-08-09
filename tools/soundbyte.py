@@ -6,6 +6,11 @@ Runs in the EVENING (its own workflow, evening-soundbyte.yml), separate from the
 2pm pipeline: polls the results Sheet, and when today's run has landed for a boy
 and no soundbyte has been sent yet, texts the parents ONE line — did it +
 tonight's XP + a verdict closer. Nothing else. That is the whole job.
+(Wednesdays excepted: the wed-checkin job polls five minutes ahead and
+usually sends the MERGED message — the three beats plus the midweek body —
+advancing this cursor so this job no-ops; the 9:30pm poll here remains the
+late-run safety net that keeps the check-in's "the usual text will follow"
+promise.)
 
 Design laws (all enforced here, by construction):
   * NO AI. The line is a deterministic template filled from four facts

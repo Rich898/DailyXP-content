@@ -9,6 +9,12 @@
 # polls that find nothing are silent no-ops. No AI, no ledger writes — reads
 # runs.json, writes only its own cursor. See tools/soundbyte.py for the laws.
 #
+# WEDNESDAYS: the wed-checkin job polls five minutes ahead (6:25/8:25pm) and
+# usually sends the MERGED message (three beats + midweek body), advancing
+# this job's cursor too — so this job no-ops. The 9:30pm poll here stays the
+# late-run safety net (a run landing after the 8:25 cutoff still gets its
+# soundbyte, keeping the check-in's "the usual text will follow" promise).
+#
 # SECRETS used (already defined for daily-quiz — nothing new):
 #   DAILYXP_TOKEN, RESULTS_URL, RESULTS_KEY, MOBILE_MESSAGE_*
 # (No ANTHROPIC_API_KEY — the evening path is deliberately AI-free.)

@@ -217,25 +217,34 @@ YYYY-MM-DD] [--dry-run]`.
 
 ---
 
-## wed_checkin.py — the Wednesday midweek check-in (ACTIVATE + expectation-setter)
+## wed_checkin.py — the Wednesday check-in, MERGED with Wednesday's soundbyte
 
-The midweek parent touchpoint (`wed-checkin.yml`, Wed 7:30am Sydney = cron
-`30 21 * * 2` UTC). One SMS per kid to `parents:<code>`: an honest momentum
-read from the SAME week-word engine Friday samples (Mon–Tue vs LAST week's
-Mon–Tue, like for like — Wednesday can never contradict Friday), at most ONE
-ask (a strength drawn out as a dinner-table question) and ONE five-minute
-help action (repair-flag first, then shaky), the gap planted for Friday
-("it's the one Friday's wrap will centre on"). Every text ends pointing at
-Friday's wrap. Code picks every fact; the model dresses language only; a
-deterministic validator gates all outgoing text (no digits, no %, no ratios,
-never bare "behind", banned vocab, must name Friday) with the redlined
-fallback voices behind it — an API blip can never silence the Wednesday or
-push it off-law. Ledger topic names pass through `display_topic()` so raw
-names ("Triangle area (½bh) / area recall") never leak into text. Idempotent
-via `work/wed_checkin_cursor.json`; reads state.json + runs.json, writes only
-its cursor. Public-log safe. Tests: `python3 tools/test_wed_checkin.py`.
+The midweek parent touchpoint (`wed-checkin.yml`, Wed evening polls 6:25pm +
+8:25pm Sydney = crons `25 8 * * 3`, `25 10 * * 3` UTC — five minutes ahead of
+the soundbyte polls, so it wins the Wednesday race). First poll that finds
+tonight's run sends ONE merged SMS per kid to `parents:<code>`: the
+soundbyte's three beats on top (rendered by soundbyte.py's own machinery,
+its own digits legal under its own law), then the check-in body — honest
+momentum from the SAME week-word engine Friday samples (Mon–Wed vs LAST
+week's Mon–Wed, like for like), at most ONE ask (dinner-table question) and
+ONE five-minute help action (repair-flag first, then shaky), the gap planted
+for Friday ("it's the one Friday's wrap will centre on"). Merged sends
+advance BOTH cursors, so evening-soundbyte no-ops. The 8:25pm poll is the
+CUTOFF: a scheduled weekly touchpoint can't use silence, so a missing run
+sends the Mon–Tue read plus the tonight-status law — status plus open door,
+never judgment ("tonight's run isn't in yet — if it lands later this
+evening, the usual text will follow"; the 9:30 soundbyte poll keeps that
+promise) — and only when the set is verifiably published today (fetches the
+live `<code>.json`): our gaps are never reported as the kid's. Body law:
+no digits, no %, no ratios, never bare "behind", must point at Friday
+(validator-enforced); code picks every fact, the model dresses the body
+only, deterministic fallback voices behind it. Ledger names pass
+`display_topic()` so raw forms ("Triangle area (½bh) / area recall") never
+leak. Idempotent via `work/wed_checkin_cursor.json`; reads state.json +
+runs.json, writes only cursors. Public-log safe. Tests:
+`python3 tools/test_wed_checkin.py`.
 CLI: `python3 tools/wed_checkin.py --private-dir ../DailyXP-private [--date
-YYYY-MM-DD] [--dry-run] [--no-ai]`.
+YYYY-MM-DD] [--dry-run] [--no-ai] [--force-cutoff]`.
 
 ---
 

@@ -1,21 +1,30 @@
-# DailyXP — Wednesday midweek check-in (REPORTING.md touchpoint 2: ACTIVATE)
+# DailyXP — Wednesday midweek check-in, MERGED with Wednesday's soundbyte
+# (REPORTING.md touchpoint 2: ACTIVATE + expectation-setter)
 #
-# Wednesday 7:30am Sydney: one SMS per kid to that kid's parent seat — an
-# honest momentum read (the SAME week-word engine Friday's report samples,
-# run on Mon–Tue vs last week's Mon–Tue), at most ONE ask or five-minute
-# help action from the ledger, and it always ends pointing at Friday's wrap
-# (Wednesday is the expectation-setter; Friday resolves). Code picks every
-# fact; the model dresses language only; a deterministic validator (no
-# digits, no %, no ratios, never bare "behind") gates every outgoing text,
-# with the redlined fallback voices behind it — an API blip can never
-# silence the Wednesday or push it off-law. See tools/wed_checkin.py.
+# Wednesday EVENING, two polls: 6:25pm + 8:25pm Sydney — five minutes ahead
+# of the soundbyte polls, so this job wins the race on Wednesdays. First
+# poll that finds tonight's run sends ONE merged SMS per kid to that kid's
+# parent seat: the soundbyte's three beats on top (did it + XP + verdict,
+# rendered by soundbyte.py's own machinery), the check-in body under it
+# (honest momentum Mon–Wed vs last Mon–Wed, at most one ask or five-minute
+# action, always ending pointed at Friday's wrap) — and advances BOTH
+# cursors, so the evening-soundbyte job no-ops. The 8:25pm poll is the
+# CUTOFF: a missing run sends the Mon–Tue read with the status law (status
+# plus open door, never judgment: "tonight's run isn't in yet — if it lands
+# later this evening, the usual text will follow"), and ONLY when the set
+# is verifiably published today — our gaps are never reported as the kid's.
+# The 9:30pm soundbyte poll keeps the promise for late runs.
+#
+# Code picks every fact; the model dresses the BODY only; a deterministic
+# validator (no digits, no %, no ratios, never bare "behind") gates every
+# body, with the redlined fallback voices behind it. See tools/wed_checkin.py.
 #
 # SECRETS used (all already defined for daily-quiz / evening-soundbyte):
 #   DAILYXP_TOKEN, RESULTS_URL, RESULTS_KEY, ANTHROPIC_API_KEY,
 #   MOBILE_MESSAGE_*
 #
-# Idempotent via work/wed_checkin_cursor.json in the private repo; a failed
-# send retries on redispatch. Public logs carry codes + safe statuses only.
+# Idempotent via work/wed_checkin_cursor.json (private); merged sends also
+# advance work/soundbyte_cursor.json. Public logs: codes + safe statuses only.
 
 name: wed-checkin
 
@@ -27,7 +36,7 @@ on:
         required: false
         default: ""
       dry_run:
-        description: "Plan + render only — no send, no cursor write"
+        description: "Plan + render only — no send, no cursor writes"
         required: false
         default: false
         type: boolean
@@ -36,14 +45,21 @@ on:
         required: false
         default: false
         type: boolean
-  # Wednesday 7:30am AEST. (Sydney DST Oct–Apr shifts this an hour later
-  # locally — subtract 1 from the UTC hour during DST to pin 7:30am.)
+      force_cutoff:
+        description: "Treat this poll as the 8:25pm cutoff"
+        required: false
+        default: false
+        type: boolean
+  # Wednesday evening, Sydney: 6:25pm + 8:25pm (cutoff). Five minutes ahead
+  # of the soundbyte polls on purpose. (Sydney DST Oct–Apr shifts these an
+  # hour later locally — subtract 1 from the UTC hours during DST.)
   schedule:
-    - cron: "30 21 * * 2"     # Tue 21:30 UTC = Wed 07:30 AEST
+    - cron: "25 8 * * 3"      # Wed 18:25 AEST
+    - cron: "25 10 * * 3"     # Wed 20:25 AEST — the cutoff poll
 
 concurrency:
-  group: daily-quiz             # serialize with the 2pm pipeline — never
-  cancel-in-progress: false     # two jobs on the same private files
+  group: daily-quiz             # serialize with the pipeline AND the
+  cancel-in-progress: false     # soundbyte — shared private files + cursors
 
 jobs:
   checkin:
@@ -52,7 +68,7 @@ jobs:
       - name: Checkout public repo (code)
         uses: actions/checkout@v4
 
-      - name: Checkout private repo (ledger + runs + cursor)
+      - name: Checkout private repo (ledger + runs + cursors)
         uses: actions/checkout@v4
         with:
           repository: Rich898/DailyXP-private
@@ -81,9 +97,10 @@ jobs:
           [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
           [ "${{ github.event.inputs.no_ai }}" = "true" ] && ARGS="$ARGS --no-ai"
+          [ "${{ github.event.inputs.force_cutoff }}" = "true" ] && ARGS="$ARGS --force-cutoff"
           python tools/wed_checkin.py $ARGS
 
-      - name: Commit cursor back (private repo)
+      - name: Commit cursors back (private repo)
         if: ${{ github.event.inputs.dry_run != 'true' }}
         working-directory: private
         env:
@@ -95,7 +112,7 @@ jobs:
             git add -A
             git commit -m "wed-checkin: cursor advance ($(date -u +%F))"
             git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
-            echo "cursor committed."
+            echo "cursors committed."
           else
             echo "no cursor change."
           fi

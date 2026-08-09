@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-test_wed_checkin.py — regression tests for the Wednesday check-in (pure logic,
-no network, no files). Run: python3 tools/test_wed_checkin.py
+test_wed_checkin.py — regression tests for the merged Wednesday check-in
+(pure logic, no network, no files). Run: python3 tools/test_wed_checkin.py
 """
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from wed_checkin import (week_windows, window_stats, momentum, fact_card,  # noqa: E402
-                         pick_ask, pick_gap, validate, fallback_render,
-                         plan_cards, render)
-from datetime import date  # noqa: E402
+                         attendance_phrase, pick_ask, pick_gap, validate,
+                         fallback_render, render_body, plan, is_cutoff,
+                         display_topic, TONIGHT_NOTE)
+from datetime import date, datetime  # noqa: E402
 
 FAILS = []
 
@@ -29,22 +30,45 @@ def topic(t, state="developing", repair=False, lt="2026-08-04", seen=3, note="")
             "last_tested": lt, "times_seen": seen, "note": note}
 
 
-WED = date(2026, 8, 12)     # a real Wednesday
-NOW = lambda d, c: {"days_done": d, "possible": 2, "comp": c}  # noqa: E731
+def card(word="solid", direction="flat", att="kept both days so far",
+         tonight="in", ask="the water cycle", gap=None, name="Kid"):
+    return {"code": "y8", "name": name,
+            "momentum": {"word": word, "direction": direction, "attendance": att},
+            "tonight": tonight,
+            "ask": {"topic": ask, "subject": "Science", "colour": ""} if ask else None,
+            "gap": {"topic": gap, "subject": "Maths", "colour": ""} if gap else None}
 
-print("— windows (like-for-like: Mon–Tue vs LAST week's Mon–Tue)")
-this_d, prev_d = week_windows(WED)
-check("this week = Mon+Tue", this_d == ["2026-08-10", "2026-08-11"])
-check("prev week = last Mon+Tue", prev_d == ["2026-08-03", "2026-08-04"])
+
+WED = date(2026, 8, 12)     # a real Wednesday
+NOW = lambda d, c, p=2: {"days_done": d, "possible": p, "comp": c}  # noqa: E731
+
+print("— the cutoff clock (the eight-twenty-five poll is the cutoff)")
+check("before cutoff", not is_cutoff(datetime(2026, 8, 12, 18, 25)))
+check("at/after cutoff", is_cutoff(datetime(2026, 8, 12, 20, 25)))
+
+print("— windows, like for like (Mon–Wed when tonight's in; Mon–Tue at cutoff)")
+t3, p3 = week_windows(WED, include_today=True)
+t2, p2 = week_windows(WED, include_today=False)
+check("tonight in -> three days", t3 == ["2026-08-10", "2026-08-11", "2026-08-12"])
+check("prev window matches length (three)", p3 == ["2026-08-03", "2026-08-04", "2026-08-05"])
+check("tonight out -> two days", t2 == ["2026-08-10", "2026-08-11"])
+check("prev window matches length (two)", p2 == ["2026-08-03", "2026-08-04"])
 
 print("— window stats (best-of-replays; ratio computed, printed nowhere)")
 rs = [run("y8", "2026-08-10", 1000, 2000), run("y8", "2026-08-10", 1600, 2000),
       run("y8", "2026-08-11", 1400, 2000), run("y9", "2026-08-10", 500, 2000)]
-st = window_stats(rs, "y8", this_d)
+st = window_stats(rs, "y8", t2)
 check("two days counted, best replay wins",
       st["days_done"] == 2 and abs(st["comp"] - 0.75) < 1e-9)
 check("empty window -> zero days, comp None",
-      window_stats(rs, "y8", prev_d) == {"days_done": 0, "possible": 2, "comp": None})
+      window_stats(rs, "y8", p2) == {"days_done": 0, "possible": 2, "comp": None})
+
+print("— attendance in words (never digits)")
+check("full three-day week", attendance_phrase(NOW(3, .7, 3)) == "kept every day so far")
+check("full two-day week", attendance_phrase(NOW(2, .7, 2)) == "kept both days so far")
+check("two of three", attendance_phrase(NOW(2, .7, 3)) == "two runs in so far")
+check("one run", attendance_phrase(NOW(1, .7, 3)) == "one run in so far")
+check("none yet", attendance_phrase(NOW(0, None)) == "no runs in yet this week")
 
 print("— the week-word engine (one engine; Friday samples the same thresholds)")
 check("no prior + runs -> solid/none",
@@ -58,7 +82,7 @@ check("QUIET OUTRANKS SLOWER (fewer days + comp drop is still quiet)",
 check("same days, comp dropped past delta -> slower/down",
       momentum(NOW(2, .55), NOW(2, .75)) == {"word": "slower", "direction": "down"})
 check("extra day -> strong/up",
-      momentum(NOW(2, .7), NOW(1, .7)) == {"word": "strong", "direction": "up"})
+      momentum(NOW(3, .7, 3), NOW(2, .7, 3)) == {"word": "strong", "direction": "up"})
 check("comp jumped past delta -> strong/up",
       momentum(NOW(2, .85), NOW(2, .65)) == {"word": "strong", "direction": "up"})
 check("level -> solid/flat",
@@ -77,11 +101,23 @@ check("gap falls back to shaky when no repair",
 check("no candidates -> None", pick_ask([topic("X", "untested")]) is None
       and pick_gap([topic("X", "solid")]) is None)
 
-print("— the outgoing-text law (validator; applies to AI and fallback alike)")
-GOOD = ("Steady week for Kid so far, tracking level with last week. One thing "
-        "worth five minutes: he's still circling 'fractions' — get him to talk "
-        "you through it. It's the one Friday's wrap will centre on.")
-check("approved-shape text passes", validate(GOOD, "Kid") == (True, "ok"))
+print("— display-topic sanitizer (real ledger names must become law-legal)")
+check("parenthetical + fraction + slash tail cut",
+      display_topic("Triangle area (\u00bdbh) / area recall") == "Triangle area")
+check("intrinsic slash becomes hyphen, kept when short",
+      display_topic("Push/pull factors") == "Push-pull factors")
+check("long slash chain cut at first segment",
+      display_topic("R&J author/context/facts") == "R&J author")
+check("parenthetical dropped cleanly",
+      display_topic("Variables (independent/dependent/controlled)") == "Variables")
+check("degenerate name falls back to subject",
+      display_topic("(\u00bd)", "Maths") == "Maths")
+
+print("— the outgoing-text law (validator; body only — the soundbyte line rides above)")
+GOOD = ("Midweek read: steady week for Kid, tracking level with last week. One "
+        "thing worth five minutes: he's still circling 'fractions' — get him to "
+        "talk you through it. It's the one Friday's wrap will centre on.")
+check("approved-shape body passes", validate(GOOD, "Kid") == (True, "ok"))
 check("digits rejected", validate(GOOD.replace("five", "5"), "Kid")[1] == "digits")
 check("percent rejected", validate(GOOD.replace("level", "80% level"), "Kid")[1] in ("digits", "ratio-chars"))
 check("slash rejected", validate(GOOD.replace("level", "l/evel"), "Kid")[1] == "ratio-chars")
@@ -95,61 +131,58 @@ check("missing name rejected", validate(GOOD, "Zoe")[1] == "no-name")
 check("banned vocab rejected",
       validate(GOOD.replace("circling", "missing"), "Kid")[1].startswith("banned-word"))
 
-print("— fallback voices are legal by construction (every word x direction)")
-cases = [("strong", "up"), ("solid", "flat"), ("solid", "none"),
-         ("quiet", "down"), ("quiet", "none"), ("slower", "down")]
-for word, direction in cases:
-    for gap in (None, {"topic": "fractions", "subject": "Maths", "colour": ""}):
-        card = {"code": "y8", "name": "Kid",
-                "momentum": {"word": word, "direction": direction,
-                             "attendance": "kept both days so far"},
-                "ask": {"topic": "the water cycle", "subject": "Science", "colour": ""},
-                "gap": gap}
-        ok, why = validate(fallback_render(card), "Kid")
-        check(f"fallback legal: {word}/{direction} gap={'y' if gap else 'n'}", ok, why)
+print("— the tonight-status law (status plus open door, never judgment)")
+ni = fallback_render(card(tonight="not-in-yet"))
+check("not-in-yet carries the status line", TONIGHT_NOTE in ni)
+check("not-in-yet body is legal", validate(ni, "Kid")[0])
+check("'in' never mentions tonight's run status",
+      TONIGHT_NOTE not in fallback_render(card(tonight="in")))
+check("'unverified' (our gap) never mentions tonight",
+      TONIGHT_NOTE not in fallback_render(card(tonight="unverified")))
 
-print("— display-topic sanitizer (real ledger names must become law-legal)")
-from wed_checkin import display_topic  # noqa: E402
-check("parenthetical + fraction + slash tail cut",
-      display_topic("Triangle area (\u00bdbh) / area recall") == "Triangle area")
-check("intrinsic slash becomes hyphen, kept when short",
-      display_topic("Push/pull factors") == "Push-pull factors")
-check("long slash chain cut at first segment",
-      display_topic("R&J author/context/facts") == "R&J author")
-check("parenthetical dropped cleanly",
-      display_topic("Variables (independent/dependent/controlled)") == "Variables")
-check("degenerate name falls back to subject",
-      display_topic("(\u00bd)", "Maths") == "Maths")
-raw = topic("Triangle area (\u00bdbh) / area recall", "shaky", lt="2026-08-11")
-card_slash = {"code": "y9", "name": "Kid",
-              "momentum": {"word": "solid", "direction": "flat",
-                           "attendance": "kept both days so far"},
-              "ask": None,
-              "gap": {"topic": display_topic(raw["topic"]), "subject": "Maths",
-                      "colour": ""}}
-check("fallback with a slashy raw topic is still legal",
-      validate(fallback_render(card_slash), "Kid")[0])
+print("— fallback voices are legal by construction (word x direction x tonight x gap)")
+for word, direction in [("strong", "up"), ("solid", "flat"), ("solid", "none"),
+                        ("quiet", "down"), ("quiet", "none"), ("slower", "down")]:
+    for tonight in ("in", "not-in-yet"):
+        for gap in (None, "fractions"):
+            c = card(word, direction, "kept both days so far", tonight, gap=gap)
+            ok, why = validate(fallback_render(c), "Kid")
+            check(f"fallback legal: {word}/{direction} tonight={tonight} gap={'y' if gap else 'n'}",
+                  ok, why)
 
-print("— render with AI off routes to fallback")
-card = {"code": "y8", "name": "Kid",
-        "momentum": {"word": "solid", "direction": "flat",
-                     "attendance": "kept both days so far"},
-        "ask": None, "gap": None}
-text, src = render(card, api_key=None, use_ai=False)
+print("— render_body with AI off routes to fallback")
+text, src = render_body(card(), api_key=None, use_ai=False)
 check("source marked fallback(ai-off)", src == "fallback(ai-off)")
-check("rendered text passes the law", validate(text, "Kid")[0])
+check("rendered body passes the law", validate(text, "Kid")[0])
 
-print("— plan (per-kid cards, idempotency, log hygiene)")
-state = {"students": {"y8": {"topics": ts}, "y9": {"topics": []}}}
-runs2 = [run("y8", "2026-08-10", 1500, 2000, name="Kid"),
-         run("y9", "2026-08-11", 900, 2000, name="Pal")]
-cards, log = plan_cards(state, runs2, {"sent": {}}, WED, ("y8", "y9"))
-check("one card per active kid", [c["code"] for c in cards] == ["y8", "y9"])
-cards2, log2 = plan_cards(state, runs2, {"sent": {"y8": ["2026-08-12"]}}, WED, ("y8", "y9"))
-check("cursor makes a kid a no-op", [c["code"] for c in cards2] == ["y9"])
+print("— plan (shapes, soundbyte coordination, idempotency, log hygiene)")
+state = {"students": {"a": {"topics": ts}, "b": {"topics": ts}, "c": {"topics": []}}}
+runs2 = [run("a", "2026-08-10", 1500, 2000, name="Kid"),
+         run("a", "2026-08-12", 1800, 2000, name="Kid"),
+         run("b", "2026-08-12", 900, 2000, name="Pal"),
+         run("c", "2026-08-11", 700, 2000, name="Moe")]
+jobs, log = plan(state, runs2, {"sent": {}}, {"sent": {"b": ["2026-08-12"]}},
+                 WED, ("a", "b", "c"), cutoff=False)
+shapes = {j["code"]: (j["sb_facts"] is not None, j["mark_sb"], j["card"]["tonight"]) for j in jobs}
+check("run in + soundbyte unsent -> MERGED, marks sb cursor",
+      shapes.get("a") == (True, True, "in"))
+check("run in + soundbyte already sent -> body-only, sb untouched",
+      shapes.get("b") == (False, False, "in"))
+check("no run before cutoff -> waiting (no job)", "c" not in shapes)
+check("merged momentum includes tonight (three-day window)",
+      next(j for j in jobs if j["code"] == "a")["card"]["momentum"]["attendance"]
+      in ("two runs in so far", "kept every day so far"))
+jobs2, log2 = plan(state, runs2, {"sent": {}}, {"sent": {}}, WED, ("c",), cutoff=True)
+check("no run at cutoff -> job with tonight unresolved (main resolves published)",
+      len(jobs2) == 1 and jobs2[0]["card"]["tonight"] is None and not jobs2[0]["mark_sb"])
+check("cutoff momentum is the two-day like-for-like",
+      jobs2[0]["card"]["momentum"]["attendance"] == "one run in so far")
+jobs3, _ = plan(state, runs2, {"sent": {"a": ["2026-08-12"]}}, {"sent": {}},
+                WED, ("a",), cutoff=True)
+check("check-in cursor makes a kid a no-op", jobs3 == [])
 joined = " ".join(log + log2)
-check("log carries no names", "Kid" not in joined and "Pal" not in joined)
-check("log carries codes + word only", "word=" in joined and "[y8]" in joined)
+check("log carries no names", all(n not in joined for n in ("Kid", "Pal", "Moe")))
+check("log carries codes + shapes", "merged" in joined and "[a]" in joined)
 
 print()
 if FAILS:
