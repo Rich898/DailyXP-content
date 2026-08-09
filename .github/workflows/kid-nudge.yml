@@ -22,7 +22,7 @@ on:
         required: false
         default: false
         type: boolean
-  # Cron commented pending go-live — flips ON with the others.
+  # Cron ENABLED at go-live (Sun 9 Aug 2026).
   # 4:00pm Sydney, Mon–Fri (school's out ~3:10; phones back in hands).
   schedule:
   #   # AEST = UTC+10. (Sydney DST Oct–Apr: subtract 1 from the UTC hour to

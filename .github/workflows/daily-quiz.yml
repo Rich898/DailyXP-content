@@ -32,7 +32,7 @@ on:
         default: false
         type: boolean
   # The second-pass review gate now EXISTS (tools/review.py, wired into run_daily) — the
-  # blocker that kept this cron off is cleared. Cron is still commented pending the planned
+  # Cron ENABLED at go-live (Sun 9 Aug 2026). 2pm AEST Mon–Fri; DST note below.
   # go-live (rollout: flip ON with a morning thumbs-up, per scripts/README). Run supervised
   # via the manual "Run workflow" button until then; to auto-fire, uncomment the two lines below.
   schedule:

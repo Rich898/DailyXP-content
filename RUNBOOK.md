@@ -54,3 +54,25 @@ Note: trust `ts` (UTC ISO) over the sheet's local received_at column (sheet time
 - localStorage keys are namespaced per student: `dxp_attempts_*`, `dxp_name_*`, `dxp_outbox_*`.
 - Repo files are public: student files stay `y9`/`y8`, never names; no results, no secrets, ever, in this repo.
 - Publish auth: fine-grained GitHub PAT (Contents R/W, this repo only), held by the project owner, expires ~90 days from 2026-08-02.
+
+---
+
+## WEEK-1 OPS (live from Mon 10 Aug 2026)
+
+The three clocks (all GitHub-owned, Mon–Fri): **2:00pm** pipeline (plan→compose→review→publish),
+**4:00pm** kid nudge (verifies the live set is today's BEFORE texting), **6:30/8:00/9:30pm**
+soundbyte polls (first poll that sees a completed run texts that kid's parent seat).
+
+**Monday ~12:00 sweep:** the operator opens Canvas logged-in (y8 then y9) and runs the
+Claude-in-Chrome extension with: *"Run the DailyXP weekly sweep per SWEEP.md — y8 first,
+then y9."* Output goes to the build chat, which writes + commits `targets/<monday>.json`.
+LAW: Monday's quiz never depends on it (newest-file fallback).
+
+**Everything fails soft:** a held/red 2pm run → the 4pm nudge refuses to text; no run played →
+soundbyte stays silent; a failed send → retried next poll, cursor untouched. A red day is a
+quiet day, never a wrong text. Check: repo → Actions tab; comms failure detail lands in the
+PRIVATE repo (`work/soundbyte_last_error.txt`), never in public logs.
+
+**Editing workflow YAML (hard-won law):** hand-write, strict-validate locally (single doc,
+duplicate-key check), push, confirm GitHub lists the workflow by NAME (not path) before any
+dispatch. No regex surgery on YAML.

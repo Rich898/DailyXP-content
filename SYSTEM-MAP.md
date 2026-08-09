@@ -36,7 +36,7 @@ flowchart TD
     E --> F["compose.py — AI writes the questions"]
     F --> G["review.py — AI checks the questions"]
     G --> H["publish.py — put the quiz live + verify"]
-    H --> I["4pm kid nudge + evening parent soundbyte (crons OFF)"]
+    H --> I["4pm kid nudge + evening parent soundbyte (LIVE)"]
     I -.->|next school day| A
 ```
 
@@ -82,7 +82,7 @@ flowchart TD
      nobody — the 2pm→4pm gap is the human-intervention window.
    - **Evening — parent soundbyte** (`soundbyte.py`): polls 6:30/8:00/9:30pm; the first poll
      that sees today's completed run texts the parents one line — done + XP + streak.
-   Both crons are written but **commented until go-live**; sends need the SMS account secrets.
+   Live since go-live (Sun 9 Aug 2026); all SMS seats proven with real test sends.
 
 10. **Next school day, the loop repeats** — now shaped by how they did.
 
@@ -146,9 +146,9 @@ flowchart TD
 - Regression tests for the ledger rules.
 
 ### 🔶 Built, but switched off / not yet wired
-- **The timers (crons ×3).** The 2pm pipeline, the 4pm kid nudge, and the evening soundbyte
-  polls all run on button clicks today; each cron is one uncomment away — deliberately left
-  as your decision, flipped together at go-live.
+- **The timers (crons ×3) — LIVE since Sun 9 Aug 2026.** The 2pm pipeline, the 4pm kid
+  nudge, and the evening soundbyte polls run themselves, Mon–Fri. (October DST: shift the
+  UTC hours in all three workflows back one — noted inline in each file.)
 - **SMS (`notify.py`).** Built, but no messages send until a Mobile Message account, a branded
   sender (ABN + ACMA registration), and the recipients' numbers are set up.
 - **The daily parent soundbyte (`tools/soundbyte.py` + `evening-soundbyte.yml`).** The evening

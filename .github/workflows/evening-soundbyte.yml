@@ -29,7 +29,7 @@ on:
         required: false
         default: false
         type: boolean
-  # Cron is commented pending go-live — flips ON together with daily-quiz's.
+  # Cron ENABLED at go-live (Sun 9 Aug 2026).
   # Three evening polls, Sydney time: 6:30pm, 8:00pm, 9:30pm (Mon–Fri).
   schedule:
   #   # AEST = UTC+10. (Sydney DST Oct–Apr shifts these an hour later locally —
