@@ -1,0 +1,57 @@
+{
+  "student": "t1",
+  "date": "2026-08-09",
+  "day": "SUN",
+  "tag": "T-WARMUP",
+  "title": "XP Daily · Warm-up",
+  "questions": [
+    {
+      "id": "S1",
+      "phase": "speed",
+      "subject": "Warm-up",
+      "prompt": "Welcome to XP Daily. What happens if you honestly don't know an answer?",
+      "options": [
+        "Tap Skip — no penalty, it just tells the system what to teach",
+        "Guess wildly and hope",
+        "Close the tab in shame",
+        "Text your son for the answer"
+      ],
+      "answer": "Tap Skip — no penalty, it just tells the system what to teach",
+      "why": "The skip button is coverage intelligence, not failure. Every skip teaches the ledger where the real gaps are — guessing hides them.",
+      "fresh": true,
+      "repair": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "Warm-up",
+      "prompt": "Your real quizzes start Monday, built from a per-topic mastery ledger. Who decides what you get asked?",
+      "options": [
+        "Deterministic code reading your ledger — AI only writes the wording",
+        "An AI vibing",
+        "Random selection",
+        "Whatever the teacher emailed"
+      ],
+      "answer": "Deterministic code reading your ledger — AI only writes the wording",
+      "why": "The architecture law: the ledger is the brain, code owns every scheduling decision. AI never keeps score.",
+      "fresh": true,
+      "repair": false
+    },
+    {
+      "id": "T1",
+      "phase": "steady",
+      "subject": "Warm-up",
+      "prompt": "You're about to sit Year 8 content all week. Solve like it's 1998: what is 15% of 80?",
+      "options": [
+        "12",
+        "8",
+        "15",
+        "18"
+      ],
+      "answer": "12",
+      "why": "10% of 80 is 8, and 5% is half that (4). 8 + 4 = 12. Welcome back to Year 8 — Monday won't be this gentle.",
+      "fresh": true,
+      "repair": false
+    }
+  ]
+}
