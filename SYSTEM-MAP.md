@@ -138,11 +138,15 @@ flowchart TD
   automatic 2pm schedule is one uncomment away — deliberately left as your decision.
 - **SMS (`notify.py`).** Built, but no messages send until a Mobile Message account, a branded
   sender (ABN + ACMA registration), and the recipients' numbers are set up.
+- **The daily parent soundbyte (`tools/soundbyte.py` + `evening-soundbyte.yml`).** The evening
+  poll job: when today's run lands, parents get one deterministic line — done + XP + streak,
+  nothing else (no-ammunition by construction; no AI in this path). Built, tested, cron
+  commented — flips on with the daily one.
 
 ### 📋 Designed, not yet built
-- **Parent reports** — the daily reassurance text, the Wednesday check-in, the Friday summary.
-  The plan is written (`REPORTING.md`) and the SMS pipe exists, but the piece that *writes* those
-  messages isn't built yet.
+- **Parent reports (Wednesday + Friday)** — the check-in and the Friday headlines + hosted
+  weekly report page. The plan is written (`REPORTING.md`) and the SMS pipe exists; the daily
+  soundbyte is now built (above), but the Wednesday/Friday composers and the report page aren't.
 - **Seasons / chapters as a driver** — the game-season structure is specced (`SEASONS.md`) and
   the planner already handles special "Boss" days, but the full season engine isn't built.
 - **Automatic Canvas reading** — pulling class content automatically. Today it's a manual weekly

@@ -193,3 +193,21 @@ cache, or wrong-branch push now fails LOUD in the same call. Token from
 **Note going forward:** keep names OUT of published set `title` fields (legacy
 sets had them). The shell renders the title publicly — a neutral title like
 "DailyXP · Wed Blitz ⚡" is fine.
+
+---
+
+## soundbyte.py — the evening parent soundbyte (REASSURE)
+
+The daily parent touchpoint from `REPORTING.md`, as its own evening poll job
+(`evening-soundbyte.yml`, three polls 6:30/8:00/9:30pm Sydney). First poll that
+finds today's run for a boy sends the parents ONE deterministic line: done +
+XP + streak. No AI (a template fills three facts — tone can't drift), no
+ratios, streaks under 2 omitted (a "1-day streak" whispers *the streak broke*),
+silence when there's no run (absence of the text is the only "not done"
+signal). Idempotent via `work/soundbyte_cursor.json` (private); send happens
+BEFORE the cursor advances, so a failed send retries next poll. Reads
+`runs.json` only — the 2pm pipeline stays the sole owner of the ledger.
+Public-log safe (prints y8/y9 + status only; error detail goes to private
+`work/soundbyte_last_error.txt`). Tests: `python3 tools/test_soundbyte.py`.
+CLI: `python3 tools/soundbyte.py --private-dir ../DailyXP-private [--date
+YYYY-MM-DD] [--dry-run]`.

@@ -1,0 +1,93 @@
+# DailyXP — evening parent soundbyte (REPORTING.md touchpoint 1: REASSURE)
+#
+# Separate from the 2pm pipeline on purpose: this job POLLS in the evening for
+# "did today's run land?" and, the first time it has, texts the parents one
+# deterministic line (done + XP + streak — nothing else, per the no-ammunition
+# law). Idempotent via a cursor in the private repo; polls that find nothing
+# are silent no-ops. No AI, no ledger writes — reads runs.json, writes only
+# its own cursor. See tools/soundbyte.py for the full design laws.
+#
+# SECRETS used (already defined for daily-quiz — nothing new):
+#   DAILYXP_TOKEN, RESULTS_URL, RESULTS_KEY, MOBILE_MESSAGE_*
+# (No ANTHROPIC_API_KEY — the evening path is deliberately AI-free.)
+#
+# Until the Mobile Message secrets exist, a queued soundbyte will report
+# "send FAILED — cursor NOT advanced" each poll: harmless, and it starts
+# working the moment the secrets are added.
+
+name: evening-soundbyte
+
+on:
+  workflow_dispatch:            # manual button for supervised runs / testing
+    inputs:
+      date:
+        description: "Override Sydney date (YYYY-MM-DD). Blank = today."
+        required: false
+        default: ""
+      dry_run:
+        description: "Plan only — no send, no cursor write"
+        required: false
+        default: false
+        type: boolean
+  # Cron is commented pending go-live — flips ON together with daily-quiz's.
+  # Three evening polls, Sydney time: 6:30pm, 8:00pm, 9:30pm (Mon–Fri).
+  # schedule:
+  #   # AEST = UTC+10. (Sydney DST Oct–Apr shifts these an hour later locally —
+  #   # subtract 1 from the UTC hours during DST to pin the local times.)
+  #   - cron: "30 8 * * 1-5"    # 18:30 AEST
+  #   - cron: "0 10 * * 1-5"    # 20:00 AEST
+  #   - cron: "30 11 * * 1-5"   # 21:30 AEST
+
+concurrency:
+  group: daily-quiz             # serialize with the 2pm pipeline — never
+  cancel-in-progress: false     # two jobs on the same private files
+
+jobs:
+  soundbyte:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public repo (code)
+        uses: actions/checkout@v4
+
+      - name: Checkout private repo (runs + cursor)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          path: private
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Poll + send (log is public — script prints no names/scores/text)
+        env:
+          RESULTS_URL: ${{ secrets.RESULTS_URL }}
+          RESULTS_KEY: ${{ secrets.RESULTS_KEY }}
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
+        run: |
+          ARGS="--private-dir ./private"
+          [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          python tools/soundbyte.py $ARGS
+
+      - name: Commit cursor back (private repo)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "soundbyte: cursor advance ($(date -u +%F))"
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+            echo "cursor committed."
+          else
+            echo "no cursor change."
+          fi
