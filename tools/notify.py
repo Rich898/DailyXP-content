@@ -35,17 +35,26 @@ import urllib.error
 API_URL = "https://api.mobilemessage.com.au/v1/messages"
 
 
+def _split(raw):
+    return [x.strip() for x in (raw or "").split(",") if x.strip()]
+
+
 def _recipients(target):
-    if target == "y8":
-        n = os.environ.get("MOBILE_MESSAGE_TO_Y8")
-        return [n] if n else []
-    if target == "y9":
-        n = os.environ.get("MOBILE_MESSAGE_TO_Y9")
-        return [n] if n else []
+    """Resolve a target to phone numbers (from Actions secrets, never files).
+
+    Targets:
+      "<code>"          the kid's own seat        -> MOBILE_MESSAGE_TO_<CODE>
+      "parents:<code>"  that kid's parent seat    -> MOBILE_MESSAGE_PARENTS_<CODE>
+                        (falls back to legacy MOBILE_MESSAGE_TO_PARENTS if unset)
+      "parents"         legacy shared group       -> MOBILE_MESSAGE_TO_PARENTS
+    """
+    if target.startswith("parents:"):
+        code = target.split(":", 1)[1].strip()
+        per = _split(os.environ.get(f"MOBILE_MESSAGE_PARENTS_{code.upper()}"))
+        return per or _split(os.environ.get("MOBILE_MESSAGE_TO_PARENTS"))
     if target == "parents":
-        raw = os.environ.get("MOBILE_MESSAGE_TO_PARENTS", "")
-        return [x.strip() for x in raw.split(",") if x.strip()]
-    return []
+        return _split(os.environ.get("MOBILE_MESSAGE_TO_PARENTS"))
+    return _split(os.environ.get(f"MOBILE_MESSAGE_TO_{target.upper()}"))
 
 
 def send_sms(target, text, ref=None, dry_run=False):
@@ -80,7 +89,8 @@ def send_sms(target, text, ref=None, dry_run=False):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--to-student", dest="target", required=True, choices=["y8", "y9", "parents"])
+    ap.add_argument("--to-student", dest="target", required=True,
+                    help='a kid code (e.g. y8), "parents:<code>", or legacy "parents"')
     ap.add_argument("--text", required=True)
     ap.add_argument("--ref", default=None)
     ap.add_argument("--dry-run", action="store_true")

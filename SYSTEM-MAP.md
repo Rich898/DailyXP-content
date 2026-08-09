@@ -91,6 +91,9 @@ flowchart TD
 ## The tools, one by one
 
 **The nightly loop**
+- `roster.py` / `roster.json` — the account structure: who exists, whose curriculum they
+  quiz, which tag initial. Comms seats resolve per kid from secrets (`TO_<CODE>` /
+  `PARENTS_<CODE>`). *(New.)*
 - `ingest_results.py` — pulls results from the Google Sheet into `runs.json`. *(New.)*
 - `results_reader.py` — the rulebook that reads each answer and labels it (confident-wrong,
   rushed-wrong, lucky guess, calm correct, and so on). Used by both the writer and ingest.

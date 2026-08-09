@@ -1,0 +1,8 @@
+{
+  "_": "The account structure: who exists. Codes only — names/numbers NEVER live here (names flow from private runs; numbers live in Actions secrets as MOBILE_MESSAGE_TO_<CODE> for the kid seat and MOBILE_MESSAGE_PARENTS_<CODE> for that kid's parent seat). targets_alias = quiz another student's curriculum (test players).",
+  "students": [
+    {"code": "y8", "tag_initial": "H", "active": true},
+    {"code": "y9", "tag_initial": "R", "active": true},
+    {"code": "t1", "tag_initial": "T", "active": true, "targets_alias": "y8"}
+  ]
+}

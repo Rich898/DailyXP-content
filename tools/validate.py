@@ -61,8 +61,9 @@ def validate_set(s: dict, history_dir: str = None) -> tuple:
     errors, warns = [], []
 
     student = s.get("student")
-    if student not in ("y8", "y9"):
-        errors.append(f"student must be y8|y9, got {student!r}")
+    import roster
+    if student not in roster.students():
+        errors.append(f"student must be one of {roster.students()}, got {student!r}")
     if "questions" not in s or not isinstance(s["questions"], list):
         errors.append("missing/invalid 'questions' list")
         return errors, warns
@@ -85,7 +86,7 @@ def validate_set(s: dict, history_dir: str = None) -> tuple:
         errors.append(f"duplicate question id(s): {sorted(dupe_ids)}")
 
     counts = {"speed": 0, "steady": 0, "teach": 0}
-    seen = seen_prompts(student, history_dir) if student in ("y8", "y9") else set()
+    seen = seen_prompts(student, history_dir) if student else set()
 
     for q in qs:
         qid = q.get("id", "?")

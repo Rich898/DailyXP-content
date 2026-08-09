@@ -39,7 +39,6 @@ except ImportError:                                    # pragma: no cover
     ZoneInfo = None
 
 RAW = "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/{student}.json"
-STUDENTS = ("y8", "y9")
 
 # The locked weekly skeleton (SEASONS.md): Wed = blitz, Fri = boss. Mirrors
 # WEEKDAY_DIRECTIVE in scripts/run_daily.py — if the skeleton ever changes,
@@ -82,16 +81,17 @@ def fetch_live(student):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None, help="Override Sydney date (YYYY-MM-DD)")
-    ap.add_argument("--student", default="both", choices=["both", "y8", "y9"])
+    ap.add_argument("--student", default="all", help='a roster code, or "all" (default)')
     ap.add_argument("--dry-run", action="store_true", help="verify + decide only, no send")
     a = ap.parse_args()
 
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import notify
+    import roster
 
     from datetime import date as _d
     today = _d.fromisoformat(a.date) if a.date else sydney_today()
-    targets = STUDENTS if a.student == "both" else (a.student,)
+    targets = roster.active() if a.student == "all" else (a.student,)
 
     any_fail = False
     for s in targets:

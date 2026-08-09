@@ -59,7 +59,8 @@ def sh(cmd):
 def publish(set_path, push=True):
     s = json.load(open(set_path))
     student = s.get("student")
-    if student not in ("y8", "y9"):
+    import roster
+    if student not in roster.students():
         print(f"ABORT: bad student {student!r}")
         return 2
 

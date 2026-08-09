@@ -11,11 +11,9 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: "Who gets the test text"
+        description: "Kid code (y8/t1…) or a parent seat (parents:y8)"
         required: true
-        default: "parents"
-        type: choice
-        options: ["parents", "y8", "y9"]
+        default: "parents:y8"
       text:
         description: "Message"
         required: false

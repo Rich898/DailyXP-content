@@ -225,3 +225,18 @@ weekly skeleton (⚡ Wed blitz, 🐉 Fri boss — mirrors `WEEKDAY_DIRECTIVE`;
 change both if the skeleton ever changes). Stateless: reads the live URL,
 sends, writes nothing. Tests: `python3 tools/test_kid_nudge.py`.
 CLI: `python3 tools/kid_nudge.py [--student y8|y9] [--date YYYY-MM-DD] [--dry-run]`.
+
+---
+
+## roster.py + roster.json — the account structure
+
+`roster.json` (repo root) is the single source of truth for WHO EXISTS. Codes
+only — names arrive from private runs at runtime; phone numbers live ONLY in
+Actions secrets, per seat: `MOBILE_MESSAGE_TO_<CODE>` (the kid's own phone)
+and `MOBILE_MESSAGE_PARENTS_<CODE>` (that kid's parent set, comma-separated —
+per-kid on purpose: different kids can have different parents, even in one
+family). `targets_alias` lets a test player quiz another student's curriculum
+(t1 → y8). Adding a player = one roster entry + two secrets + a seeded
+state.json block + a stamped shell page; nothing else knows the student list.
+The soundbyte sends per kid to `parents:<code>` with independent cursors — one
+family's failed send never blocks or repeats another's.

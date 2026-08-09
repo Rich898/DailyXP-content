@@ -52,7 +52,6 @@ try:
 except ImportError:                                    # pragma: no cover
     ZoneInfo = None
 
-STUDENTS = ("y8", "y9")
 CURSOR_FILE = os.path.join("work", "soundbyte_cursor.json")
 ERROR_FILE = os.path.join("work", "soundbyte_last_error.txt")
 
@@ -118,15 +117,17 @@ def render_line(f, today_iso):
     return t.format(name=f["name"], pts=f"{f['pts']:,}", streak=streak_bit)
 
 
-def plan(runs, cursor, today_iso):
-    """Decide what (if anything) to send tonight.
+def plan(runs, cursor, today_iso, students):
+    """Decide what (if anything) to send tonight — PER KID, to that kid's own
+    parent seat ("parents:<code>"), never a shared blast. Different kids can
+    have entirely different parents; the routing enforces it.
 
-    Returns (message_text_or_None, safe_log_lines, new_cursor).
+    Returns (sends, safe_log_lines) where sends = [{code, text}].
     safe_log_lines are guaranteed name/score-free (they're what Actions prints).
     """
     sent = cursor.get("sent", {})
-    log, lines, new_cursor = [], [], {"sent": {k: list(v) for k, v in sent.items()}}
-    for s in STUDENTS:
+    log, sends = [], []
+    for s in students:
         if today_iso in sent.get(s, []):
             log.append(f"[{s}] already sent for {today_iso} \u2014 no-op.")
             continue
@@ -134,11 +135,9 @@ def plan(runs, cursor, today_iso):
         if not f:
             log.append(f"[{s}] no run for {today_iso} yet \u2014 silent.")
             continue
-        log.append(f"[{s}] run found for {today_iso} \u2014 soundbyte queued.")
-        lines.append(render_line(f, today_iso))
-        new_cursor["sent"].setdefault(s, []).append(today_iso)
-    text = "\n".join(lines) if lines else None
-    return text, log, new_cursor
+        log.append(f"[{s}] run found for {today_iso} \u2014 soundbyte queued for parents:{s}.")
+        sends.append({"code": s, "text": render_line(f, today_iso)})
+    return sends, log
 
 
 # --------------------------------------------------------------------------- #
@@ -153,6 +152,7 @@ def main():
 
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import notify
+    import roster
 
     today_iso = a.date or sydney_today().isoformat()
     priv = a.private_dir
@@ -175,33 +175,43 @@ def main():
     cpath = os.path.join(priv, CURSOR_FILE)
     cursor = json.load(open(cpath)) if os.path.exists(cpath) else {"sent": {}}
 
-    text, log, new_cursor = plan(runs, cursor, today_iso)
+    sends, log = plan(runs, cursor, today_iso, roster.active())
     for line in log:
         print(line)
 
-    if not text:
+    if not sends:
         print("nothing to send.")
         return
 
     if a.dry_run:
-        print("DRY-RUN \u2014 send + cursor write suppressed.")
+        print(f"DRY-RUN \u2014 {len(sends)} send(s) + cursor write suppressed.")
         return
 
-    # Send first, advance the cursor only on success — a failed send retries
-    # on the next evening poll. NOTE: `detail` may echo message content, so it
-    # is never printed; failures land in the private repo instead.
-    ok, detail = notify.send_sms("parents", text, ref=f"xpd-sb-{today_iso}",
-                                 dry_run=False)
-    if ok:
+    # Send per kid to that kid's parent seat; advance ONLY that kid's cursor on
+    # success — one family's failed send never blocks or repeats another's.
+    # NOTE: `detail` may echo message content, so it is never printed; failures
+    # land in the private repo instead.
+    advanced, failed = 0, []
+    for snd in sends:
+        ok, detail = notify.send_sms(f"parents:{snd['code']}", snd["text"],
+                                     ref=f"xpd-sb-{snd['code']}-{today_iso}", dry_run=False)
+        if ok:
+            cursor.setdefault("sent", {}).setdefault(snd["code"], []).append(today_iso)
+            advanced += 1
+            print(f"[{snd['code']}] soundbyte sent \u2713")
+        else:
+            failed.append((snd["code"], detail))
+            print(f"[{snd['code']}] \u26a0 send FAILED \u2014 will retry next poll.")
+    if advanced:
         with open(cpath, "w") as fh:
-            json.dump(new_cursor, fh, indent=1)
+            json.dump(cursor, fh, indent=1)
             fh.write("\n")
-        print("soundbyte sent \u2713 cursor advanced.")
-    else:
+        print(f"cursor advanced for {advanced} kid(s).")
+    if failed:
         with open(os.path.join(priv, ERROR_FILE), "w") as fh:
-            fh.write(f"{today_iso}: {detail}\n")
-        print("\u26a0 send FAILED \u2014 cursor NOT advanced (will retry next poll); "
-              "detail in private work/soundbyte_last_error.txt")
+            for code, detail in failed:
+                fh.write(f"{today_iso} {code}: {detail}\n")
+        print("failure detail in private work/soundbyte_last_error.txt")
 
 
 if __name__ == "__main__":

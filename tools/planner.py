@@ -352,7 +352,7 @@ def render(plan):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--student", required=True, choices=["y8", "y9"])
+    ap.add_argument("--student", required=True)
     ap.add_argument("--date", required=True)
     ap.add_argument("--day", required=True)
     ap.add_argument("--tag", required=True)

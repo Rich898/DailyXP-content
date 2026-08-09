@@ -523,7 +523,7 @@ def main():
     ap = argparse.ArgumentParser(description="DailyXP results reader (limb #1)")
     ap.add_argument("dump", help="saved Sheet dump (connector markdown or CSV)")
     ap.add_argument("--since", help="only show runs on/after this Sydney date (YYYY-MM-DD)")
-    ap.add_argument("--student", choices=["y8", "y9"], help="filter to one student")
+    ap.add_argument("--student", help="filter to one student (roster code)")
     ap.add_argument("--json", dest="json_out", help="also write normalised runs as JSON")
     args = ap.parse_args()
 

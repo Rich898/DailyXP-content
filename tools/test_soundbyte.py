@@ -56,29 +56,32 @@ check("deterministic: same date+facts -> same text",
       == render_line({"student": "y8", "name": "Kid", "pts": 5, "streak": 3}, WED))
 check("no ratios anywhere in the line", "/" not in line2)
 
-print("— plan (idempotency, batching, silence, log hygiene)")
-text, log, cur = plan(runs, {"sent": {}}, TUE)
-check("both boys batched into ONE text (two lines)",
-      text is not None and text.count("\n") == 1)
-check("cursor advanced for both",
-      TUE in cur["sent"].get("y8", []) and TUE in cur["sent"].get("y9", []))
-text2, log2, _ = plan(runs, cur, TUE)
-check("second poll same evening is a no-op", text2 is None)
-text3, log3, cur3 = plan(runs, {"sent": {}}, WED)
-check("no runs today -> silence (no 'not done' text exists)", text3 is None)
-check("silent day advances no cursor", not cur3["sent"].get("y8") and not cur3["sent"].get("y9"))
+print("— plan (per-kid dispatch, idempotency, silence, log hygiene)")
+KIDS = ("y8", "y9", "t1")
+sends, log = plan(runs, {"sent": {}}, TUE, KIDS)
+check("one send PER kid with a run (never a shared blast)",
+      [x["code"] for x in sends] == ["y8", "y9"])
+check("each send routes to that kid's own parent seat (log names parents:<code>)",
+      any("parents:y8" in l for l in log) and any("parents:y9" in l for l in log))
+cur = {"sent": {"y8": [TUE], "y9": [TUE]}}
+sends2, log2 = plan(runs, cur, TUE, KIDS)
+check("second poll same evening is a no-op", sends2 == [])
+sends3, log3 = plan(runs, {"sent": {}}, WED, KIDS)
+check("no runs today -> silence (no 'not done' text exists)", sends3 == [])
 joined = " ".join(log + log2 + log3)
 check("safe log lines carry no names", "Kid" not in joined)
 check("safe log lines carry no scores", "2178" not in joined and "2,178" not in joined)
 
-# one boy done, one not: text sent for the done one only; the other stays open
-text4, _, cur4 = plan([run("y8", THU, 800)], {"sent": {}}, THU)
-check("one-done -> single line, other student's cursor stays open",
-      text4 is not None and "\n" not in text4 and THU not in cur4["sent"].get("y9", []))
-# ...and the late finisher gets picked up by a later poll
-text5, _, _ = plan([run("y8", THU, 800), run("y9", THU, 900)], cur4, THU)
+# one kid done, one not: only the done kid queued; the other stays open
+sends4, _ = plan([run("y8", THU, 800)], {"sent": {}}, THU, KIDS)
+check("one-done -> one send, others untouched",
+      [x["code"] for x in sends4] == ["y8"])
+# ...the late finisher is caught by a later poll; the earlier kid, once
+# cursor'd (as main() does on success), does not repeat
+sends5, _ = plan([run("y8", THU, 800), run("y9", THU, 900)],
+                 {"sent": {"y8": [THU]}}, THU, KIDS)
 check("late finisher caught by next poll (y9 only, no y8 repeat)",
-      text5 is not None and "\n" not in text5)
+      [x["code"] for x in sends5] == ["y9"])
 
 print()
 if FAILS:

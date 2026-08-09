@@ -21,11 +21,11 @@ on:
         required: false
         default: ""
       student:
-        description: "Which boy"
+        description: "Which player"
         required: false
         default: "both"
         type: choice
-        options: ["both", "y8", "y9"]
+        options: ["both", "y8", "y9", "t1"]
       dry_run:
         description: "Plan+compose only — no publish, no SMS"
         required: false

@@ -43,15 +43,15 @@ sys.path.insert(0, os.path.join(REPO, "tools"))
 
 W1_MONDAY = dt.date(2026, 7, 27)          # project week 1 = w/c Mon 27 Jul 2026
 MAX_REVIEW_ROUNDS = 2                      # recompose a flagged slot at most twice, then HOLD (never publish a flagged set)
-INITIAL = {"y8": "H", "y9": "R"}
 WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "blitz", 3: "standard", 4: "boss"}
 # (Kid nudge texts moved to tools/kid_nudge.py — the 4pm job owns them.)
 
 
 def derive_tag(student, date):
+    import roster
     week = ((date - W1_MONDAY).days // 7) + 1
     wd = date.weekday() + 1                 # Mon=1..Fri=5
-    tag = f"{INITIAL[student]}{week}.{wd}"
+    tag = f"{roster.tag_initial(student)}{week}.{wd}"
     if wd == 3:
         tag += " · BLITZ"
     elif wd == 5:
@@ -129,6 +129,16 @@ def run(date, students, private_dir, directives_override, dry_run, push):
         print(f"targets: {tfiles[-1]}" + (f"  \u26a0 {t_age} days old \u2014 has the weekly sweep run?" if t_age > 7 else ""))
     except Exception:
         print(f"targets: {tfiles[-1]}")
+
+    # Test/aliased players (roster targets_alias) quiz another student's
+    # curriculum: inject the alias's targets block under their own code, so the
+    # planner needs no knowledge of aliasing.
+    import roster as _roster
+    for _s in students:
+        _al = _roster.targets_alias(_s)
+        if _al != _s and _s not in targets.get("students", {}) and _al in targets.get("students", {}):
+            targets["students"][_s] = targets["students"][_al]
+            print(f"targets: {_s} aliased to {_al}'s curriculum (roster).")
 
     day = date.strftime("%a").upper()
     print(f"=== DailyXP run — {day} {date} {'(DRY RUN)' if dry_run else ''} ===")
@@ -254,19 +264,21 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--private-dir", required=True, help="path to the DailyXP-private checkout")
     ap.add_argument("--date", default=dt.date.today().isoformat())
-    ap.add_argument("--student", choices=["y8", "y9"], help="run a single boy (default: both)")
-    ap.add_argument("--directive-y8", default=None)
-    ap.add_argument("--directive-y9", default=None)
+    import roster
+    _codes = roster.active()
+    ap.add_argument("--student", choices=_codes, help="run a single player (default: all active)")
+    for _c in _codes:
+        ap.add_argument(f"--directive-{_c}", default=None)
     ap.add_argument("--dry-run", action="store_true", help="plan+compose only; no publish")
     ap.add_argument("--no-push", action="store_true", help="publish locally but don't git push")
     a = ap.parse_args()
     date = dt.date.fromisoformat(a.date)
-    students = [a.student] if a.student else ["y8", "y9"]
+    students = [a.student] if a.student else _codes
     overrides = {}
-    if a.directive_y8:
-        overrides["y8"] = a.directive_y8
-    if a.directive_y9:
-        overrides["y9"] = a.directive_y9
+    for _c in _codes:
+        v = getattr(a, f"directive_{_c}".replace("-", "_"), None)
+        if v:
+            overrides[_c] = v
     sys.exit(run(date, students, a.private_dir, overrides, dry_run=a.dry_run, push=not a.no_push))
 
 
