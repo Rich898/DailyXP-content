@@ -38,14 +38,15 @@ daily door. This is the complete sequence. Player = kid seat + parent seat.
    dispatch → parent seat receives the first "done ✅" text. Onboarding complete.
 9. **Parent welcome + the LEGEND** (fire once to `parents:<c>`, at onboarding):
    *"XP Daily here — each school night you'll get one line when <name>'s run is
-   done: did it, tonight's XP, and a verdict. The verdict words are earned, not
-   vibes — code picks them from how much of that night's set landed:
-   'flew tonight' = 85%+ of everything on offer · 'good night's work' = 70%+ ·
-   'put in a shift' = 50%+ (the learning zone — where the system works hardest) ·
-   'the set bit back' = the quiz played rough, and finishing was the win.
-   No text just means the run hasn't landed yet."*
-   This is the ONLY place percentages are ever stated (REPORTING.md: the legend
-   law) — the nightly line itself never carries a %, a ratio, or a running total.
+   done: whether he did it, the XP he earned, and a verdict on the night. The
+   verdict words are earned, not vibes — the system picks them from how the
+   night's set went: 'flew tonight' is a standout, 'good night's work' is
+   strong, 'put in a shift' means solid graft in the zone where it works
+   hardest, and 'the set bit back' means the quiz played rough and finishing
+   was the win. No text just means the run hasn't landed yet."*
+   Per policy (REPORTING.md: the daily final form), NO percentages, ratios, or
+   running totals appear anywhere — not in the nightly line, not in this
+   legend. The verdict words stand on their own.
 
 ## Laws + open items
 - **The URL is currently the identity.** Anyone holding it can play (and submit) as
