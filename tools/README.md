@@ -200,10 +200,13 @@ sets had them). The shell renders the title publicly — a neutral title like
 
 The daily parent touchpoint from `REPORTING.md`, as its own evening poll job
 (`evening-soundbyte.yml`, three polls 6:30/8:00/9:30pm Sydney). First poll that
-finds today's run for a boy sends the parents ONE deterministic line: done +
-XP + streak. No AI (a template fills three facts — tone can't drift), no
-ratios, streaks under 2 omitted (a "1-day streak" whispers *the streak broke*),
-silence when there's no run (absence of the text is the only "not done"
+finds today's run for a boy sends the parents ONE deterministic THREE-BEAT
+line: did it + tonight's XP + a verdict closer (the ladder — flew / good
+night's work / put in a shift / the set bit back — computed from score/max;
+the ratio prints nowhere, the legend in `ONBOARDING.md` defines the words
+once). No AI, no percentages, no running totals (Friday owns totals), streaks
+under 2 omitted (a "1-day streak" whispers *the streak broke*), silence when
+there's no run (absence of the text is the only "not done"
 signal). Idempotent via `work/soundbyte_cursor.json` (private); send happens
 BEFORE the cursor advances, so a failed send retries next poll. Reads
 `runs.json` only — the 2pm pipeline stays the sole owner of the ledger.
@@ -211,6 +214,28 @@ Public-log safe (prints y8/y9 + status only; error detail goes to private
 `work/soundbyte_last_error.txt`). Tests: `python3 tools/test_soundbyte.py`.
 CLI: `python3 tools/soundbyte.py --private-dir ../DailyXP-private [--date
 YYYY-MM-DD] [--dry-run]`.
+
+---
+
+## wed_checkin.py — the Wednesday midweek check-in (ACTIVATE + expectation-setter)
+
+The midweek parent touchpoint (`wed-checkin.yml`, Wed 7:30am Sydney = cron
+`30 21 * * 2` UTC). One SMS per kid to `parents:<code>`: an honest momentum
+read from the SAME week-word engine Friday samples (Mon–Tue vs LAST week's
+Mon–Tue, like for like — Wednesday can never contradict Friday), at most ONE
+ask (a strength drawn out as a dinner-table question) and ONE five-minute
+help action (repair-flag first, then shaky), the gap planted for Friday
+("it's the one Friday's wrap will centre on"). Every text ends pointing at
+Friday's wrap. Code picks every fact; the model dresses language only; a
+deterministic validator gates all outgoing text (no digits, no %, no ratios,
+never bare "behind", banned vocab, must name Friday) with the redlined
+fallback voices behind it — an API blip can never silence the Wednesday or
+push it off-law. Ledger topic names pass through `display_topic()` so raw
+names ("Triangle area (½bh) / area recall") never leak into text. Idempotent
+via `work/wed_checkin_cursor.json`; reads state.json + runs.json, writes only
+its cursor. Public-log safe. Tests: `python3 tools/test_wed_checkin.py`.
+CLI: `python3 tools/wed_checkin.py --private-dir ../DailyXP-private [--date
+YYYY-MM-DD] [--dry-run] [--no-ai]`.
 
 ---
 

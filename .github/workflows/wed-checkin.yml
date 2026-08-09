@@ -1,0 +1,101 @@
+# DailyXP — Wednesday midweek check-in (REPORTING.md touchpoint 2: ACTIVATE)
+#
+# Wednesday 7:30am Sydney: one SMS per kid to that kid's parent seat — an
+# honest momentum read (the SAME week-word engine Friday's report samples,
+# run on Mon–Tue vs last week's Mon–Tue), at most ONE ask or five-minute
+# help action from the ledger, and it always ends pointing at Friday's wrap
+# (Wednesday is the expectation-setter; Friday resolves). Code picks every
+# fact; the model dresses language only; a deterministic validator (no
+# digits, no %, no ratios, never bare "behind") gates every outgoing text,
+# with the redlined fallback voices behind it — an API blip can never
+# silence the Wednesday or push it off-law. See tools/wed_checkin.py.
+#
+# SECRETS used (all already defined for daily-quiz / evening-soundbyte):
+#   DAILYXP_TOKEN, RESULTS_URL, RESULTS_KEY, ANTHROPIC_API_KEY,
+#   MOBILE_MESSAGE_*
+#
+# Idempotent via work/wed_checkin_cursor.json in the private repo; a failed
+# send retries on redispatch. Public logs carry codes + safe statuses only.
+
+name: wed-checkin
+
+on:
+  workflow_dispatch:            # manual button for supervised runs / testing
+    inputs:
+      date:
+        description: "Override Sydney date (YYYY-MM-DD). Blank = today."
+        required: false
+        default: ""
+      dry_run:
+        description: "Plan + render only — no send, no cursor write"
+        required: false
+        default: false
+        type: boolean
+      no_ai:
+        description: "Fallback voices only (skip the model)"
+        required: false
+        default: false
+        type: boolean
+  # Wednesday 7:30am AEST. (Sydney DST Oct–Apr shifts this an hour later
+  # locally — subtract 1 from the UTC hour during DST to pin 7:30am.)
+  schedule:
+    - cron: "30 21 * * 2"     # Tue 21:30 UTC = Wed 07:30 AEST
+
+concurrency:
+  group: daily-quiz             # serialize with the 2pm pipeline — never
+  cancel-in-progress: false     # two jobs on the same private files
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public repo (code)
+        uses: actions/checkout@v4
+
+      - name: Checkout private repo (ledger + runs + cursor)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          path: private
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compose + send (log is public — script prints no names/text)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_PARENTS_Y8: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y8 }}
+          MOBILE_MESSAGE_PARENTS_Y9: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y9 }}
+          MOBILE_MESSAGE_PARENTS_T1: ${{ secrets.MOBILE_MESSAGE_PARENTS_T1 }}
+          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
+          RESULTS_URL: ${{ secrets.RESULTS_URL }}
+          RESULTS_KEY: ${{ secrets.RESULTS_KEY }}
+        run: |
+          ARGS="--private-dir ./private"
+          [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          [ "${{ github.event.inputs.no_ai }}" = "true" ] && ARGS="$ARGS --no-ai"
+          python tools/wed_checkin.py $ARGS
+
+      - name: Commit cursor back (private repo)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "wed-checkin: cursor advance ($(date -u +%F))"
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+            echo "cursor committed."
+          else
+            echo "no cursor change."
+          fi
