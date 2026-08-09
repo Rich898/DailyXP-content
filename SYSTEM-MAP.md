@@ -36,7 +36,7 @@ flowchart TD
     E --> F["compose.py — AI writes the questions"]
     F --> G["review.py — AI checks the questions"]
     G --> H["publish.py — put the quiz live + verify"]
-    H --> I["notify.py — text the boys (OFF)"]
+    H --> I["4pm kid nudge + evening parent soundbyte (crons OFF)"]
     I -.->|next school day| A
 ```
 
@@ -76,8 +76,13 @@ flowchart TD
 8. **Publish** (`publish.py`). The approved quiz is written to the live files the boys' page
    reads, and the job confirms the live page actually updated before calling it done.
 
-9. **(Notify)** (`notify.py`). This would text the boys "your quiz is up." It's built but
-   **switched off** until the SMS account is set up.
+9. **The comms jobs (separate clocks, deliberately decoupled from publish):**
+   - **4:00pm — kid nudge** (`kid_nudge.py`): verifies the live page really serves *today's*
+     quiz, then texts the boys "XP Daily is up" (⚡ Wed, 🐉 Fri). A held or frozen day texts
+     nobody — the 2pm→4pm gap is the human-intervention window.
+   - **Evening — parent soundbyte** (`soundbyte.py`): polls 6:30/8:00/9:30pm; the first poll
+     that sees today's completed run texts the parents one line — done + XP + streak.
+   Both crons are written but **commented until go-live**; sends need the SMS account secrets.
 
 10. **Next school day, the loop repeats** — now shaped by how they did.
 
@@ -96,13 +101,17 @@ flowchart TD
 - `review.py` — a stronger AI double-checks the questions before they can go live.
 - `validate.py` — a basic safety gate (right answer is actually one of the options, no repeats).
 - `publish.py` — writes the quiz live and verifies the live page updated.
-- `notify.py` — SMS out (built; off until the SMS account is live).
+- `notify.py` — the SMS pipe itself (built; sends need the Mobile Message secrets).
+- `kid_nudge.py` — the 4pm "it's up" text: verify-the-live-set-first, then nudge. *(New.)*
+- `soundbyte.py` — the evening parent line (done + XP + streak; no-ammunition by construction). *(New.)*
 
 **Runs the whole sequence**
 - `scripts/run_daily.py` — the conductor: runs ingest → update ledger → plan → compose → review
   → publish in order, for both boys.
 - `.github/workflows/daily-quiz.yml` — the GitHub job that runs the conductor and saves results
   back. Currently manual-start; the timer is written but commented out.
+- `.github/workflows/kid-nudge.yml` / `evening-soundbyte.yml` — the two comms clocks (4pm /
+  evening polls). Same deal: built, crons commented until go-live.
 
 **The quiz the boys see**
 - `shell/template_v3.html` — the quiz page itself (version 3.0, live).
@@ -134,8 +143,9 @@ flowchart TD
 - Regression tests for the ledger rules.
 
 ### 🔶 Built, but switched off / not yet wired
-- **The daily timer (cron).** The pipeline runs on a button click today. Putting it on an
-  automatic 2pm schedule is one uncomment away — deliberately left as your decision.
+- **The timers (crons ×3).** The 2pm pipeline, the 4pm kid nudge, and the evening soundbyte
+  polls all run on button clicks today; each cron is one uncomment away — deliberately left
+  as your decision, flipped together at go-live.
 - **SMS (`notify.py`).** Built, but no messages send until a Mobile Message account, a branded
   sender (ABN + ACMA registration), and the recipients' numbers are set up.
 - **The daily parent soundbyte (`tools/soundbyte.py` + `evening-soundbyte.yml`).** The evening

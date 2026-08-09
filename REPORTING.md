@@ -2,9 +2,23 @@
 
 *Design principle: every message has exactly ONE job, and its content is engineered so the only conversational move it leaves open is the intended one. Every format survives a week on the operator's own family before any beta family receives it.*
 
+## The week at a glance (canonical rhythm — Mon–Fri term weeks)
+| When | Kid gets | Parent gets |
+|---|---|---|
+| Once, at onboarding | Access text: personal link + "Add to Home Screen" | — |
+| Mon–Fri **4:00pm** | **"XP Daily is up"** nudge (⚡ blitz flavour Wed, 🐉 boss Fri) — sent only after the live set is verified as *today's* | — |
+| Mon–Fri evening, **on completion** | — | **Soundbyte**: done + XP + streak, nothing else |
+| **Wed** morning | — | **Check-in**: praise script + one 5-min help action |
+| **Fri** evening | **Weekly wrap** link + **kid portal** link | **Weekly report** link (the report carries the parent-portal link) |
+
+Friday evening deliberately carries **two** parent texts — the soundbyte (fires on the kid's clock, whenever he completes) and the report (scheduled). Different jobs, different clocks; folding would delay reassurance or hostage the report to completion time. The week-1 family test calibrates whether that ever feels like spam.
+
+**Onboarding captures per family:** parent mobile · kid mobile · parent email (collected but unused in v1 — SMS-first stays the law; the field future-proofs receipts and "email me the report").
+
 ## Kid-facing
-- **Access text (once, ever):** the key. Personal link + "Add to Home Screen." After this, the icon is the channel — no texts are ever needed to play.
-- **Weekly recap (Fri):** game-flavoured arc of the week — score trend, streak, what got beaten, what's stalking them next week. Link for the detail. Tone: fellow player, not teacher.
+- **Access text (once, at onboarding):** the key. Personal link + "Add to Home Screen."
+- **Daily nudge (Mon–Fri 4:00pm):** "XP Daily is up" — after school, phones back in hands. Flavoured by the weekly skeleton (⚡ Wed, 🐉 Fri). Sent only after verifying the live set really is today's — a review HOLD or frozen day texts nobody. Celebration is NEVER in the text; it lives in the in-quiz end screen.
+- **Weekly wrap (Fri evening):** game-flavoured arc of the week — score trend, streak, what got beaten, what's stalking them next week — as a link to the hosted wrap page, plus the kid-portal link. Tone: fellow player, not teacher.
 
 ## Parent-facing — three touchpoints, three jobs
 | Touchpoint | Trigger | Job | Content |
@@ -28,6 +42,8 @@ Three surfaces, three time-frames. Only the SMS is *sent*; the other two are hos
 3. **Portal** — a second hosted, evergreen, bookmarkable page reached from the report ("see {name}'s full picture →"). **The cumulative shape — the film and the full atlas.** Answers "how's he doing *overall*?" Organised around subjects and time, not this week.
 
 Flow: **SMS (teaser) → weekly report (this week, self-contained) → portal (cumulative, on tap).** The still frame is the report; the film and the atlas are the portal. Weekly reports are frames that drop into the portal's timeline.
+
+**The kid side mirrors it:** daily SMS (nudge) → **weekly wrap** (hosted, Friday's game-flavoured arc) → **kid portal** (evergreen — level/XP, streak, achievements wall, mastery map in game vocabulary; this is the "kid dashboard" mocked earlier). Same per-kid-URL hosting model. Parent surfaces speak insight; kid surfaces speak game — same ledger underneath.
 
 ### Which surface does a thing belong to? — does it have a time dimension?
 A *number* is the report; a *trend* is the portal.

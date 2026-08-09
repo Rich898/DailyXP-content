@@ -211,3 +211,17 @@ Public-log safe (prints y8/y9 + status only; error detail goes to private
 `work/soundbyte_last_error.txt`). Tests: `python3 tools/test_soundbyte.py`.
 CLI: `python3 tools/soundbyte.py --private-dir ../DailyXP-private [--date
 YYYY-MM-DD] [--dry-run]`.
+
+---
+
+## kid_nudge.py — the 4pm "XP Daily is up" text
+
+The daily kid nudge (`REPORTING.md` week-at-a-glance), decoupled from the 2pm
+publish: at 4:00pm (school's out, phones back in hands) it fetches the SAME
+raw URL the shell fetches, and only if the live set is verified as *today's*
+(and not a placeholder) does it text — a review HOLD or frozen day texts
+nobody, and the 2pm→4pm gap is the human-intervention window. Flavoured by the
+weekly skeleton (⚡ Wed blitz, 🐉 Fri boss — mirrors `WEEKDAY_DIRECTIVE`;
+change both if the skeleton ever changes). Stateless: reads the live URL,
+sends, writes nothing. Tests: `python3 tools/test_kid_nudge.py`.
+CLI: `python3 tools/kid_nudge.py [--student y8|y9] [--date YYYY-MM-DD] [--dry-run]`.

@@ -1,0 +1,57 @@
+# DailyXP — the 4pm kid nudge ("XP Daily is up")
+#
+# Decoupled from the 2pm publish on purpose: this job VERIFIES the live set is
+# today's (same raw URL the shell fetches) before texting, so a review HOLD or
+# frozen day never texts a promise not kept. Stateless — reads the live URL,
+# sends, writes nothing. Flavoured by the weekly skeleton (Wed blitz, Fri boss).
+# See tools/kid_nudge.py.
+#
+# SECRETS used: MOBILE_MESSAGE_API_KEY / _API_SECRET / _SENDER / _TO_Y8 / _TO_Y9
+
+name: kid-nudge
+
+on:
+  workflow_dispatch:
+    inputs:
+      student:
+        description: "Which boy"
+        required: false
+        default: "both"
+        type: choice
+        options: ["both", "y8", "y9"]
+      dry_run:
+        description: "Verify + decide only — no send"
+        required: false
+        default: false
+        type: boolean
+  # Cron commented pending go-live — flips ON with the others.
+  # 4:00pm Sydney, Mon–Fri (school's out ~3:10; phones back in hands).
+  # schedule:
+  #   # AEST = UTC+10. (Sydney DST Oct–Apr: subtract 1 from the UTC hour to
+  #   # pin 4pm local.)
+  #   - cron: "0 6 * * 1-5"     # 16:00 AEST
+
+jobs:
+  nudge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public repo (code)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify live set, then nudge
+        env:
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
+          MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
+        run: |
+          ARGS=""
+          [ "${{ github.event.inputs.student }}" != "both" ] && [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          python tools/kid_nudge.py $ARGS

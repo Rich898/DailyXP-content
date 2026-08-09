@@ -3,8 +3,14 @@
 run_daily.py — the daily pipeline (the cron's spine).
 
 For a school day, for each boy: derive the tag -> PLAN (planner) -> COMPOSE
-(API) -> PUBLISH (validate+write+archive+commit+VERIFY) -> NOTIFY (SMS). A
-FROZEN boy yields a placeholder (no API call, no SMS). Weekends are skipped.
+(API) -> PUBLISH (validate+write+archive+commit+VERIFY). A FROZEN boy yields a
+placeholder (no API call). Weekends are skipped.
+
+SMS lives ELSEWHERE now (comms are decoupled from publish, by design):
+  kid "it's up" nudge  -> tools/kid_nudge.py, 4pm job (kid-nudge.yml) —
+                          verifies the LIVE set is today's before texting, so
+                          a review HOLD never texts a promise not kept.
+  parent soundbyte     -> tools/soundbyte.py, evening polls (evening-soundbyte.yml).
 
 State ingestion (reading results, updating the ledger/state) is deliberately a
 STUB here — this week that stays human-reviewed: the reader's output is applied
@@ -19,13 +25,12 @@ Layout (in Actions, both repos are checked out):
 Env / secrets consumed downstream:
   ANTHROPIC_API_KEY            compose
   DAILYXP_TOKEN / ~/.ghtoken   publish (push both repos)
-  MOBILE_MESSAGE_*             notify
   DAILYXP_HISTORY_DIR          set here -> private history (archive + no-repeat)
 
 Usage:
   python3 scripts/run_daily.py --private-dir ../DailyXP-private
   python3 scripts/run_daily.py --private-dir ../DailyXP-private --date 2026-08-06 \
-        --student y8 --dry-run          # shadow-run one boy, no publish/SMS
+        --student y8 --dry-run          # shadow-run one boy, no publish
 """
 import argparse
 import datetime as dt
@@ -40,11 +45,7 @@ W1_MONDAY = dt.date(2026, 7, 27)          # project week 1 = w/c Mon 27 Jul 2026
 MAX_REVIEW_ROUNDS = 2                      # recompose a flagged slot at most twice, then HOLD (never publish a flagged set)
 INITIAL = {"y8": "H", "y9": "R"}
 WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "blitz", 3: "standard", 4: "boss"}
-NUDGE = {
-    "standard": "Tonight's quiz is up 👊",
-    "blitz": "⚡ BLITZ night — double XP is live. Quiz is up 👊",
-    "boss": "🐉 BOSS night — your quiz is up. Go get it 👊",
-}
+# (Kid nudge texts moved to tools/kid_nudge.py — the 4pm job owns them.)
 
 
 def derive_tag(student, date):
@@ -63,7 +64,6 @@ def run(date, students, private_dir, directives_override, dry_run, push):
     import compose
     import review
     import publish as pub
-    import notify
     from validate import seen_prompts
 
     if date.weekday() > 4:
@@ -152,7 +152,7 @@ def run(date, students, private_dir, directives_override, dry_run, push):
             print(f"[{s}] ⚠ could not persist plan ({e}) — results→topic join will miss this run.")
 
         if plan.get("status_gate") == "FROZEN":
-            print(f"[{s}] {tag}: FROZEN → placeholder (no compose, no SMS).")
+            print(f"[{s}] {tag}: FROZEN → placeholder (no compose).")
             cset = {"student": s, "status": "placeholder", "date": date.isoformat(),
                     "day": "", "title": "DailyXP", "questions": []}
             errs = []
@@ -210,9 +210,9 @@ def run(date, students, private_dir, directives_override, dry_run, push):
 
         if dry_run:
             if cset.get("status") == "placeholder":
-                print(f"[{s}] {tag}: placeholder (nothing to compose). SMS suppressed.")
+                print(f"[{s}] {tag}: placeholder (nothing to compose).")
             else:
-                print(f"[{s}] {tag}: composed {len(cset['questions'])} Qs (DRY RUN — not published, SMS suppressed):")
+                print(f"[{s}] {tag}: composed {len(cset['questions'])} Qs (DRY RUN — not published):")
                 for q in cset["questions"]:
                     line = f"    {q['id']:<4} [{q['phase']}/{q['subject']}] {q['prompt']}"
                     print(line)
@@ -233,10 +233,7 @@ def run(date, students, private_dir, directives_override, dry_run, push):
             summary.append((s, tag, f"publish-rc{rc}"))
             continue
 
-        # NOTIFY (real sets only)
-        if cset.get("status") != "placeholder":
-            ok, detail = notify.send_sms(s, NUDGE.get(directive, NUDGE["standard"]), ref=tag, dry_run=not push)
-            print(f"[{s}] SMS {'sent' if ok else 'FAILED'}: {detail.splitlines()[0] if detail else ''}")
+        # (No SMS here — the 4pm kid-nudge job verifies the live set, then texts.)
         summary.append((s, tag, "published"))
 
     print("\n=== summary ===")
@@ -254,8 +251,8 @@ def main():
     ap.add_argument("--student", choices=["y8", "y9"], help="run a single boy (default: both)")
     ap.add_argument("--directive-y8", default=None)
     ap.add_argument("--directive-y9", default=None)
-    ap.add_argument("--dry-run", action="store_true", help="plan+compose only; no publish, no SMS")
-    ap.add_argument("--no-push", action="store_true", help="publish locally but don't git push / send SMS")
+    ap.add_argument("--dry-run", action="store_true", help="plan+compose only; no publish")
+    ap.add_argument("--no-push", action="store_true", help="publish locally but don't git push")
     a = ap.parse_args()
     date = dt.date.fromisoformat(a.date)
     students = [a.student] if a.student else ["y8", "y9"]

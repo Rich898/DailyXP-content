@@ -1,19 +1,15 @@
 # DailyXP — daily quiz pipeline
 #
 # Runs the whole loop for both boys: plan -> compose (API) -> publish (with live-URL
-# verify) -> SMS. A FROZEN boy gets a placeholder (no API, no SMS). See scripts/run_daily.py.
+# verify). A FROZEN boy gets a placeholder (no API). SMS is decoupled: the kid nudge is
+# the 4pm job (kid-nudge.yml), the parent soundbyte the evening one. See scripts/run_daily.py.
 #
 # SECRETS to add before this can run for real (repo Settings -> Secrets and variables -> Actions):
 #   DAILYXP_TOKEN            the fine-grained PAT that can read+write BOTH repos ("DailyXP both")
 #   ANTHROPIC_API_KEY        for compose
 #   RESULTS_URL              the read-only Apps Script /exec endpoint (Sheet -> runs.json ingestion)
 #   RESULTS_KEY              the shared secret matching the script's INGEST_KEY property
-#   MOBILE_MESSAGE_API_KEY   \
-#   MOBILE_MESSAGE_API_SECRET } for the SMS nudges (add when Mobile Message is set up)
-#   MOBILE_MESSAGE_SENDER    /  "XP Daily" once ACMA-approved, else the dedicated number
-#   MOBILE_MESSAGE_TO_Y8, MOBILE_MESSAGE_TO_Y9, MOBILE_MESSAGE_TO_PARENTS   recipient numbers
-#
-# Until the SMS secrets exist, notify falls back to a dry-run print (no send) — safe.
+#   MOBILE_MESSAGE_*         used by the kid-nudge + evening-soundbyte workflows (not here)
 
 name: daily-quiz
 
@@ -73,12 +69,6 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RESULTS_URL: ${{ secrets.RESULTS_URL }}
           RESULTS_KEY: ${{ secrets.RESULTS_KEY }}
-          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
-          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
-          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
-          MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
-          MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
-          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
         run: |
           ARGS="--private-dir ./private"
           [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
