@@ -347,7 +347,7 @@ function renderStart(){
   ? '<h2 class="display big">Tonight runs<br>backwards.</h2>'
   : '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>';
   var heat1 = rev
-  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_SECONDS+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Four look close; only one owns it. Back-to-back corrects still stack a combo.</p>'
+  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_SECONDS+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Look closely: the devil\'s in the detail. Back-to-back corrects still stack a combo.</p>'
   : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>';
   el("stage").innerHTML =
   '<div class="eyebrow">SESSION SHEET · '+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' · '+esc(QUIZ.tag):'')+'</div>'+
