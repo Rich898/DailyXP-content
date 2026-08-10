@@ -323,7 +323,14 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
             "- answer = the correct question, verbatim from options.\n"
             "- why = confirm the pair in one line AND state the true answer of the most tempting distractor question, so the near-miss is disarmed.")
     if shape_key == "boss":
-        lines.append("BOSS: chain the steady slots on the student's flagged gap; resurface this week's actual misses as 'attacks'; the teach-back is the finishing move.")
+        lines.append(
+            "BOSS (this is Friday's boss — every STEADY slot is a SPOT-THE-FLAW puzzle on the student's flagged weak topics):\n"
+            "- Present a SHORT worked solution or line of reasoning (3-4 numbered steps) on that slot's topic, containing EXACTLY ONE error.\n"
+            "- prompt ends: 'Which step contains the error?'  Options are the step labels: ['Step 1','Step 2','Step 3','Step 4'] (as many as the working has). Do NOT include a 'no error' option — there is always exactly one flaw.\n"
+            "- answer = the flawed step, verbatim from options. The error must be a REAL misconception the student has on this topic (use the guidance), not a typo or arithmetic slip that anyone would catch.\n"
+            "- Every other step must be genuinely CORRECT — a knowledgeable student must be able to verify each and rule it out.\n"
+            "- why = name which step is wrong, WHAT the misconception is, and the correct step. Frame these as attacking the boss's weak points; resurface this week's actual misses.\n"
+            "- The two SPEED slots stay NORMAL recall (a warm-up before the fight). The teach-back is the finishing move.")
     lines.append("Output must satisfy tools/validate.py before publish.")
     return "\n".join(lines)
 

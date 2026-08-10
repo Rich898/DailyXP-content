@@ -48,6 +48,10 @@ Hard rules (a set is rejected if any is broken):
   options are candidate QUESTIONS — exactly one of which the stated answer genuinely answers; the other three
   must be questions whose true answers clearly differ. All other rules still apply (one uncontestable pick,
   `why` re-teaches, fresh prompts).
+- SPOT-THE-FLAW slots (only when the plan's instructions declare them — the Friday boss): the prompt shows a short
+  numbered working with EXACTLY ONE flawed step; the options are the step labels; the answer is the flawed step.
+  Every non-flawed step must be genuinely correct and verifiable; the flaw must be a real misconception, not a typo.
+  `why` names the flaw and gives the correct step. All other rules still apply.
 - Match the school framing in the guidance; keep difficulty calm unless told otherwise.
 
 Output ONLY a JSON object, no prose, no markdown fences. Shape:

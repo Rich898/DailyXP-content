@@ -73,6 +73,20 @@ check("tag stamped REVERSED BLITZ", tag.endswith("· REVERSED BLITZ"))
 check("BLITZ survives as substring (Blitz Master / shell)", "BLITZ" in tag)
 check("Wed directive is reversed blitz", run_daily.WEEKDAY_DIRECTIVE[2] == "reversed blitz")
 
+print("planner: boss -> spot-the-flaw doctrine")
+plan_boss = planner.plan_set("y8", "2026-08-15", "FRI", "H3.5 \u00b7 BOSS",
+                             TARGETS, STATE, "boss")
+shb = plan_boss.get("requested_shape", plan_boss["shape"])
+check("boss shape is 2/4/1", (shb["speed"], shb["steady"], shb["teach"]) == (2, 4, 1))
+cib = plan_boss["composer_instructions"]
+check("BOSS block present", "BOSS" in cib)
+check("declares SPOT-THE-FLAW steady", "SPOT-THE-FLAW" in cib)
+check("carries the 'which step' prompt shape", "Which step contains the error?" in cib)
+check("exactly one flaw rule stated", "EXACTLY ONE error" in cib)
+check("speed stays warm-up recall", "SPEED slots stay NORMAL" in cib)
+check("no spot-the-flaw leak on a standard set",
+      "SPOT-THE-FLAW" not in planner.plan_set("y8","2026-08-11","MON","H3.1",TARGETS,STATE,"standard")["composer_instructions"])
+
 print("doctrine mirrors")
 check("run_daily and kid_nudge WEEKDAY_DIRECTIVE identical",
       run_daily.WEEKDAY_DIRECTIVE == kid_nudge.WEEKDAY_DIRECTIVE)
