@@ -72,7 +72,7 @@ console.log("pooling + cap");
   // hammer it far past the cap in one frame
   for (let i = 0; i < 20; i++) fx.burst(100, 100, ["#f00"], 50);
   const spawned = doc._fxroot.children.length;
-  check("never exceeds the 30-particle cap under a flood", spawned <= 30, "spawned=" + spawned);
+  check("never exceeds the 60-particle cap under a flood", spawned <= 60, "spawned=" + spawned);
   check("live count tracks spawned nodes", fx._live() === spawned, "live=" + fx._live());
   doc._finishAnimations();
   check("all particles cleaned up after animations end (no leak)", doc._fxroot.children.length === 0 && fx._live() === 0, "left=" + doc._fxroot.children.length);
@@ -107,11 +107,11 @@ const l2 = loudness({ combo: 2, points: 100, palette: null });
 const l3 = loudness({ combo: 3, points: 100, palette: null });
 const l4 = loudness({ combo: 5, points: 100, palette: null });
 const lb = loudness({ boss: true, points: 250, palette: null });
-check("plain correct (combo 1) is quiet: no particles, no flash", l1.particles === 0 && !l1.flash, JSON.stringify(l1));
-check("combo 2 adds a light spark + small kick", l2.particles > 0 && l2.particles <= 8 && l2.kick >= 1, JSON.stringify(l2));
-check("combo 3 builds (more particles, bigger kick)", l3.particles > l2.particles && l3.kick >= l2.kick, JSON.stringify(l3));
-check("combo 4+ flashes", l4.flash === true, JSON.stringify(l4));
-check("boss finisher is the loudest (flash + full burst + max kick)", lb.flash && lb.particles >= 20 && lb.kick === 3, JSON.stringify(lb));
+check("plain correct (combo 1) now gives a real small burst (noticeable floor)", l1.particles >= 8 && !l1.flash, JSON.stringify(l1));
+check("combo 2 escalates above the floor", l2.particles > l1.particles && l2.kick >= 2, JSON.stringify(l2));
+check("combo 3 builds further + flashes", l3.particles > l2.particles && l3.flash === true && l3.kick === 3, JSON.stringify(l3));
+check("combo 4+ is big (flash + heavy burst)", l4.flash === true && l4.particles >= 40, JSON.stringify(l4));
+check("boss finisher is the loudest of all", lb.flash && lb.particles >= 52 && lb.kick === 3 && lb.particles > l4.particles, JSON.stringify(lb));
 
 // ---- 4. THE LAW: no coupling to game state / timing ----------------------
 console.log("THE LAW: FX cannot touch state, score, combo, records, or timing");
