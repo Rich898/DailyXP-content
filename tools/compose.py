@@ -44,6 +44,10 @@ Hard rules (a set is rejected if any is broken):
 - Every speed/steady question has a `why` (1-2 sentences) that re-teaches the point, not just "correct".
 - Never reuse any prompt in the "already seen" list, and never repeat a prompt within this set.
 - Teach-back slots: a single reasoning prompt (no options/answer) — understanding is graded, not recall.
+- REVERSED slots (only when the plan's instructions declare them): the prompt states an answer and the four
+  options are candidate QUESTIONS — exactly one of which the stated answer genuinely answers; the other three
+  must be questions whose true answers clearly differ. All other rules still apply (one uncontestable pick,
+  `why` re-teaches, fresh prompts).
 - Match the school framing in the guidance; keep difficulty calm unless told otherwise.
 
 Output ONLY a JSON object, no prose, no markdown fences. Shape:

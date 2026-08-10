@@ -80,6 +80,13 @@ reserve "block" for faults you can name concretely.
 Teach-back slots have a prompt but no options or answer (understanding is graded, not recall). For these,
 "multiple_answers" and "trivial" do NOT apply — judge only factual soundness and clarity.
 
+Some sets are REVERSED format (the set tag contains "REVERSED"): the prompt states an answer and the options are
+candidate QUESTIONS — the keyed option is the question that answer belongs to. Judge with the same categories,
+mapped: "multiple_answers" = the stated answer ALSO genuinely answers a non-keyed candidate question (check every
+candidate); "factual_error" = the stated fact is wrong, OR the keyed question is not actually answered by it, OR
+the `why` mis-states a distractor's true answer; "trivial" = the three distractor questions are so unrelated the
+match gives itself away. The reversed format itself is deliberate — never flag it as "ambiguous".
+
 Output ONLY a JSON object, no prose, no markdown fences. Exactly one entry per slotId given, and no others:
 { "<slotId>": {"verdict":"clean"|"flag","severity":"block"|"warn","categories":[...],"note":"one concrete sentence, empty if clean"} }
 For a clean question use: {"verdict":"clean","severity":"","categories":[],"note":""}."""

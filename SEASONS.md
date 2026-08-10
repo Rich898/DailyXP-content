@@ -8,4 +8,10 @@
 - **Constants vs variables.** Constant: the weekly skeleton (daily runs Mon–Fri, a mid-week event slot, a Friday boss slot, weekends off) and the boss formula (each student's boss is built from their own ledger — the week's misses as attacks, a teach-back as the finishing move). Variable by chapter: which mutator fills Wednesday, which theme/mechanic skins the boss, seasonal cosmetics and XP economics.
 - **Retention logic:** something is always coming (the next chapter reveal); returning mechanics feel like old friends; the calendar can be authored a term ahead.
 
-**Current live loadout** — Season "Term 3," chapter of w/c 3 Aug: Wed mutator = Blitz (10 speed / 2 steady / 1 teach) with double-XP at the family deal layer · Fri boss = ledger-built chain.
+## Mechanics bank (named, permanent)
+
+- **Blitz** — tempo mutator: 10 speed / 2 steady / 1 teach; double-XP at the family deal layer (weekly tally, never in-app). High score ceiling → Blitz Master badge.
+- **Reversed** — direction mutator: the prompt states the ANSWER; the four options are candidate QUESTIONS; pick the one it belongs to. Trains discrimination between near-neighbour facts (the exam failure mode where facts "swap houses" under pressure) — the deliberate inverse of pure recall. Composition doctrine lives in planner/_composer_instructions; the review gate has reversed-aware category mapping. Structurally pure MC — no shell/schema cost.
+- **Boss chain** — the Friday constant: chained steady questions on the student's own ledger gap, misses as attacks, teach-back as finishing move. (Formula constant; theme/skin is the chapter variable.)
+
+**Current live loadout** — Season "Term 3," chapter of w/c 3 Aug: Wed mutator = **Reversed Blitz** (10 reversed speed / 2 steady / 1 teach) with double-XP at the family deal layer · Fri boss = ledger-built chain. *(Reversed joined mid-chapter by design call — family beta is the design lab; the chapter-boundary rule holds for staged rollout beyond the family.)*

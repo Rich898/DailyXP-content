@@ -43,10 +43,10 @@ RAW = "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/{student}.
 # The locked weekly skeleton (SEASONS.md): Wed = blitz, Fri = boss. Mirrors
 # WEEKDAY_DIRECTIVE in scripts/run_daily.py — if the skeleton ever changes,
 # change BOTH (they encode the same doctrine).
-WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "blitz", 3: "standard", 4: "boss"}
+WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "reversed blitz", 3: "standard", 4: "boss"}
 NUDGE = {
     "standard": "XP Daily is up \U0001f44a",
-    "blitz": "\u26a1 BLITZ day \u2014 double XP is live. XP Daily is up \U0001f44a",
+    "reversed blitz": "\u26a1 REVERSED BLITZ \u2014 you get the answers, find the questions. Double XP is live. XP Daily is up \U0001f44a",
     "boss": "\U0001f409 BOSS day \u2014 XP Daily is up. Go get it \U0001f44a",
 }
 

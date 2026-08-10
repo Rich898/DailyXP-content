@@ -284,7 +284,7 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         sl["slot"] = f"{prefix[sl['phase']]}{counters[sl['phase']]}"
 
     final_shape = {"speed": counters["speed"], "steady": counters["steady"], "teach": counters["teach"]}
-    ci = _composer_instructions(student, day, tag, shape_key, light_subject, ordered)
+    ci = _composer_instructions(student, day, tag, shape_key, light_subject, ordered, directive)
 
     return {
         "student": student, "date": date_str, "day": day, "tag": tag,
@@ -303,7 +303,7 @@ def _slot(prefix, n, phase, t, extra=""):
     }
 
 
-def _composer_instructions(student, day, tag, shape_key, light_subject, slots):
+def _composer_instructions(student, day, tag, shape_key, light_subject, slots, directive=""):
     lines = [
         f"COMPOSE {tag} for {student} ({day}). Shape: {shape_key}.",
         "Write ONE fresh question per slot below — never reuse a prompt this student has seen (the validator enforces this).",
@@ -312,6 +312,16 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots):
     ]
     if light_subject:
         lines.append(f"DIRECTIVE: light on {light_subject} (student just sat its assessment) — keep it to the single slot shown, calm difficulty.")
+    if "reversed" in (directive or ""):
+        lines.append(
+            "REVERSED (this chapter's Wednesday mutator — SEASONS.md): EVERY SPEED SLOT is reversed; steady and teach stay normal.\n"
+            "- Prompt template, exactly: The answer is: \"<fact>\". Which question is this the answer to?\n"
+            "- <fact> is a real, checkable fact from that slot's topic (respect the guidance) — short, concrete (a date, term, value, name).\n"
+            "- Options: four candidate QUESTIONS from the student's actual study neighbourhood, all phrased as questions.\n"
+            "  Exactly ONE is genuinely answered by the stated fact. The other three must be real-sounding questions whose\n"
+            "  true answers are clearly DIFFERENT facts — near neighbours that get mixed up under pressure, never absurd fillers.\n"
+            "- answer = the correct question, verbatim from options.\n"
+            "- why = confirm the pair in one line AND state the true answer of the most tempting distractor question, so the near-miss is disarmed.")
     if shape_key == "boss":
         lines.append("BOSS: chain the steady slots on the student's flagged gap; resurface this week's actual misses as 'attacks'; the teach-back is the finishing move.")
     lines.append("Output must satisfy tools/validate.py before publish.")
