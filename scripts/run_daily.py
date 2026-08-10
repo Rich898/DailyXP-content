@@ -220,11 +220,25 @@ def run(date, students, private_dir, directives_override, dry_run, push):
                 for sid, f in verdict["flags"].items():
                     print(f"        ⛔ {sid} [{','.join(f['categories'])}] {f['note']}")
                 bad_set = set(bad)
-                # compose validates a WHOLE set (it requires exactly one teach slot, because the
-                # shell unconditionally enters the teach screen). A subset recompose of non-teach
-                # slots therefore fails validation with "got 0 teach". Borrow the teach slot for
-                # context so the mini-set is valid, then swap back ONLY the flagged slots.
-                recompose_slots = [sl for sl in plan["slots"] if sl["slot"] in bad_set]
+                # Feed review's SPECIFIC objection back into each flagged slot's guidance, so compose
+                # fixes exactly what was wrong instead of regenerating blind (a blind retry tends to
+                # reproduce subtle errors — a misattributed quote, an ambiguous controlled variable).
+                flags = verdict.get("flags", {})
+                recompose_slots = []
+                for sl in plan["slots"]:
+                    if sl["slot"] in bad_set:
+                        fl = flags.get(sl["slot"], {})
+                        note = (fl.get("note") or "").strip()
+                        cats = ",".join(fl.get("categories", []))
+                        if note:
+                            sl = {**sl, "guidance": (
+                                (sl.get("guidance", "").strip() + " ").lstrip()
+                                + f"REVIEW REJECTED the previous version [{cats}]: {note} "
+                                  "Write a corrected question that fixes exactly this problem.").strip()}
+                        recompose_slots.append(sl)
+                # compose validates a WHOLE set (it requires exactly one teach slot, because the shell
+                # unconditionally enters the teach screen). If no teach slot is among the flagged ones,
+                # borrow it for context so the mini-set is valid — then swap back ONLY the flagged slots.
                 if not any(sl.get("phase") == "teach" for sl in recompose_slots):
                     _teach = next((sl for sl in plan["slots"] if sl.get("phase") == "teach"), None)
                     if _teach:
