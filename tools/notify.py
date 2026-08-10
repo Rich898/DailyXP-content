@@ -7,7 +7,7 @@ soundbytes/check-ins. AU-owned provider, clean REST/JSON, basic auth.
 
 SECRETS (env — set in GitHub Actions secrets, never in the repo):
   MOBILE_MESSAGE_API_KEY / MOBILE_MESSAGE_API_SECRET   basic-auth pair
-  MOBILE_MESSAGE_SENDER    "XP Daily" once the ACMA Sender ID is approved,
+  MOBILE_MESSAGE_SENDER    "XPDaily" once the ACMA Sender ID is approved,
                            else the dedicated number (fine for family)
 
 RECIPIENTS are injected, never hardcoded (phone numbers are PII):
@@ -16,7 +16,7 @@ RECIPIENTS are injected, never hardcoded (phone numbers are PII):
 
 Request shape VERIFIED against Mobile Message's live API docs (Aug 2026):
 POST /v1/messages, Basic auth (API username:password base64), messages[] of
-{to, message, sender, custom_ref}; enable_unicode ON because every DailyXP
+{to, message, sender, custom_ref}; enable_unicode ON because every XPDaily
 text carries emoji (unicode SMS = 70-char segments — our lines are short).
 
 Usage:

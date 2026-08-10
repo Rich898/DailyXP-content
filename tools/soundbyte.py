@@ -100,23 +100,23 @@ BAND_CUTS = ((0.85, "huge"), (0.70, "strong"), (0.50, "solid"))  # else "hard"
 TEMPLATES = {
     "huge": (
         "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. Flew tonight.",
-        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Absolutely flew.",
+        "XPDaily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Absolutely flew.",
     ),
     "strong": (
         "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. Good night's work.",
-        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. A good night's work.",
+        "XPDaily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. A good night's work.",
     ),
     "solid": (
         "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. Put in a shift.",
-        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Proper shift tonight.",
+        "XPDaily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Proper shift tonight.",
     ),
     "hard": (
         "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}. The set bit back \u2014 hung in there.",
-        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Tough set \u2014 stuck at it.",
+        "XPDaily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}. Tough set \u2014 stuck at it.",
     ),
     None: (
         "{name} \u2705 did tonight's run \u2014 +{pts} XP{streak}.",
-        "XP Daily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}.",
+        "XPDaily: {name} \u2705 tonight's run done \u2014 +{pts} XP{streak}.",
     ),
 }
 

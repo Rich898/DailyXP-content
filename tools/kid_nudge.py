@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-kid_nudge.py — the daily kid text: "XP Daily is up" (REPORTING.md, kid-facing).
+kid_nudge.py — the daily kid text: "XPDaily is up" (REPORTING.md, kid-facing).
 
 Runs at 4:00pm Sydney (kid-nudge.yml), DECOUPLED from the 2pm publish on
 purpose. The pipeline publishes at 2pm; kids get texted at 4pm, when school's
@@ -45,9 +45,9 @@ RAW = "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/{student}.
 # change BOTH (they encode the same doctrine).
 WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "reversed blitz", 3: "standard", 4: "boss"}
 NUDGE = {
-    "standard": "XP Daily is up \U0001f44a",
-    "reversed blitz": "\u26a1 REVERSED BLITZ \u2014 you get the answers, find the questions. Double XP is live. XP Daily is up \U0001f44a",
-    "boss": "\U0001f409 BOSS day \u2014 XP Daily is up. Go get it \U0001f44a",
+    "standard": "XPDaily is up \U0001f44a",
+    "reversed blitz": "\u26a1 REVERSED BLITZ \u2014 you get the answers, find the questions. Double XP is live. XPDaily is up \U0001f44a",
+    "boss": "\U0001f409 BOSS day \u2014 XPDaily is up. Go get it \U0001f44a",
 }
 
 

@@ -12,13 +12,13 @@ def check(name, cond):
 
 MON, WED, FRI, SAT = date(2026,8,10), date(2026,8,12), date(2026,8,14), date(2026,8,15)
 def live(d, placeholder=False):
-    s = {"student":"y8","date":d,"day":"","tag":"T","title":"DailyXP"}
+    s = {"student":"y8","date":d,"day":"","tag":"T","title":"XPDaily"}
     if placeholder: s["status"]="placeholder"
     return s
 
 print("— verify-before-text")
 send,_,text = decide(live("2026-08-10"), MON)
-check("today's live set -> send, standard flavour", send and text == "XP Daily is up 👊")
+check("today's live set -> send, standard flavour", send and text == "XPDaily is up 👊")
 send,r,_ = decide(live("2026-08-09"), MON)
 check("stale live set -> suppressed (never text a promise not kept)", not send and "not today" in r)
 send,_,_ = decide(live("2026-08-10", placeholder=True), MON)

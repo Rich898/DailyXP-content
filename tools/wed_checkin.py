@@ -307,7 +307,7 @@ def fallback_render(card):
 
 # ---- the AI dresser (BODY only; the soundbyte line is deterministic) ------- #
 
-SYSTEM = """You turn ONE fact card into the BODY of an SMS from XP Daily to a parent, in the product's redlined voice. (When tonight's run is in, a separate deterministic result line is prepended by code — never write the result yourself.)
+SYSTEM = """You turn ONE fact card into the BODY of an SMS from XPDaily to a parent, in the product's redlined voice. (When tonight's run is in, a separate deterministic result line is prepended by code — never write the result yourself.)
 
 The card is the complete truth: momentum word + direction + attendance phrase, tonight-status, at most one ask (a strength), at most one gap (with colour notes). Use ONLY these facts. Invent nothing — no topics, no events, no results, no claims beyond the card.
 
