@@ -331,7 +331,8 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
             "- The three TRUE statements must each be plainly, verifiably true — a student who knows the topic can confirm them. Keep all four the same length and register so the lie doesn't stand out by format.\n"
             "- Keep it readable for a kid who has been STRUGGLING with this topic: short sentences, no double negatives, one idea per statement. It should be just hard enough to make them think, delivered simply enough to build confidence when they get it.\n"
             "- why = name the false statement, explain WHY it's false, and give the correct version. Frame as spotting the boss's lie; resurface this week's actual misses.\n"
-            "- Spread the four steady slots across the student's DIFFERENT weak subjects (not all one subject) wherever the ledger gaps allow. The two SPEED slots stay NORMAL recall (a warm-up before the fight). The teach-back is the finishing move.")
+            "- Spread the four steady slots across the student's DIFFERENT weak subjects (not all one subject) wherever the ledger gaps allow. The two SPEED slots stay NORMAL recall (a warm-up before the fight). The teach-back is the finishing move.\n"
+            "- MATHS gaps: never phrase a statement as 'solve this' — a spot-the-lie statement is about maths, not doing maths. Use (a) false FACTS/RULES ('The angles in a triangle add to 180 degrees' TRUE vs 'Multiplying two negatives gives a negative' FALSE), or (b) false completed RESULTS ('7 x 8 = 56' TRUE vs '3 squared = 6' FALSE — squaring-vs-doubling is a real slip). Each stays one short self-contained statement; the lie is a stated fact or finished result that is wrong, matching a real misconception.")
     lines.append("Output must satisfy tools/validate.py before publish.")
     return "\n".join(lines)
 

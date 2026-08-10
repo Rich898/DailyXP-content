@@ -115,10 +115,19 @@
   .atktag{display:inline-block;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;color:#FF8A7A;background:#2A0A0C;border:1.5px solid var(--bossdeep);border-radius:6px;padding:2px 7px;margin-bottom:8px}
   .bossverdict{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.12em;color:#FF8A7A;background:#2A0A0C;border:2px solid var(--boss);border-radius:99px;padding:4px 11px;margin-bottom:10px}
   body.evt-boss .seg.steady.on{background:var(--boss)}
+  /* run-local achievement unlocks on the finish screen (the immediate dopamine moment) */
+  .badges{margin:2px 0 16px;display:flex;flex-direction:column;gap:8px}
+  .badge{display:flex;align-items:center;gap:12px;border:2px solid var(--bolt);background:linear-gradient(135deg,#FFF9EB,#FFF3D6);border-radius:12px;padding:10px 13px;animation:badgePop .5s cubic-bezier(.2,1.25,.4,1) both}
+  .badge .bic{font-size:26px;line-height:1;flex:0 0 auto}
+  .badge .bnm{font-family:'Archivo Black','Arial Black',sans-serif;font-size:14px;color:var(--boltdeep);letter-spacing:.01em}
+  .badge .bds{font-size:12.5px;color:var(--haze);margin-top:1px}
+  .badge .unl{margin-left:auto;font-family:'Space Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;color:var(--boltdeep);opacity:.75}
+  @keyframes badgePop{0%{opacity:0;transform:translateY(8px) scale(.94)}60%{opacity:1;transform:translateY(0) scale(1.02)}100%{transform:scale(1)}}
   @media (prefers-reduced-motion: reduce){
     .bossbanner .emberline{animation:none !important}
     .bossbar.hit .track,.bossbar.survive .track{animation:none !important}
     .bossbar .fill{transition:width .2s linear !important}
+    .badge{animation:none !important}
   }
   body.evt-blitz .seg.speed.on{background:var(--bolt)}
 
@@ -404,6 +413,34 @@ function makeBoss(){
 var BOSS = makeBoss();
 var bossName = "";           // set at run start from the steady subjects
 
+// Run-local achievements — the subset the SHELL can honestly award at end-of-run (the
+// immediate in-quiz moment). History-dependent badges (streaks, Perfect Week, Comeback,
+// Full Clear, Sure Shot, Calm Hands, Blitz PB) need the ledger and are computed by the
+// nightly engine + surfaced on the kid dashboard — the shell can't know them here.
+// Conditions mirror achievements.py exactly so the shell never claims a badge the engine wouldn't.
+function runLocalBadges(flags){
+  var out = [];
+  var steady = state.records.filter(function(r){return r.phase==="steady"});
+  var steadyOK = steady.filter(function(r){return r.ok}).length;
+  // First Blood — first quiz ever completed (attempt counter == 1)
+  if((ATTEMPTS.total||0) === 1) out.push({ic:"\u{1F947}", nm:"First Blood", ds:"Your first run in the books."});
+  // Boss Slayer — a boss run with every steady (attack) landed
+  if(EVENT==="boss" && steady.length>0 && steadyOK===steady.length)
+    out.push({ic:"\u{1F409}", nm:"Boss Slayer", ds:"Cleared the boss — every attack landed."});
+  // Clean Run — zero lucky guesses AND zero confident-wrongs across the whole quiz
+  if(flags && flags.lg.length===0 && flags.cw.length===0 && state.records.length>=3)
+    out.push({ic:"\u{1F3AF}", nm:"Clean Run", ds:"No lucky guesses, no sure-but-wrongs."});
+  return out;
+}
+function badgesHTML(badges){
+  if(!badges.length) return "";
+  return '<div class="badges">'+badges.map(function(b){
+    return '<div class="badge"><span class="bic">'+b.ic+'</span>'+
+      '<div><div class="bnm">'+esc(b.nm)+'</div><div class="bds">'+esc(b.ds)+'</div></div>'+
+      '<span class="unl">UNLOCKED</span></div>';
+  }).join("")+'</div>';
+}
+
 /*TIMING-CORE-START*/
 // Single source of truth for time. A question's clock starts when it is
 // shown (once — re-renders of the same question don't restart it) and
@@ -571,7 +608,7 @@ function renderStart(){
     '<div class="bS">Everything you bank tonight counts <b>\u00d72</b> in the week\'s tally.</div>'+
     '<div class="charge"></div></div>'
   : (boss
-  ? '<div class="bossbanner"><div class="bT">\U0001f409 BOSS FIGHT \u2014 '+esc(bossName.toUpperCase())+'</div>'+
+  ? '<div class="bossbanner"><div class="bT">\u{1f409} BOSS FIGHT \u2014 '+esc(bossName.toUpperCase())+'</div>'+
     '<div class="bS">Built from where you slipped this week. <b>Four attacks</b> \u2014 catch the lie in each to bring it down. The teach-back is your finishing move.</div>'+
     '<div class="emberline"></div></div>'
   : '');
@@ -704,8 +741,8 @@ function renderSteady(){
     '</div>';
   } else {
     var ok = state.picked===q.answer;
-    var okMsg = boss ? ('\U0001f5e1 Hit landed! +'+STEADY_POINTS+'. '+esc(q.why)) : ('✓ +'+STEADY_POINTS+'. '+esc(q.why));
-    var badHead = boss ? '\U0001f6e1 The boss weathered that one.' : '✗ Not quite.';
+    var okMsg = boss ? ('\u{1f5e1} Hit landed! +'+STEADY_POINTS+'. '+esc(q.why)) : ('✓ +'+STEADY_POINTS+'. '+esc(q.why));
+    var badHead = boss ? '\u{1f6e1} The boss weathered that one.' : '✗ Not quite.';
     lower =
     '<div style="margin-top:16px">'+
       '<div class="flash '+(ok?'ok':'bad')+'" style="margin-top:0">'+
@@ -722,7 +759,7 @@ function renderSteady(){
 
   var bossBar = boss ? bossBarHTML() : "";
   var eyebrow = boss
-  ? '<div class="atktag">\U0001f5e1 ATTACK '+(state.idx+1)+' / '+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+  ? '<div class="atktag">\u{1f5e1} ATTACK '+(state.idx+1)+' / '+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
   : '<div class="eyebrow r" style="margin-bottom:8px">HEAT 2 · STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>';
   el("stage").innerHTML =
   bossBar + eyebrow +
@@ -734,7 +771,7 @@ function renderSteady(){
 function bossBarHTML(cls){
   var p = BOSS.pct(state.records);
   return '<div class="bossbar'+(cls?' '+cls:'')+'" id="bossbar">'+
-    '<div class="top"><span class="nm">\U0001f409 '+esc(bossName)+'</span><span class="st">HP</span></div>'+
+    '<div class="top"><span class="nm">\u{1f409} '+esc(bossName)+'</span><span class="st">HP</span></div>'+
     '<div class="track"><div class="fill" id="bossfill" style="width:'+p+'%"></div></div>'+
   '</div>';
 }
@@ -990,15 +1027,16 @@ function renderDone(){
     ? (function(){
         var landed = steadyRecs.filter(function(r){return r.ok}).length, clean = (landed===steadyQs.length);
         return '<div class="bhero">'+
-          '<div class="bossverdict">\U0001f409 '+esc(bossName.toUpperCase())+' \u2014 DEFEATED</div>'+
+          '<div class="bossverdict">\u{1f409} '+esc(bossName.toUpperCase())+' \u2014 DEFEATED</div>'+
           '<h2 class="display" style="font-size:52px;margin:2px 0;color:var(--boss)">BOSS DOWN</h2>'+
           '<div class="src">'+(clean
-              ? '<b style="color:var(--boss)">Flawless \u2014 all '+landed+' attacks landed.</b> Boss Slayer. \U0001f3c6'
+              ? '<b style="color:var(--boss)">Flawless \u2014 all '+landed+' attacks landed.</b>'
               : landed+' of '+steadyQs.length+' attacks landed, then the finishing move took it out. It\'s down.')+'</div>'+
         '</div>';
       })()
     : '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
       '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'))+
+  badgesHTML(runLocalBadges(f))+
   '<div class="cards">'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
@@ -1013,6 +1051,7 @@ function renderDone(){
   '<div id="rawBox"></div>'+
   '<p class="note" style="text-align:center;margin-top:10px">Results send themselves now. The buttons above are just backups.</p>';
   if(isBlitz(EVENT)){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 160); } // ×2 reveal — timed to the hero pop-in
+  else if(EVENT!=="boss" && runLocalBadges(f).length){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 200); } // badge unlock on a standard night
   autoSubmit();
 }
 
