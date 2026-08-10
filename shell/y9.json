@@ -1,0 +1,25 @@
+{
+  "student": "y9",
+  "date": "2026-08-02",
+  "day": "TEST",
+  "dateLabel": "Sun 2 Aug 2026",
+  "tag": "SYSTEM TEST",
+  "title": "DailyXP · System Test",
+  "questions": [
+    { "id": "S1", "phase": "speed", "subject": "Maths",
+      "prompt": "What is 7 × 8?",
+      "options": ["54", "56", "58", "64"], "answer": "56",
+      "why": "7 × 8 = 56 — the times-table anchor next to 7 × 7 = 49.", "fresh": true },
+    { "id": "S2", "phase": "speed", "subject": "Science",
+      "prompt": "Which planet is closest to the Sun?",
+      "options": ["Venus", "Mercury", "Mars", "Earth"], "answer": "Mercury",
+      "why": "Mercury — closest in, smallest of the eight; Venus is second but hottest.", "fresh": true },
+    { "id": "D1", "phase": "steady", "subject": "Game",
+      "prompt": "In DailyXP, what does XP stand for?",
+      "options": ["Experience Points", "Extra Practice", "Exam Prep", "Expert Play"],
+      "answer": "Experience Points",
+      "why": "XP = Experience Points — the score you bank every run.", "fresh": true },
+    { "id": "T1", "phase": "teach", "subject": "System",
+      "prompt": "SYSTEM TEST: type any 80+ characters to exercise the teach-back path." }
+  ]
+}

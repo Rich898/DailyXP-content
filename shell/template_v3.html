@@ -70,14 +70,31 @@
   .sendstat.wait{background:#EEF1EA;border:2px solid var(--line);color:var(--haze)}
   .sendstat.good{background:#E8F4EE;border:2px solid var(--kelp)}
   .sendstat.fail{background:#FCEBE6;border:2px solid var(--flare)}
-  @media (prefers-reduced-motion: reduce){ .fuse,.opt{transition:none !important} }
+  /* ── EVENT LAYER (data-driven off the set's tag — dormant on standard nights) ──
+     Signature: the intro banner runs INVERTED (ink plate on the paper page) — the
+     visual pun IS the mechanic on reversed nights. --bolt is event-only: chips,
+     borders, dark-plate accents. Never body text on paper (contrast). */
+  :root{ --bolt:#FFB800; --boltdeep:#8A5A00 }
+  .evtchip{display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--boltdeep);background:#FFF3D6;border:2px solid var(--bolt);border-radius:99px;padding:3px 9px;margin-top:6px;animation:chipPulse 2.4s ease-in-out infinite}
+  @keyframes chipPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,0,.45)}50%{box-shadow:0 0 0 6px rgba(255,184,0,0)}}
+  .evtbanner{background:var(--ink);color:var(--paper);border-radius:14px;padding:16px 18px 20px;margin:10px 0 16px;position:relative;overflow:hidden}
+  .evtbanner .bT{font-family:'Archivo Black','Arial Black',sans-serif;font-size:21px;letter-spacing:.01em;line-height:1.12}
+  .evtbanner .bS{font-size:14px;margin-top:7px;color:#E9EBE4}
+  .evtbanner .bS b{color:var(--bolt)}
+  .evtbanner .charge{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--bolt),#FFE08A,var(--bolt));background-size:200% 100%;animation:charge 1.6s linear infinite}
+  @keyframes charge{0%{background-position:0 0}100%{background-position:200% 0}}
+  .revtag{display:inline-block;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--boltdeep);background:#FFF3D6;border:1.5px solid var(--bolt);border-radius:6px;padding:2px 7px;margin-bottom:8px}
+  .tally{border:2px solid var(--bolt);background:#FFF9EB;border-radius:12px;padding:12px 14px;margin:0 0 16px;font-weight:600;font-size:15px}
+  .tally .num{color:var(--boltdeep)}
+  body.evt-blitz .seg.speed.on{background:var(--bolt)}
+  @media (prefers-reduced-motion: reduce){ .fuse,.opt{transition:none !important} .evtbanner .charge,.evtchip{animation:none !important} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="hdr">
     <h1 class="display" id="appName">DailyXP<span class="pen"> ✎</span></h1>
-    <div class="score"><div class="num pts" id="pts">0</div><div class="lbl">POINTS</div></div>
+    <div class="score"><div class="num pts" id="pts">0</div><div class="lbl">POINTS</div><div id="evtChip"></div></div>
   </div>
   <div class="rail" id="rail"></div>
   <div id="stage"></div>
@@ -102,13 +119,19 @@
 //    and copy remain as backups.
 //  · attempts / custom app name persist per boy (namespaced keys)
 //  · all game mechanics, scoring, and flag logic unchanged from H1.7
+//  · v3.0.5 EVENT LAYER: presentation only, driven by the set's tag —
+//    Blitz banner + ×2 week-tally chip + finish arithmetic, REVERSED
+//    speed styling. SCORING IS NEVER TOUCHED BY EVENTS: the ×2 lives
+//    at the family deal layer (weekly tally — SEASONS.md); the shell
+//    advertises the deal and shows the sum. Detection is TAG-ONLY so
+//    a warm-up played on a Wednesday can never promise ×2 falsely.
 // ─────────────────────────────────────────────
 var CONFIG = {
   STUDENT: "__STUDENT__",   // y9 = Roshan, y8 = Harrison
   NAME: "__NAME__",
   QUESTIONS_URL: "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/__STUDENT__.json",
   WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyqm-ejLSDP9F7wCjZCgx4E0Ugh285GJf7AjmH5TBeRJ44OTFI6H-CwJ2Gx7ZyE5f-mEQ/exec",
-  SHELL_VERSION: "3.0"
+  SHELL_VERSION: "3.0.5"
 };
 
 var SPEED_SECONDS = 30, SKIP = "__NOT_COVERED__";
@@ -120,6 +143,32 @@ var QUIZ=null, QUESTIONS=[], speedQs=[], steadyQs=[], teachQ=null, MAX_SCORE=0, 
 var state = { screen:"loading", idx:0, score:0, combo:0, records:[], picked:null, confidence:null, locked:false, appName:"DailyXP", sending:false, sent:false };
 var timer=null, tStart=0, answeredThis=false;
 var lastPayload=null;
+
+/*EVENT-CORE-START*/
+// Event layer — pure functions, testable by extraction (mirrors TIMING-CORE).
+// Detection is TAG-ONLY, deliberately stricter than achievements.py's lenient
+// (day=="WED" or BLITZ-in-tag): the shell PROMISES ×2 on screen, and a warm-up
+// or makeup set played on a Wednesday must never make that promise falsely.
+// run_daily stamps the tag deterministically — the tag is the carrier of truth.
+// Events never touch scoring: the ×2 is applied at the family deal layer
+// (weekly tally — SEASONS.md). blitzTally() is display arithmetic only.
+function eventModeFor(tag){
+  tag = String(tag||"");
+  if(/REVERSED/i.test(tag)) return "reversed-blitz";
+  if(/BLITZ/i.test(tag)) return "blitz";
+  if(/BOSS/i.test(tag)) return "boss";   // Friday styling lands in the boss build
+  return "";
+}
+function isBlitz(mode){ return mode==="blitz" || mode==="reversed-blitz"; }
+function blitzTally(score){ return (Number(score||0)*2).toLocaleString(); }
+/*EVENT-CORE-END*/
+var EVENT = "";
+function applyEvent(){
+  EVENT = eventModeFor(QUIZ && QUIZ.tag);
+  document.body.className = isBlitz(EVENT) ? "evt-blitz" : "";
+  var c = el("evtChip");
+  if(c) c.innerHTML = isBlitz(EVENT) ? '<span class="evtchip">\u26a1 \u00d72 WEEK TALLY</span>' : "";
+}
 
 /*TIMING-CORE-START*/
 // Single source of truth for time. A question's clock starts when it is
@@ -251,9 +300,9 @@ function loadQuiz(){
     .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
     .then(function(j){
       if(!j || !j.questions || !j.questions.length || j.status==="placeholder"){
-        QUIZ = j || null; state.screen="noquiz"; render(); flushOutbox(); return;
+        QUIZ = j || null; applyEvent(); state.screen="noquiz"; render(); flushOutbox(); return;
       }
-      QUIZ = j; QUESTIONS = j.questions; deriveQuiz();
+      QUIZ = j; QUESTIONS = j.questions; deriveQuiz(); applyEvent();
       state.screen="start"; render(); flushOutbox();
     })
     .catch(function(e){ state.screen="error"; render(); });
@@ -288,10 +337,21 @@ function renderLoadError(){
 }
 
 function renderStart(){
+  var ev = isBlitz(EVENT), rev = (EVENT==="reversed-blitz");
+  var banner = ev
+  ? '<div class="evtbanner"><div class="bT">\u26a1 MID-WEEK BLITZ'+(rev?' \u2014 REVERSED':'')+'</div>'+
+    '<div class="bS">Everything you bank tonight counts <b>\u00d72</b> in the week\'s tally.</div>'+
+    '<div class="charge"></div></div>'
+  : '';
+  var hero = rev
+  ? '<h2 class="display big">Tonight runs<br>backwards.</h2>'
+  : '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>';
+  var heat1 = rev
+  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_SECONDS+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Four look close; only one owns it. Back-to-back corrects still stack a combo.</p>'
+  : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>';
   el("stage").innerHTML =
   '<div class="eyebrow">SESSION SHEET · '+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' · '+esc(QUIZ.tag):'')+'</div>'+
-  '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>'+
-  '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>'+
+  banner + hero + heat1 +
   '<p style="font-size:16px;margin:4px 0"><b style="color:var(--reef)">Heat 2 — Steady.</b> '+steadyQs.length+' questions, no clock. Only accuracy pays. Call how sure you are — be honest, it\'s how the thing works.</p>'+
   '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Last wave — Teach-back.</b> One argument in your own words.</p>'+
   '<p class="note" style="margin:0 0 18px">If class genuinely hasn\'t done a topic yet, hit <i>"haven\'t covered this yet"</i> — no penalty. It works: benched questions get checked against class later.</p>'+
@@ -314,6 +374,7 @@ function renderSpeed(){
     '<div class="num" id="clock" style="font-size:22px">'+SPEED_SECONDS.toFixed(1)+'</div>'+
   '</div>'+
   '<div class="fusewrap"><div class="fuse" id="fuse" style="width:100%"></div></div>'+
+  (EVENT==="reversed-blitz"?'<div class="revtag">\u26a1 REVERSED</div>':'')+
   '<h2 class="q" style="min-height:58px">'+esc(q.prompt)+'</h2>'+
   '<div class="opts">'+ shuffled[q.id].map(function(o){ return '<button class="opt" onclick="answerSpeed(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>'; }).join("") +'</div>'+
   (q.fresh?'<button class="ghost" onclick="answerSpeed(null,true)">haven\'t covered this yet →</button>':'')+
@@ -633,9 +694,10 @@ function renderDone(){
     '</div>';
   }
   el("stage").innerHTML =
-  '<div class="eyebrow">FULL TIME · '+esc(quizLabel().toUpperCase())+'</div>'+
+  '<div class="eyebrow">FULL TIME'+(isBlitz(EVENT)?' \u00b7 BLITZ':'')+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
   '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
   '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'+
+  (isBlitz(EVENT)?'<div class="tally">\u26a1 \u00d72 at the week\'s tally \u2014 tonight banks as <span class="num" style="font-size:18px">'+blitzTally(state.score)+'</span>.</div>':'')+
   '<div class="cards">'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
