@@ -283,26 +283,37 @@ function makeFX(opts){
     return true;
   }
 
+  // shared center for bursts/pops (upper third, near the hero/question)
+  function center(){
+    var r=root(); var rect=(r&&r.getBoundingClientRect)?r.getBoundingClientRect():{width:360,height:640};
+    return { cx:(rect.width||360)/2, cy:(rect.height||640)*0.34 };
+  }
+  // showpiece — the loudest single moment (blitz ×2 reveal, boss finisher): flash + full burst + max kick.
+  function showpiece(pal){
+    pal = pal || {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(255,184,0,.55)"};
+    var c=center(); flash(pal.flash); burst(c.cx, c.cy, pal.spark, 52); kick(3); return true;
+  }
+
   // The one call the shell makes on a correct answer. `spec` is plain data:
-  //   { combo, points, phase, palette:{spark,flash,pop}, boss:bool }
-  // Escalation lives HERE, keyed off combo — quiet floor, louder when earned.
+  //   { combo, points, palette, amp, intense, boss }
+  // Escalation lives HERE, keyed off combo — quiet-ish floor, louder when earned.
+  // `amp` scales particle counts and `intense` lowers the flash threshold — that's
+  // how the Wednesday blitz steps up over the baseline without new effect types.
   function celebrate(spec){
     spec = spec || {}; var r = root(); if(!r) return;
     var pal = spec.palette || {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(255,184,0,.5)", pop:"#FF4D29"};
-    var combo = spec.combo||0;
-    var rect = r.getBoundingClientRect ? r.getBoundingClientRect() : {width:360,height:640};
-    var cx = (rect.width||360)/2, cy = (rect.height||640)*0.34;
-    // TIERS (doubled): every correct answer now visibly pops; combos escalate hard; boss = showpiece.
-    if(spec.boss){ flash(pal.flash); burst(cx, cy, pal.spark, 52); kick(3); }
-    else if(combo>=4){ flash(pal.flash); burst(cx, cy, pal.spark, 40); kick(3); }
-    else if(combo===3){ flash(pal.flash); burst(cx, cy, pal.spark, 28); kick(3); }
-    else if(combo===2){ burst(cx, cy, pal.spark, 16); kick(2); }
-    else { burst(cx, cy, pal.spark, 10); kick(1); } // even a single correct now gives a real little burst
-    if(spec.points && !reduce()){
-      popNumber(cx, cy-30, "+"+spec.points, pal.pop);
-    }
+    if(spec.boss){ return showpiece(pal); }
+    var combo = spec.combo||0, amp = spec.amp||1, flashFloor = spec.intense?2:3;
+    var c = center();
+    var n, k;
+    if(combo>=4){ n=40; k=3; } else if(combo===3){ n=28; k=3; } else if(combo===2){ n=16; k=2; } else { n=10; k=1; }
+    n = Math.round(n*amp);
+    if(combo>=flashFloor) flash(pal.flash);
+    if(n>0) burst(c.cx, c.cy, pal.spark, n);
+    kick(k);
+    if(spec.points && !reduce()){ popNumber(c.cx, c.cy-30, "+"+spec.points, pal.pop); }
   }
-  return { celebrate:celebrate, burst:burst, flash:flash, popNumber:popNumber, kick:kick, _live:function(){return live;} };
+  return { celebrate:celebrate, showpiece:showpiece, burst:burst, flash:flash, popNumber:popNumber, kick:kick, _live:function(){return live;} };
 }
 /*FX-CORE-END*/
 var FX = makeFX();
@@ -311,6 +322,12 @@ function fxPalette(){
   if(EVENT==="boss") return {spark:["#FF4D29","#8A5A00","#FFB800","#101B2D"], flash:"rgba(255,77,41,.5)", pop:"#FF4D29"};
   if(isBlitz(EVENT)) return {spark:["#FFB800","#FF8A00","#FF4D29","#FFE08A"], flash:"rgba(255,184,0,.55)", pop:"var(--boltdeep)"};
   return {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(14,107,168,.4)", pop:"var(--flare)"};
+}
+// build the celebrate spec for the current mode — the Wednesday blitz amplifies + lowers the flash floor.
+function fxSpec(combo, points){
+  var spec = { combo:combo, points:points, palette:fxPalette() };
+  if(isBlitz(EVENT)){ spec.amp = 1.4; spec.intense = true; }   // Wednesday steps up over the baseline
+  return spec;
 }
 
 /*TIMING-CORE-START*/
@@ -556,7 +573,7 @@ function doSpeedAnswer(choice,isSkip){
   state.combo=newCombo; state.score+=pts; setScore();
   state.records.push({id:q.id,subject:q.subject,phase:"speed",picked:choice,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts});
   if(ok){
-    FX.celebrate({combo:newCombo, points:pts, phase:"speed", palette:fxPalette()});  // decoration; state already set above
+    FX.celebrate(fxSpec(newCombo, pts));  // decoration; state already committed above
     if(fl) fl.innerHTML = '<div class="flash ok">✓ Got it'+(newCombo>=2?'&nbsp;&nbsp;+'+COMBO_BONUS+' combo':'')+'</div>';
     setTimeout(nextSpeed, 900);
   } else {
@@ -628,7 +645,7 @@ function lockSteady(){
   T.questionDone(q.id,q.subject,"steady",{ok:ok,confidence:state.confidence});
   if(ok) state.score+=STEADY_POINTS; setScore();
   state.records.push({id:q.id,subject:q.subject,phase:"steady",picked:state.picked,ok:ok,confidence:state.confidence,pts:ok?STEADY_POINTS:0});
-  if(ok) FX.celebrate({combo:2, points:STEADY_POINTS, phase:"steady", palette:fxPalette()}); // steady win = a solid mid-tier beat
+  if(ok) FX.celebrate(fxSpec(2, STEADY_POINTS)); // steady win = a solid mid-tier beat (amplified on blitz)
   state.locked=true; renderSteady();
 }
 function skipSteady(){
@@ -855,6 +872,7 @@ function renderDone(){
   '<button class="ghost" style="margin:10px auto 0;text-align:center" onclick="showRaw()">neither working? tap here</button>'+
   '<div id="rawBox"></div>'+
   '<p class="note" style="text-align:center;margin-top:10px">Results send themselves now. The buttons above are just backups.</p>';
+  if(isBlitz(EVENT)){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 160); } // ×2 reveal — timed to the hero pop-in
   autoSubmit();
 }
 

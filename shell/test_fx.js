@@ -102,6 +102,14 @@ function loudness(spec) {
            flash: doc._fxroot.children.some(n => n.className.indexOf("fxflash") >= 0),
            kick: wrapKick ? +wrapKick[1] : 0 };
 }
+// blitz amplification: same combo, intense+amp -> louder + flashes earlier than baseline
+function loudnessSpec(spec){
+  const { doc, fx } = build(false); fx.celebrate(spec);
+  const wk = doc._wrap.className.match(/kick(\d)/);
+  return { particles: doc._fxroot.children.filter(n=>n.className.indexOf("fxparticle")>=0).length,
+           flash: doc._fxroot.children.some(n=>n.className.indexOf("fxflash")>=0),
+           kick: wk?+wk[1]:0 };
+}
 const l1 = loudness({ combo: 1, points: 100, palette: null });
 const l2 = loudness({ combo: 2, points: 100, palette: null });
 const l3 = loudness({ combo: 3, points: 100, palette: null });
@@ -112,6 +120,27 @@ check("combo 2 escalates above the floor", l2.particles > l1.particles && l2.kic
 check("combo 3 builds further + flashes", l3.particles > l2.particles && l3.flash === true && l3.kick === 3, JSON.stringify(l3));
 check("combo 4+ is big (flash + heavy burst)", l4.flash === true && l4.particles >= 40, JSON.stringify(l4));
 check("boss finisher is the loudest of all", lb.flash && lb.particles >= 52 && lb.kick === 3 && lb.particles > l4.particles, JSON.stringify(lb));
+
+console.log("blitz step-up (amp + intense) vs baseline");
+const base2 = loudnessSpec({ combo:2, points:100 });
+const blitz2 = loudnessSpec({ combo:2, points:100, amp:1.4, intense:true });
+const base1 = loudnessSpec({ combo:1, points:100 });
+const blitz1 = loudnessSpec({ combo:1, points:100, amp:1.4, intense:true });
+check("blitz combo2 throws MORE particles than baseline combo2", blitz2.particles > base2.particles, base2.particles+" -> "+blitz2.particles);
+check("blitz flashes at combo 2 (baseline does not)", blitz2.flash === true && base2.flash === false);
+check("blitz combo1 also amplified over baseline", blitz1.particles > base1.particles, base1.particles+" -> "+blitz1.particles);
+
+console.log("showpiece primitive (×2 reveal / boss finisher)");
+{
+  const { doc, fx } = build(false);
+  const ok = fx.showpiece({spark:["#f00","#fb0"], flash:"rgba(0,0,0,.5)"});
+  const parts = doc._fxroot.children.filter(n=>n.className.indexOf("fxparticle")>=0).length;
+  const flash = doc._fxroot.children.some(n=>n.className.indexOf("fxflash")>=0);
+  const kick = /kick3/.test(doc._wrap.className);
+  check("showpiece = flash + full burst + max kick", ok && parts>=52 && flash && kick, "parts="+parts);
+  const rm = build(true); const ok2 = rm.fx.showpiece({spark:["#f00"],flash:"rgba(0,0,0,.5)"});
+  check("showpiece suppressed under reduce-motion", rm.doc._fxroot.children.length===0);
+}
 
 // ---- 4. THE LAW: no coupling to game state / timing ----------------------
 console.log("THE LAW: FX cannot touch state, score, combo, records, or timing");
