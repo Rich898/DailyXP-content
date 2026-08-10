@@ -43,8 +43,13 @@ check("null-safe", core.blitzTally(null) === "0");
 
 console.log("THE LAW: no score mutation outside the display block");
 const eventBlock = m[0];
-const outside = src.replace(eventBlock, "");
-check("no *2 arithmetic anywhere outside EVENT-CORE",
+// Strip BOTH audited cores before the *2 scan: EVENT-CORE (blitzTally) and FX-CORE
+// (particle geometry, e.g. Math.PI*2) each legitimately contain *2 and have their
+// own law tests. Any *2 in the REST of the shell would be an unaudited score-double.
+let outside = src.replace(eventBlock, "");
+const fxBlock = outside.match(/\/\*FX-CORE-START\*\/[\s\S]*?\/\*FX-CORE-END\*\//);
+if (fxBlock) outside = outside.replace(fxBlock[0], "");
+check("no *2 arithmetic in the main shell body (outside the audited cores)",
   !/\*\s*2\b/.test(outside.replace(/\/\*[\s\S]*?\*\//g, "")));
 check("state.score is never multiplied", !/state\.score\s*\*/.test(src) && !/state\.score\s*\*=/.test(src));
 check("MAX_SCORE formula untouched by events", !/MAX_SCORE[^\n]*EVENT|EVENT[^\n]*MAX_SCORE/.test(src));

@@ -92,6 +92,42 @@
   .bhero .src b{color:var(--boltdeep);font-weight:700}
   @keyframes heroPop{0%{opacity:0;transform:scale(.82)}60%{opacity:1;transform:scale(1.04)}100%{transform:scale(1)}}
   body.evt-blitz .seg.speed.on{background:var(--bolt)}
+
+  /* ─────────── FX LAYER (baseline juice, all nights) ───────────
+     Pure CSS transforms/opacity — GPU-cheap, no libraries, no DOM churn beyond a
+     small pooled overlay. Every effect DECORATES; none gates input or touches the
+     clock. All of it is killed/softened under prefers-reduced-motion below. */
+  #fxroot{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+  .fxparticle{position:absolute;width:9px;height:9px;border-radius:2px;will-change:transform,opacity;opacity:0}
+  .fxrun{animation:fxfly var(--fxdur,720ms) cubic-bezier(.15,.6,.35,1) forwards}
+  @keyframes fxfly{
+    0%{opacity:1;transform:translate(0,0) scale(1) rotate(0)}
+    100%{opacity:0;transform:translate(var(--fxdx),var(--fxdy)) scale(.4) rotate(var(--fxrot))}
+  }
+  .fxpop{position:absolute;font-family:'Archivo Black','Arial Black',sans-serif;font-size:26px;letter-spacing:-.01em;will-change:transform,opacity;opacity:0;white-space:nowrap;text-shadow:0 2px 8px rgba(16,27,45,.18)}
+  .fxpop.run{animation:fxpop 900ms cubic-bezier(.2,1.1,.35,1) forwards}
+  @keyframes fxpop{0%{opacity:0;transform:translate(-50%,0) scale(.7)}25%{opacity:1;transform:translate(-50%,-14px) scale(1.08)}100%{opacity:0;transform:translate(-50%,-52px) scale(1)}}
+  .fxflash{position:absolute;inset:0;opacity:0;background:radial-gradient(circle at 50% 42%,var(--fxflashc,rgba(255,184,0,.5)),transparent 60%)}
+  .fxflash.run{animation:fxflash 520ms ease-out forwards}
+  @keyframes fxflash{0%{opacity:0}18%{opacity:1}100%{opacity:0}}
+  /* screen kick — tiered by combo. shake is the classic motion-sickness trigger,
+     so it is the FIRST thing reduced-motion removes. */
+  .kick1{animation:kick1 300ms ease-out}
+  .kick2{animation:kick2 380ms cubic-bezier(.36,.07,.19,.97)}
+  .kick3{animation:kick3 460ms cubic-bezier(.36,.07,.19,.97)}
+  @keyframes kick1{0%,100%{transform:translate(0,0)}40%{transform:translate(0,-2px)}}
+  @keyframes kick2{0%,100%{transform:translate(0,0)}20%{transform:translate(-4px,1px)}45%{transform:translate(4px,-1px)}70%{transform:translate(-2px,0)}}
+  @keyframes kick3{0%,100%{transform:translate(0,0)}12%{transform:translate(-6px,2px)}28%{transform:translate(7px,-2px)}45%{transform:translate(-5px,1px)}62%{transform:translate(5px,-1px)}80%{transform:translate(-2px,0)}}
+  @media (prefers-reduced-motion: reduce){
+    .fuse,.opt{transition:none !important}
+    .evtbanner .charge,.evtchip{animation:none !important}
+    .bhero .huge{animation:none !important}
+    /* FX: no shake at all; particles/flash suppressed; number pop keeps a gentle fade only */
+    .kick1,.kick2,.kick3{animation:none !important}
+    .fxrun,.fxflash.run{animation:none !important;opacity:0 !important}
+    .fxpop.run{animation:fxpopRM 700ms ease-out forwards !important}
+    @keyframes fxpopRM{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,-18px)}}
+  }
   @media (prefers-reduced-motion: reduce){ .fuse,.opt{transition:none !important} .evtbanner .charge,.evtchip{animation:none !important} .bhero .huge{animation:none !important} }
 </style>
 </head>
@@ -104,6 +140,7 @@
   <div class="rail" id="rail"></div>
   <div id="stage"></div>
 </div>
+<div id="fxroot" aria-hidden="true"></div>
 
 <script>
 // ─────────────────────────────────────────────
@@ -173,6 +210,107 @@ function applyEvent(){
   document.body.className = isBlitz(EVENT) ? "evt-blitz" : "";
   var c = el("evtChip");
   if(c) c.innerHTML = isBlitz(EVENT) ? '<span class="evtchip">\u26a1 \u00d72 WEEK TALLY</span>' : "";
+}
+
+/*FX-CORE-START*/
+// FX layer — pure decoration. HARD CONTRACT (proven by test_fx.js):
+//   · never reads or writes game state, score, combo, records, or timing
+//   · never gates input — it only spawns transient nodes / toggles a class
+//   · pooled + capped (particles cleaned up on animationend; hard MAX)
+//   · fully governed by prefers-reduced-motion (shake off, particles off,
+//     number-pop degrades to a gentle fade — see the CSS media query)
+// The rest of the shell calls fx.celebrate(...) at the "correct" moments; that is
+// the ONLY coupling. Palette is passed in so the blitz/boss overlays can tint it.
+function makeFX(opts){
+  opts = opts || {};
+  var doc = opts.document || (typeof document!=="undefined"?document:null);
+  var reduce = opts.reduceMotion || function(){
+    try{ return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+    catch(e){ return false; }
+  };
+  var MAX_PARTICLES = 30;          // hard cap — protects weak phones from unbounded emitters
+  var live = 0;
+  function root(){ return doc && doc.getElementById("fxroot"); }
+  function target(){ return doc && (doc.querySelector(".wrap") || doc.body); }
+
+  function burst(x, y, colors, n){
+    var r = root(); if(!r || reduce()) return 0;
+    n = Math.min(n||14, MAX_PARTICLES - live); if(n<=0) return 0;
+    for(var i=0;i<n;i++){
+      var p = doc.createElement("div"); p.className = "fxparticle";
+      var ang = Math.random()*Math.PI*2, dist = 40 + Math.random()*90;
+      p.style.left = x+"px"; p.style.top = y+"px";
+      p.style.background = colors[i % colors.length];
+      p.style.setProperty("--fxdx", Math.cos(ang)*dist + "px");
+      p.style.setProperty("--fxdy", (Math.sin(ang)*dist + 30) + "px"); // slight gravity
+      p.style.setProperty("--fxrot", (Math.random()*540-270)+"deg");
+      p.style.setProperty("--fxdur", (560 + Math.random()*260)+"ms");
+      r.appendChild(p); live++;
+      void p.offsetWidth; p.classList.add("fxrun");   // reflow so anim starts from origin
+      (function(node){
+        var done=function(){ if(node.parentNode){ node.parentNode.removeChild(node); live--; } };
+        node.addEventListener("animationend", done, {once:true});
+        setTimeout(done, 1100); // belt-and-braces cleanup if animationend is missed
+      })(p);
+    }
+    return n;
+  }
+  function flash(color){
+    var r = root(); if(!r || reduce()) return false;
+    var f = doc.createElement("div"); f.className = "fxflash";
+    if(color) f.style.setProperty("--fxflashc", color);
+    r.appendChild(f); void f.offsetWidth; f.classList.add("run");
+    f.addEventListener("animationend", function(){ if(f.parentNode) f.parentNode.removeChild(f); }, {once:true});
+    setTimeout(function(){ if(f.parentNode) f.parentNode.removeChild(f); }, 700);
+    return true;
+  }
+  function popNumber(x, y, text, color){
+    var r = root(); if(!r) return false;               // number pop survives reduced-motion (gentle fade)
+    var d = doc.createElement("div"); d.className = "fxpop";
+    d.textContent = text; d.style.left = x+"px"; d.style.top = y+"px";
+    if(color) d.style.color = color;
+    r.appendChild(d); void d.offsetWidth; d.classList.add("run");
+    d.addEventListener("animationend", function(){ if(d.parentNode) d.parentNode.removeChild(d); }, {once:true});
+    setTimeout(function(){ if(d.parentNode) d.parentNode.removeChild(d); }, 1100);
+    return true;
+  }
+  function kick(tier){
+    var t = target(); if(!t || reduce()) return false;
+    var cls = "kick"+Math.max(1,Math.min(3,tier||1));
+    t.classList.remove("kick1","kick2","kick3"); void t.offsetWidth;
+    t.classList.add(cls);
+    t.addEventListener("animationend", function h(){ t.classList.remove(cls); t.removeEventListener("animationend",h); });
+    return true;
+  }
+
+  // The one call the shell makes on a correct answer. `spec` is plain data:
+  //   { combo, points, phase, palette:{spark,flash,pop}, boss:bool }
+  // Escalation lives HERE, keyed off combo — quiet floor, louder when earned.
+  function celebrate(spec){
+    spec = spec || {}; var r = root(); if(!r) return;
+    var pal = spec.palette || {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(255,184,0,.5)", pop:"#FF4D29"};
+    var combo = spec.combo||0;
+    var rect = r.getBoundingClientRect ? r.getBoundingClientRect() : {width:360,height:640};
+    var cx = (rect.width||360)/2, cy = (rect.height||640)*0.34;
+    // TIERS: 0-1 correct = subtle; 2 = small kick + light spark; 3+ = build; boss finisher = showpiece
+    if(spec.boss){ flash(pal.flash); burst(cx, cy, pal.spark, 26); kick(3); }
+    else if(combo>=4){ flash(pal.flash); burst(cx, cy, pal.spark, 20); kick(3); }
+    else if(combo===3){ burst(cx, cy, pal.spark, 14); kick(2); }
+    else if(combo===2){ burst(cx, cy, pal.spark, 8); kick(1); }
+    else { kick(1); } // a plain correct answer: a barely-there tactile beat, nothing more
+    if(spec.points && combo>=2 && !reduce()){
+      popNumber(cx, cy-30, "+"+spec.points, pal.pop);
+    }
+  }
+  return { celebrate:celebrate, burst:burst, flash:flash, popNumber:popNumber, kick:kick, _live:function(){return live;} };
+}
+/*FX-CORE-END*/
+var FX = makeFX();
+// palette per mode — baseline uses the brand set; blitz/boss tint warm/bolt.
+function fxPalette(){
+  if(EVENT==="boss") return {spark:["#FF4D29","#8A5A00","#FFB800","#101B2D"], flash:"rgba(255,77,41,.5)", pop:"#FF4D29"};
+  if(isBlitz(EVENT)) return {spark:["#FFB800","#FF8A00","#FF4D29","#FFE08A"], flash:"rgba(255,184,0,.55)", pop:"var(--boltdeep)"};
+  return {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(14,107,168,.4)", pop:"var(--flare)"};
 }
 
 /*TIMING-CORE-START*/
@@ -418,6 +556,7 @@ function doSpeedAnswer(choice,isSkip){
   state.combo=newCombo; state.score+=pts; setScore();
   state.records.push({id:q.id,subject:q.subject,phase:"speed",picked:choice,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts});
   if(ok){
+    FX.celebrate({combo:newCombo, points:pts, phase:"speed", palette:fxPalette()});  // decoration; state already set above
     if(fl) fl.innerHTML = '<div class="flash ok">✓ Got it'+(newCombo>=2?'&nbsp;&nbsp;+'+COMBO_BONUS+' combo':'')+'</div>';
     setTimeout(nextSpeed, 900);
   } else {
@@ -489,6 +628,7 @@ function lockSteady(){
   T.questionDone(q.id,q.subject,"steady",{ok:ok,confidence:state.confidence});
   if(ok) state.score+=STEADY_POINTS; setScore();
   state.records.push({id:q.id,subject:q.subject,phase:"steady",picked:state.picked,ok:ok,confidence:state.confidence,pts:ok?STEADY_POINTS:0});
+  if(ok) FX.celebrate({combo:2, points:STEADY_POINTS, phase:"steady", palette:fxPalette()}); // steady win = a solid mid-tier beat
   state.locked=true; renderSteady();
 }
 function skipSteady(){
