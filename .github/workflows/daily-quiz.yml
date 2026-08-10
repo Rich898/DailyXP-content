@@ -50,6 +50,9 @@ jobs:
     steps:
       - name: Checkout public repo (code + live files)
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          persist-credentials: false
 
       - name: Checkout private repo (ledger/state/targets/history)
         uses: actions/checkout@v4
