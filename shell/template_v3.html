@@ -127,7 +127,7 @@
 //    a warm-up played on a Wednesday can never promise ×2 falsely.
 // ─────────────────────────────────────────────
 var CONFIG = {
-  STUDENT: "__STUDENT__",   // y9 = Roshan, y8 = Harrison
+  STUDENT: "__STUDENT__",   // student code (name lives in the private roster, never here)
   NAME: "__NAME__",
   QUESTIONS_URL: "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/__STUDENT__.json",
   WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyqm-ejLSDP9F7wCjZCgx4E0Ugh285GJf7AjmH5TBeRJ44OTFI6H-CwJ2Gx7ZyE5f-mEQ/exec",
@@ -224,14 +224,8 @@ function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(M
 var ATTEMPT_KEY = "dxp_attempts_" + CONFIG.STUDENT;
 var NAME_KEY = "dxp_name_" + CONFIG.STUDENT;
 var OUTBOX_KEY = "dxp_outbox_" + CONFIG.STUDENT;
-(function migrateOldAttempts(){
-  try{
-    if(CONFIG.STUDENT==="y8" && !window.localStorage.getItem(ATTEMPT_KEY)){
-      var old = window.localStorage.getItem("harrison_daily_attempts");
-      if(old) window.localStorage.setItem(ATTEMPT_KEY, old);
-    }
-  }catch(e){}
-})();
+// (Week-1 pre-namespaced attempt migration retired — the namespaced key has long
+//  since been the only one in use; the old one-off migration is no longer needed.)
 function _todayStr(){ return new Date().toLocaleDateString("en-CA"); } // YYYY-MM-DD
 function loadAttempts(){
   try { var raw = window.localStorage.getItem(ATTEMPT_KEY); return raw ? JSON.parse(raw) : {total:0, byDay:{}}; }

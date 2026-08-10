@@ -1,10 +1,10 @@
 "use strict";
 const fs = require("fs");
 const { JSDOM } = require("jsdom");
-const html = fs.readFileSync(__dirname + "/roshan/index.html", "utf8");
+const html = fs.readFileSync(__dirname + "/testbuild/index.html", "utf8");
 const TESTQUIZ = JSON.parse(fs.readFileSync(__dirname + "/y9.json", "utf8"));
 let webhookUp = false, deliveries = 0;
-const dom = new JSDOM(html, { url:"https://dailyxp-roshan.netlify.test/", runScripts:"dangerously", pretendToBeVisual:true,
+const dom = new JSDOM(html, { url:"https://xpdaily-test.netlify.test/", runScripts:"dangerously", pretendToBeVisual:true,
   beforeParse(window){
     window.fetch = function(url, opts){
       url = String(url);

@@ -14,3 +14,11 @@ publish_log.jsonl
 .token
 tools/__pycache__/
 *.pyc
+
+# shell build artifacts — NEVER commit (stamped pages carry real names; node_modules is junk).
+# shell/*/ ignores ALL subdirectories (node_modules, any stamped per-student build, test build);
+# only the template + test_*.js at shell/ root are tracked.
+shell/*/
+shell/package.json
+shell/package-lock.json
+shell/y9.json

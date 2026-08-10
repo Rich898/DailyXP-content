@@ -1,5 +1,5 @@
 // DailyXP v3.0 — full-shell integration test.
-// Loads the REAL built roshan/index.html in jsdom, stubs the network
+// Loads the REAL built shell (testbuild/index.html) in jsdom, stubs the network
 // (questions come from the actual y9.json TEST file that will be
 // published; the webhook captures what would hit the Google Sheet),
 // then plays a complete run by clicking through the DOM:
@@ -10,7 +10,7 @@
 const fs = require("fs");
 const { JSDOM } = require("jsdom");
 
-const html = fs.readFileSync(__dirname + "/roshan/index.html", "utf8");
+const html = fs.readFileSync(__dirname + "/testbuild/index.html", "utf8");
 const TESTQUIZ = JSON.parse(fs.readFileSync(__dirname + "/y9.json", "utf8"));
 
 let webhookBody = null;
@@ -18,7 +18,7 @@ let webhookContentType = null;
 let questionsRequested = null;
 
 const dom = new JSDOM(html, {
-  url: "https://dailyxp-roshan.netlify.test/",
+  url: "https://xpdaily-test.netlify.test/",
   runScripts: "dangerously",
   pretendToBeVisual: true,
   beforeParse(window) {
@@ -114,7 +114,7 @@ function check(name, cond, detail) { checks.push([name, cond, detail]); if (!con
   check("kid sees the sent confirmation", !!sendStat && sendStat.textContent.indexOf("sent to Dad automatically") !== -1, sendStat && sendStat.textContent);
 
   const p = JSON.parse(webhookBody);
-  check("payload: student/name/date/tag", p.student === "y9" && p.name === "Roshan" && p.date === "2026-08-02" && p.tag === "SYSTEM TEST");
+  check("payload: student/name/date/tag", p.student === "y9" && p.name === "Tester" && p.date === "2026-08-02" && p.tag === "SYSTEM TEST");
   check("payload: score positive, max present", p.score > 0 && p.maxScore > 0, p.score + "/" + p.maxScore);
   check("payload: speed 1/2, steady 1/1, teach done",
     p.speed.right === 1 && p.speed.of === 2 && p.steady.right === 1 && p.steady.of === 1 && p.teach.done === true,

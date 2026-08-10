@@ -6,7 +6,7 @@
 // all of Week 1 (active > elapsed is now impossible).
 "use strict";
 const fs = require("fs");
-const src = fs.readFileSync(__dirname + "/roshan/index.html", "utf8");
+const src = fs.readFileSync(__dirname + "/testbuild/index.html", "utf8");
 const m = src.match(/\/\*TIMING-CORE-START\*\/([\s\S]*?)\/\*TIMING-CORE-END\*\//);
 if (!m) { console.error("FAIL: timing core not found in built shell"); process.exit(1); }
 const makeTiming = new Function(m[1] + "; return makeTiming;")(); // the exact shipped code
