@@ -5,20 +5,20 @@
       "code": "y8",
       "tag_initial": "H",
       "active": true,
-      "play_url": ""
+      "play_url": "https://dailyxp-harrison.netlify.app/"
     },
     {
       "code": "y9",
       "tag_initial": "R",
       "active": true,
-      "play_url": ""
+      "play_url": "https://daily-xproshan.netlify.app/"
     },
     {
       "code": "t1",
       "tag_initial": "T",
       "active": true,
       "targets_alias": "y8",
-      "play_url": ""
+      "play_url": "https://xpdaily-t1.netlify.app/"
     }
   ]
 }
