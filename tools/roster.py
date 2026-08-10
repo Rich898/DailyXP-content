@@ -45,3 +45,9 @@ def targets_alias(code, path=None):
     """The curriculum this player quizzes on (their own code unless aliased)."""
     e = entry(code, path)
     return (e or {}).get("targets_alias") or code
+
+
+def play_url(code, path=None):
+    """The kid's permanent Netlify quiz link (public). Empty string if not set."""
+    e = entry(code, path)
+    return ((e or {}).get("play_url") or "").strip()

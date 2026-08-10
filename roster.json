@@ -1,8 +1,24 @@
 {
-  "_": "The account structure: who exists. Codes only — names/numbers NEVER live here (names flow from private runs; numbers live in Actions secrets as MOBILE_MESSAGE_TO_<CODE> for the kid seat and MOBILE_MESSAGE_PARENTS_<CODE> for that kid's parent seat). targets_alias = quiz another student's curriculum (test players).",
+  "_": "The account structure: who exists. Codes only — names/numbers NEVER live here (names flow from private runs; numbers live in Actions secrets as MOBILE_MESSAGE_TO_<CODE> for the kid seat and MOBILE_MESSAGE_PARENTS_<CODE> for that kid's parent seat). targets_alias = quiz another student's curriculum (test players). play_url = the kid's permanent Netlify quiz link (public; appended to the daily nudge so it's one tap).",
   "students": [
-    {"code": "y8", "tag_initial": "H", "active": true},
-    {"code": "y9", "tag_initial": "R", "active": true},
-    {"code": "t1", "tag_initial": "T", "active": true, "targets_alias": "y8"}
+    {
+      "code": "y8",
+      "tag_initial": "H",
+      "active": true,
+      "play_url": ""
+    },
+    {
+      "code": "y9",
+      "tag_initial": "R",
+      "active": true,
+      "play_url": ""
+    },
+    {
+      "code": "t1",
+      "tag_initial": "T",
+      "active": true,
+      "targets_alias": "y8",
+      "play_url": ""
+    }
   ]
 }

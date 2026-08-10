@@ -31,6 +31,11 @@ _,_,t = decide(live("2026-08-12"), WED)
 check("Wednesday -> blitz flavour", "BLITZ" in t)
 _,_,t = decide(live("2026-08-14"), FRI)
 check("Friday -> battleground flavour", "BATTLEGROUND" in t)
+# link append: when a play URL is given, it's on its own line at the end
+_,_,_wl = decide(live("2026-08-10"), MON, "https://xpdaily-y8.netlify.app")
+check("play link appended on its own line", _wl.endswith("\nhttps://xpdaily-y8.netlify.app"))
+_,_,_nolink = decide(live("2026-08-10"), MON)
+check("no link when none configured (unchanged)", "\n" not in (_nolink or ""))
 send,_,_ = decide(live("2026-08-15"), SAT)
 check("weekend -> no nudge", not send)
 

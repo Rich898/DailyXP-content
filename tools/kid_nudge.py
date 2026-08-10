@@ -58,8 +58,9 @@ def sydney_today():
     return datetime.now(ZoneInfo("Australia/Sydney")).date()
 
 
-def decide(live_set, today):
-    """Pure decision: (send?, reason, text). Testable without network."""
+def decide(live_set, today, play_url=None):
+    """Pure decision: (send?, reason, text). Testable without network.
+    When play_url is set, the kid's permanent quiz link is appended so the Daily is one tap away."""
     if not isinstance(live_set, dict):
         return False, "live set unreadable", None
     if live_set.get("status") == "placeholder":
@@ -70,7 +71,10 @@ def decide(live_set, today):
     directive = WEEKDAY_DIRECTIVE.get(today.weekday())
     if directive is None:
         return False, "weekend \u2014 no nudge", None
-    return True, f"live set verified for today ({directive})", NUDGE[directive]
+    text = NUDGE[directive]
+    if play_url:
+        text = f"{text}\n{play_url}"
+    return True, f"live set verified for today ({directive})", text
 
 
 def fetch_live(student):
@@ -101,7 +105,7 @@ def main():
             print(f"[{s}] \u26a0 could not read live URL ({type(e).__name__}) \u2014 no nudge.")
             any_fail = True
             continue
-        send, reason, text = decide(live, today)
+        send, reason, text = decide(live, today, roster.play_url(s))
         print(f"[{s}] {reason}")
         if not send:
             continue
