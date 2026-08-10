@@ -819,19 +819,45 @@ function renderTeach(){
   '<p class="note" style="margin:0 0 14px">'+(boss?'Explain it in your own words to lock in the ground you claimed. Reasons, not a list of parts.':'Reasons, not a list of parts. Why would anyone bother?')+'</p>'+
   '<textarea id="tb" rows="6" placeholder="Nah mate, here\'s why…" oninput="tbInput()"></textarea>'+
   '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">'+
-    '<span class="num" id="tbCount" style="font-size:13px;color:var(--haze)">0/80+</span>'+
+    '<span class="num" id="tbCount" style="font-size:13px;color:var(--haze)">a few full sentences</span>'+
     '<button class="cta display" style="font-size:17px" id="tbBtn" disabled onclick="finishTeach()">'+(boss?'Secure it \u2192':'Send it \u2192')+'</button>'+
   '</div>';
   markShown("teach:0");
 }
+// The teach-back is the highest-value question, so its submit gate checks for a genuine
+// ATTEMPT — not just length. This is the EFFORT layer only: it stops keyboard-mashing,
+// single-word repetition and clearly-non-English text from getting the tick. It stays
+// PERMISSIVE (a real English attempt of any quality passes) because the true QUALITY +
+// correctness + language judgement is the server-side LLM grade, which reads the explanation
+// and decides whether the topic actually advances. The client cannot judge that (no AI here).
+var TB_COMMON = ["the","a","an","is","are","was","were","be","been","to","of","and","or","but",
+  "in","on","for","it","its","that","this","these","those","they","you","we","he","she","them",
+  "because","so","if","when","how","why","what","which","with","as","at","by","not","no","do",
+  "does","did","can","could","will","would","should","have","has","had","there","then","from",
+  "into","about","more","than","some","all","each","also","their","your","our","get","got","make"];
+function teachbackReady(v){
+  v = (v||"").trim();
+  if(v.length < 80) return {ok:false, hint:"Keep going \u2014 a few full sentences."};
+  var words = v.split(/\s+/).filter(function(w){ return w.replace(/[^A-Za-z]/g,"").length >= 2; });
+  if(words.length < 12) return {ok:false, hint:"Explain it in your own words \u2014 a few full sentences."};
+  var lower = {}; words.forEach(function(w){ var c=w.toLowerCase().replace(/[^a-z]/g,""); if(c) lower[c]=1; });
+  if(Object.keys(lower).length < 6) return {ok:false, hint:"Say it properly \u2014 real sentences, not one word repeated."};
+  var chars = {}; v.toLowerCase().replace(/[^a-z]/g,"").split("").forEach(function(c){ chars[c]=1; });
+  if(Object.keys(chars).length < 10) return {ok:false, hint:"That doesn\u2019t look like a real answer yet."};
+  var common = 0; for(var w in lower){ if(TB_COMMON.indexOf(w) >= 0) common++; }
+  if(common < 2) return {ok:false, hint:"Write it out in full English sentences."};
+  return {ok:true, hint:""};
+}
 function tbInput(){
   var v=el("tb").value.trim();
-  el("tbCount").textContent=v.length+"/80+";
-  el("tbCount").style.color = v.length>=80?"var(--kelp)":"var(--haze)";
-  el("tbBtn").disabled = v.length<80;
+  var r=teachbackReady(v);
+  var wc = v ? v.split(/\s+/).filter(Boolean).length : 0;
+  el("tbCount").textContent = r.ok ? (wc+" words \u2713") : r.hint;
+  el("tbCount").style.color = r.ok ? "var(--kelp)" : "var(--haze)";
+  el("tbBtn").disabled = !r.ok;
 }
 function finishTeach(){
-  var v=el("tb").value.trim(); if(v.length<80) return;
+  var v=el("tb").value.trim(); if(!teachbackReady(v).ok) return;
   T.questionDone(teachQ.id,teachQ.subject,"teach",{ok:true,chars:v.length});
   state.score+=TEACH_POINTS; setScore();
   state.records.push({id:teachQ.id,subject:teachQ.subject,phase:"teach",text:v,ok:true,pts:TEACH_POINTS});
