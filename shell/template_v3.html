@@ -74,7 +74,7 @@
      Signature: the intro banner runs INVERTED (ink plate on the paper page) — the
      visual pun IS the mechanic on reversed nights. --bolt is event-only: chips,
      borders, dark-plate accents. Never body text on paper (contrast). */
-  :root{ --bolt:#FFB800; --boltdeep:#8A5A00 }
+  :root{ --bolt:#FFB800; --boltdeep:#8A5A00; --boss:#B4232B; --bossdeep:#6E0F14 }
   .evtchip{display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--boltdeep);background:#FFF3D6;border:2px solid var(--bolt);border-radius:99px;padding:3px 9px;margin-top:6px;animation:chipPulse 2.4s ease-in-out infinite}
   @keyframes chipPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,0,.45)}50%{box-shadow:0 0 0 6px rgba(255,184,0,0)}}
   .evtbanner{background:var(--ink);color:var(--paper);border-radius:14px;padding:16px 18px 20px;margin:10px 0 16px;position:relative;overflow:hidden}
@@ -91,6 +91,35 @@
   .bhero .src{font-size:15px;color:var(--haze);margin-top:6px}
   .bhero .src b{color:var(--boltdeep);font-weight:700}
   @keyframes heroPop{0%{opacity:0;transform:scale(.82)}60%{opacity:1;transform:scale(1.04)}100%{transform:scale(1)}}
+
+  /* ─────────── BOSS LAYER (Friday) ───────────
+     A health-bar duel skinned over the existing steady flow. Display-only: the bar
+     is driven off the records the shell already keeps, never off score/timing. */
+  .bossbanner{background:linear-gradient(135deg,#2A0A0C,#101B2D);color:#F7F8F4;border-radius:14px;padding:16px 18px 20px;margin:10px 0 16px;position:relative;overflow:hidden;border:1px solid #7E2A2E}
+  .bossbanner .bT{font-family:'Archivo Black','Arial Black',sans-serif;font-size:21px;letter-spacing:.01em;line-height:1.12}
+  .bossbanner .bS{font-size:14px;margin-top:7px;color:#F0D9D9}
+  .bossbanner .bS b{color:#FF6B5E}
+  .bossbanner .emberline{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--boss),#FF7A00,var(--boss));background-size:200% 100%;animation:charge 2.2s linear infinite}
+  /* the HP bar itself */
+  .bossbar{margin:2px 0 18px;border:2px solid var(--bossdeep);border-radius:12px;padding:9px 11px;background:#1B0507}
+  .bossbar .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+  .bossbar .nm{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.06em;color:#FF8A7A}
+  .bossbar .st{font-size:11px;color:#C99;letter-spacing:.08em}
+  .bossbar .track{height:16px;border-radius:99px;background:#3A0C0F;overflow:hidden;position:relative}
+  .bossbar .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--bossdeep),var(--boss) 60%,#FF5A3C);width:100%;transition:width .55s cubic-bezier(.3,.9,.4,1)}
+  .bossbar.hit .track{animation:bosshit 360ms ease-out}
+  .bossbar.hit .fill{filter:brightness(1.5)}
+  @keyframes bosshit{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}55%{transform:translateX(5px)}80%{transform:translateX(-2px)}}
+  .bossbar.survive .track{animation:bosssurv 420ms ease-out}
+  @keyframes bosssurv{0%,100%{box-shadow:none}40%{box-shadow:0 0 0 3px rgba(180,35,43,.55)}}
+  .atktag{display:inline-block;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;color:#FF8A7A;background:#2A0A0C;border:1.5px solid var(--bossdeep);border-radius:6px;padding:2px 7px;margin-bottom:8px}
+  .bossverdict{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.12em;color:#FF8A7A;background:#2A0A0C;border:2px solid var(--boss);border-radius:99px;padding:4px 11px;margin-bottom:10px}
+  body.evt-boss .seg.steady.on{background:var(--boss)}
+  @media (prefers-reduced-motion: reduce){
+    .bossbanner .emberline{animation:none !important}
+    .bossbar.hit .track,.bossbar.survive .track{animation:none !important}
+    .bossbar .fill{transition:width .2s linear !important}
+  }
   body.evt-blitz .seg.speed.on{background:var(--bolt)}
 
   /* ─────────── FX LAYER (baseline juice, all nights) ───────────
@@ -207,9 +236,13 @@ function blitzTally(score){ return (Number(score||0)*2).toLocaleString(); }
 var EVENT = "";
 function applyEvent(){
   EVENT = eventModeFor(QUIZ && QUIZ.tag);
-  document.body.className = isBlitz(EVENT) ? "evt-blitz" : "";
+  document.body.className = isBlitz(EVENT) ? "evt-blitz" : (EVENT==="boss" ? "evt-boss" : "");
   var c = el("evtChip");
   if(c) c.innerHTML = isBlitz(EVENT) ? '<span class="evtchip">\u26a1 \u00d72 WEEK TALLY</span>' : "";
+  if(EVENT==="boss" && QUESTIONS && QUESTIONS.length){
+    var subs = QUESTIONS.filter(function(q){return q.phase==="steady"}).map(function(q){return q.subject;});
+    bossName = BOSS.nameFor(subs);
+  }
 }
 
 /*FX-CORE-START*/
@@ -329,6 +362,47 @@ function fxSpec(combo, points){
   if(isBlitz(EVENT)){ spec.amp = 1.4; spec.intense = true; }   // Wednesday steps up over the baseline
   return spec;
 }
+
+/*BOSS-CORE-START*/
+// Boss layer — a health-bar duel skinned over the existing steady flow. HARD CONTRACT
+// (proven by test_boss.js): the HP model is DISPLAY-ONLY. It is a pure function of the
+// steady records the shell already keeps — it never writes score/combo/records/timing,
+// and the boss can NEVER be a lose-condition (a miss just means the boss survives that
+// exchange; the finisher always empties it, so every Friday ends in a win — no fake
+// jeopardy for a kid who's studying).
+function makeBoss(){
+  var MAX = 100;
+  // Each landed steady chips the boss; repair-flagged hits chip harder (they're the real
+  // weak spots). Damage is FLOORED so the boss always has HP left for the teach-back kill
+  // shot — that keeps "the teach-back is the finishing move" literally true.
+  var HIT = 16, REPAIR_HIT = 22, FLOOR = 28;
+  // hp given the steady records so far (order-independent, pure).
+  function hpFromRecords(recs){
+    var hp = MAX;
+    (recs||[]).forEach(function(r){
+      if(r && r.phase==="steady" && r.ok && !r.skipped){
+        hp -= (r.repair ? REPAIR_HIT : HIT);
+      }
+    });
+    return Math.max(FLOOR, hp);           // floor: clean four leaves the boss ~28-36%, finisher does the rest
+  }
+  function pct(recs){ return Math.round(hpFromRecords(recs) / MAX * 100); }
+  // themed name from the dominant subject of the fight (flavour only)
+  function nameFor(subjects){
+    var THEME = {
+      Maths:"The Equation Wraith", Science:"The Method Golem", English:"The Syntax Shade",
+      History:"The Chronicle Warden", Geography:"The Terrain Titan", Commerce:"The Ledger Fiend"
+    };
+    var count = {}, best = null, bestN = 0;
+    (subjects||[]).forEach(function(s){ count[s]=(count[s]||0)+1; if(count[s]>bestN){bestN=count[s];best=s;} });
+    return (best && THEME[best]) || "The Gatekeeper";
+  }
+  return { MAX:MAX, FLOOR:FLOOR, hpFromRecords:hpFromRecords, pct:pct, nameFor:nameFor,
+           isDefeatable:function(){ return true; } };   // always winnable — by design
+}
+/*BOSS-CORE-END*/
+var BOSS = makeBoss();
+var bossName = "";           // set at run start from the steady subjects
 
 /*TIMING-CORE-START*/
 // Single source of truth for time. A question's clock starts when it is
@@ -491,26 +565,38 @@ function renderLoadError(){
 }
 
 function renderStart(){
-  var ev = isBlitz(EVENT), rev = (EVENT==="reversed-blitz");
+  var ev = isBlitz(EVENT), rev = (EVENT==="reversed-blitz"), boss = (EVENT==="boss");
   var banner = ev
   ? '<div class="evtbanner"><div class="bT">\u26a1 MID-WEEK BLITZ'+(rev?' \u2014 REVERSED':'')+'</div>'+
     '<div class="bS">Everything you bank tonight counts <b>\u00d72</b> in the week\'s tally.</div>'+
     '<div class="charge"></div></div>'
-  : '';
+  : (boss
+  ? '<div class="bossbanner"><div class="bT">\U0001f409 BOSS FIGHT \u2014 '+esc(bossName.toUpperCase())+'</div>'+
+    '<div class="bS">Built from where you slipped this week. <b>Four attacks</b> \u2014 spot the flaw in each to bring it down. The teach-back is your finishing move.</div>'+
+    '<div class="emberline"></div></div>'
+  : '');
   var hero = rev
   ? '<h2 class="display big">Tonight runs<br>backwards.</h2>'
-  : '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>';
+  : (boss
+  ? '<h2 class="display big">Face<br>'+esc(bossName)+'.</h2>'
+  : '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>');
   var heat1 = rev
   ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_SECONDS+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Look closely: the devil\'s in the detail. Back-to-back corrects still stack a combo.</p>'
-  : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>';
+  : (boss
+  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Warm-up.</b> '+speedQs.length+' quick swings, <b>'+SPEED_SECONDS+' seconds each</b>, before the fight starts.</p>'
+  : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>');
+  var heat2 = boss
+  ? '<p style="font-size:16px;margin:4px 0"><b style="color:var(--boss)">The fight — '+steadyQs.length+' attacks.</b> Each one shows the boss\'s working with a hidden flaw. Find the wrong step to land a hit. Miss it and the boss weathers the blow — the answer\'s still shown, so you learn its trick.</p>'
+  : '<p style="font-size:16px;margin:4px 0"><b style="color:var(--reef)">Heat 2 — Steady.</b> '+steadyQs.length+' questions, no clock. Only accuracy pays. Call how sure you are — be honest, it\'s how the thing works.</p>';
+  var heat3 = boss
+  ? '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Finishing move — Teach-back.</b> Land it to take the boss down for good.</p>'
+  : '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Last wave — Teach-back.</b> One argument in your own words.</p>';
   el("stage").innerHTML =
   '<div class="eyebrow">SESSION SHEET · '+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' · '+esc(QUIZ.tag):'')+'</div>'+
-  banner + hero + heat1 +
-  '<p style="font-size:16px;margin:4px 0"><b style="color:var(--reef)">Heat 2 — Steady.</b> '+steadyQs.length+' questions, no clock. Only accuracy pays. Call how sure you are — be honest, it\'s how the thing works.</p>'+
-  '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Last wave — Teach-back.</b> One argument in your own words.</p>'+
+  banner + hero + heat1 + heat2 + heat3 +
   '<p class="note" style="margin:0 0 18px">If class genuinely hasn\'t done a topic yet, hit <i>"haven\'t covered this yet"</i> — no penalty. It works: benched questions get checked against class later.</p>'+
   '<div class="deal">Under five minutes, in and out. Bank the XP, then you\'re done. Weekends off.</div>'+
-  '<button class="cta display" style="font-size:20px" onclick="startRun()">Drop in →</button>';
+  '<button class="cta display" style="font-size:20px" onclick="startRun()">'+(boss?'Enter the fight →':'Drop in →')+'</button>';
 }
 function startRun(){
   ATTEMPTS = bumpAttempt();
@@ -595,6 +681,7 @@ function nextSpeed(){
 
 function renderSteady(){
   var q=steadyQs[state.idx];
+  var boss = (EVENT==="boss");
   var optsHTML = shuffled[q.id].map(function(o){
     var style="";
     if(state.locked){
@@ -617,25 +704,39 @@ function renderSteady(){
     '</div>';
   } else {
     var ok = state.picked===q.answer;
+    var okMsg = boss ? ('\U0001f5e1 Hit landed! +'+STEADY_POINTS+'. '+esc(q.why)) : ('✓ +'+STEADY_POINTS+'. '+esc(q.why));
+    var badHead = boss ? '\U0001f6e1 The boss weathered that one.' : '✗ Not quite.';
     lower =
     '<div style="margin-top:16px">'+
       '<div class="flash '+(ok?'ok':'bad')+'" style="margin-top:0">'+
         (ok
-          ? ('✓ +'+STEADY_POINTS+'. '+esc(q.why))
-          : ('✗ Not quite.'+
-             '<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div>'+
+          ? okMsg
+          : (badHead+
+             '<div style="margin-top:8px;font-weight:700">The flaw was: '+esc(q.answer)+'</div>'+
              '<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>'+
-             '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">Worth knowing for next time this comes up.</div>'))+
+             '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">'+(boss?'Now you know its trick.':'Worth knowing for next time this comes up.')+'</div>'))+
       '</div>'+
-      '<button class="cta display" style="margin-top:14px;font-size:17px" onclick="nextSteady()">Next →</button>'+
+      '<button class="cta display" style="margin-top:14px;font-size:17px" onclick="nextSteady()">'+(boss?'Next attack →':'Next →')+'</button>'+
     '</div>';
   }
 
+  var bossBar = boss ? bossBarHTML() : "";
+  var eyebrow = boss
+  ? '<div class="atktag">\U0001f5e1 ATTACK '+(state.idx+1)+' / '+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+  : '<div class="eyebrow r" style="margin-bottom:8px">HEAT 2 · STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>';
   el("stage").innerHTML =
-  '<div class="eyebrow r" style="margin-bottom:8px">HEAT 2 · STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>'+
+  bossBar + eyebrow +
   '<h2 class="q">'+esc(q.prompt)+'</h2>'+
   '<div class="opts">'+optsHTML+'</div>'+lower;
   markShown("steady:"+state.idx);
+}
+// HP bar reflects the boss's current health from the steady records so far (display-only).
+function bossBarHTML(cls){
+  var p = BOSS.pct(state.records);
+  return '<div class="bossbar'+(cls?' '+cls:'')+'" id="bossbar">'+
+    '<div class="top"><span class="nm">\U0001f409 '+esc(bossName)+'</span><span class="st">HP</span></div>'+
+    '<div class="track"><div class="fill" id="bossfill" style="width:'+p+'%"></div></div>'+
+  '</div>';
 }
 function pickSteady(btn){ if(state.locked) return; state.picked=btn.getAttribute("data-v"); renderSteady(); }
 function pickConf(c){ if(state.locked) return; state.confidence=c; renderSteady(); }
@@ -644,9 +745,25 @@ function lockSteady(){
   var q=steadyQs[state.idx]; var ok=state.picked===q.answer;
   T.questionDone(q.id,q.subject,"steady",{ok:ok,confidence:state.confidence});
   if(ok) state.score+=STEADY_POINTS; setScore();
-  state.records.push({id:q.id,subject:q.subject,phase:"steady",picked:state.picked,ok:ok,confidence:state.confidence,pts:ok?STEADY_POINTS:0});
-  if(ok) FX.celebrate(fxSpec(2, STEADY_POINTS)); // steady win = a solid mid-tier beat (amplified on blitz)
+  state.records.push({id:q.id,subject:q.subject,phase:"steady",picked:state.picked,ok:ok,confidence:state.confidence,repair:!!q.repair,pts:ok?STEADY_POINTS:0});
+  if(EVENT==="boss"){ bossBeat(ok); }              // decoration; records already committed above
+  else if(ok) FX.celebrate(fxSpec(2, STEADY_POINTS)); // baseline/blitz steady win
   state.locked=true; renderSteady();
+}
+// Boss exchange feedback: a hit drains the bar + a damage burst; a miss = the boss survives
+// (red flash + shake), HP unchanged. Never a lose-condition — the finisher always ends it.
+function bossBeat(hit){
+  // renderSteady re-renders with the new HP; drive the animation classes + FX just after.
+  setTimeout(function(){
+    var bar = el("bossbar"); var pal = fxPalette();
+    if(hit){
+      if(bar){ bar.className = "bossbar hit"; }
+      FX.burst( (el("fxroot")?el("fxroot").clientWidth:360)/2, 150, pal.spark, 22); FX.kick(2);
+    } else {
+      if(bar){ bar.className = "bossbar survive"; }
+      FX.flash("rgba(180,35,43,.5)"); FX.kick(3);   // the boss strikes back
+    }
+  }, 40);
 }
 function skipSteady(){
   var q=steadyQs[state.idx];
@@ -662,14 +779,18 @@ function advanceSteady(){
 }
 
 function renderTeach(){
+  var boss = (EVENT==="boss");
   el("stage").innerHTML =
-  '<div class="eyebrow k" style="margin-bottom:8px">LAST WAVE · TEACH-BACK · '+esc(teachQ.subject.toUpperCase())+'</div>'+
+  (boss ? bossBarHTML() : "")+
+  (boss
+    ? '<div class="atktag">\u2694 FINISHING MOVE \u00b7 '+esc(teachQ.subject.toUpperCase())+'</div>'
+    : '<div class="eyebrow k" style="margin-bottom:8px">LAST WAVE · TEACH-BACK · '+esc(teachQ.subject.toUpperCase())+'</div>')+
   '<h2 class="q" style="margin-bottom:6px">'+esc(teachQ.prompt)+'</h2>'+
-  '<p class="note" style="margin:0 0 14px">Reasons, not a list of parts. Why would anyone bother?</p>'+
+  '<p class="note" style="margin:0 0 14px">'+(boss?'Explain it in your own words to land the final blow. Reasons, not a list of parts.':'Reasons, not a list of parts. Why would anyone bother?')+'</p>'+
   '<textarea id="tb" rows="6" placeholder="Nah mate, here\'s why…" oninput="tbInput()"></textarea>'+
   '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">'+
     '<span class="num" id="tbCount" style="font-size:13px;color:var(--haze)">0/80+</span>'+
-    '<button class="cta display" style="font-size:17px" id="tbBtn" disabled onclick="finishTeach()">Send it →</button>'+
+    '<button class="cta display" style="font-size:17px" id="tbBtn" disabled onclick="finishTeach()">'+(boss?'Finish it →':'Send it →')+'</button>'+
   '</div>';
   markShown("teach:0");
 }
@@ -684,6 +805,14 @@ function finishTeach(){
   T.questionDone(teachQ.id,teachQ.subject,"teach",{ok:true,chars:v.length});
   state.score+=TEACH_POINTS; setScore();
   state.records.push({id:teachQ.id,subject:teachQ.subject,phase:"teach",text:v,ok:true,pts:TEACH_POINTS});
+  if(EVENT==="boss"){
+    // the kill shot: empty the still-visible HP bar, fire the showpiece, THEN reveal victory.
+    var bf=el("bossfill"); if(bf) bf.style.width="0%";
+    var bar=el("bossbar"); if(bar) bar.className="bossbar hit";
+    FX.showpiece(fxPalette());
+    setTimeout(function(){ state.screen="done"; render(); }, 780);   // let the bar drain + burst land
+    return;
+  }
   state.screen="done"; render();
 }
 
@@ -850,15 +979,26 @@ function renderDone(){
     '</div>';
   }
   el("stage").innerHTML =
-  '<div class="eyebrow">FULL TIME'+(isBlitz(EVENT)?' \u00b7 MID-WEEK BLITZ':'')+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
+  '<div class="eyebrow">FULL TIME'+(isBlitz(EVENT)?' \u00b7 MID-WEEK BLITZ':(EVENT==="boss"?' \u00b7 BOSS FIGHT':''))+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
   (isBlitz(EVENT)
     ? '<div class="bhero">'+
         '<div class="cap">\u26a1 DOUBLE XP BANKED</div>'+
         '<div class="huge">'+blitzTally(state.score)+'</div>'+
         '<div class="src">Your <b>'+state.score.toLocaleString()+'</b> tonight, doubled \u2014 into the week\'s tally.</div>'+
       '</div>'
+    : (EVENT==="boss"
+    ? (function(){
+        var landed = steadyRecs.filter(function(r){return r.ok}).length, clean = (landed===steadyQs.length);
+        return '<div class="bhero">'+
+          '<div class="bossverdict">\U0001f409 '+esc(bossName.toUpperCase())+' \u2014 DEFEATED</div>'+
+          '<h2 class="display" style="font-size:52px;margin:2px 0;color:var(--boss)">BOSS DOWN</h2>'+
+          '<div class="src">'+(clean
+              ? '<b style="color:var(--boss)">Flawless \u2014 all '+landed+' attacks landed.</b> Boss Slayer. \U0001f3c6'
+              : landed+' of '+steadyQs.length+' attacks landed, then the finishing move took it out. It\'s down.')+'</div>'+
+        '</div>';
+      })()
     : '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
-      '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>')+
+      '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'))+
   '<div class="cards">'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
