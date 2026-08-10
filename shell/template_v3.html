@@ -84,10 +84,15 @@
   .evtbanner .charge{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--bolt),#FFE08A,var(--bolt));background-size:200% 100%;animation:charge 1.6s linear infinite}
   @keyframes charge{0%{background-position:0 0}100%{background-position:200% 0}}
   .revtag{display:inline-block;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--boltdeep);background:#FFF3D6;border:1.5px solid var(--bolt);border-radius:6px;padding:2px 7px;margin-bottom:8px}
-  .tally{border:2px solid var(--bolt);background:#FFF9EB;border-radius:12px;padding:12px 14px;margin:0 0 16px;font-weight:600;font-size:15px}
-  .tally .num{color:var(--boltdeep)}
+  /* Blitz finish HERO — the doubled number is the whole point of the night, so it leads. */
+  .bhero{margin:6px 0 18px}
+  .bhero .cap{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.12em;color:var(--boltdeep);background:#FFF3D6;border:2px solid var(--bolt);border-radius:99px;padding:4px 11px;margin-bottom:10px}
+  .bhero .huge{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-0.02em;font-size:72px;line-height:.9;background:linear-gradient(135deg,var(--bolt) 0%,var(--flare) 115%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--flare);filter:drop-shadow(0 3px 10px rgba(255,138,41,.35));animation:heroPop .55s cubic-bezier(.2,1.3,.4,1) both}
+  .bhero .src{font-size:15px;color:var(--haze);margin-top:6px}
+  .bhero .src b{color:var(--boltdeep);font-weight:700}
+  @keyframes heroPop{0%{opacity:0;transform:scale(.82)}60%{opacity:1;transform:scale(1.04)}100%{transform:scale(1)}}
   body.evt-blitz .seg.speed.on{background:var(--bolt)}
-  @media (prefers-reduced-motion: reduce){ .fuse,.opt{transition:none !important} .evtbanner .charge,.evtchip{animation:none !important} }
+  @media (prefers-reduced-motion: reduce){ .fuse,.opt{transition:none !important} .evtbanner .charge,.evtchip{animation:none !important} .bhero .huge{animation:none !important} }
 </style>
 </head>
 <body>
@@ -688,10 +693,15 @@ function renderDone(){
     '</div>';
   }
   el("stage").innerHTML =
-  '<div class="eyebrow">FULL TIME'+(isBlitz(EVENT)?' \u00b7 BLITZ':'')+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
-  '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
-  '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'+
-  (isBlitz(EVENT)?'<div class="tally">\u26a1 \u00d72 at the week\'s tally \u2014 tonight banks as <span class="num" style="font-size:18px">'+blitzTally(state.score)+'</span>.</div>':'')+
+  '<div class="eyebrow">FULL TIME'+(isBlitz(EVENT)?' \u00b7 MID-WEEK BLITZ':'')+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
+  (isBlitz(EVENT)
+    ? '<div class="bhero">'+
+        '<div class="cap">\u26a1 DOUBLE XP BANKED</div>'+
+        '<div class="huge">'+blitzTally(state.score)+'</div>'+
+        '<div class="src">Your <b>'+state.score.toLocaleString()+'</b> tonight, doubled \u2014 into the week\'s tally.</div>'+
+      '</div>'
+    : '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
+      '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>')+
   '<div class="cards">'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
