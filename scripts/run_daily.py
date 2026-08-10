@@ -219,15 +219,25 @@ def run(date, students, private_dir, directives_override, dry_run, push):
                 print(f"[{s}] {tag}: REVIEW round {rounds+1} — {len(bad)} blocking, recomposing {bad}")
                 for sid, f in verdict["flags"].items():
                     print(f"        ⛔ {sid} [{','.join(f['categories'])}] {f['note']}")
-                reduced = {**plan, "slots": [sl for sl in plan["slots"] if sl["slot"] in bad]}
-                kept = {q["prompt"] for q in cset["questions"] if q["id"] not in bad}
+                bad_set = set(bad)
+                # compose validates a WHOLE set (it requires exactly one teach slot, because the
+                # shell unconditionally enters the teach screen). A subset recompose of non-teach
+                # slots therefore fails validation with "got 0 teach". Borrow the teach slot for
+                # context so the mini-set is valid, then swap back ONLY the flagged slots.
+                recompose_slots = [sl for sl in plan["slots"] if sl["slot"] in bad_set]
+                if not any(sl.get("phase") == "teach" for sl in recompose_slots):
+                    _teach = next((sl for sl in plan["slots"] if sl.get("phase") == "teach"), None)
+                    if _teach:
+                        recompose_slots = recompose_slots + [_teach]
+                reduced = {**plan, "slots": recompose_slots}
+                kept = {q["prompt"] for q in cset["questions"] if q["id"] not in bad_set}
                 sub, serr = compose.compose_set(
                     reduced, seen=base_seen | kept,
                     model=os.environ.get("DAILYXP_MODEL", compose.DEFAULT_MODEL), history_dir=hist)
                 if sub is None:
                     print(f"[{s}] recompose of {bad} FAILED: {serr}")
                     break
-                repl = {q["id"]: q for q in sub["questions"]}
+                repl = {q["id"]: q for q in sub["questions"] if q["id"] in bad_set}  # only the flagged slots
                 cset["questions"] = [repl.get(q["id"], q) for q in cset["questions"]]
                 rounds += 1
                 verdict, verr = review.review_set(cset, curriculum=curric)

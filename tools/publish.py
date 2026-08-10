@@ -108,6 +108,11 @@ def publish(set_path, push=True):
     if archived and os.path.abspath(archived).startswith(os.path.abspath(REPO) + os.sep):
         add_paths.append(os.path.relpath(archived, REPO))
     sh(["git", "add"] + add_paths)
+    # Ensure an author identity exists — a fresh CI checkout has none, and `git commit`
+    # aborts with "Author identity unknown". Local (repo-scoped) config, safe to set every run.
+    if sh(["git", "config", "user.name"]).returncode != 0:
+        sh(["git", "config", "user.name", "DailyXP"])
+        sh(["git", "config", "user.email", "dailyxp@users.noreply.github.com"])
     msg = f"publish {student} {intended_tag}"
     c = sh(["git", "commit", "-q", "-m", msg])
     if c.returncode != 0 and "nothing to commit" not in (c.stdout + c.stderr):
