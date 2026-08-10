@@ -80,12 +80,13 @@ shb = plan_boss.get("requested_shape", plan_boss["shape"])
 check("boss shape is 2/4/1", (shb["speed"], shb["steady"], shb["teach"]) == (2, 4, 1))
 cib = plan_boss["composer_instructions"]
 check("BOSS block present", "BOSS" in cib)
-check("declares SPOT-THE-FLAW steady", "SPOT-THE-FLAW" in cib)
-check("carries the 'which step' prompt shape", "Which step contains the error?" in cib)
-check("exactly one flaw rule stated", "EXACTLY ONE error" in cib)
+check("declares SPOT-THE-LIE steady", "SPOT-THE-LIE" in cib)
+check("carries the 'which is false' prompt shape", "Which one is FALSE?" in cib)
+check("three-true-one-false rule stated", "three are TRUE and ONE is FALSE" in cib.replace("THREE","three"))
 check("speed stays warm-up recall", "SPEED slots stay NORMAL" in cib)
-check("no spot-the-flaw leak on a standard set",
-      "SPOT-THE-FLAW" not in planner.plan_set("y8","2026-08-11","MON","H3.1",TARGETS,STATE,"standard")["composer_instructions"])
+check("no spot-the-lie leak on a standard set",
+      "SPOT-THE-LIE" not in planner.plan_set("y8","2026-08-11","MON","H3.1",TARGETS,STATE,"standard")["composer_instructions"] and
+      "spread the four steady slots across the student's DIFFERENT weak subjects".lower() in cib.lower())
 
 print("doctrine mirrors")
 check("run_daily and kid_nudge WEEKDAY_DIRECTIVE identical",

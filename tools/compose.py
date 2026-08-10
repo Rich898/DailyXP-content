@@ -48,10 +48,11 @@ Hard rules (a set is rejected if any is broken):
   options are candidate QUESTIONS — exactly one of which the stated answer genuinely answers; the other three
   must be questions whose true answers clearly differ. All other rules still apply (one uncontestable pick,
   `why` re-teaches, fresh prompts).
-- SPOT-THE-FLAW slots (only when the plan's instructions declare them — the Friday boss): the prompt shows a short
-  numbered working with EXACTLY ONE flawed step; the options are the step labels; the answer is the flawed step.
-  Every non-flawed step must be genuinely correct and verifiable; the flaw must be a real misconception, not a typo.
-  `why` names the flaw and gives the correct step. All other rules still apply.
+- SPOT-THE-LIE slots (only when the plan's instructions declare them — the Friday boss): the prompt gives FOUR short
+  statements and asks which is FALSE; the four options ARE the statements; exactly three are true and one is false.
+  The false one must be a plausible misconception (sounds right, isn't), not an obvious howler or a wording trick; the
+  three true ones must be plainly verifiable. Keep all four short, same length/register, one idea each, readable for a
+  struggling student. `why` names the lie, says why it's false, gives the correct version. All other rules still apply.
 - Match the school framing in the guidance; keep difficulty calm unless told otherwise.
 
 Output ONLY a JSON object, no prose, no markdown fences. Shape:

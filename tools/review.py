@@ -87,14 +87,14 @@ candidate); "factual_error" = the stated fact is wrong, OR the keyed question is
 the `why` mis-states a distractor's true answer; "trivial" = the three distractor questions are so unrelated the
 match gives itself away. The reversed format itself is deliberate — never flag it as "ambiguous".
 
-Some sets are SPOT-THE-FLAW format (the Friday boss — the prompt shows numbered working and asks which step has the
-error; options are step labels). This format has a DECISIVE extra check you MUST make: read every step yourself.
-Map the categories: "multiple_answers" = a step OTHER than the keyed one is ALSO wrong (more than one flaw), OR the
-keyed step is actually correct while a different step is the real flaw — either makes the keyed answer indefensible,
-so BLOCK. "factual_error" = the keyed step is genuinely correct (there is no real flaw there), or the `why`
-misidentifies the flaw or teaches a false correction. "trivial" = the flaw is a glaring arithmetic/typo slip anyone
-spots rather than a real misconception. The spot-the-flaw format itself is deliberate — never flag it "ambiguous"
-merely for being a critique task; only flag genuine wording ambiguity.
+Some sets are SPOT-THE-LIE format (the Friday boss — the prompt gives four statements and asks which is FALSE; the
+options are the statements). This format has a DECISIVE extra check you MUST make: verify the truth of ALL FOUR
+statements yourself. Map the categories: "multiple_answers" = a statement OTHER than the keyed one is ALSO false (more
+than one lie), OR the keyed statement is actually TRUE while a different statement is the real lie — either makes the
+keyed answer indefensible, so BLOCK. "factual_error" = the keyed statement is genuinely true (there is no lie), or the
+`why` mis-explains why it's false or teaches a wrong correction. "trivial" = the lie is an obvious howler anyone spots,
+or it stands out by wording/length rather than content, rather than a real misconception. The spot-the-lie format itself
+is deliberate — never flag it "ambiguous" merely for being a true/false task; only flag genuine wording ambiguity.
 
 Output ONLY a JSON object, no prose, no markdown fences. Exactly one entry per slotId given, and no others:
 { "<slotId>": {"verdict":"clean"|"flag","severity":"block"|"warn","categories":[...],"note":"one concrete sentence, empty if clean"} }

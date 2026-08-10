@@ -572,7 +572,7 @@ function renderStart(){
     '<div class="charge"></div></div>'
   : (boss
   ? '<div class="bossbanner"><div class="bT">\U0001f409 BOSS FIGHT \u2014 '+esc(bossName.toUpperCase())+'</div>'+
-    '<div class="bS">Built from where you slipped this week. <b>Four attacks</b> \u2014 spot the flaw in each to bring it down. The teach-back is your finishing move.</div>'+
+    '<div class="bS">Built from where you slipped this week. <b>Four attacks</b> \u2014 catch the lie in each to bring it down. The teach-back is your finishing move.</div>'+
     '<div class="emberline"></div></div>'
   : '');
   var hero = rev
@@ -586,7 +586,7 @@ function renderStart(){
   ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Warm-up.</b> '+speedQs.length+' quick swings, <b>'+SPEED_SECONDS+' seconds each</b>, before the fight starts.</p>'
   : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>');
   var heat2 = boss
-  ? '<p style="font-size:16px;margin:4px 0"><b style="color:var(--boss)">The fight — '+steadyQs.length+' attacks.</b> Each one shows the boss\'s working with a hidden flaw. Find the wrong step to land a hit. Miss it and the boss weathers the blow — the answer\'s still shown, so you learn its trick.</p>'
+  ? '<p style="font-size:16px;margin:4px 0"><b style="color:var(--boss)">The fight — '+steadyQs.length+' attacks.</b> Each attack throws four statements — three true, one lie. Spot the lie to land a hit. Miss it and the boss weathers the blow — the truth\'s still shown, so you learn its trick.</p>'
   : '<p style="font-size:16px;margin:4px 0"><b style="color:var(--reef)">Heat 2 — Steady.</b> '+steadyQs.length+' questions, no clock. Only accuracy pays. Call how sure you are — be honest, it\'s how the thing works.</p>';
   var heat3 = boss
   ? '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Finishing move — Teach-back.</b> Land it to take the boss down for good.</p>'
@@ -712,7 +712,7 @@ function renderSteady(){
         (ok
           ? okMsg
           : (badHead+
-             '<div style="margin-top:8px;font-weight:700">The flaw was: '+esc(q.answer)+'</div>'+
+             '<div style="margin-top:8px;font-weight:700">The lie was: '+esc(q.answer)+'</div>'+
              '<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>'+
              '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">'+(boss?'Now you know its trick.':'Worth knowing for next time this comes up.')+'</div>'))+
       '</div>'+

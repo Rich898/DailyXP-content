@@ -324,13 +324,14 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
             "- why = confirm the pair in one line AND state the true answer of the most tempting distractor question, so the near-miss is disarmed.")
     if shape_key == "boss":
         lines.append(
-            "BOSS (this is Friday's boss — every STEADY slot is a SPOT-THE-FLAW puzzle on the student's flagged weak topics):\n"
-            "- Present a SHORT worked solution or line of reasoning (3-4 numbered steps) on that slot's topic, containing EXACTLY ONE error.\n"
-            "- prompt ends: 'Which step contains the error?'  Options are the step labels: ['Step 1','Step 2','Step 3','Step 4'] (as many as the working has). Do NOT include a 'no error' option — there is always exactly one flaw.\n"
-            "- answer = the flawed step, verbatim from options. The error must be a REAL misconception the student has on this topic (use the guidance), not a typo or arithmetic slip that anyone would catch.\n"
-            "- Every other step must be genuinely CORRECT — a knowledgeable student must be able to verify each and rule it out.\n"
-            "- why = name which step is wrong, WHAT the misconception is, and the correct step. Frame these as attacking the boss's weak points; resurface this week's actual misses.\n"
-            "- The two SPEED slots stay NORMAL recall (a warm-up before the fight). The teach-back is the finishing move.")
+            "BOSS (this is Friday's boss — every STEADY slot is a SPOT-THE-LIE question on the student's flagged weak topics):\n"
+            "- Give FOUR short, self-contained statements about that slot's topic. Exactly THREE are TRUE and ONE is FALSE.\n"
+            "- prompt ends: 'Which one is FALSE?'  The four options ARE the four statements (each one short — a single clear sentence).\n"
+            "- answer = the false statement, verbatim from options. The lie must be a PLAUSIBLE misconception the student actually holds on this topic (use the guidance) — something that sounds right but isn't. NOT an obvious howler, and NOT a trick of wording.\n"
+            "- The three TRUE statements must each be plainly, verifiably true — a student who knows the topic can confirm them. Keep all four the same length and register so the lie doesn't stand out by format.\n"
+            "- Keep it readable for a kid who has been STRUGGLING with this topic: short sentences, no double negatives, one idea per statement. It should be just hard enough to make them think, delivered simply enough to build confidence when they get it.\n"
+            "- why = name the false statement, explain WHY it's false, and give the correct version. Frame as spotting the boss's lie; resurface this week's actual misses.\n"
+            "- Spread the four steady slots across the student's DIFFERENT weak subjects (not all one subject) wherever the ledger gaps allow. The two SPEED slots stay NORMAL recall (a warm-up before the fight). The teach-back is the finishing move.")
     lines.append("Output must satisfy tools/validate.py before publish.")
     return "\n".join(lines)
 
