@@ -5,7 +5,7 @@ achievements.py — badge the ledger (ACHIEVEMENTS.md). Deterministic, idempoten
 Runs right after the state-writer. Reads three event sources and awards any newly-unlocked
 badges, deduped against a private earned-ledger so nothing ever fires twice:
 
-  runs.json                 → run-shaped badges  (First Blood, Clean Run, Boss Slayer,
+  runs.json                 → run-shaped badges  (First Blood, Clean Run, Full Claim,
                               Blitz Master, Perfect Week, Streak)
   state_writer_log.jsonl    → transition badges  (Locked It, Comeback, Untouchable,
                               Calm Hands, Sure Shot)
@@ -107,8 +107,8 @@ def run_badges(runs):
                         "A whole quiz with no lucky guesses and no confident-wrongs."))
 
         # Boss Slayer — a Friday/Boss run with every steady slot correct
-        if (day == "FRI" or "BOSS" in tag) and st.get("of") and st.get("right") == st.get("of"):
-            out.append(("Boss Slayer", f"Boss Slayer|{rd}", rd, "Cleared Friday's Boss."))
+        if (day == "FRI" or "BATTLEGROUND" in tag) and st.get("of") and st.get("right") == st.get("of"):
+            out.append(("Full Claim", f"Full Claim|{rd}", rd, "Claimed the whole Friday Battleground."))
 
         # Blitz Master — a Blitz run that beats your own previous Blitz best
         if day == "WED" or "BLITZ" in tag:

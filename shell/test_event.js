@@ -25,7 +25,7 @@ console.log("detection (tag is the only carrier of truth)");
 check("REVERSED BLITZ tag -> reversed-blitz", core.eventModeFor("H3.3 \u00b7 REVERSED BLITZ") === "reversed-blitz");
 check("plain BLITZ tag -> blitz", core.eventModeFor("H3.3 \u00b7 BLITZ") === "blitz");
 check("lowercase tolerated", core.eventModeFor("h3.3 \u00b7 reversed blitz") === "reversed-blitz");
-check("BOSS tag -> boss", core.eventModeFor("H3.5 \u00b7 BOSS") === "boss");
+check("BATTLEGROUND tag -> battleground", core.eventModeFor("H3.5 \u00b7 BATTLEGROUND") === "battleground");
 check("warm-up tag -> NO event (the false-promise guard)", core.eventModeFor("T-WARMUP2") === "");
 check("standard tag -> NO event", core.eventModeFor("H3.1") === "");
 check("empty/undefined tag -> NO event", core.eventModeFor(undefined) === "" && core.eventModeFor("") === "");
@@ -33,7 +33,7 @@ check("empty/undefined tag -> NO event", core.eventModeFor(undefined) === "" && 
 console.log("isBlitz mapping");
 check("blitz is blitz", core.isBlitz("blitz") === true);
 check("reversed-blitz is blitz", core.isBlitz("reversed-blitz") === true);
-check("boss is not blitz", core.isBlitz("boss") === false);
+check("battleground is not blitz", core.isBlitz("battleground") === false);
 check("no event is not blitz", core.isBlitz("") === false);
 
 console.log("tally arithmetic (display only)");

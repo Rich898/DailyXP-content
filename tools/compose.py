@@ -48,11 +48,12 @@ Hard rules (a set is rejected if any is broken):
   options are candidate QUESTIONS — exactly one of which the stated answer genuinely answers; the other three
   must be questions whose true answers clearly differ. All other rules still apply (one uncontestable pick,
   `why` re-teaches, fresh prompts).
-- SPOT-THE-LIE slots (only when the plan's instructions declare them — the Friday boss): the prompt gives FOUR short
-  statements and asks which is FALSE; the four options ARE the statements; exactly three are true and one is false.
-  The false one must be a plausible misconception (sounds right, isn't), not an obvious howler or a wording trick; the
-  three true ones must be plainly verifiable. Keep all four short, same length/register, one idea each, readable for a
-  struggling student. `why` names the lie, says why it's false, gives the correct version. All other rules still apply.
+- BATTLEGROUND slots (only when the plan's instructions declare them — the Friday Battleground): each slot is one
+  CLAIMABLE zone on a weak topic, and you pick the sharpest format for that topic from the MC family (all four-option,
+  since the shell has no typed input): spot-the-lie (four statements, one false), true/false (options ['True','False']),
+  plain multiple choice, or a sum shown WITH four answer options. Vary the formats across the four zones. Whatever the
+  format: one uncontestable correct option, plausible-misconception distractors, readable for a struggling student.
+  `why` states the answer, explains why, names the misconception. All other rules still apply.
 - Match the school framing in the guidance; keep difficulty calm unless told otherwise.
 
 Output ONLY a JSON object, no prose, no markdown fences. Shape:

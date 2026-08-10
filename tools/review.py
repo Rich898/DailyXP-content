@@ -87,14 +87,14 @@ candidate); "factual_error" = the stated fact is wrong, OR the keyed question is
 the `why` mis-states a distractor's true answer; "trivial" = the three distractor questions are so unrelated the
 match gives itself away. The reversed format itself is deliberate — never flag it as "ambiguous".
 
-Some sets are SPOT-THE-LIE format (the Friday boss — the prompt gives four statements and asks which is FALSE; the
-options are the statements). This format has a DECISIVE extra check you MUST make: verify the truth of ALL FOUR
-statements yourself. Map the categories: "multiple_answers" = a statement OTHER than the keyed one is ALSO false (more
-than one lie), OR the keyed statement is actually TRUE while a different statement is the real lie — either makes the
-keyed answer indefensible, so BLOCK. "factual_error" = the keyed statement is genuinely true (there is no lie), or the
-`why` mis-explains why it's false or teaches a wrong correction. "trivial" = the lie is an obvious howler anyone spots,
-or it stands out by wording/length rather than content, rather than a real misconception. The spot-the-lie format itself
-is deliberate — never flag it "ambiguous" merely for being a true/false task; only flag genuine wording ambiguity.
+Some sets are BATTLEGROUND format (the Friday Battleground): each steady slot is one claimable zone on a weak topic, and
+the format VARIES per zone — spot-the-lie (which statement is FALSE), true/false, plain multiple choice, or a sum shown
+with four answer options. Judge each on its own format with the same categories. For spot-the-lie, verify ALL FOUR
+statements yourself: "multiple_answers" = a second statement is also false OR the keyed one is actually true; "factual_error"
+= the keyed statement is true / the `why` mis-explains. For true/false and sums, "factual_error" = the keyed answer is
+wrong or the `why` is wrong; "multiple_answers" = a distractor is also defensibly correct. "trivial" = the answer is an
+obvious giveaway rather than a real misconception. The varied formats are deliberate — never flag a format itself as
+"ambiguous"; only flag genuine wording ambiguity.
 
 Output ONLY a JSON object, no prose, no markdown fences. Exactly one entry per slotId given, and no others:
 { "<slotId>": {"verdict":"clean"|"flag","severity":"block"|"warn","categories":[...],"note":"one concrete sentence, empty if clean"} }

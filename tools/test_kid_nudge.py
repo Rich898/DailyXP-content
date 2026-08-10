@@ -30,7 +30,7 @@ print("— weekly skeleton flavour")
 _,_,t = decide(live("2026-08-12"), WED)
 check("Wednesday -> blitz flavour", "BLITZ" in t)
 _,_,t = decide(live("2026-08-14"), FRI)
-check("Friday -> boss flavour", "BOSS" in t)
+check("Friday -> battleground flavour", "BATTLEGROUND" in t)
 send,_,_ = decide(live("2026-08-15"), SAT)
 check("weekend -> no nudge", not send)
 

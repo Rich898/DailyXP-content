@@ -48,7 +48,7 @@ json.dump(state, open(f"{tmp}/work/state.json","w"), indent=2)
 
 awarded, _ = ach.process(tmp, dry_run=False)
 got = {a["badge"] for a in awarded}
-expect = {"First Blood","Clean Run","Boss Slayer","Blitz Master","Perfect Week","Streak",
+expect = {"First Blood","Clean Run","Full Claim","Blitz Master","Perfect Week","Streak",
           "Locked It","Comeback","Sure Shot","Untouchable","Calm Hands","Full Clear"}
 awarded2, _ = ach.process(tmp, dry_run=False)
 

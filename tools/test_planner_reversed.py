@@ -73,20 +73,21 @@ check("tag stamped REVERSED BLITZ", tag.endswith("· REVERSED BLITZ"))
 check("BLITZ survives as substring (Blitz Master / shell)", "BLITZ" in tag)
 check("Wed directive is reversed blitz", run_daily.WEEKDAY_DIRECTIVE[2] == "reversed blitz")
 
-print("planner: boss -> spot-the-flaw doctrine")
+print("planner: boss -> Battleground (varied-format) doctrine")
 plan_boss = planner.plan_set("y8", "2026-08-15", "FRI", "H3.5 \u00b7 BOSS",
                              TARGETS, STATE, "boss")
 shb = plan_boss.get("requested_shape", plan_boss["shape"])
 check("boss shape is 2/4/1", (shb["speed"], shb["steady"], shb["teach"]) == (2, 4, 1))
 cib = plan_boss["composer_instructions"]
-check("BOSS block present", "BOSS" in cib)
-check("declares SPOT-THE-LIE steady", "SPOT-THE-LIE" in cib)
-check("carries the 'which is false' prompt shape", "Which one is FALSE?" in cib)
-check("three-true-one-false rule stated", "three are TRUE and ONE is FALSE" in cib.replace("THREE","three"))
+check("BATTLEGROUND block present", "BATTLEGROUND" in cib)
+check("frames zones as CLAIMABLE ground", "claimable zone" in cib and "claiming" in cib.lower())
+check("offers the varied MC family", all(fmt in cib for fmt in ["SPOT-THE-LIE", "TRUE / FALSE", "MULTIPLE CHOICE", "SUM"]))
+check("constrains to four options (no typed input yet)", "four options" in cib and "no typed" in cib.lower())
+check("tells composer to VARY formats across zones", "VARY the formats" in cib)
+check("spreads across DIFFERENT weak subjects", "DIFFERENT weak subjects" in cib)
 check("speed stays warm-up recall", "SPEED slots stay NORMAL" in cib)
-check("no spot-the-lie leak on a standard set",
-      "SPOT-THE-LIE" not in planner.plan_set("y8","2026-08-11","MON","H3.1",TARGETS,STATE,"standard")["composer_instructions"] and
-      "spread the four steady slots across the student's DIFFERENT weak subjects".lower() in cib.lower())
+check("no Battleground leak on a standard set",
+      "BATTLEGROUND" not in planner.plan_set("y8","2026-08-11","MON","H3.1",TARGETS,STATE,"standard")["composer_instructions"])
 
 print("doctrine mirrors")
 check("run_daily and kid_nudge WEEKDAY_DIRECTIVE identical",

@@ -60,7 +60,7 @@ def derive_tag(student, date):
         # (Blitz Master) and the shell's event detection both key on it.
         tag += " · REVERSED BLITZ"
     elif wd == 5:
-        tag += " · BOSS"
+        tag += " · BATTLEGROUND"
     return tag, week, wd
 
 
