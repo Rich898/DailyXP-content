@@ -1,68 +1,180 @@
 {
   "student": "t1",
-  "date": "2026-08-09",
-  "day": "SUN",
-  "tag": "T-WARMUP2",
-  "title": "XP Daily · Warm-up v2",
+  "date": "2026-08-10",
+  "day": "MON",
+  "tag": "T3.1",
+  "title": "DailyXP · MON 2026-08-10",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Warm-up",
-      "prompt": "In XP Daily, what does a streak survive?",
+      "subject": "History",
+      "prompt": "What was the main stated goal of the First Crusade (1096-1099)?",
       "options": [
-        "Weekends and normal life — absence is neutral",
-        "Nothing, streaks are cruel",
-        "Only public holidays",
-        "A signed note from your mum"
+        "To capture Jerusalem and the Holy Land from Muslim control",
+        "To conquer Rome for the Pope",
+        "To colonise North Africa for trade",
+        "To convert the Vikings to Christianity"
       ],
-      "answer": "Weekends and normal life — absence is neutral",
-      "why": "Streaks count school days only. Weekends, sickness, and life don't break them — the system punishes nothing except silence on a school day.",
-      "fresh": true,
-      "repair": false
+      "answer": "To capture Jerusalem and the Holy Land from Muslim control",
+      "why": "The First Crusade was launched by Pope Urban II in 1095 to reclaim Jerusalem and other holy sites for Christendom. A common mix-up is confusing Crusade goals with unrelated conquests like Rome or Viking conversion.",
+      "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Warm-up",
-      "prompt": "What is the ONLY job the AI has in this system?",
+      "subject": "History",
+      "prompt": "What is generally given as the date of the fall of the Western Roman Empire?",
       "options": [
-        "Writing the language of questions",
-        "Deciding what you've mastered",
-        "Keeping score",
-        "Choosing tomorrow's topics"
+        "476 CE",
+        "1066 CE",
+        "1453 CE",
+        "800 CE"
       ],
-      "answer": "Writing the language of questions",
-      "why": "The ledger is the brain — plain deterministic code owns every mastery and scheduling decision. AI never keeps score.",
-      "fresh": true,
-      "repair": false
+      "answer": "476 CE",
+      "why": "476 CE is the year the last Western Roman emperor, Romulus Augustulus, was deposed. Students often confuse this with 1453 (fall of Constantinople/Eastern Empire) or 1066 (Norman Conquest), which are much later events.",
+      "fresh": true
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "In the feudal system, what did a vassal typically owe their lord in exchange for land?",
+      "options": [
+        "Military service and loyalty",
+        "Money rent paid in gold coins only",
+        "A share of all crops to the king directly",
+        "Nothing, land was given freely"
+      ],
+      "answer": "Military service and loyalty",
+      "why": "Feudalism was based on an exchange: lords granted land (fiefs) to vassals, who in return owed military service and loyalty. A common misconception is thinking it worked like modern rent or taxation.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Who wrote 'Romeo and Juliet'?",
+      "options": [
+        "William Shakespeare",
+        "Christopher Marlowe",
+        "Geoffrey Chaucer",
+        "Charles Dickens"
+      ],
+      "answer": "William Shakespeare",
+      "why": "Romeo and Juliet was written by William Shakespeare around 1595. Marlowe and Chaucer are other famous English writers but from different periods, and Dickens wrote much later, in the Victorian era.",
+      "fresh": true
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What poetic form does Shakespeare use for the famous Prologue that opens Romeo and Juliet?",
+      "options": [
+        "A sonnet",
+        "A limerick",
+        "Free verse",
+        "A haiku"
+      ],
+      "answer": "A sonnet",
+      "why": "The Prologue is a 14-line sonnet with rhyming iambic pentameter, summarising the plot. Students sometimes confuse Shakespeare's structured sonnet form with looser forms like free verse.",
+      "fresh": true
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Which quote best reflects the theme of love vs hate in Romeo and Juliet?",
+      "options": [
+        "'My only love sprung from my only hate'",
+        "'A pox on both your houses'",
+        "'Wisely and slow; they stumble that run fast'",
+        "'Parting is such sweet sorrow'"
+      ],
+      "answer": "'My only love sprung from my only hate'",
+      "why": "Juliet's line directly captures the play's central tension: her love for Romeo is tangled with the deadly feud between their families. The other quotes touch on related ideas but don't state the love/hate paradox directly.",
+      "fresh": true
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "In a science experiment testing how temperature affects plant growth, what is the dependent variable?",
+      "options": [
+        "The plant's growth (e.g., height)",
+        "The temperature",
+        "The type of pot used",
+        "The amount of water given"
+      ],
+      "answer": "The plant's growth (e.g., height)",
+      "why": "The dependent variable is what you measure as an outcome — here, plant growth. The temperature is the independent variable (what you change), and pot type/water are controlled variables that must stay constant. A common error is mixing up which variable is 'caused' vs 'measured'.",
+      "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Warm-up",
-      "prompt": "Year 8 rust check: what is 3/4 of 60?",
+      "subject": "Maths",
+      "prompt": "Solve for x: 3x + 5 = 20",
       "options": [
-        "45",
-        "40",
-        "20",
-        "48"
+        "x = 5",
+        "x = 25",
+        "x = 15",
+        "x = 8.33"
       ],
-      "answer": "45",
-      "why": "A quarter of 60 is 15, so three quarters is 45. If you reached for a calculator, Monday is going to be character-building.",
-      "fresh": true,
-      "repair": false
+      "answer": "x = 5",
+      "why": "Subtract 5 from both sides to get 3x = 15, then divide by 3 to get x = 5. A common mistake is dividing before subtracting (leading to x = 8.33), or adding instead of subtracting.",
+      "fresh": true
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Which group organised and led the First Crusade?",
+      "options": [
+        "European Christian knights and nobles, called by the Pope",
+        "The Byzantine Emperor acting alone",
+        "Muslim leaders seeking to expand territory",
+        "Viking raiders searching for treasure"
+      ],
+      "answer": "European Christian knights and nobles, called by the Pope",
+      "why": "Pope Urban II called for the First Crusade in 1095, and it was carried out by European knights and nobles. Students sometimes wrongly credit the Byzantine Emperor as the leader, when he only requested help.",
+      "fresh": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "What best describes the shift in political power after the fall of Rome in Western Europe?",
+      "options": [
+        "Power became fragmented among local lords instead of one central empire",
+        "A single new emperor immediately replaced the Roman emperor",
+        "Democracy spread quickly across former Roman lands",
+        "The Catholic Church took over all political power instantly"
+      ],
+      "answer": "Power became fragmented among local lords instead of one central empire",
+      "why": "After Rome's fall, there was no strong central authority, so power split among local lords and kingdoms — this fragmentation is a root cause of feudalism. A common misconception is imagining a smooth, immediate transition to a new single ruler.",
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "In what city and country is Romeo and Juliet primarily set?",
+      "options": [
+        "Verona, Italy",
+        "London, England",
+        "Paris, France",
+        "Athens, Greece"
+      ],
+      "answer": "Verona, Italy",
+      "why": "Romeo and Juliet is set in Verona, Italy, home to the feuding Montague and Capulet families. Students sometimes assume it's set in England since Shakespeare was English, but he set many plays abroad.",
+      "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Warm-up",
-      "prompt": "Teach it back (80+ characters): explain to another parent why XP Daily's texts only ever carry points and streaks — never scores out of ten, never what their kid got wrong.",
-      "options": [],
-      "answer": "",
-      "why": "The no-ammunition law: a parent text must be impossible to turn into an interrogation. Gaps surface only where they arrive dressed as help.",
-      "fresh": true,
-      "repair": false
+      "subject": "Maths",
+      "prompt": "Explain why the equation 2x + 4 = 10 and the equation x + 2 = 5 have the same solution for x, even though they look different. What does this tell you about what you're allowed to do to both sides of an equation?"
     }
   ]
 }
