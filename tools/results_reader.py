@@ -439,8 +439,11 @@ def render_run(r, medians):
                  + (f"  · picked \u201c{q['picked']}\u201d" if (q['ok'] is False and q['picked']) else ""))
 
     if teach_q is not None:
+        g = teach_q.get("tb_grade")
+        gnote = (f"graded {g['verdict'].upper()}" + ("" if g.get("english", True) else ", not English")
+                 + (f" — {g['reason']}" if g.get("reason") else "")) if g else "ungraded (grade_teachback not run)"
         L.append(f"Teach-back ({teach_q['subject']}, {fmt_mmss(teach_q['secs'])}, "
-                 f"{teach_q['chars'] or 0} chars) — quality is a human/LLM read, not a rule:")
+                 f"{teach_q['chars'] or 0} chars) — {gnote}:")
         L.append(f"  \u201c{(teach_q['text'] or '').strip()}\u201d")
 
     if r["canonical"]:

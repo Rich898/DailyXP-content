@@ -275,3 +275,6 @@ in the comms workflows (Actions can't wildcard secrets into env) + a seeded
 state.json block + a stamped shell page; no *code* knows the student list.
 The soundbyte sends per kid to `parents:<code>` with independent cursors — one
 family's failed send never blocks or repeats another's.
+
+## grade_teachback.py — teach-back quality grade
+The one LLM judgement in ingestion. Runs after `runs.json` is written and before the state-writer, annotating each canonical run's teach-back with `tb_grade` = `{verdict: solid|partial|none, english, reason}`. Isolated so the state-writer stays deterministic; on failure or no API key the teach-back is left ungraded (state-writer no-ops it). The state-writer maps the verdict onto the box model: solid→TB✓ (promotes like a calm confident correct, can reach solid), partial→TB~ (a landing, never solid), none→TB✗ (**blocks** promotion — the fluency-illusion catch: right MC answer + failed explanation = topic does not advance). Env: `ANTHROPIC_API_KEY`; skip with `DAILYXP_SKIP_TB_GRADE=1`; model via `DAILYXP_GRADE_MODEL`.

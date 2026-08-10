@@ -98,6 +98,21 @@ def run(date, students, private_dir, directives_override, dry_run, push):
     # job lands, so for now this applies only what's already in runs.json. Dry-run previews only.
     if os.environ.get("DAILYXP_SKIP_STATE_WRITE") != "1" and \
        os.path.exists(os.path.join(private_dir, "work", "runs.json")):
+        # TEACH-BACK GRADE: the one language judgement in ingestion. Annotates runs.json with a
+        # per-teach-back verdict (grade_teachback) so the state-writer's deterministic consequence
+        # engine can act on it. Skipped without an API key or via DAILYXP_SKIP_TB_GRADE; on failure
+        # the teach-back is simply left ungraded (state-writer falls back to the old no-op).
+        if os.environ.get("DAILYXP_SKIP_TB_GRADE") != "1" and os.environ.get("ANTHROPIC_API_KEY"):
+            try:
+                import grade_teachback
+                g, sk, fl, glog = grade_teachback.annotate_runs(private_dir, dry_run=dry_run)
+                if glog:
+                    print("--- teach-back grade ---")
+                    print("\n".join(glog))
+                    print(f"(graded {g} · already-graded {sk} · failed {fl})")
+                    print("------------------------\n")
+            except Exception as e:
+                print(f"⚠ teach-back grade step failed ({e}) — teach-backs left ungraded.\n")
         try:
             import state_writer
             _, sw_lines, _ = state_writer.process(private_dir, dry_run=dry_run)

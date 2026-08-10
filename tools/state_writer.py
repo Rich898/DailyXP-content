@@ -41,7 +41,21 @@ REPAIR_EXIT_CONFIRMS = 2   # calm confident confirms needed to leave REPAIR — 
 BOX = {"untested": 0, "shaky": 1, "REPAIR": 1, "developing": 2, "solid": 3}
 IBOX = {0: "untested", 1: "shaky", 2: "developing", 3: "solid"}
 # governing-badge severity (lower index wins when a topic is hit by several slots)
-PREC = ["CW", "✗", "SW", "GW", "FW", "LUCKY", "TRIV✓", "✓_sure", "✓_think", "✓_plain", "TB", "SKIP"]
+PREC = ["CW", "✗", "SW", "GW", "FW", "LUCKY", "TRIV✓", "TB✗", "✓_sure", "TB✓", "✓_think", "TB~", "✓_plain", "TB", "SKIP"]
+
+# Teach-back QUALITY (graded by tools/grade_teachback.py, consumed deterministically here).
+# The teach-back is the deepest anti-fluency-illusion signal, so its grade has a real ledger
+# consequence — mapped onto the existing box model:
+#   solid   -> TB✓  : genuine understanding; strong positive, routed like a calm confident correct.
+#   partial -> TB~  : partial understanding; mild positive (a landing, never a promotion to solid).
+#   none    -> TB✗  : could NOT explain it. This is the fluency-illusion catch — it is placed ABOVE
+#                     the correct badges in PREC, so on a topic where the student picked the right
+#                     MC answer BUT failed to explain it, TB✗ governs and BLOCKS the promotion
+#                     (the topic is not truly mastered). It holds the box; it does not demote.
+def verdict_badge(grade):
+    """Map a teach-back grade dict (or None) to a badge. None/unrecognised -> plain 'TB' (no-op)."""
+    v = (grade or {}).get("verdict")
+    return {"solid": "TB✓", "partial": "TB~", "none": "TB✗"}.get(v, "TB")
 
 
 # --------------------------------------------------------------------------- #
@@ -57,12 +71,15 @@ def load_plan(private_dir, student, set_date):
 
 
 def badge_for(q, medians, student, shell_flags):
-    """classify() gives the doctrine badge; split the generic '✓' by confidence/pace."""
+    """classify() gives the doctrine badge; split the generic '✓' by confidence/pace.
+    For a teach-back, upgrade the no-op 'TB' to a graded verdict badge when one is present."""
     rel, _ = relative_speed(q, medians, student)
     badge, _impl = classify(q, rel, shell_flags)
     if badge == "✓":
         conf = (q.get("confidence") or "").lower()
         badge = "✓_sure" if conf == "sure" else "✓_think" if conf == "think so" else "✓_plain"
+    elif badge == "TB":
+        badge = verdict_badge(q.get("tb_grade"))   # graded teach-back gets a real consequence
     return badge, rel
 
 
@@ -92,6 +109,16 @@ def transition(t, badge, rel, spaced, caveat):
 
     # ---- REPAIR lane: state stays "REPAIR" until it earns out to developing ----
     if repair:
+        if badge == "TB✓":                           # solid teach-back = genuine understanding → a confirm
+            confirms += 1
+            if confirms >= REPAIR_EXIT_CONFIRMS:
+                t.update(state="developing", repair=False, repair_confirms=0)
+                return f"REPAIR exit: teach-back solid, {confirms} confirms → developing"
+            t.update(state="REPAIR", repair=True, repair_confirms=confirms)
+            return f"REPAIR teach-back solid, confirm {confirms}/{REPAIR_EXIT_CONFIRMS} (held)"
+        if badge == "TB~":                           # partial teach-back → held, confirms untouched
+            t.update(state="REPAIR", repair=True, repair_confirms=confirms)
+            return "partial teach-back on REPAIR → held"
         if badge in ("✓_sure", "✓_think", "✓_plain"):
             if badge == "✓_sure" and calm:
                 confirms += 1
@@ -105,7 +132,7 @@ def transition(t, badge, rel, spaced, caveat):
         # any wrong / fast-wrong / lucky / trivial: hold in REPAIR, reset confirms
         t.update(state="REPAIR", repair=True, repair_confirms=0)
         label = {"CW": "confident-wrong", "✗": "considered-wrong", "SW": "slow-wrong",
-                 "GW": "guessing-wrong", "FW": "fast-wrong", "LUCKY": "lucky-correct",
+                 "GW": "guessing-wrong", "FW": "fast-wrong", "LUCKY": "lucky-correct", "TB✗": "failed-teach-back",
                  "TRIV✓": "trivial-correct"}.get(badge, badge)
         return f"{label} on REPAIR → held (confirms reset)"
 
@@ -136,7 +163,25 @@ def transition(t, badge, rel, spaced, caveat):
         # else hold: developing without a spaced Sure stays developing; solid maintains
         capped = " (caveat capped at developing)" if (caveat and badge == "✓_sure" and cur == "developing") else ""
         return f"{badge.replace('_', ' ')} → {t['state']}{capped}"
-    return None  # TB / SKIP — no box change
+
+    # ---- teach-back quality (graded) → the anti-fluency-illusion consequence ----
+    if badge == "TB✓":                               # explained it well: genuine understanding
+        if cur == "untested":
+            t["state"] = "developing"
+        elif cur == "developing" and spaced and not caveat:
+            t["state"] = "solid"                     # a solid spaced teach-back is calm confident evidence → solid
+        elif cur == "shaky":
+            t["state"] = "developing"
+        capped = " (caveat capped at developing)" if (caveat and cur == "developing") else ""
+        return f"teach-back solid → {t['state']}{capped}"
+    if badge == "TB~":                               # partial explanation: a landing, never a promotion
+        if cur == "untested":
+            t["state"] = "developing"
+        return f"teach-back partial → {t['state']} (no promote)"
+    if badge == "TB✗":                               # could not explain it → block promotion, hold the box
+        return "teach-back failed → no promote (picked it but couldn't explain it — fluency illusion)"
+
+    return None  # TB (ungraded) / SKIP — no box change
 
 
 # --------------------------------------------------------------------------- #
