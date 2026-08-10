@@ -42,7 +42,7 @@ Note: trust `ts` (UTC ISO) over the sheet's local received_at column (sheet time
 ## Ops notes
 - **Publishing is now `tools/publish.py <set.json>` — never hand-edit `y8.json`/`y9.json`.** It validates → writes → archives → commits → and VERIFIES the live raw URL serves the intended tag (the fix for the 5 Aug rollback, where a re-push silently overwrote the Blitz). `--no-push` for a local dry run.
 - Before publish, a set must pass `tools/validate.py` (schema, answer∈options, `fresh:true`, no-repeat vs `history/`). The planner and publish-op both call it.
-- **Second-pass review: `tools/review.py`** runs between compose and publish (wired into `run_daily`). It catches the meaning-level faults the validator can't — a distractor that's also true, a false `why`, off-syllabus, trivially-easy — using a stronger model. On a block it recomposes the flagged slot and re-reviews; still blocking after 2 rounds → HOLD (yesterday's set stays live). Emergency bypass: `DAILYXP_SKIP_REVIEW=1`. See `tools/README.md`.
+- **Second-pass review: `tools/review.py`** runs between compose and publish (wired into `run_daily`). It catches the meaning-level faults the validator can't — a distractor that's also true, a false `why`, off-syllabus, trivially-easy — using a stronger model. On a block it recomposes the flagged slots and re-reviews; still blocking after 2 rounds → HOLD (yesterday's set stays live). Two things the recompose MUST do (both learned the hard way on the first live run, 10 Aug — see "First-run gotchas" below): (1) keep the mini-set VALID — it borrows the teach slot for context so compose doesn't reject it for "0 teach", then swaps back only the flagged slots; (2) feed review's objection back — each flagged slot's `guidance` carries the review note ("REVIEW REJECTED [category]: …"), so compose fixes the specific fault instead of retrying blind. Emergency bypass: `DAILYXP_SKIP_REVIEW=1`. See `tools/README.md`.
 - Slot planning (which topics get slots today): `tools/planner.py` — the deterministic brain. FROZEN→empty (absence gate in code), REPAIR guaranteed, assessment-aware, day-directive driven. Reads the private `targets/` + `work/state.json`. See `tools/README.md`.
 - **Keep names out of published `title` fields** (legacy sets embedded them; the shell renders the title publicly). Use a neutral title.
 - Morning results read: `tools/results_reader.py` (dedupe, signal extraction, ledger implications) — see `tools/README.md`.
@@ -57,7 +57,29 @@ Note: trust `ts` (UTC ISO) over the sheet's local received_at column (sheet time
 
 ---
 
-## WEEK-1 OPS (live from Mon 10 Aug 2026)
+## First-run gotchas (first scheduled run, 10 Aug 2026)
+
+The first real scheduled run held/failed four times, **every time behind a green ✓** — the workflow
+succeeded while nothing published. Root causes, all fixed; keep this list for future CI debugging:
+
+1. **A green run ≠ a published set.** `run_daily` catches compose/review/publish failures and exits
+   0 ("yesterday's set stays live"). **Always verify the LIVE set date** (fetch the raw `y8.json`/
+   `y9.json` and check `date`), never trust the run conclusion. This is the first thing to check.
+2. **Recompose crashed on a non-teach block** — it rebuilt a set from only the flagged slots, which
+   had no teach question, so compose rejected it ("exactly ONE teach required, got 0"). Now it
+   borrows the teach slot for validity and swaps back only the flagged slots (see review note above).
+3. **Blind recompose looped** on the same subtle error — fixed by feeding review's objection into the
+   flagged slot's `guidance` (see review note above).
+4. **CI commit failed "Author identity unknown"** — a fresh checkout has no git identity.
+   `publish.py` now sets a local `user.name`/`user.email` before committing.
+5. **CI push 403 "denied to github-actions[bot]"** — `actions/checkout` with no token persists a
+   read-only bot credential as an `http.extraheader`, which git prefers over the write token in the
+   push URL. **Any repo you PUSH to in CI must be checked out with the write token** (`token:
+   DAILYXP_TOKEN` + `persist-credentials: false`), as the private-repo checkout already did.
+
+Also observed: **GitHub's scheduler runs late/skips** — the "2pm" cron fired at 3:38pm and the 4pm
+nudge didn't self-fire. Trust cron for steady-state but verify; `workflow_dispatch` is the reliable
+fallback for any specific day.
 
 The three clocks (all GitHub-owned, Mon–Fri): **2:00pm** pipeline (plan→compose→review→publish),
 **4:00pm** kid nudge (verifies the live set is today's BEFORE texting), **6:30/8:00/9:30pm**
