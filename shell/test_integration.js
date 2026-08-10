@@ -111,7 +111,7 @@ function check(name, cond, detail) { checks.push([name, cond, detail]); if (!con
   check("webhook received a POST", webhookBody !== null);
   check("POST is a CORS-simple request (text/plain)", String(webhookContentType).indexOf("text/plain") === 0, webhookContentType);
   const sendStat = document.getElementById("sendStat");
-  check("kid sees the sent confirmation", !!sendStat && sendStat.textContent.indexOf("sent to Dad automatically") !== -1, sendStat && sendStat.textContent);
+  check("kid sees the sent confirmation", !!sendStat && sendStat.textContent.indexOf("uploaded to the Vault") !== -1, sendStat && sendStat.textContent);
 
   const p = JSON.parse(webhookBody);
   check("payload: student/name/date/tag", p.student === "y9" && p.name === "Tester" && p.date === "2026-08-02" && p.tag === "SYSTEM TEST");

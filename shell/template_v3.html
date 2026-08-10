@@ -120,7 +120,7 @@
 //    questions, so each question absorbed all time before it).
 //  · AUTO-SUBMIT on finish: full results POST to the family results
 //    Sheet the moment the run ends. Offline-safe: unsent results
-//    queue on the phone and auto-send next open. Send-to-Dad email
+//    queue on the phone and auto-send next open. Backup email
 //    and copy remain as backups.
 //  · attempts / custom app name persist per boy (namespaced keys)
 //  · all game mechanics, scoring, and flag logic unchanged from H1.7
@@ -324,7 +324,7 @@ function renderNoQuiz(){
   el("stage").innerHTML =
   '<div class="eyebrow">XPDAILY · '+esc(CONFIG.NAME.toUpperCase())+'</div>'+
   '<h2 class="display big">No quiz posted yet.</h2>'+
-  '<p style="font-size:16px">Tonight\'s run isn\'t up. New quizzes land Monday to Friday — check back later, or tell Dad his machine is slacking.</p>'+
+  '<p style="font-size:16px">Tonight\'s run isn\'t up. New quizzes land Monday to Friday — check back later, the machine\'s running late.</p>'+
   '<button class="cta display" style="font-size:18px" onclick="boot()">Check again →</button>';
 }
 function renderLoadError(){
@@ -646,8 +646,8 @@ function flushOutbox(){
 }
 function setSendStat(mode){
   var s=el("sendStat"); if(!s) return;
-  if(mode==="send"){ s.className="sendstat wait"; s.innerHTML="⏳ Sending results to Dad…"; }
-  else if(mode==="ok"){ s.className="sendstat good"; s.innerHTML="✓ Results sent to Dad automatically — you\'re done."; }
+  if(mode==="send"){ s.className="sendstat wait"; s.innerHTML="⏳ Uploading to the Vault…"; }
+  else if(mode==="ok"){ s.className="sendstat good"; s.innerHTML="✓ You're done — results uploaded to the Vault."; }
   else { s.className="sendstat fail"; s.innerHTML="⚠ Couldn\'t send (no internet?). Saved on this phone — it\'ll auto-send next time you open this. <a href=\"#\" onclick=\"retrySend();return false;\" style=\"color:var(--reef)\">Try again now</a>"; }
 }
 function autoSubmit(){
@@ -707,10 +707,10 @@ function renderDone(){
     '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--kelp)">✓</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">TEACH-BACK</div></div>'+
   '</div>'+
-  '<div id="sendStat" class="sendstat wait">⏳ Sending results to Dad…</div>'+
+  '<div id="sendStat" class="sendstat wait">⏳ Uploading to the Vault…</div>'+
   (f.skips.length?'<p class="note" style="margin:0 0 14px">'+f.skips.length+' marked "not covered yet" — that\'s intel, not a miss.</p>':'')+
   flags+
-  '<button class="cta display" style="width:100%;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="mailToDad()">Backup: email it to Dad →</button>'+
+  '<button class="cta display" style="width:100%;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="emailBackup()">Backup: email it instead →</button>'+
   '<button class="cta display" id="copyBtn" style="width:100%;margin-top:10px;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="copyResults()">or copy it instead</button>'+
   '<button class="ghost" style="margin:10px auto 0;text-align:center" onclick="showRaw()">neither working? tap here</button>'+
   '<div id="rawBox"></div>'+
@@ -723,12 +723,12 @@ function showRaw(){
     '<p class="note" style="text-align:center;margin-top:6px">Long-press → Select All → Copy. Or just screenshot it.</p>';
 }
 
-var DAD_EMAIL = "richdrw@gmail.com";
+var RESULTS_EMAIL = "richdrw@gmail.com";  // Vault destination (backup email path)
 
-function mailToDad(){
+function emailBackup(){
   var subject = state.appName + " — " + CONFIG.NAME + " — " + quizLabel();
   var body = summaryText();
-  var href = "mailto:" + DAD_EMAIL +
+  var href = "mailto:" + RESULTS_EMAIL +
              "?subject=" + encodeURIComponent(subject) +
              "&body=" + encodeURIComponent(body);
   try { window.location.href = href; } catch(e){ showRaw(); }
@@ -742,7 +742,7 @@ function showRawQuiet(){
 
 function copyResults(){
   var text=summaryText();
-  function done(){ var b=el("copyBtn"); b.textContent="Copied ✓ — send it to Dad"; b.style.background="var(--kelp)";
+  function done(){ var b=el("copyBtn"); b.textContent="Copied ✓"; b.style.background="var(--kelp)";
     setTimeout(function(){ b.textContent="or copy it instead"; b.style.background="transparent"; },2500); }
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(text).then(done).catch(function(){ legacy(); });
