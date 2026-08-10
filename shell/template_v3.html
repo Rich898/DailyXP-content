@@ -136,6 +136,7 @@ var CONFIG = {
 
 var SPEED_SECONDS = 30, SKIP = "__NOT_COVERED__";
 var SPEED_BASE=100, TIME_BONUS=3, COMBO_BONUS=50, STEADY_POINTS=250, TEACH_POINTS=150;
+var SPEED_WINDOW = SPEED_SECONDS;   // live speed clock — the Blitz event tightens it (set in applyEvent, before MAX_SCORE)
 
 // Filled by loadQuiz() from the fetched JSON:
 var QUIZ=null, QUESTIONS=[], speedQs=[], steadyQs=[], teachQ=null, MAX_SCORE=0, shuffled={};
@@ -160,11 +161,14 @@ function eventModeFor(tag){
   return "";
 }
 function isBlitz(mode){ return mode==="blitz" || mode==="reversed-blitz"; }
+var BLITZ_SPEED_SECONDS = 20;   // the Blitz event runs a tighter speed clock than a standard night
+function speedSecondsFor(mode, standardSeconds){ return isBlitz(mode) ? BLITZ_SPEED_SECONDS : standardSeconds; }
 function blitzTally(score){ return (Number(score||0)*2).toLocaleString(); }
 /*EVENT-CORE-END*/
 var EVENT = "";
 function applyEvent(){
   EVENT = eventModeFor(QUIZ && QUIZ.tag);
+  SPEED_WINDOW = speedSecondsFor(EVENT, SPEED_SECONDS);
   document.body.className = isBlitz(EVENT) ? "evt-blitz" : "";
   var c = el("evtChip");
   if(c) c.innerHTML = isBlitz(EVENT) ? '<span class="evtchip">\u26a1 \u00d72 WEEK TALLY</span>' : "";
@@ -302,7 +306,7 @@ function loadQuiz(){
       if(!j || !j.questions || !j.questions.length || j.status==="placeholder"){
         QUIZ = j || null; applyEvent(); state.screen="noquiz"; render(); flushOutbox(); return;
       }
-      QUIZ = j; QUESTIONS = j.questions; deriveQuiz(); applyEvent();
+      QUIZ = j; QUESTIONS = j.questions; applyEvent(); deriveQuiz();
       state.screen="start"; render(); flushOutbox();
     })
     .catch(function(e){ state.screen="error"; render(); });
@@ -313,7 +317,7 @@ function deriveQuiz(){
   teachQ = QUESTIONS.filter(function(q){return q.phase==="teach"})[0];
   shuffled = {};
   QUESTIONS.forEach(function(q){ if(q.options) shuffled[q.id]=shuffle(q.options); });
-  MAX_SCORE = speedQs.length*(SPEED_BASE+SPEED_SECONDS*TIME_BONUS) + (speedQs.length>0?(speedQs.length-1)*COMBO_BONUS:0) + steadyQs.length*STEADY_POINTS + (teachQ?TEACH_POINTS:0);
+  MAX_SCORE = speedQs.length*(SPEED_BASE+SPEED_WINDOW*TIME_BONUS) + (speedQs.length>0?(speedQs.length-1)*COMBO_BONUS:0) + steadyQs.length*STEADY_POINTS + (teachQ?TEACH_POINTS:0);
 }
 function renderLoading(){
   el("stage").innerHTML =
@@ -347,8 +351,8 @@ function renderStart(){
   ? '<h2 class="display big">Tonight runs<br>backwards.</h2>'
   : '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>';
   var heat1 = rev
-  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_SECONDS+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Look closely: the devil\'s in the detail. Back-to-back corrects still stack a combo.</p>'
-  : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>';
+  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_WINDOW+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Look closely: the devil\'s in the detail. Back-to-back corrects still stack a combo.</p>'
+  : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_WINDOW+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>';
   el("stage").innerHTML =
   '<div class="eyebrow">SESSION SHEET · '+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' · '+esc(QUIZ.tag):'')+'</div>'+
   banner + hero + heat1 +
@@ -371,7 +375,7 @@ function renderSpeed(){
   el("stage").innerHTML =
   '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">'+
     '<div class="eyebrow f">HEAT 1 · SPEED · '+(state.idx+1)+'/'+speedQs.length+' · '+esc(q.subject.toUpperCase())+'</div>'+
-    '<div class="num" id="clock" style="font-size:22px">'+SPEED_SECONDS.toFixed(1)+'</div>'+
+    '<div class="num" id="clock" style="font-size:22px">'+SPEED_WINDOW.toFixed(1)+'</div>'+
   '</div>'+
   '<div class="fusewrap"><div class="fuse" id="fuse" style="width:100%"></div></div>'+
   (EVENT==="reversed-blitz"?'<div class="revtag">\u26a1 REVERSED</div>':'')+
@@ -384,10 +388,10 @@ function renderSpeed(){
   tStart=Date.now();
   clearInterval(timer);
   timer=setInterval(function(){
-    var left=Math.max(0,SPEED_SECONDS-(Date.now()-tStart)/1000);
+    var left=Math.max(0,SPEED_WINDOW-(Date.now()-tStart)/1000);
     var c=el("clock"), f=el("fuse");
     if(c){ c.textContent=left.toFixed(1); c.style.color = left<6?"var(--flare)":"var(--ink)"; }
-    if(f){ f.style.width=(left/SPEED_SECONDS*100)+"%"; if(left<6) f.classList.add("hot"); }
+    if(f){ f.style.width=(left/SPEED_WINDOW*100)+"%"; if(left<6) f.classList.add("hot"); }
     if(left<=0){ clearInterval(timer); doSpeedAnswer(null,false); }
   },100);
 }
@@ -401,7 +405,7 @@ function answerSpeed(btn, isSkip){
 function doSpeedAnswer(choice,isSkip){
   if(answeredThis) return; answeredThis=true;
   var q=speedQs[state.idx];
-  var timeUsed=Math.min(SPEED_SECONDS,(Date.now()-tStart)/1000);
+  var timeUsed=Math.min(SPEED_WINDOW,(Date.now()-tStart)/1000);
   var fl=el("flash");
   document.querySelectorAll(".opt").forEach(function(b){ b.disabled=true; });
 
@@ -415,7 +419,7 @@ function doSpeedAnswer(choice,isSkip){
   T.questionDone(q.id,q.subject,"speed",{ok:ok,timeUsed:+timeUsed.toFixed(1)});
   var newCombo = ok?state.combo+1:0;
   var pts=0;
-  if(ok){ pts=SPEED_BASE+Math.round((SPEED_SECONDS-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
+  if(ok){ pts=SPEED_BASE+Math.round((SPEED_WINDOW-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
   state.combo=newCombo; state.score+=pts; setScore();
   state.records.push({id:q.id,subject:q.subject,phase:"speed",picked:choice,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts});
   if(ok){
@@ -541,7 +545,7 @@ function analyse(){
     ? corrects.reduce(function(a,r){return a+r.timeUsed},0)/corrects.length
     : null;
   var fastCut = mean!==null ? mean*0.7 : 5;
-  var slowCut = SPEED_SECONDS*0.6; // 18s of a 30s window
+  var slowCut = SPEED_WINDOW*0.6; // 60% of the live window (18s standard, 12s blitz)
   return {
     speedRecs: speedRecs,
     fast: speedRecs.filter(function(r){return !r.ok && r.timeUsed < fastCut}),

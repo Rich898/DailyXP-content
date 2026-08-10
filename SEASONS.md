@@ -10,7 +10,7 @@
 
 ## Mechanics bank (named, permanent)
 
-- **Blitz** — tempo mutator: 10 speed / 2 steady / 1 teach; double-XP at the family deal layer (weekly tally, never in-app). High score ceiling → Blitz Master badge.
+- **Blitz** — tempo mutator: 10 speed / 2 steady / 1 teach; **20-second speed clock** (tighter than the standard 30s — more pressure is the point); double-XP at the family deal layer (weekly tally, never in-app). MAX_SCORE recomputes on the tighter window so the score/max ratio the verdicts read stays honest. High score ceiling → Blitz Master badge.
 - **Reversed** — direction mutator: the prompt states the ANSWER; the four options are candidate QUESTIONS; pick the one it belongs to. Trains discrimination between near-neighbour facts (the exam failure mode where facts "swap houses" under pressure) — the deliberate inverse of pure recall. Composition doctrine lives in planner/_composer_instructions; the review gate has reversed-aware category mapping. Structurally pure MC — no shell/schema cost.
 - **Boss chain** — the Friday constant: chained steady questions on the student's own ledger gap, misses as attacks, teach-back as finishing move. (Formula constant; theme/skin is the chapter variable.)
 
