@@ -101,7 +101,7 @@ function check(name, cond, detail) { checks.push([name, cond, detail]); if (!con
   // TEACH-BACK — type 90 chars, send
   check("teach-back up", stage().indexOf("SYSTEM TEST: type any 80+") !== -1);
   const tb = document.getElementById("tb");
-  tb.value = "x".repeat(90);
+  tb.value = "Cells respire to release energy from glucose and this happens in all living things not just plants because every cell needs energy to work.";
   tb.dispatchEvent(new window.Event("input", { bubbles: true }));
   await sleep(600);
   clickByText("Send it");
@@ -119,7 +119,7 @@ function check(name, cond, detail) { checks.push([name, cond, detail]); if (!con
   check("payload: speed 1/2, steady 1/1, teach done",
     p.speed.right === 1 && p.speed.of === 2 && p.steady.right === 1 && p.steady.of === 1 && p.teach.done === true,
     JSON.stringify({ speed: p.speed, steady: p.steady }));
-  check("payload: 4 records incl. teach text", p.records.length === 4 && p.records[3].text.length === 90);
+  check("payload: 4 records incl. teach text", p.records.length === 4 && p.records[3].text.length >= 80);
   check("payload: steady confidence captured", p.records[2].confidence === "Sure");
   check("payload: per-question timing for all 4", p.timing.perQuestion.length === 4);
   check("payload: THE invariant — active ≤ elapsed", p.timing.activeSecs <= p.timing.elapsedSecs,

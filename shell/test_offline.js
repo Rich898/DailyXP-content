@@ -27,7 +27,7 @@ let ok=true; const check=(n,c,d)=>{ console.log((c?"  PASS  ":"  FAIL  ")+n+(d?"
   opt("56"); await sleep(1100);
   opt("Mercury"); await sleep(1100);
   opt("Experience Points"); await sleep(50); click("Sure"); await sleep(50); click("Lock it in"); await sleep(50); click("Next"); await sleep(30);
-  const tb=document.getElementById("tb"); tb.value="x".repeat(90); tb.dispatchEvent(new window.Event("input",{bubbles:true})); await sleep(30); click("Send it"); await sleep(200);
+  const tb=document.getElementById("tb"); tb.value="Cells respire to release energy from glucose and this happens in all living things not just plants because every cell needs energy to work."; tb.dispatchEvent(new window.Event("input",{bubbles:true})); await sleep(30); click("Send it"); await sleep(200);
   const stat=document.getElementById("sendStat");
   check("offline: kid told it's saved on phone", stat.textContent.indexOf("Saved on this phone")!==-1, stat.textContent.slice(0,40));
   const box=JSON.parse(window.localStorage.getItem("dxp_outbox_y9")||"[]");
