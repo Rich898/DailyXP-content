@@ -44,3 +44,62 @@ Owner has an existing company with an **ACN**. For the branded SMS sender and th
 
 ## Open input
 One make-it-more-fun idea per student, collected at the weekly sit-downs.
+
+---
+
+## Supabase — evaluation, 11 Aug 2026
+
+**Decision: XP Daily gets its OWN Supabase account. Not a project or org inside
+VitalYOU's — a separate account, separate email, separate billing.**
+
+Not tidiness. The moment a second family's child is in that database, XP Daily
+holds minors' data under the Privacy Act and the APPs. Sharing an account with
+VitalYOU's health data means a breach, audit or subpoena on either side reaches
+across to the other, and diligence on either drags in both.
+
+### What it would do (two jobs, and they're linked)
+
+**1. Scheduler.** `pg_cron` + `pg_net` can call GitHub's workflow-dispatch API on
+a schedule, or hit Mobile Message directly. Two advantages over GitHub cron:
+* it takes a **timezone**, so the October daylight-saving drift (every cron in
+  this repo silently runs an hour late once AEDT starts) disappears;
+* it is our own instance, not GitHub's shared best-effort queue, which
+  demonstrably dropped the 4pm nudge on 10 and 11 Aug.
+
+**2. Database.** Replaces the Google Sheets results sink — the shell POSTs to
+Supabase instead of Apps Script.
+
+### THE TRAP — why the order matters
+
+Free-tier projects **pause after 7 days of inactivity, and pg_cron stops with
+them.** A Supabase used *only* as a scheduler is therefore circular: the thing
+you trust to fire the texts can switch itself off, and you'd need GitHub Actions
+to keep it alive — the exact dependency we're trying to escape.
+
+**The database use case is what makes the scheduler trustworthy.** Daily quiz
+writes = daily activity = never pauses. So DB first, scheduler second.
+
+### Sequencing
+
+1. **Not before Friday.** Retry ladders + watchdog are live and are a real
+   improvement; don't touch a working pipeline days before a milestone.
+2. New account, one project `xpdaily`. Move the **results sink** off Google
+   Sheets. Migrate the existing runs — there are 7. This is the cheapest this
+   migration will ever be; a term's worth across three kids is a project.
+3. `pg_cron` becomes the primary trigger; GitHub cron demotes to backup. Two
+   independent schedulers, and the DST problem is solved.
+4. At family #2: auth, RLS and the login wall in the same project — which is
+   where the hosted reports move when unguessable-URL privacy stops being enough.
+
+### What NOT to move yet
+
+**The ledger (`state.json`) stays in git for now.** It's the product IP, and git
+gives free version history, atomic commits and rollback — properties we'd have to
+rebuild in Postgres. Move the event log (runs) first, where Postgres is clearly
+better. Move the ledger when concurrent access actually forces it.
+
+### Cost
+
+Free tier (500MB) is ample now. Go **Pro when a second family pays**: it removes
+pausing entirely and adds daily backups — both things you want before holding
+someone else's child's data.
