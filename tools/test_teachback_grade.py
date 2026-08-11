@@ -105,3 +105,77 @@ import shutil; shutil.rmtree(tmp)
 print("")
 if fails: print(f"{fails} FAILED"); sys.exit(1)
 print("teach-back consequence: all green")
+
+
+# --------------------------------------------------------------------------- #
+# DEPTH LADDER (UNDERSTANDING.md) — offline tests of the deterministic parts.
+# The model's judgement is exercised live; these lock the CODE-side guarantees:
+# the ladder, the ceiling, and the independence of the two axes.
+
+def test_depth_ladder():
+    from grade_teachback import (DEPTH_LADDER, cap_depth, normalise,
+                                 TEACH_CEILING, _has_link_language)
+    print("\ndepth ladder — deterministic guards:")
+
+    assert DEPTH_LADDER == ["not_yet", "knows", "lists", "connects", "applies"]
+    print("  [PASS] ladder order is the doctrine order")
+
+    # the cap LOWERS ONLY, never raises
+    d, why = cap_depth("connects", "It is a war. It was in the Holy Land. It had knights.")
+    assert d == "lists" and why, f"expected cap to lists, got {d}"
+    print("  [PASS] 'connects' with no linking language is capped down to 'lists'")
+
+    d, why = cap_depth("connects", "They fought because Jerusalem was sacred to both sides.")
+    assert d == "connects" and why is None
+    print("  [PASS] 'connects' with real linking language stands")
+
+    d, why = cap_depth("knows", "half base times height")
+    assert d == "knows" and why is None
+    print("  [PASS] cap never RAISES a low rung")
+
+    d, why = cap_depth("applies", "it is a triangle and a rectangle and a square")
+    assert d == "lists", f"unlinked 'applies' must fall, got {d}"
+    print("  [PASS] unlinked 'applies' falls (teach ceiling honoured)")
+
+    # the two axes are independent in normalise()
+    g = normalise({"verdict": "partial", "depth": "connects", "english": True,
+                   "evidence": "because it melts", "reason": "x"},
+                  "it warms up because the ice melts, so the level rises")
+    assert g["verdict"] == "partial" and g["depth"] == "connects"
+    print("  [PASS] a 'partial' answer can still be 'connects' (axes independent)")
+
+    g = normalise({"verdict": "solid", "depth": "lists", "english": True, "reason": "x"},
+                  "one. two. three.")
+    assert g["verdict"] == "solid" and g["depth"] == "lists"
+    print("  [PASS] a 'solid' answer can still be only 'lists' (confidently shallow)")
+
+    # verdict none cannot carry a high rung
+    g = normalise({"verdict": "none", "depth": "connects", "english": True, "reason": "x"},
+                  "because so which meant therefore")
+    assert g["depth"] == "not_yet", f"got {g['depth']}"
+    print("  [PASS] verdict 'none' cannot claim a depth rung")
+
+    # non-English floors depth
+    g = normalise({"verdict": "solid", "depth": "connects", "english": False, "reason": "x"},
+                  "porque se derrite entonces sube")
+    assert g["verdict"] == "none" and g["depth"] == "not_yet"
+    print("  [PASS] non-English floors BOTH axes")
+
+    # an invalid/missing depth must NOT break the confidence axis
+    g = normalise({"verdict": "solid", "english": True, "reason": "x"}, "anything")
+    assert g["verdict"] == "solid" and "depth" not in g
+    print("  [PASS] missing depth degrades safely — verdict survives")
+
+    g = normalise({"verdict": "solid", "depth": "wizard", "english": True, "reason": "x"}, "x")
+    assert g["verdict"] == "solid" and "depth" not in g
+    print("  [PASS] invalid depth degrades safely — verdict survives")
+
+    assert TEACH_CEILING == "connects"
+    assert _has_link_language("this happened because that") is True
+    assert _has_link_language("one. two. three.") is False
+    print("  [PASS] teach ceiling + link detection")
+
+    print("\ndepth ladder: all green")
+
+
+test_depth_ladder()

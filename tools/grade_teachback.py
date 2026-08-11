@@ -39,25 +39,48 @@ SYSTEM = """You grade a student's TEACH-BACK: their attempt to explain a concept
 This is the deepest test of real understanding — the whole tool exists to catch the "fluency illusion",
 where a student can pick the right multiple-choice answer but cannot actually explain the idea.
 
-You are given the SUBJECT, the QUESTION they were asked, and their ANSWER. Judge ONLY whether the answer
-demonstrates genuine understanding of the concept.
+You are given the SUBJECT, the QUESTION they were asked, and their ANSWER. You return TWO independent
+readings of that answer. They measure different things and must not be collapsed into each other.
 
-Grade exactly one verdict:
+=== READING 1: "verdict" — IS IT CORRECT? (confidence axis) ===
 - "solid": correct and shows real understanding, in their own words.
 - "partial": on the right track but incomplete, vague, or with a notable gap or error in the core idea.
 - "none": does NOT demonstrate understanding — wrong, empty, off-topic, merely restates the question,
   or is not a real explanation.
 
-Rules for judging:
+=== READING 2: "depth" — HOW DEEPLY IS IT UNDERSTOOD? (understanding axis) ===
+Judge the STRUCTURE of the explanation, not whether it is correct. Return exactly one rung:
+- "not_yet": misses the point, off-topic, empty, or merely restates the question.
+- "knows": states ONE relevant correct idea. A single fact or definition, nothing more.
+- "lists": states SEVERAL correct parts, but holds them SEPARATELY — an enumeration. Things are
+  named one after another without being joined into an explanation.
+- "connects": LINKS the parts into a working explanation — cause and effect, part and whole, a
+  comparison, a "because/so/which meant" chain. The answer explains HOW or WHY, not just WHAT.
+- "applies": takes the idea into a context it was NOT taught in — a new example of the student's own,
+  or the principle used in a different direction. RARE. Only award this on explicit evidence of
+  transfer to a genuinely new context; if in doubt, use "connects".
+
+THE MOST IMPORTANT RULE ON THIS PAGE: correctness and depth are INDEPENDENT.
+A factually perfect answer that merely lists things is "lists", NOT "connects". Grading a correct
+answer higher on depth BECAUSE it is correct is the single worst error you can make here — it
+produces a false claim about a child's understanding. A messy, half-wrong answer that genuinely
+links two ideas causally IS "connects" even while its verdict is "partial".
+
+Rules for judging both readings:
 - Judge SUBSTANCE, not style. The student is a secondary-school child and may write informally or be an
   English-as-a-second-language learner. Spelling, grammar, punctuation and phrasing DO NOT matter. Reward
   genuine understanding even when clumsily expressed.
 - Do NOT reward filler, hedging, plausible-sounding non-answers, or parroting the question back.
+- UNDER-CLAIM. Where the evidence is thin or you are between two rungs, return the LOWER rung. Every
+  rung is a claim about a child that a parent may repeat to a teacher.
 - "english": true if the answer is written in English, false otherwise. A non-English answer cannot be
-  judged as understanding here — grade it "none" with english:false.
+  judged as understanding here — grade it "none" / "not_yet" with english:false.
+- "evidence": quote the SHORT phrase from the student's own answer that justified the depth rung (a few
+  words, verbatim), so the judgement is auditable. Empty string if the rung is "not_yet".
 
 Output ONLY a JSON object, nothing else:
-{"verdict": "solid" | "partial" | "none", "english": true | false, "reason": "one short sentence"}"""
+{"verdict": "solid" | "partial" | "none", "depth": "not_yet" | "knows" | "lists" | "connects" | "applies",
+ "english": true | false, "evidence": "short quote from the answer", "reason": "one short sentence"}"""
 
 
 def call_api(system, user, model, api_key):
@@ -74,6 +97,53 @@ def call_api(system, user, model, api_key):
     return "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
 
 
+# --------------------------------------------------------------------------- #
+# The depth ladder (UNDERSTANDING.md). Order matters — index IS the rung height.
+DEPTH_LADDER = ["not_yet", "knows", "lists", "connects", "applies"]
+
+# Words that signal ideas being JOINED rather than merely listed. Used only as a
+# deterministic CEILING (it can lower a model's rung, never raise it) — the
+# under-claim law: an answer claimed as "connects" with no linking language
+# anywhere is more likely an enumeration the model over-read.
+LINK_MARKERS = (
+    "because", "so ", "so,", "which meant", "which means", "which led", "led to",
+    "leads to", "therefore", "thus", "as a result", "result of", "caused",
+    "causes", "causing", "due to", "since", "whereas", "while", "unlike",
+    "compared", "difference", "different from", "similar", "means that",
+    "this shows", "shows that", "reason", "why", "if ", "then ", "in order to",
+    "allows", "enables", "prevents", "affects", "impact", "influence",
+    "depends", "linked", "connect", "relates", "relationship", "between",
+    "but ", "however", "although", "even though", "instead",
+)
+
+# Teach-backs cannot evidence above "connects" except on explicit transfer
+# (UNDERSTANDING.md §3 ceiling law + §4 promotion rules).
+TEACH_CEILING = "connects"
+
+
+def _has_link_language(answer):
+    a = " " + (answer or "").lower() + " "
+    return any(m in a for m in LINK_MARKERS)
+
+
+def cap_depth(depth, answer):
+    """Deterministic ceiling on the model's depth rung. LOWERS ONLY, never raises.
+
+    Two guards, both from UNDERSTANDING.md:
+      1. 'applies' from a teach-back requires explicit transfer language; without
+         link language at all it cannot stand, so it falls to the teach ceiling.
+      2. 'connects' claims an explanation that JOINS ideas — if the answer carries
+         no linking language whatsoever, under-claim down to 'lists'.
+    Returns (depth, capped_reason|None) so the adjustment is auditable.
+    """
+    if depth not in DEPTH_LADDER:
+        return depth, None
+    linked = _has_link_language(answer)
+    if depth in ("connects", "applies") and not linked:
+        return "lists", f"capped from {depth}: no linking language in answer"
+    return depth, None
+
+
 def parse_json(text):
     t = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
     a, b = t.find("{"), t.rfind("}")
@@ -82,8 +152,15 @@ def parse_json(text):
     return json.loads(t)
 
 
-def normalise(grade):
-    """Coerce a model reply into a clean verdict dict; None if it isn't usable."""
+def normalise(grade, answer=""):
+    """Coerce a model reply into a clean verdict dict; None if it isn't usable.
+
+    Carries BOTH axes: `verdict` (correctness — consumed unchanged by the state
+    writer) and `depth` (understanding — consumed by reporting). Depth is
+    validated against the ladder and passed through the deterministic ceiling.
+    A missing/invalid depth degrades to None rather than failing the whole grade,
+    so the confidence axis never breaks because the new axis misbehaved.
+    """
     if not isinstance(grade, dict):
         return None
     v = str(grade.get("verdict", "")).strip().lower()
@@ -94,7 +171,27 @@ def normalise(grade):
     if not eng:
         v = "none"   # a non-English answer can't evidence understanding here
     reason = str(grade.get("reason", "")).strip()[:200]
-    return {"verdict": v, "english": eng, "reason": reason}
+
+    d = str(grade.get("depth", "")).strip().lower()
+    depth = d if d in DEPTH_LADDER else None
+    capped = None
+    if depth is not None:
+        if not eng:
+            depth, capped = "not_yet", "not English"
+        else:
+            depth, capped = cap_depth(depth, answer)
+        # a teach-back that showed no understanding at all cannot claim a rung
+        if v == "none" and depth not in ("not_yet", "knows"):
+            depth, capped = "not_yet", "verdict none"
+    out = {"verdict": v, "english": eng, "reason": reason}
+    if depth is not None:
+        out["depth"] = depth
+        ev = str(grade.get("evidence", "")).strip()[:160]
+        if ev:
+            out["evidence"] = ev
+        if capped:
+            out["capped"] = capped
+    return out
 
 
 def grade_one(subject, question, answer, model=DEFAULT_MODEL, api_key=None):
@@ -106,7 +203,7 @@ def grade_one(subject, question, answer, model=DEFAULT_MODEL, api_key=None):
             "Grade the answer. Output only the JSON verdict.")
     try:
         raw = call_api(SYSTEM, user, model, api_key)
-        return normalise(parse_json(raw))
+        return normalise(parse_json(raw), answer)
     except Exception:
         return None
 
@@ -150,6 +247,8 @@ def annotate_runs(private_dir, model=DEFAULT_MODEL, api_key=None, dry_run=False)
         q["tb_grade"] = g
         graded += 1
         log.append(f"  {who} → {g['verdict']}"
+                   + (f" · depth={g['depth']}" if g.get("depth") else "")
+                   + (f" [{g['capped']}]" if g.get("capped") else "")
                    + ("" if g["english"] else " (not English)")
                    + (f" — {g['reason']}" if g["reason"] else ""))
 

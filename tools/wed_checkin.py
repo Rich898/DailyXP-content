@@ -76,7 +76,13 @@ except ImportError:                                    # pragma: no cover
 CURSOR_FILE = os.path.join("work", "wed_checkin_cursor.json")
 ERROR_FILE = os.path.join("work", "wed_checkin_last_error.txt")
 
-COMP_DELTA = 0.12          # week-word engine threshold (Friday uses the same)
+# The week-word engine now lives in weekword.py so Wednesday and Friday share
+# ONE definition and cannot contradict (REPORTING.md). Re-exported here so this
+# module's own call sites and tests keep importing COMP_DELTA / window_stats /
+# momentum from wed_checkin unchanged.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from weekword import COMP_DELTA, window_stats, momentum  # noqa: E402,F401
+
 MAX_LEN = 460              # body budget (the soundbyte line rides above it)
 MIN_LEN = 40
 CUTOFF = dtime(20, 15)     # Sydney: at/after this, a missing run gets the status line
@@ -110,41 +116,6 @@ def week_windows(asof, include_today):
     this = [(mon + timedelta(days=i)).isoformat() for i in range(n)]
     prev = [(mon - timedelta(days=7) + timedelta(days=i)).isoformat() for i in range(n)]
     return this, prev
-
-
-def window_stats(runs, student, day_isos):
-    """days_done + mean comprehension ratio (best run per day) for a window.
-    The ratio lives and dies here — it is printed nowhere."""
-    best = {}
-    for r in runs:
-        if r.get("student") != student or r.get("run_date") not in day_isos:
-            continue
-        d = r["run_date"]
-        sc = int(r.get("score") or 0)
-        if d not in best or sc > best[d][0]:
-            best[d] = (sc, r.get("max_score") or r.get("maxScore"))
-    ratios = [s / int(m) for s, m in best.values() if m and int(m) > 0]
-    return {"days_done": len(best), "possible": len(day_isos),
-            "comp": (sum(ratios) / len(ratios)) if ratios else None}
-
-
-def momentum(now, prev):
-    """The week-word, sampled midweek. Quiet outranks slower by rule order.
-    direction: up | flat | down | none (none = no prior week on file)."""
-    no_prior = prev["days_done"] == 0 and prev["comp"] is None
-    if no_prior:
-        word = "quiet" if now["days_done"] == 0 else "solid"
-        return {"word": word, "direction": "none"}
-    if now["days_done"] == 0:
-        return {"word": "quiet", "direction": "down"}
-    if now["days_done"] < prev["days_done"]:
-        return {"word": "quiet", "direction": "down"}
-    comps = now["comp"] is not None and prev["comp"] is not None
-    if comps and now["comp"] <= prev["comp"] - COMP_DELTA:
-        return {"word": "slower", "direction": "down"}
-    if now["days_done"] > prev["days_done"] or (comps and now["comp"] >= prev["comp"] + COMP_DELTA):
-        return {"word": "strong", "direction": "up"}
-    return {"word": "solid", "direction": "flat"}
 
 
 def attendance_phrase(now):
