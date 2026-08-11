@@ -1,128 +1,128 @@
 {
   "student": "y8",
-  "date": "2026-08-10",
-  "day": "MON",
-  "tag": "H3.1",
-  "title": "DailyXP · MON 2026-08-10",
+  "date": "2026-08-11",
+  "day": "TUE",
+  "tag": "H3.2",
+  "title": "DailyXP · TUE 2026-08-11",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve: 3(x − 2) = 15. What is x?",
+      "prompt": "A quadrilateral has four equal sides and four right angles. What is the most specific name for it?",
       "options": [
-        "7",
-        "5",
-        "9",
-        "3.67"
+        "Square",
+        "Rectangle",
+        "Rhombus",
+        "Parallelogram"
       ],
-      "answer": "7",
-      "why": "Expand or divide both sides by 3 first to get x − 2 = 5, then add 2 to both sides: x = 7. A common mistake is subtracting 2 before dealing with the bracket properly, which breaks the balance.",
+      "answer": "Square",
+      "why": "A rectangle only needs right angles, and a rhombus only needs equal sides — a shape with BOTH four equal sides and four right angles must be a square, the most specific name.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "In history, what is the key difference between a 'cause' and a 'consequence' of an event?",
+      "subject": "Maths",
+      "prompt": "Solve: 3x + 4 = 4x − 5. x =",
       "options": [
-        "A cause happens before and leads to the event; a consequence happens after as a result of it",
-        "A cause and a consequence are the same thing, just different words",
-        "A cause is always about people; a consequence is always about places",
-        "A consequence always happens before the cause"
+        "9",
+        "-9",
+        "1",
+        "-1"
       ],
-      "answer": "A cause happens before and leads to the event; a consequence happens after as a result of it",
-      "why": "Causes are the reasons something happened (before), while consequences are the results or effects (after). Mixing up the timeline order is the most common error.",
+      "answer": "9",
+      "why": "Subtracting 3x from both sides gives 4 = x − 5, then adding 5 to both sides gives x = 9. A common error is subtracting 4x from the left only, breaking the balance.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Which line from Romeo and Juliet best captures the theme of love and hate being intertwined?",
+      "subject": "History",
+      "prompt": "A historian writes 'poor harvests caused food shortages, which led to rising anger at the government.' Which part of this is the consequence, not the cause?",
       "options": [
-        "'My only love sprung from my only hate'",
-        "'A plague o' both your houses'",
-        "'What's in a name?'",
-        "'Parting is such sweet sorrow'"
+        "Rising anger at the government",
+        "Poor harvests",
+        "The weather that year",
+        "The size of the harvest"
       ],
-      "answer": "'My only love sprung from my only hate'",
-      "why": "Juliet's line directly states that her love (for Romeo) comes from within the family she hates (Montague), showing the two themes as inseparable. The other quotes are memorable but don't fuse love and hate in one line.",
+      "answer": "Rising anger at the government",
+      "why": "The consequence is the result that follows from the cause. Poor harvests (cause) led to shortages, which led to anger (the consequence) — students often mix up which event is doing the causing.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Which two groups fought each other during the Crusades?",
+      "subject": "Maths",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 110°. What is the co-interior (allied) angle on the other parallel line?",
       "options": [
-        "Christians and Muslims",
-        "Catholics and Protestants",
-        "Romans and Vikings",
-        "Normans and Saxons"
+        "70°",
+        "110°",
+        "90°",
+        "55°"
       ],
-      "answer": "Christians and Muslims",
-      "why": "The Crusades were religious wars where Christian Europeans fought to capture and hold Jerusalem, which was controlled by Muslim forces. Confusing this with later religious conflicts (like Catholic vs Protestant) is a common error.",
+      "answer": "70°",
+      "why": "Co-interior angles between parallel lines add up to 180°, so 180° − 110° = 70°. A common mistake is treating them as equal like corresponding angles instead of supplementary.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a straight line (transversal). One angle is 65°. What is the corresponding angle on the other parallel line?",
+      "subject": "History",
+      "prompt": "During the Crusades, which group controlled Jerusalem before the First Crusade began in 1096?",
       "options": [
-        "65°",
-        "115°",
-        "25°",
-        "180°"
+        "Muslim forces",
+        "Christian crusaders",
+        "The Byzantine Empire",
+        "The Holy Roman Empire"
       ],
-      "answer": "65°",
-      "why": "Corresponding angles are equal when a transversal crosses parallel lines — they're in matching positions. A common mistake is confusing them with co-interior angles, which add up to 180°.",
+      "answer": "Muslim forces",
+      "why": "Jerusalem was under Muslim control when Pope Urban II called for the First Crusade, prompting European Christians to try to capture the city — this is why the crusades began.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A quadrilateral has exactly one pair of parallel sides. What shape is it?",
+      "subject": "Science",
+      "prompt": "During a flood investigation, which factor is a NATURAL cause of increased flood risk, rather than a human one?",
       "options": [
-        "Trapezium",
-        "Parallelogram",
-        "Rhombus",
-        "Kite"
+        "Heavy, prolonged rainfall",
+        "Removal of trees for farmland",
+        "Concrete covering the ground",
+        "Building on floodplains"
       ],
-      "answer": "Trapezium",
-      "why": "A trapezium has only one pair of parallel sides, while a parallelogram (and rhombus) has two pairs. Students often confuse trapeziums with parallelograms because both have parallel sides, but the number of pairs differs.",
+      "answer": "Heavy, prolonged rainfall",
+      "why": "Heavy rainfall is a natural trigger of flooding, while deforestation, concrete surfaces, and floodplain building are human factors that worsen flood risk — students often lump all causes together without distinguishing natural from human.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Geography",
-      "prompt": "A pair of trainers is designed in the UK, made from rubber sourced in Malaysia, assembled in Vietnam, and sold in shops worldwide. This is best described as an example of…",
+      "subject": "History",
+      "prompt": "Magna Carta, signed in 1215, is significant mainly because it established which principle?",
       "options": [
-        "Globalisation, because production and trade cross many countries",
-        "Migration, because people are moving between countries",
-        "Urbanisation, because cities are growing",
-        "Colonisation, because one country controls another"
+        "The king must obey the law like everyone else",
+        "The king should choose all bishops himself",
+        "Only nobles could own land",
+        "England should have no king at all"
       ],
-      "answer": "Globalisation, because production and trade cross many countries",
-      "why": "Globalisation refers to the increasing connection between countries through trade, production, and movement of goods. Students sometimes confuse it with migration or urbanisation, which describe movement of people or city growth, not global trade networks.",
+      "answer": "The king must obey the law like everyone else",
+      "why": "Magna Carta was revolutionary because it limited royal power by placing the king under the law, not above it — a common misconception is that it abolished monarchy entirely, which it did not.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student investigates whether the type of soil (sandy, clay, loamy) affects how tall sunflower plants grow after 6 weeks. They give every plant the same amount of water and sunlight. Which is the controlled variable?",
+      "prompt": "A student tests whether the amount of sleep (hours per night) affects test scores. They keep the difficulty of the test the same for everyone. What is the controlled variable?",
       "options": [
-        "Amount of water and sunlight given",
-        "Type of soil used",
-        "Height of the sunflower plants",
-        "Number of sunflowers planted"
+        "Difficulty of the test",
+        "Hours of sleep",
+        "Test scores",
+        "The students themselves"
       ],
-      "answer": "Amount of water and sunlight given",
-      "why": "The controlled variables are the things kept the same so they don't affect the results — here, water and sunlight. The soil type is the independent variable (what's changed), and plant height is the dependent variable (what's measured). Confusing 'kept the same' with 'what's changed' is the classic mix-up.",
+      "answer": "Difficulty of the test",
+      "why": "The controlled variable is what is kept the SAME so it doesn't affect results. Hours of sleep is the independent variable (what's changed) and test scores is the dependent variable (what's measured) — mixing these up is the chronic error.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 2(x − 4) + 3 = 11. Show the balance rule clearly — what is x?",
+      "prompt": "A triangle has one angle of 90° and two equal sides. What type of triangle is it?",
       "options": [
-        "8",
-        "6",
-        "4",
-        "11.5"
+        "Right-angled isosceles triangle",
+        "Equilateral triangle",
+        "Scalene triangle",
+        "Right-angled scalene triangle"
       ],
-      "answer": "8",
-      "why": "Simplify: 2x − 8 + 3 = 11 → 2x − 5 = 11 → 2x = 16 → x = 8. A common rushed error is subtracting 4 straight away before expanding the bracket, which throws off the balance.",
+      "answer": "Right-angled isosceles triangle",
+      "why": "A triangle can be classified by both its angles and its sides at once — here it has a right angle (right-angled) and two equal sides (isosceles), so both terms apply together.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "The assassination of Archduke Franz Ferdinand in 1914 is usually described as the 'trigger' cause of WWI, rather than the sole cause. Why do historians make this distinction?",
+      "subject": "Maths",
+      "prompt": "Solve for x: 3(x + 2) − 5 = 13. A student says 'I'll just subtract 2 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
       "options": [
-        "Because deeper long-term causes (like alliances and militarism) had already created tension, and the assassination was just the spark that set it off",
-        "Because the assassination didn't actually happen and was propaganda",
-        "Because WWI started decades before the assassination took place",
-        "Because the assassination was a consequence of the war, not a cause"
+        "You must expand the bracket first — x = 4",
+        "You can subtract 2 first since brackets don't matter — x = 4",
+        "You must expand the bracket first — x = 6",
+        "You can subtract 2 first since brackets don't matter — x = 6"
       ],
-      "answer": "Because deeper long-term causes (like alliances and militarism) had already created tension, and the assassination was just the spark that set it off",
-      "why": "Historians separate long-term causes (underlying tensions) from short-term/trigger causes (the immediate spark). Treating the assassination as the only cause ignores the built-up tension that made war likely anyway.",
+      "answer": "You must expand the bracket first — x = 4",
+      "why": "The 2 inside the bracket is multiplied by 3, not just added, so you can't remove it directly. Expanding gives 3x + 6 − 5 = 13, so 3x + 1 = 13, 3x = 12, x = 4.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 3, when Romeo kills Tybalt, how does this moment show the theme of love and hate colliding?",
+      "subject": "History",
+      "prompt": "Which statement correctly distinguishes a long-term cause from a short-term (trigger) cause of an event?",
       "options": [
-        "Romeo's love for Juliet is what makes Tybalt's death a tragedy — he kills out of loyalty to Mercutio, but it destroys his chance of peace with the Capulets that his marriage to Juliet could have brought",
-        "Romeo kills Tybalt purely out of personal hatred for the Capulet family",
-        "Tybalt attacks Romeo first because he hates Mercutio",
-        "The fight is unrelated to the love plot and only shows family hatred"
+        "A long-term cause builds up over years; a short-term cause is the immediate spark that sets off the event",
+        "A long-term cause and short-term cause are always the same thing",
+        "A long-term cause happens after the event; a short-term cause happens before",
+        "A short-term cause is always more important than a long-term cause"
       ],
-      "answer": "Romeo's love for Juliet is what makes Tybalt's death a tragedy — he kills out of loyalty to Mercutio, but it destroys his chance of peace with the Capulets that his marriage to Juliet could have brought",
-      "why": "This moment is powerful because Romeo's secret love (for Juliet) is undercut by an act driven by loyalty and rage over hate-fuelled violence, showing how the two themes are painfully tangled rather than separate.",
+      "answer": "A long-term cause builds up over years; a short-term cause is the immediate spark that sets off the event",
+      "why": "Long-term causes create the underlying conditions for an event over time, while short-term causes are the immediate trigger — students often think the trigger is the ONLY cause, ignoring the deeper build-up.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your lab partner keeps mixing up the independent, dependent, and controlled variables in experiments. Using an example of your choice (not one you've used before), explain in your own words what each of the three variables means, and describe one common mistake people make when identifying them."
+      "prompt": "Your friend says 'the independent variable is whatever changes during the experiment, so it must be the dependent variable too, since that also changes.' Using an example of your own (not sleep, sunlight, fertiliser, water temperature, or soil type), explain why the independent and dependent variables are NOT the same thing, and describe what makes each one distinct."
     }
   ]
 }
