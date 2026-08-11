@@ -195,6 +195,15 @@ def main():
             print(f"  ABORT {code}: body failed the law ({why}) — nothing sent.")
             continue
         print(f"  sms [{src}] {len(body)} chars")
+        # SAFETY: this job texts PARENTS. If the parent seat is unresolved we
+        # abort rather than let notify fall through to any other recipient — a
+        # parent report landing on the kid's phone would be a serious breach of
+        # the no-ammunition law (he'd read the gaps written for an adult).
+        seat = f"parents:{code}"
+        if not notify._recipients(seat):
+            print(f"  ABORT {code}: no number configured for {seat} "
+                  f"(set MOBILE_MESSAGE_PARENTS_{code.upper()}) — nothing sent.")
+            continue
         if a.no_sms:
             print("  --no-sms: not sending.")
             continue

@@ -129,3 +129,23 @@ rebase in that session would have destroyed a real ingested run.
 
 Corollary to gotcha #1: **a `git push` reporting success is not proof the file
 is live.** Verify with `api.github.com/repos/.../contents/<path>` after pushing.
+
+### Gotcha #9 — a new workflow must copy its secret names from a PROVEN one
+
+`friday-report.yml` was written referencing `MOBILE_MESSAGE_USER` / `_PASS`
+(invented — the real pair is `MOBILE_MESSAGE_API_KEY` / `_API_SECRET`) and, worse,
+passed `MOBILE_MESSAGE_TO_Y8/Y9/T1` — **the boys' numbers** — to a job that texts
+parents. GitHub silently resolves a missing secret to an empty string, so this
+fails quietly at best, and is the exact shape of mistake that ends with a parent
+report on a kid's phone.
+
+Caught by listing the repo's actual secrets (`api.github.com/repos/.../actions/secrets`
+returns names only) and diffing against the workflow.
+
+**Rules:**
+1. When writing a new comms workflow, copy the `env:` block from the nearest
+   working one (`evening-soundbyte.yml`) — never write secret names from memory.
+2. List the repo's real secret names and diff before the first run.
+3. Parent-facing jobs pass `MOBILE_MESSAGE_PARENTS_*`, never `MOBILE_MESSAGE_TO_*`.
+   `friday_report_run.py` now hard-aborts if the parent seat is unresolved rather
+   than letting `notify` fall through to any other recipient.

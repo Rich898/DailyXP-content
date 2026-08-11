@@ -55,12 +55,15 @@ jobs:
       - name: Build + deploy + send
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          MOBILE_MESSAGE_USER: ${{ secrets.MOBILE_MESSAGE_USER }}
-          MOBILE_MESSAGE_PASS: ${{ secrets.MOBILE_MESSAGE_PASS }}
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
           MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
-          MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
-          MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
-          MOBILE_MESSAGE_TO_T1: ${{ secrets.MOBILE_MESSAGE_TO_T1 }}
+          # PARENT seats only — this job texts parents, never the boys.
+          # (notify.py resolves "parents:<code>" -> MOBILE_MESSAGE_PARENTS_<CODE>.)
+          MOBILE_MESSAGE_PARENTS_Y8: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y8 }}
+          MOBILE_MESSAGE_PARENTS_Y9: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y9 }}
+          MOBILE_MESSAGE_PARENTS_T1: ${{ secrets.MOBILE_MESSAGE_PARENTS_T1 }}
+          MOBILE_MESSAGE_TO_PARENTS: ${{ secrets.MOBILE_MESSAGE_TO_PARENTS }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
