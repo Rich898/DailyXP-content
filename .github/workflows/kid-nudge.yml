@@ -17,6 +17,10 @@ on:
         description: "Which player (roster code, or all)"
         required: false
         default: "all"
+      force:
+        description: "ignore the once-a-day cursor and re-send"
+        type: boolean
+        default: false
       dry_run:
         description: "Verify + decide only — no send"
         required: false
@@ -27,7 +31,14 @@ on:
   schedule:
   #   # AEST = UTC+10. (Sydney DST Oct–Apr: subtract 1 from the UTC hour to
   #   # pin 4pm local.)
-    - cron: "0 6 * * 1-5"     # 16:00 AEST
+    # GitHub's scheduler is BEST-EFFORT: it queues under load and silently drops
+    # runs. Proven twice (10 + 11 Aug) that a single cron misses. So we poll like
+    # evening-soundbyte does — the nudge cursor makes every repeat a no-op, so
+    # the only cost of a redundant fire is a few free Actions seconds.
+    - cron: "0 6 * * 1-5"     # 16:00 AEST  (target)
+    - cron: "20 6 * * 1-5"    # 16:20 AEST  (catch-up)
+    - cron: "45 6 * * 1-5"    # 16:45 AEST  (catch-up)
+    - cron: "15 7 * * 1-5"    # 17:15 AEST  (last chance before dinner)
 
 jobs:
   nudge:
@@ -35,6 +46,16 @@ jobs:
     steps:
       - name: Checkout public repo (code)
         uses: actions/checkout@v4
+
+      # Needed for the once-a-day cursor that makes the retry ladder safe.
+      # Pushed to in CI -> DAILYXP_TOKEN + persist-credentials false (gotcha #2).
+      - name: Checkout private (nudge cursor)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          persist-credentials: false
+          path: private
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -53,4 +74,25 @@ jobs:
           ARGS=""
           [ "${{ github.event.inputs.student }}" != "all" ] && [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          ARGS="$ARGS --private-dir private"
+          [ "${{ github.event.inputs.force }}" = "true" ] && ARGS="$ARGS --force"
           python tools/kid_nudge.py $ARGS
+
+      - name: Commit nudge cursor
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "nudge: cursor advance ($(date -u +%F))"
+            git pull --rebase --autostash \
+              "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" main || true
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+            echo "cursor committed."
+          else
+            echo "no cursor change."
+          fi

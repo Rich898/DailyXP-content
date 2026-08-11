@@ -15,8 +15,15 @@ Rules:
     placeholder. Stale or frozen → silent suppression, loud in the log.
   * FLAVOURED BY THE WEEKLY SKELETON. Wed = blitz, Fri = boss (the locked
     skeleton from SEASONS.md — same mapping run_daily plans with).
-  * STATELESS. Reads the live URL, sends, writes nothing — no private repo,
-    no cursor. The cron fires once a day; a re-dispatch is a human choice.
+  * ONE NUDGE PER KID PER DAY, enforced by a cursor in the private repo.
+    This REPLACED the original stateless design (11 Aug 2026): GitHub's cron is
+    best-effort and dropped the 4pm nudge on two consecutive days, so the
+    schedule is now a RETRY LADDER (16:00 / 16:20 / 16:45 / 17:15). Without a
+    cursor that ladder would text each boy four times an afternoon. The cursor
+    makes every repeat after a successful send a silent no-op — which is what
+    makes the ladder safe, and the nudge finally dependable.
+    The cursor advances ONLY on a confirmed send. A failed send leaves it
+    untouched so the next rung retries.
   * PUBLIC-LOG SAFE. Prints y8/y9 + status only. Nudge text carries no
     names or scores by design.
 
@@ -82,11 +89,38 @@ def fetch_live(student):
     return json.loads(urllib.request.urlopen(url, timeout=15).read().decode())
 
 
+CURSOR_REL = os.path.join("work", "kid_nudge_cursor.json")
+
+
+def load_cursor(private_dir):
+    """{code: ISO date last successfully nudged}. Missing dir/file = empty."""
+    if not private_dir:
+        return {}
+    try:
+        return json.load(open(os.path.join(private_dir, CURSOR_REL)))
+    except (OSError, ValueError):
+        return {}
+
+
+def save_cursor(private_dir, cursor):
+    if not private_dir:
+        return
+    p = os.path.join(private_dir, CURSOR_REL)
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    tmp = p + ".tmp"
+    json.dump(cursor, open(tmp, "w"), indent=2)
+    os.replace(tmp, p)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=None, help="Override Sydney date (YYYY-MM-DD)")
     ap.add_argument("--student", default="all", help='a roster code, or "all" (default)')
     ap.add_argument("--dry-run", action="store_true", help="verify + decide only, no send")
+    ap.add_argument("--private-dir", default=os.environ.get("DAILYXP_PRIVATE_DIR"),
+                    help="private checkout — holds the once-a-day cursor")
+    ap.add_argument("--force", action="store_true",
+                    help="ignore the cursor (deliberate re-send)")
     a = ap.parse_args()
 
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -97,6 +131,7 @@ def main():
     today = _d.fromisoformat(a.date) if a.date else sydney_today()
     targets = roster.active() if a.student == "all" else (a.student,)
 
+    cursor = load_cursor(a.private_dir)
     any_fail = False
     for s in targets:
         try:
@@ -109,6 +144,9 @@ def main():
         print(f"[{s}] {reason}")
         if not send:
             continue
+        if not a.force and cursor.get(s) == today.isoformat():
+            print(f"[{s}] already nudged today — no-op (retry ladder).")
+            continue
         if a.dry_run:
             print(f"[{s}] DRY-RUN \u2014 send suppressed.")
             continue
@@ -120,7 +158,10 @@ def main():
             print(f"[{s}] no number configured \u2014 skipped (icon is his channel).")
             continue
         print(f"[{s}] nudge {'sent \u2713' if ok else 'FAILED \u2717'}")
-        if not ok:
+        if ok:
+            cursor[s] = today.isoformat()
+            save_cursor(a.private_dir, cursor)
+        else:
             any_fail = True
 
     sys.exit(1 if any_fail else 0)

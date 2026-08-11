@@ -1,0 +1,73 @@
+name: Watchdog
+
+# Tells Rich when something that should have happened, didn't.
+#
+# GitHub's cron is best-effort and drops runs silently — retry ladders reduce
+# that, nothing removes it, and GitHub will never tell you a cron didn't fire.
+# So this checks the CURSORS (what actually happened) against what the day
+# promised, and texts Rich if anything is still outstanding past its deadline.
+#
+# Silent when healthy: a text from this always means something real.
+# It detects only — it never fixes anything. The fix is a human clicking Run.
+
+on:
+  schedule:
+    - cron: "35 7 * * 1-5"    # 17:35 AEST — after the nudge ladder's last rung
+    - cron: "50 11 * * 1-5"   # 21:50 AEST — after the soundbyte poll
+    - cron: "5 12 * * 5"      # 22:05 AEST Fri — after the Friday report
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "check and report, don't text"
+        type: boolean
+        default: false
+
+concurrency:
+  group: watchdog
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout private (cursors are the truth)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          persist-credentials: false
+          path: private
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check
+        env:
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          # Rich's own handset ONLY — ops alerts never touch a parent or kid seat.
+          MOBILE_MESSAGE_TO_T1: ${{ secrets.MOBILE_MESSAGE_TO_T1 }}
+        run: |
+          ARGS="--private-dir private"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          python tools/watchdog.py $ARGS
+
+      - name: Commit alert cursor
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "watchdog: alert cursor ($(date -u +%F))"
+            git pull --rebase --autostash \
+              "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" main || true
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+          fi
