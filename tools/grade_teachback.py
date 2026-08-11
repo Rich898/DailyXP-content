@@ -215,14 +215,54 @@ def _teach_q(run):
     return None
 
 
+def attach_integrity(runs):
+    """Deterministic tb_integrity for every canonical, non-test teach-back that
+    doesn't have one yet. Runs in date order so each answer is judged against
+    the student's OWN prior clean history (integrity.py: baseline beats absolute
+    thresholds). Returns (annotated_count, log_lines). No API, no model — code
+    decides, and it decides BEFORE any depth is credited (UNDERSTANDING.md law:
+    integrity is checked before depth, not after).
+    """
+    import integrity
+
+    annotated, log = 0, []
+    history = {}                       # student -> [(chars, secs)] of CLEAN priors
+    ordered = sorted((r for r in runs if r.get("canonical") and not r.get("is_test")),
+                     key=lambda r: (r.get("run_date") or "", r.get("tag") or ""))
+    for r in ordered:
+        q = _teach_q(r)
+        if not q:
+            continue
+        text = (q.get("text") or "").strip()
+        if not text:
+            continue
+        stu = r.get("student")
+        verdict = (q.get("tb_integrity") or {}).get("verdict")
+        if not verdict:
+            res = integrity.check(text, q.get("chars"), q.get("secs"),
+                                  history.get(stu, []))
+            q["tb_integrity"] = res
+            verdict = res["verdict"]
+            annotated += 1
+            if verdict != "ok":
+                log.append(f"  integrity {verdict}: {stu} · {r.get('tag')} "
+                           f"({q.get('subject')}) — " + "; ".join(res["reasons"]))
+        if verdict != "quarantine":    # quarantined rows never join the baseline
+            history.setdefault(stu, []).append((q.get("chars"), q.get("secs")))
+    return annotated, log
+
+
 def annotate_runs(private_dir, model=DEFAULT_MODEL, api_key=None, dry_run=False):
-    """Grade every ungraded teach-back in canonical, non-test runs; write tb_grade back."""
+    """Attach integrity verdicts (deterministic), then grade every ungraded,
+    non-quarantined teach-back in canonical, non-test runs; write both back."""
     runs_path = os.path.join(private_dir, "work", "runs.json")
     blob = json.load(open(runs_path))
     runs = blob.get("runs", [])
 
+    integ_count, integ_log = (0, []) if dry_run else attach_integrity(runs)
+
     graded, skipped, failed = 0, 0, 0
-    log = []
+    log = list(integ_log)
     for r in runs:
         if not r.get("canonical") or r.get("is_test"):
             continue
@@ -236,6 +276,12 @@ def annotate_runs(private_dir, model=DEFAULT_MODEL, api_key=None, dry_run=False)
             skipped += 1
             continue
         who = f"{r.get('student')} · {r.get('tag')} ({q.get('subject')})"
+        if (q.get("tb_integrity") or {}).get("verdict") == "quarantine":
+            # We do not grade text we cannot attribute to the student: no
+            # tb_grade means the state-writer credits nothing and pick_quote
+            # never quotes it. The row simply sits, for a human to clear.
+            log.append(f"  held (integrity): {who} — not sent for grading")
+            continue
         if dry_run:
             log.append(f"  would grade: {who} — {len(text)} chars")
             continue
@@ -252,7 +298,7 @@ def annotate_runs(private_dir, model=DEFAULT_MODEL, api_key=None, dry_run=False)
                    + ("" if g["english"] else " (not English)")
                    + (f" — {g['reason']}" if g["reason"] else ""))
 
-    if graded and not dry_run:
+    if (graded or integ_count) and not dry_run:
         tmp = runs_path + ".tmp"
         json.dump(blob, open(tmp, "w"), ensure_ascii=False, indent=2)
         os.replace(tmp, runs_path)

@@ -57,6 +57,18 @@ jobs:
         with:
           python-version: "3.11"
 
+      # Integrity + quality on the week's teach-backs BEFORE the report builds:
+      # tb_integrity is deterministic (code judges plausibility, never a model);
+      # tb_grade is the one language judgement. Both Friday surfaces quote
+      # through the same gate (pick_quote), which reads these annotations —
+      # without this step the strongest section on either page is empty.
+      # Annotated runs.json persists via the commit-private step below.
+      - name: Grade teach-backs (integrity + quality)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python tools/grade_teachback.py --private-dir private
+
       - name: Build + deploy + send
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

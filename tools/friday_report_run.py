@@ -32,6 +32,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import friday_report as fr          # noqa: E402
 import friday_sms as fsms           # noqa: E402
+import kid_wrap as kwrap            # noqa: E402
 import report_page as rpage         # noqa: E402
 import report_stories as rst        # noqa: E402
 import netlify_deploy as deploy     # noqa: E402
@@ -119,7 +120,7 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
         notes.append("One written answer this week was left out of the figures: it "
                      "didn't read as this student's own writing, so it isn't counted "
                      "or quoted here.")
-    return card, stories, quote, acc, notes, speed, wow
+    return card, stories, quote, acc, notes, speed, wow, this_week
 
 
 def main():
@@ -160,26 +161,55 @@ def main():
             print(f"[{code}] no ledger — skipped.")
             continue
 
-        card, stories, quote, acc, notes, speed, wow = build_for(
+        card, stories, quote, acc, notes, speed, wow, week_badges = build_for(
             code, asof, priv, runs, state, targets, prev_snapshot)
         print(f"[{code}] {card['name']}: week-word={card['week_word']['word']} "
               f"stories={len(stories)} quote={'y' if quote else 'n'} "
               f"baseline={card['baseline']}")
 
+        # THE KID WRAP — same card/stories/quote the parent page gets (the
+        # transparency law is structural: one facts layer, two dressings), plus
+        # the game-only additions. A law breach raises; the wrap is skipped and
+        # the parent flow continues — the SMS is the tier-1 report.
+        days, _ = fr.week_days(asof)
+        game = kwrap.game_facts(runs, code, days, week_badges, asof,
+                                season_total=card["xp_total"], accuracy=acc)
         wrap_url = deploy.url_for(slugs[code]["wrap"], kind="w")
-        html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
-                            kid_wrap_url=None, extra_notes=notes, speed=speed, wow=wow)
+        try:
+            wrap_html = kwrap.render(card, stories=stories, quote=quote, game=game)
+        except ValueError as e:
+            print(f"  KID WRAP SKIPPED: {e}")
+            wrap_html, wrap_url = None, None
+
         report_url = deploy.url_for(slugs[code]["report"], kind="r")
 
         if a.dry_run:
             out = os.path.join(priv, "work", f"preview_report_{code}.html")
+            html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
+                                kid_wrap_url=wrap_url, extra_notes=notes,
+                                speed=speed, wow=wow)
             open(out, "w").write(html)
+            if wrap_html:
+                wout = os.path.join(priv, "work", f"preview_wrap_{code}.html")
+                open(wout, "w").write(wrap_html)
+                print(f"  DRY-RUN wrap -> {wout}")
             body, src = fsms.render_body(card, report_url, api_key=api_key,
                                          use_ai=bool(api_key))
             print(f"  DRY-RUN page -> {out}")
             print(f"  DRY-RUN sms  [{src}] {len(body)} chars:\n    {body}\n")
             continue
 
+        # wrap deploys FIRST so the parent page only ever links a page that is
+        # verified live; a wrap failure downgrades the link, never the report.
+        if wrap_html:
+            if deploy.publish(slugs[code]["wrap"], wrap_html, kind="w"):
+                print(f"  wrap LIVE: {wrap_url}")
+            else:
+                print("  wrap deploy FAILED — parent page goes out without the link.")
+                wrap_url = None
+        html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
+                            kid_wrap_url=wrap_url, extra_notes=notes,
+                            speed=speed, wow=wow)
         live = deploy.publish(slugs[code]["report"], html, kind="r")
         if live:
             print(f"  page LIVE: {report_url}")
