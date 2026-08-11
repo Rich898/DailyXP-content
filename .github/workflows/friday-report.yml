@@ -1,0 +1,89 @@
+name: Friday report
+
+# Friday carries TWO parent texts on different clocks: the on-completion evening
+# soundbyte (~8:30pm) and THIS scheduled weekly report. Fires after the soundbyte
+# so the day's run is usually already in; if it isn't, the report honestly reads
+# four days instead of five.
+#
+# GitHub's scheduler runs late or skips — always VERIFY the send, and manual
+# dispatch is the fallback (the cursor makes re-running safe: one send per kid
+# per week, so a re-run after a partial failure is a no-op for whoever got it).
+
+on:
+  schedule:
+    - cron: "35 10 * * 5"      # 10:35 UTC Fri = 8:35pm AEST Fri
+  workflow_dispatch:
+    inputs:
+      student:
+        description: "single player (blank = all active)"
+        required: false
+        default: ""
+      dry_run:
+        description: "build + render only, no deploy, no SMS"
+        type: boolean
+        default: false
+      no_sms:
+        description: "deploy the page but don't text"
+        type: boolean
+        default: false
+
+concurrency:
+  group: friday-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout content (public)
+        uses: actions/checkout@v4
+
+      # Any repo we PUSH to in CI must use DAILYXP_TOKEN with persist-credentials
+      # false — the persisted bot credential 403s on push (first-run gotcha #2).
+      - name: Checkout private (ledger, runs, plans, cursors)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          persist-credentials: false
+          path: private
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build + deploy + send
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MOBILE_MESSAGE_USER: ${{ secrets.MOBILE_MESSAGE_USER }}
+          MOBILE_MESSAGE_PASS: ${{ secrets.MOBILE_MESSAGE_PASS }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
+          MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
+          MOBILE_MESSAGE_TO_T1: ${{ secrets.MOBILE_MESSAGE_TO_T1 }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          ARGS="--private-dir private"
+          [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          [ "${{ github.event.inputs.no_sms }}" = "true" ] && ARGS="$ARGS --no-sms"
+          echo "friday_report_run $ARGS"
+          python tools/friday_report_run.py $ARGS
+
+      - name: Commit private state (cursor + weekly snapshot + slugs)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "friday report: cursor + snapshot ($(date -u +%F))"
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+            echo "private state committed."
+          else
+            echo "no private changes."
+          fi

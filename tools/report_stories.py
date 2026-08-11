@@ -297,6 +297,10 @@ def build_stories(private_dir, runs, plans_by_date, student, week_days,
                   detect_trending(topic, trace, subject, was_flagged),
                   detect_to_close(topic, trace, subject, misc)):
             if s:
+                # the ledger position travels with the story so the page can show
+                # it as a SCALE (where it sits) rather than a verdict
+                s["state"] = tp.get("state")
+                s["depth"] = tp.get("depth")
                 stories.append(s)
                 break                      # one story per topic — the strongest
 
