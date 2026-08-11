@@ -53,7 +53,16 @@ PREC = ["CW", "✗", "SW", "GW", "FW", "LUCKY", "TRIV✓", "TB✗", "✓_sure", 
 #                     MC answer BUT failed to explain it, TB✗ governs and BLOCKS the promotion
 #                     (the topic is not truly mastered). It holds the box; it does not demote.
 def verdict_badge(grade):
-    """Map a teach-back grade dict (or None) to a badge. None/unrecognised -> plain 'TB' (no-op)."""
+    """Map a teach-back grade dict (or None) to a badge. None/unrecognised -> plain 'TB' (no-op).
+
+    INTEGRITY HOLD: a teach-back flagged by integrity.py as not plausibly the
+    student's own writing gets NO ledger consequence — it degrades to the no-op
+    'TB' exactly as an ungraded answer does. We do not credit (or penalise) the
+    ledger on text we cannot attribute to the student. Clearing a hold is a
+    human decision, made by removing the flag on the run.
+    """
+    if (grade or {}).get("integrity_hold"):
+        return "TB"
     v = (grade or {}).get("verdict")
     return {"solid": "TB✓", "partial": "TB~", "none": "TB✗"}.get(v, "TB")
 
