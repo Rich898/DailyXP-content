@@ -106,3 +106,91 @@ A win/highlight to celebrate · a "what's coming next week" forward look · asse
 - Per-family on/off per touchpoint, set at onboarding.
 - Delivery: branded one-way SMS (sender = product name), with a "questions? text the operator" line since one-way can't receive replies.
 - The message IS the tier-1 report. Links are the deep dive, never the paywall — a parent who never taps still got real value.
+
+---
+
+## Friday report — ratified 11 Aug 2026
+
+Decisions taken when the Friday surfaces were built. These supersede any earlier
+reading of this file where they conflict.
+
+### The Friday law is NOT the Wednesday law
+
+Wednesday forbids digits. **Friday permits numbers**, and the first build was
+wrong to port Wednesday's rule across. "No-ammunition" on Friday means *every
+flagged area arrives with its fix in the same breath* — not "no numbers". A
+report can carry accuracy, counts and the XP total and still be safe, because
+the resolution travels with the finding.
+
+Still banned on Friday: `%` and score-slashes **in the SMS** (comprehension is a
+word there, never a number), bare "behind" (only "a step behind"), paywall
+framing on the link, and the banned words (miss, wrong, fail, dumb, lazy).
+Accuracy figures ARE allowed on the hosted page, where there is room for the
+caveat beside them.
+
+### What leads, and what does not
+
+* **Mastery movement leads.** The ledger is the product; the report must show it.
+* **Points are demoted.** Difficulty varies between days, so points-per-day is
+  the least trustworthy figure on file. It never leads, and **there is no points
+  target** — a target on points rewards choosing easier questions. Targets belong
+  on mastery and cadence. XP-by-day belongs on the KID wrap page as a game
+  metric, not on the parent report.
+* **Assessment readiness sits high** — the most actionable thing a parent can be
+  told is what is coming and whether he is ready for it.
+
+### Gaps: show them all, frame them as position
+
+A paying parent wants to know about gaps — that IS the value, and hiding them to
+seem kind removes the reason to subscribe. **The artistry is in the framing.**
+
+* No binary tick/cross on the parent report. Every topic sits on a **red→amber→
+  green scale** with a plain label ("Getting started" / "Building" / "Nearly
+  there" / "Solid"), so a gap reads as a position on a journey.
+* **Headlines derive from the band**, never from the week's events, so the title
+  and the scale beneath it can never contradict each other.
+* **Misconception-level diagnosis**: name the wrong option chosen and why it is
+  wrong, from the archived set's own `why`. "He chose Parallelogram; a trapezium
+  has only one pair of parallel sides" — not "got a maths question wrong". This
+  is the difference between a parent being told to practise a topic and being
+  told the one thing to fix.
+
+### Week-over-week: OVERALL weekly, per-subject monthly
+
+A week yields 2–6 questions per subject. A per-subject weekly trend would flip
+direction on noise and destroy trust in the whole report. So:
+
+* **Weekly comparisons are aggregate only** (40–60 questions): nights run,
+  accuracy across all subjects together, topics that moved up a depth rung.
+* **The accuracy row is suppressed unless BOTH weeks have 10+ answered.**
+* **Per-subject POSITION** (a stock) is fine at any window — that is what the
+  scale bars show. **Per-subject TRENDS** (a flow) wait for a monthly window.
+* **Week 1 shows the empty state**, explaining what will appear next Friday. It
+  explicitly ignores the pre-go-live beta week: partial, different pipeline,
+  comparing against it would manufacture a trend out of nothing.
+
+### Speed appears only when it moved
+
+Fluency (median seconds on correct speed-phase answers) is one of the real
+dimensions, but standing furniture that never changes is noise. It renders only
+on a shift of 25% or more, and a slowdown is framed as the material getting
+harder — the desirable-difficulties finding — never as decline.
+
+### Praise is process-level, never person-level
+
+Hattie & Timperley: feedback about the *person* is the weakest kind. The "say
+one thing" script names the MOVE ("you explained why it works, not just what the
+answer was"), never the child ("you're clever").
+
+### Next week's plan is mandatory
+
+The feed-forward half ("where to next?") is the part most reports omit. Every
+report ends with a consolidated plan: what practice steps up, what comes back
+for another look, what eases to maintenance. Closing line makes clear the child
+does not have to be told any of it — the quiz just does it.
+
+### Integrity gates the quote
+
+A teach-back that fails the authenticity check (`integrity.py`) is never quoted
+and never evidences depth. Its exclusion is disclosed in the reading notes
+without accusation. See UNDERSTANDING.md.

@@ -105,6 +105,11 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
                                 depth_before=(prev_snapshot or {}).get(code + "_depth", {}))
     quote = rst.pick_quote(runs, code, days)
     acc = rst.subject_accuracy(runs, code, days)
+    _, prev_days = fr.week_days(asof)
+    speed = rst.speed_shift(runs, code, days, prev_days)
+    wow = rst.week_over_week(runs, code, days, prev_days, topics,
+                             (prev_snapshot or {}).get(code + "_depth", {}),
+                             baseline=baseline)
 
     notes = []
     held = any((q.get("tb_integrity") or {}).get("verdict") == "quarantine"
@@ -114,7 +119,7 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
         notes.append("One written answer this week was left out of the figures: it "
                      "didn't read as this student's own writing, so it isn't counted "
                      "or quoted here.")
-    return card, stories, quote, acc, notes
+    return card, stories, quote, acc, notes, speed, wow
 
 
 def main():
@@ -155,7 +160,7 @@ def main():
             print(f"[{code}] no ledger — skipped.")
             continue
 
-        card, stories, quote, acc, notes = build_for(
+        card, stories, quote, acc, notes, speed, wow = build_for(
             code, asof, priv, runs, state, targets, prev_snapshot)
         print(f"[{code}] {card['name']}: week-word={card['week_word']['word']} "
               f"stories={len(stories)} quote={'y' if quote else 'n'} "
@@ -163,7 +168,7 @@ def main():
 
         wrap_url = deploy.url_for(slugs[code]["wrap"], kind="w")
         html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
-                            kid_wrap_url=None, extra_notes=notes)
+                            kid_wrap_url=None, extra_notes=notes, speed=speed, wow=wow)
         report_url = deploy.url_for(slugs[code]["report"], kind="r")
 
         if a.dry_run:

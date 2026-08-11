@@ -98,3 +98,34 @@ PRIVATE repo (`work/soundbyte_last_error.txt`), never in public logs.
 **Editing workflow YAML (hard-won law):** hand-write, strict-validate locally (single doc,
 duplicate-key check), push, confirm GitHub lists the workflow by NAME (not path) before any
 dispatch. No regex surgery on YAML.
+
+### Gotcha #7 — module-scope env capture (found 11 Aug 2026)
+
+**`publish.py` read `HISTORY_DIR` at IMPORT time**, but `run_daily` sets
+`DAILYXP_HISTORY_DIR` *after* `import publish`. So since the two-repo split every
+set archived into `DailyXP-content/history/` — the public checkout, which nothing
+commits and CI discards.
+
+Two silent consequences, the second worse:
+1. No archived sets from 7 Aug to 10 Aug → misconception diagnosis had no data.
+2. **`validate_set`'s no-repeat check was reading an EMPTY history** — nothing
+   was preventing duplicate questions across days.
+
+Fixed via a call-time `history_dir()`. Archives were recovered from the public
+repo's git history (every published set survives as a commit of `{student}.json`
+— a useful recovery route to remember).
+
+**Rule: never bind an env-derived path at module scope.** Resolve it in a
+function. Anything `run_daily` sets after its imports is invisible to a module
+that captured it at import.
+
+### Gotcha #8 — the remote moves while you work
+
+Two pushes were rejected in one session because the live pipeline had advanced
+the remote (a run ingested; three sets published). **Never force-push to
+resolve this.** Fetch, inspect what actually changed, and if the same file
+diverged, take the remote as truth and re-apply your change on top. A force
+rebase in that session would have destroyed a real ingested run.
+
+Corollary to gotcha #1: **a `git push` reporting success is not proof the file
+is live.** Verify with `api.github.com/repos/.../contents/<path>` after pushing.

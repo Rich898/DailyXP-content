@@ -105,6 +105,21 @@ h1.word{font-size:50px;line-height:1;margin:0 0 6px}
 .acc .bar{height:8px;border-radius:99px;background:#E4E7DF;overflow:hidden}
 .acc .bar span{display:block;height:100%;background:var(--kelp);border-radius:99px}
 .acc td.n{text-align:right;color:var(--haze);font-size:13px}
+.wow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}
+.wow .cell{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--haze);border-radius:12px;padding:12px 14px}
+.wow .cell.up{border-left-color:var(--kelp)}
+.wow .cell.down{border-left-color:#E8963C}
+.wow .cell .k{font-size:11px;letter-spacing:.08em;color:var(--haze);text-transform:uppercase}
+.wow .cell .v{font-size:26px;font-weight:700;margin-top:3px;font-family:'Space Mono',monospace}
+.wow .cell.up .v i{color:var(--kelp);font-style:normal}
+.wow .cell.down .v i{color:#E8963C;font-style:normal}
+.wow .cell.flat .v i{color:var(--haze);font-style:normal}
+.wow .cell .was{font-size:12px;color:var(--haze)}
+.wow .cell .n{font-size:12px;color:var(--haze);margin-top:5px;line-height:1.4}
+.wow.empty{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:block}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.plan ul{margin:0;padding-left:18px}
+.plan li{font-size:15px;line-height:1.5;margin-bottom:6px}
 .xp{display:flex;align-items:baseline;justify-content:space-between;margin-top:30px;padding-top:16px;border-top:2px solid var(--line)}
 .xp .lbl{font-size:11px;letter-spacing:.14em;color:var(--haze)}
 .xp .v{font-size:28px;color:var(--flare)}
@@ -312,10 +327,82 @@ def _accuracy(acc):
         rows.append(f"<tr><td>{_e(subj)}</td><td class='b'><div class='bar'>"
                     f"<span style='width:{pct}%'></span></div></td>"
                     f"<td class='n'>{r['right']} of {r['asked']}</td></tr>")
-    return ("<details><summary>Accuracy by subject</summary>"
+    return ("<div class='section'>HOW THE WEEK WENT, BY SUBJECT</div>"
             f"<table class='acc'>{''.join(rows)}</table>"
             "<p class='notes'>Small numbers of questions — read these as a rough shape, "
-            "not a measurement.</p></details>")
+            "not a measurement.</p>")
+
+
+def _next_week(card, stories):
+    """The plan for next week — the FEED-FORWARD half of the feedback model
+    ("where to next?"), which most reports omit. Consolidates what the story
+    cards each promise individually, plus what the ledger will schedule, so a
+    parent can see the system has a plan rather than just a verdict.
+
+    Deliberately NOT a points target: a target on points rewards choosing easier
+    questions. Targets belong on mastery and cadence.
+    """
+    name = card["name"].split()[0]
+    items = []
+    r = card.get("radar")
+    if r:
+        focus = f" — {_e(r['focus'])} first" if r.get("focus") else ""
+        items.append(f"<li><b>{_e(r['task'])}</b> practice steps up{focus}.</li>")
+    closing = [s for s in stories if s.get("status") == "TO CLOSE" and s.get("topic")]
+    if closing:
+        names = ", ".join(_e(s["topic"]) for s in closing[:3])
+        items.append(f"<li>Back for another look: {names}.</li>")
+    easing = [s for s in stories if s.get("status") in ("TRENDING WELL", "RESOLVED")
+              and s.get("topic")]
+    if easing:
+        names = ", ".join(_e(s["topic"]) for s in easing[:2])
+        items.append(f"<li>Easing off to light maintenance: {names} — "
+                     f"those slots go to newer content.</li>")
+    deep = [s for s in stories if s.get("status") == "DEEPENED"]
+    if deep:
+        items.append("<li>A written explanation question, aimed one rung higher.</li>")
+    elif not card.get("baseline"):
+        items.append("<li>More written-explanation questions — they're the only way "
+                     "to show understanding beyond recall.</li>")
+    if not items:
+        items.append("<li>Steady as it is — the nightly run is the whole plan.</li>")
+    return ("<div class='section'>NEXT WEEK</div>"
+            f"<div class='plan'><ul>{''.join(items)}</ul>"
+            f"<p class='next'>{_e(name)} doesn't need to be told any of this — "
+            "the quiz just does it.</p></div>")
+
+
+def _wow(rows, card):
+    """Week-over-week strip — the 'is this working?' answer, OVERALL.
+
+    Week 1 has no prior, so instead of a blank we show what will appear next
+    Friday. That's honest (it under-claims rather than faking a trend) and it
+    sets the expectation that this section is where the payoff accumulates.
+    """
+    if not rows:
+        if not card.get("baseline"):
+            return ""
+        return ("<div class='section'>WEEK ON WEEK</div><div class='wow empty'>"
+                "<p class='move'>Nothing to compare against yet — this is week one.</p>"
+                "<p class='next'>From next Friday this is where you'll see the trend: "
+                "nights run, how much landed across all subjects together, and how many "
+                "topics moved up a rung in understanding. Comparisons are kept overall "
+                "rather than subject-by-subject — a single week is only a few questions "
+                "per subject, which is too few to mean anything.</p></div>")
+    cells = []
+    for r in rows:
+        d = r.get("dir", "flat")
+        arrow = {"up": "&uarr;", "down": "&darr;", "flat": "&rarr;"}[d]
+        prev = ("" if r.get("prev") is None
+                else f"<span class='was'>was {_e(r['prev'])}</span>")
+        cells.append(
+            f"<div class='cell {d}'><div class='k'>{_e(r['label'])}</div>"
+            f"<div class='v'>{_e(r['now'])} <i>{arrow}</i></div>"
+            f"{prev}<div class='n'>{_e(r.get('note',''))}</div></div>")
+    return ("<div class='section'>WEEK ON WEEK</div>"
+            f"<div class='wow'>{''.join(cells)}</div>"
+            "<p class='notes'>Compared overall, not subject by subject — one week is "
+            "only a handful of questions per subject, too few to read a trend from.</p>")
 
 
 def _notes(card, extra_notes):
@@ -333,8 +420,23 @@ def _notes(card, extra_notes):
     return f"<details><summary>Reading notes — how to read this</summary>{items}</details>"
 
 
+def _speed(sp, name):
+    """Fluency — shown only when it MOVED (see report_stories.speed_shift)."""
+    if not sp:
+        return ""
+    if sp["faster"]:
+        line = (f"{_e(name)} is answering about {sp['pct']}% faster than last week "
+                f"({sp['prev']}s &rarr; {sp['now']}s a question). Recall getting "
+                f"automatic is what frees up thinking room in a test.")
+    else:
+        line = (f"{_e(name)} is taking about {sp['pct']}% longer per question than "
+                f"last week ({sp['prev']}s &rarr; {sp['now']}s) — usually a sign the "
+                f"material got harder, which is where it should be.")
+    return f"<div class='section'>SPEED</div><div class='depth'><p class='move'>{line}</p></div>"
+
+
 def render(card, stories=None, quote=None, accuracy=None, kid_wrap_url=None,
-           extra_notes=None):
+           extra_notes=None, speed=None, wow=None):
     """Full self-contained HTML for one kid-week parent report."""
     stories = stories or []
     name = card["name"].split()[0]
@@ -362,12 +464,15 @@ def render(card, stories=None, quote=None, accuracy=None, kid_wrap_url=None,
   <div class="hero">{_e(_hero(card))}</div>
   <h1 class="word display {word}">{WORD_CAP.get(word, word)}</h1>
   <p class="sub">{_e(WORD_SUB.get(word,''))}</p>
+  {_wow(wow, card)}
   {_depth_block(card, stories)}
   {_assess_block(card)}
   {stories_section}
   {_quote_block(quote, name)}
-  {_say_do(card, stories, quote)}
   {_accuracy(accuracy)}
+  {_speed(speed, name)}
+  {_say_do(card, stories, quote)}
+  {_next_week(card, stories)}
   <div class="xp"><span class="lbl">SEASON TOTAL</span><span class="v num">{card['xp_total']:,} XP</span></div>
   {_notes(card, extra_notes)}
   <p class="foot">This is {_e(name)}'s week, bounded — nothing here needs a reply.{wrap_link}</p>

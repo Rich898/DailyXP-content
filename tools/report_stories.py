@@ -241,6 +241,104 @@ def subject_accuracy(runs, student, week_days):
     return out
 
 
+def week_over_week(runs, student, week_days, prev_days, topics, prev_states,
+                   baseline=False):
+    """The OVERALL week-on-week trend — the 'is this working?' answer.
+
+    DELIBERATELY NOT PER SUBJECT. A week gives 2-6 questions per subject, so a
+    per-subject weekly trend flips direction on noise and would destroy trust in
+    the report ("History improving" one week, "slipping" the next, both meaningless).
+    Aggregated across subjects it's 40-60 questions, which means something.
+    Per-subject trends belong on a MONTHLY window; per-subject POSITION (a stock,
+    not a flow) is already shown by the scale bars.
+
+    Returns rows of {label, now, prev, dir, note} or None when there's no prior
+    week (week 1 — the caller shows what's coming instead).
+    """
+    def counts(days):
+        answered = right = 0
+        seen_days = set()
+        for r in runs:
+            if r.get("student") != student or r.get("run_date") not in days:
+                continue
+            for q in r.get("questions", []):
+                if q.get("phase") == "teach" or q.get("skipped") or q.get("ok") is None:
+                    continue
+                answered += 1
+                right += 1 if q.get("ok") else 0
+            seen_days.add(r.get("run_date"))
+        return {"days": len(seen_days), "answered": answered, "right": right}
+
+    if baseline:
+        # RATIFIED: week 1 ignores the pre-go-live beta week — it was partial and
+        # ran a different pipeline, so comparing against it would manufacture a
+        # trend out of nothing. Under-claim: show the empty state instead.
+        return None
+    now, prev = counts(week_days), counts(prev_days)
+    if prev["answered"] == 0 and prev["days"] == 0:
+        return None                       # no prior week on file
+
+    rows = []
+    # 1) cadence — the habit, and the most reliable number here
+    rows.append({"label": "Nights run", "now": now["days"], "prev": prev["days"],
+                 "dir": _dir(now["days"], prev["days"]),
+                 "note": "the habit is the engine"})
+    # 2) accuracy — only when BOTH weeks have enough to compare
+    if now["answered"] >= 10 and prev["answered"] >= 10:
+        n = round(100 * now["right"] / now["answered"])
+        p = round(100 * prev["right"] / prev["answered"])
+        rows.append({"label": "Answered right", "now": f"{n}%", "prev": f"{p}%",
+                     "dir": _dir(n, p, dead=5),
+                     "note": "across all subjects together"})
+    # 3) depth — the claim only this product makes
+    ladder = ["not_yet", "knows", "lists", "connects", "applies"]
+    moved = 0
+    for t in topics:
+        b, a = (prev_states or {}).get(t.get("topic")), t.get("depth")
+        if b in ladder and a in ladder and ladder.index(a) > ladder.index(b):
+            moved += 1
+    if prev_states:
+        rows.append({"label": "Topics understood more deeply", "now": moved,
+                     "prev": None, "dir": "up" if moved else "flat",
+                     "note": "moved up a rung this week"})
+    return rows
+
+
+def _dir(now, prev, dead=0):
+    try:
+        if now > prev + dead:
+            return "up"
+        if now < prev - dead:
+            return "down"
+    except TypeError:
+        return "flat"
+    return "flat"
+
+
+def speed_shift(runs, student, week_days, prev_days):
+    """Fluency/automaticity — median seconds on CORRECT speed-phase answers,
+    this week vs last. Returned only when it MOVED meaningfully (>=25%): speed
+    that never changes is standing furniture, but speed that halves is a real
+    story about recall becoming automatic. None when there's nothing to say.
+    """
+    def med(days):
+        v = sorted(q.get("secs") or 0
+                   for r in runs if r.get("student") == student and r.get("run_date") in days
+                   for q in r.get("questions", [])
+                   if q.get("phase") == "speed" and q.get("ok") and q.get("secs"))
+        if len(v) < 3:
+            return None
+        return v[len(v) // 2]
+    now, prev = med(week_days), med(prev_days)
+    if now is None or prev is None or prev <= 0:
+        return None
+    change = (now - prev) / prev
+    if abs(change) < 0.25:
+        return None
+    return {"now": round(now, 1), "prev": round(prev, 1),
+            "faster": change < 0, "pct": abs(round(change * 100))}
+
+
 def confident_wrong(runs, student, week_days):
     """(confident_and_wrong, total_confident) — the calibration signal.
     Confidence is captured on the steady phase only, so this is a partial view
