@@ -33,8 +33,17 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 from validate import validate_set  # noqa: E402
 
-# history/ moved to the private repo; point archive + no-repeat there via env in automation
-HISTORY_DIR = os.environ.get("DAILYXP_HISTORY_DIR", os.path.join(REPO, "history"))
+# history/ moved to the private repo; point archive + no-repeat there via env in automation.
+# NOTE: resolved at CALL time, not import time. run_daily sets DAILYXP_HISTORY_DIR after
+# importing this module, so capturing it at import silently sent archives to the public
+# checkout (where nothing commits them) and left the no-repeat check reading an empty
+# history. Never bind this at module scope again.
+_HISTORY_DEFAULT = os.path.join(REPO, "history")
+
+
+def history_dir():
+    """The archive + no-repeat directory, read fresh from the environment."""
+    return os.environ.get("DAILYXP_HISTORY_DIR", _HISTORY_DEFAULT)
 
 RAW = "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/{student}.json"
 
@@ -65,7 +74,7 @@ def publish(set_path, push=True):
         return 2
 
     # 1) VALIDATE
-    errors, warns = validate_set(s, HISTORY_DIR)
+    errors, warns = validate_set(s, history_dir())
     for w in warns:
         print(f"  WARN  {w}")
     if errors:
@@ -86,7 +95,7 @@ def publish(set_path, push=True):
     # 3) ARCHIVE (real sets only)
     archived = None
     if not is_placeholder:
-        adir = os.path.join(HISTORY_DIR, student)
+        adir = os.path.join(history_dir(), student)
         os.makedirs(adir, exist_ok=True)
         archived = os.path.join(adir, f"{s['date']}_{slug(s['tag'])}.json")
         with open(archived, "w") as f:
