@@ -1,180 +1,180 @@
 {
   "student": "t1",
-  "date": "2026-08-11",
-  "day": "TUE",
-  "tag": "T3.2",
-  "title": "DailyXP · TUE 2026-08-11",
+  "date": "2026-08-12",
+  "day": "WED",
+  "tag": "T3.3 · REVERSED BLITZ",
+  "title": "DailyXP · WED 2026-08-12",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "History",
-      "prompt": "After the Western Roman Empire fell, why did large-scale trade and communication across Europe decline so sharply?",
+      "prompt": "The answer is: \"476 CE\". Which question is this the answer to?",
       "options": [
-        "There was no central authority to maintain roads, protect trade routes, or enforce common laws",
-        "Everyone forgot how to read and write overnight",
-        "The Catholic Church banned all travel between regions",
-        "A new unified European currency failed and destroyed trade"
+        "In what year is the fall of the Western Roman Empire traditionally dated?",
+        "In what year did the First Crusade begin?",
+        "In what century did the Catholic Church reach the height of its power?",
+        "In what year did the Black Death first reach Europe?"
       ],
-      "answer": "There was no central authority to maintain roads, protect trade routes, or enforce common laws",
-      "why": "Rome's collapse removed the centralized administration, army, and infrastructure that had kept trade routes safe and functioning. Without that unifying power, regions became isolated and localized — this is the real cause of decline, not literacy or currency myths.",
+      "answer": "In what year is the fall of the Western Roman Empire traditionally dated?",
+      "why": "476 CE is the traditional date for the fall of the Western Roman Empire, when the last emperor was deposed. The tempting distractor about the First Crusade is actually answered by 1096.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In the feudal pyramid, what best describes the position of peasants (serfs)?",
+      "prompt": "The answer is: \"Land (a fief) in exchange for military service\". Which question is this the answer to?",
       "options": [
-        "They worked the land and owed labour/goods to a lord, but had very limited freedom to leave",
-        "They owned their land outright and paid no obligations to anyone",
-        "They were paid wages by the king directly for farming",
-        "They ranked above knights but below vassals"
+        "What did a lord grant a vassal under the feudal system?",
+        "What did a peasant owe to the lord who controlled their land?",
+        "What did the Catholic Church demand from medieval kings?",
+        "What did knights swear to defend during the Crusades?"
       ],
-      "answer": "They worked the land and owed labour/goods to a lord, but had very limited freedom to leave",
-      "why": "Serfs were bound to the land they worked and owed labour, crops, or goods to their lord in exchange for protection — they did not own land freely. A common misconception is confusing feudal obligation with paid employment or land ownership.",
+      "answer": "What did a lord grant a vassal under the feudal system?",
+      "why": "Lords granted vassals land (a fief) in return for military service and loyalty — the core exchange of feudalism. Peasants, by contrast, owed labour and produce, not land grants, to their lord.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In which century did William Shakespeare write and perform his plays?",
+      "prompt": "The answer is: \"Verona, Italy\". Which question is this the answer to?",
       "options": [
-        "The 16th/17th century (late 1500s-early 1600s)",
-        "The 14th century (1300s)",
-        "The 19th century (1800s)",
-        "The 18th century (1700s)"
+        "Where is Romeo and Juliet primarily set?",
+        "Where was William Shakespeare born?",
+        "Where is the Globe Theatre located?",
+        "Where does Romeo go into exile after killing Tybalt?"
       ],
-      "answer": "The 16th/17th century (late 1500s-early 1600s)",
-      "why": "Shakespeare lived 1564-1616, writing during the Elizabethan and Jacobean eras. Students often confuse his era with the medieval period (14th century) because Romeo and Juliet is set in an earlier-feeling Verona.",
+      "answer": "Where is Romeo and Juliet primarily set?",
+      "why": "Romeo and Juliet takes place mainly in Verona, Italy. The near-miss about Shakespeare's birthplace is actually answered by Stratford-upon-Avon, England.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What is 'dramatic irony' as used in Romeo and Juliet, for example in the final scene?",
+      "prompt": "The answer is: \"A pun\". Which question is this the answer to?",
       "options": [
-        "When the audience knows something a character on stage doesn't, creating tension",
-        "When a character says the exact opposite of what they mean as a joke",
-        "When the plot suddenly changes direction unexpectedly",
-        "When two characters have the same name by coincidence"
+        "What technique is Mercutio using when he says 'ask for me tomorrow and you shall find me a grave man' after being fatally wounded?",
+        "What technique is Shakespeare using when Romeo compares Juliet to the sun?",
+        "What technique is being used when the audience knows Juliet is alive but Romeo believes she is dead?",
+        "What poetic form structures the play's famous opening prologue?"
       ],
-      "answer": "When the audience knows something a character on stage doesn't, creating tension",
-      "why": "Dramatic irony is when the audience has information a character lacks — like knowing Juliet is alive when Romeo believes she's dead. Confusing it with plot twists or verbal sarcasm misses that it's specifically about the audience/character knowledge gap.",
+      "answer": "What technique is Mercutio using when he says 'ask for me tomorrow and you shall find me a grave man' after being fatally wounded?",
+      "why": "Mercutio's 'grave man' line is a pun, playing on 'grave' meaning both serious and a burial place. The Romeo/sun comparison is actually a metaphor, not a pun.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "How does Shakespeare use the oxymoron 'loving hate' (and similar phrases) in Romeo and Juliet to explore the play's themes?",
+      "prompt": "The answer is: \"'My only love sprung from my only hate'\". Which question is this the answer to?",
       "options": [
-        "It shows how love and violence/hate are tangled together throughout the play, especially through the feud",
-        "It proves that Romeo secretly hates Juliet the whole time",
-        "It's just wordplay with no thematic purpose",
-        "It shows that hate always defeats love in the end"
+        "Which quote best reflects the theme of love vs hate in Romeo and Juliet?",
+        "Which quote shows dramatic irony in the play's final scene?",
+        "Which line uses a metaphor comparing Juliet to the sun?",
+        "Which line shows Romeo's use of an oxymoron about love at first sight, 'O brawling love, O loving hate'?"
       ],
-      "answer": "It shows how love and violence/hate are tangled together throughout the play, especially through the feud",
-      "why": "Oxymorons like 'loving hate' capture how the Montague-Capulet feud (hate) and Romeo/Juliet's romance (love) are inseparable — the family hatred directly causes the tragedy of their love. It's not empty wordplay or a simple 'hate wins' message.",
+      "answer": "Which quote best reflects the theme of love vs hate in Romeo and Juliet?",
+      "why": "'My only love sprung from my only hate' directly captures the love/hate theme when Juliet learns Romeo's identity. The oxymoron 'loving hate' is a similar-sounding but distinct quote from Romeo's earlier speech, not this exact line.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In an experiment testing how fertiliser amount affects plant height, what is the controlled variable?",
+      "prompt": "The answer is: \"The amount of fertiliser given to each plant\". Which question is this the answer to?",
       "options": [
-        "Factors like water, sunlight, and soil type, which are kept the same for all plants",
-        "The amount of fertiliser given to each plant",
-        "The height of the plants measured at the end",
-        "The type of plant being grown, which is changed each trial"
+        "What is the independent variable in an experiment testing how fertiliser amount affects plant height?",
+        "What is the dependent variable in an experiment testing how fertiliser amount affects plant height?",
+        "What is the controlled variable in an experiment testing how temperature affects plant growth?",
+        "What is measured as the outcome in an experiment testing how temperature affects plant growth?"
       ],
-      "answer": "Factors like water, sunlight, and soil type, which are kept the same for all plants",
-      "why": "Controlled variables are the things kept constant so only the independent variable (fertiliser) affects the dependent variable (height). Mixing this up with the independent or dependent variable is the most common error.",
+      "answer": "What is the independent variable in an experiment testing how fertiliser amount affects plant height?",
+      "why": "The independent variable is what the experimenter deliberately changes — here, the fertiliser amount. The dependent variable in that same experiment is plant height, the thing measured as a result.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Solve for x: 5x - 3 = 2x + 12",
+      "subject": "Science",
+      "prompt": "The answer is: \"Asexual reproduction\". Which question is this the answer to?",
       "options": [
-        "x = 5",
-        "x = 3",
-        "x = 15",
-        "x = 9"
+        "What type of reproduction produces genetically identical offspring from a single parent?",
+        "What type of reproduction combines genetic material from two parents?",
+        "What term describes the pattern of day length changing with the seasons?",
+        "What term describes wind patterns caused by global air circulation?"
       ],
-      "answer": "x = 5",
-      "why": "Subtract 2x from both sides to get 3x - 3 = 12, then add 3 to get 3x = 15, so x = 5. A common mistake is forgetting to move the x term from one side before isolating x, or mishandling the sign when subtracting.",
+      "answer": "What type of reproduction produces genetically identical offspring from a single parent?",
+      "why": "Asexual reproduction involves one parent producing genetically identical offspring, unlike sexual reproduction which mixes genetic material from two parents for variation.",
+      "fresh": true
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "The answer is: \"x = 9\". Which question is this the answer to?",
+      "options": [
+        "Solve for x: 4x - 5 = 15",
+        "Solve for x: 3x + 5 = 20",
+        "Solve for x: 5x - 3 = 2x + 12",
+        "Solve for x: 2x - 3 = 15"
+      ],
+      "answer": "Solve for x: 2x - 3 = 15",
+      "why": "2x - 3 = 15 gives 2x = 18, so x = 9. The tempting distractor 4x - 5 = 15 actually gives x = 5 (4x = 20), which is a different value entirely — don't confuse the two.",
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The answer is: \"It could excommunicate kings and nobles\". Which question is this the answer to?",
+      "options": [
+        "What power let the medieval Catholic Church control even rulers who defied it?",
+        "What was the main stated goal of the First Crusade?",
+        "What did a vassal owe their lord under feudalism?",
+        "What event marked the fall of the Western Roman Empire?"
+      ],
+      "answer": "What power let the medieval Catholic Church control even rulers who defied it?",
+      "why": "Excommunication — cutting someone off from the Church and its sacraments — was a powerful tool the Church used to threaten even kings into obedience. The First Crusade's stated goal was instead to reclaim Jerusalem, a different fact entirely.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Why did the Crusades ultimately fail to achieve permanent Christian control of the Holy Land?",
+      "prompt": "Which European group's port cities gained significant wealth and trade advantages from supplying and transporting Crusader armies to the Holy Land?",
       "options": [
-        "Christian forces could not hold territory long-term against determined Muslim resistance and reconquest, especially under leaders like Saladin",
-        "The Pope cancelled all future Crusades after the first one succeeded",
-        "European kings refused to send any soldiers after 1099",
-        "The Crusaders converted peacefully to Islam and stopped fighting"
+        "Italian city-states like Venice and Genoa",
+        "The Byzantine Empire",
+        "The Holy Roman Empire",
+        "The Kingdom of France"
       ],
-      "answer": "Christian forces could not hold territory long-term against determined Muslim resistance and reconquest, especially under leaders like Saladin",
-      "why": "Despite early successes like capturing Jerusalem in 1099, Crusader states were gradually reconquered, notably after Saladin retook Jerusalem in 1187. The Crusades were a series of campaigns over centuries, not a single successful event, and the outcome was ultimately Muslim control being restored.",
+      "answer": "Italian city-states like Venice and Genoa",
+      "why": "Italian city-states such as Venice and Genoa profited enormously by providing ships, supplies, and transport for Crusaders, boosting Mediterranean trade networks. The Byzantine Empire, by contrast, often had a tense relationship with Crusaders passing through its territory.",
       "fresh": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which statement best explains why the Catholic Church grew so powerful in medieval Europe after Rome's fall?",
+      "prompt": "Which term describes the political system that emerged in Western Europe after Rome's central authority collapsed, based on land-for-loyalty relationships between lords and vassals?",
       "options": [
-        "It was one of the few stable, organised institutions left, providing structure, education, and unifying authority across fragmented kingdoms",
-        "It had its own army that conquered all of Europe by force",
-        "Kings were legally required to hand over their thrones to the Pope",
-        "It was the only source of food and farming knowledge in Europe"
+        "Feudalism",
+        "Absolutism",
+        "Theocracy",
+        "Republicanism"
       ],
-      "answer": "It was one of the few stable, organised institutions left, providing structure, education, and unifying authority across fragmented kingdoms",
-      "why": "With Roman political structures gone, the Church stepped in as a unifying, literate, organised institution across fractured kingdoms — through monasteries, education, and moral authority, not military conquest.",
-      "fresh": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "Romeo and Juliet is often described as a 'tragedy' — what does this genre label tell us about the play?",
-      "options": [
-        "The story ends in death/downfall, often caused by a flaw or circumstance beyond the characters' full control",
-        "The story is meant to be entirely comedic and lighthearted",
-        "It means the play was based on a true historical event",
-        "It means the play has a happy ending after early struggles"
-      ],
-      "answer": "The story ends in death/downfall, often caused by a flaw or circumstance beyond the characters' full control",
-      "why": "A tragedy in Shakespeare's sense ends in death or ruin, often driven by fate, flaw, or circumstance — Romeo and Juliet fits this through the feud and fateful timing. It is not a comedy, nor necessarily historical fact.",
-      "fresh": true
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "What technique is Shakespeare using when Romeo compares Juliet to the sun ('But soft, what light through yonder window breaks? It is the east, and Juliet is the sun')?",
-      "options": [
-        "Metaphor — directly describing Juliet as being the sun, not just similar to it",
-        "Simile — comparing Juliet to the sun using 'like' or 'as'",
-        "Personification — giving the sun human qualities",
-        "Alliteration — repeating the same starting sound"
-      ],
-      "answer": "Metaphor — directly describing Juliet as being the sun, not just similar to it",
-      "why": "This is a metaphor because Romeo states Juliet IS the sun, without using 'like' or 'as' — that direct equation is what separates metaphor from simile. Students often mislabel this as simile due to the comparative feel.",
+      "answer": "Feudalism",
+      "why": "Feudalism filled the power vacuum left by Rome's collapse, organising society through land grants exchanged for military loyalty. Theocracy, where religious leaders hold direct political power, describes a different kind of authority structure.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "Explain why the Crusades are considered a turning point in relations between medieval Europe and the Middle East, even though the Crusader states eventually fell. Use at least one specific long-term effect in your answer (e.g. trade, knowledge exchange, or cultural contact)."
+      "prompt": "A friend says 'the Crusades were basically pointless because the Crusaders lost the Holy Land in the end.' Explain what this view misses, using at least one lasting effect of the Crusades that had nothing to do with who controlled Jerusalem."
     }
   ]
 }
