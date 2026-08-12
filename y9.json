@@ -1,128 +1,173 @@
 {
   "student": "y9",
-  "date": "2026-08-11",
-  "day": "TUE",
-  "tag": "R3.2",
-  "title": "DailyXP · TUE 2026-08-11",
+  "date": "2026-08-12",
+  "day": "WED",
+  "tag": "R3.3 · REVERSED BLITZ",
+  "title": "DailyXP · WED 2026-08-12",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 4 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "The answer is: \"282.6 cm²\". Which question is this the answer to?",
       "options": [
-        "401.9 cm²",
-        "301.4 cm²",
-        "351.4 cm²",
-        "150.7 cm²"
+        "A closed cylinder has radius 3 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+        "A closed cylinder has radius 3 cm and height 10 cm. What is its curved surface area only? (use π ≈ 3.14, round to 1 decimal place)",
+        "A closed cylinder has radius 6 cm and height 10 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+        "A cuboid has length 3 cm, width 3 cm, and height 10 cm. What is its total surface area?"
       ],
-      "answer": "401.9 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(16) + 2(3.14)(4)(12) = 100.5 + 301.4 = 401.9 cm². A common mistake is forgetting the two circular ends (giving 301.4) or only using one end.",
+      "answer": "A closed cylinder has radius 3 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "why": "2πr² + 2πrh with r=3, h=12 gives 2(3.14)(9) + 2(3.14)(3)(12) = 56.52 + 226.08 = 282.6 cm². The tempting curved-surface-only distractor would give just 188.4 cm², since it drops the two circular ends.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Weimar Republic's parliament used a voting system called proportional representation. What problem did this cause?",
+      "prompt": "The answer is: \"1919\". Which question is this the answer to?",
       "options": [
-        "It made it hard for any single party to win a majority, leading to unstable coalition governments",
-        "It banned smaller parties from standing in elections",
-        "It gave the army automatic control of parliament",
-        "It meant only wealthy landowners could vote"
+        "In what year was the Weimar Republic's constitution established?",
+        "In what year did Germany suffer hyperinflation?",
+        "In what year did the Great Depression begin?",
+        "In what year did Hitler become chancellor?"
       ],
-      "answer": "It made it hard for any single party to win a majority, leading to unstable coalition governments",
-      "why": "Proportional representation gave even small parties seats, so no single party could easily govern alone — this led to many short-lived, unstable coalition governments in Weimar Germany.",
+      "answer": "In what year was the Weimar Republic's constitution established?",
+      "why": "The Weimar Republic's constitution was adopted in 1919, right after Germany's defeat in WWI. The tempting distractor about hyperinflation refers to 1923, a separate crisis four years later.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "By 1932, unemployment in Germany had reached around 6 million. Which best explains why this specifically boosted support for the Nazis rather than other parties?",
+      "prompt": "The answer is: \"Around 6 million\". Which question is this the answer to?",
       "options": [
-        "The Nazis promised strong leadership, jobs, and national revival, directly targeting people's fears and frustrations",
-        "The Nazis were the only legal political party allowed to campaign",
-        "Unemployed workers were forced by law to join the Nazi Party",
-        "The Nazis controlled all German newspapers by 1932"
+        "Roughly how many Germans were unemployed by 1932 during the Great Depression?",
+        "Roughly how many marks did a loaf of bread cost during the 1923 hyperinflation?",
+        "Roughly how many seats did the Nazi Party hold in the Reichstag by 1932?",
+        "Roughly how many years did the Weimar Republic last in total?"
       ],
-      "answer": "The Nazis promised strong leadership, jobs, and national revival, directly targeting people's fears and frustrations",
-      "why": "It's not enough that unemployment rose — the Nazis specifically offered clear, confident solutions (jobs, strong government, national pride) that spoke directly to desperate voters, winning support away from other parties.",
+      "answer": "Roughly how many Germans were unemployed by 1932 during the Great Depression?",
+      "why": "By 1932, unemployment had climbed to around 6 million, fuelling desperation that the Nazis exploited. The hyperinflation distractor confuses this with the 1923 currency crisis, a different economic disaster with different numbers (prices in the billions/trillions of marks).",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "After WWII, Australia actively recruited migrants from Europe under schemes like 'Populate or Perish', while also needing labour for its expanding industries. Which best explains why the government saw migration as urgent, not just useful?",
+      "prompt": "The answer is: \"Populate or Perish\". Which question is this the answer to?",
       "options": [
-        "Australia feared it was underpopulated and vulnerable, so migration was tied to both economic growth and national security",
-        "Australia had no unemployment problem and needed migrants purely for variety",
-        "Migration was only about filling university places",
-        "The government wanted to reduce the population of cities"
+        "What was the name of the post-WWII Australian government slogan promoting mass migration?",
+        "What was the name of the scheme offering assisted passage to British migrants?",
+        "What was the term for people moving from farms to cities for work?",
+        "What was the name of Australia's policy restricting non-European migration?"
       ],
-      "answer": "Australia feared it was underpopulated and vulnerable, so migration was tied to both economic growth and national security",
-      "why": "'Populate or Perish' reflected genuine fear that a small population left Australia exposed after WWII, so migration served both economic (labour) and strategic (defence) purposes at once — not just convenience.",
+      "answer": "What was the name of the post-WWII Australian government slogan promoting mass migration?",
+      "why": "\"Populate or Perish\" was the slogan capturing Australia's post-WWII belief that it needed a much bigger population for defence and economic growth. The assisted passage scheme is a related but separate policy detail, not the slogan itself.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A student is writing a business plan for a new gym and wants to include a SWOT analysis. Which best describes what a SWOT analysis actually examines?",
+      "prompt": "The answer is: \"Strengths, Weaknesses, Opportunities, Threats\". Which question is this the answer to?",
       "options": [
-        "The business's own Strengths and Weaknesses, alongside external Opportunities and Threats",
-        "A summary of competitor prices and customer numbers in the market",
-        "A one-page overview of the entire business plan",
-        "A list of the products and services the business will sell"
+        "What does the acronym SWOT stand for in a business plan?",
+        "What does a market analysis section examine in a business plan?",
+        "What section of a business plan summarises the whole plan on one page?",
+        "What information belongs in the competitor pricing section of a plan?"
       ],
-      "answer": "The business's own Strengths and Weaknesses, alongside external Opportunities and Threats",
-      "why": "SWOT stands for Strengths, Weaknesses, Opportunities, Threats — it looks at internal factors (S/W) and external factors (O/T) about the business itself, not general market data like prices or foot traffic, which belongs in market analysis.",
+      "answer": "What does the acronym SWOT stand for in a business plan?",
+      "why": "SWOT stands for Strengths, Weaknesses, Opportunities, Threats — an internal/external analysis tool. The market analysis distractor is tempting because SWOT often gets confused with it, but market analysis is about customers, competitors and demand, not this acronym.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "White blood cells called phagocytes respond to infection by engulfing and digesting pathogens. What is this process called?",
+      "prompt": "The answer is: \"Antibodies\". Which question is this the answer to?",
       "options": [
-        "Phagocytosis",
-        "Antibody production",
-        "Vaccination",
-        "Inflammation"
+        "What do lymphocytes produce to help fight a specific pathogen?",
+        "What is the process of phagocytes engulfing pathogens called?",
+        "What type of blood cell carries oxygen around the body?",
+        "What is the general term for a disease-causing organism?"
       ],
-      "answer": "Phagocytosis",
-      "why": "Phagocytosis is when phagocytes engulf and break down pathogens directly — this is different from antibody production, which is done by lymphocytes and targets specific pathogens.",
+      "answer": "What do lymphocytes produce to help fight a specific pathogen?",
+      "why": "Lymphocytes produce antibodies that target specific pathogens. The phagocytosis distractor is a different immune process — engulfing and digesting pathogens directly, not producing antibodies.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A small country town loses young people as they move to Sydney for university and jobs, while the city's population keeps growing. What is this movement of people within the same country called?",
+      "prompt": "The answer is: \"People moving from rural areas to cities for work\". Which question is this the answer to?",
       "options": [
-        "Internal migration",
-        "International migration",
-        "Urbanisation",
-        "Immigration"
+        "What does urbanisation mean?",
+        "What does migration mean?",
+        "What is a push factor in migration?",
+        "What is a pull factor in migration?"
       ],
-      "answer": "Internal migration",
-      "why": "Movement of people within the same country (town to city) is internal migration. Urbanisation describes the overall growth of city populations as a trend, not the individual movement itself, and immigration/international migration involve crossing borders.",
+      "answer": "What does urbanisation mean?",
+      "why": "Urbanisation is the process of people moving from rural areas into cities, usually for work. Migration is the broader term for moving between any places (including countries), so it's the near-miss here.",
+      "fresh": true
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "The answer is: \"The Eatwell Plate / Australian Guide to Healthy Eating\". Which question is this the answer to?",
+      "options": [
+        "What is the name of the visual guide showing proportions of food groups for a healthy diet?",
+        "What are the nutrients the body needs in large amounts called?",
+        "What is the term for advertising techniques that target children with unhealthy food?",
+        "What is the recommended daily water intake for a teenager?"
+      ],
+      "answer": "What is the name of the visual guide showing proportions of food groups for a healthy diet?",
+      "why": "The Australian Guide to Healthy Eating (the plate model) shows the recommended proportions of each food group. The macronutrients question is a near neighbour but answers a different fact about nutrient categories, not the visual guide's name.",
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "The answer is: \"Carbohydrates, proteins, fats\". Which question is this the answer to?",
+      "options": [
+        "What are the three macronutrients the body needs in large amounts?",
+        "What are vitamins and minerals classified as?",
+        "What nutrient is most important for muscle repair?",
+        "What are examples of micronutrients?"
+      ],
+      "answer": "What are the three macronutrients the body needs in large amounts?",
+      "why": "Carbohydrates, proteins and fats are the macronutrients needed in large quantities for energy and growth. Vitamins and minerals are micronutrients, needed only in small amounts — a common mix-up.",
+      "fresh": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "The answer is: \"Using bright colours, cartoon characters and toys to target children\". Which question is this the answer to?",
+      "options": [
+        "How does food marketing commonly try to influence children's food choices?",
+        "What does a nutrition information panel display on packaging?",
+        "What is a health star rating used for?",
+        "What does 'low fat' mean on a food label?"
+      ],
+      "answer": "How does food marketing commonly try to influence children's food choices?",
+      "why": "Marketing often uses bright colours, cartoon mascots and toy giveaways to appeal directly to children, encouraging pester power. The nutrition panel distractor is about factual labelling, not persuasive marketing tactics.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 11 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
       "options": [
-        "33 cm²",
-        "66 cm²",
-        "17 cm²",
-        "34 cm²"
+        "40 cm²",
+        "80 cm²",
+        "21 cm²",
+        "42 cm²"
       ],
-      "answer": "33 cm²",
-      "why": "Area = ½ × base × height = ½ × 11 × 6 = 33 cm². Rushing often causes forgetting the ½, giving 66 cm² — always halve after multiplying base and height.",
+      "answer": "40 cm²",
+      "why": "Area = ½ × base × height = ½ × 16 × 5 = 40 cm². The 80 cm² answer skips the ½, which is the classic rushing mistake — multiplying base and height straight away without halving.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +175,22 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A rectangular prism (cuboid) has length 5 cm, width 4 cm, and height 3 cm. What is its total surface area?",
+      "prompt": "A closed cylinder has radius 5 cm and height 8 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "94 cm²",
-        "60 cm²",
-        "47 cm²",
-        "120 cm²"
+        "408.2 cm²",
+        "251.2 cm²",
+        "157.0 cm²",
+        "204.1 cm²"
       ],
-      "answer": "94 cm²",
-      "why": "Surface area = 2(lw + lh + wh) = 2(20 + 15 + 12) = 2(47) = 94 cm². A common error is finding only half the surface (47 cm²) by forgetting to double, or confusing surface area with volume (60 cm³).",
-      "fresh": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "History",
-      "prompt": "The Weimar Republic relied heavily on Article 48, which allowed the President to rule by emergency decree without parliament's approval. Why was this significant?",
-      "options": [
-        "It showed a built-in weakness where democracy could be bypassed in a crisis, which later helped Hitler seize power legally",
-        "It guaranteed that parliament always had final control over all laws",
-        "It gave ordinary citizens the power to overrule the President",
-        "It abolished the position of Chancellor entirely"
-      ],
-      "answer": "It showed a built-in weakness where democracy could be bypassed in a crisis, which later helped Hitler seize power legally",
-      "why": "Article 48 let the president rule without parliament during emergencies — a democratic loophole that Hitler and Hindenburg later used to erode democracy from within, rather than overthrowing it by force.",
-      "fresh": true
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "History",
-      "prompt": "Which statement best explains why the Great Depression specifically strengthened Hitler's appeal, rather than simply making all politicians equally unpopular?",
-      "options": [
-        "Hitler offered simple explanations and confident promises of recovery, while other parties seemed divided and indecisive",
-        "The Great Depression only affected supporters of the Nazi Party",
-        "All other political parties disappeared once the Depression began",
-        "The Depression had no real effect on how people voted"
-      ],
-      "answer": "Hitler offered simple explanations and confident promises of recovery, while other parties seemed divided and indecisive",
-      "why": "It's not just that people were angry — Hitler stood out by offering clear scapegoats and bold solutions when other parties looked weak and quarrelling, which is why his support specifically grew.",
+      "answer": "408.2 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(25) + 2(3.14)(5)(8) = 157.0 + 251.2 = 408.2 cm². The 251.2 cm² distractor is just the curved surface area, forgetting the two circular ends.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Maths",
-      "prompt": "You've now shown calm, accurate triangle area work again today, on different numbers than before. Explain: why does saying the formula ½ × base × height in your head *before* multiplying help you avoid the rushing mistake, even when the numbers look easy?"
+      "prompt": "You've now shown calm, accurate triangle area work again on fresh numbers. Explain: if you found yourself wanting to rush and just multiply base × height without halving, what would you say to yourself to catch that mistake before writing an answer down?"
     }
   ]
 }
