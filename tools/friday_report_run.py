@@ -120,7 +120,7 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
         notes.append("One written answer this week was left out of the figures: it "
                      "didn't read as this student's own writing, so it isn't counted "
                      "or quoted here.")
-    return card, stories, quote, acc, notes, speed, wow, this_week
+    return card, stories, quote, acc, notes, speed, wow, this_week, mine
 
 
 def main():
@@ -161,7 +161,7 @@ def main():
             print(f"[{code}] no ledger — skipped.")
             continue
 
-        card, stories, quote, acc, notes, speed, wow, week_badges = build_for(
+        card, stories, quote, acc, notes, speed, wow, week_badges, all_badges = build_for(
             code, asof, priv, runs, state, targets, prev_snapshot)
         print(f"[{code}] {card['name']}: week-word={card['week_word']['word']} "
               f"stories={len(stories)} quote={'y' if quote else 'n'} "
@@ -169,14 +169,23 @@ def main():
 
         # THE KID WRAP — same card/stories/quote the parent page gets (the
         # transparency law is structural: one facts layer, two dressings), plus
-        # the game-only additions. A law breach raises; the wrap is skipped and
-        # the parent flow continues — the SMS is the tier-1 report.
+        # the game-only additions and the beat-it coaching (AI -> law validator
+        # -> deterministic fallback, the friday_sms shape). A law breach raises;
+        # the wrap is skipped and the parent flow continues — the SMS is the
+        # tier-1 report.
         days, _ = fr.week_days(asof)
         game = kwrap.game_facts(runs, code, days, week_badges, asof,
-                                season_total=card["xp_total"], accuracy=acc)
+                                season_total=card["xp_total"], accuracy=acc,
+                                earned_all=all_badges,
+                                topics=state["students"][code]["topics"])
+        coaching, csrc = kwrap.compose_coaching(
+            kwrap.targets_from(card, stories), api_key=api_key,
+            student_year=code[1:] if code.startswith("y") else "")
         wrap_url = deploy.url_for(slugs[code]["wrap"], kind="w")
         try:
-            wrap_html = kwrap.render(card, stories=stories, quote=quote, game=game)
+            wrap_html = kwrap.render(card, stories=stories, quote=quote,
+                                     game=game, coaching=coaching)
+            print(f"  wrap coaching [{csrc}]")
         except ValueError as e:
             print(f"  KID WRAP SKIPPED: {e}")
             wrap_html, wrap_url = None, None

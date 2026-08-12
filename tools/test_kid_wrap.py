@@ -141,7 +141,9 @@ t("direction tail appears once a prior exists", "climbing on last week" in page2
 print("\nprivacy + self-containment (the report_page model):")
 t("noindex", 'name="robots" content="noindex' in page)
 t("brand marker for deploy verify", "XPDAILY" in page[:4000].upper())
-t("no fetch calls, no scripts", "<script" not in page and "fetch(" not in page)
+t("motion script is inline-only — no src, no network",
+  "<script>" in page and "<script src" not in page
+  and "fetch(" not in page and "XMLHttpRequest" not in page)
 t("only the shared font import leaves the page",
   page.count("http") == page.count("fonts.googleapis") + page.count("fonts.gstatic"))
 
@@ -215,5 +217,56 @@ t("the kid's own informal answer passes",
   own_words["questions"][0]["tb_integrity"]["verdict"] == "ok")
 t("idempotent — second pass annotates nothing",
   gt.attach_integrity([fast_paste, own_words])[0] == 0)
+
+print("\nthe rank ladder — identity is XP dressing, never a learning claim:")
+t("level 1 is Recruit", kw.rank_for(1) == ("RECRUIT", "\u25aa"))
+t("the summit is the three-star general", kw.rank_for(12)[0] == "GENERAL"
+  and kw.rank_for(12)[1] == "\u2605\u2605\u2605")
+t("past the summit the rank holds", kw.rank_for(30) == kw.rank_for(12))
+t("the rank renders on the HUD", "SEASON RANK" in page)
+
+print("\nthe hit list — top three coached, the rest still on the board:")
+big_card = dict(CARD)
+big_card["movement"] = {"net": -2, "up": [],
+                        "down": ["Crusades extension", "Magna Carta clauses"]}
+tg = kw.targets_from(big_card, STORIES)
+t("six targets found", len(tg) == 6)
+coach_fix = {t_["topic"]: "Fixed coaching line for the test." for t_ in tg[:3]}
+page_big = kw.render(big_card, stories=STORIES, quote=QUOTE, game=GAME,
+                     coaching=coach_fix)
+t("exactly three BEAT IT cards", page_big.count("BEAT IT NEXT TIME") == 3)
+for t_ in tg[3:]:
+    t(f"remainder still on the page (no-secrets law): {t_['topic'][:24]}…",
+      t_["topic"].replace("&", "&amp;") in page_big or t_["topic"] in page_big)
+t("the also-line frames them as queued, not dropped",
+  "Also on the board" in page_big)
+
+print("\ncoaching — AI dresses, validator gates, fallback always exists:")
+c, src = kw.compose_coaching(tg, api_key=None)
+t("no key -> deterministic fallback", src == "fallback" and len(c) == 3)
+t("three cards never repeat one tactic", len(set(c.values())) == 3)
+t("fallback lines are law-clean", not any(kw.violations(v) for v in c.values()))
+t("empty targets -> empty coaching", kw.compose_coaching([], api_key=None)[0] == {})
+
+print("\nunlocks — the cabinet and the chase:")
+g3 = kw.game_facts(runs, "y8", days, [{"badge": "Clean Run", "date": "2026-08-10"}],
+                   date(2026, 8, 14), season_total=6860,
+                   accuracy={"Maths": {"right": 6, "asked": 11}},
+                   earned_all=[{"badge": "First Blood"}, {"badge": "Clean Run"},
+                               {"badge": "Streak (bronze)"}],
+                   topics=[{"topic": "Linear equations", "state": "developing",
+                            "times_seen": 4},
+                           {"topic": "Crusades", "state": "solid", "times_seen": 6}])
+t("cabinet has all twelve slots", len(g3["cabinet"]) == 12)
+t("earned slots light up (Streak tiers count as the family)", g3["collected"] == 3)
+t("rank derives from level", g3["rank"]["name"] == kw.rank_for(g3["level"]["n"])[0])
+t("streak hint counts nights to the next tier",
+  any(h["badge"] == "Streak Silver" and "5 school nights" in h["line"]
+      for h in g3["hints"]))
+t("locked-it hint names the topic at the door of solid",
+  any("Linear equations" in h["line"] for h in g3["hints"]))
+page4 = kw.render(CARD, stories=STORIES, quote=QUOTE, game=g3, coaching=coach_fix)
+t("cabinet renders with the count", "COLLECTED 3 / 12" in page4)
+t("this week's unlock is stamped NEW", ">NEW<" in page4)
 
 print("\nall kid-wrap laws hold.")
