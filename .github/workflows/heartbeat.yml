@@ -1,0 +1,35 @@
+name: supabase-heartbeat
+
+# Keeps the free-tier Supabase project awake across school holidays: term
+# breaks are longer than the 7-day inactivity pause, and a paused project
+# stops pg_cron — which is the scheduler. One REST insert a week resets the
+# clock. GitHub cron's imprecision is irrelevant here (a day late is fine);
+# two slots + manual dispatch make a whole missed week effectively impossible.
+# Inert until SUPABASE_URL / SUPABASE_ANON_KEY secrets exist (Saturday's step).
+
+on:
+  schedule:
+    - cron: "0 8 * * 0"    # Sun 18:00 AEST
+    - cron: "0 8 * * 3"    # Wed 18:00 AEST (second slot — belt and braces)
+  workflow_dispatch:
+
+jobs:
+  beat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Insert heartbeat row
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "secrets not set yet — heartbeat inert."; exit 0; fi
+          code=$(curl -s -o /tmp/r -w "%{http_code}" \
+            -X POST "$SUPABASE_URL/rest/v1/heartbeat" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=minimal" \
+            -d '{"source":"github-heartbeat"}')
+          echo "POST /heartbeat -> $code"; cat /tmp/r
+          [ "$code" = "201" ] || exit 1

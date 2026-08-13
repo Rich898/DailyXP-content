@@ -74,3 +74,19 @@ insert into public.xp_schedule (job, workflow, local_time, days) values
   ('watchdog-late',     'watchdog.yml',          '21:50', '{1,2,3,4,5}'),
   ('watchdog-friday',   'watchdog.yml',          '22:05', '{5}')
 on conflict (job) do nothing;
+
+-- ------------------------------------------------------------- heartbeat --
+-- Term breaks outlast the 7-day pause window (no quizzes -> no REST traffic
+-- -> project pauses mid-holidays). A weekly GitHub Actions heartbeat inserts
+-- one row through the REST API — the two schedulers cover each other's
+-- weakness: GitHub keeps Supabase awake (weekly, tolerance measured in days),
+-- Supabase keeps GitHub punctual (minutely, tolerance measured in seconds).
+create table if not exists public.heartbeat (
+  id bigint generated always as identity primary key,
+  at timestamptz not null default now(),
+  source text
+);
+alter table public.heartbeat enable row level security;
+drop policy if exists "heartbeat insert" on public.heartbeat;
+create policy "heartbeat insert" on public.heartbeat
+  for insert to anon with check (true);
