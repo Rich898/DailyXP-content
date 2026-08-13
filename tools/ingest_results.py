@@ -96,19 +96,125 @@ def rows_to_dicts(rows):
     return out, errors
 
 
+def fetch_supabase(sb_url, sb_key, timeout=45):
+    """All rows from the Supabase sink (runs_raw), oldest first. Service key —
+    server secret only. Returns [{'received_at', 'payload'}...]."""
+    q = urllib.parse.urlencode({"select": "id,received_at,payload",
+                                "order": "id.asc"})
+    req = urllib.request.Request(
+        f"{sb_url.rstrip('/')}/rest/v1/runs_raw?{q}",
+        headers={"apikey": sb_key, "Authorization": f"Bearer {sb_key}",
+                 "User-Agent": "dailyxp-ingest/1"})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.load(resp)
+    except Exception as e:
+        raise SystemExit(f"ingest: could not reach Supabase ({e}). "
+                         "Check SUPABASE_URL / SUPABASE_SERVICE_KEY.")
+
+
+def sb_rows_to_dicts(rows):
+    """Supabase rows → (row_dicts for normalise, prenormalised runs, errors).
+
+    Two payload shapes coexist in the sink: RAW shell payloads (the live
+    write path) and PRE-NORMALISED runs (the migration seed came from
+    runs.json). Pre-normalised rows skip normalise() — re-normalising an
+    already-normalised run would mangle it — and rejoin at the dedupe step.
+    """
+    raw_dicts, pre, errors = [], [], []
+    for n, r in enumerate(rows, start=1):
+        p = r.get("payload")
+        if not isinstance(p, dict):
+            errors.append(f"supabase row {n}: payload not an object")
+            continue
+        if "run_date" in p and "questions" in p:      # pre-normalised (seeded)
+            pre.append(p)
+            continue
+        raw_dicts.append({
+            "received_at": r.get("received_at") or "",
+            "student": p.get("student", ""),
+            "quiz_date": p.get("date", ""),
+            "day": p.get("day", ""),
+            "attempt": p.get("attempt", ""),
+            "score": p.get("score", ""),
+            "payload": p,
+        })
+    return raw_dicts, pre, errors
+
+
+def carry_annotations(private_dir, runs):
+    """Grades survive the rebuild: tb_grade / tb_integrity written by Friday's
+    grading pass live in runs.json, which this ingest regenerates wholesale.
+    Carry them forward onto the matching (student, ts) rows so a Monday ingest
+    never wipes a Friday's judgements."""
+    try:
+        old = json.load(open(os.path.join(private_dir, "work", "runs.json")))["runs"]
+    except Exception:
+        return 0
+    keyed = {}
+    for r in old:
+        tq = next((q for q in r.get("questions", []) if q.get("phase") == "teach"), None)
+        if tq and (tq.get("tb_grade") or tq.get("tb_integrity")):
+            keyed[(r.get("student"), r.get("ts") or r.get("ts_raw"))] = tq
+    carried = 0
+    for r in runs:
+        src = keyed.get((r.get("student"), r.get("ts") or r.get("ts_raw")))
+        if not src:
+            continue
+        tq = next((q for q in r.get("questions", []) if q.get("phase") == "teach"), None)
+        if tq is None:
+            continue
+        for k in ("tb_grade", "tb_integrity"):
+            if src.get(k) and not tq.get(k):
+                tq[k] = src[k]
+                carried += 1
+    return carried
+
+
 def _ser(o):
     if isinstance(o, (datetime, date)):
         return o.isoformat()
     raise TypeError
 
 
-def ingest(private_dir, url, key):
-    rows = fetch_rows(url, key)
-    row_dicts, errors = rows_to_dicts(rows)
-    runs = [normalise(r) for r in row_dicts]
+def ingest(private_dir, url=None, key=None, sb_url=None, sb_key=None, source=None):
+    """source: 'sheet' | 'supabase' | 'both' (both = sheet is truth, supabase
+    is compared and reported — the settling-week mode). Default: whichever
+    credentials exist; both sets present -> 'both'."""
+    have_sheet, have_sb = bool(url and key), bool(sb_url and sb_key)
+    source = source or ("both" if have_sheet and have_sb
+                        else "supabase" if have_sb else "sheet")
+    if source in ("sheet", "both") and not have_sheet:
+        raise SystemExit("ingest: RESULTS_URL / RESULTS_KEY not set.")
+    if source in ("supabase", "both") and not have_sb:
+        raise SystemExit("ingest: SUPABASE_URL / SUPABASE_SERVICE_KEY not set.")
+
+    agree = ""
+    if source == "supabase":
+        sb_raw, pre, errors = sb_rows_to_dicts(fetch_supabase(sb_url, sb_key))
+        runs = [normalise(r) for r in sb_raw] + pre
+        n_in = len(sb_raw) + len(pre)
+    else:
+        rows = fetch_rows(url, key)
+        row_dicts, errors = rows_to_dicts(rows)
+        runs = [normalise(r) for r in row_dicts]
+        n_in = len(rows) - 1
+        if source == "both":
+            try:
+                sb_raw, pre, sb_err = sb_rows_to_dicts(fetch_supabase(sb_url, sb_key))
+                sheet_keys = {(r.get("student"), r.get("run_date")) for r in runs}
+                sb_runs = [normalise(r) for r in sb_raw] + pre
+                sb_keys = {(r.get("student"), r.get("run_date")) for r in sb_runs}
+                missing = sorted(sheet_keys - sb_keys)
+                agree = (f"; supabase sink: {len(sb_keys & sheet_keys)}/{len(sheet_keys)} "
+                         f"run-days present" + (f", MISSING {missing}" if missing else " — agrees"))
+            except SystemExit as e:
+                agree = f"; supabase sink UNREACHABLE ({e}) — sheet remains truth"
+
     runs, dropped = dedupe(runs)
     tests = [r for r in runs if r["is_test"]]
     runs = mark_canonical([r for r in runs if not r["is_test"]])
+    carried = carry_annotations(private_dir, runs)
     medians = phase_medians(runs)
 
     out_path = os.path.join(private_dir, "work", "runs.json")
@@ -122,9 +228,10 @@ def ingest(private_dir, url, key):
     for r in runs:
         per_student[r["student"]] = per_student.get(r["student"], 0) + 1
     by = ", ".join(f"{s}: {n}" for s, n in sorted(per_student.items())) or "none"
-    summary = (f"ingest: {len(rows) - 1} data row(s) → {len(runs)} run(s) kept ({by}); "
+    summary = (f"ingest[{source}]: {n_in} row(s) → {len(runs)} run(s) kept ({by}); "
                f"{len(dropped)} duplicate(s) dropped; {len(tests)} test row(s) ignored"
-               + (f"; {len(errors)} parse error(s)" if errors else ""))
+               + (f"; {carried} grade annotation(s) carried forward" if carried else "")
+               + (f"; {len(errors)} parse error(s)" if errors else "") + agree)
     return summary, errors
 
 
@@ -133,10 +240,14 @@ def main():
     ap.add_argument("--private-dir", required=True)
     ap.add_argument("--url", default=os.environ.get("RESULTS_URL"))
     ap.add_argument("--key", default=os.environ.get("RESULTS_KEY"))
+    ap.add_argument("--source", default=os.environ.get("INGEST_SOURCE"),
+                    choices=[None, "sheet", "supabase", "both"],
+                    help="sheet | supabase | both (default: whichever credentials exist)")
     a = ap.parse_args()
-    if not a.url or not a.key:
-        raise SystemExit("ingest: RESULTS_URL / RESULTS_KEY not set (env or --url/--key).")
-    summary, errors = ingest(a.private_dir, a.url, a.key)
+    summary, errors = ingest(a.private_dir, a.url, a.key,
+                             sb_url=os.environ.get("SUPABASE_URL"),
+                             sb_key=os.environ.get("SUPABASE_SERVICE_KEY"),
+                             source=a.source)
     print(summary)
     for e in errors:
         print(f"  ⚠ {e}")

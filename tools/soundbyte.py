@@ -245,19 +245,23 @@ def main():
     today_iso = a.date or sydney_today().isoformat()
     priv = a.private_dir
 
-    # Refresh runs.json from the Sheet (same gating as run_daily: skip offline).
-    if os.environ.get("RESULTS_URL") and os.environ.get("RESULTS_KEY"):
+    # Refresh runs.json from the results sink (same gating as run_daily: skip offline).
+    if (os.environ.get("RESULTS_URL") and os.environ.get("RESULTS_KEY")) or (
+            os.environ.get("SUPABASE_URL") and os.environ.get("SUPABASE_SERVICE_KEY")):
         try:
             import ingest_results
             summary, errs = ingest_results.ingest(
-                priv, os.environ["RESULTS_URL"], os.environ["RESULTS_KEY"])
+                priv, os.environ.get("RESULTS_URL"), os.environ.get("RESULTS_KEY"),
+                sb_url=os.environ.get("SUPABASE_URL"),
+                sb_key=os.environ.get("SUPABASE_SERVICE_KEY"),
+                source=os.environ.get("INGEST_SOURCE"))
             print(f"ingest: {summary}")
             for e in errs:
                 print(f"  \u26a0 {e}")
         except BaseException as e:
             print(f"\u26a0 ingest failed ({type(e).__name__}) \u2014 using committed runs.json.")
     else:
-        print("ingest skipped (no RESULTS_URL/KEY) \u2014 using committed runs.json.")
+        print("ingest skipped (no results credentials) \u2014 using committed runs.json.")
 
     runs = json.load(open(os.path.join(priv, "work", "runs.json"))).get("runs", [])
     cpath = os.path.join(priv, CURSOR_FILE)

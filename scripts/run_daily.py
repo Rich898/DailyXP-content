@@ -78,12 +78,16 @@ def run(date, students, private_dir, directives_override, dry_run, push):
     # STEP 0 — INGEST: refresh runs.json from the results Sheet (headless). Gated on RESULTS_URL
     # so local/offline runs skip it and use the committed runs.json. The endpoint is a read-only
     # doGet (never the quiz webhook). Network lives in Actions, not here.
-    if os.environ.get("RESULTS_URL") and os.environ.get("RESULTS_KEY"):
+    if (os.environ.get("RESULTS_URL") and os.environ.get("RESULTS_KEY")) or (
+            os.environ.get("SUPABASE_URL") and os.environ.get("SUPABASE_SERVICE_KEY")):
         try:
             import ingest_results
             summary, ing_errors = ingest_results.ingest(
-                private_dir, os.environ["RESULTS_URL"], os.environ["RESULTS_KEY"])
-            print(f"--- ingest results (Sheet → runs.json) ---\n{summary}")
+                private_dir, os.environ.get("RESULTS_URL"), os.environ.get("RESULTS_KEY"),
+                sb_url=os.environ.get("SUPABASE_URL"),
+                sb_key=os.environ.get("SUPABASE_SERVICE_KEY"),
+                source=os.environ.get("INGEST_SOURCE"))
+            print(f"--- ingest results (sink → runs.json) ---\n{summary}")
             for e in ing_errors:
                 print(f"  ⚠ {e}")
             print("------------------------------------------\n")

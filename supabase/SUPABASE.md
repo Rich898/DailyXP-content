@@ -129,3 +129,28 @@ this folder:
    shows **204**, and the Actions tab shows a `workflow_dispatch` run.
 4. `delete from xp_schedule where job='accept-test';` Done — the same chain
    that just passed is the one that runs Monday 2pm.
+
+## Retiring Google entirely (the checklist)
+
+Google's whole footprint here is Sheets/Apps Script; nothing else in the
+pipeline touches it. The exit runs on the settling-week pattern, then delete:
+
+1. **Saturday:** shell dual-writes (step 4 above). Ingest automatically runs
+   in `both` mode once the `SUPABASE_URL` + `SUPABASE_SERVICE_KEY` Actions
+   secrets exist — the Sheet stays the truth and every run prints
+   "supabase sink: N/N run-days present — agrees" (or names what's missing).
+2. **After a clean week of agreement:** set repo variable/env
+   `INGEST_SOURCE=supabase`. The Sheet is no longer read. Grades written by
+   Friday's pass survive rebuilds (annotation carry-forward is built in).
+3. **Delete, in order:** the `WEBHOOK_URL` line + dual-write's Apps Script
+   half from the shell CONFIG (one re-stamp of the three shells); the two
+   Apps Script deployments (quiz webhook doPost + the read-only doGet); the
+   results Sheet itself; the `RESULTS_URL` / `RESULTS_KEY` Actions secrets.
+4. `results_reader.py`'s manual Sheet-dump entry point goes quiet on its own —
+   the parsing library inside it is what Supabase ingestion reuses, so the
+   file stays; only the Google transport dies.
+
+What deliberately does NOT move (ROADMAP.md): the ledger (`state.json`),
+plans, targets and history stay in git — version history, atomic commits and
+rollback for free. Supabase owns the event stream (runs) and the clock;
+git keeps owning the brain.
