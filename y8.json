@@ -9,120 +9,120 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 72°. What is the alternate angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 98°. What is the co-interior (allied) angle on the other parallel line?",
       "options": [
-        "72°",
-        "108°",
-        "18°",
-        "144°"
+        "82°",
+        "98°",
+        "8°",
+        "180°"
       ],
-      "answer": "72°",
-      "why": "Alternate angles are equal — they sit on opposite sides of the transversal between the parallel lines, forming a 'Z' shape. 108° would be the co-interior (allied) angle instead.",
+      "answer": "82°",
+      "why": "Co-interior (allied) angles sum to 180°, so 180° − 98° = 82°. A common mistake is thinking they're equal like alternate angles, but co-interior angles are supplementary, not equal.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has angles of 50°, 60°, and 70°. What type of triangle is this?",
+      "prompt": "A triangle has sides of length 7 cm, 7 cm, and 7 cm. What type of triangle is this?",
       "options": [
-        "Scalene",
-        "Isosceles",
         "Equilateral",
+        "Isosceles",
+        "Scalene",
         "Right-angled"
       ],
-      "answer": "Scalene",
-      "why": "All three angles are different, so all three sides are different lengths, making it scalene. Isosceles needs two equal angles, and equilateral needs all three equal.",
+      "answer": "Equilateral",
+      "why": "All three sides equal means equilateral, which also gives three equal 60° angles. Isosceles only requires two equal sides, so it's a common mix-up to call an equilateral triangle isosceles instead of naming it most specifically.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 2x + 5 = x + 12",
+      "prompt": "Solve for x: 5(x − 1) = 20. What is x?",
       "options": [
-        "x = 7",
-        "x = 17",
-        "x = 3.5",
-        "x = -7"
+        "5",
+        "3",
+        "4",
+        "19"
       ],
-      "answer": "x = 7",
-      "why": "Subtract x from both sides to get x + 5 = 12, then subtract 5 to get x = 7. A common mistake is subtracting x from only one side, which breaks the balance.",
+      "answer": "5",
+      "why": "Divide both sides by 5 first to get x − 1 = 4, then add 1 to both sides to get x = 5. A common slip is subtracting 1 before dividing, treating the −1 as if it weren't inside the bracket.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In human reproduction, where does fertilisation normally take place?",
+      "prompt": "In human reproduction, what is the main role of the sperm cell?",
       "options": [
-        "The fallopian tube (oviduct)",
-        "The uterus",
-        "The ovary",
-        "The vagina"
+        "To carry the male's genetic material to fertilise the egg",
+        "To provide all the nutrients for the growing embryo",
+        "To produce the placenta after fertilisation",
+        "To control the release of eggs from the ovary"
       ],
-      "answer": "The fallopian tube (oviduct)",
-      "why": "The egg is released from the ovary and travels down the fallopian tube, where sperm usually meets and fertilises it. The uterus is where the fertilised egg later implants, not where fertilisation happens.",
+      "answer": "To carry the male's genetic material to fertilise the egg",
+      "why": "The sperm's job is to deliver genetic material to the egg during fertilisation. Nutrients for the embryo come from the mother via the placenta, not from the sperm — a common confusion of roles.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which religious group launched the First Crusade in 1096 to try to capture Jerusalem?",
+      "prompt": "Blitz ⚡ Which year did the First Crusade set out to try to capture Jerusalem?",
       "options": [
-        "Christians from Western Europe",
-        "Christians from the Byzantine Empire",
-        "Muslims from Persia",
-        "Jewish communities from Spain"
+        "1096",
+        "1215",
+        "1453",
+        "1066"
       ],
-      "answer": "Christians from Western Europe",
-      "why": "The First Crusade was called by the Pope and fought mainly by knights and soldiers from Western Europe, aiming to take Jerusalem from Muslim control. The Byzantines asked for help but weren't the main crusading force.",
+      "answer": "1096",
+      "why": "The First Crusade began in 1096. Students sometimes confuse this with 1215 (Magna Carta) or 1066 (Norman Conquest), which are different key medieval dates entirely.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A historian writes: 'The king raised taxes heavily, which led to widespread rebellion across the country.' Which part of this sentence describes the cause?",
+      "prompt": "A historian writes: 'Years of unfair taxation built resentment among peasants, and this resentment finally exploded into revolt after a new tax was announced.' Which part is the long-term cause?",
       "options": [
-        "The king raised taxes heavily",
-        "Widespread rebellion across the country",
-        "Both parts equally",
-        "Neither — this is just description"
+        "Years of unfair taxation building resentment",
+        "The new tax being announced",
+        "The revolt itself",
+        "The historian's opinion"
       ],
-      "answer": "The king raised taxes heavily",
-      "why": "The cause is the event that triggers what follows — here, the tax rise leads to the rebellion (the consequence). Students often muddle which half is which when the sentence is reordered.",
+      "answer": "Years of unfair taxation building resentment",
+      "why": "Long-term causes build up over time (like years of unfair taxation), while the trigger (the new tax) is the short-term spark. Students often mistake the trigger for the whole cause, missing the deeper build-up.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Magna Carta 1215 was originally created to address a conflict between King John and which group?",
+      "prompt": "Magna Carta 1215 established which key principle about the monarch's power?",
       "options": [
-        "Rebellious barons",
-        "The Pope in Rome",
-        "French invaders",
-        "Peasant farmers"
+        "The king was not above the law and had to follow it too",
+        "The king could tax the barons without any limits",
+        "The king had unlimited power over the church",
+        "The king could imprison anyone without reason"
       ],
-      "answer": "Rebellious barons",
-      "why": "Magna Carta was forced on King John by his own barons, angry about high taxes and abuses of power. It wasn't a peasant document — ordinary people gained little from it directly at the time.",
+      "answer": "The king was not above the law and had to follow it too",
+      "why": "Magna Carta's key legacy is that even the king was subject to the law, limiting arbitrary royal power. Some assume it gave the king MORE power, but it was actually a check against him.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests how the number of hours spent revising affects exam scores. They make sure every student uses the same textbook. What is the controlled variable?",
+      "prompt": "A student investigates whether the amount of caffeine (in mg) affects reaction time (measured in milliseconds), keeping the time of day and the person's sleep the same for each test. Which is the dependent variable?",
       "options": [
-        "The textbook used",
-        "Hours spent revising",
-        "Exam scores",
-        "The number of students tested"
+        "Reaction time",
+        "Amount of caffeine",
+        "Time of day",
+        "Amount of sleep"
       ],
-      "answer": "The textbook used",
-      "why": "The controlled variable is what's kept the SAME so it doesn't affect the results unfairly — here, the textbook. Hours revising is what's changed (independent), and exam scores is what's measured (dependent).",
+      "answer": "Reaction time",
+      "why": "The dependent variable is what you MEASURE as a result — here, reaction time. The amount of caffeine is what you deliberately change (independent variable), and time of day and sleep are kept the same (controlled variables). Mixing up 'what changes' with 'what you measure' is the classic confident-wrong trap.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 130°. What is the vertically opposite angle to it?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 47°. What is the alternate angle on the other parallel line?",
       "options": [
-        "130°",
-        "50°",
-        "180°",
-        "65°"
+        "47°",
+        "133°",
+        "90°",
+        "23.5°"
       ],
-      "answer": "130°",
-      "why": "Vertically opposite angles are always equal, formed when two lines cross. 50° would be the angle that's supplementary (adds to 180°), not vertically opposite.",
+      "answer": "47°",
+      "why": "Alternate angles are equal when formed by a transversal crossing parallel lines — they form a 'Z' shape. A common error is adding to 180° as if they were co-interior angles instead.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A quadrilateral has two pairs of parallel sides and all four sides equal in length, but its angles are not right angles. What is the most specific name for it?",
+      "prompt": "A quadrilateral has one pair of parallel sides that are not equal in length, and the other two sides are equal (not parallel). What is the most specific name for this shape?",
       "options": [
-        "Rhombus",
-        "Square",
-        "Rectangle",
-        "Parallelogram"
+        "Isosceles trapezium",
+        "Parallelogram",
+        "Kite",
+        "Rhombus"
       ],
-      "answer": "Rhombus",
-      "why": "A rhombus has all sides equal and opposite sides parallel, but the angles don't have to be 90°. Calling it a square would be wrong since a square needs right angles too.",
+      "answer": "Isosceles trapezium",
+      "why": "An isosceles trapezium has exactly one pair of parallel sides and the non-parallel sides are equal in length. Calling it a parallelogram is wrong because a parallelogram needs TWO pairs of parallel sides.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "During asexual reproduction, how genetically similar is the offspring compared to the single parent?",
+      "prompt": "During sexual reproduction, offspring inherit genetic material from how many parents, and how does this affect genetic variation compared to asexual reproduction?",
       "options": [
-        "Genetically identical (a clone)",
-        "50% similar, like sexual reproduction",
-        "Completely different genetically",
-        "Only similar in appearance, not DNA"
+        "Two parents, creating more genetic variation than asexual reproduction",
+        "Two parents, creating identical clones like asexual reproduction",
+        "One parent, creating more genetic variation than asexual reproduction",
+        "One parent, creating identical clones"
       ],
-      "answer": "Genetically identical (a clone)",
-      "why": "Asexual reproduction involves only one parent and no mixing of genetic material, so offspring are genetically identical clones. Sexual reproduction is the one that mixes DNA from two parents, giving variation.",
+      "answer": "Two parents, creating more genetic variation than asexual reproduction",
+      "why": "Sexual reproduction combines genetic material from two parents, producing offspring that are genetically different from both parents and each other. Asexual reproduction uses only one parent and produces genetically identical clones — this contrast is the key exam point.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your classmate says: 'In an experiment testing how the amount of water affects plant growth, the plant's height is the independent variable because it's the main thing in the experiment.' Using a different example of your own, explain what actually makes a variable 'independent' versus 'dependent', and correct the misunderstanding in your classmate's reasoning."
+      "prompt": "Your classmate says: 'In an experiment testing how the type of fertiliser affects crop yield, the number of plants tested is the independent variable, because that's what the scientist decides to use.' Using a different example of your own (not fertiliser, sleep, sunlight, water temperature, or soil type), explain what actually makes a variable 'independent', 'dependent', or 'controlled', and correct your classmate's misunderstanding."
     }
   ]
 }
