@@ -1,180 +1,180 @@
 {
   "student": "t1",
-  "date": "2026-08-12",
-  "day": "WED",
-  "tag": "T3.3 · REVERSED BLITZ",
-  "title": "DailyXP · WED 2026-08-12",
+  "date": "2026-08-13",
+  "day": "THU",
+  "tag": "T3.4",
+  "title": "DailyXP · THU 2026-08-13",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The answer is: \"476 CE\". Which question is this the answer to?",
+      "prompt": "After Rome fell, medieval kingdoms in Western Europe became fragmented rather than unified. What was the main reason for this fragmentation?",
       "options": [
-        "In what year is the fall of the Western Roman Empire traditionally dated?",
-        "In what year did the First Crusade begin?",
-        "In what century did the Catholic Church reach the height of its power?",
-        "In what year did the Black Death first reach Europe?"
+        "There was no strong central authority to enforce law and collect taxes across large areas",
+        "The Catholic Church banned the formation of large kingdoms",
+        "The climate became too harsh for large armies to travel",
+        "Viking invasions destroyed all written records of Roman government"
       ],
-      "answer": "In what year is the fall of the Western Roman Empire traditionally dated?",
-      "why": "476 CE is the traditional date for the fall of the Western Roman Empire, when the last emperor was deposed. The tempting distractor about the First Crusade is actually answered by 1096.",
+      "answer": "There was no strong central authority to enforce law and collect taxes across large areas",
+      "why": "Without Rome's centralised government, army, and tax system, power fell to local strongmen who could actually defend their land — leading to the fragmented, localised power of feudalism rather than one big kingdom.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The answer is: \"Land (a fief) in exchange for military service\". Which question is this the answer to?",
+      "prompt": "A common mistake is thinking knights owned the land they fought on. In the feudal pyramid, what was the real relationship between a knight and their land?",
       "options": [
-        "What did a lord grant a vassal under the feudal system?",
-        "What did a peasant owe to the lord who controlled their land?",
-        "What did the Catholic Church demand from medieval kings?",
-        "What did knights swear to defend during the Crusades?"
+        "Knights held land on loan from a lord in exchange for military service, they did not own it outright",
+        "Knights owned their land permanently and passed it to their children with no obligations",
+        "Knights rented their land from peasants for a fixed fee",
+        "Knights had no land at all and lived entirely off the king's treasury"
       ],
-      "answer": "What did a lord grant a vassal under the feudal system?",
-      "why": "Lords granted vassals land (a fief) in return for military service and loyalty — the core exchange of feudalism. Peasants, by contrast, owed labour and produce, not land grants, to their lord.",
+      "answer": "Knights held land on loan from a lord in exchange for military service, they did not own it outright",
+      "why": "Feudal land (a fief) was granted conditionally — the knight (a vassal) owed military service in return, and the land could be reclaimed. This is different from modern outright ownership.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The answer is: \"Verona, Italy\". Which question is this the answer to?",
+      "prompt": "Romeo and Juliet was written in which broad time period of English history?",
       "options": [
-        "Where is Romeo and Juliet primarily set?",
-        "Where was William Shakespeare born?",
-        "Where is the Globe Theatre located?",
-        "Where does Romeo go into exile after killing Tybalt?"
+        "The Elizabethan era (late 1500s)",
+        "The Victorian era (1800s)",
+        "The medieval era (1200s)",
+        "The Georgian era (1700s)"
       ],
-      "answer": "Where is Romeo and Juliet primarily set?",
-      "why": "Romeo and Juliet takes place mainly in Verona, Italy. The near-miss about Shakespeare's birthplace is actually answered by Stratford-upon-Avon, England.",
+      "answer": "The Elizabethan era (late 1500s)",
+      "why": "Shakespeare wrote during the reign of Elizabeth I, in the late 16th century — this is called the Elizabethan era, and it shaped the play's language and staging conventions.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The answer is: \"A pun\". Which question is this the answer to?",
+      "prompt": "In the prologue, the Chorus calls Romeo and Juliet 'star-crossed lovers.' A student says this just means 'unlucky in love.' What is this phrase actually foreshadowing?",
       "options": [
-        "What technique is Mercutio using when he says 'ask for me tomorrow and you shall find me a grave man' after being fatally wounded?",
-        "What technique is Shakespeare using when Romeo compares Juliet to the sun?",
-        "What technique is being used when the audience knows Juliet is alive but Romeo believes she is dead?",
-        "What poetic form structures the play's famous opening prologue?"
+        "That fate itself, not just bad luck, is set against them and dooms them from the start",
+        "That they are lucky because the stars favour young love",
+        "That they will become famous astronomers",
+        "That their families will forgive them because of the stars' influence"
       ],
-      "answer": "What technique is Mercutio using when he says 'ask for me tomorrow and you shall find me a grave man' after being fatally wounded?",
-      "why": "Mercutio's 'grave man' line is a pun, playing on 'grave' meaning both serious and a burial place. The Romeo/sun comparison is actually a metaphor, not a pun.",
+      "answer": "That fate itself, not just bad luck, is set against them and dooms them from the start",
+      "why": "'Star-crossed' invokes the idea that the stars (fate/destiny) are actively working against the lovers — this is stronger than ordinary bad luck, and sets up the play's theme of fate versus free will.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The answer is: \"'My only love sprung from my only hate'\". Which question is this the answer to?",
+      "prompt": "Some students think the 'love vs hate' theme in Romeo and Juliet is only about romantic love. What does the theme actually explore?",
       "options": [
-        "Which quote best reflects the theme of love vs hate in Romeo and Juliet?",
-        "Which quote shows dramatic irony in the play's final scene?",
-        "Which line uses a metaphor comparing Juliet to the sun?",
-        "Which line shows Romeo's use of an oxymoron about love at first sight, 'O brawling love, O loving hate'?"
+        "How intense love and intense hate (like the family feud) are shown as closely linked forces that both lead to destruction",
+        "Only the romantic love between Romeo and Juliet, with no connection to the feud",
+        "How love always defeats hate by the end of the play",
+        "How hate is portrayed as a stronger emotion than love throughout"
       ],
-      "answer": "Which quote best reflects the theme of love vs hate in Romeo and Juliet?",
-      "why": "'My only love sprung from my only hate' directly captures the love/hate theme when Juliet learns Romeo's identity. The oxymoron 'loving hate' is a similar-sounding but distinct quote from Romeo's earlier speech, not this exact line.",
+      "answer": "How intense love and intense hate (like the family feud) are shown as closely linked forces that both lead to destruction",
+      "why": "Shakespeare deliberately pairs love and hate throughout the play (e.g. 'loving hate') to show they are intertwined extremes — both the Capulet-Montague hatred and the lovers' passion drive the tragedy.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "The answer is: \"The amount of fertiliser given to each plant\". Which question is this the answer to?",
+      "prompt": "In an experiment testing how the amount of sunlight affects plant growth, what is the independent variable?",
       "options": [
-        "What is the independent variable in an experiment testing how fertiliser amount affects plant height?",
-        "What is the dependent variable in an experiment testing how fertiliser amount affects plant height?",
-        "What is the controlled variable in an experiment testing how temperature affects plant growth?",
-        "What is measured as the outcome in an experiment testing how temperature affects plant growth?"
+        "The amount of sunlight given to each plant",
+        "The height of the plant measured at the end",
+        "The type of soil used for all plants",
+        "The amount of water given to each plant"
       ],
-      "answer": "What is the independent variable in an experiment testing how fertiliser amount affects plant height?",
-      "why": "The independent variable is what the experimenter deliberately changes — here, the fertiliser amount. The dependent variable in that same experiment is plant height, the thing measured as a result.",
+      "answer": "The amount of sunlight given to each plant",
+      "why": "The independent variable is the one the experimenter deliberately changes (sunlight amount) to see its effect on the dependent variable (plant growth) — it's the 'cause' being tested, not the outcome.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "The answer is: \"Asexual reproduction\". Which question is this the answer to?",
+      "prompt": "A student says 'all animals reproduce sexually.' Which of these organisms is a clear counterexample, reproducing asexually instead?",
       "options": [
-        "What type of reproduction produces genetically identical offspring from a single parent?",
-        "What type of reproduction combines genetic material from two parents?",
-        "What term describes the pattern of day length changing with the seasons?",
-        "What term describes wind patterns caused by global air circulation?"
+        "Bacteria, which reproduce by binary fission without a mate",
+        "Humans, who require two parents",
+        "Elephants, who require two parents",
+        "Wolves, who require two parents"
       ],
-      "answer": "What type of reproduction produces genetically identical offspring from a single parent?",
-      "why": "Asexual reproduction involves one parent producing genetically identical offspring, unlike sexual reproduction which mixes genetic material from two parents for variation.",
-      "fresh": true
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "The answer is: \"x = 9\". Which question is this the answer to?",
-      "options": [
-        "Solve for x: 4x - 5 = 15",
-        "Solve for x: 3x + 5 = 20",
-        "Solve for x: 5x - 3 = 2x + 12",
-        "Solve for x: 2x - 3 = 15"
-      ],
-      "answer": "Solve for x: 2x - 3 = 15",
-      "why": "2x - 3 = 15 gives 2x = 18, so x = 9. The tempting distractor 4x - 5 = 15 actually gives x = 5 (4x = 20), which is a different value entirely — don't confuse the two.",
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The answer is: \"It could excommunicate kings and nobles\". Which question is this the answer to?",
-      "options": [
-        "What power let the medieval Catholic Church control even rulers who defied it?",
-        "What was the main stated goal of the First Crusade?",
-        "What did a vassal owe their lord under feudalism?",
-        "What event marked the fall of the Western Roman Empire?"
-      ],
-      "answer": "What power let the medieval Catholic Church control even rulers who defied it?",
-      "why": "Excommunication — cutting someone off from the Church and its sacraments — was a powerful tool the Church used to threaten even kings into obedience. The First Crusade's stated goal was instead to reclaim Jerusalem, a different fact entirely.",
+      "answer": "Bacteria, which reproduce by binary fission without a mate",
+      "why": "Bacteria reproduce asexually via binary fission, splitting into two identical cells with no need for a mate — this shows not all organisms need two parents to reproduce, unlike mammals.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which European group's port cities gained significant wealth and trade advantages from supplying and transporting Crusader armies to the Holy Land?",
+      "prompt": "A student claims the First Crusade was purely a religious mission with no political motives at all. What does this overlook?",
       "options": [
-        "Italian city-states like Venice and Genoa",
-        "The Byzantine Empire",
-        "The Holy Roman Empire",
-        "The Kingdom of France"
+        "European nobles and the Church also saw the Crusade as a chance to gain land, wealth, and political power",
+        "The Crusade had no religious motive at all, only political ones",
+        "The Pope had no involvement in organising the Crusade",
+        "European nobles refused to participate for any reason other than faith"
       ],
-      "answer": "Italian city-states like Venice and Genoa",
-      "why": "Italian city-states such as Venice and Genoa profited enormously by providing ships, supplies, and transport for Crusaders, boosting Mediterranean trade networks. The Byzantine Empire, by contrast, often had a tense relationship with Crusaders passing through its territory.",
+      "answer": "European nobles and the Church also saw the Crusade as a chance to gain land, wealth, and political power",
+      "why": "While religious motivation was real and strongly promoted, the Crusades also offered nobles opportunities for land, titles, and wealth, and the Church gained influence — political and religious motives were intertwined, not separate.",
       "fresh": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which term describes the political system that emerged in Western Europe after Rome's central authority collapsed, based on land-for-loyalty relationships between lords and vassals?",
+      "prompt": "A student says that after Rome fell, 'civilisation basically disappeared' in Western Europe. What is misleading about this claim?",
       "options": [
-        "Feudalism",
-        "Absolutism",
-        "Theocracy",
-        "Republicanism"
+        "Society continued and reorganised around the Church, local lords, and feudalism, rather than vanishing entirely",
+        "It's accurate — literacy, government, and society completely ceased to exist",
+        "Rome's fall had no lasting effects on Europe at all",
+        "Feudalism only began centuries later, so there was a total gap in society"
       ],
-      "answer": "Feudalism",
-      "why": "Feudalism filled the power vacuum left by Rome's collapse, organising society through land grants exchanged for military loyalty. Theocracy, where religious leaders hold direct political power, describes a different kind of authority structure.",
+      "answer": "Society continued and reorganised around the Church, local lords, and feudalism, rather than vanishing entirely",
+      "why": "Rome's collapse changed the structure of society dramatically (smaller, local, less centralised) but did not erase civilisation — the Church preserved learning, and feudal structures organised communities and defence.",
+      "fresh": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "Someone claims Romeo and Juliet was originally written as a novel and later adapted into a play. What is wrong with this claim?",
+      "options": [
+        "It was written by Shakespeare as a stage play from the start, intended for performance at the Globe-era theatres",
+        "It was originally a Roman epic poem translated into English",
+        "It was first written as a film script in the 1500s",
+        "It was originally an opera composed for the royal court"
+      ],
+      "answer": "It was written by Shakespeare as a stage play from the start, intended for performance at the Globe-era theatres",
+      "why": "Romeo and Juliet was composed as a play for live theatrical performance in Elizabethan London, not adapted from another format — this reflects Shakespeare's role as a working playwright of his era.",
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "A student says Juliet's line 'What's in a name? That which we call a rose by any other name would smell as sweet' is just a random observation about flowers. What is it actually doing?",
+      "options": [
+        "Using a metaphor to argue that names (like 'Montague') are meaningless labels that shouldn't determine Romeo's true worth or their love",
+        "Literally teaching the audience facts about rose gardening",
+        "Showing Juliet's plan to grow roses to win over the Capulets",
+        "Foreshadowing that Romeo will give Juliet a rose as a gift"
+      ],
+      "answer": "Using a metaphor to argue that names (like 'Montague') are meaningless labels that shouldn't determine Romeo's true worth or their love",
+      "why": "This is a key metaphor: Juliet argues that a name is just a label, disconnected from a person's true nature — directly challenging the feud that keeps her and Romeo apart because of their family names.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A friend says 'the Crusades were basically pointless because the Crusaders lost the Holy Land in the end.' Explain what this view misses, using at least one lasting effect of the Crusades that had nothing to do with who controlled Jerusalem."
+      "prompt": "Explain why historians often say the Crusades reshaped Europe's economy and worldview, even though the religious goal of holding Jerusalem ultimately failed. Use at least one specific effect that had nothing to do with military victory."
     }
   ]
 }
