@@ -1,128 +1,128 @@
 {
   "student": "y8",
-  "date": "2026-08-11",
-  "day": "TUE",
-  "tag": "H3.2",
-  "title": "DailyXP · TUE 2026-08-11",
+  "date": "2026-08-13",
+  "day": "THU",
+  "tag": "H3.4",
+  "title": "DailyXP · THU 2026-08-13",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A quadrilateral has four equal sides and four right angles. What is the most specific name for it?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 72°. What is the alternate angle on the other parallel line?",
       "options": [
-        "Square",
-        "Rectangle",
-        "Rhombus",
-        "Parallelogram"
+        "72°",
+        "108°",
+        "18°",
+        "144°"
       ],
-      "answer": "Square",
-      "why": "A rectangle only needs right angles, and a rhombus only needs equal sides — a shape with BOTH four equal sides and four right angles must be a square, the most specific name.",
+      "answer": "72°",
+      "why": "Alternate angles are equal — they sit on opposite sides of the transversal between the parallel lines, forming a 'Z' shape. 108° would be the co-interior (allied) angle instead.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve: 3x + 4 = 4x − 5. x =",
+      "prompt": "A triangle has angles of 50°, 60°, and 70°. What type of triangle is this?",
       "options": [
-        "9",
-        "-9",
-        "1",
-        "-1"
+        "Scalene",
+        "Isosceles",
+        "Equilateral",
+        "Right-angled"
       ],
-      "answer": "9",
-      "why": "Subtracting 3x from both sides gives 4 = x − 5, then adding 5 to both sides gives x = 9. A common error is subtracting 4x from the left only, breaking the balance.",
+      "answer": "Scalene",
+      "why": "All three angles are different, so all three sides are different lengths, making it scalene. Isosceles needs two equal angles, and equilateral needs all three equal.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "A historian writes 'poor harvests caused food shortages, which led to rising anger at the government.' Which part of this is the consequence, not the cause?",
+      "subject": "Maths",
+      "prompt": "Solve for x: 2x + 5 = x + 12",
       "options": [
-        "Rising anger at the government",
-        "Poor harvests",
-        "The weather that year",
-        "The size of the harvest"
+        "x = 7",
+        "x = 17",
+        "x = 3.5",
+        "x = -7"
       ],
-      "answer": "Rising anger at the government",
-      "why": "The consequence is the result that follows from the cause. Poor harvests (cause) led to shortages, which led to anger (the consequence) — students often mix up which event is doing the causing.",
+      "answer": "x = 7",
+      "why": "Subtract x from both sides to get x + 5 = 12, then subtract 5 to get x = 7. A common mistake is subtracting x from only one side, which breaks the balance.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 110°. What is the co-interior (allied) angle on the other parallel line?",
+      "subject": "Science",
+      "prompt": "In human reproduction, where does fertilisation normally take place?",
       "options": [
-        "70°",
-        "110°",
-        "90°",
-        "55°"
+        "The fallopian tube (oviduct)",
+        "The uterus",
+        "The ovary",
+        "The vagina"
       ],
-      "answer": "70°",
-      "why": "Co-interior angles between parallel lines add up to 180°, so 180° − 110° = 70°. A common mistake is treating them as equal like corresponding angles instead of supplementary.",
+      "answer": "The fallopian tube (oviduct)",
+      "why": "The egg is released from the ovary and travels down the fallopian tube, where sperm usually meets and fertilises it. The uterus is where the fertilised egg later implants, not where fertilisation happens.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "During the Crusades, which group controlled Jerusalem before the First Crusade began in 1096?",
+      "prompt": "Which religious group launched the First Crusade in 1096 to try to capture Jerusalem?",
       "options": [
-        "Muslim forces",
-        "Christian crusaders",
-        "The Byzantine Empire",
-        "The Holy Roman Empire"
+        "Christians from Western Europe",
+        "Christians from the Byzantine Empire",
+        "Muslims from Persia",
+        "Jewish communities from Spain"
       ],
-      "answer": "Muslim forces",
-      "why": "Jerusalem was under Muslim control when Pope Urban II called for the First Crusade, prompting European Christians to try to capture the city — this is why the crusades began.",
+      "answer": "Christians from Western Europe",
+      "why": "The First Crusade was called by the Pope and fought mainly by knights and soldiers from Western Europe, aiming to take Jerusalem from Muslim control. The Byzantines asked for help but weren't the main crusading force.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "During a flood investigation, which factor is a NATURAL cause of increased flood risk, rather than a human one?",
+      "subject": "History",
+      "prompt": "A historian writes: 'The king raised taxes heavily, which led to widespread rebellion across the country.' Which part of this sentence describes the cause?",
       "options": [
-        "Heavy, prolonged rainfall",
-        "Removal of trees for farmland",
-        "Concrete covering the ground",
-        "Building on floodplains"
+        "The king raised taxes heavily",
+        "Widespread rebellion across the country",
+        "Both parts equally",
+        "Neither — this is just description"
       ],
-      "answer": "Heavy, prolonged rainfall",
-      "why": "Heavy rainfall is a natural trigger of flooding, while deforestation, concrete surfaces, and floodplain building are human factors that worsen flood risk — students often lump all causes together without distinguishing natural from human.",
+      "answer": "The king raised taxes heavily",
+      "why": "The cause is the event that triggers what follows — here, the tax rise leads to the rebellion (the consequence). Students often muddle which half is which when the sentence is reordered.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Magna Carta, signed in 1215, is significant mainly because it established which principle?",
+      "prompt": "Magna Carta 1215 was originally created to address a conflict between King John and which group?",
       "options": [
-        "The king must obey the law like everyone else",
-        "The king should choose all bishops himself",
-        "Only nobles could own land",
-        "England should have no king at all"
+        "Rebellious barons",
+        "The Pope in Rome",
+        "French invaders",
+        "Peasant farmers"
       ],
-      "answer": "The king must obey the law like everyone else",
-      "why": "Magna Carta was revolutionary because it limited royal power by placing the king under the law, not above it — a common misconception is that it abolished monarchy entirely, which it did not.",
+      "answer": "Rebellious barons",
+      "why": "Magna Carta was forced on King John by his own barons, angry about high taxes and abuses of power. It wasn't a peasant document — ordinary people gained little from it directly at the time.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests whether the amount of sleep (hours per night) affects test scores. They keep the difficulty of the test the same for everyone. What is the controlled variable?",
+      "prompt": "A student tests how the number of hours spent revising affects exam scores. They make sure every student uses the same textbook. What is the controlled variable?",
       "options": [
-        "Difficulty of the test",
-        "Hours of sleep",
-        "Test scores",
-        "The students themselves"
+        "The textbook used",
+        "Hours spent revising",
+        "Exam scores",
+        "The number of students tested"
       ],
-      "answer": "Difficulty of the test",
-      "why": "The controlled variable is what is kept the SAME so it doesn't affect results. Hours of sleep is the independent variable (what's changed) and test scores is the dependent variable (what's measured) — mixing these up is the chronic error.",
+      "answer": "The textbook used",
+      "why": "The controlled variable is what's kept the SAME so it doesn't affect the results unfairly — here, the textbook. Hours revising is what's changed (independent), and exam scores is what's measured (dependent).",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has one angle of 90° and two equal sides. What type of triangle is it?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 130°. What is the vertically opposite angle to it?",
       "options": [
-        "Right-angled isosceles triangle",
-        "Equilateral triangle",
-        "Scalene triangle",
-        "Right-angled scalene triangle"
+        "130°",
+        "50°",
+        "180°",
+        "65°"
       ],
-      "answer": "Right-angled isosceles triangle",
-      "why": "A triangle can be classified by both its angles and its sides at once — here it has a right angle (right-angled) and two equal sides (isosceles), so both terms apply together.",
+      "answer": "130°",
+      "why": "Vertically opposite angles are always equal, formed when two lines cross. 50° would be the angle that's supplementary (adds to 180°), not vertically opposite.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 3(x + 2) − 5 = 13. A student says 'I'll just subtract 2 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
+      "prompt": "A quadrilateral has two pairs of parallel sides and all four sides equal in length, but its angles are not right angles. What is the most specific name for it?",
       "options": [
-        "You must expand the bracket first — x = 4",
-        "You can subtract 2 first since brackets don't matter — x = 4",
-        "You must expand the bracket first — x = 6",
-        "You can subtract 2 first since brackets don't matter — x = 6"
+        "Rhombus",
+        "Square",
+        "Rectangle",
+        "Parallelogram"
       ],
-      "answer": "You must expand the bracket first — x = 4",
-      "why": "The 2 inside the bracket is multiplied by 3, not just added, so you can't remove it directly. Expanding gives 3x + 6 − 5 = 13, so 3x + 1 = 13, 3x = 12, x = 4.",
+      "answer": "Rhombus",
+      "why": "A rhombus has all sides equal and opposite sides parallel, but the angles don't have to be 90°. Calling it a square would be wrong since a square needs right angles too.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Which statement correctly distinguishes a long-term cause from a short-term (trigger) cause of an event?",
+      "subject": "Science",
+      "prompt": "During asexual reproduction, how genetically similar is the offspring compared to the single parent?",
       "options": [
-        "A long-term cause builds up over years; a short-term cause is the immediate spark that sets off the event",
-        "A long-term cause and short-term cause are always the same thing",
-        "A long-term cause happens after the event; a short-term cause happens before",
-        "A short-term cause is always more important than a long-term cause"
+        "Genetically identical (a clone)",
+        "50% similar, like sexual reproduction",
+        "Completely different genetically",
+        "Only similar in appearance, not DNA"
       ],
-      "answer": "A long-term cause builds up over years; a short-term cause is the immediate spark that sets off the event",
-      "why": "Long-term causes create the underlying conditions for an event over time, while short-term causes are the immediate trigger — students often think the trigger is the ONLY cause, ignoring the deeper build-up.",
+      "answer": "Genetically identical (a clone)",
+      "why": "Asexual reproduction involves only one parent and no mixing of genetic material, so offspring are genetically identical clones. Sexual reproduction is the one that mixes DNA from two parents, giving variation.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your friend says 'the independent variable is whatever changes during the experiment, so it must be the dependent variable too, since that also changes.' Using an example of your own (not sleep, sunlight, fertiliser, water temperature, or soil type), explain why the independent and dependent variables are NOT the same thing, and describe what makes each one distinct."
+      "prompt": "Your classmate says: 'In an experiment testing how the amount of water affects plant growth, the plant's height is the independent variable because it's the main thing in the experiment.' Using a different example of your own, explain what actually makes a variable 'independent' versus 'dependent', and correct the misunderstanding in your classmate's reasoning."
     }
   ]
 }
