@@ -9,120 +9,120 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 6 cm and height 9 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 7 cm and height 10 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "565.2 cm²",
-        "339.1 cm²",
-        "452.2 cm²",
-        "282.6 cm²"
+        "747.3 cm²",
+        "439.6 cm²",
+        "219.8 cm²",
+        "1508.9 cm²"
       ],
-      "answer": "565.2 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(36) + 2(3.14)(6)(9) = 226.1 + 339.1 = 565.2 cm². A common error is forgetting the two circular ends (giving 339.1 cm², just the curved surface) or only counting one end.",
+      "answer": "747.3 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(49) + 2(3.14)(7)(10) = 307.7 + 439.6 = 747.3 cm². A common mistake is forgetting the two circular ends (giving 439.6) or only using one end (219.8).",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Weimar Republic's period of relative recovery in the mid-1920s (1924-1929) was helped by American loans under which plan?",
+      "prompt": "The Weimar Republic's constitution included proportional representation, which meant seats in parliament matched the percentage of votes each party won nationwide. What was the main downside of this system?",
       "options": [
-        "The Dawes Plan",
-        "The Marshall Plan",
-        "The Schlieffen Plan",
-        "The Treaty of Locarno"
+        "It let many small parties into parliament, making stable coalitions hard to form",
+        "It gave the president too much power over the army",
+        "It banned smaller parties from standing in elections",
+        "It meant only one party could ever win a majority"
       ],
-      "answer": "The Dawes Plan",
-      "why": "The Dawes Plan (1924) reorganised German reparations payments and brought in US loans, helping stabilise the economy. Students often confuse this with the Marshall Plan, which was US aid after WWII, decades later.",
+      "answer": "It let many small parties into parliament, making stable coalitions hard to form",
+      "why": "Proportional representation reflected votes fairly but fragmented parliament into many small parties, forcing weak coalitions that struggled to govern effectively — a key cause of Weimar instability.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which best describes how the Great Depression specifically helped the Nazis gain support, rather than just making Germans generally unhappy?",
+      "prompt": "Which statement best explains why the Great Depression pushed many Germans specifically toward the Nazi Party, rather than just making them generally frustrated?",
       "options": [
-        "Mass unemployment made the Nazis' promises of jobs and strong leadership seem like a real solution compared to a Weimar government that looked unable to cope",
-        "The Depression made every political party equally popular because voters just wanted change",
-        "The Depression only affected farmers, and the Nazis were a farming-focused party",
-        "The Depression caused Germany to lose WWI, which the Nazis blamed on Weimar politicians"
+        "The Nazis offered clear scapegoats and promises of strong leadership and jobs, unlike the fractured Weimar parties",
+        "The Great Depression only affected Germany, so any party would have gained support",
+        "The Nazis were the only party allowed to campaign during the crisis",
+        "Unemployment had no real link to which party people supported"
       ],
-      "answer": "Mass unemployment made the Nazis' promises of jobs and strong leadership seem like a real solution compared to a Weimar government that looked unable to cope",
-      "why": "The key reasoning link is that the Depression exposed Weimar's weakness and made the Nazis' specific promises attractive — it's not enough to say 'bad economy, so people got angry'; you must explain why the anger flowed to the Nazis specifically.",
+      "answer": "The Nazis offered clear scapegoats and promises of strong leadership and jobs, unlike the fractured Weimar parties",
+      "why": "It's not enough that hardship and Nazi support both rose — the Nazis specifically promised strong government, jobs, and someone to blame, which appealed directly to desperate voters in a way rival parties' compromises didn't.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "Australia's 'Populate or Perish' policy after WWII combined a push for population growth with active recruitment of migrants. Why did the government treat this as urgent rather than just helpful?",
+      "prompt": "After WWII, Australia's 'Populate or Perish' policy combined fears about national security with the need for industrial labour. Which best explains why the government treated migration as urgent rather than just useful?",
       "options": [
-        "Because leaders feared Australia was under-populated and vulnerable to invasion, while also needing workers for its growing industries",
-        "Because Australia had no workers at all before WWII and needed migrants purely to survive",
-        "Because migrants were only needed to replace soldiers who had died, with no economic reasoning involved",
-        "Because the government wanted to reduce the population living in cities by sending migrants to rural areas only"
+        "A small population left Australia vulnerable to invasion and unable to grow its economy, so migration addressed both defence and labour needs at once",
+        "Australia had no workers at all before WWII, so migration was the only source of labour",
+        "The government wanted migration purely to increase multicultural diversity",
+        "Migration was only about filling empty farmland, not defence or industry"
       ],
-      "answer": "Because leaders feared Australia was under-populated and vulnerable to invasion, while also needing workers for its growing industries",
-      "why": "The urgency came from combined security fears (a small population seen as vulnerable, especially after WWII threats from the Pacific) and economic need (labour for expanding factories) — both push and pull reasoning together, not just one simple cause.",
+      "answer": "A small population left Australia vulnerable to invasion and unable to grow its economy, so migration addressed both defence and labour needs at once",
+      "why": "'Populate or Perish' linked two urgent goals — defence (a bigger population to defend the country) and economic growth (workers for expanding industry) — which is why migration was treated as essential, not optional.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A business plan for a new bakery has separate sections for Market Analysis and SWOT Analysis. Which piece of information belongs in the SWOT section, not the Market Analysis section?",
+      "prompt": "A student writing a business plan for a new phone repair shop wants to include a SWOT analysis. Which of these belongs correctly inside the SWOT section?",
       "options": [
-        "\"Our biggest weakness is that we have no experience running a bakery before\"",
-        "\"Local competitors charge $5 for a loaf of bread\"",
-        "\"Weekly foot traffic on this street is high\"",
-        "\"The suburb's population is growing by 3% each year\""
+        "A weakness: the shop has no experience building a customer base yet",
+        "The average price competitors charge for a screen repair",
+        "How many phone repair shops already exist in the area",
+        "The percentage of local residents who own smartphones"
       ],
-      "answer": "\"Our biggest weakness is that we have no experience running a bakery before\"",
-      "why": "SWOT looks inward and outward at Strengths, Weaknesses, Opportunities and Threats — including internal weaknesses like lack of experience. Market analysis instead gathers external facts about competitors, customers, and demand, which the other three options describe.",
+      "answer": "A weakness: the shop has no experience building a customer base yet",
+      "why": "SWOT covers internal Strengths/Weaknesses and external Opportunities/Threats specific to the business itself. Competitor prices, number of rivals, and market size are all market analysis — they describe the market, not the business's own position within it.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Antibodies are produced by lymphocytes to fight infection. Which of these best describes how antibodies actually work?",
+      "prompt": "When a pathogen enters the body, phagocytes (a type of white blood cell) respond by engulfing and digesting it. What is this process called?",
       "options": [
-        "They lock onto specific antigens on pathogens, marking or neutralising them so they can be destroyed",
-        "They physically engulf and digest the pathogen whole",
-        "They release chemicals that raise body temperature to kill the pathogen directly",
-        "They replace damaged white blood cells in the bloodstream"
+        "Phagocytosis",
+        "Antibody production",
+        "Vaccination",
+        "Antigen matching"
       ],
-      "answer": "They lock onto specific antigens on pathogens, marking or neutralising them so they can be destroyed",
-      "why": "Antibodies are proteins that bind specifically to antigens on pathogens, tagging them for destruction or blocking them directly — they don't engulf pathogens themselves. Engulfing and digesting is what phagocytes do, a common mix-up between the two immune cell types.",
+      "answer": "Phagocytosis",
+      "why": "Phagocytosis is the process where phagocytes surround and digest pathogens directly. This is different from antibody production, which is done by lymphocytes and targets specific antigens rather than engulfing whole pathogens.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A city's population grows because people move from the countryside to work in factories, while a separate group of people move from Vietnam to settle permanently in that same city. Which statement correctly distinguishes these two processes?",
+      "prompt": "A country town's population shrinks as young adults move to the city for jobs, while at the same time a family from another country moves there permanently to start a new life. Which statement correctly tells these two apart?",
       "options": [
-        "The first is urbanisation (movement within a country to cities); the second is migration (movement between countries)",
-        "Both are examples of urbanisation, since both involve people moving to a city",
-        "Both are examples of migration, since both involve people relocating",
-        "The first is migration and the second is urbanisation, since urbanisation only applies to overseas movement"
+        "The move to the city is internal migration (urbanisation), while the family moving from another country is international migration",
+        "Both movements are examples of urbanisation because people are relocating",
+        "Both movements are examples of international migration because people are leaving their home",
+        "The move to the city is international migration, while the family's move is urbanisation"
       ],
-      "answer": "The first is urbanisation (movement within a country to cities); the second is migration (movement between countries)",
-      "why": "Urbanisation specifically describes internal movement from rural areas to cities within the same country, while migration refers to movement across national borders. Mixing these up is a common error since both involve people 'moving to a city'.",
+      "answer": "The move to the city is internal migration (urbanisation), while the family moving from another country is international migration",
+      "why": "Urbanisation is people moving within a country from rural to urban areas, usually for work. International migration crosses country borders. Mixing these up is a common error — the key difference is whether a national border is crossed.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 13 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 18 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
       "options": [
-        "45.5 cm²",
-        "91 cm²",
-        "20 cm²",
-        "40 cm²"
+        "36 cm²",
+        "72 cm²",
+        "44 cm²",
+        "22 cm²"
       ],
-      "answer": "45.5 cm²",
-      "why": "Area = ½ × base × height = ½ × 13 × 7 = 45.5 cm². Rushing and skipping the halving step gives 91 cm² (just base × height) — the medicine is saying '½ ×' out loud before multiplying, not multiplying faster.",
+      "answer": "36 cm²",
+      "why": "Area = ½ × base × height = ½ × 18 × 4 = 36 cm². Forgetting to halve gives 72 cm² — the classic rushing mistake. Slow down and say the formula before multiplying.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 2 cm and height 15 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 4 cm and height 15 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "213.5 cm²",
-        "188.4 cm²",
-        "25.1 cm²",
-        "150.7 cm²"
+        "477.3 cm²",
+        "376.8 cm²",
+        "100.5 cm²",
+        "603.2 cm²"
       ],
-      "answer": "213.5 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(4) + 2(3.14)(2)(15) = 25.1 + 188.4 = 213.5 cm². A common mistake is only calculating the curved surface (188.4 cm²) and forgetting the two circular ends.",
+      "answer": "477.3 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(16) + 2(3.14)(4)(15) = 100.5 + 376.8 = 477.3 cm². Missing the two circular ends gives 376.8 cm², a common error when only the curved surface is calculated.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "The Weimar Republic used a system of proportional representation in its parliament. Why did this system contribute to political instability?",
+      "prompt": "Weimar Germany experienced hyperinflation so severe in 1923 that people needed wheelbarrows of cash to buy bread. What does this reveal about the currency at the time?",
       "options": [
-        "It gave seats to many small parties, making it hard to form stable majority governments and leading to frequent coalition collapses",
-        "It gave all seats to one party automatically, removing any real choice for voters",
-        "It banned smaller parties from standing in elections at all",
-        "It meant only the president could vote, cutting ordinary citizens out of the process"
+        "The German mark had become almost worthless, destroying savings and trust in the government",
+        "The German mark had become extremely strong compared to other currencies",
+        "Prices were falling rapidly, making goods cheaper for ordinary people",
+        "The government had successfully stabilised the economy"
       ],
-      "answer": "It gave seats to many small parties, making it hard to form stable majority governments and leading to frequent coalition collapses",
-      "why": "Proportional representation reflected votes fairly but fragmented parliament into many small parties, making stable coalitions difficult and governments short-lived — this instability is what weakened trust in Weimar democracy, not vote-rigging or banning parties.",
+      "answer": "The German mark had become almost worthless, destroying savings and trust in the government",
+      "why": "Hyperinflation meant prices rose so fast that money lost almost all value overnight. This wiped out savings for ordinary Germans and severely damaged trust in the Weimar government's ability to manage the economy.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which statement best explains the causal link between the Great Depression and rising support for the Nazi Party, rather than just noting they happened at the same time?",
+      "prompt": "Which statement best explains the causal link between the Great Depression and Hitler's rise, rather than just noting the two happened around the same time?",
       "options": [
-        "Mass unemployment discredited the Weimar government's ability to govern, pushing desperate voters toward the Nazis' promise of strong, decisive leadership and jobs",
-        "The Great Depression happened, and separately, the Nazis became popular for unrelated reasons",
-        "The Great Depression directly caused Hitler to become Chancellor with no role for voters at all",
-        "The Great Depression only affected Britain and the USA, so it had no real link to Germany's politics"
+        "Mass unemployment made Nazi promises of jobs and strong leadership far more appealing than the Weimar government's weak, divided response",
+        "The Great Depression happened after Hitler already came to power",
+        "The Great Depression only affected farmers, who had no political influence",
+        "Hitler caused the Great Depression through his economic policies"
       ],
-      "answer": "Mass unemployment discredited the Weimar government's ability to govern, pushing desperate voters toward the Nazis' promise of strong, decisive leadership and jobs",
-      "why": "A genuine causal explanation connects the mechanism (unemployment → loss of faith in Weimar → attraction to Nazi promises), rather than just describing two events occurring around the same time, which is a common weak-answer trap.",
+      "answer": "Mass unemployment made Nazi promises of jobs and strong leadership far more appealing than the Weimar government's weak, divided response",
+      "why": "This shows the actual mechanism: economic desperation plus a fragmented government made the Nazis' simple, forceful solutions attractive — not just coincidence of timing.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Maths",
-      "prompt": "You've now shown calm, accurate triangle area work again on new numbers. Explain: how do you know the difference between a moment where you're rushing versus a moment where you're genuinely working through the steps calmly — what does that feel like or look like in your own process?"
+      "prompt": "You've now shown calm, accurate triangle area work again on fresh numbers. Explain: what does it feel like in the moment right before you write down an answer — how can you tell if you've actually paused to halve base × height, or if you've just rushed past that step without noticing?"
     }
   ]
 }
