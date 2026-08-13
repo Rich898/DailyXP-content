@@ -314,12 +314,21 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
         lines.append(f"DIRECTIVE: light on {light_subject} (student just sat its assessment) — keep it to the single slot shown, calm difficulty.")
     if "reversed" in (directive or ""):
         lines.append(
-            "REVERSED (this chapter's Wednesday mutator — SEASONS.md): EVERY SPEED SLOT is reversed; steady and teach stay normal.\n"
+            "REVERSED (this chapter's Wednesday mutator — SEASONS.md): every FACT-BASED speed slot is reversed; steady and teach stay normal.\n"
+            "- EXEMPT from reversal: any speed slot whose topic is a CALCULATION (equations, angles, area/volume, percentages —\n"
+            "  anything solved with arithmetic). Those slots stay STANDARD multiple-choice recall. Reason: candidate questions for a\n"
+            "  numeric answer routinely collide (several equations solving to the same x), which fails review and holds the set.\n"
+            "  Reversal trains fact discrimination; calculations don't discriminate, they compute.\n"
             "- Prompt template, exactly: The answer is: \"<fact>\". Which question is this the answer to?\n"
             "- <fact> is a real, checkable fact from that slot's topic (respect the guidance) — short, concrete (a date, term, value, name).\n"
             "- Options: four candidate QUESTIONS from the student's actual study neighbourhood, all phrased as questions.\n"
             "  Exactly ONE is genuinely answered by the stated fact. The other three must be real-sounding questions whose\n"
             "  true answers are clearly DIFFERENT facts — near neighbours that get mixed up under pressure, never absurd fillers.\n"
+            "- NUMERIC TOPICS (equations, angles, percentages, any calculation): SOLVE every candidate question yourself BEFORE\n"
+            "  output. Each distractor question's true answer must be a DIFFERENT number from the stated fact AND from each other —\n"
+            "  two candidates computing to the same value is this format's most common failure and gets the whole set rejected\n"
+            "  (e.g. never offer both 'the co-interior partner of 70°' and 'the corresponding partner of 110°' when the stated\n"
+            "  fact is 110° — both are answered by it). If a distractor collides, change its NUMBERS, not its topic.\n"
             "- answer = the correct question, verbatim from options.\n"
             "- why = confirm the pair in one line AND state the true answer of the most tempting distractor question, so the near-miss is disarmed.")
     if shape_key == "boss":

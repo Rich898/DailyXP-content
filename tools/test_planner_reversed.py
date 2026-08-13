@@ -52,7 +52,8 @@ rq = plan.get("requested_shape", plan["shape"])
 check("directive maps to blitz 10/2/1", (rq["speed"], rq["steady"], rq["teach"]) == (10, 2, 1))
 ci = plan["composer_instructions"]
 check("REVERSED block present", "REVERSED" in ci)
-check("declares every speed slot reversed", "EVERY SPEED SLOT" in ci)
+check("declares fact-based speed slots reversed", "FACT-BASED speed slot" in ci)
+check("exempts calculation slots (12 Aug HOLD root cause)", "EXEMPT from reversal" in ci and "CALCULATION" in ci)
 check("carries the prompt template", "Which question is this the answer to?" in ci)
 check("steady/teach stay normal", "steady and teach stay normal" in ci)
 
