@@ -1,173 +1,128 @@
 {
   "student": "y9",
-  "date": "2026-08-12",
-  "day": "WED",
-  "tag": "R3.3 · REVERSED BLITZ",
-  "title": "DailyXP · WED 2026-08-12",
+  "date": "2026-08-13",
+  "day": "THU",
+  "tag": "R3.4",
+  "title": "DailyXP · THU 2026-08-13",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "The answer is: \"282.6 cm²\". Which question is this the answer to?",
+      "prompt": "A closed cylinder has radius 6 cm and height 9 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "A closed cylinder has radius 3 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
-        "A closed cylinder has radius 3 cm and height 10 cm. What is its curved surface area only? (use π ≈ 3.14, round to 1 decimal place)",
-        "A closed cylinder has radius 6 cm and height 10 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
-        "A cuboid has length 3 cm, width 3 cm, and height 10 cm. What is its total surface area?"
+        "565.2 cm²",
+        "339.1 cm²",
+        "452.2 cm²",
+        "282.6 cm²"
       ],
-      "answer": "A closed cylinder has radius 3 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
-      "why": "2πr² + 2πrh with r=3, h=12 gives 2(3.14)(9) + 2(3.14)(3)(12) = 56.52 + 226.08 = 282.6 cm². The tempting curved-surface-only distractor would give just 188.4 cm², since it drops the two circular ends.",
+      "answer": "565.2 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(36) + 2(3.14)(6)(9) = 226.1 + 339.1 = 565.2 cm². A common error is forgetting the two circular ends (giving 339.1 cm², just the curved surface) or only counting one end.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The answer is: \"1919\". Which question is this the answer to?",
+      "prompt": "The Weimar Republic's period of relative recovery in the mid-1920s (1924-1929) was helped by American loans under which plan?",
       "options": [
-        "In what year was the Weimar Republic's constitution established?",
-        "In what year did Germany suffer hyperinflation?",
-        "In what year did the Great Depression begin?",
-        "In what year did Hitler become chancellor?"
+        "The Dawes Plan",
+        "The Marshall Plan",
+        "The Schlieffen Plan",
+        "The Treaty of Locarno"
       ],
-      "answer": "In what year was the Weimar Republic's constitution established?",
-      "why": "The Weimar Republic's constitution was adopted in 1919, right after Germany's defeat in WWI. The tempting distractor about hyperinflation refers to 1923, a separate crisis four years later.",
+      "answer": "The Dawes Plan",
+      "why": "The Dawes Plan (1924) reorganised German reparations payments and brought in US loans, helping stabilise the economy. Students often confuse this with the Marshall Plan, which was US aid after WWII, decades later.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The answer is: \"Around 6 million\". Which question is this the answer to?",
+      "prompt": "Which best describes how the Great Depression specifically helped the Nazis gain support, rather than just making Germans generally unhappy?",
       "options": [
-        "Roughly how many Germans were unemployed by 1932 during the Great Depression?",
-        "Roughly how many marks did a loaf of bread cost during the 1923 hyperinflation?",
-        "Roughly how many seats did the Nazi Party hold in the Reichstag by 1932?",
-        "Roughly how many years did the Weimar Republic last in total?"
+        "Mass unemployment made the Nazis' promises of jobs and strong leadership seem like a real solution compared to a Weimar government that looked unable to cope",
+        "The Depression made every political party equally popular because voters just wanted change",
+        "The Depression only affected farmers, and the Nazis were a farming-focused party",
+        "The Depression caused Germany to lose WWI, which the Nazis blamed on Weimar politicians"
       ],
-      "answer": "Roughly how many Germans were unemployed by 1932 during the Great Depression?",
-      "why": "By 1932, unemployment had climbed to around 6 million, fuelling desperation that the Nazis exploited. The hyperinflation distractor confuses this with the 1923 currency crisis, a different economic disaster with different numbers (prices in the billions/trillions of marks).",
+      "answer": "Mass unemployment made the Nazis' promises of jobs and strong leadership seem like a real solution compared to a Weimar government that looked unable to cope",
+      "why": "The key reasoning link is that the Depression exposed Weimar's weakness and made the Nazis' specific promises attractive — it's not enough to say 'bad economy, so people got angry'; you must explain why the anger flowed to the Nazis specifically.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "The answer is: \"Populate or Perish\". Which question is this the answer to?",
+      "prompt": "Australia's 'Populate or Perish' policy after WWII combined a push for population growth with active recruitment of migrants. Why did the government treat this as urgent rather than just helpful?",
       "options": [
-        "What was the name of the post-WWII Australian government slogan promoting mass migration?",
-        "What was the name of the scheme offering assisted passage to British migrants?",
-        "What was the term for people moving from farms to cities for work?",
-        "What was the name of Australia's policy restricting non-European migration?"
+        "Because leaders feared Australia was under-populated and vulnerable to invasion, while also needing workers for its growing industries",
+        "Because Australia had no workers at all before WWII and needed migrants purely to survive",
+        "Because migrants were only needed to replace soldiers who had died, with no economic reasoning involved",
+        "Because the government wanted to reduce the population living in cities by sending migrants to rural areas only"
       ],
-      "answer": "What was the name of the post-WWII Australian government slogan promoting mass migration?",
-      "why": "\"Populate or Perish\" was the slogan capturing Australia's post-WWII belief that it needed a much bigger population for defence and economic growth. The assisted passage scheme is a related but separate policy detail, not the slogan itself.",
+      "answer": "Because leaders feared Australia was under-populated and vulnerable to invasion, while also needing workers for its growing industries",
+      "why": "The urgency came from combined security fears (a small population seen as vulnerable, especially after WWII threats from the Pacific) and economic need (labour for expanding factories) — both push and pull reasoning together, not just one simple cause.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "The answer is: \"Strengths, Weaknesses, Opportunities, Threats\". Which question is this the answer to?",
+      "prompt": "A business plan for a new bakery has separate sections for Market Analysis and SWOT Analysis. Which piece of information belongs in the SWOT section, not the Market Analysis section?",
       "options": [
-        "What does the acronym SWOT stand for in a business plan?",
-        "What does a market analysis section examine in a business plan?",
-        "What section of a business plan summarises the whole plan on one page?",
-        "What information belongs in the competitor pricing section of a plan?"
+        "\"Our biggest weakness is that we have no experience running a bakery before\"",
+        "\"Local competitors charge $5 for a loaf of bread\"",
+        "\"Weekly foot traffic on this street is high\"",
+        "\"The suburb's population is growing by 3% each year\""
       ],
-      "answer": "What does the acronym SWOT stand for in a business plan?",
-      "why": "SWOT stands for Strengths, Weaknesses, Opportunities, Threats — an internal/external analysis tool. The market analysis distractor is tempting because SWOT often gets confused with it, but market analysis is about customers, competitors and demand, not this acronym.",
+      "answer": "\"Our biggest weakness is that we have no experience running a bakery before\"",
+      "why": "SWOT looks inward and outward at Strengths, Weaknesses, Opportunities and Threats — including internal weaknesses like lack of experience. Market analysis instead gathers external facts about competitors, customers, and demand, which the other three options describe.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "The answer is: \"Antibodies\". Which question is this the answer to?",
+      "prompt": "Antibodies are produced by lymphocytes to fight infection. Which of these best describes how antibodies actually work?",
       "options": [
-        "What do lymphocytes produce to help fight a specific pathogen?",
-        "What is the process of phagocytes engulfing pathogens called?",
-        "What type of blood cell carries oxygen around the body?",
-        "What is the general term for a disease-causing organism?"
+        "They lock onto specific antigens on pathogens, marking or neutralising them so they can be destroyed",
+        "They physically engulf and digest the pathogen whole",
+        "They release chemicals that raise body temperature to kill the pathogen directly",
+        "They replace damaged white blood cells in the bloodstream"
       ],
-      "answer": "What do lymphocytes produce to help fight a specific pathogen?",
-      "why": "Lymphocytes produce antibodies that target specific pathogens. The phagocytosis distractor is a different immune process — engulfing and digesting pathogens directly, not producing antibodies.",
+      "answer": "They lock onto specific antigens on pathogens, marking or neutralising them so they can be destroyed",
+      "why": "Antibodies are proteins that bind specifically to antigens on pathogens, tagging them for destruction or blocking them directly — they don't engulf pathogens themselves. Engulfing and digesting is what phagocytes do, a common mix-up between the two immune cell types.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "The answer is: \"People moving from rural areas to cities for work\". Which question is this the answer to?",
+      "prompt": "A city's population grows because people move from the countryside to work in factories, while a separate group of people move from Vietnam to settle permanently in that same city. Which statement correctly distinguishes these two processes?",
       "options": [
-        "What does urbanisation mean?",
-        "What does migration mean?",
-        "What is a push factor in migration?",
-        "What is a pull factor in migration?"
+        "The first is urbanisation (movement within a country to cities); the second is migration (movement between countries)",
+        "Both are examples of urbanisation, since both involve people moving to a city",
+        "Both are examples of migration, since both involve people relocating",
+        "The first is migration and the second is urbanisation, since urbanisation only applies to overseas movement"
       ],
-      "answer": "What does urbanisation mean?",
-      "why": "Urbanisation is the process of people moving from rural areas into cities, usually for work. Migration is the broader term for moving between any places (including countries), so it's the near-miss here.",
-      "fresh": true
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "The answer is: \"The Eatwell Plate / Australian Guide to Healthy Eating\". Which question is this the answer to?",
-      "options": [
-        "What is the name of the visual guide showing proportions of food groups for a healthy diet?",
-        "What are the nutrients the body needs in large amounts called?",
-        "What is the term for advertising techniques that target children with unhealthy food?",
-        "What is the recommended daily water intake for a teenager?"
-      ],
-      "answer": "What is the name of the visual guide showing proportions of food groups for a healthy diet?",
-      "why": "The Australian Guide to Healthy Eating (the plate model) shows the recommended proportions of each food group. The macronutrients question is a near neighbour but answers a different fact about nutrient categories, not the visual guide's name.",
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "The answer is: \"Carbohydrates, proteins, fats\". Which question is this the answer to?",
-      "options": [
-        "What are the three macronutrients the body needs in large amounts?",
-        "What are vitamins and minerals classified as?",
-        "What nutrient is most important for muscle repair?",
-        "What are examples of micronutrients?"
-      ],
-      "answer": "What are the three macronutrients the body needs in large amounts?",
-      "why": "Carbohydrates, proteins and fats are the macronutrients needed in large quantities for energy and growth. Vitamins and minerals are micronutrients, needed only in small amounts — a common mix-up.",
-      "fresh": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "The answer is: \"Using bright colours, cartoon characters and toys to target children\". Which question is this the answer to?",
-      "options": [
-        "How does food marketing commonly try to influence children's food choices?",
-        "What does a nutrition information panel display on packaging?",
-        "What is a health star rating used for?",
-        "What does 'low fat' mean on a food label?"
-      ],
-      "answer": "How does food marketing commonly try to influence children's food choices?",
-      "why": "Marketing often uses bright colours, cartoon mascots and toy giveaways to appeal directly to children, encouraging pester power. The nutrition panel distractor is about factual labelling, not persuasive marketing tactics.",
+      "answer": "The first is urbanisation (movement within a country to cities); the second is migration (movement between countries)",
+      "why": "Urbanisation specifically describes internal movement from rural areas to cities within the same country, while migration refers to movement across national borders. Mixing these up is a common error since both involve people 'moving to a city'.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 13 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
       "options": [
-        "40 cm²",
-        "80 cm²",
-        "21 cm²",
-        "42 cm²"
+        "45.5 cm²",
+        "91 cm²",
+        "20 cm²",
+        "40 cm²"
       ],
-      "answer": "40 cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 5 = 40 cm². The 80 cm² answer skips the ½, which is the classic rushing mistake — multiplying base and height straight away without halving.",
+      "answer": "45.5 cm²",
+      "why": "Area = ½ × base × height = ½ × 13 × 7 = 45.5 cm². Rushing and skipping the halving step gives 91 cm² (just base × height) — the medicine is saying '½ ×' out loud before multiplying, not multiplying faster.",
       "fresh": true,
       "repair": true
     },
@@ -175,22 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 5 cm and height 8 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 2 cm and height 15 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "408.2 cm²",
-        "251.2 cm²",
-        "157.0 cm²",
-        "204.1 cm²"
+        "213.5 cm²",
+        "188.4 cm²",
+        "25.1 cm²",
+        "150.7 cm²"
       ],
-      "answer": "408.2 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(25) + 2(3.14)(5)(8) = 157.0 + 251.2 = 408.2 cm². The 251.2 cm² distractor is just the curved surface area, forgetting the two circular ends.",
+      "answer": "213.5 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(4) + 2(3.14)(2)(15) = 25.1 + 188.4 = 213.5 cm². A common mistake is only calculating the curved surface (188.4 cm²) and forgetting the two circular ends.",
+      "fresh": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "The Weimar Republic used a system of proportional representation in its parliament. Why did this system contribute to political instability?",
+      "options": [
+        "It gave seats to many small parties, making it hard to form stable majority governments and leading to frequent coalition collapses",
+        "It gave all seats to one party automatically, removing any real choice for voters",
+        "It banned smaller parties from standing in elections at all",
+        "It meant only the president could vote, cutting ordinary citizens out of the process"
+      ],
+      "answer": "It gave seats to many small parties, making it hard to form stable majority governments and leading to frequent coalition collapses",
+      "why": "Proportional representation reflected votes fairly but fragmented parliament into many small parties, making stable coalitions difficult and governments short-lived — this instability is what weakened trust in Weimar democracy, not vote-rigging or banning parties.",
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Which statement best explains the causal link between the Great Depression and rising support for the Nazi Party, rather than just noting they happened at the same time?",
+      "options": [
+        "Mass unemployment discredited the Weimar government's ability to govern, pushing desperate voters toward the Nazis' promise of strong, decisive leadership and jobs",
+        "The Great Depression happened, and separately, the Nazis became popular for unrelated reasons",
+        "The Great Depression directly caused Hitler to become Chancellor with no role for voters at all",
+        "The Great Depression only affected Britain and the USA, so it had no real link to Germany's politics"
+      ],
+      "answer": "Mass unemployment discredited the Weimar government's ability to govern, pushing desperate voters toward the Nazis' promise of strong, decisive leadership and jobs",
+      "why": "A genuine causal explanation connects the mechanism (unemployment → loss of faith in Weimar → attraction to Nazi promises), rather than just describing two events occurring around the same time, which is a common weak-answer trap.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Maths",
-      "prompt": "You've now shown calm, accurate triangle area work again on fresh numbers. Explain: if you found yourself wanting to rush and just multiply base × height without halving, what would you say to yourself to catch that mistake before writing an answer down?"
+      "prompt": "You've now shown calm, accurate triangle area work again on new numbers. Explain: how do you know the difference between a moment where you're rushing versus a moment where you're genuinely working through the steps calmly — what does that feel like or look like in your own process?"
     }
   ]
 }
