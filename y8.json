@@ -1,128 +1,53 @@
 {
   "student": "y8",
-  "date": "2026-08-13",
-  "day": "THU",
-  "tag": "H3.4",
-  "title": "DailyXP · THU 2026-08-13",
+  "date": "2026-08-14",
+  "day": "FRI",
+  "tag": "H3.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-08-14",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 98°. What is the co-interior (allied) angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 72°. What is the alternate angle on the other parallel line?",
       "options": [
-        "82°",
-        "98°",
-        "8°",
-        "180°"
+        "72°",
+        "108°",
+        "18°",
+        "144°"
       ],
-      "answer": "82°",
-      "why": "Co-interior (allied) angles sum to 180°, so 180° − 98° = 82°. A common mistake is thinking they're equal like alternate angles, but co-interior angles are supplementary, not equal.",
+      "answer": "72°",
+      "why": "Alternate angles form a Z-shape and are always equal, so the answer is 72°. The 108° option comes from confusing alternate angles with co-interior angles (which sum to 180°).",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has sides of length 7 cm, 7 cm, and 7 cm. What type of triangle is this?",
+      "prompt": "A quadrilateral has two pairs of parallel sides and four right angles, but its sides are not all equal length. What is the most specific name for this shape?",
       "options": [
-        "Equilateral",
-        "Isosceles",
-        "Scalene",
-        "Right-angled"
+        "Rectangle",
+        "Square",
+        "Rhombus",
+        "Parallelogram"
       ],
-      "answer": "Equilateral",
-      "why": "All three sides equal means equilateral, which also gives three equal 60° angles. Isosceles only requires two equal sides, so it's a common mix-up to call an equilateral triangle isosceles instead of naming it most specifically.",
-      "fresh": true
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Solve for x: 5(x − 1) = 20. What is x?",
-      "options": [
-        "5",
-        "3",
-        "4",
-        "19"
-      ],
-      "answer": "5",
-      "why": "Divide both sides by 5 first to get x − 1 = 4, then add 1 to both sides to get x = 5. A common slip is subtracting 1 before dividing, treating the −1 as if it weren't inside the bracket.",
-      "fresh": true
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "In human reproduction, what is the main role of the sperm cell?",
-      "options": [
-        "To carry the male's genetic material to fertilise the egg",
-        "To provide all the nutrients for the growing embryo",
-        "To produce the placenta after fertilisation",
-        "To control the release of eggs from the ovary"
-      ],
-      "answer": "To carry the male's genetic material to fertilise the egg",
-      "why": "The sperm's job is to deliver genetic material to the egg during fertilisation. Nutrients for the embryo come from the mother via the placenta, not from the sperm — a common confusion of roles.",
-      "fresh": true
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Blitz ⚡ Which year did the First Crusade set out to try to capture Jerusalem?",
-      "options": [
-        "1096",
-        "1215",
-        "1453",
-        "1066"
-      ],
-      "answer": "1096",
-      "why": "The First Crusade began in 1096. Students sometimes confuse this with 1215 (Magna Carta) or 1066 (Norman Conquest), which are different key medieval dates entirely.",
-      "fresh": true
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A historian writes: 'Years of unfair taxation built resentment among peasants, and this resentment finally exploded into revolt after a new tax was announced.' Which part is the long-term cause?",
-      "options": [
-        "Years of unfair taxation building resentment",
-        "The new tax being announced",
-        "The revolt itself",
-        "The historian's opinion"
-      ],
-      "answer": "Years of unfair taxation building resentment",
-      "why": "Long-term causes build up over time (like years of unfair taxation), while the trigger (the new tax) is the short-term spark. Students often mistake the trigger for the whole cause, missing the deeper build-up.",
-      "fresh": true
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Magna Carta 1215 established which key principle about the monarch's power?",
-      "options": [
-        "The king was not above the law and had to follow it too",
-        "The king could tax the barons without any limits",
-        "The king had unlimited power over the church",
-        "The king could imprison anyone without reason"
-      ],
-      "answer": "The king was not above the law and had to follow it too",
-      "why": "Magna Carta's key legacy is that even the king was subject to the law, limiting arbitrary royal power. Some assume it gave the king MORE power, but it was actually a check against him.",
+      "answer": "Rectangle",
+      "why": "A rectangle has two pairs of parallel sides and four right angles but doesn't need equal sides — that's what makes it a rectangle rather than a square. Calling it a square is the common mistake of assuming right angles always mean equal sides.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student investigates whether the amount of caffeine (in mg) affects reaction time (measured in milliseconds), keeping the time of day and the person's sleep the same for each test. Which is the dependent variable?",
+      "prompt": "A student investigates whether the brand of battery affects how long a toy car runs for, keeping the toy car and the surface it runs on the same each time. Which variable is the controlled variable?",
       "options": [
-        "Reaction time",
-        "Amount of caffeine",
-        "Time of day",
-        "Amount of sleep"
+        "The surface the toy car runs on",
+        "The brand of battery",
+        "How long the toy car runs for",
+        "The toy car itself, because it changes wear over time"
       ],
-      "answer": "Reaction time",
-      "why": "The dependent variable is what you MEASURE as a result — here, reaction time. The amount of caffeine is what you deliberately change (independent variable), and time of day and sleep are kept the same (controlled variables). Mixing up 'what changes' with 'what you measure' is the classic confident-wrong trap.",
+      "answer": "The surface the toy car runs on",
+      "why": "The controlled variable is what you deliberately keep the same so it's a fair test — here, the surface (and the toy car) are kept constant. The brand of battery is the independent variable (what's changed), and run time is the dependent variable (what's measured); confusing 'kept the same' with 'what's measured' is the trap.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +55,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 47°. What is the alternate angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 130°. What is the co-interior (allied) angle on the other parallel line?",
       "options": [
-        "47°",
-        "133°",
-        "90°",
-        "23.5°"
+        "50°",
+        "130°",
+        "80°",
+        "40°"
       ],
-      "answer": "47°",
-      "why": "Alternate angles are equal when formed by a transversal crossing parallel lines — they form a 'Z' shape. A common error is adding to 180° as if they were co-interior angles instead.",
+      "answer": "50°",
+      "why": "Co-interior (allied) angles sit between the parallel lines on the same side and always add up to 180°, so 180° − 130° = 50°. Picking 130° is the classic slip of treating co-interior angles as equal, like alternate or corresponding angles.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A quadrilateral has one pair of parallel sides that are not equal in length, and the other two sides are equal (not parallel). What is the most specific name for this shape?",
+      "prompt": "Which one of these statements about triangles is FALSE?",
       "options": [
-        "Isosceles trapezium",
-        "Parallelogram",
-        "Kite",
-        "Rhombus"
+        "An equilateral triangle has three equal sides and three 60° angles.",
+        "An isosceles triangle has exactly two equal sides.",
+        "A right-angled triangle always has two equal sides.",
+        "A scalene triangle has no equal sides and no equal angles."
       ],
-      "answer": "Isosceles trapezium",
-      "why": "An isosceles trapezium has exactly one pair of parallel sides and the non-parallel sides are equal in length. Calling it a parallelogram is wrong because a parallelogram needs TWO pairs of parallel sides.",
+      "answer": "A right-angled triangle always has two equal sides.",
+      "why": "A right-angled triangle only needs one 90° angle — it can be scalene, isosceles, but never equilateral. The false statement wrongly assumes 'right-angled' automatically means 'isosceles', mixing up two separate ways of classifying triangles.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "During sexual reproduction, offspring inherit genetic material from how many parents, and how does this affect genetic variation compared to asexual reproduction?",
+      "subject": "Maths",
+      "prompt": "Solve for x: 3(x + 4) = 21. A student says 'I'll subtract 4 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
       "options": [
-        "Two parents, creating more genetic variation than asexual reproduction",
-        "Two parents, creating identical clones like asexual reproduction",
-        "One parent, creating more genetic variation than asexual reproduction",
-        "One parent, creating identical clones"
+        "x = 3",
+        "x = 7",
+        "x = 2",
+        "x = 5"
       ],
-      "answer": "Two parents, creating more genetic variation than asexual reproduction",
-      "why": "Sexual reproduction combines genetic material from two parents, producing offspring that are genetically different from both parents and each other. Asexual reproduction uses only one parent and produces genetically identical clones — this contrast is the key exam point.",
+      "answer": "x = 3",
+      "why": "You must expand or divide first, because the 4 is multiplied by 3, not just added — dividing both sides by 3 first gives x + 4 = 7, so x = 3. Subtracting 4 straight away ignores the bracket's multiplier and breaks the balance rule.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your classmate says: 'In an experiment testing how the type of fertiliser affects crop yield, the number of plants tested is the independent variable, because that's what the scientist decides to use.' Using a different example of your own (not fertiliser, sleep, sunlight, water temperature, or soil type), explain what actually makes a variable 'independent', 'dependent', or 'controlled', and correct your classmate's misunderstanding."
+      "prompt": "Your friend says: 'In an experiment testing whether the amount of exercise (minutes per day) affects heart rate, the type of exercise (running vs cycling) must be the dependent variable, because it's something that could also change.' Using an example of your own (not one already used this week), explain what actually makes a variable independent, dependent, or controlled, and correct your friend's mistake."
     }
   ]
 }
