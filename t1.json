@@ -1,180 +1,103 @@
 {
   "student": "t1",
-  "date": "2026-08-13",
-  "day": "THU",
-  "tag": "T3.4",
-  "title": "DailyXP · THU 2026-08-13",
+  "date": "2026-08-14",
+  "day": "FRI",
+  "tag": "T3.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-08-14",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A student says the fall of Rome in 476 CE happened suddenly and out of nowhere, with no warning signs beforehand. What's wrong with this view?",
+      "prompt": "What year is generally given as the fall of the Western Roman Empire?",
       "options": [
-        "It ignores centuries of gradual decline from economic trouble, invasions, and political instability before 476 CE",
-        "Rome actually fell in 1096 CE, not 476 CE",
-        "Rome never fell, it just changed its name to the Byzantine Empire",
-        "The fall was caused entirely by a single volcanic eruption"
+        "410 CE",
+        "476 CE",
+        "1066 CE",
+        "1453 CE"
       ],
-      "answer": "It ignores centuries of gradual decline from economic trouble, invasions, and political instability before 476 CE",
-      "why": "476 CE marks a symbolic endpoint, but the Western Roman Empire had been weakening for a long time due to economic strain, repeated invasions, and internal political chaos. The 'sudden collapse' idea is a common oversimplification.",
+      "answer": "476 CE",
+      "why": "476 CE is the date historians usually give for the fall of the Western Roman Empire, when the last emperor was deposed. The other dates mark different events (the sack of Rome, the Norman Conquest, and the fall of Constantinople).",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A student thinks lords could do whatever they wanted with no obligations to anyone. What did a lord actually owe to the king or a higher lord in the feudal system?",
+      "prompt": "In the feudal pyramid, who sits directly below the king?",
       "options": [
-        "Military service and loyalty in exchange for holding their land",
-        "Nothing — lords had no obligations to anyone above them",
-        "Only money, never military support",
-        "A yearly religious pilgrimage to Rome"
+        "Nobles/lords",
+        "Peasants",
+        "Knights",
+        "Merchants"
       ],
-      "answer": "Military service and loyalty in exchange for holding their land",
-      "why": "Feudalism was a two-way chain of obligation — even powerful lords held their land from someone above them (usually the king) and owed loyalty and military service in return. No one was truly obligation-free.",
-      "fresh": true
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "A student claims Romeo and Juliet was written for a modern theatre audience with electric lighting and microphones. What does this overlook about how the play was originally performed?",
-      "options": [
-        "It was performed in open-air Elizabethan theatres relying on daylight and the actors' own voices",
-        "It was originally performed as a silent film",
-        "It was first performed on television",
-        "It was written to be read privately and never performed on stage"
-      ],
-      "answer": "It was performed in open-air Elizabethan theatres relying on daylight and the actors' own voices",
-      "why": "Elizabethan theatres like the Globe had no electric lighting or amplification — plays were performed in daylight, outdoors, with actors projecting their voices to reach the crowd.",
-      "fresh": true
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "A student says Shakespeare's use of the balcony scene is only about romance and has no deeper technique behind it. What technique-based feature makes this scene more than 'just romance'?",
-      "options": [
-        "Shakespeare uses light/dark imagery and dramatic irony to build tension about the lovers' secrecy and danger",
-        "The scene is written entirely in prose to show it's unimportant",
-        "The scene has no dialogue, only stage directions",
-        "It was added by a later editor and isn't Shakespeare's original work"
-      ],
-      "answer": "Shakespeare uses light/dark imagery and dramatic irony to build tension about the lovers' secrecy and danger",
-      "why": "The balcony scene layers in imagery (light vs dark) and dramatic irony (the audience knows the danger the lovers don't fully grasp) — techniques that deepen the romance into something tense and foreboding.",
-      "fresh": true
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "A student thinks the 'love vs hate' theme only shows up when characters are being affectionate. Which of these best shows the theme working through conflict, not affection?",
-      "options": [
-        "The feud between the Capulets and Montagues fuels violence that ultimately destroys the young lovers",
-        "Romeo and Juliet's wedding, which shows only their love",
-        "The Nurse's jokes with Juliet, which show only comic relief",
-        "The Prince's opening speech, which is purely about law and order"
-      ],
-      "answer": "The feud between the Capulets and Montagues fuels violence that ultimately destroys the young lovers",
-      "why": "Love vs hate isn't just about romantic scenes — the ongoing family hatred directly drives the tragedy, showing how love and hate are intertwined throughout the whole plot, not just in loving moments.",
-      "fresh": true
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "In an experiment testing how the amount of water given to plants affects their growth height, a student mixes up which variable is dependent. What is the dependent variable here?",
-      "options": [
-        "The height of the plants, since it's the outcome being measured",
-        "The amount of water given, since it's what's measured",
-        "The type of soil used, since it changes the results",
-        "The number of plants tested, since it varies"
-      ],
-      "answer": "The height of the plants, since it's the outcome being measured",
-      "why": "The dependent variable is what you measure as the outcome — here, plant height. The amount of water is the independent variable, the thing being deliberately changed.",
-      "fresh": true
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "A student claims that only plants can reproduce asexually, and all animals must reproduce sexually. Which organism proves this wrong?",
-      "options": [
-        "Starfish, which can regenerate and reproduce asexually from a fragment",
-        "Humans, who always reproduce sexually",
-        "Dogs, who always reproduce sexually",
-        "Elephants, who always reproduce sexually"
-      ],
-      "answer": "Starfish, which can regenerate and reproduce asexually from a fragment",
-      "why": "Many animals, not just plants, can reproduce asexually — starfish are a classic example, capable of regenerating a whole new individual from just a fragment of their body.",
+      "answer": "Nobles/lords",
+      "why": "Nobles and lords held land directly from the king in exchange for loyalty and military support, placing them just below him. Knights and peasants sit lower in the pyramid, and merchants weren't part of the formal feudal hierarchy.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "A student says the Crusades were fought only between Christians and Muslims, with no other groups involved. What does this overlook about who was actually affected or involved?",
+      "prompt": "Which one is FALSE about the Crusades?",
       "options": [
-        "Jewish communities and Eastern Christians (Byzantines) were also significantly affected and sometimes targeted",
-        "The Crusades only ever involved European kings fighting each other",
-        "The Crusades were entirely a naval conflict with no land battles",
-        "No civilians were ever affected by the Crusades"
+        "The First Crusade's stated goal was to reclaim Jerusalem for Christendom",
+        "Italian port cities like Venice and Genoa profited from transporting and supplying crusader armies",
+        "The Crusades permanently secured Christian control of the Holy Land",
+        "The Crusades increased contact and trade between medieval Europe and the Middle East"
       ],
-      "answer": "Jewish communities and Eastern Christians (Byzantines) were also significantly affected and sometimes targeted",
-      "why": "The Crusades' impact went beyond a simple Christian-vs-Muslim frame — Jewish communities faced violence during Crusader campaigns, and the Byzantine (Eastern Christian) Empire was also drawn into and damaged by Crusader actions, notably during the Fourth Crusade.",
+      "answer": "The Crusades permanently secured Christian control of the Holy Land",
+      "why": "This is FALSE — the crusader states eventually fell and Jerusalem returned to Muslim control. The other three statements are true: the goal was reclaiming Jerusalem, Italian ports profited hugely from transport and supply, and the Crusades did increase long-term trade and cultural contact. The misconception is judging the Crusades only by whether territory was permanently held, rather than their lasting effects.",
       "fresh": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "A student says that once Rome fell, Europe had no functioning governments at all until the Renaissance. What actually filled the political gap in the early medieval period?",
+      "prompt": "True or False: After Rome fell, Western Europe had no organised government of any kind until the Renaissance.",
       "options": [
-        "Local kingdoms and the feudal system, where lords and kings held regional power",
-        "The Roman Senate continued ruling from Rome unchanged",
-        "The United Nations stepped in to govern Europe",
-        "Europe had no political structure of any kind for a thousand years"
+        "True",
+        "False"
       ],
-      "answer": "Local kingdoms and the feudal system, where lords and kings held regional power",
-      "why": "Rome's fall didn't create a total political vacuum — smaller kingdoms and the feudal system emerged, giving regional lords and kings structured (if fragmented) control over territory and people.",
+      "answer": "False",
+      "why": "False — feudalism filled the political gap, with kings, lords, and vassals creating a structured (if decentralised) system of land and loyalty. The Catholic Church also provided organisation and authority. The misconception is imagining a total power vacuum rather than a shift to a new, less centralised system.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "A student insists Shakespeare wrote Romeo and Juliet as an entirely original story with no earlier sources. What does this get wrong?",
+      "subject": "History",
+      "prompt": "A student says peasants (serfs) owned their own land and could leave whenever they wished. What's wrong with this claim?",
       "options": [
-        "Shakespeare based it on earlier existing stories and poems about doomed lovers, adapting rather than inventing the plot from scratch",
-        "Shakespeare invented every plot element with no outside influence",
-        "The story was first written by Shakespeare's daughter",
-        "The play was based on a real event Shakespeare witnessed personally"
+        "Peasants were tied to the lord's land and owed labour or produce in exchange for protection",
+        "Peasants actually ranked above knights in the feudal pyramid",
+        "Peasants owed military service instead of labour",
+        "Peasants were completely free and paid no dues to anyone"
       ],
-      "answer": "Shakespeare based it on earlier existing stories and poems about doomed lovers, adapting rather than inventing the plot from scratch",
-      "why": "Shakespeare drew on earlier sources, including Arthur Brooke's narrative poem, reshaping existing material into his own dramatic version rather than creating the story entirely from nothing.",
+      "answer": "Peasants were tied to the lord's land and owed labour or produce in exchange for protection",
+      "why": "Peasants/serfs were bound to their lord's land, working it and giving up produce or labour in return for protection — they could not simply leave. The misconception is imagining peasants had the same freedom and land ownership as lords or knights.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "English",
-      "prompt": "A student thinks foreshadowing in Romeo and Juliet is only found in the prologue and nowhere else in the play. Which moment later in the play also clearly foreshadows the tragic ending?",
+      "prompt": "Which one is FALSE about Romeo and Juliet's author and context?",
       "options": [
-        "Romeo's line before the Capulet party, sensing 'some consequence yet hanging in the stars'",
-        "The Nurse's comic story about Juliet as a baby",
-        "Mercutio's joke about Queen Mab's chariot being made of nutshells",
-        "The servants' brawl in the opening street scene"
+        "William Shakespeare wrote Romeo and Juliet",
+        "The play is set in Verona, Italy",
+        "Shakespeare invented the entire story with no earlier sources",
+        "Shakespeare wrote during the late 16th century"
       ],
-      "answer": "Romeo's line before the Capulet party, sensing 'some consequence yet hanging in the stars'",
-      "why": "Foreshadowing appears throughout the play, not just in the prologue — Romeo's own sense of dread before meeting Juliet hints at the tragic fate awaiting them, reinforcing the 'star-crossed' theme.",
+      "answer": "Shakespeare invented the entire story with no earlier sources",
+      "why": "This is FALSE — Shakespeare based Romeo and Juliet on earlier stories, including Arthur Brooke's poem and Italian tales. The other statements are true: he wrote it, it's set in Verona, and he worked in the late 1500s. The misconception is assuming Shakespeare's plots were always wholly original.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says the Crusades were a total failure because Jerusalem was eventually lost again. Explain to them, in your own reasoning, why historians still see the Crusades as historically significant despite this military failure — think beyond who controlled the city."
+      "prompt": "A classmate says the Crusades don't matter to study anymore because they happened so long ago and didn't permanently change who controlled Jerusalem. Explain to them why historians still consider the Crusades important, using specific long-term effects to support your reasoning."
     }
   ]
 }
