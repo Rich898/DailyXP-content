@@ -43,7 +43,7 @@ DEFAULT_MODEL = os.environ.get("DAILYXP_REVIEW_MODEL", "claude-opus-4-8")
 MAX_TOKENS = 8000
 REVIEW_EFFORT = os.environ.get("DAILYXP_REVIEW_EFFORT", "high")  # judgement task — reason hard
 
-CATEGORIES = ["multiple_answers", "factual_error", "off_syllabus", "trivial", "ambiguous"]
+CATEGORIES = ["multiple_answers", "factual_error", "off_syllabus", "trivial", "ambiguous", "length_tell"]
 
 SYSTEM = """You are the QUALITY GATE for a nightly spaced-repetition quiz used by two secondary-school boys.
 The questions were written by another model and have ALREADY passed a mechanical validator (schema is correct,
@@ -189,6 +189,33 @@ def normalise(raw_verdicts, cset):
             flags[sid] = {"severity": "block", "categories": cats or ["ambiguous"], "note": note}
         else:  # any non-clean, non-block verdict → warn
             warns[sid] = {"severity": "warn", "categories": cats, "note": note}
+
+    # --- deterministic answer-length gate (SEASONS.md LAW 1) ------------------
+    # The LLM cannot self-police the length tell, so it is enforced here in code,
+    # AFTER the model verdict and independent of it. A per-slot sole-longest
+    # violation is promoted to BLOCK (forces recompose); a whole-run distribution
+    # skew (correct answer piling on length-rank 1) blocks the set as well.
+    try:
+        import answer_length as _al
+        _a = _al.audit(cset.get("questions", []))
+        for sid in _a["slot_violations"]:
+            existing = flags.get(sid, {})
+            cats = sorted(set(existing.get("categories", []) + ["length_tell"]))
+            flags[sid] = {"severity": "block", "categories": cats,
+                          "note": _al.guidance_note(
+                              next(q for q in cset["questions"] if q.get("id") == sid))}
+            clean = [c for c in clean if c != sid]
+            warns.pop(sid, None)
+        _run_len_flag = None
+        if _a["run_distribution_violation"]:
+            _run_len_flag = (f"answer-length distribution: correct answer is the longest "
+                             f"in {_a['longest_count']}/{_a['mc_total']} slots "
+                             f"({int(_a['longest_share']*100)}%); target ~25%. "
+                             f"Recompose the flagged slots so the length-rank spreads.")
+    except Exception as _e:
+        _run_len_flag = f"answer-length gate error (non-blocking): {_e}"
+        _a = None
+
     return {
         "ok": len(flags) == 0,          # publishable when nothing is BLOCK (warns don't block)
         "blocking": sorted(flags),
@@ -196,6 +223,8 @@ def normalise(raw_verdicts, cset):
         "warns": warns,                 # advisory, per slot
         "clean": clean,
         "model": None,                  # filled by review_set
+        "length_audit": _a,             # full LAW-1 audit for logging/metric
+        "length_run_flag": _run_len_flag,
     }
 
 
@@ -207,6 +236,7 @@ def review_set(cset, curriculum=None, model=DEFAULT_MODEL, api_key=None, max_ret
         return None, "ANTHROPIC_API_KEY not set"
     if cset.get("status") == "placeholder" or not cset.get("questions"):
         return {"ok": True, "blocking": [], "flags": {}, "warns": {}, "clean": [], "model": None,
+                "length_audit": None, "length_run_flag": None,
                 "skipped": "placeholder/empty — nothing to review"}, None
 
     user = build_user(cset, curriculum)

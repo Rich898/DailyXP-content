@@ -16,6 +16,97 @@
 - **Battleground (Friday)** — the Friday constant, self-contained: the student's weekly shot at claiming the ground on topics they struggled with. Four claimable zones on their flagged weak topics; each zone is a question in the best format for that topic (spot-the-lie / true-false / multiple-choice / sum-as-MC — composer's choice, varied across the four; typed-number sums deferred to Shell v3.1). Land a zone -> claimed; miss -> contested, no penalty, truth shown. Territory bar fills; ends on "% claimed this week" with loud tiers (100% = the field is yours). NEVER win/lose — a struggling kid can't fail their own weak spots; progress is the number. Replaced the Boss/HP-drain framing (binary beat/lose felt hollow and punished strugglers). Varied formats are Friday-only for now.
 - **Boss Nights (future / not live)** — a win/lose event mode preserved in `modes/boss-battle/` (frozen shell + design doc `BOSS-NIGHTS.md`). Real fail state (you beat the boss or you don't; XP either way), built from ledger weaknesses. NEVER the Friday slot — losing on your worst subjects as the week's verdict discourages the kids it targets. Works only as a **campaign**: run as a seasonal Boss block where you win some / lose some, and the season record ("won 3 / lost 2 → new target next season") is the motivator. Unlocks richer badging/stats (win streaks, comebacks, nemesis subjects). Revive later for a season or beta phase; keep off Friday.
 
+## Quiz variety & answer-integrity law (ratified 17 Aug 2026)
+
+*Origin: the two boys' own feedback in beta — "same questions every day," "not
+enough variety," "topics always feel the same," "needs more types of quizzes and
+puzzles," "throwback Thursday where we retest what you did weeks prior," and the
+sharpest one — "it feels like AI because often the answer is the longer text."
+The last was measured and CONFIRMED: in the 17 Aug live sets the correct MC
+answer was the longest option 70% of the time (100% in English/Geography, 91% in
+History) against a 25% random baseline. A child could score ~70% by tapping the
+longest option WITHOUT READING — that partly invalidates the recall signal the
+ledger is built on. These are laws, not preferences; they exist so the failure is
+never silently reintroduced.*
+
+### LAW 1 — the answer-length tell is banned (P0, integrity)
+
+The correct option must NOT be identifiable by length. This is enforced in CODE,
+never left to the language layer (the LLM naturally writes precise = long correct
+answers and terse distractors; it cannot self-police this):
+
+1. **Composer constraint** (planner `_composer_instructions`): the correct answer
+   may not be the longest option; all four options sit in a similar length band;
+   distractors are made *specific and plausible*, not short throwaways.
+2. **Deterministic per-slot gate** (`review.py`): after composition, measure
+   option character lengths. A slot where the correct answer is the sole longest
+   by a meaningful margin is a BLOCKING flag → recompose with a targeted note.
+3. **Per-RUN distribution rule** (`review.py`, whole-set view): forcing "correct
+   is never longest" would just teach "never tap the longest" — a new tell. The
+   real target is a FLAT distribution: across a run's MC slots, the correct
+   answer's length-rank must spread across positions 1–4, not pile on rank 1.
+4. **Metric**: the validator/reviewer prints the run's longest-is-correct rate so
+   it is watched every day; target ≈ 25% (random), hard ceiling well below 70%.
+
+This law generalises: the correct answer must never be guessable from ANY
+surface feature — not length, not grammatical completeness, not "the only one
+with a qualifier," not option position. Length is the one we caught and measure;
+the principle covers the rest.
+
+### LAW 2 — variety is structural, driven by a FORMAT BANK
+
+"Same every day" is a structural fact when every slot is 4-option recall MC on the
+same handful of weak topics. Fix: the **daily format mix becomes a planner
+variable**, extending the existing SEASONS principle ("the event loadout is a
+chapter variable") down to the day. Novelty comes from ROTATION across a bank,
+not constant invention — content economics improve as the bank grows.
+
+**Format bank — all render as four tappable options, so ZERO shell/schema cost
+and ledger/grading untouched (they read ok/picked only):**
+- **Spot-the-lie** — four statements, one false; tap it. (Also breaks the length tell.)
+- **Spot-the-error** — a worked solution with one wrong step; tap the bad line. (Maths.)
+- **Odd-one-out** — four items, one doesn't belong; trains categorisation.
+- **Ordering-as-MC** — "which sequence is correct?" four candidate orders. (Chronology, method, steps.)
+- **Matching-as-MC** — "which pairing is right?"
+- **Reversed** — existing mechanic (answer stated, options are candidate questions); promoted from Wed-only into daily rotation. Fact-based slots only; numeric-distinctness rule stands.
+
+The planner draws a format lineup per day from the bank; the composer renders each
+in the format the plan declares. Mon/Tue stop being 11 identical taps. NEW formats
+that need typed input, dragging, or multi-select are NOT in this bank — they need
+Shell v3.1 (see LAW 4).
+
+### LAW 3 — Throwback Thursday is a permanent weekly event
+
+Thursday (previously a plain daily slot; Wed = mutator, Fri = Battleground) becomes
+**Throwback Thursday** — resurfacing topics last tested weeks ago and marked
+mastered. This is the spaced-repetition payoff made VISIBLE, and the direct answer
+to "retest what you did weeks prior" and "same topics every day." Held it → bonus
+XP ("still got it"). Decayed → straight back into live rotation (exactly what the
+ledger exists to catch). Framing: "Throwback Thursday — do you still have it?"
+NEVER a fail state; a decayed topic is a normal find, not a loss. Reaches back only
+as far as history allows (thin at first, deepens automatically as weeks accrue) —
+this is acceptable and is itself a reason to ship it early so history compounds.
+
+### LAW 4 — the runtime is NOT the target; variety is
+
+Measured 17 Aug: mean run 4.1 min (median 3.7), active 3.8 min. The teach-back is
+~40% of the run on a SINGLE question; the 11 MC together take less time than it.
+So "not using the full 5 minutes" is really "the MC body is thin and samey," not a
+duration problem. **The target metric is format variety + a flat answer-length
+distribution, NOT runtime.** Varied formats will drift the run toward ~4.5–5 min as
+a side effect; we do not pad to hit a number. A struggling kid is never made to sit
+longer as an end in itself.
+
+### LAW 5 — new INPUT types are Shell v3.1, deliberately deferred
+
+Typed numeric answers, drag-to-order, tap-multiple etc. need a shell rebuild AND
+grading changes (they do not reduce to ok/picked) and MUST NOT be rushed alongside
+an integrity fix. They are their own scheduled build (v3.1), evaluated after Laws
+1–3 land. ~90% of the variety win (Laws 2–3) needs no shell change — that is why we
+ship variety now and stage v3.1 separately.
+
+---
+
 **Current live loadout** — Season "Term 3," chapter of w/c 3 Aug: Wed mutator = **Reversed Blitz** (10 reversed speed / 2 steady / 1 teach) with double-XP at the family deal layer · Fri boss = ledger-built chain. *(Reversed joined mid-chapter by design call — family beta is the design lab; the chapter-boundary rule holds for staged rollout beyond the family.)*
 
 ---

@@ -309,6 +309,12 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
         "Write ONE fresh question per slot below — never reuse a prompt this student has seen (the validator enforces this).",
         "RULES (CONTENT-MODEL): exactly one uncontestable answer; distractors encode the real misconception named in guidance; "
         "every speed/steady carries fresh:true and a 'why' that re-teaches; teach-back prompts are reasoning-graded.",
+        "ANSWER-LENGTH LAW (SEASONS.md LAW 1 — enforced by review.py, do not breach): the correct option must NOT be the "
+        "longest, and must NOT be identifiable by any surface feature (length, grammatical completeness, a lone qualifier, "
+        "position). Keep all four options in a SIMILAR length band. Make distractors specific and plausible — never short "
+        "throwaways next to a long precise answer. If the correct answer is naturally wordy, pad the distractors to match with "
+        "equally concrete detail; if distractors are naturally short, tighten the correct answer to fit. A child must not be able "
+        "to score by tapping the longest option without reading.",
     ]
     if light_subject:
         lines.append(f"DIRECTIVE: light on {light_subject} (student just sat its assessment) — keep it to the single slot shown, calm difficulty.")
