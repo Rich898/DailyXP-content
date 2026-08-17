@@ -9,120 +9,120 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 56°. What is the co-interior (allied) angle on the other parallel line?",
+      "prompt": "You need to find a missing angle when two parallel lines are cut by a transversal, given one angle of 74°, using alternate angles. Which order of steps is correct?",
       "options": [
-        "124°",
-        "56°",
-        "34°",
-        "146°"
+        "Identify the transversal; spot the Z-shape formed; alternate angles are equal; answer = 74°",
+        "Identify the transversal; spot the Z-shape formed; alternate angles add to 180°; answer = 106°",
+        "Spot the F-shape formed; corresponding angles are equal; identify the transversal; answer = 74°",
+        "Assume the angle is co-interior; subtract from 180° first; then identify the transversal; answer = 106°"
       ],
-      "answer": "124°",
-      "why": "Co-interior (allied) angles sum to 180°, so 180 − 56 = 124°. A common mistake is treating them like alternate angles (equal) instead of supplementary.",
+      "answer": "Identify the transversal; spot the Z-shape formed; alternate angles are equal; answer = 74°",
+      "why": "Alternate angles form a Z-shape and are always equal, so the correct sequence identifies the transversal, spots the Z, then applies equality to get 74°. Mixing up the shape or rule (like treating it as co-interior, which sums to 180°) gives the wrong angle.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A quadrilateral has two pairs of parallel sides and all four sides equal, but no right angles. What is the most specific name for this shape?",
+      "prompt": "A student classifies a shape: Step 1: It has four sides. Step 2: Both pairs of opposite sides are parallel. Step 3: All four angles are 90°. Step 4: Since all angles are equal, it must be a rhombus. Which step is WRONG?",
       "options": [
-        "Rhombus",
-        "Square",
-        "Rectangle",
-        "Kite"
+        "Step 1: It has four sides",
+        "Step 2: Both pairs of opposite sides are parallel",
+        "Step 3: All four angles are 90°",
+        "Step 4: Since all angles are equal, it must be a rhombus"
       ],
-      "answer": "Rhombus",
-      "why": "A rhombus has four equal sides and two pairs of parallel sides, but its angles don't have to be 90°. Calling it a square wrongly assumes equal sides always means right angles.",
+      "answer": "Step 4: Since all angles are equal, it must be a rhombus",
+      "why": "A shape with four right angles and both pairs of sides parallel is a rectangle, not a rhombus — a rhombus is defined by equal side lengths, not equal angles. The student confused the property that defines a rhombus (equal sides) with the property that defines a rectangle (equal angles).",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 2(x + 5) = 18. A student says 'I'll subtract 5 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
+      "prompt": "Solve for x: 4x = 20. Remember the rule — whatever you do to one side, you must do to the other. What is x?",
       "options": [
-        "You must expand or divide first since the 5 is multiplied by 2, not just added; x = 4",
-        "You can subtract 5 first because addition and multiplication are the same; x = 4",
-        "You must subtract 5 first since brackets always come off first; x = 9",
-        "You must divide by 5 first since it's the number in the bracket; x = 6"
+        "x = 5",
+        "x = 4",
+        "x = 16",
+        "x = 24"
       ],
-      "answer": "You must expand or divide first since the 5 is multiplied by 2, not just added; x = 4",
-      "why": "The 5 is inside a bracket multiplied by 2, so you must divide both sides by 2 (or expand) before dealing with the 5. Subtracting 5 straight away ignores the multiplication and breaks the balance rule.",
+      "answer": "x = 5",
+      "why": "To undo ×4, divide both sides by 4: 20 ÷ 4 = 5. x = 4 wrongly treats the equation as if 4 was subtracted; x = 16 comes from subtracting 4 instead of dividing; x = 24 comes from adding 4 to both sides instead of dividing.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a natural disaster investigation on drought, which of these is a human factor that increases risk, rather than a natural one?",
+      "prompt": "Match each stage of human sexual reproduction to what happens at that stage: (1) Fertilisation, (2) Implantation, (3) Gestation. Which pairing is entirely correct?",
       "options": [
-        "Over-extraction of groundwater for farming",
-        "Below-average rainfall for several seasons",
-        "High evaporation rates due to hot climate",
-        "Naturally low water table in the region"
+        "Fertilisation = sperm and egg nuclei fuse; Implantation = embryo attaches to the uterus wall; Gestation = the baby develops over 9 months",
+        "Fertilisation = embryo attaches to the uterus wall; Implantation = sperm and egg nuclei fuse; Gestation = the baby develops over 9 months",
+        "Fertilisation = sperm and egg nuclei fuse; Implantation = the baby develops over 9 months; Gestation = embryo attaches to the uterus wall",
+        "Fertilisation = the baby develops over 9 months; Implantation = sperm and egg nuclei fuse; Gestation = embryo attaches to the uterus wall"
       ],
-      "answer": "Over-extraction of groundwater for farming",
-      "why": "Over-extraction is a human choice that worsens water shortages, unlike rainfall, evaporation, or the natural water table, which are physical/natural conditions.",
+      "answer": "Fertilisation = sperm and egg nuclei fuse; Implantation = embryo attaches to the uterus wall; Gestation = the baby develops over 9 months",
+      "why": "Fertilisation is the fusing of sperm and egg, implantation is when the resulting embryo attaches to the uterus wall, and gestation is the full developmental period afterwards. Swapping these stages mixes up the order in which they naturally occur.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In which century did the First Crusade set out to try to capture Jerusalem?",
+      "prompt": "Here are four statements about the Crusades. Which statement is FALSE?",
       "options": [
-        "The 11th century",
-        "The 15th century",
-        "The 9th century",
-        "The 13th century"
+        "The First Crusade set out in 1096 aiming to capture Jerusalem",
+        "Jerusalem was seen as holy by both Christians and Muslims",
+        "The Crusades were a single short campaign that ended after one battle",
+        "Crusader and Muslim forces fought over control of Jerusalem for almost 200 years"
       ],
-      "answer": "The 11th century",
-      "why": "The First Crusade set out in 1096, which falls in the 11th century (years 1001–1100). Mixing up century numbering with the date's first digits is a common slip.",
+      "answer": "The Crusades were a single short campaign that ended after one battle",
+      "why": "The Crusades were actually a series of multiple campaigns (waves) stretching across almost two centuries, not one quick battle. Students sometimes picture it as a single event because only the First Crusade is usually studied in detail.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A historian writes: 'The Black Death killed a third of Europe's population, causing severe labour shortages, which eventually gave peasants more bargaining power over wages.' Which part of this is the consequence, not the cause?",
+      "prompt": "Three of these are examples of a CONSEQUENCE of an event, and one is a CAUSE. Which does NOT belong?",
       "options": [
-        "Peasants gaining more bargaining power over wages",
-        "The Black Death spreading across Europe",
-        "A third of Europe's population dying",
-        "The general conditions of medieval Europe"
+        "Peasants gained more bargaining power after the Black Death",
+        "Rising anger at the government followed poor harvests",
+        "Years of unfair taxation built up resentment among peasants",
+        "Labour shortages led to higher wages for workers"
       ],
-      "answer": "Peasants gaining more bargaining power over wages",
-      "why": "This is the long-term result (consequence) of the population loss and labour shortage, not the cause that started the chain of events. Students often confuse the final outcome with the trigger event.",
+      "answer": "Years of unfair taxation built up resentment among peasants",
+      "why": "This statement describes a cause building up before an event, while the other three describe outcomes that happened AFTER an event. Students often mix up cause and consequence when both are written as flowing sentences.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Magna Carta 1215 is often called a 'primary source' by historians studying medieval kingship. What makes it a primary source rather than a secondary source?",
+      "prompt": "Here are four statements about Magna Carta 1215. Which statement is FALSE?",
       "options": [
-        "It was created at the time of the events, by people directly involved",
-        "It was written by a modern historian analysing the period",
-        "It summarises multiple other documents about King John",
-        "It was translated into English long after 1215"
+        "Magna Carta established that even the king was subject to the law",
+        "Magna Carta is studied by historians as a primary source from 1215",
+        "Magna Carta gave every peasant in England the right to vote",
+        "Magna Carta was created partly to limit the monarch's power over nobles"
       ],
-      "answer": "It was created at the time of the events, by people directly involved",
-      "why": "A primary source comes directly from the period being studied, made by those present at the time. A secondary source is a later analysis, which is a common mix-up for students.",
+      "answer": "Magna Carta gave every peasant in England the right to vote",
+      "why": "Magna Carta mainly protected the rights of nobles and limited royal power — it did not grant voting rights to peasants, which is a much later development. Students sometimes assume it created modern democratic rights immediately, but its impact was narrower and gradual.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student investigates whether the number of hours of daylight affects the growth rate of mould on bread, keeping the type of bread and humidity the same for every sample. Which variable is the independent variable?",
+      "prompt": "A student investigates whether the amount of salt added to water affects the boiling point of the water, keeping the volume of water the same in each test. Step 1: The amount of salt added is the independent variable, since the student changes it. Step 2: The boiling point of the water is the dependent variable, since it is measured. Step 3: The volume of water is the dependent variable, since it stays the same. Step 4: The controlled variable is anything kept the same, like the container used. Which step is WRONG?",
       "options": [
-        "The number of hours of daylight",
-        "The growth rate of mould",
-        "The type of bread",
-        "The humidity level"
+        "Step 1: The amount of salt added is the independent variable, since the student changes it",
+        "Step 2: The boiling point of the water is the dependent variable, since it is measured",
+        "Step 3: The volume of water is the dependent variable, since it stays the same",
+        "Step 4: The controlled variable is anything kept the same, like the container used"
       ],
-      "answer": "The number of hours of daylight",
-      "why": "The independent variable is what the experimenter deliberately changes to test its effect — here, the hours of daylight. The growth rate is what's measured (dependent), while bread type and humidity are kept constant (controlled).",
+      "answer": "Step 3: The volume of water is the dependent variable, since it stays the same",
+      "why": "Anything kept the same on purpose is a CONTROLLED variable, not a dependent one — the dependent variable is always what you measure as an outcome (here, boiling point). Confusing 'stays the same' with 'dependent' is the exact chronic mix-up: change = independent, measure = dependent, keep-same = controlled.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,53 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 63°. What is the corresponding angle on the other parallel line?",
+      "prompt": "A triangular flag has a base of 12 cm and a height of 5 cm. What is its area?",
       "options": [
-        "63°",
-        "117°",
-        "27°",
-        "153°"
+        "30 cm²",
+        "60 cm²",
+        "17 cm²",
+        "35 cm²"
       ],
-      "answer": "63°",
-      "why": "Corresponding angles are equal when lines are parallel — they sit in the same position at each intersection. Confusing them with co-interior angles (which sum to 180°) is the common error.",
-      "fresh": true
+      "answer": "30 cm²",
+      "why": "Area of a triangle = (base × height) ÷ 2, so (12 × 5) ÷ 2 = 30 cm². A common error is forgetting to halve after multiplying, which gives 60 cm² instead.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has angles of 50°, 60°, and 70°, with no two sides equal. What type of triangle is this?",
+      "prompt": "Two parallel lines are cut by a transversal, and one angle is 118°. You need to find the co-interior (allied) angle on the other line. Which order of reasoning is correct?",
       "options": [
-        "Scalene triangle",
-        "Isosceles triangle",
-        "Equilateral triangle",
-        "Right-angled triangle"
+        "Identify the transversal; spot the C-shape (or U-shape) formed; co-interior angles sum to 180°; answer = 62°",
+        "Identify the transversal; spot the Z-shape formed; co-interior angles are equal; answer = 118°",
+        "Spot the C-shape formed; co-interior angles are equal; identify the transversal; answer = 118°",
+        "Identify the transversal; assume corresponding angles; co-interior angles are equal; answer = 118°"
       ],
-      "answer": "Scalene triangle",
-      "why": "A scalene triangle has all different angles and all different side lengths. Students sometimes assume any triangle without a right angle must be isosceles, but the key test is whether sides/angles are equal.",
+      "answer": "Identify the transversal; spot the C-shape (or U-shape) formed; co-interior angles sum to 180°; answer = 62°",
+      "why": "Co-interior (allied) angles form a C-shape between the parallel lines and always add up to 180°, so 180° − 118° = 62°. Treating them as equal (like alternate or corresponding angles) is the common mix-up that leads students to wrongly answer 118°.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "An investigation tests whether the depth of ocean water affects the height of tsunami waves reaching the coast. Which is the dependent variable?",
+      "prompt": "Three of these are examples of ASEXUAL reproduction, and one is NOT. Which does NOT belong?",
       "options": [
-        "The height of the tsunami waves",
-        "The depth of the ocean water",
-        "The distance from the coast",
-        "The time of day the wave occurs"
+        "A strawberry plant growing new plants from runners",
+        "Bacteria splitting into two identical cells",
+        "A human egg being fertilised by a sperm cell",
+        "A potato plant sprouting new plants from its tubers"
       ],
-      "answer": "The height of the tsunami waves",
-      "why": "The dependent variable is what you measure as the outcome — here, the wave height. Students sometimes muddle this with the depth of water, which is actually the variable being changed (independent).",
+      "answer": "A human egg being fertilised by a sperm cell",
+      "why": "Fertilisation of an egg by a sperm is sexual reproduction, since it combines genetic material from two parents, unlike the other examples which all produce genetically identical offspring from a single parent. The shared property of the other three is that they involve only one parent and no fusion of gametes.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your classmate says: 'In an experiment testing whether the volume of water given to plants affects their growth height, the number of plants used must be the controlled variable, because you could keep changing that too.' Using an example of your own (not sleep, sunlight, fertiliser, water temperature, soil type, or plant growth with water volume), explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
+      "prompt": "Your classmate says: 'In an experiment testing whether the type of music played to plants affects their growth height, the type of music is the dependent variable, because that's the interesting thing the scientist is studying.' Using an example of your own (not one already used with you before), explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
     }
   ]
 }
