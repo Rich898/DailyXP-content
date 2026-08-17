@@ -94,12 +94,16 @@ def eligible_formats(slot, phase):
     return out
 
 
-def assign_formats(slots, student, date_str, tag, max_same=3):
+def assign_formats(slots, student, date_str, tag, max_same=3, exclude=None):
     """
     Assign a format to each speed/steady slot, deterministically seeded, aiming for
     VARIETY: no single non-recall format used more than `max_same` times, and recall
     kept to a minority so the run doesn't collapse back to plain MC. Mutates and
     returns the slots (each gets slot['format']).
+
+    `exclude` is a set of formats to keep OUT of this run (e.g. the planner passes
+    {ORDERING} when a tap-to-order slot exists, so a run never carries both an MC
+    ordering format AND the drag-order type — SEASONS/v3.1 trap-1).
 
     Reversed is only auto-assigned if the run's directive already declares reversed
     (handled by the caller); here we treat REVERSED as available only when present in
@@ -107,13 +111,17 @@ def assign_formats(slots, student, date_str, tag, max_same=3):
     module self-contained and safe, assign_formats never picks REVERSED unless the
     slot already carries slot['allow_reversed'] = True.
     """
+    exclude = exclude or set()
     used = {}
     for i, s in enumerate(slots):
         phase = s.get("phase")
         if phase not in ("speed", "steady"):
             continue
+        if s.get("type") and s.get("type") != "mc":
+            s["format"] = None                       # typed slot (numeric/text/cloze) — no MC format
+            continue
         elig = [f for f in eligible_formats(s, phase)
-                if f != REVERSED or s.get("allow_reversed")]
+                if (f != REVERSED or s.get("allow_reversed")) and f not in exclude]
         # rank eligible formats by (least-used-so-far, deterministic jitter)
         def rank(f):
             r = _rng([student, date_str, tag, s.get("slot", i), f])

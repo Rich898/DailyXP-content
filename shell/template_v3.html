@@ -52,6 +52,7 @@
   .flash.ok{background:#E8F4EE;border:2px solid var(--kelp)}
   .flash.bad{background:#FCEBE6;border:2px solid var(--flare)}
   .flash.skip{background:#EEF1EA;border:2px solid var(--line);color:var(--haze)}
+  .flash.x2{background:#FFF6DE;border:2px solid #E0B23A;color:#8A6512;font-weight:700}
   .fusewrap{height:8px;background:#E4E7DF;border-radius:99px;overflow:hidden;margin-bottom:20px}
   .fuse{height:100%;background:var(--ink);border-radius:99px;transition:width .1s linear}
   .fuse.hot{background:var(--flare)}
@@ -63,6 +64,36 @@
   .flags{border-left:4px solid var(--flare);padding-left:12px;margin-bottom:18px}
   .flags p{margin:4px 0;font-size:15px}
   textarea{width:100%;padding:14px;font-size:16px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;resize:vertical}
+  .numin{margin-top:8px}
+  .ninput{width:100%;box-sizing:border-box;padding:16px;font-size:26px;font-weight:700;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;text-align:center;letter-spacing:.02em}
+  .ninput:focus{outline:none;border-color:var(--reef)}
+  .ninput-text{text-align:left;font-size:19px;font-weight:600;letter-spacing:0}
+  .ninsub{margin-top:12px;width:100%}
+  .ordertray{display:flex;flex-direction:column;gap:8px;margin:8px 0 14px}
+  .oslot{display:flex;align-items:center;gap:10px;min-height:50px;padding:10px 12px;border:2px dashed var(--line);border-radius:12px;background:#FAFBF9}
+  .oslot.filled{border-style:solid;background:#fff;cursor:pointer}
+  .oslot .onum{flex:0 0 26px;height:26px;border-radius:99px;background:var(--reef);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .oslot .otext{font-weight:600;font-size:15px}
+  .oslot .ohint{color:var(--haze);font-size:13px;font-weight:600}
+  .orderpool{display:flex;flex-wrap:wrap;gap:8px}
+  .ochip{padding:11px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:600;font-size:15px;cursor:pointer}
+  .ochip:active{transform:translateY(1px)}
+  .oslot.correct{border-color:var(--kelp);background:#E8F4EE}
+  .oslot.wrong{border-color:var(--flare);background:#FCEBE6}
+  .tblights{margin:2px 0 16px;padding:12px;border:2px solid var(--line);border-radius:14px;background:#FAFBF9}
+  .tbhead{text-align:center;font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--reef);text-transform:uppercase;margin-bottom:9px}
+  .tblrow{display:flex;gap:8px;justify-content:center}
+  .tbl{flex:1;border:2px solid var(--line);border-radius:12px;padding:10px 4px;text-align:center;background:#fff}
+  .tbl .g{font-size:24px;font-weight:800;line-height:1}
+  .tbl .lb{font-size:10px;color:var(--haze);letter-spacing:.05em;margin-top:5px;text-transform:uppercase;font-weight:700}
+  .tbl.green{border-color:var(--kelp);background:#E8F4EE}
+  .tbl.green .g{color:var(--kelp)}
+  .tbl.amber{border-color:#C9962E;background:#FBF2E0}
+  .tbl.amber .g{color:#B9832A}
+  .tbl.red{border-color:var(--flare);background:#FCEBE6}
+  .tbl.red .g{color:var(--flare)}
+  .tbreason{text-align:center;font-size:12px;color:var(--haze);margin-top:9px;font-weight:600}
+  .tblwait{text-align:center;color:var(--haze);font-size:13px;margin:0 0 16px;font-weight:600}
   .deal{border-top:2px dashed var(--line);padding-top:14px;margin-bottom:20px;font-size:14px;color:var(--haze)}
   .note{font-size:14px;color:var(--haze)}
   .box{border:2px solid var(--line);border-radius:12px;padding:12px;background:#fff;font-size:13px;white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;margin-top:12px}
@@ -220,9 +251,9 @@ var SPEED_SECONDS = 30;
 var SPEED_BASE=100, TIME_BONUS=3, COMBO_BONUS=50, STEADY_POINTS=250, TEACH_POINTS=150;
 
 // Filled by loadQuiz() from the fetched JSON:
-var QUIZ=null, QUESTIONS=[], speedQs=[], steadyQs=[], teachQ=null, MAX_SCORE=0, shuffled={};
+var QUIZ=null, QUESTIONS=[], speedQs=[], steadyQs=[], teachQ=null, encoreQs=[], MAX_SCORE=0, shuffled={};
 
-var state = { screen:"loading", idx:0, score:0, combo:0, records:[], picked:null, confidence:null, locked:false, appName:"XPDaily", sending:false, sent:false };
+var state = { screen:"loading", idx:0, score:0, combo:0, records:[], picked:null, confidence:null, locked:false, order:[], tbGrade:null, encoreActive:false, encoreIdx:0, appName:"XPDaily", sending:false, sent:false };
 var timer=null, tStart=0, answeredThis=false;
 var lastPayload=null;
 
@@ -549,6 +580,7 @@ function render(){ railHTML(); setScore();
   else if(state.screen==="speed") renderSpeed();
   else if(state.screen==="steady") renderSteady();
   else if(state.screen==="teach") renderTeach();
+  else if(state.screen==="encoreOffer") renderEncoreOffer();
   else renderDone();
 }
 
@@ -571,9 +603,11 @@ function deriveQuiz(){
   speedQs = QUESTIONS.filter(function(q){return q.phase==="speed"});
   steadyQs = QUESTIONS.filter(function(q){return q.phase==="steady"});
   teachQ = QUESTIONS.filter(function(q){return q.phase==="teach"})[0];
+  encoreQs = (QUIZ && QUIZ.encore) || [];
   shuffled = {};
-  QUESTIONS.forEach(function(q){ if(q.options) shuffled[q.id]=shuffle(q.options); });
-  MAX_SCORE = speedQs.length*(SPEED_BASE+SPEED_SECONDS*TIME_BONUS) + (speedQs.length>0?(speedQs.length-1)*COMBO_BONUS:0) + steadyQs.length*STEADY_POINTS + (teachQ?TEACH_POINTS:0);
+  QUESTIONS.concat(encoreQs).forEach(function(q){ if(q.options) shuffled[q.id]=shuffle(q.options); else if(q.sequence) shuffled[q.id]=shuffle(q.sequence); });
+  var x2extra=0; QUESTIONS.forEach(function(q){ if(q.x2){ x2extra += (q.phase==="speed" ? (SPEED_BASE+SPEED_SECONDS*TIME_BONUS) : (q.phase==="steady" ? STEADY_POINTS : 0)); } });
+  MAX_SCORE = speedQs.length*(SPEED_BASE+SPEED_SECONDS*TIME_BONUS) + (speedQs.length>0?(speedQs.length-1)*COMBO_BONUS:0) + steadyQs.length*STEADY_POINTS + (teachQ?TEACH_POINTS:0) + x2extra;
 }
 function renderLoading(){
   el("stage").innerHTML =
@@ -638,6 +672,69 @@ function startRun(){
   state.screen="speed"; render();
 }
 
+// ─────────── v3.1 INPUT TYPES — dispatch + scoring helpers ───────────
+// A question's answer mode. Back-compat: no type → "mc" (four tappable options, the v3.0 default).
+function qType(q){ return (q && q.type) || "mc"; }
+
+// The ONLY score-doubling in the shell (hidden double-XP). Isolated + audited (test_event.js strips
+// this core before its stray-doubling scan; test_x2.js proves the doubling itself).
+/*X2-CORE-START*/
+function x2mul(pts, q){ return (q && q.x2) ? pts * 2 : pts; }
+/*X2-CORE-END*/
+
+// Typed-numeric matching — MODERATE strictness (SEASONS/spec): the bare number OR the
+// number+correct unit earns credit; a wrong unit alone does not. Accepted forms live in the
+// per-question `accept` list; here we normalise spacing / unicode powers / thousands commas so
+// "30", "30 cm2", "30cm²" all collapse to the same key, and the bare number is always accepted.
+/*NUMERIC-CORE-START*/
+function _leadNum(s){ var m=String(s==null?"":s).match(/-?\d+(?:\.\d+)?/); return m?m[0]:null; }
+function _normAns(s){ return String(s==null?"":s).toLowerCase().replace(/\u00b2/g,"2").replace(/\u00b3/g,"3").replace(/\s+/g,"").replace(/,/g,""); }
+function numericOK(typed, q){
+  if(typed==null || String(typed).trim()==="") return false;
+  var t=_normAns(typed); if(!t) return false;
+  var set={}; set[_normAns(q.answer)]=1;
+  (q.accept||[]).forEach(function(a){ set[_normAns(a)]=1; });
+  var bare=_leadNum(q.answer); if(bare) set[_normAns(bare)]=1;   // bare number always earns credit
+  return !!set[t];
+}
+/*NUMERIC-CORE-END*/
+
+// Short-text / cloze matching — LOOSER than numeric: case-insensitive, punctuation and extra
+// spacing ignored, matched against the answer plus a per-question `accept` list of synonyms /
+// common misspellings (the tolerance is authored, never fuzzy-guessed — no false positives).
+/*TEXT-CORE-START*/
+function _normText(s){ return String(s==null?"":s).toLowerCase().replace(/[.,!?;:'"()\[\]/\\-]/g," ").replace(/\s+/g," ").trim(); }
+function textOK(typed, q){
+  if(typed==null) return false;
+  var t=_normText(typed); if(t==="") return false;
+  var set={}; set[_normText(q.answer)]=1;
+  (q.accept||[]).forEach(function(a){ set[_normText(a)]=1; });
+  return !!set[t];
+}
+/*TEXT-CORE-END*/
+
+// Typed-input dispatch: numeric (keypad), or text/cloze (word entry). MC is not typed.
+function isTyped(q){ var t=qType(q); return t==="numeric"||t==="text"||t==="cloze"; }
+function typedOK(typed, q){ return qType(q)==="numeric" ? numericOK(typed,q) : textOK(typed,q); }
+function inputModeFor(q){ return qType(q)==="numeric" ? "decimal" : "text"; }
+
+// Ordering (v3.1): tap shuffled items into sequence; scored on EXACT order. Steady-only.
+function isOrder(q){ return qType(q)==="order"; }
+function orderOK(seq, q){
+  var want=q.sequence||[]; if(!seq||seq.length!==want.length) return false;
+  for(var i=0;i<want.length;i++){ if(seq[i]!==want[i]) return false; }
+  return true;
+}
+
+// Universal skip (v3.1 item 8): a skip on EVERY question, no longer gated on `fresh`. A newly-
+// introduced topic (fresh:true) offers the benign "haven't covered this yet" escape; an established
+// topic offers a plain skip, which the ledger scores as a soft miss. The handler stamps the Q's
+// fresh flag onto the record so results_reader can tell the two apart.
+function skipButtonHTML(q, handler){
+  var label = q.fresh ? "haven't covered this yet \u2192" : "skip this one \u2192";
+  return '<button class="ghost" onclick="'+handler+'">'+esc(label)+'</button>';
+}
+
 function renderSpeed(){
   var q=speedQs[state.idx]; answeredThis=false;
   el("stage").innerHTML =
@@ -648,8 +745,13 @@ function renderSpeed(){
   '<div class="fusewrap"><div class="fuse" id="fuse" style="width:100%"></div></div>'+
   (EVENT==="reversed-blitz"?'<div class="revtag">\u26a1 REVERSED</div>':'')+
   '<h2 class="q" style="min-height:58px">'+esc(q.prompt)+'</h2>'+
-  '<div class="opts">'+ shuffled[q.id].map(function(o){ return '<button class="opt" onclick="answerSpeed(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>'; }).join("") +'</div>'+
-  (q.fresh?'<button class="ghost" onclick="answerSpeed(null,true)">haven\'t covered this yet →</button>':'')+
+  (qType(q)==="numeric"
+    ? '<div class="numin">'+
+        '<input id="nin" class="ninput" inputmode="decimal" autocomplete="off" placeholder="type your answer" oninput="ninChanged()" onkeydown="if(event.key===\'Enter\'){event.preventDefault();submitSpeedTyped();}">'+
+        '<button class="cta ninsub" id="ninsub" disabled onclick="submitSpeedTyped()">Submit \u2192</button>'+
+      '</div>'
+    : '<div class="opts">'+ shuffled[q.id].map(function(o){ return '<button class="opt" onclick="answerSpeed(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>'; }).join("") +'</div>')+
+  skipButtonHTML(q,"answerSpeed(null,true)")+
   (state.combo>=2?'<div class="num" style="margin-top:10px;color:var(--flare);font-size:14px">COMBO ×'+state.combo+' LIVE</div>':'')+
   '<div id="flash"></div>';
   markShown("speed:"+state.idx);
@@ -676,24 +778,29 @@ function doSpeedAnswer(choice,isSkip){
   var timeUsed=Math.min(SPEED_SECONDS,(Date.now()-tStart)/1000);
   var fl=el("flash");
   document.querySelectorAll(".opt").forEach(function(b){ b.disabled=true; });
+  var _ni=document.getElementById("nin"), _ns=document.getElementById("ninsub"); if(_ni) _ni.disabled=true; if(_ns) _ns.disabled=true;
 
   if(isSkip){
     T.questionDone(q.id,q.subject,"speed",{skipped:true});
-    state.records.push({id:q.id,subject:q.subject,phase:"speed",skipped:true,pts:0});
-    if(fl) fl.innerHTML='<div class="flash skip">Noted — I\'ll check when your class gets there.</div>';
+    state.records.push({id:q.id,subject:q.subject,phase:"speed",skipped:true,fresh:!!q.fresh,pts:0});
+    if(fl) fl.innerHTML='<div class="flash skip">'+(q.fresh?'Noted — I\'ll check when your class gets there.':'Skipped — it\'ll come back around.')+'</div>';
     setTimeout(nextSpeed,700); return;
   }
-  var ok = choice===q.answer;
+  var ok = (qType(q)==="numeric") ? numericOK(choice,q) : (choice===q.answer);
   T.questionDone(q.id,q.subject,"speed",{ok:ok,timeUsed:+timeUsed.toFixed(1)});
   var newCombo = ok?state.combo+1:0;
   var pts=0;
   if(ok){ pts=SPEED_BASE+Math.round((SPEED_SECONDS-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
+  var doubled = !!(q.x2 && ok); if(doubled) pts=x2mul(pts,q);      // hidden double-XP (no pre-answer tell)
   state.combo=newCombo; state.score+=pts; setScore();
-  state.records.push({id:q.id,subject:q.subject,phase:"speed",picked:choice,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts});
+  var srec={id:q.id,subject:q.subject,phase:"speed",type:qType(q),picked:choice,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts}; if(q.x2) srec.x2=true;
+  state.records.push(srec);
   if(ok){
-    FX.celebrate(fxSpec(newCombo, pts));  // decoration; state already committed above
-    if(fl) fl.innerHTML = '<div class="flash ok">✓ Got it'+(newCombo>=2?'&nbsp;&nbsp;+'+COMBO_BONUS+' combo':'')+'</div>';
-    setTimeout(nextSpeed, 900);
+    FX.celebrate(fxSpec(doubled?3:newCombo, pts));  // decoration; state already committed above
+    if(fl) fl.innerHTML = doubled
+      ? '<div class="flash x2">\u2b50 DOUBLE XP! That one was secretly worth 2\u00d7 \u2014 <b>+'+pts+'</b></div>'
+      : '<div class="flash ok">✓ Got it'+(newCombo>=2?'&nbsp;&nbsp;+'+COMBO_BONUS+' combo':'')+'</div>';
+    setTimeout(nextSpeed, doubled?1400:900);
   } else {
     if(fl) fl.innerHTML =
       '<div class="flash bad">'+
@@ -711,17 +818,57 @@ function nextSpeed(){
   else { state.idx=0; state.screen="steady"; state.picked=null; state.confidence=null; state.locked=false; render(); }
 }
 
+// v3.1 typed-numeric (speed): enable Submit once something is typed; submit on tap or Enter.
+function ninChanged(){
+  var i=document.getElementById("nin"), s=document.getElementById("ninsub");
+  if(i&&s) s.disabled = String(i.value).trim()==="";
+}
+function submitSpeedTyped(){
+  if(answeredThis) return;
+  var i=document.getElementById("nin"); var v=i?i.value:"";
+  if(String(v).trim()==="") return;         // never submit an empty answer
+  clearInterval(timer);
+  doSpeedAnswer(v, false);
+}
+
+// The steady question in play — a normal steady slot, or an encore (bonus-round) question.
+function curSteady(){ return state.encoreActive ? encoreQs[state.encoreIdx] : steadyQs[state.idx]; }
 function renderSteady(){
-  var q=steadyQs[state.idx];
+  var q=curSteady();
   var boss = (EVENT==="battleground");
-  var optsHTML = shuffled[q.id].map(function(o){
-    var style="";
-    if(state.locked){
-      if(o===q.answer) style="border-color:var(--kelp);background:#E8F4EE";
-      else if(o===state.picked) style="border-color:var(--flare);background:#FCEBE6";
-    } else if(o===state.picked){ style="border-color:var(--reef);background:#EAF2F8"; }
-    return '<button class="opt" style="'+style+'" '+(state.locked?'disabled':'')+' onclick="pickSteady(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>';
-  }).join("");
+  var answerHTML;
+  if(isOrder(q)){
+    var seqLen=(q.sequence||[]).length;
+    var placed=state.order||[];
+    var pool=(shuffled[q.id]||[]).filter(function(o){ return placed.indexOf(o)===-1; });
+    var tray="";
+    for(var pi=0; pi<seqLen; pi++){
+      var it=placed[pi];
+      if(state.locked && it!=null){
+        var good=(q.sequence[pi]===it);
+        tray+='<div class="oslot filled '+(good?'correct':'wrong')+'"><span class="onum">'+(pi+1)+'</span><span class="otext">'+esc(it)+'</span></div>';
+      } else if(it!=null){
+        tray+='<div class="oslot filled" onclick="orderUnplace('+pi+')"><span class="onum">'+(pi+1)+'</span><span class="otext">'+esc(it)+'</span><span class="ohint" style="margin-left:auto">tap to remove</span></div>';
+      } else {
+        tray+='<div class="oslot"><span class="onum">'+(pi+1)+'</span><span class="ohint">tap an item below</span></div>';
+      }
+    }
+    var poolHTML = state.locked ? "" : '<div class="orderpool">'+pool.map(function(o){ return '<button class="ochip" onclick="orderPlace(\''+encodeURIComponent(o)+'\')">'+esc(o)+'</button>'; }).join("")+'</div>';
+    answerHTML='<div class="orderwrap"><div class="ordertray">'+tray+'</div>'+poolHTML+'</div>';
+  } else if(isTyped(q)){
+    var _v = state.picked==null ? "" : state.picked;
+    var _txt = qType(q)!=="numeric";
+    answerHTML = '<div class="numin"><input id="nin" class="ninput'+(_txt?' ninput-text':'')+'" inputmode="'+inputModeFor(q)+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type your answer" value="'+esc(_v)+'" '+(state.locked?'disabled':'')+' oninput="ninSteadyChanged()" onkeydown="if(event.key===\'Enter\'){event.preventDefault();}"></div>';
+  } else {
+    answerHTML = '<div class="opts">'+ shuffled[q.id].map(function(o){
+      var style="";
+      if(state.locked){
+        if(o===q.answer) style="border-color:var(--kelp);background:#E8F4EE";
+        else if(o===state.picked) style="border-color:var(--flare);background:#FCEBE6";
+      } else if(o===state.picked){ style="border-color:var(--reef);background:#EAF2F8"; }
+      return '<button class="opt" style="'+style+'" '+(state.locked?'disabled':'')+' onclick="pickSteady(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>';
+    }).join("") +'</div>';
+  }
 
   var lower="";
   if(!state.locked){
@@ -731,12 +878,15 @@ function renderSteady(){
       '<div class="conf">'+["Sure","Think so","Guessing"].map(function(c){
         return '<button class="chip'+(state.confidence===c?' onc':'')+'" onclick="pickConf(\''+c+'\')">'+c+'</button>';
       }).join("")+'</div>'+
-      '<button class="cta display" style="margin-top:16px;font-size:17px" '+((state.picked&&state.confidence)?'':'disabled')+' onclick="lockSteady()">Lock it in</button>'+
-      (q.fresh?'<button class="ghost" onclick="skipSteady()">haven\'t covered this yet →</button>':'')+
+      '<button class="cta display" id="locksteady" style="margin-top:16px;font-size:17px" '+((steadyPicked(q)&&state.confidence)?'':'disabled')+' onclick="lockSteady()">Lock it in</button>'+
+      skipButtonHTML(q,"skipSteady()")+
     '</div>';
   } else {
-    var ok = state.picked===q.answer;
-    var okMsg = boss ? ('\u2694 Ground claimed! +'+STEADY_POINTS+'. '+esc(q.why)) : ('✓ +'+STEADY_POINTS+'. '+esc(q.why));
+    var ok = isOrder(q) ? orderOK(state.order,q) : (isTyped(q) ? typedOK(state.picked,q) : (state.picked===q.answer));
+    var ansText = isOrder(q) ? (q.sequence||[]).join("  \u2192  ") : q.answer;
+    var okMsg = boss ? ('\u2694 Ground claimed! +'+STEADY_POINTS+'. '+esc(q.why))
+                     : (q.x2 ? '\u2b50 DOUBLE XP! That one was secretly worth 2\u00d7 \u2014 +'+x2mul(STEADY_POINTS,q)+'. '+esc(q.why)
+                            : '✓ +'+STEADY_POINTS+'. '+esc(q.why));
     var badHead = boss ? '⛶ Ground still contested.' : '✗ Not quite.';
     lower =
     '<div style="margin-top:16px">'+
@@ -744,7 +894,7 @@ function renderSteady(){
         (ok
           ? okMsg
           : (badHead+
-             '<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div>'+
+             '<div style="margin-top:8px;font-weight:700">The answer: '+esc(ansText)+'</div>'+
              '<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>'+
              '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">'+(boss?'Take this ground next time.':'Worth knowing for next time this comes up.')+'</div>'))+
       '</div>'+
@@ -753,13 +903,15 @@ function renderSteady(){
   }
 
   var bossBar = boss ? territoryBarHTML() : "";
-  var eyebrow = boss
+  var eyebrow = state.encoreActive
+  ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS ROUND \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+  : (boss
   ? '<div class="atktag">\u2694 CLAIM ZONE '+(state.idx+1)+' / '+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
-  : '<div class="eyebrow r" style="margin-bottom:8px">HEAT 2 · STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>';
+  : '<div class="eyebrow r" style="margin-bottom:8px">HEAT 2 · STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>');
   el("stage").innerHTML =
   bossBar + eyebrow +
   '<h2 class="q">'+esc(q.prompt)+'</h2>'+
-  '<div class="opts">'+optsHTML+'</div>'+lower;
+  answerHTML+lower;
   markShown("steady:"+state.idx);
 }
 // territory bar reflects the ground claimed so far, from the steady records (display-only).
@@ -772,14 +924,36 @@ function territoryBarHTML(cls){
 }
 function pickSteady(btn){ if(state.locked) return; state.picked=btn.getAttribute("data-v"); renderSteady(); }
 function pickConf(c){ if(state.locked) return; state.confidence=c; renderSteady(); }
+// Is the steady answer "provided"? (a pick for mc/typed; a complete sequence for order)
+function steadyPicked(q){
+  q = q || curSteady();
+  if(isOrder(q)) return (state.order||[]).length===(q.sequence||[]).length;
+  return !!state.picked;
+}
+// Ordering: tap a pool item into the next slot; tap a filled slot to pull it back.
+function orderPlace(enc){
+  if(state.locked) return;
+  var q=curSteady(); var it=decodeURIComponent(enc);
+  if((state.order||[]).indexOf(it)!==-1) return;
+  if((state.order||[]).length>=(q.sequence||[]).length) return;
+  state.order=(state.order||[]).concat([it]); renderSteady();
+}
+function orderUnplace(idx){
+  if(state.locked) return;
+  state.order=(state.order||[]).slice(); state.order.splice(idx,1); renderSteady();
+}
 function lockSteady(){
-  if(!state.picked||!state.confidence||state.locked) return;
-  var q=steadyQs[state.idx]; var ok=state.picked===q.answer;
+  if(!steadyPicked()||!state.confidence||state.locked) return;
+  var q=curSteady();
+  var ok = isOrder(q) ? orderOK(state.order,q) : (isTyped(q) ? typedOK(state.picked,q) : (state.picked===q.answer));
+  var pickedVal = isOrder(q) ? (state.order||[]).slice() : state.picked;
   T.questionDone(q.id,q.subject,"steady",{ok:ok,confidence:state.confidence});
-  if(ok) state.score+=STEADY_POINTS; setScore();
-  state.records.push({id:q.id,subject:q.subject,phase:"steady",picked:state.picked,ok:ok,confidence:state.confidence,repair:!!q.repair,pts:ok?STEADY_POINTS:0});
+  var stpts = ok ? x2mul(STEADY_POINTS, q) : 0;   // hidden double-XP
+  state.score += stpts; setScore();
+  var strec={id:q.id,subject:q.subject,phase:"steady",type:qType(q),picked:pickedVal,ok:ok,confidence:state.confidence,repair:!!q.repair,pts:stpts}; if(q.x2) strec.x2=true; if(state.encoreActive) strec.encore=true;
+  state.records.push(strec);
   if(EVENT==="battleground"){ claimBeat(ok); }              // decoration; records already committed above
-  else if(ok) FX.celebrate(fxSpec(2, STEADY_POINTS)); // baseline/blitz steady win
+  else if(ok) FX.celebrate(fxSpec(q.x2?3:2, stpts)); // baseline/blitz steady win
   state.locked=true; renderSteady();
 }
 // Claim feedback: a claimed zone advances the bar + a claim burst; a miss leaves the zone
@@ -798,17 +972,49 @@ function claimBeat(hit){
   }, 40);
 }
 function skipSteady(){
-  var q=steadyQs[state.idx];
+  var q=curSteady();
   T.questionDone(q.id,q.subject,"steady",{skipped:true});
-  state.records.push({id:q.id,subject:q.subject,phase:"steady",skipped:true,pts:0});
+  var skrec={id:q.id,subject:q.subject,phase:"steady",skipped:true,fresh:!!q.fresh,pts:0}; if(state.encoreActive) skrec.encore=true;
+  state.records.push(skrec);
   advanceSteady();
+}
+// v3.1 typed-numeric (steady): the typed value IS the pick. Update state without re-rendering
+// (so the caret is kept) and toggle Lock directly; pickConf's re-render repopulates from state.picked.
+function ninSteadyChanged(){
+  if(state.locked) return;
+  var i=document.getElementById("nin"); if(!i) return;
+  state.picked = String(i.value).trim()==="" ? null : i.value;
+  var lock=document.getElementById("locksteady");
+  if(lock) lock.disabled = !(state.picked && state.confidence);
 }
 function nextSteady(){ advanceSteady(); }
 function advanceSteady(){
-  state.picked=null; state.confidence=null; state.locked=false;
+  state.picked=null; state.confidence=null; state.locked=false; state.order=[];
+  if(state.encoreActive){
+    if(state.encoreIdx+1<encoreQs.length){ state.encoreIdx++; render(); }
+    else { state.encoreActive=false; state.screen="done"; render(); }   // bonus round over → results
+    return;
+  }
   if(state.idx+1<steadyQs.length){ state.idx++; render(); }
   else { state.screen="teach"; render(); }
 }
+
+// Optional encore (bonus round): offered after the teach-back. Reuses the steady flow via curSteady().
+function renderEncoreOffer(){
+  el("stage").innerHTML =
+  '<div class="eyebrow" style="color:#B9832A;letter-spacing:.08em">\u2b50 BONUS ROUND</div>'+
+  '<h2 class="display big" style="margin:8px 0 4px">Nice work.<br>Want bonus XP?</h2>'+
+  '<div style="font-size:15px;color:var(--haze);margin:8px 0 22px">You\'re on <b style="color:var(--flare)">'+state.score.toLocaleString()+'</b> XP. Take '+encoreQs.length+' quick bonus questions for extra \u2014 or bank what you\'ve got.</div>'+
+  '<button class="cta display" style="width:100%;font-size:18px" onclick="startEncore()">\u2b50 Yes \u2014 '+encoreQs.length+' more for bonus XP</button>'+
+  '<button class="cta display" style="width:100%;margin-top:10px;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="declineEncore()">No thanks, I\'m done</button>';
+}
+function startEncore(){
+  state.encoreActive=true; state.encoreIdx=0;
+  MAX_SCORE += encoreQs.length*STEADY_POINTS;   // bonus questions now count toward the total
+  state.picked=null; state.confidence=null; state.locked=false; state.order=[];
+  state.screen="steady"; render();
+}
+function declineEncore(){ state.screen="done"; render(); }
 
 function renderTeach(){
   var boss = (EVENT==="battleground");
@@ -863,6 +1069,7 @@ function finishTeach(){
   T.questionDone(teachQ.id,teachQ.subject,"teach",{ok:true,chars:v.length});
   state.score+=TEACH_POINTS; setScore();
   state.records.push({id:teachQ.id,subject:teachQ.subject,phase:"teach",text:v,ok:true,pts:TEACH_POINTS});
+  state.tbGrade="pending"; gradeTeachback(teachQ.subject, teachQ.prompt, v);   // instant lights (async)
   if(EVENT==="battleground"){
     // the kill shot: empty the still-visible HP bar, fire the showpiece, THEN reveal victory.
     var bar=el("terrbar"); if(bar) bar.className="terrbar claim";
@@ -870,7 +1077,35 @@ function finishTeach(){
     setTimeout(function(){ state.screen="done"; render(); }, 780);   // let the secure beat land
     return;
   }
-  state.screen="done"; render();
+  state.screen = encoreQs.length ? "encoreOffer" : "done"; render();
+}
+
+// Live teach-back grading: POST the answer to the Supabase Edge Function, show green/amber/red for
+// accuracy + spelling + punctuation. Best-effort: on any failure the run is unaffected (the nightly
+// grader remains authoritative for the ledger). Spelling/punctuation are COACHING — never mastery.
+function gradeTeachback(subject, question, answer){
+  if(window.__TB_GRADE_STUB__){ state.tbGrade=window.__TB_GRADE_STUB__; renderTbLights(); return; }
+  if(!CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON){ state.tbGrade=null; renderTbLights(); return; }
+  var url=CONFIG.SUPABASE_URL+"/functions/v1/grade-teachback";
+  var ctl=(typeof AbortController!=="undefined")?new AbortController():null;
+  var to=ctl?setTimeout(function(){ ctl.abort(); },15000):null;
+  fetch(url,{method:"POST",headers:{"content-type":"application/json","apikey":CONFIG.SUPABASE_ANON,"Authorization":"Bearer "+CONFIG.SUPABASE_ANON},body:JSON.stringify({subject:subject,question:question,answer:answer}),signal:ctl?ctl.signal:undefined})
+    .then(function(r){ if(to)clearTimeout(to); if(!r.ok) throw new Error("grade "+r.status); return r.json(); })
+    .then(function(j){ state.tbGrade=(j&&j.verdict)?{verdict:j.verdict,depth:j.depth||null,spelling:j.spelling,punctuation:j.punctuation,reason:j.reason||""}:null; renderTbLights(); })
+    .catch(function(){ state.tbGrade=null; renderTbLights(); });   // silent — it'll land in the weekly wrap
+}
+function _tbGlyph(l){ return l==="green"?"\u2713":(l==="amber"?"\u25CF":"\u2717"); }
+function renderTbLights(){
+  var box=el("tbLights"); if(!box) return;
+  var g=state.tbGrade;
+  if(g==="pending"){ box.innerHTML='<div class="tblwait">\u23F3 Marking your teach-back explanation\u2026</div>'; return; }
+  if(!g || !g.verdict){ box.innerHTML=""; return; }              // failed/absent → silent (wrap will show it)
+  var acc = g.verdict==="solid"?"green":(g.verdict==="partial"?"amber":"red");
+  function cell(label,l){ return '<div class="tbl '+l+'"><div class="g">'+_tbGlyph(l)+'</div><div class="lb">'+label+'</div></div>'; }
+  box.innerHTML =
+    '<div class="tbhead">\u270D\uFE0F Your teach-back explanation</div>'+
+    '<div class="tblrow">'+cell("Accuracy",acc)+cell("Spelling",g.spelling||"green")+cell("Punctuation",g.punctuation||"green")+'</div>'+
+    (g.reason?'<div class="tbreason">'+esc(g.reason)+'</div>':'');
 }
 
 // ── flag logic ─────────────────────────────
@@ -914,7 +1149,9 @@ function summaryText(){
   var _d=_todayStr(); var _today=(ATTEMPTS.byDay&&ATTEMPTS.byDay[_d])||1; var _first=(ATTEMPTS.firstOfDay&&ATTEMPTS.firstOfDay[_d])||"";
   L.push("Attempt "+_today+" today"+(_today>1?"  (⚠ repeat run — first was "+_first+"; first run is the honest one)":"")+"  · "+(ATTEMPTS.total||1)+" all-time");
   L.push("Score "+state.score.toLocaleString()+" / "+MAX_SCORE.toLocaleString()+" · Speed "+speedAll.filter(function(r){return r.ok}).length+"/"+speedQs.length+" · Steady "+steadyRecs.filter(function(r){return r.ok}).length+"/"+steadyQs.length+" · Teach-back done");
-  if(f.skips.length) L.push("NOT COVERED IN CLASS YET: "+f.skips.map(function(r){return r.subject+" "+r.id}).join(", "));
+  var _freshSk=f.skips.filter(function(r){return r.fresh}), _taughtSk=f.skips.filter(function(r){return !r.fresh});
+  if(_freshSk.length) L.push("NOT COVERED IN CLASS YET: "+_freshSk.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(_taughtSk.length) L.push("SKIPPED — ALREADY TAUGHT (soft miss): "+_taughtSk.map(function(r){return r.subject+" "+r.id}).join(", "));
   if(f.cw.length) L.push("CONFIDENT-BUT-WRONG: "+f.cw.map(function(r){return r.subject+" "+r.id}).join(", "));
   if(a.slow.length) L.push("SLOW-BUT-WRONG (real gap): "+a.slow.map(function(r){return r.subject+" "+r.id}).join(", "));
   if(a.fast.length) L.push("FAST-BUT-WRONG (rushed): "+a.fast.map(function(r){return r.subject+" "+r.id}).join(", "));
@@ -922,7 +1159,7 @@ function summaryText(){
   L.push("—");
   state.records.forEach(function(r){
     if(r.phase==="teach") return;
-    if(r.skipped){ L.push(r.id+" "+r.subject+" — skipped (not covered yet)"); return; }
+    if(r.skipped){ L.push(r.id+" "+r.subject+" — "+(r.fresh?"skipped (not covered in class yet — intel, not a miss)":"skipped (already taught — soft miss)")); return; }
     L.push(r.id+" "+r.subject+" "+(r.ok?"✓":"✗")+(r.phase==="speed"?(" "+r.timeUsed+"s"):(" · felt: "+r.confidence))+(r.picked===null?" (no answer)":""));
   });
   var tb=state.records.filter(function(r){return r.phase==="teach"})[0];
@@ -937,8 +1174,12 @@ function buildPayload(){
   var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
   var tb=state.records.filter(function(r){return r.phase==="teach"})[0];
   var _d=_todayStr();
+  // Stable idempotency id for THIS run — generated once, reused on every retry (incl. offline outbox
+  // flush), so a re-sent run can't create a duplicate row (a unique index on payload->>'runId' dedupes).
+  if(!state.runId){ state.runId = Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,10); }
   return {
     shell: CONFIG.SHELL_VERSION,
+    runId: state.runId,
     student: CONFIG.STUDENT,
     name: CONFIG.NAME,
     date: (QUIZ&&QUIZ.date)||_d,       // the quiz's date
@@ -962,6 +1203,7 @@ function buildPayload(){
     },
     records: state.records,
     timing: T.summary(),
+    tbGrade: (state.tbGrade && state.tbGrade!=="pending") ? state.tbGrade : null,
     summaryText: summaryText()
   };
 }
@@ -1088,54 +1330,14 @@ function renderDone(){
     '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--kelp)">✓</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">TEACH-BACK</div></div>'+
   '</div>'+
+  '<div id="tbLights" class="tblights"></div>'+
   '<div id="sendStat" class="sendstat wait">⏳ Uploading to the Vault…</div>'+
-  (f.skips.length?'<p class="note" style="margin:0 0 14px">'+f.skips.length+' marked "not covered yet" — that\'s intel, not a miss.</p>':'')+
-  flags+
-  '<button class="cta display" style="width:100%;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="emailBackup()">Backup: email it instead →</button>'+
-  '<button class="cta display" id="copyBtn" style="width:100%;margin-top:10px;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="copyResults()">or copy it instead</button>'+
-  '<button class="ghost" style="margin:10px auto 0;text-align:center" onclick="showRaw()">neither working? tap here</button>'+
-  '<div id="rawBox"></div>'+
-  '<p class="note" style="text-align:center;margin-top:10px">Results send themselves now. The buttons above are just backups.</p>';
+  (function(){var fs=f.skips.filter(function(r){return r.fresh}).length; return fs?'<p class="note" style="margin:0 0 14px">'+fs+' marked "not covered yet" — that\'s intel, not a miss.</p>':'';})()+
+  flags;
   if(isBlitz(EVENT)){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 160); } // ×2 reveal — timed to the hero pop-in
   else if(EVENT!=="battleground" && runLocalBadges(f).length){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 200); } // badge unlock on a standard night
+  renderTbLights();   // shows "marking…" now, updates in place when the grade returns
   autoSubmit();
-}
-
-function showRaw(){
-  el("rawBox").innerHTML = '<div class="box" id="rawText">'+esc(summaryText())+'</div>'+
-    '<p class="note" style="text-align:center;margin-top:6px">Long-press → Select All → Copy. Or just screenshot it.</p>';
-}
-
-var RESULTS_EMAIL = "richdrw@gmail.com";  // Vault destination (backup email path)
-
-function emailBackup(){
-  var subject = state.appName + " — " + CONFIG.NAME + " — " + quizLabel();
-  var body = summaryText();
-  var href = "mailto:" + RESULTS_EMAIL +
-             "?subject=" + encodeURIComponent(subject) +
-             "&body=" + encodeURIComponent(body);
-  try { window.location.href = href; } catch(e){ showRaw(); }
-  setTimeout(function(){ if(!el("rawText")) showRawQuiet(); }, 2500);
-}
-
-function showRawQuiet(){
-  if(el("rawText")) return;
-  el("rawBox").innerHTML = '<p class="note" style="text-align:center;margin-top:12px">Mail app didn\'t open? <a href="#" onclick="showRaw();return false;" style="color:var(--reef)">tap here for the text</a></p>';
-}
-
-function copyResults(){
-  var text=summaryText();
-  function done(){ var b=el("copyBtn"); b.textContent="Copied ✓"; b.style.background="var(--kelp)";
-    setTimeout(function(){ b.textContent="or copy it instead"; b.style.background="transparent"; },2500); }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(done).catch(function(){ legacy(); });
-  } else legacy();
-  function legacy(){
-    var ta=document.createElement("textarea"); ta.value=text;
-    document.body.appendChild(ta); ta.select();
-    try{ document.execCommand("copy"); }catch(e){}
-    document.body.removeChild(ta); done();
-  }
 }
 
 boot();

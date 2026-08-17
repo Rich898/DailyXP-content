@@ -148,11 +148,13 @@ def intent_for(t):
 
 
 def fresh_flag_for(t):
-    # law until v3.1: EVERY speed/steady carries fresh:true, EXCEPT a throwback,
-    # which is by definition a revisit of previously-seen material (LAW 3).
+    # v3.1 (item 8): HONEST fresh. Emit the sweep's per-topic flag — true = newly introduced this
+    # week (incl. live-but-new; Rich's call), false = established. Skipping a fresh topic is the
+    # benign "haven't covered this yet"; skipping an established one is a soft miss (ledger).
+    # A throwback is by definition a revisit of previously-seen material → always fresh:false (LAW 3).
     if t.get("_throwback"):
         return False
-    return True
+    return bool(t.get("fresh", False))
 
 
 def plan_set(student, date_str, day, tag, targets, state, directive):
@@ -321,13 +323,30 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
     # slots may draw the reversed format; we flag eligibility with allow_reversed
     # and let formats.py keep numeric topics safe. Throwback/teach stay recall
     # (handled inside formats.eligible_formats).
+    type_summary = ""
+    encore_plan = []
     if not boss_mode:
         import formats as _fmt
         reversed_day = "reversed" in (directive or "")
         for sl in ordered:
             if reversed_day and sl["phase"] == "speed":
                 sl["allow_reversed"] = True
-        _fmt.assign_formats(ordered, student, date_str, tag)
+        # v3.1 INPUT types: standard days only — Wednesday (reversed) and Friday (boss) stay MC.
+        if shape_key == "standard" and not reversed_day:
+            import qtypes as _qt
+            _qt.assign_types(ordered, student, date_str, tag)
+            _qt.assign_x2(ordered, student, date_str, tag)   # one hidden double-XP slot per run
+            type_summary = _qt.type_summary(ordered)
+            # Optional ENCORE (bonus round): 2 spare topics not already in the run, typed like steady.
+            _used = {sl["topic"] for sl in ordered}
+            _spare = [t for t in pool if t["topic"] not in _used][:2]
+            encore_plan = [_slot("E", i + 1, "steady", t, extra="BONUS encore question (optional extra for bonus XP)")
+                           for i, t in enumerate(_spare)]
+            if encore_plan:
+                _qt.assign_types(encore_plan, student, date_str, tag)
+        # Trap-1 cap: never both a tap-to-order slot AND the MC ordering format in one run.
+        _excl = {_fmt.ORDERING} if any(sl.get("type") == "order" for sl in ordered) else None
+        _fmt.assign_formats(ordered, student, date_str, tag, exclude=_excl)
         format_summary = _fmt.run_format_summary(ordered)
     else:
         format_summary = "boss/battleground (composer-assigned)"
@@ -340,6 +359,8 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         "requested_shape": dict(shape), "shortfall": shortfall,
         "slots": ordered, "composer_instructions": ci,
         "format_summary": format_summary,
+        "type_summary": type_summary,
+        "encore": encore_plan,
     }
 
 
@@ -357,7 +378,7 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
         f"COMPOSE {tag} for {student} ({day}). Shape: {shape_key}.",
         "Write ONE fresh question per slot below — never reuse a prompt this student has seen (the validator enforces this).",
         "RULES (CONTENT-MODEL): exactly one uncontestable answer; distractors encode the real misconception named in guidance; "
-        "every speed/steady carries fresh:true and a 'why' that re-teaches; teach-back prompts are reasoning-graded.",
+        "each speed/steady has a 'why' that re-teaches; teach-back prompts are reasoning-graded.",
         "ANSWER-LENGTH LAW (SEASONS.md LAW 1 — enforced by review.py, do not breach): the correct option must NOT be the "
         "longest, and must NOT be identifiable by any surface feature (length, grammatical completeness, a lone qualifier, "
         "position). Keep all four options in a SIMILAR length band. Make distractors specific and plausible — never short "
@@ -423,6 +444,34 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
         for f in sorted(non_recall):
             lines.append("- " + _fmt.render_note(f))
         lines.append("- " + _fmt.render_note("recall"))
+
+    # TYPED-INPUT LEGEND (Shell v3.1): slots carrying a `type` take a TYPED answer, not options.
+    used_types = {sl.get("type") for sl in slots if sl.get("type") and sl.get("type") != "mc"}
+    if used_types:
+        lines.append("")
+        lines.append("TYPED-INPUT SLOTS (Shell v3.1 — a slot below may name a 'type'; that slot takes a TYPED answer, NOT four "
+                     "options. Build it EXACTLY per this legend. There are no options, so the answer-length law does not apply; the "
+                     "point of a typed slot is that the student cannot reverse-engineer the answer from choices):")
+        if "numeric" in used_types:
+            lines.append('- type "numeric": a calculation with ONE numeric answer typed on a keypad. NO options. Emit '
+                         '{"prompt","answer","accept","why"}. answer = the canonical value WITH its unit if there is one (e.g. "30 cm\u00b2"). '
+                         'accept = every correct written form: ALWAYS include the bare number, plus unit variants and ascii/unicode forms '
+                         '(e.g. ["30","30 cm2","30cm\u00b2"]). Never accept a wrong unit. The prompt must have exactly one correct value. why re-teaches the method.')
+        if "text" in used_types:
+            lines.append('- type "text": a short term / name / date typed by the student. NO options. Emit {"prompt","answer","accept","why"}. '
+                         'answer = the canonical wording (keep it SHORT — a few words, typed recall, never an essay). accept = acceptable '
+                         'variants: synonyms, shortened forms, common spellings (e.g. answer "War Guilt Clause", accept ["war guilt","guilt clause"]). '
+                         'Matching ignores case and punctuation, so do NOT list case/punctuation variants.')
+        if "cloze" in used_types:
+            lines.append('- type "cloze": a fill-the-blank sentence. Put the blank IN the prompt as ______ (6+ underscores). NO options. '
+                         'Emit {"prompt","answer","accept","why"}. answer = the missing word/phrase (SHORT); accept = acceptable variants. '
+                         'The sentence around the blank must make the answer determinable for a student who knows the material.')
+        if "order" in used_types:
+            lines.append('- type "order": the student taps shuffled items back into the correct SEQUENCE. NO options, NO answer. '
+                         'Emit {"prompt","sequence","why"}. sequence = 3-5 SHORT, DISTINCT items in the ONE correct order (chronology, '
+                         'process steps, smallest-to-largest, etc.). The prompt states what to order by (e.g. "earliest first"). There '
+                         'must be exactly one defensible order. why = state the correct order and the reason. Only use this when the '
+                         'topic genuinely has a single correct sequence.')
     return "\n".join(lines)
 
 
@@ -443,12 +492,18 @@ def render(plan):
     out.append(f"  directive={plan.get('directive')}   shape={shape_str}")
     if plan.get("format_summary"):
         out.append(f"  formats={plan['format_summary']}")
+    if plan.get("type_summary"):
+        out.append(f"  input-types={plan['type_summary']}")
     for w in plan.get("shortfall", []):
         out.append(f"  \u26a0 POOL: {w}")
     out.append("-" * 78)
     for sl in plan["slots"]:
         tag = "REPAIR" if sl["intent"] == "repair" else sl["intent"]
-        out.append(f"  {sl['slot']:<4} {sl['phase']:<6} {sl['subject']:<10} [{tag}/{sl['state']}] score {sl['score']}")
+        typ = sl.get("type", "mc")
+        badge = typ.upper() if typ != "mc" else (("mc:" + sl["format"]) if sl.get("format") and sl.get("format") != "recall" else "")
+        if sl.get("x2"):
+            badge = (badge + " " if badge else "") + "\u2b50x2"
+        out.append(f"  {sl['slot']:<4} {sl['phase']:<6} {sl['subject']:<10} [{tag}/{sl['state']}] score {sl['score']}" + (f"  <{badge}>" if badge else ""))
         out.append(f"        {sl['topic']}")
         if sl["guidance"]:
             out.append(f"        \u21b3 {sl['guidance']}")

@@ -182,6 +182,7 @@ def normalise(row):
             "subject": rec.get("subject", "?"),
             "phase": rec.get("phase", "?"),
             "skipped": bool(rec.get("skipped")),
+            "fresh": rec.get("fresh"),   # taught-status of the Q; drives skip-kind (see classify)
             "ok": rec.get("ok"),
             "picked": rec.get("picked"),
             "confidence": rec.get("confidence") or tq.get("confidence"),
@@ -300,6 +301,13 @@ def classify(q, rel, shell_flags):
     conf = (q["confidence"] or "").lower()
 
     if q["skipped"]:
+        # A skip on a topic the kid HAS been taught (shell stamps fresh:false on the
+        # record) is a SOFT MISS — declined a covered topic. It is not a fresh-skip and
+        # must not be reported to parents as coverage intel. A skip whose record carries
+        # fresh:true (or no fresh flag, i.e. legacy/coverage-skip) stays benign intel.
+        if q.get("fresh") is False:
+            return "SKIP✗", (f"skip on taught topic ({q['subject']}) — soft miss: declined a "
+                             "covered topic; demote one box so it resurfaces sooner")
         return "SKIP", (f"fresh-skip ({q['subject']}) — coverage intel, never a miss; "
                         "verify against class, keep benched until confirmed taught")
 

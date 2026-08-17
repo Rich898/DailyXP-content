@@ -41,7 +41,7 @@ REPAIR_EXIT_CONFIRMS = 2   # calm confident confirms needed to leave REPAIR — 
 BOX = {"untested": 0, "shaky": 1, "REPAIR": 1, "developing": 2, "solid": 3}
 IBOX = {0: "untested", 1: "shaky", 2: "developing", 3: "solid"}
 # governing-badge severity (lower index wins when a topic is hit by several slots)
-PREC = ["CW", "✗", "SW", "GW", "FW", "LUCKY", "TRIV✓", "TB✗", "✓_sure", "TB✓", "✓_think", "TB~", "✓_plain", "TB", "SKIP"]
+PREC = ["CW", "✗", "SW", "GW", "SKIP✗", "FW", "LUCKY", "TRIV✓", "TB✗", "✓_sure", "TB✓", "✓_think", "TB~", "✓_plain", "TB", "SKIP"]
 
 # Teach-back QUALITY (graded by tools/grade_teachback.py, consumed deterministically here).
 # The teach-back is the deepest anti-fluency-illusion signal, so its grade has a real ledger
@@ -142,7 +142,7 @@ def transition(t, badge, rel, spaced, caveat):
         t.update(state="REPAIR", repair=True, repair_confirms=0)
         label = {"CW": "confident-wrong", "✗": "considered-wrong", "SW": "slow-wrong",
                  "GW": "guessing-wrong", "FW": "fast-wrong", "LUCKY": "lucky-correct", "TB✗": "failed-teach-back",
-                 "TRIV✓": "trivial-correct"}.get(badge, badge)
+                 "TRIV✓": "trivial-correct", "SKIP✗": "skip-on-taught"}.get(badge, badge)
         return f"{label} on REPAIR → held (confirms reset)"
 
     # ---- non-REPAIR topics: box model (untested/shaky/developing/solid) ----
@@ -156,6 +156,9 @@ def transition(t, badge, rel, spaced, caveat):
         t.update(state=IBOX[max(1, BOX[cur] - 1)], repair_confirms=0)
         kind = {"✗": "considered-wrong", "SW": "slow-wrong", "GW": "guessing-wrong"}[badge]
         return f"{kind} → {t['state']}"
+    if badge == "SKIP✗":                       # skipped a topic already taught → soft miss
+        t.update(state=IBOX[max(1, BOX[cur] - 1)], repair_confirms=0)
+        return f"skipped a taught topic (avoided) → {t['state']}"
     if badge == "FW":
         t["repair_confirms"] = 0
         return "fast-wrong → box unchanged (rush, not gap)"

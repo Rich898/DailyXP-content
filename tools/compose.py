@@ -39,7 +39,7 @@ You are given a fixed plan of slots. You fill ONLY the language of each slot. Yo
 you do not add or drop slots, you do not decide difficulty beyond what the guidance says.
 
 Hard rules (a set is rejected if any is broken):
-- Each speed/steady question: exactly ONE uncontestable correct answer, present verbatim in its options.
+- Each MC speed/steady question: exactly ONE uncontestable correct answer, present verbatim in its options. (TYPED slots — numeric/text/cloze — have no options; see the typed legend.)
 - Distractors must encode the REAL misconception named in the slot's guidance — not random wrong values.
 - Every speed/steady question has a `why` (1-2 sentences) that re-teaches the point, not just "correct".
 - Never reuse any prompt in the "already seen" list, and never repeat a prompt within this set.
@@ -56,20 +56,27 @@ Hard rules (a set is rejected if any is broken):
   `why` states the answer, explains why, names the misconception. All other rules still apply.
 - Match the school framing in the guidance; keep difficulty calm unless told otherwise.
 
-Output ONLY a JSON object, no prose, no markdown fences. Shape:
-{ "<slotId>": { "prompt": "...", "options": ["...","...","...","..."], "answer": "<one of options>", "why": "..." }, ... }
-For teach slots the value is just { "prompt": "..." }. Include every slotId given, and no others."""
+Output ONLY a JSON object, no prose, no markdown fences. Each slot's shape depends on its `type`:
+- no `type` given = multiple choice: { "prompt": "...", "options": ["...","...","...","..."], "answer": "<one of options>", "why": "..." }
+- `type` "numeric" / "text" / "cloze" = TYPED (no options): { "prompt": "...", "answer": "...", "accept": ["...","..."], "why": "..." }  — build these EXACTLY per the TYPED-INPUT legend in the instructions.
+- `type` "order" = SEQUENCE (no options, no answer): { "prompt": "...", "sequence": ["<first>","<second>","<third>", ...], "why": "..." }  — items in the CORRECT order; the shell shuffles them for the student to tap back into order.
+- teach slot: { "prompt": "..." }
+Include every slotId given, and no others."""
 
 
 def build_user(plan, seen):
     slots = []
-    for s in plan["slots"]:
+    for s in list(plan["slots"]) + list(plan.get("encore", [])):
         row = {
             "slotId": s["slot"], "phase": s["phase"], "subject": s["subject"],
             "topic": s["topic"], "intent": s["intent"], "guidance": s.get("guidance", ""),
         }
         if s.get("format") and s.get("format") != "recall":
             row["format"] = s["format"]      # composer applies the matching legend entry
+        if s.get("type") and s.get("type") != "mc":
+            row["type"] = s["type"]           # typed slot — composer applies the TYPED-INPUT legend
+        if s["slot"].startswith("E"):
+            row["bonus"] = True               # optional encore question — same rules, extra for bonus XP
         slots.append(row)
     payload = {
         "for": f"{plan['student']} {plan['tag']} ({plan['day']} {plan['date']})",
@@ -106,31 +113,51 @@ def parse_json(text):
     return json.loads(t)
 
 
+def _build_q(s, filled):
+    """Build one question dict from a plan slot + model output. Shared by the main set and the encore."""
+    f = filled.get(s["slot"], {})
+    q = {"id": s["slot"], "phase": s["phase"], "subject": s["subject"],
+         "prompt": f.get("prompt", "")}
+    if s["phase"] in ("speed", "steady"):
+        qtype = s.get("type", "mc")
+        if qtype != "mc":
+            q["type"] = qtype                         # mc stays implicit (back-compat)
+        if qtype != "order":
+            q["answer"] = f.get("answer")             # order carries a sequence, not an answer
+        q["why"] = f.get("why", "")
+        if qtype == "mc":
+            q["options"] = f.get("options", [])
+        elif qtype in ("numeric", "text", "cloze"):
+            acc = f.get("accept")                     # LLM-authored accepted variants (synonyms/units)
+            if acc is not None:
+                q["accept"] = acc
+        elif qtype == "order":
+            q["sequence"] = f.get("sequence", [])     # LLM-authored CORRECT order (shell shuffles for display)
+        # Carry fresh from the plan (a throwback slot is fresh:false — a revisit,
+        # not new material; SEASONS.md LAW 3). Default true for everything else.
+        q["fresh"] = bool(s.get("fresh", True))
+        if s.get("throwback"):
+            q["throwback"] = True
+            q["fresh"] = False
+        if s["intent"] == "repair":
+            q["repair"] = True
+        if s.get("x2"):
+            q["x2"] = True                            # hidden double-XP (shell doesn't betray it pre-answer)
+    return q
+
+
 def assemble(plan, filled):
     """Build the set schema from the plan (structure) + model output (language)."""
-    questions = []
-    for s in plan["slots"]:
-        f = filled.get(s["slot"], {})
-        q = {"id": s["slot"], "phase": s["phase"], "subject": s["subject"],
-             "prompt": f.get("prompt", "")}
-        if s["phase"] in ("speed", "steady"):
-            q["options"] = f.get("options", [])
-            q["answer"] = f.get("answer")
-            q["why"] = f.get("why", "")
-            # Carry fresh from the plan (a throwback slot is fresh:false — a revisit,
-            # not new material; SEASONS.md LAW 3). Default true for everything else.
-            q["fresh"] = bool(s.get("fresh", True))
-            if s.get("throwback"):
-                q["throwback"] = True
-                q["fresh"] = False
-            if s["intent"] == "repair":
-                q["repair"] = True
-        questions.append(q)
-    return {
+    questions = [_build_q(s, filled) for s in plan["slots"]]
+    out = {
         "student": plan["student"], "date": plan["date"], "day": plan["day"],
         "tag": plan["tag"], "title": f"DailyXP · {plan['day']} {plan['date']}",  # name-free title
         "questions": questions,
     }
+    encore = [_build_q(s, filled) for s in plan.get("encore", [])]
+    if encore:
+        out["encore"] = encore                        # optional bonus round (shell offers it after teach-back)
+    return out
 
 
 def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=2, history_dir=None):

@@ -49,6 +49,8 @@ const eventBlock = m[0];
 let outside = src.replace(eventBlock, "");
 const fxBlock = outside.match(/\/\*FX-CORE-START\*\/[\s\S]*?\/\*FX-CORE-END\*\//);
 if (fxBlock) outside = outside.replace(fxBlock[0], "");
+const x2Block = outside.match(/\/\*X2-CORE-START\*\/[\s\S]*?\/\*X2-CORE-END\*\//);
+if (x2Block) outside = outside.replace(x2Block[0], "");   // hidden double-XP: audited by test_x2.js
 check("no *2 arithmetic in the main shell body (outside the audited cores)",
   !/\*\s*2\b/.test(outside.replace(/\/\*[\s\S]*?\*\//g, "")));
 check("state.score is never multiplied", !/state\.score\s*\*/.test(src) && !/state\.score\s*\*=/.test(src));

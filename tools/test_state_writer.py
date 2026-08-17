@@ -34,6 +34,10 @@ state = {"generated": "2026-07-01", "students": {"s1": {"ref": "s1", "status": "
         T("Eng", "plain_hold", "developing"),                       # speed plain ✓ → hold (no solid)
         T("Eng", "solid_maintain", "solid"),                        # ✓ → maintain
         T("Eng", "fresh_skip", "untested", last=None, seen=0),      # skip → benched, times_seen stays 0
+        T("Geo", "skipmiss_solid", "solid"),                        # SKIP✗ (taught, declined) → demote solid→developing
+        T("Geo", "skipmiss_dev", "developing"),                     # SKIP✗ → developing→shaky
+        T("Geo", "skipmiss_shaky", "shaky"),                        # SKIP✗ → shaky (floored, no underflow)
+        T("Geo", "skipmiss_repair", "REPAIR", repair=True, confirms=1),  # SKIP✗ on REPAIR → held, confirms reset
     ]}}}
 json.dump(state, open(f"{tmp}/work/state.json", "w"), indent=2)
 
@@ -46,13 +50,15 @@ slots = [
     ("T2", "steady", "His", "promote_solid"), ("T3", "steady", "His", "think_dev"),
     ("S8", "speed", "Eng", "plain_hold"),     ("S9", "speed", "Eng", "solid_maintain"),
     ("S10", "speed", "Eng", "fresh_skip"),
+    ("K1", "steady", "Geo", "skipmiss_solid"), ("K2", "steady", "Geo", "skipmiss_dev"),
+    ("K3", "steady", "Geo", "skipmiss_shaky"), ("K4", "steady", "Geo", "skipmiss_repair"),
 ]
 json.dump({"student": "s1", "set_date": "2026-08-06", "tag": "X1", "day": "THU",
            "slots": [{"slot": i, "phase": p, "subject": s, "intent": "x", "topic": t} for i, p, s, t in slots]},
           open(f"{tmp}/plans/s1/2026-08-06.json", "w"), indent=2)
 
-def Q(id, subj, phase, ok, conf=None, secs=12.0, skip=False):
-    return {"id": id, "subject": subj, "phase": phase, "skipped": skip, "ok": ok, "picked": "x",
+def Q(id, subj, phase, ok, conf=None, secs=12.0, skip=False, fresh=None):
+    return {"id": id, "subject": subj, "phase": phase, "skipped": skip, "fresh": fresh, "ok": ok, "picked": "x",
             "confidence": conf, "secs": secs, "pts": 0, "chars": None, "text": None}
 
 # steady median will be ~12s (many 12s answers) → 3s=trivial, 4s=fast, 25s=slow
@@ -74,7 +80,11 @@ run = {"student": "s1", "name": "s1", "tag": "X1", "day": "THU", "set_date": "20
            Q("T3", "His", "steady", True, "Think so", 14),  # think_dev
            Q("S8", "Eng", "speed", True, None, 12),         # plain_hold
            Q("S9", "Eng", "speed", True, None, 12),         # solid_maintain
-           Q("S10", "Eng", "speed", None, None, 12, skip=True),  # fresh_skip
+           Q("S10", "Eng", "speed", None, None, 12, skip=True),  # fresh_skip (no fresh flag → benign SKIP)
+           Q("K1", "Geo", "steady", None, None, 12, skip=True, fresh=False),  # SKIP✗ skipmiss_solid
+           Q("K2", "Geo", "steady", None, None, 12, skip=True, fresh=False),  # SKIP✗ skipmiss_dev
+           Q("K3", "Geo", "steady", None, None, 12, skip=True, fresh=False),  # SKIP✗ skipmiss_shaky
+           Q("K4", "Geo", "steady", None, None, 12, skip=True, fresh=False),  # SKIP✗ skipmiss_repair
            Q("F1", "Mat", "steady", True, None, 12), Q("F2", "Mat", "steady", True, None, 12),  # padding for baseline
        ]}
 json.dump({"runs": [run]}, open(f"{tmp}/work/runs.json", "w"), indent=2)
@@ -95,7 +105,11 @@ cases = [
     ("Think so shaky→developing", tp["think_dev"]["state"] == "developing"),
     ("speed plain ✓ holds developing (no solid)", tp["plain_hold"]["state"] == "developing"),
     ("solid maintained", tp["solid_maintain"]["state"] == "solid"),
-    ("fresh-skip untested, times_seen 0", tp["fresh_skip"]["state"] == "untested" and tp["fresh_skip"]["times_seen"] == 0),
+    ("fresh-skip untested, times_seen 0 (benign, unchanged)", tp["fresh_skip"]["state"] == "untested" and tp["fresh_skip"]["times_seen"] == 0),
+    ("SKIP✗ soft-miss demote solid→developing", tp["skipmiss_solid"]["state"] == "developing"),
+    ("SKIP✗ soft-miss demote developing→shaky", tp["skipmiss_dev"]["state"] == "shaky"),
+    ("SKIP✗ soft-miss shaky floored (no underflow)", tp["skipmiss_shaky"]["state"] == "shaky"),
+    ("SKIP✗ on REPAIR held, confirms reset to 0", tp["skipmiss_repair"]["state"] == "REPAIR" and tp["skipmiss_repair"]["repair_confirms"] == 0),
     ("human note preserved", tp["repair_confirm"]["note"] == "HUMAN NOTE for repair_confirm"),
 ]
 ok = True
