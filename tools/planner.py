@@ -32,6 +32,12 @@ import re
 
 STATE_PRIORITY = {"REPAIR": 100, "shaky": 70, "developing": 45, "untested": 30, "solid": 12}
 ASSESS_HORIZON_DAYS = 16          # boost a subject if an assessment falls within this
+
+# v3.1 question types (numeric/text/cloze/order + hidden x2 + encore) require the v3.1 SHELL to render.
+# GATE: keep this False until the new shells are deployed to Netlify — the old shell can't display the
+# new types and a run would break. Flip to True (one-line commit) once the shells are confirmed live.
+V31_TYPES_LIVE = False
+
 SHAPES = {
     "standard": {"speed": 7, "steady": 4, "teach": 1},
     "blitz":    {"speed": 10, "steady": 2, "teach": 1},
@@ -332,7 +338,7 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
             if reversed_day and sl["phase"] == "speed":
                 sl["allow_reversed"] = True
         # v3.1 INPUT types: standard days only — Wednesday (reversed) and Friday (boss) stay MC.
-        if shape_key == "standard" and not reversed_day:
+        if V31_TYPES_LIVE and shape_key == "standard" and not reversed_day:
             import qtypes as _qt
             _qt.assign_types(ordered, student, date_str, tag)
             _qt.assign_x2(ordered, student, date_str, tag)   # one hidden double-XP slot per run
