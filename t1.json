@@ -9,172 +9,172 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Shakespeare's company performed at which famous London theatre, closely associated with his plays?",
+      "prompt": "Which of these does NOT belong with the others about Romeo and Juliet's author and context?",
       "options": [
-        "The Globe Theatre",
-        "The Royal Albert Hall",
-        "The Old Vic",
-        "Sadler's Wells"
+        "William Shakespeare wrote the play",
+        "The play is set in Verona, Italy",
+        "The play was written in the 20th century",
+        "The play is classified as a tragedy"
       ],
-      "answer": "The Globe Theatre",
-      "why": "The Globe Theatre, built in 1599, was where Shakespeare's company (the Lord Chamberlain's Men) performed most of his plays. Students sometimes confuse it with modern or unrelated venues.",
+      "answer": "The play was written in the 20th century",
+      "why": "Shakespeare wrote in the late 16th century, not the 20th century. The other three facts are accurate features of the play's authorship, setting, and genre.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, what is the dramatic effect of the play's frequent use of dramatic irony?",
+      "prompt": "Match each technique in Romeo and Juliet to its example: 1) Oxymoron, 2) Metaphor, 3) Dramatic irony, 4) Foreshadowing. A) 'Loving hate'. B) Juliet is the sun. C) Audience knows Juliet is alive but Romeo doesn't. D) The Prologue revealing the lovers' fate.",
       "options": [
-        "It lets the audience know more than the characters, building tension as we watch them head toward disaster",
-        "It confuses the audience so they cannot follow the plot",
-        "It removes all tension because the audience already knows everything the characters know",
-        "It is only used for comic relief and has no effect on tension"
+        "1-A, 2-B, 3-C, 4-D",
+        "1-B, 2-A, 3-C, 4-D",
+        "1-A, 2-C, 3-B, 4-D",
+        "1-A, 2-B, 3-D, 4-C"
       ],
-      "answer": "It lets the audience know more than the characters, building tension as we watch them head toward disaster",
-      "why": "Dramatic irony works because the audience holds knowledge the characters lack (e.g. Juliet's fake death), creating suspense and tragic tension — not confusion or comedy.",
+      "answer": "1-A, 2-B, 3-C, 4-D",
+      "why": "Oxymoron pairs contradictory words like 'loving hate', metaphor directly compares Juliet to the sun, dramatic irony is when the audience knows more than a character, and foreshadowing hints at future events like the Prologue does.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A student claims that fungi like mushrooms can only reproduce sexually. Which fact proves this wrong?",
+      "prompt": "A student explains asexual reproduction using this worked argument. Which step is WRONG? Step 1: Asexual reproduction involves only one parent. Step 2: Offspring produced asexually are genetically identical to the parent. Step 3: Identical twins in humans are an example of asexual reproduction. Step 4: Bacteria splitting by binary fission is an example of asexual reproduction.",
       "options": [
-        "Fungi can reproduce asexually by releasing spores that grow into genetically identical fungi",
-        "Fungi never reproduce because they are not living organisms",
-        "Fungi can only reproduce if two different species combine",
-        "Fungi reproduce exclusively through seeds like plants"
+        "Step 1: Asexual reproduction involves only one parent",
+        "Step 2: Offspring produced asexually are genetically identical to the parent",
+        "Step 3: Identical twins in humans are an example of asexual reproduction",
+        "Step 4: Bacteria splitting by binary fission is an example of asexual reproduction"
       ],
-      "answer": "Fungi can reproduce asexually by releasing spores that grow into genetically identical fungi",
-      "why": "Many fungi reproduce asexually via spores, producing genetically identical offspring — showing asexual reproduction isn't limited to simple organisms like bacteria.",
+      "answer": "Step 3: Identical twins in humans are an example of asexual reproduction",
+      "why": "Identical twins form when a fertilised egg (from sexual reproduction) splits in two — the reproduction that created them was still sexual, so twins are not an example of asexual reproduction.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What term describes the period in Western Europe roughly between the fall of Rome and the Renaissance?",
+      "prompt": "Which statement about the fall of Rome and the medieval era that followed is FALSE?",
       "options": [
-        "The Middle Ages (medieval period)",
-        "The Enlightenment",
-        "The Industrial Age",
-        "The Bronze Age"
+        "The Western Roman Empire is generally dated as falling in 476 CE",
+        "Central political authority broke down across much of Western Europe after Rome fell",
+        "Western Europe had fully organised national governments again within a few years of Rome's fall",
+        "The Catholic Church became a major unifying power in Europe after Rome's collapse"
       ],
-      "answer": "The Middle Ages (medieval period)",
-      "why": "The Middle Ages spans roughly 476 CE to the 1400s, filled with feudal kingdoms and the Church's power — students sometimes wrongly picture this era as a total blank with nothing happening.",
+      "answer": "Western Europe had fully organised national governments again within a few years of Rome's fall",
+      "why": "After Rome fell, Western Europe fragmented into small, weak, local territories for centuries — organised nation-states did not reappear quickly, which is why the period is often called the 'Dark Ages' in political terms.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In the feudal system, what did knights typically provide to their lord in exchange for land?",
+      "prompt": "Put these levels of the feudal pyramid in order from HIGHEST to LOWEST power: Peasants (serfs), King, Knights, Lords/Nobles.",
       "options": [
-        "Military service and protection",
-        "A yearly cash salary",
-        "Farming labour on the lord's fields",
-        "Nothing — knights owed no obligations"
+        "King, Lords/Nobles, Knights, Peasants (serfs)",
+        "King, Knights, Lords/Nobles, Peasants (serfs)",
+        "Lords/Nobles, King, Knights, Peasants (serfs)",
+        "King, Lords/Nobles, Peasants (serfs), Knights"
       ],
-      "answer": "Military service and protection",
-      "why": "Knights received land (a fief) from lords in return for military service, not wages or farm labour — that mix-up confuses the roles of knights with those of peasants.",
+      "answer": "King, Lords/Nobles, Knights, Peasants (serfs)",
+      "why": "The feudal pyramid ran King at the top, then Lords/Nobles who held land from the king, then Knights who served the lords, then Peasants (serfs) at the bottom who worked the land.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which moment in Romeo and Juliet shows the 'love vs hate' theme through violence rather than tenderness?",
+      "prompt": "In Romeo and Juliet, which line best captures the play's theme of love intertwined with hate?",
       "options": [
-        "Mercutio's death after Tybalt's sword fight with Romeo",
-        "Romeo and Juliet's first meeting at the Capulet ball",
-        "The balcony scene where they exchange vows",
-        "Juliet's soliloquy waiting for the Nurse's news"
+        "'My only love sprung from my only hate'",
+        "'A plague o' both your houses'",
+        "'Wisely and slow; they stumble that run fast'",
+        "'These violent delights have violent ends'"
       ],
-      "answer": "Mercutio's death after Tybalt's sword fight with Romeo",
-      "why": "The street violence between the feuding families (Mercutio's death) shows hate driving the plot toward tragedy, contrasting with the romantic scenes — the theme isn't only expressed through affection.",
+      "answer": "'My only love sprung from my only hate'",
+      "why": "This line directly fuses love and hate in one phrase, capturing Juliet's realisation that she loves someone from her family's enemy house — the clearest expression of the theme.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In an experiment testing how the concentration of salt water affects seed germination, a student mixes up which variable is independent. What is the independent variable here?",
+      "prompt": "Match each variable type to its correct example from an experiment testing how light intensity affects plant growth: 1) Independent variable, 2) Dependent variable, 3) Controlled variable. A) Amount of water given to each plant. B) Light intensity provided to each plant. C) Height of the plant after two weeks.",
       "options": [
-        "The concentration of salt water",
-        "The number of seeds that germinate",
-        "The temperature of the room",
-        "The type of soil used"
+        "1-B, 2-C, 3-A",
+        "1-C, 2-B, 3-A",
+        "1-B, 2-A, 3-C",
+        "1-A, 2-C, 3-B"
       ],
-      "answer": "The concentration of salt water",
-      "why": "The independent variable is what the experimenter deliberately changes — here, salt concentration. Germination rate is the dependent variable, the outcome being measured.",
+      "answer": "1-B, 2-C, 3-A",
+      "why": "The independent variable is what you deliberately change (light intensity), the dependent variable is what you measure as a result (plant height), and the controlled variable is kept the same throughout (water amount).",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which statement about the Crusades is false?",
+      "prompt": "Put these Crusades-related events in chronological order: Jerusalem is captured by the First Crusade, The First Crusade is launched, Crusader states are eventually lost, Trade links between Europe and the Middle East expand.",
       "options": [
-        "The Crusades were fought only over religion, with no economic motives whatsoever",
-        "The First Crusade aimed to capture Jerusalem for Christendom",
-        "Crusader states in the Holy Land were eventually lost",
-        "Italian port cities like Venice and Genoa profited from transporting crusaders"
+        "The First Crusade is launched, Jerusalem is captured by the First Crusade, Trade links between Europe and the Middle East expand, Crusader states are eventually lost",
+        "The First Crusade is launched, Crusader states are eventually lost, Jerusalem is captured by the First Crusade, Trade links between Europe and the Middle East expand",
+        "Jerusalem is captured by the First Crusade, The First Crusade is launched, Trade links between Europe and the Middle East expand, Crusader states are eventually lost",
+        "The First Crusade is launched, Jerusalem is captured by the First Crusade, Crusader states are eventually lost, Trade links between Europe and the Middle East expand"
       ],
-      "answer": "The Crusades were fought only over religion, with no economic motives whatsoever",
-      "why": "The Crusades were driven by a mix of religious zeal, political ambition, and economic opportunity (trade routes, land, wealth) — reducing them to pure religion ignores these other motives.",
+      "answer": "The First Crusade is launched, Jerusalem is captured by the First Crusade, Trade links between Europe and the Middle East expand, Crusader states are eventually lost",
+      "why": "The Crusade was launched first, then Jerusalem was captured in 1099, trade and cultural exchange grew during the crusader states' existence, and the states were eventually lost afterward — the lasting trade effects are why historians see it as significant beyond the military outcome.",
       "fresh": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which of these is true about the historical setting in which Shakespeare wrote his plays?",
+      "prompt": "Which statement about William Shakespeare and the writing of Romeo and Juliet is FALSE?",
       "options": [
-        "Female roles were played by young men or boys, since women were banned from the English stage",
-        "Women regularly performed female roles alongside men",
-        "Plays were performed with elaborate film-style special effects",
-        "Audiences watched silently in fully darkened theatres"
+        "Shakespeare wrote Romeo and Juliet in the late 1590s, drawing on earlier Italian and English poems about doomed lovers.",
+        "Shakespeare invented the entire plot of Romeo and Juliet himself, with no earlier versions of the story existing before his play.",
+        "Shakespeare's plays were performed by his company at the Globe Theatre in London for a mixed audience of nobles and commoners.",
+        "Shakespeare wrote most of his plays, including Romeo and Juliet, using a mix of blank verse and prose rather than only prose."
       ],
-      "answer": "Female roles were played by young men or boys, since women were banned from the English stage",
-      "why": "In Shakespeare's time, women were not permitted to act on the English stage, so boys or young men played female roles like Juliet — a key fact about Elizabethan theatre conventions.",
+      "answer": "Shakespeare invented the entire plot of Romeo and Juliet himself, with no earlier versions of the story existing before his play.",
+      "why": "Shakespeare actually based Romeo and Juliet on existing sources, especially Arthur Brooke's 1562 narrative poem 'The Tragical History of Romeus and Juliet' — he adapted and improved an existing story rather than inventing it from nothing. This is a common misconception that overstates Shakespeare's originality.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "A student says the Nurse's comic, rambling speech style has no real purpose in Romeo and Juliet. What does this overlook about Shakespeare's use of characterisation and contrast?",
+      "prompt": "Which of these does NOT belong as an example of Shakespeare's use of dramatic technique in Romeo and Juliet?",
       "options": [
-        "It provides comic relief and contrasts with the play's tragic tone, making the tragedy hit harder by comparison",
-        "It exists only to pad out the play's length",
-        "It shows the Nurse is meant to be taken as seriously as Friar Lawrence",
-        "It has no connection to the play's themes or structure at all"
+        "Juliet comparing Romeo to the sun as a metaphor",
+        "The Prologue using a sonnet form to foreshadow events",
+        "The audience knowing Juliet is alive while Romeo believes she is dead",
+        "The Nurse listing the ingredients of a herbal remedy in exact detail"
       ],
-      "answer": "It provides comic relief and contrasts with the play's tragic tone, making the tragedy hit harder by comparison",
-      "why": "Shakespeare uses the Nurse's comic chatter to contrast with the tragic elements, heightening the emotional impact of darker scenes through juxtaposition — a deliberate technique, not filler.",
+      "answer": "The Nurse listing the ingredients of a herbal remedy in exact detail",
+      "why": "This is a fabricated detail with no real dramatic technique purpose, unlike metaphor, foreshadowing, and dramatic irony, which are genuine techniques Shakespeare uses throughout the play.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student claims that identical twins are an example of asexual reproduction in humans. What's wrong with this claim?",
+      "prompt": "A student explains why fungi reproduction is misunderstood using this worked argument. Which step is WRONG? Step 1: Some fungi, like mushrooms, can reproduce using spores without a mate. Step 2: This spore production without a mate is a form of asexual reproduction. Step 3: Therefore, all fungi can only reproduce asexually and never sexually. Step 4: In fact, many fungi can also reproduce sexually by combining genetic material from two individuals.",
       "options": [
-        "Identical twins result from sexual reproduction (a fertilised egg splitting), not asexual reproduction, which needs only one parent",
-        "Identical twins prove humans can reproduce asexually",
-        "Identical twins are genetically different, so this claim is about mutation, not reproduction",
-        "Identical twins only occur in animals that reproduce asexually"
+        "Step 1: Some fungi, like mushrooms, can reproduce using spores without a mate",
+        "Step 2: This spore production without a mate is a form of asexual reproduction",
+        "Step 3: Therefore, all fungi can only reproduce asexually and never sexually",
+        "Step 4: In fact, many fungi can also reproduce sexually by combining genetic material from two individuals"
       ],
-      "answer": "Identical twins result from sexual reproduction (a fertilised egg splitting), not asexual reproduction, which needs only one parent",
-      "why": "Identical twins come from one fertilised egg (formed by sexual reproduction of two parents) splitting into two embryos — this is genetically similar but still originates from sexual reproduction, not asexual reproduction which requires only one parent.",
+      "answer": "Step 3: Therefore, all fungi can only reproduce asexually and never sexually",
+      "why": "Many fungi are capable of both asexual and sexual reproduction, so it's wrong to conclude they can only reproduce one way — mushrooms often use spores asexually but can also reproduce sexually under certain conditions.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says learning about the Crusades is pointless because Europe and the Middle East are 'completely different places now' with no connection to that history. Explain, using your own reasoning and at least one specific long-term effect, why this view misunderstands how historical events shape the present."
+      "prompt": "A classmate says studying the Crusades is a waste of time because they were fought over religion, and 'nobody cares about religious wars anymore.' Explain, using your own reasoning and at least one specific long-term effect, why the Crusades still matter to study today even though modern society is more secular."
     }
   ]
 }
