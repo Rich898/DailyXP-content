@@ -9,120 +9,120 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 5 cm and height 11 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 6 cm and height 14 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "502.4 cm²",
-        "345.4 cm²",
-        "376.8 cm²",
-        "628.0 cm²"
+        "753.6 cm²",
+        "527.5 cm²",
+        "659.4 cm²",
+        "376.8 cm²"
       ],
-      "answer": "502.4 cm²",
-      "why": "Total surface area of a closed cylinder = 2πr² + 2πrh = 2πr(r+h). Here that's 2×3.14×5×(5+11) = 502.4 cm². A common mistake is forgetting one circular end (giving 345.4) or leaving out the circles entirely (628.0, which is just the curved surface doubled incorrectly).",
+      "answer": "753.6 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(36) + 2(3.14)(6)(14) = 226.1 + 527.5 = 753.6 cm². A common error is forgetting the two circular ends (giving 527.5) or only including one end (376.8).",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Weimar Republic's use of proportional representation meant even small parties could win seats in parliament. Why did this make government harder?",
+      "prompt": "The Weimar Republic's system of proportional representation meant that even tiny fringe parties could win seats in the Reichstag. What was the main practical consequence of this?",
       "options": [
-        "It often produced weak coalition governments that struggled to agree and act decisively",
-        "It meant only the Kaiser's party could ever win seats",
-        "It gave the army automatic control of parliament",
-        "It made elections illegal after 1919"
+        "Coalition governments were unstable and often collapsed quickly",
+        "Only the Nazi party was allowed to hold seats",
+        "Voting became compulsory for all German citizens",
+        "The president automatically gained more power each election"
       ],
-      "answer": "It often produced weak coalition governments that struggled to agree and act decisively",
-      "why": "Proportional representation gave many small parties seats, so no single party had a majority. Governments were fragile coalitions that frequently collapsed, making stable decision-making difficult — this is different from confusing PR with banning elections or removing civilian power.",
+      "answer": "Coalition governments were unstable and often collapsed quickly",
+      "why": "Because seats matched vote share almost exactly, no single party usually won a majority, forcing fragile multi-party coalitions that frequently broke down — a key weakness of Weimar democracy.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which statement best shows the causal chain linking the Great Depression to the Nazi Party's growth, rather than just noting they occurred at the same time?",
+      "prompt": "By the early 1930s, millions of unemployed Germans were losing faith in the mainstream parties that had governed through the Depression. Which statement best explains why this specifically helped the Nazis rather than just making people angry in general?",
       "options": [
-        "Mass unemployment from the Depression made Nazi promises of jobs and strong leadership newly appealing to desperate voters",
-        "The Depression happened, and separately the Nazis also became more popular around then",
-        "The Depression proved Hitler was right about everything from the start",
-        "The Depression only affected farmers, who never voted Nazi"
+        "The Nazis offered clear scapegoats and promised strong, decisive leadership when other parties seemed unable to act",
+        "The Nazis were the only party allowed to campaign during the Depression",
+        "Unemployment automatically made people vote for whichever party was largest",
+        "The Depression had no real effect on which party people supported"
       ],
-      "answer": "Mass unemployment from the Depression made Nazi promises of jobs and strong leadership newly appealing to desperate voters",
-      "why": "A causal link requires showing mechanism: economic despair drove people toward parties offering radical solutions and stability. Simply noting the timing overlap (option 2) isn't causation, and the other options misrepresent the actual historical pattern.",
+      "answer": "The Nazis offered clear scapegoats and promised strong, decisive leadership when other parties seemed unable to act",
+      "why": "Correlation isn't causation: it wasn't just that hardship existed, but that the Nazis actively channelled that despair into simple explanations and confident promises, which mainstream parties failed to offer.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "Two students argue about Australia's post-WWII migration. One says 'people only came because Australia was desperate for workers.' The other says 'people only came to escape hardship at home.' What's the better historical view?",
+      "prompt": "Two historians debate Australia's post-WWII migration: one says it was driven purely by government economic planning, the other says it was purely about migrants' personal choices. Which response best captures the fuller picture?",
       "options": [
-        "Both push and pull factors worked together — hardship abroad and Australia's need for labour and population both mattered",
-        "Only push factors mattered; Australia's own needs were irrelevant",
-        "Only pull factors mattered; conditions overseas were irrelevant",
-        "Migration in this period was entirely random with no identifiable factors"
+        "It was a combination of Australia's push for labour and population growth alongside migrants' own push and pull factors like escaping hardship or seeking opportunity",
+        "It was entirely planned by the government with no input from migrants themselves",
+        "It was entirely due to individual migrants' choices, with no government involvement at all",
+        "It only happened because of the White Australia Policy encouraging global migration"
       ],
-      "answer": "Both push and pull factors worked together — hardship abroad and Australia's need for labour and population both mattered",
-      "why": "Migration is best explained by combining push factors (like postwar hardship in Europe) with pull factors (like Australia's assisted passage schemes and labour shortages). Picking only one side oversimplifies a two-sided process.",
+      "answer": "It was a combination of Australia's push for labour and population growth alongside migrants' own push and pull factors like escaping hardship or seeking opportunity",
+      "why": "Real historical explanations rarely rest on a single cause — Australia's policy needs and migrants' personal motivations worked together, not as opposing forces.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A student writing a business plan for a new car wash wants to include a SWOT analysis. Which of these belongs correctly inside the SWOT section, rather than the market analysis section?",
+      "prompt": "A student writing a business plan for a new bakery lists these two items: 'a competitor bakery is opening two streets away' and 'flour prices are rising this year'. Both are genuine external threats. Which section should this information go in — SWOT analysis or market analysis?",
       "options": [
-        "The business has low startup costs but faces threat from three nearby competitors",
-        "Local car ownership rates are rising in this suburb",
-        "Competitors currently charge between $15 and $25 for a wash",
-        "Weekly traffic counts on the main road are increasing"
+        "SWOT analysis",
+        "Market analysis",
+        "Executive summary",
+        "Both sections equally, since threats can appear anywhere"
       ],
-      "answer": "The business has low startup costs but faces threat from three nearby competitors",
-      "why": "SWOT covers internal Strengths/Weaknesses and external Opportunities/Threats about the business itself. Facts about market size, competitor pricing, or customer numbers describe the external market and belong in market analysis, not SWOT.",
+      "answer": "SWOT analysis",
+      "why": "Threats (like a new competitor or rising costs) are one of the four letters in SWOT — Strengths, Weaknesses, Opportunities, Threats — so external risks like these belong there, not in market analysis, which is about researching customers, competitors' prices, and demand as background data. The misconception is thinking any mention of a competitor or cost automatically means 'market analysis' — it depends on whether it's being analysed as a risk/opportunity (SWOT) or just described as market data.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "When a pathogen invades the body, memory cells 'remember' it so future infections are fought off faster. What is this ability called?",
+      "prompt": "When the body encounters a pathogen it has met before, memory cells trigger a much faster antibody response the second time. What is this ability called?",
       "options": [
         "Immunity",
+        "Inflammation",
         "Digestion",
-        "Photosynthesis",
-        "Respiration"
+        "Circulation"
       ],
       "answer": "Immunity",
-      "why": "Immunity is the body's ability to resist a pathogen it has previously encountered, thanks to memory cells that allow a faster antibody response next time. This is distinct from unrelated body processes like digestion or respiration.",
+      "why": "Immunity is the body's ability to resist a pathogen it has previously encountered, thanks to memory cells 'remembering' it and enabling a faster, stronger response next time.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A migrant moves permanently from Vietnam to Australia to reunite with family already living there. Which term correctly describes this kind of movement?",
+      "prompt": "A city's population grows quickly as people move from rural farms to work in city factories, while at the same time a family moves permanently from another country to start a new life there. Which statement correctly separates these two processes?",
       "options": [
-        "International migration",
-        "Urbanisation",
-        "Internal migration",
-        "Emigration only, with no pull factor involved"
+        "The factory workers are urbanising within their own country; the family is migrating between countries",
+        "Both groups are migrating, since both are moving to a new place",
+        "Both groups are urbanising, since both end up living in a city",
+        "The factory workers are migrating; the family is urbanising"
       ],
-      "answer": "International migration",
-      "why": "International migration is the permanent movement of people across national borders. Urbanisation refers to movement from rural to urban areas usually within a country, and internal migration also stays within one country — neither fits crossing from Vietnam to Australia.",
+      "answer": "The factory workers are urbanising within their own country; the family is migrating between countries",
+      "why": "Urbanisation is internal movement from rural to urban areas within the same country; migration is movement across a border into a new country — the two are easily confused but describe different kinds of movement.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 15 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 17 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "options": [
-        "52.5 cm²",
-        "105 cm²",
-        "22 cm²",
-        "45.5 cm²"
+        "68 cm²",
+        "136 cm²",
+        "25 cm²",
+        "102 cm²"
       ],
-      "answer": "52.5 cm²",
-      "why": "Area of a triangle = ½ × base × height = ½ × 15 × 7 = 52.5 cm². Forgetting to halve gives 105 cm² — the classic rushing mistake. Slowing down to say the formula first stops that error.",
+      "answer": "68 cm²",
+      "why": "Area = ½ × base × height = ½ × 17 × 8 = 68 cm². Multiplying base × height without halving gives the rushed wrong answer of 136 cm² — always pause and apply the ½ deliberately.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 3 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 8 cm and height 5 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "282.6 cm²",
-        "226.1 cm²",
-        "339.1 cm²",
-        "113.0 cm²"
+        "653.1 cm²",
+        "251.2 cm²",
+        "401.9 cm²",
+        "829.4 cm²"
       ],
-      "answer": "282.6 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2×3.14×9 + 2×3.14×3×12 = 56.5 + 226.1 = 282.6 cm². Missing one end circle gives 226.1, and using only curved surface doubled incorrectly gives other wrong totals.",
+      "answer": "653.1 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(64) + 2(3.14)(8)(5) = 401.9 + 251.2 = 653.1 cm². Forgetting either the two circular ends or the curved side gives an incomplete total.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Why is the Weimar Republic sometimes described as facing a 'crisis of legitimacy' from its very first years?",
+      "prompt": "The Weimar Republic's constitution allowed the president to bypass parliament and rule by emergency decree under Article 48. Why did this weaken the republic's stability long-term?",
       "options": [
-        "Many Germans blamed it for accepting the humiliating Treaty of Versailles, even though it wasn't the government that started the war",
-        "It was actually a monarchy pretending to be a republic",
-        "It had no elections at all, so nobody supported it",
-        "It was created by Hitler to gain early popularity"
+        "It normalised rule without parliamentary approval, making it easier for future leaders to seize power without real democratic consent",
+        "It gave ordinary citizens the power to overrule the president directly",
+        "It abolished elections completely from 1919 onwards",
+        "It only applied to foreign policy decisions, not domestic ones"
       ],
-      "answer": "Many Germans blamed it for accepting the humiliating Treaty of Versailles, even though it wasn't the government that started the war",
-      "why": "The Weimar government signed the Treaty of Versailles and was unfairly blamed for Germany's defeat and humiliation, even though the Kaiser's government had led the war. This 'stab-in-the-back' resentment undermined public trust from the start.",
+      "answer": "It normalised rule without parliamentary approval, making it easier for future leaders to seize power without real democratic consent",
+      "why": "Article 48 was meant for emergencies, but repeated use eroded the norm of parliamentary government, paving the way for Hitler to later use similar emergency powers to dismantle democracy entirely.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which statement best shows why rising unemployment during the Great Depression benefited the Nazis more than other struggling parties?",
+      "prompt": "Which statement best explains why the Great Depression strengthened the Nazi party specifically, rather than simply making Germans generally frustrated with politics?",
       "options": [
-        "The Nazis offered a clear, radical solution (blame and strong leadership) that felt decisive compared to the weak coalition governments people blamed for the crisis",
-        "The Nazis were the only party allowed to campaign during the Depression",
-        "Unemployment had no real effect on which party people supported",
-        "The Depression made every party equally popular"
+        "The Nazis directly blamed identifiable groups and promised concrete solutions, giving desperate voters a clear alternative other parties didn't offer",
+        "The Depression affected only Nazi voters and no one else in Germany",
+        "All political parties gained equally from the Depression's effects",
+        "The Depression had no real connection to the Nazis' rise in support"
       ],
-      "answer": "The Nazis offered a clear, radical solution (blame and strong leadership) that felt decisive compared to the weak coalition governments people blamed for the crisis",
-      "why": "The Nazis specifically benefited because their message of strong, decisive leadership and scapegoating contrasted with the perceived weakness of coalition governments — this is a specific mechanism, not just general dissatisfaction spreading evenly across all parties.",
+      "answer": "The Nazis directly blamed identifiable groups and promised concrete solutions, giving desperate voters a clear alternative other parties didn't offer",
+      "why": "The link isn't just timing — the Nazis actively exploited the crisis with scapegoating and simple promises that mainstream parties failed to match, converting despair into votes.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Maths",
-      "prompt": "You've now shown calm, accurate triangle area work again on fresh numbers today. Explain: why does pausing to write down the formula ½ × base × height before touching the calculator help more than just double-checking your final answer afterwards?"
+      "prompt": "You've now shown calm, accurate triangle area work again today, on fresh numbers. Explain: how does pausing to say '½ × base × height' out loud before touching the calculator change what happens compared to just rushing straight to multiplying base × height?"
     }
   ]
 }
