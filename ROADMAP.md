@@ -83,11 +83,16 @@ writes = daily activity = never pauses. So DB first, scheduler second.
 
 1. **Not before Friday.** Retry ladders + watchdog are live and are a real
    improvement; don't touch a working pipeline days before a milestone.
+   *(DONE — Friday milestone shipped; cutover ran Mon 17 Aug.)*
 2. New account, one project `xpdaily`. Move the **results sink** off Google
-   Sheets. Migrate the existing runs — there are 7. This is the cheapest this
+   Sheets. Migrate the existing runs. This is the cheapest this
    migration will ever be; a term's worth across three kids is a project.
+   *(DONE 17 Aug — separate account, 8 runs migrated clean, dual-write live and
+   proven with a t1 warm-up. Sheet still source of truth for the settling week.)*
 3. `pg_cron` becomes the primary trigger; GitHub cron demotes to backup. Two
    independent schedulers, and the DST problem is solved.
+   *(DONE 17 Aug — pg_cron live, fired a real slot with zero human input; GitHub
+   crons stay enabled as cursor-guarded backup, not yet deleted.)*
 4. At family #2: auth, RLS and the login wall in the same project — which is
    where the hosted reports move when unguessable-URL privacy stops being enough.
 
@@ -100,6 +105,19 @@ better. Move the ledger when concurrent access actually forces it.
 
 ### Cost
 
-Free tier (500MB) is ample now. Go **Pro when a second family pays**: it removes
-pausing entirely and adds daily backups — both things you want before holding
-someone else's child's data.
+Free tier (500MB) is ample for one family. The plan was to go **Pro when a
+second family pays** (Pro removes the inactivity pause and adds daily backups —
+both wanted before holding someone else's child's data).
+
+**UPDATE 17 Aug 2026 — Rich upgraded to Pro ($25/mo) now, ahead of this
+trigger.** Deliberate trade: convenience and safety over waiting for revenue.
+Two consequences worth recording:
+* **The heartbeat is retired.** `heartbeat.yml` existed solely to keep a
+  free-tier project awake across school holidays (term breaks outlast the 7-day
+  pause, and a paused project stops pg_cron). Pro has no inactivity pause, so
+  the trap is gone at the platform level. The workflow is left inert, unwired.
+* **Daily backups are now on** — real protection for the results DB and the
+  8 migrated runs, from day one rather than at family #2.
+* This is a **standing cost against a system currently serving only Rich's two
+  sons for free.** Flagged, not second-guessed — it's a made decision. Revisit
+  only if the project is shelved before family #2 (in which case: downgrade).

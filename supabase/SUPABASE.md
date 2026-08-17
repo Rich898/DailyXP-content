@@ -59,8 +59,11 @@ database use case is what makes the scheduler trustworthy.
 ## Sunday — the scheduler
 
 6. **Mint the dispatch PAT:** fine-grained, `Rich898/DailyXP-content` only,
-   **Actions: Read and write**, 90-day expiry. (DAILYXP_TOKEN can't dispatch —
-   it 403s on the Actions API — mint fresh, don't widen the old one.)
+   **Actions: Read and write**, 90-day expiry. (NOTE, corrected 17 Aug:
+   `DAILYXP_TOKEN` CAN dispatch — proven live 13 + 17 Aug, HTTP 204 — it only
+   403s on Actions *log downloads*. The cutover put `DAILYXP_TOKEN` in Vault to
+   go live; still mint a scoped Actions-RW PAT this week and swap it, so the
+   broad token isn't the dispatcher long-term.)
 7. **Vault:** Dashboard → Project Settings → Vault → new secret named exactly
    `github_dispatch_pat`, value = the PAT.
 8. **SQL editor → paste `supabase/002_scheduler.sql`.** The dispatcher ticks

@@ -78,8 +78,11 @@ succeeded while nothing published. Root causes, all fixed; keep this list for fu
    DAILYXP_TOKEN` + `persist-credentials: false`), as the private-repo checkout already did.
 
 Also observed: **GitHub's scheduler runs late/skips** — the "2pm" cron fired at 3:38pm and the 4pm
-nudge didn't self-fire. Trust cron for steady-state but verify; `workflow_dispatch` is the reliable
-fallback for any specific day.
+nudge didn't self-fire. This is now SOLVED at the trigger layer: **Supabase pg_cron is the primary
+scheduler** (see "Supabase scheduler" below), firing each slot via `workflow_dispatch` on the Sydney
+wall clock. GitHub's own `schedule:` crons stay ENABLED as a demoted backup — every job is
+cursor-guarded, so the two schedulers double-firing is a designed no-op. `workflow_dispatch` (manual
+or via the API) remains the reliable fallback for any specific day.
 
 The three clocks (all GitHub-owned, Mon–Fri): **2:00pm** pipeline (plan→compose→review→publish),
 **4:00pm** kid nudge (verifies the live set is today's BEFORE texting), **6:30/8:00/9:30pm**
@@ -149,3 +152,61 @@ returns names only) and diffing against the workflow.
 3. Parent-facing jobs pass `MOBILE_MESSAGE_PARENTS_*`, never `MOBILE_MESSAGE_TO_*`.
    `friday_report_run.py` now hard-aborts if the parent seat is unresolved rather
    than letting `notify` fall through to any other recipient.
+
+---
+
+## Supabase scheduler + results DB (live 17 Aug 2026)
+
+XP Daily has its OWN Supabase (separate account/email from VitalYOU — Privacy
+Act separation; ROADMAP.md). It does two jobs: the results DATABASE (`runs_raw`)
+and the SCHEDULER (`pg_cron` → GitHub `workflow_dispatch` via `pg_net`). Full
+setup runbook: `supabase/SUPABASE.md`. Schema in `supabase/001_schema.sql`,
+scheduler in `supabase/002_scheduler.sql`.
+
+**The scheduler.** `xp_dispatch()` runs every minute, compares the Sydney wall
+clock against the `xp_schedule` table (11 slots), and fires each due job once
+per local day, deduped in `xp_dispatch_log`. Timezone-aware by construction, so
+the 4 Oct AEDT change is a non-event (14:00 means 2pm in October exactly as in
+August). Verified live 17 Aug: a test slot fired `test-sms.yml` with event
+`workflow_dispatch`, logged in `xp_dispatch_log`, zero human input.
+
+**Editing the timetable** is now a SQL `update` on `xp_schedule` — no YAML, no
+UTC arithmetic. GitHub's `schedule:` crons stay enabled as backup; delete them
+only after a full clean week on pg_cron.
+
+**The token.** The dispatcher reads a Vault secret named exactly
+`github_dispatch_pat`. **Correction to an earlier note:** `DAILYXP_TOKEN` CAN
+fire `workflow_dispatch` — proven live 13 Aug (HTTP 204, run started 1s later)
+and again 17 Aug. It only 403s on Actions *log downloads*. The Vault currently
+holds `DAILYXP_TOKEN`. **TODO this week:** mint a fine-grained PAT scoped to
+`Rich898/DailyXP-content` with Actions: Read+write only, swap it into Vault,
+and stop reusing the broad token for dispatch.
+
+**New Supabase API-key mode.** This project was created after Supabase's key
+format change: the keys are `sb_publishable_...` (anon role) and `sb_secret_...`
+(service role), NOT the legacy `eyJ...` JWTs. Consequence for REST: the role is
+carried by the `apikey` header alone — do NOT also send `Authorization: Bearer
+<key>` (that header is now reserved for user JWTs and will misbehave). All three
+call sites were adapted accordingly: `shell/template_v3.html` dual-write,
+`tools/ingest_results.py`, `tools/supabase_pull.py`, and `heartbeat.yml`.
+
+**Dual-write.** `shell/template_v3.html` `sendPayload()` mirrors every result
+into `runs_raw` (fire-and-forget, anon key, insert-only via RLS) alongside the
+Google Sheet write. The Sheet stays source of truth and owns the callback — the
+Supabase write can never block or fail a submission. Proven live 17 Aug with a
+t1 warm-up: row landed in `runs_raw`. Timestamps in `runs_raw.received_at` are
+UTC (Sydney = UTC+10); only the scheduler's wall-clock comparison is localised.
+
+**Reading results.** `tools/supabase_pull.py` (service key; Actions secrets
+`SUPABASE_URL` + `SUPABASE_SERVICE_KEY`) emits the same payloads the Sheet
+reader does. `tools/ingest_results.py` auto-runs `both` mode when both credential
+sets are present: Sheet stays truth, and each run prints "supabase sink: N/N
+run-days present — agrees" (or names gaps). Settling week runs `both`; flip
+`INGEST_SOURCE=supabase` only after a clean week of agreement (target: next Mon).
+
+**Tier: PRO ($25/mo), from 17 Aug.** Rich upgraded ahead of the ROADMAP trigger
+("go Pro when a second family pays"). Pro removes the 7-day free-tier inactivity
+pause entirely and adds daily backups. **Consequence:** `heartbeat.yml` is now
+REDUNDANT (it existed only to keep a free-tier project awake over term breaks)
+and is left inert — no need to wire the `SUPABASE_URL`/`SUPABASE_ANON_KEY`
+secrets for its sake, though they're set anyway for `pull`/`both`-mode ingest.
