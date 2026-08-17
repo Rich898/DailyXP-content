@@ -88,6 +88,10 @@ def eligible_formats(slot, phase):
     # spot-the-error is calc/science only; ensure it's offered for calc topics
     if calc and SPOT_ERROR not in out:
         out.append(SPOT_ERROR)
+    # MATCHING and ORDERING are cognitively heavy — multi-item mappings/sequences with long options.
+    # They belong in the UNTIMED steady round, never the timed speed round (a kid has seconds there).
+    if phase == "speed":
+        out = [f for f in out if f not in (MATCHING, ORDERING)]
     # RECALL is always a valid fallback
     if RECALL not in out:
         out.append(RECALL)
