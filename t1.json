@@ -8,173 +8,173 @@
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "A student claims the western Roman Empire fell in a single dramatic battle with no earlier signs of decline. What actually preceded 476 CE?",
+      "subject": "English",
+      "prompt": "Shakespeare's company performed at which famous London theatre, closely associated with his plays?",
       "options": [
-        "Centuries of gradual decline including economic trouble, invasions, and political instability",
-        "A single decisive battle that ended the empire overnight",
-        "A sudden plague that wiped out the entire Roman army",
-        "An instant surrender by the last emperor with no prior conflict"
+        "The Globe Theatre",
+        "The Royal Albert Hall",
+        "The Old Vic",
+        "Sadler's Wells"
       ],
-      "answer": "Centuries of gradual decline including economic trouble, invasions, and political instability",
-      "why": "Rome's fall was a long process, not a single event — economic troubles, repeated invasions, and weak leadership built up over centuries before 476 CE. The misconception treats it as sudden and unforeshadowed.",
+      "answer": "The Globe Theatre",
+      "why": "The Globe Theatre, built in 1599, was where Shakespeare's company (the Lord Chamberlain's Men) performed most of his plays. Students sometimes confuse it with modern or unrelated venues.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "A student says peasants (serfs) could sell their farmland whenever they wanted since they worked it every day. What's the reality?",
+      "subject": "English",
+      "prompt": "In Romeo and Juliet, what is the dramatic effect of the play's frequent use of dramatic irony?",
       "options": [
-        "Serfs did not own the land; it belonged to the lord, and serfs were tied to it",
-        "Serfs owned the land outright and could sell it freely",
-        "Serfs rented the land from the king directly",
-        "Serfs shared ownership equally with the lord"
+        "It lets the audience know more than the characters, building tension as we watch them head toward disaster",
+        "It confuses the audience so they cannot follow the plot",
+        "It removes all tension because the audience already knows everything the characters know",
+        "It is only used for comic relief and has no effect on tension"
       ],
-      "answer": "Serfs did not own the land; it belonged to the lord, and serfs were tied to it",
-      "why": "Serfs worked land owned by their lord in exchange for protection, but they had no legal ownership and couldn't leave or sell it — a key feature of the feudal system.",
+      "answer": "It lets the audience know more than the characters, building tension as we watch them head toward disaster",
+      "why": "Dramatic irony works because the audience holds knowledge the characters lack (e.g. Juliet's fake death), creating suspense and tragic tension — not confusion or comedy.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "A student says Shakespeare wrote Romeo and Juliet purely from his own imagination with no existing story to draw from. What's wrong with this?",
+      "subject": "Science",
+      "prompt": "A student claims that fungi like mushrooms can only reproduce sexually. Which fact proves this wrong?",
       "options": [
-        "Shakespeare adapted the story from earlier sources, including an English poem by Arthur Brooke",
-        "Shakespeare copied it word-for-word from a Roman playwright",
-        "The story was based on a real historical event in London",
-        "Shakespeare wrote it as a translation of a French play"
+        "Fungi can reproduce asexually by releasing spores that grow into genetically identical fungi",
+        "Fungi never reproduce because they are not living organisms",
+        "Fungi can only reproduce if two different species combine",
+        "Fungi reproduce exclusively through seeds like plants"
       ],
-      "answer": "Shakespeare adapted the story from earlier sources, including an English poem by Arthur Brooke",
-      "why": "Romeo and Juliet was based on existing narrative traditions, most directly Arthur Brooke's poem 'The Tragical History of Romeus and Juliet' — Shakespeare adapted rather than invented the plot.",
+      "answer": "Fungi can reproduce asexually by releasing spores that grow into genetically identical fungi",
+      "why": "Many fungi reproduce asexually via spores, producing genetically identical offspring — showing asexual reproduction isn't limited to simple organisms like bacteria.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "A student thinks Shakespeare only uses foreshadowing once, in the prologue, and nowhere else in the play. Which later moment also foreshadows the tragic ending?",
+      "subject": "History",
+      "prompt": "What term describes the period in Western Europe roughly between the fall of Rome and the Renaissance?",
       "options": [
-        "Romeo's line about his 'mind misgives / Some consequence yet hanging in the stars' before the Capulet party",
-        "The Nurse's joke about Juliet falling as a baby",
-        "Mercutio's pun about being a 'grave man' after being wounded",
-        "Benvolio's suggestion to go to the party to forget Rosaline"
+        "The Middle Ages (medieval period)",
+        "The Enlightenment",
+        "The Industrial Age",
+        "The Bronze Age"
       ],
-      "answer": "Romeo's line about his 'mind misgives / Some consequence yet hanging in the stars' before the Capulet party",
-      "why": "This line directly foreshadows disaster before Romeo even meets Juliet, showing foreshadowing is woven throughout the play, not confined to the prologue's sonnet.",
+      "answer": "The Middle Ages (medieval period)",
+      "why": "The Middle Ages spans roughly 476 CE to the 1400s, filled with feudal kingdoms and the Church's power — students sometimes wrongly picture this era as a total blank with nothing happening.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "A student thinks the love vs hate theme only appears when Romeo and Juliet speak tenderly to each other. Which moment instead shows the theme through violent conflict?",
+      "subject": "History",
+      "prompt": "In the feudal system, what did knights typically provide to their lord in exchange for land?",
       "options": [
-        "Tybalt's death, driven by Romeo's grief-fuelled rage after Mercutio is killed",
-        "Juliet's soliloquy waiting for Romeo on their wedding night",
-        "Romeo and Juliet's shared sonnet at the Capulet party",
-        "The Nurse's teasing about Juliet's future husband"
+        "Military service and protection",
+        "A yearly cash salary",
+        "Farming labour on the lord's fields",
+        "Nothing — knights owed no obligations"
       ],
-      "answer": "Tybalt's death, driven by Romeo's grief-fuelled rage after Mercutio is killed",
-      "why": "The love vs hate theme is shown not just through romance but through how love (for Mercutio) fuels hate-driven violence — the feud and passion are two sides of the same emotional intensity.",
+      "answer": "Military service and protection",
+      "why": "Knights received land (a fief) from lords in return for military service, not wages or farm labour — that mix-up confuses the roles of knights with those of peasants.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "In an experiment testing how the amount of sunlight affects seedling height, a student mixes up which variable is controlled. What is the controlled variable here?",
+      "subject": "English",
+      "prompt": "Which moment in Romeo and Juliet shows the 'love vs hate' theme through violence rather than tenderness?",
       "options": [
-        "The amount of water given to each seedling, kept the same for all",
-        "The amount of sunlight each seedling receives",
-        "The height of the seedlings at the end",
-        "The type of seedling used, which is allowed to vary"
+        "Mercutio's death after Tybalt's sword fight with Romeo",
+        "Romeo and Juliet's first meeting at the Capulet ball",
+        "The balcony scene where they exchange vows",
+        "Juliet's soliloquy waiting for the Nurse's news"
       ],
-      "answer": "The amount of water given to each seedling, kept the same for all",
-      "why": "The controlled variable is what's kept constant so it doesn't interfere with results — here, water must stay the same while sunlight (independent) is varied and height (dependent) is measured.",
+      "answer": "Mercutio's death after Tybalt's sword fight with Romeo",
+      "why": "The street violence between the feuding families (Mercutio's death) shows hate driving the plot toward tragedy, contrasting with the romantic scenes — the theme isn't only expressed through affection.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A student claims that asexual reproduction always produces offspring genetically identical to the parent, with zero exceptions ever. Is this accurate?",
+      "prompt": "In an experiment testing how the concentration of salt water affects seed germination, a student mixes up which variable is independent. What is the independent variable here?",
       "options": [
-        "Mostly true, but mutations can still occur, so offspring aren't always a perfect genetic copy",
-        "No, asexual offspring are always completely different from the parent genetically",
-        "No, asexual reproduction always involves mixing genes from two parents",
-        "Yes, and this is also true for all sexual reproduction"
+        "The concentration of salt water",
+        "The number of seeds that germinate",
+        "The temperature of the room",
+        "The type of soil used"
       ],
-      "answer": "Mostly true, but mutations can still occur, so offspring aren't always a perfect genetic copy",
-      "why": "Asexual reproduction produces genetically similar offspring since there's one parent, but random mutations during copying mean offspring aren't always an exact genetic clone.",
+      "answer": "The concentration of salt water",
+      "why": "The independent variable is what the experimenter deliberately changes — here, salt concentration. Germination rate is the dependent variable, the outcome being measured.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "A student says the Crusades were fought entirely for religious reasons with no economic or political motives involved. What does this overlook?",
+      "prompt": "Which statement about the Crusades is false?",
       "options": [
-        "Many crusaders and leaders also sought land, wealth, trade routes, and political power",
-        "The Crusades were funded entirely by the Catholic Church with no other interests",
-        "Nobles only joined for spiritual redemption and gained nothing materially",
-        "Trade was completely banned during the Crusades for religious reasons"
+        "The Crusades were fought only over religion, with no economic motives whatsoever",
+        "The First Crusade aimed to capture Jerusalem for Christendom",
+        "Crusader states in the Holy Land were eventually lost",
+        "Italian port cities like Venice and Genoa profited from transporting crusaders"
       ],
-      "answer": "Many crusaders and leaders also sought land, wealth, trade routes, and political power",
-      "why": "While religious motivation was central, many participants — from kings to Italian merchant cities — also pursued land, trade routes, and political gain, showing the Crusades had mixed motives.",
+      "answer": "The Crusades were fought only over religion, with no economic motives whatsoever",
+      "why": "The Crusades were driven by a mix of religious zeal, political ambition, and economic opportunity (trade routes, land, wealth) — reducing them to pure religion ignores these other motives.",
       "fresh": true
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "A student claims that after Rome fell, the same laws and central government simply continued under new rulers with no real change. What actually changed?",
+      "subject": "English",
+      "prompt": "Which of these is true about the historical setting in which Shakespeare wrote his plays?",
       "options": [
-        "Centralised Roman rule was replaced by fragmented local power under feudal lords and kings",
-        "Nothing changed; Roman law codes stayed identical for centuries",
-        "The Catholic Church immediately became the only ruling government",
-        "Democracy replaced the empire across all former Roman territories"
+        "Female roles were played by young men or boys, since women were banned from the English stage",
+        "Women regularly performed female roles alongside men",
+        "Plays were performed with elaborate film-style special effects",
+        "Audiences watched silently in fully darkened theatres"
       ],
-      "answer": "Centralised Roman rule was replaced by fragmented local power under feudal lords and kings",
-      "why": "After Rome's collapse, there was no single central authority; power fragmented into smaller kingdoms and feudal territories run by local lords rather than one unified Roman-style government.",
+      "answer": "Female roles were played by young men or boys, since women were banned from the English stage",
+      "why": "In Shakespeare's time, women were not permitted to act on the English stage, so boys or young men played female roles like Juliet — a key fact about Elizabethan theatre conventions.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "A student claims Shakespeare was primarily a novelist who occasionally dabbled in writing plays as a side hobby. What's wrong with this claim?",
+      "prompt": "A student says the Nurse's comic, rambling speech style has no real purpose in Romeo and Juliet. What does this overlook about Shakespeare's use of characterisation and contrast?",
       "options": [
-        "Shakespeare was first and foremost a playwright and poet, writing for the professional stage",
-        "Shakespeare never wrote poetry, only plays",
-        "Shakespeare wrote novels that were later adapted into plays by others",
-        "Shakespeare only wrote non-fiction historical accounts"
+        "It provides comic relief and contrasts with the play's tragic tone, making the tragedy hit harder by comparison",
+        "It exists only to pad out the play's length",
+        "It shows the Nurse is meant to be taken as seriously as Friar Lawrence",
+        "It has no connection to the play's themes or structure at all"
       ],
-      "answer": "Shakespeare was first and foremost a playwright and poet, writing for the professional stage",
-      "why": "Shakespeare's career centred on writing plays for performance by acting companies like the Lord Chamberlain's Men, alongside sonnets and narrative poems — not novels, which didn't exist as a form yet.",
+      "answer": "It provides comic relief and contrasts with the play's tragic tone, making the tragedy hit harder by comparison",
+      "why": "Shakespeare uses the Nurse's comic chatter to contrast with the tragic elements, heightening the emotional impact of darker scenes through juxtaposition — a deliberate technique, not filler.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "A student thinks Romeo and Juliet's balcony scene uses only straightforward romantic dialogue with no wordplay or deeper technique. What technique undercuts this view?",
+      "subject": "Science",
+      "prompt": "A student claims that identical twins are an example of asexual reproduction in humans. What's wrong with this claim?",
       "options": [
-        "Romeo's extended light/sun imagery builds a sustained metaphor elevating Juliet beyond an ordinary person",
-        "The scene is written entirely in casual prose with no poetic structure",
-        "The balcony scene contains no imagery at all, only plain statements",
-        "Juliet speaks only in questions throughout the entire scene"
+        "Identical twins result from sexual reproduction (a fertilised egg splitting), not asexual reproduction, which needs only one parent",
+        "Identical twins prove humans can reproduce asexually",
+        "Identical twins are genetically different, so this claim is about mutation, not reproduction",
+        "Identical twins only occur in animals that reproduce asexually"
       ],
-      "answer": "Romeo's extended light/sun imagery builds a sustained metaphor elevating Juliet beyond an ordinary person",
-      "why": "Romeo's 'Juliet is the sun' imagery is a sustained metaphor, a deliberate poetic technique that idealises Juliet — showing the scene is crafted with more than plain romantic talk.",
+      "answer": "Identical twins result from sexual reproduction (a fertilised egg splitting), not asexual reproduction, which needs only one parent",
+      "why": "Identical twins come from one fertilised egg (formed by sexual reproduction of two parents) splitting into two embryos — this is genetically similar but still originates from sexual reproduction, not asexual reproduction which requires only one parent.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate argues that studying the Crusades is a waste of time in a history class focused on 'useful' skills, because nothing from that era connects to how trade, religion, or conflict work today. Explain to your classmate, using specific reasoning and at least one concrete long-term effect, why the Crusades remain relevant to understanding the modern world."
+      "prompt": "A classmate says learning about the Crusades is pointless because Europe and the Middle East are 'completely different places now' with no connection to that history. Explain, using your own reasoning and at least one specific long-term effect, why this view misunderstands how historical events shape the present."
     }
   ]
 }
