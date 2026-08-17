@@ -103,8 +103,9 @@ def fetch_supabase(sb_url, sb_key, timeout=45):
                                 "order": "id.asc"})
     req = urllib.request.Request(
         f"{sb_url.rstrip('/')}/rest/v1/runs_raw?{q}",
-        headers={"apikey": sb_key, "Authorization": f"Bearer {sb_key}",
-                 "User-Agent": "dailyxp-ingest/1"})
+        # New Supabase API-key mode (sb_secret_*): the role is derived from the
+        # apikey header itself; Authorization is reserved for user JWTs.
+        headers={"apikey": sb_key, "User-Agent": "dailyxp-ingest/1"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return json.load(resp)

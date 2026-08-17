@@ -60,7 +60,7 @@ def fetch_new(url, key, after_id, limit=200):
     })
     req = urllib.request.Request(
         f"{url.rstrip('/')}/rest/v1/runs_raw?{q}",
-        headers={"apikey": key, "Authorization": f"Bearer {key}"})
+        headers={"apikey": key})  # sb_secret_* key: role from apikey; no Bearer
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.load(r)
 
