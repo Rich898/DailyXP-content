@@ -1,103 +1,180 @@
 {
   "student": "t1",
-  "date": "2026-08-14",
-  "day": "FRI",
-  "tag": "T3.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-14",
+  "date": "2026-08-17",
+  "day": "MON",
+  "tag": "T4.1",
+  "title": "DailyXP · MON 2026-08-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What year is generally given as the fall of the Western Roman Empire?",
+      "prompt": "a student claims that after rome fell, european kingdoms were run exactly like the old roman empire, just with new leaders in charge. what actually changed about how power was organised",
       "options": [
-        "410 CE",
-        "476 CE",
-        "1066 CE",
-        "1453 CE"
+        "power became decentralised into local feudal lordships instead of one central government",
+        "the same roman senate kept ruling but under a different name",
+        "power stayed centralised under a single emperor in rome",
+        "nothing changed at all, roman law and government continued unchanged"
       ],
-      "answer": "476 CE",
-      "why": "476 CE is the date historians usually give for the fall of the Western Roman Empire, when the last emperor was deposed. The other dates mark different events (the sack of Rome, the Norman Conquest, and the fall of Constantinople).",
+      "answer": "power became decentralised into local feudal lordships instead of one central government",
+      "why": "After Rome's central authority collapsed, there was no single ruler over Europe. Power broke into small local lordships bound by land-for-loyalty ties, which is the feudal system, not a continuation of Roman government.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In the feudal pyramid, who sits directly below the king?",
+      "prompt": "a student says a knight could ignore his lord's request for military service as long as he kept farming his land. what's wrong with this claim",
       "options": [
-        "Nobles/lords",
-        "Peasants",
-        "Knights",
-        "Merchants"
+        "knights owed military service to their lord in exchange for the land they held",
+        "knights had no obligations to any lord once they were granted land",
+        "knights only had to pay taxes, never fight",
+        "knights answered only to peasants working their land"
       ],
-      "answer": "Nobles/lords",
-      "why": "Nobles and lords held land directly from the king in exchange for loyalty and military support, placing them just below him. Knights and peasants sit lower in the pyramid, and merchants weren't part of the formal feudal hierarchy.",
+      "answer": "knights owed military service to their lord in exchange for the land they held",
+      "why": "The feudal relationship was reciprocal: a knight (as a vassal) received land from his lord but in return owed military service. Ignoring this obligation would break the core exchange the whole system was built on.",
+      "fresh": true
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "a student says shakespeare performed romeo and juliet exclusively for royalty in private palace theatres. what does this get wrong about his original audience",
+      "options": [
+        "his plays were performed for a mixed public audience at public theatres like the globe",
+        "he only ever performed for the king and queen personally",
+        "his plays were banned from public performance entirely",
+        "his audience was made up only of wealthy nobles"
+      ],
+      "answer": "his plays were performed for a mixed public audience at public theatres like the globe",
+      "why": "Shakespeare's plays were performed at public playhouses like the Globe, drawing audiences from many social classes, not just royalty or nobility performing in private.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "a student thinks shakespeare only uses metaphor in romeo and juliet, never simile. which of these lines is actually a simile, not a metaphor",
+      "options": [
+        "\"her beauty hangs upon the cheek of night like a rich jewel in an ethiope's ear\"",
+        "\"but soft, what light through yonder window breaks? it is the east, and juliet is the sun\"",
+        "\"it is the east, and juliet is the sun\"",
+        "\"juliet is the sun\""
+      ],
+      "answer": "\"her beauty hangs upon the cheek of night like a rich jewel in an ethiope's ear\"",
+      "why": "A simile compares two things using 'like' or 'as', unlike a metaphor which states one thing IS another. Romeo's line comparing Juliet's beauty to a jewel using 'like' is a simile, while 'Juliet is the sun' is a metaphor.",
+      "fresh": true
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "a student thinks the love vs hate theme is only shown through romeo and juliet's romantic dialogue. which moment instead shows the theme through violence rooted in family hatred",
+      "options": [
+        "tybalt's fatal duel with mercutio, fuelled by the feud between the two families",
+        "romeo and juliet's first meeting and shared sonnet at the ball",
+        "juliet's balcony declaration of love to romeo",
+        "the friar's plan to reunite the lovers secretly"
+      ],
+      "answer": "tybalt's fatal duel with mercutio, fuelled by the feud between the two families",
+      "why": "The love vs hate theme runs through conflict as much as romance. Tybalt and Mercutio's fatal duel shows how the families' hatred directly causes violence and tragedy, not just how love is expressed tenderly.",
+      "fresh": true
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "in an experiment testing how the type of soil affects seed germination time, a student mixes up which variable is independent. what is the independent variable here",
+      "options": [
+        "the type of soil used",
+        "the germination time of the seeds",
+        "the amount of water given",
+        "the temperature of the room"
+      ],
+      "answer": "the type of soil used",
+      "why": "The independent variable is what the experimenter deliberately changes to test its effect — here, the type of soil. Germination time is the dependent variable, the outcome being measured.",
+      "fresh": true
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "a student claims that all mammals reproduce sexually and no mammal can reproduce asexually. is this claim accurate",
+      "options": [
+        "yes, all known mammals reproduce sexually, unlike some simpler organisms that can reproduce asexually",
+        "no, several mammal species commonly reproduce asexually in the wild",
+        "no, most mammals alternate between sexual and asexual reproduction",
+        "yes, but only because mammals lack any reproductive cells"
+      ],
+      "answer": "yes, all known mammals reproduce sexually, unlike some simpler organisms that can reproduce asexually",
+      "why": "Asexual reproduction (like budding or binary fission) is common in simpler organisms such as bacteria, some plants, and a few invertebrates, but no mammal species reproduces asexually — mammals rely on sexual reproduction.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which one is FALSE about the Crusades?",
+      "prompt": "a student says the crusades had no effect on europe itself, only on the middle east. what long-term effect on european trade and towns does this overlook",
       "options": [
-        "The First Crusade's stated goal was to reclaim Jerusalem for Christendom",
-        "Italian port cities like Venice and Genoa profited from transporting and supplying crusader armies",
-        "The Crusades permanently secured Christian control of the Holy Land",
-        "The Crusades increased contact and trade between medieval Europe and the Middle East"
+        "crusades boosted trade routes and wealth in european port cities like venice and genoa",
+        "crusades destroyed all european trade routes permanently",
+        "crusades caused every european town to be abandoned",
+        "crusades had zero economic impact on any region involved"
       ],
-      "answer": "The Crusades permanently secured Christian control of the Holy Land",
-      "why": "This is FALSE — the crusader states eventually fell and Jerusalem returned to Muslim control. The other three statements are true: the goal was reclaiming Jerusalem, Italian ports profited hugely from transport and supply, and the Crusades did increase long-term trade and cultural contact. The misconception is judging the Crusades only by whether territory was permanently held, rather than their lasting effects.",
+      "answer": "crusades boosted trade routes and wealth in european port cities like venice and genoa",
+      "why": "The Crusades increased demand for transporting and supplying armies, which enriched Italian port cities through expanded trade routes and contact with the Middle East — a major effect felt back in Europe itself.",
       "fresh": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "True or False: After Rome fell, Western Europe had no organised government of any kind until the Renaissance.",
+      "prompt": "a student says the fall of rome only affected the city of rome itself and left the rest of the western empire's provinces functioning as before. what's wrong with this view",
       "options": [
-        "True",
-        "False"
+        "the collapse of central authority disrupted governance, trade, and infrastructure across the whole western empire",
+        "provinces outside rome were untouched and kept roman law perfectly intact",
+        "only the eastern empire was affected, not the west at all",
+        "the provinces became stronger and more unified after rome fell"
       ],
-      "answer": "False",
-      "why": "False — feudalism filled the political gap, with kings, lords, and vassals creating a structured (if decentralised) system of land and loyalty. The Catholic Church also provided organisation and authority. The misconception is imagining a total power vacuum rather than a shift to a new, less centralised system.",
+      "answer": "the collapse of central authority disrupted governance, trade, and infrastructure across the whole western empire",
+      "why": "Rome's fall wasn't just a local event in the city — it removed the central authority that had held together government, trade networks, and infrastructure across the entire western empire, leading to widespread fragmentation.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "A student says peasants (serfs) owned their own land and could leave whenever they wished. What's wrong with this claim?",
+      "subject": "English",
+      "prompt": "a student claims shakespeare wrote romeo and juliet as a comedy that was later mistakenly labelled a tragedy. what's wrong with this claim",
       "options": [
-        "Peasants were tied to the lord's land and owed labour or produce in exchange for protection",
-        "Peasants actually ranked above knights in the feudal pyramid",
-        "Peasants owed military service instead of labour",
-        "Peasants were completely free and paid no dues to anyone"
+        "shakespeare deliberately structured it as a tragedy, ending in the protagonists' deaths",
+        "the play was originally a comedy with a happy wedding ending",
+        "the tragedy label was added by victorian critics with no basis in the text",
+        "shakespeare never assigned genres to his own plays"
       ],
-      "answer": "Peasants were tied to the lord's land and owed labour or produce in exchange for protection",
-      "why": "Peasants/serfs were bound to their lord's land, working it and giving up produce or labour in return for protection — they could not simply leave. The misconception is imagining peasants had the same freedom and land ownership as lords or knights.",
+      "answer": "shakespeare deliberately structured it as a tragedy, ending in the protagonists' deaths",
+      "why": "Romeo and Juliet was written and structured as a tragedy from the outset, following the genre's conventions of a fatal flaw or circumstance leading to the protagonists' deaths — this was Shakespeare's deliberate design, not a later mislabel.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which one is FALSE about Romeo and Juliet's author and context?",
+      "prompt": "a student thinks the prologue's sonnet form is just a poetic decoration with no real purpose. what does the sonnet form actually signal to the audience",
       "options": [
-        "William Shakespeare wrote Romeo and Juliet",
-        "The play is set in Verona, Italy",
-        "Shakespeare invented the entire story with no earlier sources",
-        "Shakespeare wrote during the late 16th century"
+        "it signals the play's tragic outcome and love theme upfront, setting audience expectations",
+        "it signals the play is actually a comedy despite what happens later",
+        "it has no connection to the play's plot or themes at all",
+        "it was only included to fill time before the actors were ready"
       ],
-      "answer": "Shakespeare invented the entire story with no earlier sources",
-      "why": "This is FALSE — Shakespeare based Romeo and Juliet on earlier stories, including Arthur Brooke's poem and Italian tales. The other statements are true: he wrote it, it's set in Verona, and he worked in the late 1500s. The misconception is assuming Shakespeare's plots were always wholly original.",
+      "answer": "it signals the play's tragic outcome and love theme upfront, setting audience expectations",
+      "why": "The prologue's sonnet form, with its formal structure, immediately tells the audience this is a love story that ends in tragedy ('star-crossed lovers take their life'), framing expectations before the plot even begins.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says the Crusades don't matter to study anymore because they happened so long ago and didn't permanently change who controlled Jerusalem. Explain to them why historians still consider the Crusades important, using specific long-term effects to support your reasoning."
+      "prompt": "your friend says the crusades don't matter much to modern students because they were fought over religion, and religion-based conflicts aren't relevant to studying today's world. explain to your friend why understanding the crusades still helps us understand conflicts and connections in the modern world."
     }
   ]
 }
