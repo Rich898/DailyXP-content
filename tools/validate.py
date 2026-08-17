@@ -116,7 +116,7 @@ def validate_set(s: dict, history_dir: str = None) -> tuple:
                 errors.append(f"[{qid}] answer {ans!r} is not one of options {opts}")
             if not q.get("why"):
                 errors.append(f"[{qid}] missing 'why' (every Q must re-teach)")
-            if q.get("fresh") is not True:
+            if q.get("fresh") is not True and not q.get("throwback"):
                 errors.append(f"[{qid}] speed/steady must carry fresh:true (skip-on-every-Q law until v3.1)")
 
     shape = (counts["speed"], counts["steady"], counts["teach"])

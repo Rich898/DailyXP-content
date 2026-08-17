@@ -115,7 +115,12 @@ def assemble(plan, filled):
             q["options"] = f.get("options", [])
             q["answer"] = f.get("answer")
             q["why"] = f.get("why", "")
-            q["fresh"] = True
+            # Carry fresh from the plan (a throwback slot is fresh:false — a revisit,
+            # not new material; SEASONS.md LAW 3). Default true for everything else.
+            q["fresh"] = bool(s.get("fresh", True))
+            if s.get("throwback"):
+                q["throwback"] = True
+                q["fresh"] = False
             if s["intent"] == "repair":
                 q["repair"] = True
         questions.append(q)

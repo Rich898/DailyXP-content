@@ -139,6 +139,8 @@ def eligible_pool(state_student, tmap, ref):
 
 
 def intent_for(t):
+    if t.get("_throwback"):
+        return "throwback"
     if t["repair"]:
         return "repair"
     return {"shaky": "consolidate", "developing": "confirm", "solid": "maintenance",
@@ -146,7 +148,10 @@ def intent_for(t):
 
 
 def fresh_flag_for(t):
-    # law until v3.1: EVERY speed/steady carries fresh:true. Also true when genuinely not-yet-covered.
+    # law until v3.1: EVERY speed/steady carries fresh:true, EXCEPT a throwback,
+    # which is by definition a revisit of previously-seen material (LAW 3).
+    if t.get("_throwback"):
+        return False
     return True
 
 
@@ -241,6 +246,30 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         slots.append(_slot("T", 0, "steady", t,
                            extra="GUARANTEED REPAIR — re-teach the concept; do NOT let a fast-correct promote it out; confirm with a right 'Sure'."))
         n_steady -= 1
+
+    # 1b) THROWBACK (SEASONS.md LAW 3) — reserve ONE steady slot for an aged-but-
+    # mastered topic, to check retention held. Deliberate inverse of the live pool:
+    # pulls from topics that have LEFT active rotation. Only when the ledger has an
+    # eligible topic (thin early in history → simply no throwback slot, never padded)
+    # and only if steady has room after REPAIR. Skipped on boss (Battleground owns
+    # its own topic logic).
+    throwback_topic = None
+    if not boss_mode and n_steady > 0:
+        import throwback as _tb
+        cand = _tb.pick(s, ref, exclude_topics=used_by_phase["steady"])
+        if cand:
+            age = max(0, (ref - dt.date.fromisoformat(cand["last_tested"])).days)
+            tw = {"subject": cand["subject"], "topic": cand["topic"],
+                  "state": cand["state"], "repair": False,
+                  "last_tested": cand["last_tested"], "note": cand.get("note", ""),
+                  "fresh": False, "status": None, "assessment": None,
+                  "format": None, "score": 0, "_throwback": True}
+            commit(tw, "steady")
+            slots.append(_slot("T", 0, "steady", tw,
+                               extra=_tb.composer_note(cand["topic"], cand["subject"], age)))
+            slots[-1]["throwback"] = True
+            throwback_topic = cand["topic"]
+            n_steady -= 1
 
     # 2) steady reasoning — top scorers, subject-spread
     while n_steady > 0:

@@ -90,7 +90,61 @@ check("speed stays warm-up recall", "SPEED slots stay NORMAL" in cib)
 check("no Battleground leak on a standard set",
       "BATTLEGROUND" not in planner.plan_set("y8","2026-08-11","MON","H3.1",TARGETS,STATE,"standard")["composer_instructions"])
 
-print("doctrine mirrors")
+print("throwback (SEASONS.md LAW 3): woven aged-mastered slot")
+# A state with a genuinely aged, mastered topic that has LEFT the live pool.
+TB_STATE = {"students": {"y8": {"status": "ACTIVE", "topics": [
+    # current weak topics (live) — fill the rest of the run
+    {"subject": "Maths", "topic": "Linear equations", "state": "shaky",
+     "repair": False, "last_tested": "2026-08-16", "times_seen": 6, "note": ""},
+    {"subject": "Science", "topic": "Cells basics", "state": "developing",
+     "repair": False, "last_tested": "2026-08-15", "times_seen": 3, "note": ""},
+    {"subject": "English", "topic": "Essay structure", "state": "shaky",
+     "repair": False, "last_tested": "2026-08-14", "times_seen": 4, "note": ""},
+    {"subject": "History", "topic": "Timeline skills", "state": "developing",
+     "repair": False, "last_tested": "2026-08-15", "times_seen": 3, "note": ""},
+    # the throwback candidate: solid, aged 20 days, NOT live in class
+    {"subject": "Geography", "topic": "Mapping conventions", "state": "solid",
+     "repair": False, "last_tested": "2026-07-30", "times_seen": 6, "note": "landed"},
+]}}}
+# Targets mark only the current topics live; the aged Geography topic is NOT live.
+TB_TARGETS = {"students": {"y8": {"subjects": {
+    "Maths": {"topics": [{"topic": "Linear equations", "status": "live"}]},
+    "Science": {"topics": [{"topic": "Cells basics", "status": "live"}]},
+    "English": {"topics": [{"topic": "Essay structure", "status": "live"}]},
+    "History": {"topics": [{"topic": "Timeline skills", "status": "live"}]},
+}}}}
+tb_plan = planner.plan_set("y8", "2026-08-19", "TUE", "H5.1",
+                           TB_TARGETS, TB_STATE, "standard")
+tb_slots = [s for s in tb_plan["slots"] if s.get("throwback")]
+check("exactly one throwback slot woven in", len(tb_slots) == 1)
+if tb_slots:
+    ts = tb_slots[0]
+    check("throwback pulls the aged-mastered topic", ts["topic"] == "Mapping conventions")
+    check("throwback sits in steady phase", ts["phase"] == "steady")
+    check("throwback intent labelled", ts["intent"] == "throwback")
+    check("throwback flagged fresh:false (a revisit)", ts.get("fresh") is False)
+    check("throwback guidance is a retention check", "retention check" in ts["guidance"].lower())
+# shape must NOT inflate — throwback takes a steady seat, total steady stays 4
+check("shape not inflated (steady still 4)",
+      sum(1 for s in tb_plan["slots"] if s["phase"] == "steady") == 4)
+# on a set with NO aged-mastered topic, there is simply no throwback slot (not padded)
+NO_TB_STATE = {"students": {"y8": {"status": "ACTIVE", "topics": [
+    {"subject": "Maths", "topic": "Linear equations", "state": "shaky",
+     "repair": False, "last_tested": "2026-08-16", "times_seen": 6, "note": ""},
+]}}}
+NO_TB_TARGETS = {"students": {"y8": {"subjects": {
+    "Maths": {"topics": [{"topic": "Linear equations", "status": "live"}]}}}}}
+no_tb = planner.plan_set("y8", "2026-08-19", "TUE", "H5.1",
+                         NO_TB_TARGETS, NO_TB_STATE, "standard")
+check("no throwback slot when ledger has none (never padded)",
+      not any(s.get("throwback") for s in no_tb["slots"]))
+# boss/Battleground owns its own topic logic — no throwback there
+boss = planner.plan_set("y8", "2026-08-22", "FRI", "H5.5",
+                        TB_TARGETS, TB_STATE, "boss")
+check("no throwback slot on boss/Battleground",
+      not any(s.get("throwback") for s in boss["slots"]))
+
+
 check("run_daily and kid_nudge WEEKDAY_DIRECTIVE identical",
       run_daily.WEEKDAY_DIRECTIVE == kid_nudge.WEEKDAY_DIRECTIVE)
 check("nudge flavour exists for the Wed directive",

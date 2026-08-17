@@ -75,17 +75,36 @@ in the format the plan declares. Mon/Tue stop being 11 identical taps. NEW forma
 that need typed input, dragging, or multi-select are NOT in this bank — they need
 Shell v3.1 (see LAW 4).
 
-### LAW 3 — Throwback Thursday is a permanent weekly event
+### LAW 3 — Throwback is a continuous daily mechanic (NOT an event)
 
-Thursday (previously a plain daily slot; Wed = mutator, Fri = Battleground) becomes
-**Throwback Thursday** — resurfacing topics last tested weeks ago and marked
-mastered. This is the spaced-repetition payoff made VISIBLE, and the direct answer
-to "retest what you did weeks prior" and "same topics every day." Held it → bonus
-XP ("still got it"). Decayed → straight back into live rotation (exactly what the
-ledger exists to catch). Framing: "Throwback Thursday — do you still have it?"
-NEVER a fail state; a decayed topic is a normal find, not a loss. Reaches back only
-as far as history allows (thin at first, deepens automatically as weeks accrue) —
-this is acceptable and is itself a reason to ship it early so history compounds.
+Aged-but-mastered topics resurface **every run**, driven by the ledger's spacing
+math, to check retention held. This is the confidence-weighted spaced-repetition
+engine — the product's actual differentiator — made VISIBLE, and the direct answer
+to "same topics every day" (which is caused by over-weighting current weak topics).
+
+*Design note: an earlier draft framed this as a themed "Throwback Thursday" weekly
+event. Rejected — the name was a placeholder example. A calendar-only throwback
+would be a WORSE version of the spacing engine that already exists: it would let a
+decayed topic sit undetected for up to a week, and leave Mon/Tue/Wed/Fri still
+samey. Continuous beats weekly on both learning outcome (earlier decay-catch) and
+variety (every night's topic mix shifts). No theatrics, no badge, no Thursday.*
+
+Mechanics:
+- **~1 slot per run** (never more than 2 — beyond that starves current coursework)
+  is reserved for a topic that is currently `solid`/`developing` AND whose
+  `last_tested` has aged past a spacing threshold. Selection is deterministic in
+  the planner (own eligibility pool + own score: older + more-mastered = more due).
+- **Ignores live-in-class status** — the whole point is topics that have LEFT
+  active rotation. This is the deliberate inverse of the normal eligibility pool
+  (which requires a live target row).
+- **Held it** → the topic stays solid, `last_tested` refreshes, spacing interval
+  extends (seen recently → won't return as soon). Small "still solid" signal.
+- **Decayed** (missed) → the state_writer demotes it exactly as any miss does, and
+  it re-enters the normal weak-topic rotation. This is the ledger doing its job.
+- **Framing** is light and factual ("a topic from a while back"), never a fail
+  state — a decayed throwback is a normal, useful find, not a loss.
+- **History-bounded**: reaches only as far back as the ledger allows (thin at
+  first, deepens automatically). Ship early so history compounds.
 
 ### LAW 4 — the runtime is NOT the target; variety is
 
