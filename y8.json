@@ -9,120 +9,120 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 58°. What is the corresponding angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 84°. What is the co-interior (allied) angle on the other parallel line?",
       "options": [
-        "58°",
-        "122°",
-        "32°",
-        "180°"
+        "96°",
+        "84°",
+        "180°",
+        "16°"
       ],
-      "answer": "58°",
-      "why": "Corresponding angles sit in matching positions at each intersection and are always equal, so the answer is 58°. Students often confuse this with co-interior angles (which sum to 180°).",
+      "answer": "96°",
+      "why": "Co-interior (allied) angles sum to 180°, so 180 - 84 = 96°. A common mistake is treating them as equal (like corresponding angles) instead of supplementary.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has angles of 90°, 45°, and 45°. What type of triangle is this?",
+      "prompt": "A quadrilateral has two pairs of parallel sides and all four angles equal, but its sides are not all the same length. What is the most specific name for this shape?",
       "options": [
-        "Right-angled isosceles triangle",
-        "Equilateral triangle",
-        "Scalene triangle",
-        "Obtuse triangle"
+        "Rectangle",
+        "Square",
+        "Rhombus",
+        "Parallelogram"
       ],
-      "answer": "Right-angled isosceles triangle",
-      "why": "It has a right angle (90°) and two equal angles (45°, 45°), which means two equal sides too — so it's right-angled AND isosceles. Naming only one property misses the full classification.",
+      "answer": "Rectangle",
+      "why": "A rectangle has two pairs of parallel sides and four right angles, but doesn't need equal sides. Calling it a square is wrong because a square also requires all sides equal.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 2(x + 5) = 18. A student says 'I'll subtract 5 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
+      "prompt": "Solve for x: 4(x + 1) = 24. A student says 'I'll subtract 1 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
       "options": [
-        "You must expand the bracket first (2x+10=18) since 5 is multiplied by 2, not just added; x = 4",
-        "You can subtract 5 first because it's closest to the bracket; x = 4",
-        "You must divide by 2 first without expanding; x = 9",
-        "You can ignore the bracket since it doesn't change the answer; x = 4"
+        "x = 5, because you must expand or divide by 4 first, not subtract from inside the bracket",
+        "x = 5, because subtracting 1 works fine here",
+        "x = 6, because you must expand or divide by 4 first, not subtract from inside the bracket",
+        "x = 23, because you subtract 1 from 24 first"
       ],
-      "answer": "You must expand the bracket first (2x+10=18) since 5 is multiplied by 2, not just added; x = 4",
-      "why": "The 5 is inside the bracket, so it's multiplied by 2 — you can't subtract it directly. Expanding gives 2x+10=18, so 2x=8, x=4.",
+      "answer": "x = 5, because you must expand or divide by 4 first, not subtract from inside the bracket",
+      "why": "You can't subtract from inside a bracket without dividing first — the whole bracket is multiplied by 4. Dividing both sides by 4 gives x + 1 = 6, so x = 5.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a natural disaster investigation on flooding, which of these is a human factor that can increase flood risk, rather than a natural one?",
+      "prompt": "In a natural disaster investigation on volcanic eruptions, which of these is a human factor that can increase the risk to people, rather than a natural one?",
       "options": [
-        "Removal of trees (deforestation) upstream reducing water absorption",
-        "Heavy, prolonged rainfall over the catchment area",
-        "Steep valley slopes funnelling water quickly into rivers",
-        "Saturated ground from previous storms"
+        "Building settlements close to a volcano despite known risk",
+        "The type of magma produced by the volcano",
+        "Tectonic plate movement causing pressure to build",
+        "The volcano being located near a plate boundary"
       ],
-      "answer": "Removal of trees (deforestation) upstream reducing water absorption",
-      "why": "Deforestation is a human action that reduces the land's ability to absorb water, increasing runoff. Rainfall, slope, and ground saturation are natural physical factors, not human causes.",
+      "answer": "Building settlements close to a volcano despite known risk",
+      "why": "Human factors are choices people make, like settling near hazards. Magma type, plate movement, and plate boundary location are all natural geological factors, not human decisions.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Before the First Crusade began in 1096, Jerusalem had been under the control of which group for several centuries?",
+      "prompt": "During the First Crusade, which of these best describes why capturing Jerusalem mattered so much to Christian crusaders?",
       "options": [
-        "Muslim rulers",
-        "Byzantine Christians",
-        "Roman Catholics",
-        "Jewish leaders"
+        "It was considered a holy city central to their faith",
+        "It was the wealthiest trading port in the Mediterranean",
+        "It was the capital of the Byzantine Empire",
+        "It had the largest crusader army garrison"
       ],
-      "answer": "Muslim rulers",
-      "why": "Jerusalem had been under Muslim control since the 7th century, which is part of why Pope Urban II called for the First Crusade in 1095 to try to reclaim it for Christendom.",
+      "answer": "It was considered a holy city central to their faith",
+      "why": "Jerusalem was sacred to Christians (as well as Muslims and Jews), which is why it became the central target of the Crusades rather than being valued for trade or military reasons.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A historian writes: 'The Black Death killed a third of Europe's population, causing a shortage of labourers, which gave surviving peasants more bargaining power for wages.' Which part of this is the immediate cause, not the long-term consequence?",
+      "prompt": "A historian writes: 'Decades of failed harvests left peasants desperate, and when a new grain tax was announced, riots broke out within days.' Which part is the trigger (short-term) cause, not the long-term cause?",
       "options": [
-        "The Black Death killing a third of the population",
-        "Peasants gaining more bargaining power for wages",
-        "The shortage of labourers after the plague",
-        "Peasants demanding higher wages from lords"
+        "The new grain tax being announced",
+        "Decades of failed harvests",
+        "Peasants being desperate",
+        "The riots breaking out"
       ],
-      "answer": "The Black Death killing a third of the population",
-      "why": "The Black Death is the triggering event (cause); the labour shortage and peasants' improved bargaining power are the consequences that followed from it. Causes come first and produce the effects.",
+      "answer": "The new grain tax being announced",
+      "why": "The trigger cause is the immediate event that sets off the reaction. The failed harvests are the long-term, underlying cause that built up resentment over time.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Magna Carta, signed in 1215, is often called a primary source for historians studying medieval England. What makes a document like Magna Carta a 'primary source'?",
+      "prompt": "Historians often study Magna Carta as evidence that even in 1215, kings were not supposed to have unlimited power. What does this show about Magna Carta's significance?",
       "options": [
-        "It was created at the time of the event, by people directly involved",
-        "It was written by a modern historian analysing the period",
-        "It summarises many other documents from different centuries",
-        "It was translated into English long after 1215"
+        "It established that the king was subject to the law, not above it",
+        "It created England's first parliament",
+        "It ended the feudal system immediately",
+        "It gave ordinary peasants the right to vote"
       ],
-      "answer": "It was created at the time of the event, by people directly involved",
-      "why": "A primary source is direct evidence from the time itself — Magna Carta was written and sealed in 1215 by King John and the barons involved. Later analysis or summaries are secondary sources.",
+      "answer": "It established that the king was subject to the law, not above it",
+      "why": "Magna Carta's key legacy is the principle that the monarch must obey the law like everyone else. It didn't create parliament, end feudalism, or grant peasants voting rights.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A gardener investigates whether the amount of shade (hours per day) affects how many tomatoes a plant produces, keeping the watering schedule the same for every plant. Which is the dependent variable?",
+      "prompt": "A student tests whether the type of music (classical, pop, silence) affects how many words people can memorise in one minute, keeping the list of words the same for everyone. Which is the controlled variable?",
       "options": [
-        "The number of tomatoes produced",
-        "The amount of shade (hours per day)",
-        "The watering schedule",
-        "The type of plant used"
+        "The list of words used",
+        "The type of music played",
+        "The number of words memorised",
+        "The time of day the test happens"
       ],
-      "answer": "The number of tomatoes produced",
-      "why": "The dependent variable is what you MEASURE as the outcome — here, the number of tomatoes. The shade is the independent variable (what's changed), and watering is the controlled variable (kept the same).",
+      "answer": "The list of words used",
+      "why": "The controlled variable is what's kept the same so it doesn't affect the results unfairly — here, the word list. The music type is the independent variable, and words memorised is the dependent variable.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 156°. What is the co-interior (allied) angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 39°. What is the alternate angle on the other parallel line?",
       "options": [
-        "24°",
-        "156°",
-        "34°",
-        "180°"
+        "39°",
+        "141°",
+        "180°",
+        "51°"
       ],
-      "answer": "24°",
-      "why": "Co-interior (allied) angles sum to 180° because they lie between the parallel lines on the same side of the transversal. So 180° − 156° = 24°, not another equal angle as with corresponding angles.",
+      "answer": "39°",
+      "why": "Alternate angles are equal when a transversal crosses parallel lines — they form a 'Z' shape. They are not supplementary, so you don't subtract from 180°.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A quadrilateral has two pairs of parallel sides, all four sides equal in length, but no right angles. What is the most specific name for this shape?",
+      "prompt": "A triangle has one angle of 100° and no two sides the same length. What type of triangle is this?",
       "options": [
-        "Rhombus",
-        "Square",
-        "Rectangle",
-        "Parallelogram"
+        "Obtuse scalene triangle",
+        "Acute scalene triangle",
+        "Obtuse isosceles triangle",
+        "Right-angled triangle"
       ],
-      "answer": "Rhombus",
-      "why": "Equal sides with parallel sides but no right angles makes it a rhombus specifically — a square needs right angles too. Calling it just a 'parallelogram' misses the extra detail that all sides are equal.",
+      "answer": "Obtuse scalene triangle",
+      "why": "An angle greater than 90° makes it obtuse, and no equal sides makes it scalene. It's not isosceles since isosceles needs two equal sides, and it's not right-angled since no angle is exactly 90°.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "During sexual reproduction, offspring inherit genetic material from two parents. Why does this typically lead to more genetic variation than asexual reproduction?",
+      "prompt": "In an investigation into earthquake risk, which of these is a natural factor that increases risk, rather than a human one?",
       "options": [
-        "Because genes are mixed from two different parents, creating new combinations",
-        "Because only one parent's genes are used, making offspring identical",
-        "Because sexual reproduction always produces mutations",
-        "Because asexual reproduction combines genes from two different organisms"
+        "The area sitting on a major fault line",
+        "Buildings not built to earthquake-resistant standards",
+        "Poor emergency response planning",
+        "High population density in the region"
       ],
-      "answer": "Because genes are mixed from two different parents, creating new combinations",
-      "why": "Sexual reproduction combines genetic material from two parents, creating new gene combinations in each offspring — this increases variation. Asexual reproduction copies one parent's genes, producing genetically identical offspring (clones).",
+      "answer": "The area sitting on a major fault line",
+      "why": "A fault line's location is a natural geological feature. Building standards, emergency planning, and population density are all things humans control or influence.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your classmate says: 'In an experiment testing whether the brand of paint affects how quickly it dries, the temperature of the room must be the dependent variable, because temperature can change the drying time.' Using an example of your own (not one already used this week), explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
+      "prompt": "Your cousin says: 'In an experiment testing whether the amount of salt added to water affects the boiling point, the type of pot used must be the independent variable, because you could change it too.' Using an example of your own (not sleep, sunlight, fertiliser, water temperature, salt/boiling point, or soil type), explain what actually makes a variable independent, dependent, or controlled, and correct your cousin's mistake."
     }
   ]
 }
