@@ -1,53 +1,128 @@
 {
   "student": "y8",
-  "date": "2026-08-14",
-  "day": "FRI",
-  "tag": "H3.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-14",
+  "date": "2026-08-17",
+  "day": "MON",
+  "tag": "H4.1",
+  "title": "DailyXP · MON 2026-08-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 72°. What is the alternate angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 58°. What is the corresponding angle on the other parallel line?",
       "options": [
-        "72°",
-        "108°",
-        "18°",
-        "144°"
+        "58°",
+        "122°",
+        "32°",
+        "180°"
       ],
-      "answer": "72°",
-      "why": "Alternate angles form a Z-shape and are always equal, so the answer is 72°. The 108° option comes from confusing alternate angles with co-interior angles (which sum to 180°).",
+      "answer": "58°",
+      "why": "Corresponding angles sit in matching positions at each intersection and are always equal, so the answer is 58°. Students often confuse this with co-interior angles (which sum to 180°).",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A quadrilateral has two pairs of parallel sides and four right angles, but its sides are not all equal length. What is the most specific name for this shape?",
+      "prompt": "A triangle has angles of 90°, 45°, and 45°. What type of triangle is this?",
       "options": [
-        "Rectangle",
-        "Square",
-        "Rhombus",
-        "Parallelogram"
+        "Right-angled isosceles triangle",
+        "Equilateral triangle",
+        "Scalene triangle",
+        "Obtuse triangle"
       ],
-      "answer": "Rectangle",
-      "why": "A rectangle has two pairs of parallel sides and four right angles but doesn't need equal sides — that's what makes it a rectangle rather than a square. Calling it a square is the common mistake of assuming right angles always mean equal sides.",
+      "answer": "Right-angled isosceles triangle",
+      "why": "It has a right angle (90°) and two equal angles (45°, 45°), which means two equal sides too — so it's right-angled AND isosceles. Naming only one property misses the full classification.",
+      "fresh": true
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "Solve for x: 2(x + 5) = 18. A student says 'I'll subtract 5 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
+      "options": [
+        "You must expand the bracket first (2x+10=18) since 5 is multiplied by 2, not just added; x = 4",
+        "You can subtract 5 first because it's closest to the bracket; x = 4",
+        "You must divide by 2 first without expanding; x = 9",
+        "You can ignore the bracket since it doesn't change the answer; x = 4"
+      ],
+      "answer": "You must expand the bracket first (2x+10=18) since 5 is multiplied by 2, not just added; x = 4",
+      "why": "The 5 is inside the bracket, so it's multiplied by 2 — you can't subtract it directly. Expanding gives 2x+10=18, so 2x=8, x=4.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "In a natural disaster investigation on flooding, which of these is a human factor that can increase flood risk, rather than a natural one?",
+      "options": [
+        "Removal of trees (deforestation) upstream reducing water absorption",
+        "Heavy, prolonged rainfall over the catchment area",
+        "Steep valley slopes funnelling water quickly into rivers",
+        "Saturated ground from previous storms"
+      ],
+      "answer": "Removal of trees (deforestation) upstream reducing water absorption",
+      "why": "Deforestation is a human action that reduces the land's ability to absorb water, increasing runoff. Rainfall, slope, and ground saturation are natural physical factors, not human causes.",
+      "fresh": true
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Before the First Crusade began in 1096, Jerusalem had been under the control of which group for several centuries?",
+      "options": [
+        "Muslim rulers",
+        "Byzantine Christians",
+        "Roman Catholics",
+        "Jewish leaders"
+      ],
+      "answer": "Muslim rulers",
+      "why": "Jerusalem had been under Muslim control since the 7th century, which is part of why Pope Urban II called for the First Crusade in 1095 to try to reclaim it for Christendom.",
+      "fresh": true
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A historian writes: 'The Black Death killed a third of Europe's population, causing a shortage of labourers, which gave surviving peasants more bargaining power for wages.' Which part of this is the immediate cause, not the long-term consequence?",
+      "options": [
+        "The Black Death killing a third of the population",
+        "Peasants gaining more bargaining power for wages",
+        "The shortage of labourers after the plague",
+        "Peasants demanding higher wages from lords"
+      ],
+      "answer": "The Black Death killing a third of the population",
+      "why": "The Black Death is the triggering event (cause); the labour shortage and peasants' improved bargaining power are the consequences that followed from it. Causes come first and produce the effects.",
+      "fresh": true
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Magna Carta, signed in 1215, is often called a primary source for historians studying medieval England. What makes a document like Magna Carta a 'primary source'?",
+      "options": [
+        "It was created at the time of the event, by people directly involved",
+        "It was written by a modern historian analysing the period",
+        "It summarises many other documents from different centuries",
+        "It was translated into English long after 1215"
+      ],
+      "answer": "It was created at the time of the event, by people directly involved",
+      "why": "A primary source is direct evidence from the time itself — Magna Carta was written and sealed in 1215 by King John and the barons involved. Later analysis or summaries are secondary sources.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student investigates whether the brand of battery affects how long a toy car runs for, keeping the toy car and the surface it runs on the same each time. Which variable is the controlled variable?",
+      "prompt": "A gardener investigates whether the amount of shade (hours per day) affects how many tomatoes a plant produces, keeping the watering schedule the same for every plant. Which is the dependent variable?",
       "options": [
-        "The surface the toy car runs on",
-        "The brand of battery",
-        "How long the toy car runs for",
-        "The toy car itself, because it changes wear over time"
+        "The number of tomatoes produced",
+        "The amount of shade (hours per day)",
+        "The watering schedule",
+        "The type of plant used"
       ],
-      "answer": "The surface the toy car runs on",
-      "why": "The controlled variable is what you deliberately keep the same so it's a fair test — here, the surface (and the toy car) are kept constant. The brand of battery is the independent variable (what's changed), and run time is the dependent variable (what's measured); confusing 'kept the same' with 'what's measured' is the trap.",
+      "answer": "The number of tomatoes produced",
+      "why": "The dependent variable is what you MEASURE as the outcome — here, the number of tomatoes. The shade is the independent variable (what's changed), and watering is the controlled variable (kept the same).",
       "fresh": true,
       "repair": true
     },
@@ -55,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 130°. What is the co-interior (allied) angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 156°. What is the co-interior (allied) angle on the other parallel line?",
       "options": [
-        "50°",
-        "130°",
-        "80°",
-        "40°"
+        "24°",
+        "156°",
+        "34°",
+        "180°"
       ],
-      "answer": "50°",
-      "why": "Co-interior (allied) angles sit between the parallel lines on the same side and always add up to 180°, so 180° − 130° = 50°. Picking 130° is the classic slip of treating co-interior angles as equal, like alternate or corresponding angles.",
+      "answer": "24°",
+      "why": "Co-interior (allied) angles sum to 180° because they lie between the parallel lines on the same side of the transversal. So 180° − 156° = 24°, not another equal angle as with corresponding angles.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Which one of these statements about triangles is FALSE?",
+      "prompt": "A quadrilateral has two pairs of parallel sides, all four sides equal in length, but no right angles. What is the most specific name for this shape?",
       "options": [
-        "An equilateral triangle has three equal sides and three 60° angles.",
-        "An isosceles triangle has exactly two equal sides.",
-        "A right-angled triangle always has two equal sides.",
-        "A scalene triangle has no equal sides and no equal angles."
+        "Rhombus",
+        "Square",
+        "Rectangle",
+        "Parallelogram"
       ],
-      "answer": "A right-angled triangle always has two equal sides.",
-      "why": "A right-angled triangle only needs one 90° angle — it can be scalene, isosceles, but never equilateral. The false statement wrongly assumes 'right-angled' automatically means 'isosceles', mixing up two separate ways of classifying triangles.",
+      "answer": "Rhombus",
+      "why": "Equal sides with parallel sides but no right angles makes it a rhombus specifically — a square needs right angles too. Calling it just a 'parallelogram' misses the extra detail that all sides are equal.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Solve for x: 3(x + 4) = 21. A student says 'I'll subtract 4 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
+      "subject": "Science",
+      "prompt": "During sexual reproduction, offspring inherit genetic material from two parents. Why does this typically lead to more genetic variation than asexual reproduction?",
       "options": [
-        "x = 3",
-        "x = 7",
-        "x = 2",
-        "x = 5"
+        "Because genes are mixed from two different parents, creating new combinations",
+        "Because only one parent's genes are used, making offspring identical",
+        "Because sexual reproduction always produces mutations",
+        "Because asexual reproduction combines genes from two different organisms"
       ],
-      "answer": "x = 3",
-      "why": "You must expand or divide first, because the 4 is multiplied by 3, not just added — dividing both sides by 3 first gives x + 4 = 7, so x = 3. Subtracting 4 straight away ignores the bracket's multiplier and breaks the balance rule.",
+      "answer": "Because genes are mixed from two different parents, creating new combinations",
+      "why": "Sexual reproduction combines genetic material from two parents, creating new gene combinations in each offspring — this increases variation. Asexual reproduction copies one parent's genes, producing genetically identical offspring (clones).",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your friend says: 'In an experiment testing whether the amount of exercise (minutes per day) affects heart rate, the type of exercise (running vs cycling) must be the dependent variable, because it's something that could also change.' Using an example of your own (not one already used this week), explain what actually makes a variable independent, dependent, or controlled, and correct your friend's mistake."
+      "prompt": "Your classmate says: 'In an experiment testing whether the brand of paint affects how quickly it dries, the temperature of the room must be the dependent variable, because temperature can change the drying time.' Using an example of your own (not one already used this week), explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
     }
   ]
 }
