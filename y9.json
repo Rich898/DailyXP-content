@@ -1,53 +1,128 @@
 {
   "student": "y9",
-  "date": "2026-08-14",
-  "day": "FRI",
-  "tag": "R3.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-14",
+  "date": "2026-08-17",
+  "day": "MON",
+  "tag": "R4.1",
+  "title": "DailyXP · MON 2026-08-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 2 cm and height 9 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 5 cm and height 11 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "138.2 cm²",
-        "113.0 cm²",
-        "56.5 cm²",
-        "175.8 cm²"
+        "502.4 cm²",
+        "345.4 cm²",
+        "376.8 cm²",
+        "628.0 cm²"
       ],
-      "answer": "138.2 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(4) + 2(3.14)(2)(9) = 25.1 + 113.0 = 138.2 cm². A common slip is forgetting the two circular ends (giving 113.0) or only using one end.",
+      "answer": "502.4 cm²",
+      "why": "Total surface area of a closed cylinder = 2πr² + 2πrh = 2πr(r+h). Here that's 2×3.14×5×(5+11) = 502.4 cm². A common mistake is forgetting one circular end (giving 345.4) or leaving out the circles entirely (628.0, which is just the curved surface doubled incorrectly).",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What was the Weimar Republic?",
+      "prompt": "The Weimar Republic's use of proportional representation meant even small parties could win seats in parliament. Why did this make government harder?",
       "options": [
-        "Germany's democratic government from 1919 to 1933",
-        "The Nazi government that ruled Germany from 1933",
-        "The German Empire under Kaiser Wilhelm before WWI",
-        "The Allied council that occupied Germany after WWII"
+        "It often produced weak coalition governments that struggled to agree and act decisively",
+        "It meant only the Kaiser's party could ever win seats",
+        "It gave the army automatic control of parliament",
+        "It made elections illegal after 1919"
       ],
-      "answer": "Germany's democratic government from 1919 to 1933",
-      "why": "The Weimar Republic was Germany's first democracy, formed after the Kaiser abdicated in 1919, and it lasted until Hitler took power in 1933. Mixing it up with the Nazi era or the Kaiser's empire confuses the timeline of German history.",
+      "answer": "It often produced weak coalition governments that struggled to agree and act decisively",
+      "why": "Proportional representation gave many small parties seats, so no single party had a majority. Governments were fragile coalitions that frequently collapsed, making stable decision-making difficult — this is different from confusing PR with banning elections or removing civilian power.",
+      "fresh": true
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Which statement best shows the causal chain linking the Great Depression to the Nazi Party's growth, rather than just noting they occurred at the same time?",
+      "options": [
+        "Mass unemployment from the Depression made Nazi promises of jobs and strong leadership newly appealing to desperate voters",
+        "The Depression happened, and separately the Nazis also became more popular around then",
+        "The Depression proved Hitler was right about everything from the start",
+        "The Depression only affected farmers, who never voted Nazi"
+      ],
+      "answer": "Mass unemployment from the Depression made Nazi promises of jobs and strong leadership newly appealing to desperate voters",
+      "why": "A causal link requires showing mechanism: economic despair drove people toward parties offering radical solutions and stability. Simply noting the timing overlap (option 2) isn't causation, and the other options misrepresent the actual historical pattern.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "Two students argue about Australia's post-WWII migration. One says 'people only came because Australia was desperate for workers.' The other says 'people only came to escape hardship at home.' What's the better historical view?",
+      "options": [
+        "Both push and pull factors worked together — hardship abroad and Australia's need for labour and population both mattered",
+        "Only push factors mattered; Australia's own needs were irrelevant",
+        "Only pull factors mattered; conditions overseas were irrelevant",
+        "Migration in this period was entirely random with no identifiable factors"
+      ],
+      "answer": "Both push and pull factors worked together — hardship abroad and Australia's need for labour and population both mattered",
+      "why": "Migration is best explained by combining push factors (like postwar hardship in Europe) with pull factors (like Australia's assisted passage schemes and labour shortages). Picking only one side oversimplifies a two-sided process.",
+      "fresh": true
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A student writing a business plan for a new car wash wants to include a SWOT analysis. Which of these belongs correctly inside the SWOT section, rather than the market analysis section?",
+      "options": [
+        "The business has low startup costs but faces threat from three nearby competitors",
+        "Local car ownership rates are rising in this suburb",
+        "Competitors currently charge between $15 and $25 for a wash",
+        "Weekly traffic counts on the main road are increasing"
+      ],
+      "answer": "The business has low startup costs but faces threat from three nearby competitors",
+      "why": "SWOT covers internal Strengths/Weaknesses and external Opportunities/Threats about the business itself. Facts about market size, competitor pricing, or customer numbers describe the external market and belong in market analysis, not SWOT.",
+      "fresh": true
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "When a pathogen invades the body, memory cells 'remember' it so future infections are fought off faster. What is this ability called?",
+      "options": [
+        "Immunity",
+        "Digestion",
+        "Photosynthesis",
+        "Respiration"
+      ],
+      "answer": "Immunity",
+      "why": "Immunity is the body's ability to resist a pathogen it has previously encountered, thanks to memory cells that allow a faster antibody response next time. This is distinct from unrelated body processes like digestion or respiration.",
+      "fresh": true
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "A migrant moves permanently from Vietnam to Australia to reunite with family already living there. Which term correctly describes this kind of movement?",
+      "options": [
+        "International migration",
+        "Urbanisation",
+        "Internal migration",
+        "Emigration only, with no pull factor involved"
+      ],
+      "answer": "International migration",
+      "why": "International migration is the permanent movement of people across national borders. Urbanisation refers to movement from rural to urban areas usually within a country, and internal migration also stays within one country — neither fits crossing from Vietnam to Australia.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 13 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 15 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
       "options": [
-        "39 cm²",
-        "78 cm²",
-        "19.5 cm²",
-        "38 cm²"
+        "52.5 cm²",
+        "105 cm²",
+        "22 cm²",
+        "45.5 cm²"
       ],
-      "answer": "39 cm²",
-      "why": "Area = ½ × base × height = ½ × 13 × 6 = 39 cm². The 78 cm² answer skips the halving step (just multiplying base × height) — that's the rushing mistake to keep guarding against, even though the concept itself is solid.",
+      "answer": "52.5 cm²",
+      "why": "Area of a triangle = ½ × base × height = ½ × 15 × 7 = 52.5 cm². Forgetting to halve gives 105 cm² — the classic rushing mistake. Slowing down to say the formula first stops that error.",
       "fresh": true,
       "repair": true
     },
@@ -55,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 6 cm and height 9 cm. What is its total surface area? (Use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 3 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "565.2 cm²",
-        "339.1 cm²",
+        "282.6 cm²",
         "226.1 cm²",
-        "424.0 cm²"
+        "339.1 cm²",
+        "113.0 cm²"
       ],
-      "answer": "565.2 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(36) + 2(3.14)(6)(9) = 226.1 + 339.1 = 565.2 cm². Forgetting to double the circle area (only counting one end) gives the 339.1 cm² trap.",
+      "answer": "282.6 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2×3.14×9 + 2×3.14×3×12 = 56.5 + 226.1 = 282.6 cm². Missing one end circle gives 226.1, and using only curved surface doubled incorrectly gives other wrong totals.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which one is FALSE about the Weimar Republic?",
+      "prompt": "Why is the Weimar Republic sometimes described as facing a 'crisis of legitimacy' from its very first years?",
       "options": [
-        "It was Germany's government from 1933 to 1945, led by Hitler",
-        "It used a system of proportional representation in parliament",
-        "It faced hyperinflation in 1923 that wrecked savings",
-        "It was formed in 1919 after Germany's defeat in WWI"
+        "Many Germans blamed it for accepting the humiliating Treaty of Versailles, even though it wasn't the government that started the war",
+        "It was actually a monarchy pretending to be a republic",
+        "It had no elections at all, so nobody supported it",
+        "It was created by Hitler to gain early popularity"
       ],
-      "answer": "It was Germany's government from 1933 to 1945, led by Hitler",
-      "why": "The Weimar Republic ended in 1933 when Hitler became Chancellor — the Nazi dictatorship that followed was a different regime, not the Weimar Republic itself. Confusing the two eras is the exact mix-up to watch for.",
+      "answer": "Many Germans blamed it for accepting the humiliating Treaty of Versailles, even though it wasn't the government that started the war",
+      "why": "The Weimar government signed the Treaty of Versailles and was unfairly blamed for Germany's defeat and humiliation, even though the Kaiser's government had led the war. This 'stab-in-the-back' resentment undermined public trust from the start.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which statement best explains why the Great Depression specifically boosted support for the Nazi Party, rather than just making Germans generally unhappy?",
+      "prompt": "Which statement best shows why rising unemployment during the Great Depression benefited the Nazis more than other struggling parties?",
       "options": [
-        "Mass unemployment made the Nazis' promises of jobs and strong leadership seem like a real solution, unlike the struggling Weimar government",
-        "The Depression made every political party equally popular since everyone was suffering",
-        "The Depression only affected farmers, and the Nazis were mainly a farmers' party",
-        "The Depression happened after Hitler was already Chancellor, so it didn't affect his rise"
+        "The Nazis offered a clear, radical solution (blame and strong leadership) that felt decisive compared to the weak coalition governments people blamed for the crisis",
+        "The Nazis were the only party allowed to campaign during the Depression",
+        "Unemployment had no real effect on which party people supported",
+        "The Depression made every party equally popular"
       ],
-      "answer": "Mass unemployment made the Nazis' promises of jobs and strong leadership seem like a real solution, unlike the struggling Weimar government",
-      "why": "The Nazis specifically gained because they offered decisive, confident solutions (jobs, national pride) while the Weimar government looked weak and divided — it's a causal link, not just coincidence in timing. Saying 'everyone got equally unhappy' misses that the Nazis uniquely benefited.",
+      "answer": "The Nazis offered a clear, radical solution (blame and strong leadership) that felt decisive compared to the weak coalition governments people blamed for the crisis",
+      "why": "The Nazis specifically benefited because their message of strong, decisive leadership and scapegoating contrasted with the perceived weakness of coalition governments — this is a specific mechanism, not just general dissatisfaction spreading evenly across all parties.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Maths",
-      "prompt": "You've now shown calm, accurate triangle area work again, on different numbers than before. Explain: why is saying '½ × base × height' out loud or in your head, before doing any multiplying, a better habit than just checking your answer at the end?"
+      "prompt": "You've now shown calm, accurate triangle area work again on fresh numbers today. Explain: why does pausing to write down the formula ½ × base × height before touching the calculator help more than just double-checking your final answer afterwards?"
     }
   ]
 }
