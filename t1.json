@@ -9,172 +9,200 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which of these does NOT belong with the others about Romeo and Juliet's author and context?",
+      "prompt": "Which of these does NOT belong when grouped with the others about Shakespeare's world?",
+      "answer": "The printing press, invented in the 15th century by Johannes Gutenberg in Germany",
+      "why": "The Globe, Elizabeth I, and Brooke's poem are all directly tied to Shakespeare writing and staging Romeo and Juliet. The printing press is a real historical invention but has no direct connection to the play's composition or performance, making it the odd one out.",
       "options": [
-        "William Shakespeare wrote the play",
-        "The play is set in Verona, Italy",
-        "The play was written in the 20th century",
-        "The play is classified as a tragedy"
+        "The Globe Theatre, where many of Shakespeare's plays were performed for London audiences",
+        "Queen Elizabeth I, who reigned over much of Shakespeare's early career",
+        "Arthur Brooke's poem, an earlier source Shakespeare adapted for his tragedy",
+        "The printing press, invented in the 15th century by Johannes Gutenberg in Germany"
       ],
-      "answer": "The play was written in the 20th century",
-      "why": "Shakespeare wrote in the late 16th century, not the 20th century. The other three facts are accurate features of the play's authorship, setting, and genre.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Match each technique in Romeo and Juliet to its example: 1) Oxymoron, 2) Metaphor, 3) Dramatic irony, 4) Foreshadowing. A) 'Loving hate'. B) Juliet is the sun. C) Audience knows Juliet is alive but Romeo doesn't. D) The Prologue revealing the lovers' fate.",
+      "prompt": "Match each figure or event to its correct role in the ending of Romeo and Juliet: 1) Friar John, 2) Friar Laurence's letter, 3) The plague quarantine, 4) Romeo's belief that Juliet is dead.",
+      "answer": "1-c, 2-b, 3-d, 4-a: Friar John failed to deliver the letter; the letter explained Juliet's fake death; quarantine delayed Friar John; Romeo believed Juliet was truly dead and killed himself",
+      "why": "Friar John, not the Nurse, was tasked with delivering Friar Laurence's letter to Romeo, but he was shut in a plague-quarantined house and never reached him. Because Romeo never learns the truth about Juliet's sleeping potion, he believes she is dead and takes his own life.",
       "options": [
-        "1-A, 2-B, 3-C, 4-D",
-        "1-B, 2-A, 3-C, 4-D",
-        "1-A, 2-C, 3-B, 4-D",
-        "1-A, 2-B, 3-D, 4-C"
+        "1-c, 2-b, 3-d, 4-a: Friar John failed to deliver the letter; the letter explained Juliet's fake death; quarantine delayed Friar John; Romeo believed Juliet was truly dead and killed himself",
+        "1-a, 2-b, 3-d, 4-c: Friar John delivered the letter successfully; the letter explained Juliet's fake death; quarantine delayed the Nurse; Romeo believed Juliet was truly dead and killed himself",
+        "1-c, 2-a, 3-b, 4-d: Friar John failed to deliver the letter; the letter warned Romeo to flee Verona; quarantine delayed Friar Laurence himself; Romeo believed Juliet had betrayed him",
+        "1-d, 2-b, 3-c, 4-a: The Nurse failed to deliver the letter; the letter explained Juliet's fake death; quarantine delayed Friar John; Romeo believed Juliet was truly dead and killed himself"
       ],
-      "answer": "1-A, 2-B, 3-C, 4-D",
-      "why": "Oxymoron pairs contradictory words like 'loving hate', metaphor directly compares Juliet to the sun, dramatic irony is when the audience knows more than a character, and foreshadowing hints at future events like the Prologue does.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A student explains asexual reproduction using this worked argument. Which step is WRONG? Step 1: Asexual reproduction involves only one parent. Step 2: Offspring produced asexually are genetically identical to the parent. Step 3: Identical twins in humans are an example of asexual reproduction. Step 4: Bacteria splitting by binary fission is an example of asexual reproduction.",
+      "prompt": "A student explains why some animals can reproduce without a mate using this worked argument. Which step is WRONG? Step 1: Aphids can reproduce asexually by cloning themselves. Step 2: This means all their offspring are genetically identical to the parent. Step 3: Because aphids can do this, all insects must also reproduce asexually. Step 4: In fact, most insects, like bees and butterflies, reproduce sexually.",
+      "answer": "Step 3: Because aphids can do this, all insects must also reproduce asexually",
+      "why": "Step 3 wrongly generalises from one species to an entire group. Aphids are unusual in being able to reproduce asexually, but most insects reproduce sexually, as Step 4 correctly states.",
       "options": [
-        "Step 1: Asexual reproduction involves only one parent",
-        "Step 2: Offspring produced asexually are genetically identical to the parent",
-        "Step 3: Identical twins in humans are an example of asexual reproduction",
-        "Step 4: Bacteria splitting by binary fission is an example of asexual reproduction"
+        "Step 1: Aphids can reproduce asexually by cloning themselves",
+        "Step 2: This means all their offspring are genetically identical to the parent",
+        "Step 3: Because aphids can do this, all insects must also reproduce asexually",
+        "Step 4: In fact, most insects, like bees and butterflies, reproduce sexually"
       ],
-      "answer": "Step 3: Identical twins in humans are an example of asexual reproduction",
-      "why": "Identical twins form when a fertilised egg (from sexual reproduction) splits in two — the reproduction that created them was still sexual, so twins are not an example of asexual reproduction.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which statement about the fall of Rome and the medieval era that followed is FALSE?",
+      "prompt": "Which statement about the fall of Rome and the early medieval period that followed is FALSE?",
+      "answer": "Written record-keeping and learning improved immediately across Europe once Rome's central government collapsed",
+      "why": "Learning and record-keeping actually declined in much of Western Europe after Rome fell, since Roman administrative structures and schools broke down. The other three statements are accurate.",
       "options": [
-        "The Western Roman Empire is generally dated as falling in 476 CE",
-        "Central political authority broke down across much of Western Europe after Rome fell",
-        "Western Europe had fully organised national governments again within a few years of Rome's fall",
-        "The Catholic Church became a major unifying power in Europe after Rome's collapse"
+        "The Western Roman Empire's collapse was caused by a mix of invasions, economic decline, and political instability",
+        "The Eastern Roman Empire (Byzantine Empire) continued for centuries after the west fell",
+        "Feudalism developed partly to provide local protection and order once central Roman rule ended",
+        "Written record-keeping and learning improved immediately across Europe once Rome's central government collapsed"
       ],
-      "answer": "Western Europe had fully organised national governments again within a few years of Rome's fall",
-      "why": "After Rome fell, Western Europe fragmented into small, weak, local territories for centuries — organised nation-states did not reappear quickly, which is why the period is often called the 'Dark Ages' in political terms.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Put these levels of the feudal pyramid in order from HIGHEST to LOWEST power: Peasants (serfs), King, Knights, Lords/Nobles.",
+      "prompt": "Put these feudal relationships in order, from the person who grants land FIRST down to the person who works it LAST: knight, king, peasant (serf), lord/noble.",
+      "answer": "King, lord/noble, knight, peasant (serf)",
+      "why": "The king granted land to lords/nobles, who granted portions to knights in exchange for military service, and peasants worked the land at the bottom of the pyramid with the least power.",
       "options": [
-        "King, Lords/Nobles, Knights, Peasants (serfs)",
-        "King, Knights, Lords/Nobles, Peasants (serfs)",
-        "Lords/Nobles, King, Knights, Peasants (serfs)",
-        "King, Lords/Nobles, Peasants (serfs), Knights"
+        "King, lord/noble, knight, peasant (serf)",
+        "King, knight, lord/noble, peasant (serf)",
+        "Lord/noble, king, knight, peasant (serf)",
+        "King, lord/noble, peasant (serf), knight"
       ],
-      "answer": "King, Lords/Nobles, Knights, Peasants (serfs)",
-      "why": "The feudal pyramid ran King at the top, then Lords/Nobles who held land from the king, then Knights who served the lords, then Peasants (serfs) at the bottom who worked the land.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, which line best captures the play's theme of love intertwined with hate?",
+      "prompt": "In Romeo and Juliet, which line best shows the theme of love and hate fused together in a single paradox?",
+      "answer": "'My only love sprung from my only hate'",
+      "why": "This line is an oxymoron: Juliet names love and hate as coming from the same source, capturing the play's central theme directly. The other quotes are memorable but focus on conflict, fate, or farewell, not love and hate merged in one phrase.",
       "options": [
         "'My only love sprung from my only hate'",
-        "'A plague o' both your houses'",
-        "'Wisely and slow; they stumble that run fast'",
-        "'These violent delights have violent ends'"
+        "'A plague on both your houses'",
+        "'These violent delights have violent ends'",
+        "'Parting is such sweet sorrow'"
       ],
-      "answer": "'My only love sprung from my only hate'",
-      "why": "This line directly fuses love and hate in one phrase, capturing Juliet's realisation that she loves someone from her family's enemy house — the clearest expression of the theme.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Match each variable type to its correct example from an experiment testing how light intensity affects plant growth: 1) Independent variable, 2) Dependent variable, 3) Controlled variable. A) Amount of water given to each plant. B) Light intensity provided to each plant. C) Height of the plant after two weeks.",
+      "subject": "History",
+      "prompt": "Put these developments of the medieval Catholic Church's power in the correct chronological order.",
+      "answer": "Church becomes major landowner, Church crowns and legitimises kings, Church launches the Crusades, Church's authority is challenged by later reformers",
+      "why": "The Church first built wealth and land, used that influence to legitimise rulers, then projected power abroad through the Crusades, before facing challenges to its authority much later — a steady rise before any decline.",
       "options": [
-        "1-B, 2-C, 3-A",
-        "1-C, 2-B, 3-A",
-        "1-B, 2-A, 3-C",
-        "1-A, 2-C, 3-B"
+        "Church becomes major landowner, Church crowns and legitimises kings, Church launches the Crusades, Church's authority is challenged by later reformers",
+        "Church launches the Crusades, Church becomes major landowner, Church crowns and legitimises kings, Church's authority is challenged by later reformers",
+        "Church's authority is challenged by later reformers, Church becomes major landowner, Church crowns and legitimises kings, Church launches the Crusades",
+        "Church crowns and legitimises kings, Church becomes major landowner, Church launches the Crusades, Church's authority is challenged by later reformers"
       ],
-      "answer": "1-B, 2-C, 3-A",
-      "why": "The independent variable is what you deliberately change (light intensity), the dependent variable is what you measure as a result (plant height), and the controlled variable is kept the same throughout (water amount).",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Put these Crusades-related events in chronological order: Jerusalem is captured by the First Crusade, The First Crusade is launched, Crusader states are eventually lost, Trade links between Europe and the Middle East expand.",
-      "options": [
-        "The First Crusade is launched, Jerusalem is captured by the First Crusade, Trade links between Europe and the Middle East expand, Crusader states are eventually lost",
-        "The First Crusade is launched, Crusader states are eventually lost, Jerusalem is captured by the First Crusade, Trade links between Europe and the Middle East expand",
-        "Jerusalem is captured by the First Crusade, The First Crusade is launched, Trade links between Europe and the Middle East expand, Crusader states are eventually lost",
-        "The First Crusade is launched, Jerusalem is captured by the First Crusade, Crusader states are eventually lost, Trade links between Europe and the Middle East expand"
+      "prompt": "The First Crusade (1096-1099) was launched with the stated goal of recapturing ______ from Muslim control.",
+      "type": "cloze",
+      "answer": "Jerusalem",
+      "why": "Jerusalem was the central holy city for Christians, Muslims, and Jews, and its capture was the First Crusade's main declared religious objective.",
+      "accept": [
+        "the Holy Land",
+        "jerusalem"
       ],
-      "answer": "The First Crusade is launched, Jerusalem is captured by the First Crusade, Trade links between Europe and the Middle East expand, Crusader states are eventually lost",
-      "why": "The Crusade was launched first, then Jerusalem was captured in 1099, trade and cultural exchange grew during the crusader states' existence, and the states were eventually lost afterward — the lasting trade effects are why historians see it as significant beyond the military outcome.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which statement about William Shakespeare and the writing of Romeo and Juliet is FALSE?",
+      "prompt": "Match each fact to its correct detail about Shakespeare's life and work: 1) Theatre he was associated with, 2) Monarch during much of his career, 3) Source material for Romeo and Juliet, 4) Century he wrote in. a) Elizabeth I. b) The Globe Theatre. c) 16th-17th century. d) Arthur Brooke's earlier poem.",
+      "answer": "1-b, 2-a, 3-d, 4-c",
+      "why": "Shakespeare worked at the Globe Theatre, during Elizabeth I's reign (later James I), adapted Romeo and Juliet from Arthur Brooke's earlier poem, and wrote across the late 16th into the early 17th century.",
       "options": [
-        "Shakespeare wrote Romeo and Juliet in the late 1590s, drawing on earlier Italian and English poems about doomed lovers.",
-        "Shakespeare invented the entire plot of Romeo and Juliet himself, with no earlier versions of the story existing before his play.",
-        "Shakespeare's plays were performed by his company at the Globe Theatre in London for a mixed audience of nobles and commoners.",
-        "Shakespeare wrote most of his plays, including Romeo and Juliet, using a mix of blank verse and prose rather than only prose."
+        "1-b, 2-a, 3-d, 4-c",
+        "1-a, 2-b, 3-d, 4-c",
+        "1-b, 2-a, 3-c, 4-d",
+        "1-d, 2-a, 3-b, 4-c"
       ],
-      "answer": "Shakespeare invented the entire plot of Romeo and Juliet himself, with no earlier versions of the story existing before his play.",
-      "why": "Shakespeare actually based Romeo and Juliet on existing sources, especially Arthur Brooke's 1562 narrative poem 'The Tragical History of Romeus and Juliet' — he adapted and improved an existing story rather than inventing it from nothing. This is a common misconception that overstates Shakespeare's originality.",
-      "fresh": true
+      "fresh": false,
+      "x2": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which of these does NOT belong as an example of Shakespeare's use of dramatic technique in Romeo and Juliet?",
-      "options": [
-        "Juliet comparing Romeo to the sun as a metaphor",
-        "The Prologue using a sonnet form to foreshadow events",
-        "The audience knowing Juliet is alive while Romeo believes she is dead",
-        "The Nurse listing the ingredients of a herbal remedy in exact detail"
+      "prompt": "What term describes a play like Romeo and Juliet that ends in death and disaster, often caused by a character's flaws or fate?",
+      "type": "text",
+      "answer": "tragedy",
+      "why": "A tragedy is a play that ends in serious, often fatal, misfortune for the main characters, typically driven by flaws, fate, or circumstance — exactly the pattern in Romeo and Juliet.",
+      "accept": [
+        "a tragedy"
       ],
-      "answer": "The Nurse listing the ingredients of a herbal remedy in exact detail",
-      "why": "This is a fabricated detail with no real dramatic technique purpose, unlike metaphor, foreshadowing, and dramatic irony, which are genuine techniques Shakespeare uses throughout the play.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student explains why fungi reproduction is misunderstood using this worked argument. Which step is WRONG? Step 1: Some fungi, like mushrooms, can reproduce using spores without a mate. Step 2: This spore production without a mate is a form of asexual reproduction. Step 3: Therefore, all fungi can only reproduce asexually and never sexually. Step 4: In fact, many fungi can also reproduce sexually by combining genetic material from two individuals.",
-      "options": [
-        "Step 1: Some fungi, like mushrooms, can reproduce using spores without a mate",
-        "Step 2: This spore production without a mate is a form of asexual reproduction",
-        "Step 3: Therefore, all fungi can only reproduce asexually and never sexually",
-        "Step 4: In fact, many fungi can also reproduce sexually by combining genetic material from two individuals"
+      "prompt": "What term describes reproduction that requires only one parent and produces genetically identical offspring?",
+      "type": "text",
+      "answer": "asexual reproduction",
+      "why": "Asexual reproduction involves a single parent and produces clones with identical DNA, unlike sexual reproduction which combines genetic material from two parents.",
+      "accept": [
+        "asexual"
       ],
-      "answer": "Step 3: Therefore, all fungi can only reproduce asexually and never sexually",
-      "why": "Many fungi are capable of both asexual and sexual reproduction, so it's wrong to conclude they can only reproduce one way — mushrooms often use spores asexually but can also reproduce sexually under certain conditions.",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says studying the Crusades is a waste of time because they were fought over religion, and 'nobody cares about religious wars anymore.' Explain, using your own reasoning and at least one specific long-term effect, why the Crusades still matter to study today even though modern society is more secular."
+      "prompt": "A classmate says the Crusades only matter for religious history and have nothing to do with subjects like trade, science, or geography today. Explain why this view is too narrow, using at least one specific long-term effect of the Crusades beyond religion."
+    }
+  ],
+  "encore": [
+    {
+      "id": "E1",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Put these steps in the correct order for analysing a cause-and-consequence chain in history (e.g. the fall of Rome leading to feudalism).",
+      "type": "order",
+      "why": "Good cause-and-consequence analysis moves step by step from the triggering event through immediate effects to the eventual long-term outcome, showing the chain of causation clearly rather than jumping straight to the end result.",
+      "sequence": [
+        "Identify the initial event or change",
+        "Explain the immediate short-term effects",
+        "Trace how those effects led to further changes",
+        "Explain the longer-term consequence or new system that emerged"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "E2",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "A rectangle has a base of 8 cm and a height of 5 cm. A triangle has the same base and height. What is the area of the triangle?",
+      "answer": "20 cm²",
+      "why": "A triangle's area is half the rectangle with the same base and height: (8 × 5) ÷ 2 = 20 cm². Forgetting to halve gives 40 cm² (the rectangle's area), and adding base and height instead of multiplying gives the other wrong answers.",
+      "options": [
+        "20 cm²",
+        "40 cm²",
+        "13 cm²",
+        "26 cm²"
+      ],
+      "fresh": false
     }
   ]
 }
