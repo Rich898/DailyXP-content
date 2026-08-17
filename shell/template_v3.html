@@ -211,6 +211,8 @@ var CONFIG = {
   NAME: "__NAME__",
   QUESTIONS_URL: "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/__STUDENT__.json",
   WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyqm-ejLSDP9F7wCjZCgx4E0Ugh285GJf7AjmH5TBeRJ44OTFI6H-CwJ2Gx7ZyE5f-mEQ/exec",
+  SUPABASE_URL: "https://ftknumgdmalxyjxvqlux.supabase.co",
+  SUPABASE_ANON: "sb_publishable_02mBzFnvRg5fZFrzq3w3pg_xXzVK7KF",
   SHELL_VERSION: "3.0.5"
 };
 
@@ -964,6 +966,23 @@ function buildPayload(){
   };
 }
 function sendPayload(p, cb){
+  // Dual-write (fire-and-forget): mirror the result into Supabase. The Sheet
+  // below stays the source of truth and owns the callback — this second write
+  // can never block or fail the submission. New API-key mode: role is carried
+  // by the apikey header, so no Authorization/Bearer header is sent.
+  if (CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON) {
+    try {
+      fetch(CONFIG.SUPABASE_URL + "/rest/v1/runs_raw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": CONFIG.SUPABASE_ANON,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({ payload: p })
+      }).catch(function(){});
+    } catch (e) {}
+  }
   var ctl = (typeof AbortController!=="undefined") ? new AbortController() : null;
   var to = ctl ? setTimeout(function(){ ctl.abort(); }, 12000) : null;
   fetch(CONFIG.WEBHOOK_URL, {
