@@ -210,3 +210,41 @@ pause entirely and adds daily backups. **Consequence:** `heartbeat.yml` is now
 REDUNDANT (it existed only to keep a free-tier project awake over term breaks)
 and is left inert — no need to wire the `SUPABASE_URL`/`SUPABASE_ANON_KEY`
 secrets for its sake, though they're set anyway for `pull`/`both`-mode ingest.
+
+---
+
+## Quiz variety & answer-integrity (live 17 Aug 2026)
+
+Three mechanics run on every standard set, all deterministic, all no-shell-cost
+(pure four-option MC; ledger/grading read ok/picked only). Full doctrine and the
+originating beta feedback: SEASONS.md LAWS 1–5. Where they live in code:
+
+- **Answer-length gate (LAW 1)** — `tools/answer_length.py`, wired into
+  `tools/review.py` as a BLOCKING check that overrides the LLM verdict. Blocks any
+  slot where the correct option is conspicuously the longest, and blocks a run
+  whose correct-answer length-rank piles on #1. Composer constraint also added in
+  `planner._composer_instructions`. Metric: review prints longest-is-correct rate
+  (target ~25%; was 70% pre-fix). Tests: `test_answer_length.py` (incl. the real
+  17-Aug failing sets).
+- **Format bank (LAW 2)** — `tools/formats.py`. Assigns one of 6 MC-family formats
+  (recall, spot-the-lie, spot-the-error, odd-one-out, ordering-as-MC, matching-as-MC;
+  reversed when a reversed day) to each speed/steady slot, AFTER topic selection,
+  seeded by student+date+tag (stable on re-plan, varies by day). Calc topics
+  restricted to numeric-safe formats (recall/spot-the-error/ordering) — same rule
+  as the reversed exemption. Throwback + teach-back stay recall. Planner injects a
+  per-format legend into `composer_instructions`; `format_summary` prints in plan
+  logs. Skipped on boss (Battleground self-assigns per-zone formats). Tests:
+  `test_formats.py`.
+- **Throwback (LAW 3)** — `tools/throwback.py`. Reserves ONE steady seat per run for
+  a topic that is solid/developing, aged >=10 days since last_tested, and NOT a
+  repair thread — the deliberate inverse of the live-topic pool. Never pads (no
+  eligible topic -> no throwback slot; thin early in history). `fresh:false` on the
+  slot; `validate.py` exempts throwback from the fresh:true law; `compose.assemble`
+  carries the flag through. Held -> stays solid; decayed -> state_writer demotes it
+  as any miss. Tests: `test_throwback.py` + throwback block in
+  `test_planner_reversed.py`.
+
+**Key seam to remember:** `compose.assemble()` is where plan metadata (fresh,
+throwback, repair) is stitched onto the LLM's language. It previously hardcoded
+`fresh:true`; it now carries fresh/throwback from the plan slot. Any future per-slot
+flag must be threaded through there too, or it is silently dropped.

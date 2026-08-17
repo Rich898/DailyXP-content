@@ -128,6 +128,8 @@ ship variety now and stage v3.1 separately.
 
 **Current live loadout** — Season "Term 3," chapter of w/c 3 Aug: Wed mutator = **Reversed Blitz** (10 reversed speed / 2 steady / 1 teach) with double-XP at the family deal layer · Fri boss = ledger-built chain. *(Reversed joined mid-chapter by design call — family beta is the design lab; the chapter-boundary rule holds for staged rollout beyond the family.)*
 
+**Live since 17 Aug 2026 (every standard run, all seats):** the answer-length gate (LAW 1) blocks the "tap the longest" tell; the format bank (LAW 2) rotates 6 MC-family formats across the speed/steady slots so no run is 11 identical recall MC; the throwback mechanic (LAW 3) weaves one aged-mastered slot into every run as a spacing-driven retention check. All three are no-shell-cost and ledger-transparent; all seeded deterministically. Origin: the boys' own beta feedback. Full doctrine: LAWS 1–5 above.
+
 ---
 
 ## Friday, as of 11 Aug 2026 — three things now land on Friday
