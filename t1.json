@@ -9,172 +9,172 @@
       "id": "S1",
       "phase": "speed",
       "subject": "History",
-      "prompt": "a student claims that after rome fell, european kingdoms were run exactly like the old roman empire, just with new leaders in charge. what actually changed about how power was organised",
+      "prompt": "A student claims the western Roman Empire fell in a single dramatic battle with no earlier signs of decline. What actually preceded 476 CE?",
       "options": [
-        "power became decentralised into local feudal lordships instead of one central government",
-        "the same roman senate kept ruling but under a different name",
-        "power stayed centralised under a single emperor in rome",
-        "nothing changed at all, roman law and government continued unchanged"
+        "Centuries of gradual decline including economic trouble, invasions, and political instability",
+        "A single decisive battle that ended the empire overnight",
+        "A sudden plague that wiped out the entire Roman army",
+        "An instant surrender by the last emperor with no prior conflict"
       ],
-      "answer": "power became decentralised into local feudal lordships instead of one central government",
-      "why": "After Rome's central authority collapsed, there was no single ruler over Europe. Power broke into small local lordships bound by land-for-loyalty ties, which is the feudal system, not a continuation of Roman government.",
+      "answer": "Centuries of gradual decline including economic trouble, invasions, and political instability",
+      "why": "Rome's fall was a long process, not a single event — economic troubles, repeated invasions, and weak leadership built up over centuries before 476 CE. The misconception treats it as sudden and unforeshadowed.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "a student says a knight could ignore his lord's request for military service as long as he kept farming his land. what's wrong with this claim",
+      "prompt": "A student says peasants (serfs) could sell their farmland whenever they wanted since they worked it every day. What's the reality?",
       "options": [
-        "knights owed military service to their lord in exchange for the land they held",
-        "knights had no obligations to any lord once they were granted land",
-        "knights only had to pay taxes, never fight",
-        "knights answered only to peasants working their land"
+        "Serfs did not own the land; it belonged to the lord, and serfs were tied to it",
+        "Serfs owned the land outright and could sell it freely",
+        "Serfs rented the land from the king directly",
+        "Serfs shared ownership equally with the lord"
       ],
-      "answer": "knights owed military service to their lord in exchange for the land they held",
-      "why": "The feudal relationship was reciprocal: a knight (as a vassal) received land from his lord but in return owed military service. Ignoring this obligation would break the core exchange the whole system was built on.",
+      "answer": "Serfs did not own the land; it belonged to the lord, and serfs were tied to it",
+      "why": "Serfs worked land owned by their lord in exchange for protection, but they had no legal ownership and couldn't leave or sell it — a key feature of the feudal system.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "English",
-      "prompt": "a student says shakespeare performed romeo and juliet exclusively for royalty in private palace theatres. what does this get wrong about his original audience",
+      "prompt": "A student says Shakespeare wrote Romeo and Juliet purely from his own imagination with no existing story to draw from. What's wrong with this?",
       "options": [
-        "his plays were performed for a mixed public audience at public theatres like the globe",
-        "he only ever performed for the king and queen personally",
-        "his plays were banned from public performance entirely",
-        "his audience was made up only of wealthy nobles"
+        "Shakespeare adapted the story from earlier sources, including an English poem by Arthur Brooke",
+        "Shakespeare copied it word-for-word from a Roman playwright",
+        "The story was based on a real historical event in London",
+        "Shakespeare wrote it as a translation of a French play"
       ],
-      "answer": "his plays were performed for a mixed public audience at public theatres like the globe",
-      "why": "Shakespeare's plays were performed at public playhouses like the Globe, drawing audiences from many social classes, not just royalty or nobility performing in private.",
+      "answer": "Shakespeare adapted the story from earlier sources, including an English poem by Arthur Brooke",
+      "why": "Romeo and Juliet was based on existing narrative traditions, most directly Arthur Brooke's poem 'The Tragical History of Romeus and Juliet' — Shakespeare adapted rather than invented the plot.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "English",
-      "prompt": "a student thinks shakespeare only uses metaphor in romeo and juliet, never simile. which of these lines is actually a simile, not a metaphor",
+      "prompt": "A student thinks Shakespeare only uses foreshadowing once, in the prologue, and nowhere else in the play. Which later moment also foreshadows the tragic ending?",
       "options": [
-        "\"her beauty hangs upon the cheek of night like a rich jewel in an ethiope's ear\"",
-        "\"but soft, what light through yonder window breaks? it is the east, and juliet is the sun\"",
-        "\"it is the east, and juliet is the sun\"",
-        "\"juliet is the sun\""
+        "Romeo's line about his 'mind misgives / Some consequence yet hanging in the stars' before the Capulet party",
+        "The Nurse's joke about Juliet falling as a baby",
+        "Mercutio's pun about being a 'grave man' after being wounded",
+        "Benvolio's suggestion to go to the party to forget Rosaline"
       ],
-      "answer": "\"her beauty hangs upon the cheek of night like a rich jewel in an ethiope's ear\"",
-      "why": "A simile compares two things using 'like' or 'as', unlike a metaphor which states one thing IS another. Romeo's line comparing Juliet's beauty to a jewel using 'like' is a simile, while 'Juliet is the sun' is a metaphor.",
+      "answer": "Romeo's line about his 'mind misgives / Some consequence yet hanging in the stars' before the Capulet party",
+      "why": "This line directly foreshadows disaster before Romeo even meets Juliet, showing foreshadowing is woven throughout the play, not confined to the prologue's sonnet.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "a student thinks the love vs hate theme is only shown through romeo and juliet's romantic dialogue. which moment instead shows the theme through violence rooted in family hatred",
+      "prompt": "A student thinks the love vs hate theme only appears when Romeo and Juliet speak tenderly to each other. Which moment instead shows the theme through violent conflict?",
       "options": [
-        "tybalt's fatal duel with mercutio, fuelled by the feud between the two families",
-        "romeo and juliet's first meeting and shared sonnet at the ball",
-        "juliet's balcony declaration of love to romeo",
-        "the friar's plan to reunite the lovers secretly"
+        "Tybalt's death, driven by Romeo's grief-fuelled rage after Mercutio is killed",
+        "Juliet's soliloquy waiting for Romeo on their wedding night",
+        "Romeo and Juliet's shared sonnet at the Capulet party",
+        "The Nurse's teasing about Juliet's future husband"
       ],
-      "answer": "tybalt's fatal duel with mercutio, fuelled by the feud between the two families",
-      "why": "The love vs hate theme runs through conflict as much as romance. Tybalt and Mercutio's fatal duel shows how the families' hatred directly causes violence and tragedy, not just how love is expressed tenderly.",
+      "answer": "Tybalt's death, driven by Romeo's grief-fuelled rage after Mercutio is killed",
+      "why": "The love vs hate theme is shown not just through romance but through how love (for Mercutio) fuels hate-driven violence — the feud and passion are two sides of the same emotional intensity.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "in an experiment testing how the type of soil affects seed germination time, a student mixes up which variable is independent. what is the independent variable here",
+      "prompt": "In an experiment testing how the amount of sunlight affects seedling height, a student mixes up which variable is controlled. What is the controlled variable here?",
       "options": [
-        "the type of soil used",
-        "the germination time of the seeds",
-        "the amount of water given",
-        "the temperature of the room"
+        "The amount of water given to each seedling, kept the same for all",
+        "The amount of sunlight each seedling receives",
+        "The height of the seedlings at the end",
+        "The type of seedling used, which is allowed to vary"
       ],
-      "answer": "the type of soil used",
-      "why": "The independent variable is what the experimenter deliberately changes to test its effect — here, the type of soil. Germination time is the dependent variable, the outcome being measured.",
+      "answer": "The amount of water given to each seedling, kept the same for all",
+      "why": "The controlled variable is what's kept constant so it doesn't interfere with results — here, water must stay the same while sunlight (independent) is varied and height (dependent) is measured.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "a student claims that all mammals reproduce sexually and no mammal can reproduce asexually. is this claim accurate",
+      "prompt": "A student claims that asexual reproduction always produces offspring genetically identical to the parent, with zero exceptions ever. Is this accurate?",
       "options": [
-        "yes, all known mammals reproduce sexually, unlike some simpler organisms that can reproduce asexually",
-        "no, several mammal species commonly reproduce asexually in the wild",
-        "no, most mammals alternate between sexual and asexual reproduction",
-        "yes, but only because mammals lack any reproductive cells"
+        "Mostly true, but mutations can still occur, so offspring aren't always a perfect genetic copy",
+        "No, asexual offspring are always completely different from the parent genetically",
+        "No, asexual reproduction always involves mixing genes from two parents",
+        "Yes, and this is also true for all sexual reproduction"
       ],
-      "answer": "yes, all known mammals reproduce sexually, unlike some simpler organisms that can reproduce asexually",
-      "why": "Asexual reproduction (like budding or binary fission) is common in simpler organisms such as bacteria, some plants, and a few invertebrates, but no mammal species reproduces asexually — mammals rely on sexual reproduction.",
+      "answer": "Mostly true, but mutations can still occur, so offspring aren't always a perfect genetic copy",
+      "why": "Asexual reproduction produces genetically similar offspring since there's one parent, but random mutations during copying mean offspring aren't always an exact genetic clone.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "a student says the crusades had no effect on europe itself, only on the middle east. what long-term effect on european trade and towns does this overlook",
+      "prompt": "A student says the Crusades were fought entirely for religious reasons with no economic or political motives involved. What does this overlook?",
       "options": [
-        "crusades boosted trade routes and wealth in european port cities like venice and genoa",
-        "crusades destroyed all european trade routes permanently",
-        "crusades caused every european town to be abandoned",
-        "crusades had zero economic impact on any region involved"
+        "Many crusaders and leaders also sought land, wealth, trade routes, and political power",
+        "The Crusades were funded entirely by the Catholic Church with no other interests",
+        "Nobles only joined for spiritual redemption and gained nothing materially",
+        "Trade was completely banned during the Crusades for religious reasons"
       ],
-      "answer": "crusades boosted trade routes and wealth in european port cities like venice and genoa",
-      "why": "The Crusades increased demand for transporting and supplying armies, which enriched Italian port cities through expanded trade routes and contact with the Middle East — a major effect felt back in Europe itself.",
+      "answer": "Many crusaders and leaders also sought land, wealth, trade routes, and political power",
+      "why": "While religious motivation was central, many participants — from kings to Italian merchant cities — also pursued land, trade routes, and political gain, showing the Crusades had mixed motives.",
       "fresh": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "a student says the fall of rome only affected the city of rome itself and left the rest of the western empire's provinces functioning as before. what's wrong with this view",
+      "prompt": "A student claims that after Rome fell, the same laws and central government simply continued under new rulers with no real change. What actually changed?",
       "options": [
-        "the collapse of central authority disrupted governance, trade, and infrastructure across the whole western empire",
-        "provinces outside rome were untouched and kept roman law perfectly intact",
-        "only the eastern empire was affected, not the west at all",
-        "the provinces became stronger and more unified after rome fell"
+        "Centralised Roman rule was replaced by fragmented local power under feudal lords and kings",
+        "Nothing changed; Roman law codes stayed identical for centuries",
+        "The Catholic Church immediately became the only ruling government",
+        "Democracy replaced the empire across all former Roman territories"
       ],
-      "answer": "the collapse of central authority disrupted governance, trade, and infrastructure across the whole western empire",
-      "why": "Rome's fall wasn't just a local event in the city — it removed the central authority that had held together government, trade networks, and infrastructure across the entire western empire, leading to widespread fragmentation.",
+      "answer": "Centralised Roman rule was replaced by fragmented local power under feudal lords and kings",
+      "why": "After Rome's collapse, there was no single central authority; power fragmented into smaller kingdoms and feudal territories run by local lords rather than one unified Roman-style government.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "a student claims shakespeare wrote romeo and juliet as a comedy that was later mistakenly labelled a tragedy. what's wrong with this claim",
+      "prompt": "A student claims Shakespeare was primarily a novelist who occasionally dabbled in writing plays as a side hobby. What's wrong with this claim?",
       "options": [
-        "shakespeare deliberately structured it as a tragedy, ending in the protagonists' deaths",
-        "the play was originally a comedy with a happy wedding ending",
-        "the tragedy label was added by victorian critics with no basis in the text",
-        "shakespeare never assigned genres to his own plays"
+        "Shakespeare was first and foremost a playwright and poet, writing for the professional stage",
+        "Shakespeare never wrote poetry, only plays",
+        "Shakespeare wrote novels that were later adapted into plays by others",
+        "Shakespeare only wrote non-fiction historical accounts"
       ],
-      "answer": "shakespeare deliberately structured it as a tragedy, ending in the protagonists' deaths",
-      "why": "Romeo and Juliet was written and structured as a tragedy from the outset, following the genre's conventions of a fatal flaw or circumstance leading to the protagonists' deaths — this was Shakespeare's deliberate design, not a later mislabel.",
+      "answer": "Shakespeare was first and foremost a playwright and poet, writing for the professional stage",
+      "why": "Shakespeare's career centred on writing plays for performance by acting companies like the Lord Chamberlain's Men, alongside sonnets and narrative poems — not novels, which didn't exist as a form yet.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "English",
-      "prompt": "a student thinks the prologue's sonnet form is just a poetic decoration with no real purpose. what does the sonnet form actually signal to the audience",
+      "prompt": "A student thinks Romeo and Juliet's balcony scene uses only straightforward romantic dialogue with no wordplay or deeper technique. What technique undercuts this view?",
       "options": [
-        "it signals the play's tragic outcome and love theme upfront, setting audience expectations",
-        "it signals the play is actually a comedy despite what happens later",
-        "it has no connection to the play's plot or themes at all",
-        "it was only included to fill time before the actors were ready"
+        "Romeo's extended light/sun imagery builds a sustained metaphor elevating Juliet beyond an ordinary person",
+        "The scene is written entirely in casual prose with no poetic structure",
+        "The balcony scene contains no imagery at all, only plain statements",
+        "Juliet speaks only in questions throughout the entire scene"
       ],
-      "answer": "it signals the play's tragic outcome and love theme upfront, setting audience expectations",
-      "why": "The prologue's sonnet form, with its formal structure, immediately tells the audience this is a love story that ends in tragedy ('star-crossed lovers take their life'), framing expectations before the plot even begins.",
+      "answer": "Romeo's extended light/sun imagery builds a sustained metaphor elevating Juliet beyond an ordinary person",
+      "why": "Romeo's 'Juliet is the sun' imagery is a sustained metaphor, a deliberate poetic technique that idealises Juliet — showing the scene is crafted with more than plain romantic talk.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "your friend says the crusades don't matter much to modern students because they were fought over religion, and religion-based conflicts aren't relevant to studying today's world. explain to your friend why understanding the crusades still helps us understand conflicts and connections in the modern world."
+      "prompt": "A classmate argues that studying the Crusades is a waste of time in a history class focused on 'useful' skills, because nothing from that era connects to how trade, religion, or conflict work today. Explain to your classmate, using specific reasoning and at least one concrete long-term effect, why the Crusades remain relevant to understanding the modern world."
     }
   ]
 }
