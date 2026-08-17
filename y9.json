@@ -9,120 +9,120 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 6 cm and height 14 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 5 cm and height 13 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "753.6 cm²",
-        "527.5 cm²",
-        "659.4 cm²",
-        "376.8 cm²"
+        "565.2 cm²",
+        "565.5 cm²",
+        "408.2 cm²",
+        "204.1 cm²"
       ],
-      "answer": "753.6 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(36) + 2(3.14)(6)(14) = 226.1 + 527.5 = 753.6 cm². A common error is forgetting the two circular ends (giving 527.5) or only including one end (376.8).",
+      "answer": "565.2 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2×3.14×25 + 2×3.14×5×13 = 157.0 + 408.2 = 565.2 cm². The distractor 565.5 cm² comes from a small rounding slip in one of the two parts, and 408.2 cm² is just the curved surface area alone (forgetting the two circular ends). Always add both parts together.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Weimar Republic's system of proportional representation meant that even tiny fringe parties could win seats in the Reichstag. What was the main practical consequence of this?",
+      "prompt": "The Weimar Republic's constitution gave equal voting rights to all adult men AND women from 1919 — very progressive for its time. Why does this fact matter when explaining Weimar's instability?",
       "options": [
-        "Coalition governments were unstable and often collapsed quickly",
-        "Only the Nazi party was allowed to hold seats",
-        "Voting became compulsory for all German citizens",
-        "The president automatically gained more power each election"
+        "It shows the republic was democratic in principle, but this alone didn't fix the deeper structural problems like proportional representation and Article 48",
+        "It proves the constitution had no flaws at all",
+        "It means only wealthy citizens could actually vote in practice",
+        "It shows Germany copied the British monarchy's voting system"
       ],
-      "answer": "Coalition governments were unstable and often collapsed quickly",
-      "why": "Because seats matched vote share almost exactly, no single party usually won a majority, forcing fragile multi-party coalitions that frequently broke down — a key weakness of Weimar democracy.",
+      "answer": "It shows the republic was democratic in principle, but this alone didn't fix the deeper structural problems like proportional representation and Article 48",
+      "why": "Weimar was genuinely democratic on paper (universal suffrage), but democratic ideals didn't prevent instability caused by its voting system and emergency powers — the misconception is assuming 'democratic' automatically means 'stable'.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "By the early 1930s, millions of unemployed Germans were losing faith in the mainstream parties that had governed through the Depression. Which statement best explains why this specifically helped the Nazis rather than just making people angry in general?",
+      "prompt": "A history essay claims: 'The Great Depression caused Hitler to become Chancellor.' Why is this an oversimplification, even though the Depression was a major factor?",
       "options": [
-        "The Nazis offered clear scapegoats and promised strong, decisive leadership when other parties seemed unable to act",
-        "The Nazis were the only party allowed to campaign during the Depression",
-        "Unemployment automatically made people vote for whichever party was largest",
-        "The Depression had no real effect on which party people supported"
+        "Because it skips the actual mechanism — mass unemployment drove desperate voters to extremist parties, and the Nazis exploited this crisis with promises and propaganda",
+        "Because the Depression had nothing to do with Hitler's rise",
+        "Because Hitler became Chancellor before the Depression started",
+        "Because only working-class Germans were affected by the Depression"
       ],
-      "answer": "The Nazis offered clear scapegoats and promised strong, decisive leadership when other parties seemed unable to act",
-      "why": "Correlation isn't causation: it wasn't just that hardship existed, but that the Nazis actively channelled that despair into simple explanations and confident promises, which mainstream parties failed to offer.",
+      "answer": "Because it skips the actual mechanism — mass unemployment drove desperate voters to extremist parties, and the Nazis exploited this crisis with promises and propaganda",
+      "why": "Saying the Depression 'caused' Hitler's rise skips the causal chain: unemployment → loss of faith in mainstream parties → Nazi promises of work and strong leadership → increased votes. Naming just the two events without the link is weak reasoning.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "Two historians debate Australia's post-WWII migration: one says it was driven purely by government economic planning, the other says it was purely about migrants' personal choices. Which response best captures the fuller picture?",
+      "prompt": "Some argue Australia's post-WWII migration boom was mainly about humanitarian generosity — welcoming refugees out of kindness. Why is this an incomplete explanation?",
       "options": [
-        "It was a combination of Australia's push for labour and population growth alongside migrants' own push and pull factors like escaping hardship or seeking opportunity",
-        "It was entirely planned by the government with no input from migrants themselves",
-        "It was entirely due to individual migrants' choices, with no government involvement at all",
-        "It only happened because of the White Australia Policy encouraging global migration"
+        "Because it ignores that the government's motives were largely economic and strategic — needing workers and boosting population for security, not just kindness",
+        "Because Australia refused all refugees after WWII",
+        "Because humanitarian reasons never played any role at all",
+        "Because migration only began after 1970"
       ],
-      "answer": "It was a combination of Australia's push for labour and population growth alongside migrants' own push and pull factors like escaping hardship or seeking opportunity",
-      "why": "Real historical explanations rarely rest on a single cause — Australia's policy needs and migrants' personal motivations worked together, not as opposing forces.",
+      "answer": "Because it ignores that the government's motives were largely economic and strategic — needing workers and boosting population for security, not just kindness",
+      "why": "'Populate or perish' combined genuine humanitarian elements with hard economic need (labour for factories) and security fears (a bigger population to defend the country). Reducing it to just kindness misses the real push factors behind policy.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A student writing a business plan for a new bakery lists these two items: 'a competitor bakery is opening two streets away' and 'flour prices are rising this year'. Both are genuine external threats. Which section should this information go in — SWOT analysis or market analysis?",
+      "prompt": "A student writing a business plan for a new phone case shop notes: 'Our main strength is our unique designs, and a threat is a big competitor opening nearby.' Which section of the plan does this information belong in?",
       "options": [
         "SWOT analysis",
         "Market analysis",
         "Executive summary",
-        "Both sections equally, since threats can appear anywhere"
+        "Financial plan"
       ],
       "answer": "SWOT analysis",
-      "why": "Threats (like a new competitor or rising costs) are one of the four letters in SWOT — Strengths, Weaknesses, Opportunities, Threats — so external risks like these belong there, not in market analysis, which is about researching customers, competitors' prices, and demand as background data. The misconception is thinking any mention of a competitor or cost automatically means 'market analysis' — it depends on whether it's being analysed as a risk/opportunity (SWOT) or just described as market data.",
+      "why": "Strengths, Weaknesses, Opportunities, and Threats about the business itself and its direct competitive position belong in the SWOT. Market analysis instead looks at broader industry data like customer demographics, demand trends, and pricing across the whole market.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "When the body encounters a pathogen it has met before, memory cells trigger a much faster antibody response the second time. What is this ability called?",
+      "prompt": "White blood cells called phagocytes surround and break down invading bacteria. What is this specific process called?",
       "options": [
-        "Immunity",
-        "Inflammation",
-        "Digestion",
-        "Circulation"
+        "Phagocytosis",
+        "Antibody production",
+        "Vaccination",
+        "Immunity memory"
       ],
-      "answer": "Immunity",
-      "why": "Immunity is the body's ability to resist a pathogen it has previously encountered, thanks to memory cells 'remembering' it and enabling a faster, stronger response next time.",
+      "answer": "Phagocytosis",
+      "why": "Phagocytosis is the specific name for a phagocyte engulfing and digesting a pathogen. It's different from antibody production, which is done by lymphocytes, not phagocytes.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A city's population grows quickly as people move from rural farms to work in city factories, while at the same time a family moves permanently from another country to start a new life there. Which statement correctly separates these two processes?",
+      "prompt": "A country's population living in cities rises sharply as people move from farms to work in city factories. At the same time, a family moves permanently from another country to start a new life in that same city. Which statement correctly describes these two processes?",
       "options": [
-        "The factory workers are urbanising within their own country; the family is migrating between countries",
-        "Both groups are migrating, since both are moving to a new place",
-        "Both groups are urbanising, since both end up living in a city",
-        "The factory workers are migrating; the family is urbanising"
+        "Both are examples of migration — the first is internal migration (within the country), the second is international migration (across a border)",
+        "Only the family from another country counts as migration, because migration only means crossing national borders",
+        "Only the farm-to-city movement counts as migration, because urbanisation and migration are the same thing",
+        "Neither is migration, because migration only refers to permanent moves, not moves for work"
       ],
-      "answer": "The factory workers are urbanising within their own country; the family is migrating between countries",
-      "why": "Urbanisation is internal movement from rural to urban areas within the same country; migration is movement across a border into a new country — the two are easily confused but describe different kinds of movement.",
+      "answer": "Both are examples of migration — the first is internal migration (within the country), the second is international migration (across a border)",
+      "why": "Migration simply means people moving from one place to live/work in another — it can be internal (within a country, like rural-urban migration) or international (across borders). Urbanisation is the specific pattern of a rising urban population, which here happens because of internal migration. Saying migration only means crossing borders ignores internal migration, which is on the syllabus.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 17 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 15 cm and a height of 7 cm. Slow down and work through it calmly, step by step: what is its area?",
       "options": [
-        "68 cm²",
-        "136 cm²",
-        "25 cm²",
-        "102 cm²"
+        "52.5 cm²",
+        "105 cm²",
+        "22 cm²",
+        "44 cm²"
       ],
-      "answer": "68 cm²",
-      "why": "Area = ½ × base × height = ½ × 17 × 8 = 68 cm². Multiplying base × height without halving gives the rushed wrong answer of 136 cm² — always pause and apply the ½ deliberately.",
+      "answer": "52.5 cm²",
+      "why": "Area = ½ × base × height = ½ × 15 × 7 = 52.5 cm². Rushing and forgetting to halve gives 105 cm² — the classic mistake. Saying '½ × base × height' before multiplying stops this.",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 8 cm and height 5 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 3 cm and height 12 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "options": [
-        "653.1 cm²",
-        "251.2 cm²",
-        "401.9 cm²",
-        "829.4 cm²"
+        "282.6 cm²",
+        "226.1 cm²",
+        "56.5 cm²",
+        "339.1 cm²"
       ],
-      "answer": "653.1 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(64) + 2(3.14)(8)(5) = 401.9 + 251.2 = 653.1 cm². Forgetting either the two circular ends or the curved side gives an incomplete total.",
+      "answer": "282.6 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(9) + 2(3.14)(3)(12) = 56.5 + 226.1 = 282.6 cm². Forgetting the two circular ends leaves only 226.1 cm², a common oversight.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "The Weimar Republic's constitution allowed the president to bypass parliament and rule by emergency decree under Article 48. Why did this weaken the republic's stability long-term?",
+      "prompt": "During the Weimar Republic, the government sometimes printed huge amounts of money to pay its debts, which contributed to the 1923 hyperinflation crisis. What lesson does this teach about the republic's early economic management?",
       "options": [
-        "It normalised rule without parliamentary approval, making it easier for future leaders to seize power without real democratic consent",
-        "It gave ordinary citizens the power to overrule the president directly",
-        "It abolished elections completely from 1919 onwards",
-        "It only applied to foreign policy decisions, not domestic ones"
+        "That printing money to solve short-term debt problems can destroy the value of currency and public trust",
+        "That printing more money always makes an economy stronger",
+        "That hyperinflation was caused by too few banknotes being available",
+        "That the Weimar government never printed any extra currency"
       ],
-      "answer": "It normalised rule without parliamentary approval, making it easier for future leaders to seize power without real democratic consent",
-      "why": "Article 48 was meant for emergencies, but repeated use eroded the norm of parliamentary government, paving the way for Hitler to later use similar emergency powers to dismantle democracy entirely.",
+      "answer": "That printing money to solve short-term debt problems can destroy the value of currency and public trust",
+      "why": "Excessive money printing without matching economic output caused hyperinflation — prices skyrocketed and savings became worthless, badly damaging public confidence in the young republic.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which statement best explains why the Great Depression strengthened the Nazi party specifically, rather than simply making Germans generally frustrated with politics?",
+      "prompt": "Which statement best explains why the Great Depression specifically strengthened support for the Nazi Party, rather than just making Germans generally unhappy with all politicians?",
       "options": [
-        "The Nazis directly blamed identifiable groups and promised concrete solutions, giving desperate voters a clear alternative other parties didn't offer",
-        "The Depression affected only Nazi voters and no one else in Germany",
-        "All political parties gained equally from the Depression's effects",
-        "The Depression had no real connection to the Nazis' rise in support"
+        "The Nazis specifically promised strong leadership, jobs, and national revival, directly targeting the fears mass unemployment created",
+        "The Depression made every political party equally popular",
+        "The Depression only affected people living in rural areas, who didn't vote for the Nazis",
+        "The Nazis had no economic policies, so people voted for them randomly"
       ],
-      "answer": "The Nazis directly blamed identifiable groups and promised concrete solutions, giving desperate voters a clear alternative other parties didn't offer",
-      "why": "The link isn't just timing — the Nazis actively exploited the crisis with scapegoating and simple promises that mainstream parties failed to match, converting despair into votes.",
+      "answer": "The Nazis specifically promised strong leadership, jobs, and national revival, directly targeting the fears mass unemployment created",
+      "why": "It's not enough to say the Depression made Germans angry in general — the Nazis actively targeted unemployed and desperate voters with tailored promises of work and strength, which is why support specifically shifted to them rather than spreading evenly across parties.",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Maths",
-      "prompt": "You've now shown calm, accurate triangle area work again today, on fresh numbers. Explain: how does pausing to say '½ × base × height' out loud before touching the calculator change what happens compared to just rushing straight to multiplying base × height?"
+      "prompt": "You've now shown calm, accurate triangle area work again today, using different numbers. Explain: how would you notice, in the middle of solving a problem, that you're starting to rush past the '½' step — and what would you do right then to correct it?"
     }
   ]
 }
