@@ -9,120 +9,120 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 84°. What is the co-interior (allied) angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 56°. What is the co-interior (allied) angle on the other parallel line?",
       "options": [
-        "96°",
-        "84°",
-        "180°",
-        "16°"
+        "124°",
+        "56°",
+        "34°",
+        "146°"
       ],
-      "answer": "96°",
-      "why": "Co-interior (allied) angles sum to 180°, so 180 - 84 = 96°. A common mistake is treating them as equal (like corresponding angles) instead of supplementary.",
+      "answer": "124°",
+      "why": "Co-interior (allied) angles sum to 180°, so 180 − 56 = 124°. A common mistake is treating them like alternate angles (equal) instead of supplementary.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A quadrilateral has two pairs of parallel sides and all four angles equal, but its sides are not all the same length. What is the most specific name for this shape?",
+      "prompt": "A quadrilateral has two pairs of parallel sides and all four sides equal, but no right angles. What is the most specific name for this shape?",
       "options": [
-        "Rectangle",
-        "Square",
         "Rhombus",
-        "Parallelogram"
+        "Square",
+        "Rectangle",
+        "Kite"
       ],
-      "answer": "Rectangle",
-      "why": "A rectangle has two pairs of parallel sides and four right angles, but doesn't need equal sides. Calling it a square is wrong because a square also requires all sides equal.",
+      "answer": "Rhombus",
+      "why": "A rhombus has four equal sides and two pairs of parallel sides, but its angles don't have to be 90°. Calling it a square wrongly assumes equal sides always means right angles.",
       "fresh": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 4(x + 1) = 24. A student says 'I'll subtract 1 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
+      "prompt": "Solve for x: 2(x + 5) = 18. A student says 'I'll subtract 5 from both sides first since it's inside the bracket.' Explain in one sentence why that's wrong, then give x.",
       "options": [
-        "x = 5, because you must expand or divide by 4 first, not subtract from inside the bracket",
-        "x = 5, because subtracting 1 works fine here",
-        "x = 6, because you must expand or divide by 4 first, not subtract from inside the bracket",
-        "x = 23, because you subtract 1 from 24 first"
+        "You must expand or divide first since the 5 is multiplied by 2, not just added; x = 4",
+        "You can subtract 5 first because addition and multiplication are the same; x = 4",
+        "You must subtract 5 first since brackets always come off first; x = 9",
+        "You must divide by 5 first since it's the number in the bracket; x = 6"
       ],
-      "answer": "x = 5, because you must expand or divide by 4 first, not subtract from inside the bracket",
-      "why": "You can't subtract from inside a bracket without dividing first — the whole bracket is multiplied by 4. Dividing both sides by 4 gives x + 1 = 6, so x = 5.",
+      "answer": "You must expand or divide first since the 5 is multiplied by 2, not just added; x = 4",
+      "why": "The 5 is inside a bracket multiplied by 2, so you must divide both sides by 2 (or expand) before dealing with the 5. Subtracting 5 straight away ignores the multiplication and breaks the balance rule.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a natural disaster investigation on volcanic eruptions, which of these is a human factor that can increase the risk to people, rather than a natural one?",
+      "prompt": "In a natural disaster investigation on drought, which of these is a human factor that increases risk, rather than a natural one?",
       "options": [
-        "Building settlements close to a volcano despite known risk",
-        "The type of magma produced by the volcano",
-        "Tectonic plate movement causing pressure to build",
-        "The volcano being located near a plate boundary"
+        "Over-extraction of groundwater for farming",
+        "Below-average rainfall for several seasons",
+        "High evaporation rates due to hot climate",
+        "Naturally low water table in the region"
       ],
-      "answer": "Building settlements close to a volcano despite known risk",
-      "why": "Human factors are choices people make, like settling near hazards. Magma type, plate movement, and plate boundary location are all natural geological factors, not human decisions.",
+      "answer": "Over-extraction of groundwater for farming",
+      "why": "Over-extraction is a human choice that worsens water shortages, unlike rainfall, evaporation, or the natural water table, which are physical/natural conditions.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "During the First Crusade, which of these best describes why capturing Jerusalem mattered so much to Christian crusaders?",
+      "prompt": "In which century did the First Crusade set out to try to capture Jerusalem?",
       "options": [
-        "It was considered a holy city central to their faith",
-        "It was the wealthiest trading port in the Mediterranean",
-        "It was the capital of the Byzantine Empire",
-        "It had the largest crusader army garrison"
+        "The 11th century",
+        "The 15th century",
+        "The 9th century",
+        "The 13th century"
       ],
-      "answer": "It was considered a holy city central to their faith",
-      "why": "Jerusalem was sacred to Christians (as well as Muslims and Jews), which is why it became the central target of the Crusades rather than being valued for trade or military reasons.",
+      "answer": "The 11th century",
+      "why": "The First Crusade set out in 1096, which falls in the 11th century (years 1001–1100). Mixing up century numbering with the date's first digits is a common slip.",
       "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A historian writes: 'Decades of failed harvests left peasants desperate, and when a new grain tax was announced, riots broke out within days.' Which part is the trigger (short-term) cause, not the long-term cause?",
+      "prompt": "A historian writes: 'The Black Death killed a third of Europe's population, causing severe labour shortages, which eventually gave peasants more bargaining power over wages.' Which part of this is the consequence, not the cause?",
       "options": [
-        "The new grain tax being announced",
-        "Decades of failed harvests",
-        "Peasants being desperate",
-        "The riots breaking out"
+        "Peasants gaining more bargaining power over wages",
+        "The Black Death spreading across Europe",
+        "A third of Europe's population dying",
+        "The general conditions of medieval Europe"
       ],
-      "answer": "The new grain tax being announced",
-      "why": "The trigger cause is the immediate event that sets off the reaction. The failed harvests are the long-term, underlying cause that built up resentment over time.",
+      "answer": "Peasants gaining more bargaining power over wages",
+      "why": "This is the long-term result (consequence) of the population loss and labour shortage, not the cause that started the chain of events. Students often confuse the final outcome with the trigger event.",
       "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Historians often study Magna Carta as evidence that even in 1215, kings were not supposed to have unlimited power. What does this show about Magna Carta's significance?",
+      "prompt": "Magna Carta 1215 is often called a 'primary source' by historians studying medieval kingship. What makes it a primary source rather than a secondary source?",
       "options": [
-        "It established that the king was subject to the law, not above it",
-        "It created England's first parliament",
-        "It ended the feudal system immediately",
-        "It gave ordinary peasants the right to vote"
+        "It was created at the time of the events, by people directly involved",
+        "It was written by a modern historian analysing the period",
+        "It summarises multiple other documents about King John",
+        "It was translated into English long after 1215"
       ],
-      "answer": "It established that the king was subject to the law, not above it",
-      "why": "Magna Carta's key legacy is the principle that the monarch must obey the law like everyone else. It didn't create parliament, end feudalism, or grant peasants voting rights.",
+      "answer": "It was created at the time of the events, by people directly involved",
+      "why": "A primary source comes directly from the period being studied, made by those present at the time. A secondary source is a later analysis, which is a common mix-up for students.",
       "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests whether the type of music (classical, pop, silence) affects how many words people can memorise in one minute, keeping the list of words the same for everyone. Which is the controlled variable?",
+      "prompt": "A student investigates whether the number of hours of daylight affects the growth rate of mould on bread, keeping the type of bread and humidity the same for every sample. Which variable is the independent variable?",
       "options": [
-        "The list of words used",
-        "The type of music played",
-        "The number of words memorised",
-        "The time of day the test happens"
+        "The number of hours of daylight",
+        "The growth rate of mould",
+        "The type of bread",
+        "The humidity level"
       ],
-      "answer": "The list of words used",
-      "why": "The controlled variable is what's kept the same so it doesn't affect the results unfairly — here, the word list. The music type is the independent variable, and words memorised is the dependent variable.",
+      "answer": "The number of hours of daylight",
+      "why": "The independent variable is what the experimenter deliberately changes to test its effect — here, the hours of daylight. The growth rate is what's measured (dependent), while bread type and humidity are kept constant (controlled).",
       "fresh": true,
       "repair": true
     },
@@ -130,52 +130,52 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 39°. What is the alternate angle on the other parallel line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 63°. What is the corresponding angle on the other parallel line?",
       "options": [
-        "39°",
-        "141°",
-        "180°",
-        "51°"
+        "63°",
+        "117°",
+        "27°",
+        "153°"
       ],
-      "answer": "39°",
-      "why": "Alternate angles are equal when a transversal crosses parallel lines — they form a 'Z' shape. They are not supplementary, so you don't subtract from 180°.",
+      "answer": "63°",
+      "why": "Corresponding angles are equal when lines are parallel — they sit in the same position at each intersection. Confusing them with co-interior angles (which sum to 180°) is the common error.",
       "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has one angle of 100° and no two sides the same length. What type of triangle is this?",
+      "prompt": "A triangle has angles of 50°, 60°, and 70°, with no two sides equal. What type of triangle is this?",
       "options": [
-        "Obtuse scalene triangle",
-        "Acute scalene triangle",
-        "Obtuse isosceles triangle",
+        "Scalene triangle",
+        "Isosceles triangle",
+        "Equilateral triangle",
         "Right-angled triangle"
       ],
-      "answer": "Obtuse scalene triangle",
-      "why": "An angle greater than 90° makes it obtuse, and no equal sides makes it scalene. It's not isosceles since isosceles needs two equal sides, and it's not right-angled since no angle is exactly 90°.",
+      "answer": "Scalene triangle",
+      "why": "A scalene triangle has all different angles and all different side lengths. Students sometimes assume any triangle without a right angle must be isosceles, but the key test is whether sides/angles are equal.",
       "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an investigation into earthquake risk, which of these is a natural factor that increases risk, rather than a human one?",
+      "prompt": "An investigation tests whether the depth of ocean water affects the height of tsunami waves reaching the coast. Which is the dependent variable?",
       "options": [
-        "The area sitting on a major fault line",
-        "Buildings not built to earthquake-resistant standards",
-        "Poor emergency response planning",
-        "High population density in the region"
+        "The height of the tsunami waves",
+        "The depth of the ocean water",
+        "The distance from the coast",
+        "The time of day the wave occurs"
       ],
-      "answer": "The area sitting on a major fault line",
-      "why": "A fault line's location is a natural geological feature. Building standards, emergency planning, and population density are all things humans control or influence.",
+      "answer": "The height of the tsunami waves",
+      "why": "The dependent variable is what you measure as the outcome — here, the wave height. Students sometimes muddle this with the depth of water, which is actually the variable being changed (independent).",
       "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your cousin says: 'In an experiment testing whether the amount of salt added to water affects the boiling point, the type of pot used must be the independent variable, because you could change it too.' Using an example of your own (not sleep, sunlight, fertiliser, water temperature, salt/boiling point, or soil type), explain what actually makes a variable independent, dependent, or controlled, and correct your cousin's mistake."
+      "prompt": "Your classmate says: 'In an experiment testing whether the volume of water given to plants affects their growth height, the number of plants used must be the controlled variable, because you could keep changing that too.' Using an example of your own (not sleep, sunlight, fertiliser, water temperature, soil type, or plant growth with water volume), explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
     }
   ]
 }
