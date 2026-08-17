@@ -36,7 +36,7 @@ ASSESS_HORIZON_DAYS = 16          # boost a subject if an assessment falls withi
 # v3.1 question types (numeric/text/cloze/order + hidden x2 + encore) require the v3.1 SHELL to render.
 # GATE: keep this False until the new shells are deployed to Netlify — the old shell can't display the
 # new types and a run would break. Flip to True (one-line commit) once the shells are confirmed live.
-V31_TYPES_LIVE = False
+V31_TYPES_LIVE = True
 
 SHAPES = {
     "standard": {"speed": 7, "steady": 4, "teach": 1},
