@@ -68,6 +68,8 @@ def build_user(plan, seen):
             "slotId": s["slot"], "phase": s["phase"], "subject": s["subject"],
             "topic": s["topic"], "intent": s["intent"], "guidance": s.get("guidance", ""),
         }
+        if s.get("format") and s.get("format") != "recall":
+            row["format"] = s["format"]      # composer applies the matching legend entry
         slots.append(row)
     payload = {
         "for": f"{plan['student']} {plan['tag']} ({plan['day']} {plan['date']})",

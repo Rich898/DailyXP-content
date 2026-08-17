@@ -313,6 +313,25 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         sl["slot"] = f"{prefix[sl['phase']]}{counters[sl['phase']]}"
 
     final_shape = {"speed": counters["speed"], "steady": counters["steady"], "teach": counters["teach"]}
+
+    # ---- FORMAT ROTATION (SEASONS.md LAW 2) --------------------------------
+    # Assign a question format to each speed/steady slot from the bank, so a run
+    # isn't 11 identical recall MC. Skipped on boss (Battleground assigns its own
+    # per-zone formats via the composer block). On a reversed day, fact-based speed
+    # slots may draw the reversed format; we flag eligibility with allow_reversed
+    # and let formats.py keep numeric topics safe. Throwback/teach stay recall
+    # (handled inside formats.eligible_formats).
+    if not boss_mode:
+        import formats as _fmt
+        reversed_day = "reversed" in (directive or "")
+        for sl in ordered:
+            if reversed_day and sl["phase"] == "speed":
+                sl["allow_reversed"] = True
+        _fmt.assign_formats(ordered, student, date_str, tag)
+        format_summary = _fmt.run_format_summary(ordered)
+    else:
+        format_summary = "boss/battleground (composer-assigned)"
+
     ci = _composer_instructions(student, day, tag, shape_key, light_subject, ordered, directive)
 
     return {
@@ -320,6 +339,7 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         "status_gate": "ACTIVE", "directive": directive, "shape": final_shape,
         "requested_shape": dict(shape), "shortfall": shortfall,
         "slots": ordered, "composer_instructions": ci,
+        "format_summary": format_summary,
     }
 
 
@@ -389,6 +409,20 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
             "  across the four (don't make all four the same type). The two SPEED slots stay NORMAL recall (a warm-up). The teach-back\n"
             "  secures the ground claimed (the final push).")
     lines.append("Output must satisfy tools/validate.py before publish.")
+
+    # FORMAT LEGEND (SEASONS.md LAW 2): if any slot carries an assigned non-recall
+    # format, tell the composer exactly how to build each format it will encounter.
+    used_formats = {sl.get("format") for sl in slots if sl.get("format")}
+    non_recall = used_formats - {"recall", None}
+    if non_recall:
+        import formats as _fmt
+        lines.append("")
+        lines.append("QUESTION FORMATS (SEASONS.md LAW 2 — each slot below names its 'format'; build it EXACTLY per this legend). "
+                     "Every format is still four tappable options with one uncontestable correct answer, a re-teaching 'why', and "
+                     "the answer-length law applies to all of them:")
+        for f in sorted(non_recall):
+            lines.append("- " + _fmt.render_note(f))
+        lines.append("- " + _fmt.render_note("recall"))
     return "\n".join(lines)
 
 
@@ -407,6 +441,8 @@ def render(plan):
     if (sh['speed'], sh['steady'], sh['teach']) != (rq['speed'], rq['steady'], rq['teach']):
         shape_str += f"  (requested {rq['speed']}/{rq['steady']}/{rq['teach']})"
     out.append(f"  directive={plan.get('directive')}   shape={shape_str}")
+    if plan.get("format_summary"):
+        out.append(f"  formats={plan['format_summary']}")
     for w in plan.get("shortfall", []):
         out.append(f"  \u26a0 POOL: {w}")
     out.append("-" * 78)
