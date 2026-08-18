@@ -18,13 +18,15 @@ def test_calc_topic_detection():
 
 def test_calc_topic_excludes_unsafe_formats():
     s = slot("S1", "Maths", "Linear equations")
-    elig = F.eligible_formats(s, "speed")
-    # numeric-unsafe formats must not appear
+    elig_speed = F.eligible_formats(s, "speed")
+    elig_steady = F.eligible_formats(s, "steady")
+    # numeric-unsafe formats must not appear on a calc topic
     for bad in (F.REVERSED, F.SPOT_LIE, F.ODD_ONE_OUT, F.MATCHING):
-        assert bad not in elig, f"{bad} should be excluded on a calc topic"
-    # spot-the-error and recall ARE appropriate for maths
-    assert F.SPOT_ERROR in elig
-    assert F.RECALL in elig
+        assert bad not in elig_speed, f"{bad} should be excluded on a calc topic"
+    # spot-the-error suits maths but is now STEADY-only (a multi-step worked argument is too long for the timed speed round)
+    assert F.SPOT_ERROR not in elig_speed, "spot-the-error must not be in the timed speed round"
+    assert F.SPOT_ERROR in elig_steady, "spot-the-error should be available for maths in the untimed steady round"
+    assert F.RECALL in elig_speed
 
 
 def test_history_gets_fact_formats():
