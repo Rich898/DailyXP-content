@@ -10,6 +10,19 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v7 changes (18 Aug) — card craft
+Direction chosen: **card craft (type, finish, layout)**. Only the content card changed;
+playfield, streak, drag all untouched.
+- **Card-stock finish**: warm ivory with a top-lit sheen, a faint woven texture, a subtle
+  inner bevel (thickness), plus the existing hard drop-shadow. Reads as a physical object.
+- **Inset keyline frame** (double rule) — the hallmark of a well-made card.
+- **Considered layout**: a letterspaced subject eyebrow up top with a short divider rule,
+  the statement set as the hero, and a collectible-style card index (01–16) in the corner.
+- **Type hierarchy**: mono for meta (eyebrow / index), Archivo Black for the hero statement.
+- Subject colour now lives in the eyebrow (understated on purpose — this pass was card craft,
+  not the subject-identity/icon system, which stays a separate future option).
+- Verified across an equation card and a word card; eyebrow colour tracks subject.
+
 ## v6 changes (18 Aug) — arcade visual delivery + ring removed
 Direction chosen by Rich: **arcade energy — bold, punchy, motion-heavy**. Drag/commit logic
 left byte-for-byte identical (it was signed off); everything visual rebuilt around it.
