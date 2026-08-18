@@ -9,14 +9,14 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which does NOT belong with the others about Romeo and Juliet's world?",
-      "answer": "Stratford-upon-Avon",
-      "why": "Verona, Mantua, and the Globe all relate to where the play is set or performed, but Stratford-upon-Avon is where Shakespeare was born, not part of the play's setting or original staging.",
+      "prompt": "Romeo and Juliet was first performed at which type of London theatre?",
+      "answer": "An open-air playhouse",
+      "why": "Shakespeare's plays, including Romeo and Juliet, were performed at open-air playhouses like the Globe, with daylight performances and no electric lighting.",
       "options": [
-        "Verona",
-        "Mantua",
-        "Stratford-upon-Avon",
-        "Shakespeare's Globe"
+        "An open-air playhouse",
+        "An indoor concert hall",
+        "A royal palace ballroom",
+        "A university lecture theatre"
       ],
       "fresh": false
     },
@@ -24,30 +24,29 @@
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which of these statements about technique in Romeo and Juliet is FALSE?",
-      "answer": "Shakespeare avoids using any wordplay or puns throughout the entire play",
-      "why": "Shakespeare uses frequent puns and wordplay, especially through characters like Mercutio, so claiming he avoids it entirely misunderstands his comic and tragic style.",
+      "prompt": "\"Parting is such sweet sorrow\" uses which technique?",
+      "answer": "Oxymoron",
+      "why": "An oxymoron combines two contradictory ideas, like 'sweet sorrow', to capture mixed emotion in one phrase.",
       "options": [
-        "The prologue is written as a sonnet to introduce the story",
-        "Shakespeare uses oxymorons like 'loving hate' to show conflicting emotions",
-        "Dramatic irony appears when the audience knows more than Romeo in the tomb scene",
-        "Shakespeare avoids using any wordplay or puns throughout the entire play"
+        "Oxymoron",
+        "Simile",
+        "Alliteration",
+        "Rhyme scheme"
       ],
-      "fresh": false,
-      "x2": true
+      "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Which term describes reproduction needing only one parent, producing genetically identical offspring?",
-      "answer": "asexual reproduction, needing only one parent organism",
-      "why": "Asexual reproduction involves a single parent and produces clones with no genetic variation, unlike sexual reproduction which needs two parents and gametes combining.",
+      "prompt": "Bees carrying pollen between flowers is an example of which process?",
+      "answer": "Cross-pollination",
+      "why": "Cross-pollination happens when pollen moves from one plant to another, often carried by insects like bees, increasing genetic variation.",
       "options": [
-        "asexual reproduction, needing only one parent organism",
-        "sexual reproduction, needing two parent organisms",
-        "cross-pollination, needing wind or insect transfer",
-        "fertilisation, needing sperm and egg to combine"
+        "Cross-pollination",
+        "Asexual budding",
+        "Self-fertilisation",
+        "Binary fission"
       ],
       "fresh": false
     },
@@ -55,14 +54,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which does NOT belong with the others about early medieval Europe?",
-      "answer": "Roman senators",
-      "why": "After Rome fell, power shifted to feudal lords, warlords, and small kingdoms, not the old Roman senate, which had lost its authority and stopped functioning.",
+      "prompt": "What year is generally given for Rome's fall?",
+      "answer": "476 CE",
+      "why": "476 CE is the traditionally cited year the last Western Roman emperor was deposed, marking the empire's fall.",
       "options": [
-        "Feudal lords",
-        "Local warlords",
-        "Roman senators",
-        "Small kingdoms"
+        "476 CE",
+        "1066 CE",
+        "410 CE",
+        "800 CE"
       ],
       "fresh": false
     },
@@ -70,14 +69,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which of these statements about feudal social structure is FALSE?",
-      "answer": "Peasants could freely leave their lord's land whenever they chose",
-      "why": "Peasants, or serfs, were bound to the land they worked and needed permission to leave, unlike the mutual land-for-service obligations between kings, nobles, and knights.",
+      "prompt": "In the feudal pyramid, who stood directly below the king?",
+      "answer": "Nobles",
+      "why": "Nobles received land directly from the king in exchange for loyalty and military support, placing them just below him in rank.",
       "options": [
-        "The king granted land to nobles in exchange for loyalty and service",
-        "Knights served lords in exchange for land and protection",
-        "Peasants could freely leave their lord's land whenever they chose",
-        "Nobles owed military support to the king when called upon"
+        "Nobles",
+        "Knights",
+        "Peasants",
+        "Merchants"
       ],
       "fresh": false
     },
@@ -85,14 +84,14 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which quote best captures the love vs hate theme through contradiction, not just romance?",
-      "answer": "'My only love sprung from my only hate'",
-      "why": "This line directly fuses love and hate into one contradiction, showing Juliet's realisation that the boy she loves comes from her family's enemy, which is the theme working through conflict rather than affection alone.",
+      "prompt": "Which quote shows love vs hate through contradiction?",
+      "answer": "\"My only love sprung from my only hate\"",
+      "why": "This line directly fuses love and hate in one contradictory statement, showing the theme through paradox, not romance alone.",
       "options": [
-        "'My only love sprung from my only hate'",
-        "'Good night, good night! Parting is such sweet sorrow'",
-        "'It is the east, and Juliet is the sun'",
-        "'A rose by any other name would smell as sweet'"
+        "\"My only love sprung from my only hate\"",
+        "\"It is the east, and Juliet is the sun\"",
+        "\"Parting is such sweet sorrow\"",
+        "\"A plague o' both your houses\""
       ],
       "fresh": false
     },
@@ -100,14 +99,14 @@
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which does NOT belong among examples of the medieval Church's political power?",
-      "answer": "Leading Sunday mass",
-      "why": "Excommunication, tithes, and controlling education all show the Church acting as a political force, while leading mass was simply a routine religious duty, not a display of political control.",
+      "prompt": "Which shows the medieval Church acting as a political power?",
+      "answer": "Excommunicating disobedient kings",
+      "why": "Excommunication threatened a ruler's legitimacy and afterlife, giving the Church real political leverage over kings, unlike purely religious rituals.",
       "options": [
-        "Excommunicating kings",
-        "Collecting tithes",
-        "Leading Sunday mass",
-        "Controlling education"
+        "Excommunicating disobedient kings",
+        "Blessing a wedding ceremony",
+        "Teaching Bible stories in church",
+        "Ringing bells for Sunday mass"
       ],
       "fresh": false
     },
@@ -115,13 +114,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "What term describes the medieval Christian holy wars aimed at capturing Jerusalem from Muslim control?",
-      "type": "text",
-      "answer": "the Crusades",
-      "why": "The Crusades were a series of religious wars launched by European Christians, starting in 1096, aiming to seize and hold the Holy Land, especially Jerusalem.",
-      "accept": [
-        "crusades",
-        "the crusades"
+      "prompt": "A student argues that because Jerusalem was eventually lost by the Crusaders, the Crusades left no lasting mark on history. Which response best challenges this using a specific long-term effect?",
+      "answer": "Trade routes opened by the Crusades increased contact between Europe and the Middle East, spreading goods and ideas long after Jerusalem was lost",
+      "why": "Even after Jerusalem changed hands again, the Crusades opened lasting trade and cultural exchange between Europe and the Middle East — a significant effect that has nothing to do with who held the city.",
+      "options": [
+        "Trade routes opened by the Crusades increased contact between Europe and the Middle East, spreading goods and ideas long after Jerusalem was lost",
+        "The Crusades were fought entirely for religious reasons, so military outcomes in Jerusalem were never really the point of the wars",
+        "European knights who survived the Crusades returned home with more land and titles than before they left for the Holy Land",
+        "The Crusades ended quickly after the first campaign, so their effects on trade and culture were too brief to matter much"
       ],
       "fresh": false
     },
@@ -129,14 +129,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What is the name of the London theatre most closely associated with Shakespeare's acting company?",
-      "type": "text",
-      "answer": "the Globe Theatre",
-      "why": "The Globe Theatre, built in 1599, was where Shakespeare's company, the Lord Chamberlain's Men, performed many of his plays, including Romeo and Juliet.",
-      "accept": [
-        "globe theatre",
-        "the globe",
-        "globe"
+      "prompt": "Which of these best reflects a genuine fact about Shakespeare's life and the Globe Theatre?",
+      "answer": "Shakespeare was born in Stratford-upon-Avon and later performed with his company at the Globe",
+      "why": "Shakespeare was born in Stratford-upon-Avon and worked as an actor and playwright with the Lord Chamberlain's Men, who performed at the Globe. He didn't build the theatre himself, and Verona is the fictional setting of Romeo and Juliet, not his hometown.",
+      "options": [
+        "Shakespeare was born in Stratford-upon-Avon and later performed with his company at the Globe",
+        "Shakespeare was born in London and built the Globe Theatre himself with his own money",
+        "Shakespeare was born in Stratford-upon-Avon but never performed in London theatres at all",
+        "Shakespeare was born in Verona and moved to London to write for the Globe company"
       ],
       "fresh": false
     },
@@ -144,12 +144,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What term describes a hint or clue earlier in a story that suggests events to come later, such as Romeo's sense of dread before the party?",
-      "type": "text",
-      "answer": "foreshadowing",
-      "why": "Foreshadowing is when a writer plants early clues about future events; Romeo's unease before the Capulet party hints at the tragedy to come.",
-      "accept": [
-        "foreshadow"
+      "prompt": "Which best explains why the balcony scene shows more than 'just romance'?",
+      "answer": "Shakespeare uses light and dark imagery, comparing Juliet to the sun, to elevate her importance and foreshadow the intensity of their doomed love",
+      "why": "The balcony scene uses light/dark imagery and metaphor, not just romantic dialogue — this technique elevates Juliet and hints at the emotional stakes ahead.",
+      "options": [
+        "Shakespeare uses light and dark imagery, comparing Juliet to the sun, to elevate her importance and foreshadow the intensity of their doomed love",
+        "The scene is written in simple prose so the audience can easily follow a straightforward romantic conversation between the two lovers",
+        "The scene relies mainly on stage directions describing physical movement rather than any language technique or imagery",
+        "The scene uses comic relief through the Nurse's jokes to lighten the romantic mood between Romeo and Juliet"
       ],
       "fresh": false
     },
@@ -157,12 +159,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for offspring produced when male and female gametes join, combining genetic material from two parents?",
-      "type": "text",
-      "answer": "sexual reproduction",
-      "why": "Sexual reproduction combines gametes from two parents, producing genetically varied offspring, unlike asexual reproduction which needs only one parent.",
-      "accept": [
-        "sexual"
+      "prompt": "A gardener notices a spider plant growing small identical plantlets on runners with no flowers involved. Which term best describes this reproduction, and why?",
+      "answer": "Asexual reproduction, because only one parent is involved and the offspring are genetically identical to it",
+      "why": "Asexual reproduction needs only one parent and produces genetically identical offspring, exactly as seen with spider plant runners forming clones without flowers or gametes.",
+      "options": [
+        "Asexual reproduction, because only one parent is involved and the offspring are genetically identical to it",
+        "Sexual reproduction, because two separate plant structures combined their genetic material to form the plantlets",
+        "Cross-pollination, because the plantlets formed after pollen was transferred between two separate flowers",
+        "Fertilisation, because male and female gametes joined together inside the runner to create new plantlets"
       ],
       "fresh": false
     },
@@ -170,38 +174,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says the Crusades don't deserve much attention in history class because they were 'just religious wars that didn't achieve their goal.' Explain why historians still study the Crusades closely, using at least one specific long-term effect that goes beyond who controlled Jerusalem."
-    }
-  ],
-  "encore": [
-    {
-      "id": "E1",
-      "phase": "steady",
-      "subject": "History",
-      "prompt": "A historian argues that the fall of Rome was a 'cause' while feudalism was a 'consequence.' Which best explains this relationship?",
-      "answer": "Rome's collapse left a power vacuum that feudalism filled to restore local order",
-      "why": "Cause and consequence means one event leads to another: Rome's fall removed centralised authority, and feudalism developed afterward as a new way to organise land, protection, and loyalty in that vacuum.",
-      "options": [
-        "Rome's collapse left a power vacuum that feudalism filled to restore local order",
-        "Feudalism existed before Rome fell and simply continued unchanged afterward",
-        "Rome's fall had no connection to how feudalism later developed in Europe",
-        "Feudalism caused Rome to fall by weakening its central government first"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "E2",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 5 cm. What is its area in cm²?",
-      "type": "numeric",
-      "answer": "30",
-      "why": "Area of a triangle is half of base times height: 0.5 × 12 × 5 = 30 cm². A common mistake is forgetting to halve, which would give the rectangle's area instead.",
-      "accept": [
-        "30 cm2",
-        "30cm2"
-      ],
-      "fresh": false
+      "prompt": "A classmate says the Crusades are barely worth studying because they were 'religious wars fought over a city that changed hands again anyway.' Using your own reasoning, explain what this view overlooks — pick one specific long-term effect (such as trade, cultural exchange, or the growth of Italian port cities) and explain how it shows the Crusades mattered beyond who controlled Jerusalem."
     }
   ]
 }
