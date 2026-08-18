@@ -36,6 +36,7 @@ ASSESS_HORIZON_DAYS = 16          # boost a subject if an assessment falls withi
 # Core academic subjects that must each appear at least once per quiz (when live), so a run can't skew
 # entirely to whatever's weakest and starve a subject (e.g. all English/History, no Maths).
 CORE_SUBJECTS = ("Maths", "English", "Science", "History")
+MAX_PER_SUBJECT = 3               # no single subject takes more than this many MC slots in one quiz
 
 # v3.1 question types (numeric/text/cloze/order + hidden x2 + encore) require the v3.1 SHELL to render.
 # GATE: keep this False until the new shells are deployed to Netlify — the old shell can't display the
@@ -232,22 +233,33 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
                 and t["score"] >= SCORE_FLOOR
                 and light_ok(t))
 
+    def can_cover(t, phase):
+        # coverage forces a subject in even if its topics are low-priority — bypasses SCORE_FLOOR
+        return (t["topic"] not in used_by_phase[phase]
+                and appearances.get(t["topic"], 0) < 2
+                and light_ok(t))
+
     def commit(t, phase):
         used_by_phase[phase].add(t["topic"])
         appearances[t["topic"]] = appearances.get(t["topic"], 0) + 1
 
-    def pick(phase, prefer=None, subject_cap=None):
-        subj_count = {}
+    def pick(phase, prefer=None, subject_cap=None, relaxed=False):
+        subj_count = {}          # this phase (for the per-phase subject_cap)
+        total_count = {}         # across ALL slots (for the global MAX_PER_SUBJECT)
         for sl in slots:
+            total_count[sl["subject"]] = total_count.get(sl["subject"], 0) + 1
             if sl["phase"] == phase:
                 subj_count[sl["subject"]] = subj_count.get(sl["subject"], 0) + 1
         for t in pool:
-            if not can_use(t, phase):
+            usable = can_cover(t, phase) if relaxed else can_use(t, phase)   # relaxed drops the score floor
+            if not usable:
                 continue
             if prefer and not prefer(t):
                 continue
             if subject_cap and subj_count.get(t["subject"], 0) >= subject_cap:
                 continue
+            if total_count.get(t["subject"], 0) >= MAX_PER_SUBJECT:
+                continue          # global balance cap — no subject takes more than MAX_PER_SUBJECT
             return t
         return None
 
@@ -302,7 +314,7 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
                 if (ph == "speed" and n_speed <= 0) or (ph == "steady" and n_steady <= 0):
                     continue
                 for t in pool:
-                    if t["subject"] == subj and can_use(t, ph):
+                    if t["subject"] == subj and can_cover(t, ph):
                         cand, phase = t, ph
                         break
                 if cand:
@@ -318,9 +330,10 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
             else:
                 n_steady -= 1
 
-    # 2) steady reasoning — top scorers, subject-spread
+    # 2) steady reasoning — top scorers, subject-spread (relaxed fallback keeps the count on a thin pool)
     while n_steady > 0:
-        t = pick("steady", subject_cap=(99 if boss_mode else 2))
+        cap = 99 if boss_mode else 2
+        t = pick("steady", subject_cap=cap) or pick("steady", subject_cap=cap, relaxed=True)
         if not t:
             shortfall.append(f"steady short by {n_steady}")
             break
@@ -339,11 +352,11 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         else:
             shortfall.append("teach short by 1")
 
-    # 4) speed recall — spread across LIVE subjects (light-subject cap already enforced globally)
+    # 4) speed recall — spread across LIVE subjects (relaxed fallback keeps the count on a thin pool)
     while n_speed > 0:
-        t = pick("speed", subject_cap=3)
+        t = pick("speed", subject_cap=3) or pick("speed", subject_cap=3, relaxed=True)
         if not t:
-            shortfall.append(f"speed short by {n_speed} — live-topic pool thin (recommend a fresh sweep or accept a shorter set)")
+            shortfall.append(f"speed short by {n_speed} — pool thin even after relaxing (recommend a fresh sweep)")
             break
         commit(t, "speed")
         slots.append(_slot("S", 0, "speed", t))
