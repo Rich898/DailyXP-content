@@ -47,7 +47,7 @@ body{
 .hud{display:flex; align-items:center; justify-content:space-between; font-family:var(--mono); font-size:13px; font-weight:700}
 .hud .chip{font-family:var(--body); font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--haze); border:1.5px solid var(--line); border-radius:999px; padding:4px 12px; background:#fff}
 #xp{color:var(--boltdeep)}
-.pills{display:flex; justify-content:space-between; gap:10px}
+.pills{display:flex; justify-content:space-between; gap:12px; padding:0 12px}
 .pill{
   flex:1; font-family:var(--disp); font-size:15px; text-transform:uppercase; letter-spacing:.04em;
   border:3px solid var(--ink); border-radius:999px; padding:12px 8px; background:#fff; color:var(--ink);
@@ -56,8 +56,10 @@ body{
 }
 .pill.L.hot{background:var(--reef); border-color:var(--reef); color:#fff; transform:scale(1.06)}
 .pill.R.hot{background:var(--bolt); border-color:var(--boltdeep); color:var(--ink); transform:scale(1.06)}
-.pill.ok{background:var(--kelp)!important; border-color:var(--claimdeep)!important; color:#fff!important}
-.pill.bad{background:var(--flare)!important; border-color:var(--ink)!important; color:#fff!important}
+.pill.ok{background:var(--kelp)!important; border-color:var(--claimdeep)!important; color:#fff!important; animation:pillpop .42s ease}
+.pill.bad{background:var(--flare)!important; border-color:var(--ink)!important; color:#fff!important; animation:pillbad .42s ease}
+@keyframes pillpop{0%{transform:scale(1)}40%{transform:scale(1.16)}100%{transform:scale(1)}}
+@keyframes pillbad{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
 
 #stage{flex:1; position:relative; min-height:0}
 #timer{position:absolute; top:0; left:6px; right:6px; height:5px; background:var(--line); border-radius:99px; overflow:hidden; z-index:5}
@@ -83,6 +85,30 @@ body{
 }
 .stamp.SL{left:14px; color:var(--reef); border-color:var(--reef); transform:rotate(-12deg)}
 .stamp.SR{right:14px; color:var(--boltdeep); border-color:var(--boltdeep); transform:rotate(12deg)}
+
+.card.top.grabbing{box-shadow:0 13px 0 rgba(16,27,45,.9), 0 22px 34px rgba(16,27,45,.28)}
+
+#fx{position:fixed; inset:0; pointer-events:none; z-index:9; overflow:visible}
+.spark{position:fixed; z-index:9; pointer-events:none; will-change:transform,opacity; border-radius:3px;
+  transform:translate(-50%,-50%); animation:burst .72s cubic-bezier(.15,.6,.4,1) forwards}
+@keyframes burst{
+  0%{transform:translate(-50%,-50%) scale(.3); opacity:1}
+  100%{transform:translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--r)); opacity:0}
+}
+#flash{position:fixed; inset:0; pointer-events:none; z-index:8; box-shadow:inset 0 0 0 0 rgba(255,77,41,0)}
+#flash.wrong{animation:redflash .5s ease}
+@keyframes redflash{
+  0%{box-shadow:inset 0 0 0 0 rgba(255,77,41,0)}
+  22%{box-shadow:inset 0 0 90px 30px rgba(255,77,41,.5)}
+  100%{box-shadow:inset 0 0 0 0 rgba(255,77,41,0)}
+}
+#game.shake{animation:screenshake .42s ease}
+@keyframes screenshake{
+  0%,100%{transform:translateX(0)}
+  12%{transform:translateX(-9px)} 24%{transform:translateX(8px)}
+  36%{transform:translateX(-7px)} 48%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)} 72%{transform:translateX(3px)} 86%{transform:translateX(-2px)}
+}
 
 #hint{
   position:absolute; left:0; right:0; bottom:60px; text-align:center; pointer-events:none; z-index:6;
@@ -134,6 +160,9 @@ body{
 @media (prefers-reduced-motion:reduce){
   #hint .arrows{animation:none}
   .card,.pill,#strip{transition:none!important}
+  #game.shake{animation:none}
+  #flash.wrong{animation:none}
+  .spark{animation-duration:.4s}
 }
 </style>
 </head>
@@ -181,6 +210,8 @@ body{
   </section>
 
 </div>
+<div id="fx" aria-hidden="true"></div>
+<div id="flash" aria-hidden="true"></div>
 
 <script>
 'use strict';
@@ -304,24 +335,26 @@ function stopTimer(){
 
 function guard(){ if (phase !== 'card') return false; phase = 'resolving'; stopTimer(); return true; }
 
-function commit(side, el, dx, dy){
+function commit(side, el){
   if (!guard()) return;
   const c = deck[idx];
   const correct = side === c.side;
-  flingOff(el, side, dx, dy);
   const pill = side === 'L' ? pillL : pillR;
+  const at = flyToPill(el, side);
   if (correct){
     hits++; xp += XP_PER_HIT; $('xp').textContent = xp;
-    pill.classList.add('ok'); buzz(14);
+    pill.classList.add('ok'); buzz(18);
     floatXP(el);
-    setTimeout(()=>{ pill.classList.remove('ok'); next(); }, 460);
+    setTimeout(()=> burst(at.x, at.y, ['#FFB800','#FFD34D','#0E6BA8','#0E8A5F','#ffffff']), 100);
+    setTimeout(()=>{ pill.classList.remove('ok'); next(); }, 540);
   } else {
     misses.push(c);
-    pill.classList.add('bad'); buzz([28,40,28]);
+    pill.classList.add('bad'); buzz([30,50,30]);
+    shakeScreen(); flashWrong();
     const lbl = c.side === 'L' ? c.left : c.right;
     strip.innerHTML = '\u2715 <b>' + esc(lbl) + '</b> \u2014 ' + esc(c.why);
     strip.classList.add('on');
-    setTimeout(()=>{ pill.classList.remove('bad'); strip.classList.remove('on'); next(); }, 1750);
+    setTimeout(()=>{ pill.classList.remove('bad'); strip.classList.remove('on'); next(); }, 1850);
   }
 }
 
@@ -335,6 +368,7 @@ function onTimeout(){
     el.style.transform = 'translateY(120px) rotate(4deg)'; el.style.opacity = '0';
   }
   buzz([28,40,28]);
+  shakeScreen(); flashWrong();
   const lbl = c.side === 'L' ? c.left : c.right;
   strip.innerHTML = '\u23f1 Too slow \u2014 <b>' + esc(lbl) + '</b>: ' + esc(c.why);
   strip.classList.add('on');
@@ -375,7 +409,9 @@ function attachDrag(el){
     if (phase !== 'card') return;
     el.setPointerCapture(e.pointerId);
     el.style.transition = 'none';
+    el.classList.add('grabbing');
     drag = { id:e.pointerId, x0:e.clientX, y0:e.clientY, dx:0, dy:0, hist:[[performance.now(), e.clientX]] };
+    paint(el, 0, 0);
     if (!hinted){ hinted = true; $('hint').style.display = 'none'; }
   });
 
@@ -394,10 +430,10 @@ function attachDrag(el){
     const v = velocity(drag.hist);
     drag = null;
     const w = el.getBoundingClientRect().width || 320;
-    const threshold = Math.min(140, w * 0.38);
-    const flick = Math.abs(v) > 0.55 && Math.abs(dx) > 30 && Math.sign(v) === Math.sign(dx);
+    const threshold = Math.min(88, w * 0.26);
+    const flick = Math.abs(v) > 0.4 && Math.abs(dx) > 22 && Math.sign(v) === Math.sign(dx);
     if (Math.abs(dx) > threshold || flick){
-      commit(dx < 0 ? 'L' : 'R', el, dx, dy);
+      commit(dx < 0 ? 'L' : 'R', el);
     } else {
       springBack(el);
     }
@@ -416,7 +452,7 @@ function velocity(hist){
 }
 
 function paint(el, dx, dy){
-  el.style.transform = 'translate(' + dx + 'px,' + (dy*0.35) + 'px) rotate(' + clamp(dx/18, -14, 14) + 'deg)';
+  el.style.transform = 'translate(' + dx + 'px,' + (dy*0.55) + 'px) rotate(' + clamp(dx/16, -15, 15) + 'deg) scale(1.03)';
   const sl = el.querySelector('.stamp.SL'), sr = el.querySelector('.stamp.SR');
   const o = Math.min(1, Math.abs(dx)/90);
   sl.style.opacity = dx < 0 ? o : 0;
@@ -426,6 +462,7 @@ function paint(el, dx, dy){
 }
 
 function springBack(el){
+  el.classList.remove('grabbing');
   el.style.transition = 'transform .3s cubic-bezier(.2,1.5,.4,1)';
   el.style.transform = '';
   const sl = el.querySelector('.stamp.SL'), sr = el.querySelector('.stamp.SR');
@@ -433,12 +470,59 @@ function springBack(el){
   pillL.classList.remove('hot'); pillR.classList.remove('hot');
 }
 
-function flingOff(el, side, dx, dy){
+function flyToPill(el, side){
+  const pill = side === 'L' ? pillL : pillR;
+  const pr = pill.getBoundingClientRect();
+  const px = pr.left + pr.width/2, py = pr.top + pr.height/2;
+  // measure the card's transform-free centre synchronously (no paint happens between)
+  const prev = el.style.transform;
+  el.style.transition = 'none';
+  el.style.transform = 'none';
+  const br = el.getBoundingClientRect();
+  const bx = br.left + br.width/2, by = br.top + br.height/2;
+  const dx = px - bx, dy = py - by;
+  el.style.transform = prev || 'none';   // restore current (dragged) pose as the start
+  void el.offsetWidth;                    // commit it as the transition origin
+  el.style.transition = 'transform .34s cubic-bezier(.35,.8,.35,1), opacity .34s ease';
+  el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(.14) rotate(0deg)';
+  el.style.opacity = '0';
+  el.classList.remove('grabbing');
   pillL.classList.remove('hot'); pillR.classList.remove('hot');
-  const w = Math.max(window.innerWidth, 420);
-  const tx = (side === 'L' ? -1 : 1) * (w + 160);
-  el.style.transition = 'transform .38s cubic-bezier(.2,.7,.3,1)';
-  el.style.transform = 'translate(' + tx + 'px,' + ((dy||0) + 40) + 'px) rotate(' + (side==='L'?-24:24) + 'deg)';
+  return {x:px, y:py};
+}
+
+function burst(x, y, colors){
+  const fx = document.getElementById('fx');
+  const n = 22;
+  for (let i=0;i<n;i++){
+    const s = document.createElement('i');
+    s.className = 'spark';
+    const ang = Math.random()*Math.PI*2;
+    const dist = 44 + Math.random()*78;
+    const tx = Math.cos(ang)*dist;
+    const ty = Math.sin(ang)*dist + 34;   // gravity bias
+    const sz = 7 + Math.random()*8;
+    s.style.left = x + 'px'; s.style.top = y + 'px';
+    s.style.width = sz + 'px'; s.style.height = sz + 'px';
+    s.style.background = colors[i % colors.length];
+    s.style.setProperty('--tx', tx.toFixed(1) + 'px');
+    s.style.setProperty('--ty', ty.toFixed(1) + 'px');
+    s.style.setProperty('--r', (Math.random()*560 - 280).toFixed(0) + 'deg');
+    if (Math.random() < 0.4) s.style.borderRadius = '50%';
+    fx.appendChild(s);
+    setTimeout(()=> s.remove(), 760);
+  }
+}
+
+function shakeScreen(){
+  const g = scr.game;
+  g.classList.remove('shake'); void g.offsetWidth; g.classList.add('shake');
+  setTimeout(()=> g.classList.remove('shake'), 440);
+}
+function flashWrong(){
+  const f = document.getElementById('flash');
+  f.classList.remove('wrong'); void f.offsetWidth; f.classList.add('wrong');
+  setTimeout(()=> f.classList.remove('wrong'), 520);
 }
 
 function floatXP(el){
@@ -460,7 +544,7 @@ function tapCommit(side){
   if (!el) return;
   if (!hinted){ hinted = true; $('hint').style.display = 'none'; }
   el.style.transition = 'none';
-  commit(side, el, side==='L' ? -60 : 60, 0);
+  commit(side, el);
 }
 pillL.addEventListener('click', ()=> tapCommit('L'));
 pillR.addEventListener('click', ()=> tapCommit('R'));

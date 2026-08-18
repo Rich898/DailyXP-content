@@ -10,6 +10,18 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v2 changes (18 Aug, after first play)
+- **Cards now fly INTO the chosen bucket** (shrink into the pill), not off-screen — the
+  swipe/sort connection is now literal. Answers Rich's "feels like I have to swipe past the
+  frame" note directly.
+- **Commit is far more eager**: shorter travel (~26% of card width, 88px cap) and a lower
+  flick-velocity bar, so a decisive nudge sends it. Card also lifts (scale + shadow) the
+  instant you touch it, and tracks the finger more fully.
+- **Buckets pulled inward** from the frame edge.
+- **Landing FX**: correct = confetti burst from the bucket + pill pop + XP float; wrong (or
+  timeout) = screen shake + red edge-flash + pill shake + re-teach strip. Valence stays
+  strict — confetti only ever fires on correct.
+
 ## Deliberate design decisions (judge these in the preview)
 - **Real physics, Pointer Events only.** Card tracks the finger 1:1, tilts with the drag,
   springs back if released early, commits on distance OR flick velocity. No HTML5 drag.
