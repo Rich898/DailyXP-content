@@ -9,44 +9,44 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which acting company did Shakespeare belong to?",
-      "answer": "The Lord Chamberlain's Men",
-      "why": "Shakespeare was a member and shareholder of the Lord Chamberlain's Men, later renamed the King's Men. The other companies are invented names, not real Elizabethan troupes he belonged to.",
+      "prompt": "Which theatre in London was closely linked to Shakespeare's company?",
+      "answer": "The Globe",
+      "why": "The Globe Theatre, built in 1599, was the main home of Shakespeare's company, the Lord Chamberlain's Men.",
       "options": [
-        "The Lord Chamberlain's Men",
-        "The King's Revels Players",
-        "The Admiral's Servants",
-        "The Queen's Comedians"
+        "The Globe",
+        "The Rose",
+        "The Curtain",
+        "Blackfriars Hall"
       ],
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "What is it called when a character on stage reveals a hidden identity or feeling to the audience alone?",
-      "answer": "Aside",
-      "why": "An aside is a short remark a character makes directly to the audience, unheard by other characters. A soliloquy is longer and spoken alone on stage, not aimed at the audience mid-scene.",
+      "subject": "Science",
+      "prompt": "What is a gamete?",
+      "answer": "A sex cell",
+      "why": "A gamete is a specialised sex cell (like sperm or egg) that fuses with another gamete during sexual reproduction.",
       "options": [
-        "Aside",
-        "Soliloquy",
-        "Chorus",
-        "Sonnet"
+        "A sex cell",
+        "A fertilised egg",
+        "A body cell",
+        "A whole organism"
       ],
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "What is the main advantage of sexual reproduction over asexual reproduction?",
-      "answer": "Genetic variation",
-      "why": "Sexual reproduction mixes genes from two parents, creating genetic variation that helps populations adapt. Asexual reproduction is faster but produces identical clones.",
+      "subject": "History",
+      "prompt": "Who called for the First Crusade in 1095?",
+      "answer": "Pope Urban II",
+      "why": "Pope Urban II launched the First Crusade in 1095, urging Christians to reclaim Jerusalem from Muslim control.",
       "options": [
-        "Genetic variation",
-        "Faster growth rate",
-        "Fewer offspring needed",
-        "Simpler cell division"
+        "Pope Urban II",
+        "King Richard I",
+        "Emperor Constantine",
+        "Pope Gregory VII"
       ],
       "fresh": false
     },
@@ -54,14 +54,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What replaced centralised Roman government in western Europe after Rome's fall?",
-      "answer": "Local feudal lords",
-      "why": "Power fragmented into local feudal lords controlling their own regions, rather than one central authority. There was no single elected or Byzantine ruler over western Europe.",
+      "prompt": "What weakened Rome's ability to defend its borders?",
+      "answer": "Overstretched army",
+      "why": "Rome's empire grew too large for its army to defend effectively, a key factor in its gradual collapse.",
       "options": [
-        "Local feudal lords",
-        "Elected councils",
-        "The Byzantine emperor",
-        "Roman legions still ruling"
+        "Overstretched army",
+        "Sudden plague only",
+        "Loss of the navy",
+        "New trade routes"
       ],
       "fresh": false
     },
@@ -69,14 +69,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In feudal society, what did a lord give a vassal in return for loyalty and service?",
-      "answer": "Land called a fief",
-      "why": "Lords granted vassals land, called a fief, in exchange for military service and loyalty. This land-for-service bond was the core of the feudal relationship.",
+      "prompt": "In the feudal pyramid, what did knights typically owe to the lord who granted them land?",
+      "answer": "Military service to their lord",
+      "why": "Knights received land from a lord in exchange for military service when called upon. Grain quotas and labour duties were obligations owed by peasants, and tithes were owed to the church, not to a lord.",
       "options": [
-        "Land called a fief",
-        "A share of taxes",
-        "A seat on his council",
-        "Freedom from all duties"
+        "Military service to their lord",
+        "Yearly grain harvest quotas",
+        "Free labour on lord's estate",
+        "Tithes paid to the church"
       ],
       "fresh": false
     },
@@ -84,29 +84,14 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, which line best captures the love vs hate theme through contradiction?",
-      "answer": "\"O brawling love, O loving hate\"",
-      "why": "This line pairs opposite ideas — love and hate — directly, showing how the two themes are tangled together. The other quotes are famous but don't combine the two opposites.",
+      "prompt": "Which family feud drives the love vs hate theme in Romeo and Juliet?",
+      "answer": "Montague-Capulet",
+      "why": "The feud between the Montague and Capulet families creates the hate that clashes with Romeo and Juliet's love.",
       "options": [
-        "\"O brawling love, O loving hate\"",
-        "\"A rose by any other name\"",
-        "\"Wherefore art thou Romeo\"",
-        "\"A plague o' both your houses\""
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What payment did the medieval Church demand from ordinary people as a religious duty?",
-      "answer": "Tithes",
-      "why": "Tithes were a portion of income, often a tenth, owed to the Church by ordinary people. Rents and tariffs were different kinds of payments unrelated to Church duty.",
-      "options": [
-        "Tithes",
-        "Rents",
-        "Ransoms",
-        "Tariffs"
+        "Montague-Capulet",
+        "Montague-Escalus",
+        "Capulet-Escalus",
+        "Verona-Mantua"
       ],
       "fresh": false
     },
@@ -114,14 +99,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which Italian cities grew wealthy by transporting and supplying Crusader armies?",
-      "answer": "Venice and Genoa",
-      "why": "Venice and Genoa built major trade wealth by shipping soldiers and supplies to the Holy Land during the Crusades. The other Italian cities were significant but not the main Crusade trade hubs.",
+      "prompt": "Why did Venice and Genoa support crusader armies with ships?",
+      "answer": "To profit from trade",
+      "why": "Venice and Genoa transported and supplied crusaders for payment, growing rich through trade with the Holy Land.",
       "options": [
-        "Venice and Genoa",
-        "Rome and Naples",
-        "Milan and Turin",
-        "Florence and Pisa"
+        "To profit from trade",
+        "To convert to Islam",
+        "To settle in Jerusalem",
+        "To avoid Roman taxes"
       ],
       "fresh": false
     },
@@ -129,14 +114,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Around what year was William Shakespeare born?",
-      "answer": "1564",
-      "why": "Shakespeare was born in 1564 in Stratford-upon-Avon and died in 1616. 1601 and 1616 relate to his later works and death, not his birth.",
+      "prompt": "What was the name of Shakespeare's wife?",
+      "answer": "Anne Hathaway",
+      "why": "Shakespeare married Anne Hathaway in 1582, and they had three children together.",
       "options": [
-        "1564",
-        "1601",
-        "1616",
-        "1550"
+        "Anne Hathaway",
+        "Anne Boleyn",
+        "Mary Arden",
+        "Susanna Shakespeare"
       ],
       "fresh": false
     },
@@ -144,14 +129,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What poetic rhythm does Shakespeare mainly use for dialogue in Romeo and Juliet?",
-      "answer": "Iambic pentameter",
-      "why": "Shakespeare wrote most dialogue in iambic pentameter, a rhythm of ten alternating stressed and unstressed syllables. Rhyming couplets appear sometimes but aren't the main structure.",
+      "prompt": "What technique does Shakespeare use in Romeo's line 'It is the east, and Juliet is the sun'?",
+      "answer": "Metaphor",
+      "why": "Romeo directly calls Juliet the sun without using 'like' or 'as', making it a metaphor, not a simile. Alliteration and rhyme are sound techniques, not comparisons.",
       "options": [
-        "Iambic pentameter",
-        "Trochaic tetrameter",
-        "Free verse",
-        "Rhyming couplets only"
+        "Metaphor",
+        "Simile using 'like'",
+        "Alliteration of consonants",
+        "Rhyming couplet"
       ],
       "fresh": false
     },
@@ -159,22 +144,22 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "Why do many flowering plants rely on insects or wind for pollination instead of self-pollinating?",
-      "answer": "It increases genetic variation",
-      "why": "Cross-pollination mixes genetic material from different plants, increasing variation and helping offspring survive changing conditions. Self-pollination is easier but produces less varied offspring.",
+      "prompt": "Why do offspring from sexual reproduction show genetic variation?",
+      "answer": "They mix genes from two parents",
+      "why": "Sexual reproduction combines genetic material from two parents, creating new combinations and genetic variation.",
       "options": [
-        "It increases genetic variation",
-        "It speeds up flowering time",
-        "It reduces need for sunlight",
-        "It prevents seed formation"
+        "They mix genes from two parents",
+        "They copy one parent exactly",
+        "They mutate every time",
+        "They lack any DNA"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "History",
-      "prompt": "A classmate says the Crusades only matter for religious history and have nothing to do with economics. Using your own reasoning, explain how the Crusades affected trade and the wealth of specific regions."
+      "subject": "English",
+      "prompt": "Explain how Shakespeare's use of light and dark imagery (like Juliet as the sun, or night hiding the lovers) adds meaning beyond just describing the scene."
     }
   ]
 }
