@@ -35,6 +35,9 @@ modes/MECHANICS.md, the shell, DailyXP-private history._
 
 ### 2. Modes (quiz shapes / weekly rhythm)
 
+_These are the live quiz shapes as they run today. Part 3 reimagines them as **frames** filled by the
+loadout — the target model._
+
 | Day | Mode | Shape | Total |
 |---|---|---|---|
 | Mon/Tue/Thu | **Standard** | 7 speed + 4 steady + 1 teach | 12 |
@@ -184,3 +187,84 @@ argument for integration, one at a time.
 ### Open (to detail next)
 - Exact block sizes (3 is the starting bet); the rotation algorithm; which mechanic → which Heat
   (the mix policy, MECHANICS.md Layer 2); per-day loadout design; final colour assignments.
+
+---
+
+## PART 3 — FRAMES × LOADOUT (events, reimagined)
+
+_19 Aug 2026. Rich's question: now the loadout makes every day varied, does that change Wednesday
+and Friday? Yes — it frees them to become what events are actually for._
+
+### The insight
+The events were doing **two jobs at once**, now worth pulling apart:
+1. **Variety** — "today ≠ yesterday."
+2. **Occasion** — "today is a *landmark*: purpose, stakes, emotion."
+
+The **loadout now owns variety** (every day differs), so events no longer need to be "the different
+day." What's left — and what events are *for* — is **occasion**. Variety is spice; occasion is a
+landmark. The loadout can't manufacture occasion; events shouldn't waste themselves on variety.
+
+The tell that the old events were mis-defined — *"both are just different ways of doing MC"* — is
+that they were named after a **legacy mechanic**, not their **essence**:
+- **Battleground's essence** = *your own weak topics, no-lose, claim the ground, end-of-week
+  redemption.* MC was incidental — you could claim a topic by swiping / typing / ordering it.
+- **Reversed Blitz** = **Blitz** (a tempo/energy frame) **+ Reversed** (one MC mechanic). The energy
+  is the event; Reversed is just a card.
+
+### The model: two independent layers
+- **Frame** = what *kind* of day it is — its purpose, stakes, emotion. Neutral (a normal daily run)
+  or an **event frame** (a landmark).
+- **Loadout** = which *mechanics* fill it, from the rotating deck.
+- **Independent.** A frame says "redemption day"; the loadout says "today's gestures are swipe +
+  type." Any frame can be filled by any mechanics.
+
+**Event frames are special frames; the loadout fills them — with the FULL deck now, not just MC.**
+Events don't *compete* with the loadout; the loadout *powers* them.
+
+### Two rotation clocks (the seasons doctrine, made concrete)
+- **Mechanics rotate daily** — the deck (Part 2).
+- **Event frames rotate by chapter** — a *bank of frames* (energy, redemption, boss, mystery…).
+- Wednesday and Friday become **frame slots** that different frames rotate through over a term — so
+  even the events stay fresh, instead of "reversed-blitz + battleground forever." (This realises
+  SEASONS' "the event loadout is a chapter-level variable.")
+
+### Battleground, reimagined — concrete
+Frame unchanged: **4 claimable zones on the kid's flagged weak topics, no-lose, territory bar,
+"% claimed this week."** The loadout now fills each zone with the **best mechanic for that topic**,
+from the full deck — and each zone wears that mechanic's **signature colour**, so the board reads at
+a glance:
+
+| The weak topic is… | Claim it by… | Zone colour |
+|---|---|---|
+| a vocab / key term | **typing it** (Short-text) | violet |
+| a sequence / timeline / method order | **ordering it** (Ordering) | gold |
+| a maths method | **solving it** (Numeric) | teal |
+| a true/false-able fact | **swiping it** (Swipe) | blue |
+| a plain fact / concept | picking it (MC / spot-the-lie) | green |
+
+So "claim your ground" becomes a **varied, multi-gesture redemption run** — far richer than four MC.
+The **teach-back finishing move stays** (explain the topic you just reclaimed).
+
+### Blitz, reimagined — concrete
+Frame = **tempo/energy**: fast, high-score, midweek. The loadout fills it with **fast** mechanics
+(rapid swipes, quick MC, mental Numeric) — Blitz becomes "a *fast day*," not "an MC day."
+**Reversed** becomes a **card in the deck** (a mechanic), featured on Blitz day but free to appear
+occasionally elsewhere — decoupled from Wednesday.
+
+### Bonus: this fixes the naming trap
+Wed/Fri are **frame slots**; the frame currently in each is "Blitz" and "Battleground" — and those
+can rotate. No more "Friday's directive is literally called `boss` but produces Battleground."
+
+### The risk to hold onto
+Events derive power from **contrast**. Now the baseline is genuinely exciting, an event has to be a
+real **step-change** — higher stakes / distinct frame / bigger reward — or it blends into "another
+varied day." Protections: keep normal days a comfortable *daily run* (routine cadence) so events
+stand out; make each event a clear jump in **stakes/purpose**, not just different mechanics.
+
+### Open (event model)
+- The **bank of event frames** (energy, redemption, boss, mystery/mixed…).
+- **Chapter rotation** schedule for frames.
+- **2 events/week** (midweek energy + Friday consolidation — a natural arc) vs fewer, to protect the
+  baseline. Lean: keep both.
+- How the loadout picks the **best mechanic per Battleground zone**.
+
