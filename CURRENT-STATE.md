@@ -66,7 +66,7 @@ and the **teach-back three-light** display. The code + CSS remain but stay inert
 > **NOT dormant — Friday Battleground varies question formats live.** Its four claimable
 > zones deliberately mix **spot-the-lie / true-false / multiple-choice / sum-as-MC** (all
 > render as four options — the variety is in the prompt, not a `type` field). Validated
-> against real output (14 Aug) and locked by `tools/test_planner_reversed.py`. See SEASONS.md.
+> against real output (14 Aug) and locked by `tools/test_planner_events.py`. See SEASONS.md.
 
 ## Separate / not wired
 

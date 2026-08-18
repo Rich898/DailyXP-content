@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-test_planner_reversed.py — locks the REVERSED mutator invariants.
+test_planner_events.py — locks the WEEKDAY EVENT-MODE invariants (and throwback).
+
+Covers all the planner behaviour behind the one-line WEEKDAY_DIRECTIVE loadout edit:
+  * REVERSED (Wed mutator), * BATTLEGROUND (Fri, varied-format), * throwback (LAW 3).
+(Formerly test_planner_reversed.py — renamed because it was never reversed-only.)
 
 The chapter loadout rotates by editing WEEKDAY_DIRECTIVE (run_daily + kid_nudge).
 These checks make sure the plumbing behind that one-line edit keeps holding:

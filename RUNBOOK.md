@@ -244,7 +244,7 @@ originating beta feedback: SEASONS.md LAWS 1–5. Where they live in code:
   slot; `validate.py` exempts throwback from the fresh:true law; `compose.assemble`
   carries the flag through. Held -> stays solid; decayed -> state_writer demotes it
   as any miss. Tests: `test_throwback.py` + throwback block in
-  `test_planner_reversed.py`.
+  `test_planner_events.py`.
 
 **Key seam to remember:** `compose.assemble()` is where plan metadata (fresh,
 throwback, repair) is stitched onto the LLM's language. It previously hardcoded
