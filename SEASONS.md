@@ -57,6 +57,8 @@ the principle covers the rest.
 
 ### LAW 2 — variety is structural, driven by a FORMAT BANK
 
+> **Status (19 Aug 2026):** the standard-run format rotation described below was **reverted after review** — standard runs are direct recall MC (validated). Varied formats are **Friday-Battleground-only**; Reversed remains the **Wed mutator only**. The concept below is kept as design intent, not current live behaviour. The current path to daily variety is the approved answer mechanics (`modes/MECHANICS.md`).
+
 "Same every day" is a structural fact when every slot is 4-option recall MC on the
 same handful of weak topics. Fix: the **daily format mix becomes a planner
 variable**, extending the existing SEASONS principle ("the event loadout is a
@@ -130,7 +132,9 @@ ship variety now and stage v3.1 separately.
 
 **Current live loadout** — Season "Term 3," chapter of w/c 3 Aug: Wed mutator = **Reversed Blitz** (10 reversed speed / 2 steady / 1 teach) with double-XP at the family deal layer · Fri boss = ledger-built chain. *(Reversed joined mid-chapter by design call — family beta is the design lab; the chapter-boundary rule holds for staged rollout beyond the family.)*
 
-**Live since 17 Aug 2026 (every standard run, all seats):** the answer-length gate (LAW 1) blocks the "tap the longest" tell; the format bank (LAW 2) rotates 6 MC-family formats across the speed/steady slots so no run is 11 identical recall MC; the throwback mechanic (LAW 3) weaves one aged-mastered slot into every run as a spacing-driven retention check. All three are no-shell-cost and ledger-transparent; all seeded deterministically. Origin: the boys' own beta feedback. Full doctrine: LAWS 1–5 above.
+**Live since 17 Aug 2026 (every standard run, all seats):** the answer-length gate (LAW 1) blocks the "tap the longest" tell, and the throwback mechanic (LAW 3) weaves one aged-mastered slot into every run as a spacing-driven retention check. Both are no-shell-cost and ledger-transparent, seeded deterministically. Origin: the boys' own beta feedback. Full doctrine: LAWS 1–5 above.
+
+> **LAW 2 status — corrected 19 Aug 2026:** the standard-run format-bank rotation was **reverted after review** (varied MC-family formats read as confusing / wall-of-text in a fast round). Standard speed/steady slots are **direct recall MC** — validated against real quizzes (18 Aug: all recall-MC; see `CURRENT-STATE.md`). Varied formats survive **Friday-Battleground-only** (see the Battleground entry above). Reversed is currently the **Wed mutator only**, not daily rotation. Daily variety is now being delivered instead by the approved answer mechanics — Swipe / Numeric / Ordering / Short-text (see `modes/MECHANICS.md`).
 
 ---
 
