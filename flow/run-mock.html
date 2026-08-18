@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Today's Run — XP Daily flow mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --field:#0B1220; --ink:#0C1521; --paper:#F7F8F4;
+  --bolt:#FFB800; --bolthi:#FFD34D; --boltdeep:#8A5A00;
+  --reef:#39A7DE; --kelp:#16E08C; --violet:#B26BE6; --flare:#FF6A45;
+  --haze:#8A97AD; --line:rgba(255,255,255,.12);
+  --disp:'Archivo Black','Arial Black',sans-serif; --body:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--field); color:var(--paper); font-family:var(--body); height:100vh; height:100dvh; overflow:hidden; position:fixed; inset:0; width:100%; overscroll-behavior:none; -webkit-user-select:none; user-select:none; touch-action:none}
+#bg{position:fixed; inset:0; z-index:0; background:radial-gradient(120% 90% at 50% 6%, #16273f 0%, #0B1220 55%, #070c15 100%)}
+#bg .grid{position:absolute; inset:-25%; background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size:46px 46px; -webkit-mask-image:radial-gradient(circle at 50% 42%, #000 24%, transparent 76%); mask-image:radial-gradient(circle at 50% 42%, #000 24%, transparent 76%)}
+#glow{position:fixed; left:50%; top:50%; width:120vmax; height:120vmax; transform:translate(-50%,-50%); background:radial-gradient(circle, rgba(255,184,0,.14) 0%, transparent 55%); opacity:0; transition:opacity .5s ease; z-index:0; pointer-events:none}
+#app{position:relative; z-index:1; height:100%; display:flex; flex-direction:column; max-width:480px; margin:0 auto; padding:calc(env(safe-area-inset-top) + 8px) 18px calc(env(safe-area-inset-bottom) + 18px)}
+.screen{flex:1; display:none; flex-direction:column; animation:fade .35s ease}
+.screen.on{display:flex}
+@keyframes fade{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+
+/* progress rail (persistent sense of journey) */
+#rail{display:flex; gap:6px; padding:6px 0 12px}
+#rail .seg{flex:1; height:5px; border-radius:99px; background:rgba(255,255,255,.1); overflow:hidden; position:relative}
+#rail .seg i{position:absolute; inset:0; width:0; border-radius:99px; background:var(--bolt); transition:width .4s ease}
+#rail .seg.done i{width:100%}
+#rail .seg.now i{width:100%; background:var(--reef); box-shadow:0 0 12px rgba(57,167,222,.6)}
+
+.cta{font-family:var(--disp); font-size:19px; letter-spacing:.05em; text-transform:uppercase; background:linear-gradient(#FFD34D,#FFB800); color:#3a2600; border:none; border-radius:16px; padding:16px 0; width:100%; box-shadow:0 6px 0 var(--boltdeep), 0 12px 30px rgba(255,184,0,.35); cursor:pointer}
+.cta:active{transform:translateY(5px); box-shadow:0 1px 0 var(--boltdeep)}
+
+/* ---------- REVEAL ---------- */
+#reveal{text-align:center}
+#reveal .top{padding-top:10px}
+#reveal .kick{font-family:var(--mono); font-size:11px; letter-spacing:.22em; color:var(--haze)}
+#reveal h1{font-family:var(--disp); font-size:clamp(34px,10vw,52px); line-height:.95; margin:6px 0 2px; text-shadow:0 5px 0 rgba(0,0,0,.35)}
+#reveal .day{font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--bolthi)}
+#reveal .meta{font-size:12px; color:var(--haze); margin-top:4px}
+.route{flex:1; display:flex; flex-direction:column; justify-content:center; gap:0; margin:14px 2px}
+.node{display:flex; align-items:center; gap:13px; padding:9px 4px; position:relative; opacity:0; animation:pop .4s ease forwards}
+.node .icon{flex:0 0 46px; width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-family:var(--disp); font-size:18px; color:#0b1220; box-shadow:0 4px 0 rgba(0,0,0,.3)}
+.node .body{flex:1; text-align:left}
+.node .body .nm{font-family:var(--disp); font-size:16px; line-height:1}
+.node .body .ds{font-size:12px; color:var(--haze); margin-top:2px}
+.node .cnt{font-family:var(--mono); font-weight:700; font-size:12px; color:#C9D3E2; background:rgba(255,255,255,.07); border:1px solid var(--line); border-radius:999px; padding:4px 10px}
+.node::after{content:''; position:absolute; left:26px; top:52px; width:2px; height:16px; background:rgba(255,255,255,.14)}
+.node.last::after{display:none}
+@keyframes pop{from{opacity:0; transform:translateX(-8px)}to{opacity:1; transform:none}}
+
+/* ---------- TRANSITION ("loading card") ---------- */
+#trans{justify-content:center; text-align:center}
+#trans .heat{font-family:var(--mono); font-weight:700; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--haze)}
+#trans .bignum{font-family:var(--mono); font-size:12px; letter-spacing:.16em; color:var(--haze); margin-top:2px}
+#trans .icon{width:104px; height:104px; margin:22px auto 0; border-radius:26px; display:flex; align-items:center; justify-content:center; font-family:var(--disp); font-size:42px; color:#0b1220; box-shadow:0 8px 0 rgba(0,0,0,.3), 0 16px 40px rgba(0,0,0,.4); animation:iconpop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes iconpop{from{opacity:0; transform:scale(.6) rotate(-6deg)}to{opacity:1; transform:none}}
+#trans h2{font-family:var(--disp); font-size:clamp(30px,9vw,44px); line-height:1; margin:18px 0 8px; text-shadow:0 4px 0 rgba(0,0,0,.3)}
+#trans .one{font-size:15px; color:#C9D3E2; max-width:26ch; margin:0 auto}
+#trans .chip{display:inline-block; font-family:var(--mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#0b1220; border-radius:999px; padding:5px 14px; margin-top:16px}
+#trans .foot{margin-top:auto; padding-top:18px}
+
+/* ---------- BLOCK PLAY (light stub) ---------- */
+#play{justify-content:center; text-align:center}
+#play .panel{background:rgba(255,255,255,.05); border:2px solid var(--line); border-radius:22px; padding:26px 22px; box-shadow:inset 0 2px 0 rgba(255,255,255,.06)}
+#play .picon{width:60px; height:60px; margin:0 auto 12px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-family:var(--disp); font-size:24px; color:#0b1220}
+#play .pnm{font-family:var(--disp); font-size:20px}
+#play .prg{font-family:var(--mono); font-size:12px; color:var(--haze); margin-top:4px}
+#play .dots{display:flex; justify-content:center; gap:10px; margin-top:18px}
+#play .dot{width:16px; height:16px; border-radius:50%; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:11px; color:#0b1220; transition:background .2s, transform .2s}
+#play .dot.hit{transform:scale(1.15)}
+#play .clear{margin-top:16px; font-family:var(--disp); font-size:15px; text-transform:uppercase; letter-spacing:.05em; color:var(--kelp); opacity:0; transition:opacity .2s}
+#play .clear.show{opacity:1}
+#play .hintline{margin-top:16px; font-size:11px; color:var(--haze)}
+
+/* ---------- DONE ---------- */
+#done{justify-content:center; text-align:center; gap:12px}
+#done .icon{width:96px; height:96px; margin:0 auto 6px; border-radius:24px; background:linear-gradient(#FFD34D,#FFB800); display:flex; align-items:center; justify-content:center; font-size:44px; box-shadow:0 8px 0 var(--boltdeep)}
+#done h2{font-family:var(--disp); font-size:clamp(30px,9vw,44px); text-shadow:0 4px 0 rgba(0,0,0,.3)}
+#done p{font-size:14px; color:#C9D3E2; max-width:30ch; margin:0 auto}
+#done .note{font-size:12px; color:var(--haze); margin-top:6px}
+
+@media (prefers-reduced-motion:reduce){#bg .grid{display:none} .screen,.node,#trans .icon{animation:none}}
+</style>
+</head>
+<body>
+<div id="bg"><div class="grid"></div></div>
+<div id="glow"></div>
+<div id="app">
+
+  <section id="reveal" class="screen on">
+    <div class="top">
+      <div class="kick">XP DAILY · FLOW MOCK</div>
+      <h1>TODAY'S RUN</h1>
+      <div class="day">Monday · Standard</div>
+      <div class="meta">13 questions · ~4 min · a fresh mix from yesterday</div>
+    </div>
+    <div class="route" id="route"></div>
+    <button class="cta" id="go">Let's go →</button>
+  </section>
+
+  <section id="trans" class="screen">
+    <div id="rail"></div>
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center">
+      <div class="heat" id="t_heat">Heat 1 · Speed</div>
+      <div class="bignum" id="t_num">Block 1 of 5</div>
+      <div class="icon" id="t_icon">↔</div>
+      <h2 id="t_name">Swipe Sort</h2>
+      <div class="one" id="t_one">Flick each card into the right bucket.</div>
+      <div class="chip" id="t_chip">4 questions</div>
+    </div>
+    <div class="foot"><button class="cta" id="t_start">Start →</button></div>
+  </section>
+
+  <section id="play" class="screen">
+    <div id="rail2"></div>
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center">
+      <div class="panel">
+        <div class="picon" id="p_icon">↔</div>
+        <div class="pnm" id="p_name">Swipe Sort</div>
+        <div class="prg" id="p_prg">in progress…</div>
+        <div class="dots" id="p_dots"></div>
+        <div class="clear" id="p_clear">✓ Block clear</div>
+        <div class="hintline">(the real mechanic plays here — this mock just shows the rhythm)</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="done" class="screen">
+    <div class="icon">🏁</div>
+    <h2>RUN COMPLETE</h2>
+    <p>Five blocks, five feels — and the ledger got a full, honest read of the day.</p>
+    <div class="note">Tomorrow deals a different hand.</div>
+    <button class="cta" id="again" style="margin-top:14px">Replay the flow</button>
+  </section>
+
+</div>
+
+<script>
+'use strict';
+var BLOCKS = [
+  {name:'Swipe Sort',   icon:'\u2194', hue:'var(--reef)',   one:'Flick each card into the right bucket.',       n:4, heat:'Heat 1 \u00b7 Speed'},
+  {name:'Quick Recall', icon:'\u2713', hue:'var(--kelp)',   one:'Four options, one answer \u2014 keep it fast.', n:3, heat:'Heat 1 \u00b7 Speed'},
+  {name:'Spell It',     icon:'Aa',     hue:'var(--violet)', one:"Type the answer \u2014 spelling doesn't count.", n:3, heat:'Heat 2 \u00b7 Steady'},
+  {name:'Put In Order', icon:'\u2261', hue:'var(--bolt)',   one:'Drag the tiles into the right sequence.',        n:2, heat:'Heat 2 \u00b7 Steady'},
+  {name:'Teach-back',   icon:'\uD83D\uDCAC', hue:'var(--flare)', one:'Explain one idea in your own words.',        n:1, heat:'Finale'}
+];
+var N = BLOCKS.length, idx = 0;
+var $ = function(id){ return document.getElementById(id); };
+function show(name){ ['reveal','trans','play','done'].forEach(function(k){ $(k).classList.toggle('on', k===name); }); }
+
+/* build the reveal route */
+(function(){
+  var r=$('route'), html='';
+  BLOCKS.forEach(function(b,i){
+    html += '<div class="node'+(i===N-1?' last':'')+'" style="animation-delay:'+(i*90+150)+'ms">'+
+      '<div class="icon" style="background:'+b.hue+'">'+b.icon+'</div>'+
+      '<div class="body"><div class="nm">'+b.name+'</div><div class="ds">'+b.one+'</div></div>'+
+      '<div class="cnt">\u00d7'+b.n+'</div></div>';
+  });
+  r.innerHTML=html;
+})();
+
+function buildRail(el, cur){
+  var html='';
+  for(var i=0;i<N;i++){ html+='<div class="seg'+(i<cur?' done':(i===cur?' now':''))+'"><i></i></div>'; }
+  el.innerHTML=html;
+}
+
+function showTrans(i){
+  idx=i; var b=BLOCKS[i];
+  $('glow').style.opacity = i===N-1 ? '1' : '.6';
+  buildRail($('rail'), i);
+  $('t_heat').textContent=b.heat;
+  $('t_num').textContent = i===N-1 ? 'Final block' : ('Block '+(i+1)+' of '+N);
+  $('t_icon').textContent=b.icon; $('t_icon').style.background=b.hue;
+  $('t_name').textContent=b.name; $('t_one').textContent=b.one;
+  $('t_chip').textContent = b.n+' question'+(b.n>1?'s':'');
+  $('t_chip').style.background=b.hue;
+  $('t_start').textContent = i===N-1 ? 'Explain it \u2192' : 'Start \u2192';
+  show('trans');
+}
+
+function playBlock(i){
+  var b=BLOCKS[i]; buildRail($('rail2'), i);
+  $('p_icon').textContent=b.icon; $('p_icon').style.background=b.hue;
+  $('p_name').textContent=b.name; $('p_prg').textContent='in progress…';
+  $('p_clear').classList.remove('show');
+  var dots=$('p_dots'), h=''; for(var k=0;k<b.n;k++) h+='<div class="dot" data-k="'+k+'"></div>'; dots.innerHTML=h;
+  show('play');
+  var done=0;
+  var step=function(){
+    if(done>=b.n){
+      $('p_prg').textContent='done';
+      $('p_clear').classList.add('show');
+      setTimeout(function(){ if(i+1<N) showTrans(i+1); else finish(); }, 850);
+      return;
+    }
+    var d=dots.querySelector('.dot[data-k="'+done+'"]');
+    d.style.background=b.hue; d.style.color='#0b1220'; d.textContent='\u2713'; d.classList.add('hit');
+    setTimeout(function(){ d.classList.remove('hit'); }, 200);
+    done++;
+    setTimeout(step, 520);
+  };
+  setTimeout(step, 450);
+}
+
+function finish(){ $('glow').style.opacity='1'; show('done'); }
+
+$('go').addEventListener('click', function(){ showTrans(0); });
+$('t_start').addEventListener('click', function(){ playBlock(idx); });
+$('again').addEventListener('click', function(){ idx=0; $('glow').style.opacity='0'; show('reveal'); });
+</script>
+</body>
+</html>

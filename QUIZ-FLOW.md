@@ -106,9 +106,81 @@ reconciling SEASONS.md.**
 
 ---
 
-## PART 2 — THE FLOW (to design)
+## PART 2 — THE FLOW
 
-_Empty. This is where we design what a run actually feels like now there's a real set of
-mechanics — how the approved mechanics slot into Heat 1 / Heat 2 / teach-back, per mode, without
-becoming a confusing pile. This is Layer 2 of MECHANICS.md, finally with enough inputs (§1–6) to
-design properly._
+_Designed with Rich, 19 Aug 2026. The brief in his words: **"fun, and you don't quite know what
+today holds vs it being the same format every day."** Mock: `flow/run-mock.html`._
+
+### The idea in one line
+**Same three modes — but the mechanics that fill them are dealt from a rotating daily loadout.**
+Every day feels different at the door; the learning machine underneath is identical. Novelty comes
+from *rotation of a fixed bank*, not constant invention (the seasons doctrine — sustainable, and it
+avoids the confusing pile we reverted).
+
+### The block model
+- A run is a sequence of **blocks**. Each block = **one mechanic, ~3 questions** (3 is the starting
+  bet — a real dial, tuned on the boys).
+- Blocks sit inside the mode's fixed skeleton: **Heat 1 (speed) blocks → Heat 2 (steady) blocks →
+  teach-back finale.**
+- **The core rule: unpredictable day-to-day, coherent within a run.** The gesture never changes
+  *inside* a block — a block is one clear thing. The surprise is at the **doorway between blocks,
+  never mid-question.** (This is exactly what the reverted "one new mechanic every question" pile
+  got wrong.)
+- Meeting a topic three ways across a run (swipe it, type it, order it) is deliberate
+  **interleaving** — better for retention and transfer than drilling one gesture.
+
+### The daily loadout
+- The loadout **deals which blocks, in which order**, into today's mode — like a daily-challenge /
+  roguelike seed.
+- Mon/Tue/Thu = **Standard** mode, a different loadout each day. Wed = **Reversed Blitz**, Fri =
+  **Battleground** (the two landmark events).
+- Speed-eligible mechanics (fast gestures: **Swipe, Quick Recall**) fill Heat 1; steady-eligible
+  (**Numeric, Ordering, Short-text, Confidence-MC**) fill Heat 2. Which mechanic lands where, and
+  the rotation algorithm, is the **mix policy** (MECHANICS.md Layer 2) — still to detail.
+
+### The curated frame (the polish)
+- **"Today's run" reveal** — the run laid out as a *route* (its blocks, colours, counts, length).
+  The anticipation beat: *"ooh, what've I got today."* A different route tomorrow.
+- **Transition cards** ("loading cards") **between blocks** — Heat label, *block N of N*, the
+  mechanic (icon + **colour** + name), a one-line what's-next, the count, and a **progress rail**
+  showing where they are in the whole run. This doorway makes a gesture-switch feel *intentional*
+  and gives the run **chapters**. Signal the change; never switch cold mid-flow.
+
+### Length driven by signal (not padding)
+- The everyday run **extends modestly — mid-teens, not 12** — tolerable *only because* it's varied.
+- Extra slots weight toward **signal**: a confidence-tagged steady question or a teach-back tells the
+  ledger far more than another plain MC (it separates *knows it* from *got lucky*). **Quantity of
+  answers ≠ quantity of signal.**
+- **Length flexes by day** (another "what's today" lever): some days a quick 10, some a meaty 16;
+  Wed is a fast 13, Fri a focused 7.
+- **The real ceiling is the streak.** The run must be finished *every* day — the whole product (the
+  day-to-day parent picture, the spaced repetition) depends on it. A 12 they always finish beats a
+  20 they bail on twice a week. **The number is set by watching the boys' completion, not guessed** —
+  the day Harrison groans or skips is the number.
+
+### The mechanic colour system (a visual language)
+Each mechanic has a **signature colour, used everywhere it appears** — the reveal, the transition
+card, the mechanic's own screen accents, and the parent/kid reports. The colour becomes *learnable*
+("violet = type a word"), and the whole product coheres into one system.
+
+| Mechanic | Signature colour | Hex |
+|---|---|---|
+| Quick Recall (Plain MC) | green | `#16E08C` |
+| Swipe Sort | blue | `#39A7DE` |
+| Numeric | teal | `#14C7C7` |
+| Ordering | gold | `#FFB800` |
+| Short-text | violet | `#B26BE6` |
+| Teach-back | coral | `#FF6A45` |
+
+_(Colours are tunable.)_ **Next step to complete the system:** thread each colour back into its
+mechanic's own preview — right now the colours only debut in the flow mock; the mechanic screens
+don't yet carry them.
+
+### The honest dependency
+This is only **real as the mechanics go live.** Today the deck has ~one card (MC), so every Standard
+day looks the same. **Each integration adds a card to the daily deck** — so this vision *is* the
+argument for integration, one at a time.
+
+### Open (to detail next)
+- Exact block sizes (3 is the starting bet); the rotation algorithm; which mechanic → which Heat
+  (the mix policy, MECHANICS.md Layer 2); per-day loadout design; final colour assignments.
