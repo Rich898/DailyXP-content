@@ -1,60 +1,76 @@
 # XP Daily — Current State (authoritative)
 
-_Last updated: 18 Aug 2026. This file is the source of truth for what the quiz actually is today. Where any
-other doc disagrees with this one, this one wins._
+_Last updated 18 Aug 2026. The source of truth for what the quiz actually is today. Verified against
+the deployed shell (`shell/template_v3.html`), the generator (`scripts/run_daily.py` +
+`tools/planner.py`), and real composed quizzes + plans in `DailyXP-private/`. Where any other doc
+disagrees, this wins. For **why** the product exists, see `VISION.md`._
 
-## The quiz, as it runs today
+## What XP Daily is
 
-Every quiz is **plain, direct multiple-choice** — one short question, four short options, one uncontestable
-answer, plus a re-teaching `why`. Nothing else. A standard quiz is **12 questions**: 7 speed + 4 steady +
-1 teach-back.
+A daily learning **game** that measures how well a student actually understands their real school
+topics, and turns that into visibility a parent has never had before — day to day and week to week.
+Game mechanics are the engagement layer that earns daily play; underneath sits a deterministic
+per-topic **confidence + depth ledger** (the IP) that separates real understanding from surface
+recall. Deterministic code owns all scheduling and state; the LLM only handles language. **It is not,
+and never was, a plain multiple-choice quiz.** See `VISION.md`.
 
-- **Brevity is enforced by the composer prompt**: every question is short and about ONE thing; options are
-  1–4 word answers, never compound multi-fact sentences. Applies to speed and steady.
-- **Subject balance is enforced by the planner** (`tools/planner.py`):
-  - Each live core subject (Maths, English, Science, History) is **guaranteed at least one slot** per quiz
-    (`CORE_SUBJECTS`, the coverage pass) — even if its topics are low-priority/untested, which would
-    otherwise starve a subject.
-  - **No subject takes more than 3 MC slots** (`MAX_PER_SUBJECT`).
-  - A **relaxed fallback** fills the full 12 even when the eligible pool is thin (bypasses the score floor
-    for coverage/top-up), so a quiz never shortfalls below 12 on a thin ledger.
-  - Within those rules, the weakest topics (REPAIR → shaky → developing → untested → solid) are prioritised.
-- **Teach-back** ("explain it in your own words") is one slot per quiz, graded for mastery on **verdict +
-  depth** only (`tools/grade_teachback.py`). Substance over style; spelling/grammar never matter.
+## Quiz shapes — a live weekday event rhythm
 
-## The pipeline
+| Day | Directive | Shape | Total |
+|---|---|---|---|
+| Mon / Tue / Thu | standard | 7 speed + 4 steady + 1 teach-back | 12 |
+| **Wed** | reversed blitz | **10 speed + 2 steady + 1 teach-back** | 13 |
+| **Fri** | "boss" → **BATTLEGROUND** | **2 speed + 4 steady + 1 teach-back** | 7 |
 
-- `scripts/run_daily.py` runs at **2pm Sydney, weekdays**, both students by default. It auto-selects the
-  **newest** `targets/<date>.json` from the PRIVATE repo (warns if >7 days stale) and produces plain-MC,
-  subject-balanced quizzes from it.
-- **Harrison (y8)** is ACTIVE. **Roshan (y9)** is FROZEN for school camp (resumes on return, streak intact).
-  **t1** is Rich's dogfood test seat (aliased to the y8 curriculum).
-- GitHub Actions cron is best-effort; the watchdog texts if a run fails to publish.
+Frozen students (e.g. a kid away at camp) → placeholder, no quiz.
 
-## What was built and REMOVED (17–18 Aug 2026)
+## Live mechanics
 
-A large set of alternative question mechanics was built, played, and rejected as confusing / not fun, then
-removed from the codebase. **All of it is in git history** if any single piece is ever revisited deliberately:
+- **Speed round (Heat 1)** — 4-option MC, and: **timed** per question (fuse + countdown, red under 6s;
+  timeout = miss); a **combo** meter (`×N`, with a combo bonus at ≥2); a **skip** ("comes back
+  around"; on a `fresh` topic, "I'll check when your class gets there").
+- **Steady round (Heat 2)** — MC, no clock, plus the **confidence wager**: pick answer →
+  **"How sure?"** → **Sure / Think so / Guessing** → **Lock it in**. Confidence is written to the
+  ledger and drives the reports.
+- **Teach-back (1 slot)** — explain it in your own words; **LLM-graded on verdict + depth**
+  (`grade_teachback`, nightly pipeline, when the API key is set). Spelling/grammar never count.
 
-- **Typed input types** — numeric keypad, short-text, cloze (fill-blank), tap-to-order. (`tools/qtypes.py`,
-  deleted.)
-- **MC "format variety"** — odd-one-out, spot-the-lie, spot-the-error, matching, ordering-as-MC.
-  (`tools/formats.py`, deleted.)
-- **Hidden ×2** (ledger-invisible double-XP) and the optional **encore** bonus round.
-- **Teach-back instant three-light display** and its **Supabase Edge Function** (`gen_edge_function.py` +
-  `supabase/functions/grade-teachback/`, deleted — the function was never deployed). The teach-back itself
-  stays and is still graded for mastery; only the live in-shell lights were removed.
-- **Idempotency SQL** (`supabase/runs_raw_idempotency.sql`, deleted — never run).
+## Live planner intelligence (what chooses the questions)
 
-### Known dormant code (not yet stripped)
+Subject balance (every core subject guaranteed, capped); **repair** (weakest topics first);
+**throwback** (aged-mastered topics resurface); **fresh** (current class topics from the weekly
+Canvas sweep). Deterministic **state-writer** ledger; the teach-back grade feeds it.
 
-`shell/template_v3.html` still contains the rendering code for the removed types (keypad/text/order/×2/
-encore/teach-back-lights). It is **harmless** — plain-MC quizzes never trigger those branches — and the
-deployed Netlify shells match this file. Fully removing it would require a careful shell pass **and a
-re-deploy of all three Netlify shells**, for no functional change. Left as a deliberate future cleanup.
+## Live payoff surfaces
 
-## The process lesson (why the above was reverted)
+- **Achievements** (Sure Shot, Clean Run — "no lucky guesses, no sure-but-wrongs", Blitz PB…).
+- **Friday report** surfaces the metacognition quadrants: **"Felt sure, wasn't — the sneaky one"**
+  (confidently wrong) and **lucky guesses** (right but "Guessing").
 
-New quiz modes/mechanics must be built **one at a time**, prototyped in an **isolated preview the user
-taps through and approves for FUN**, and kept **out of the kids' live quizzes** until approved. Shipping a
-stack of untested mechanics straight into live quizzes is what produced the wasted work here.
+## The two axes (why the parent picture is honest)
+
+The ledger tracks **confidence** (`state` — how sure, when to re-test → scheduling) and **depth**
+(`depth` — how well understood → reporting) independently. That is what lets us tell a parent
+something true — "solid on X, only recites Y, confidently wrong about Z" — instead of a number.
+See `UNDERSTANDING.md`, `LEDGER-RULES.md`.
+
+## In the shell but DORMANT (built, then reverted after review — harmless, not exercised)
+
+Confirmed against real composed quizzes (all questions `type:(none)`, none of these flags):
+**numeric typed input**, **hidden double-XP** (`x2`), **encore** bonus round, **ordering**
+(drag slots), **format variety** (odd-one-out / spot-the-lie / …), **teach-back three-light**
+display. The code + CSS remain, but the generator never produces them, so no live quiz triggers them.
+
+## Separate / not wired
+
+- **Boss Night** (losable, HP bar, spot-the-lie) — `modes/boss-battle/`. A preserved **future** mode,
+  not scheduled. **Not** the live Friday **Battleground** (which has no lose-state). *Naming trap:*
+  Friday's internal directive is literally `"boss"`, but it produces Battleground.
+- **Swipe Sort** — first entry in the mechanics toolbox (`modes/MECHANICS.md`); prototype (v9)
+  approved for fun, **not yet integrated**.
+
+## The mechanics process (non-negotiable)
+
+New mechanics are built **one at a time**, prototyped in an **isolated playable preview** that is
+approved for **fun AND product quality**, and kept **out of live quizzes** until approved. See
+`modes/MECHANICS.md`.

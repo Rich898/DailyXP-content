@@ -1,4 +1,4 @@
-> **Start here:** see **CURRENT-STATE.md** for what the quiz is today (plain multiple-choice + subject balance). Parts of this runbook predate the 18 Aug 2026 cleanup.
+> **Start here:** see **CURRENT-STATE.md** for what the quiz is today (a daily learning game — timed speed round with combos, a confidence-wager steady round, teach-back, and weekday events), and **VISION.md** for why it exists. Parts of this runbook predate the 18 Aug 2026 cleanup.
 
 # DailyXP — shell & pipeline runbook (public repo copy — no secrets, no personal URLs)
 

@@ -59,7 +59,7 @@ KNOWN_SHAPES = {
 
 
 def _check_ss_answer(q, qid, errors, warns):
-    """Validate the answer shape of one speed/steady question (plain multiple-choice)."""
+    """Validate the answer shape of one speed/steady question (multiple-choice)."""
     ans = q.get("answer")
     opts = q.get("options")
     if not isinstance(opts, list) or len(opts) < 2:

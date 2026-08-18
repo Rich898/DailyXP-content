@@ -51,7 +51,7 @@ Hard rules (a set is rejected if any is broken):
 - Never reuse any prompt in the "already seen" list, and never repeat a prompt within this set.
 - Teach-back slots: a single reasoning prompt (no options/answer) — understanding is graded, not recall.
 - BATTLEGROUND slots (only when the plan's instructions declare them — the Friday Battleground): each slot is one
-  CLAIMABLE zone on a weak topic — a plain multiple-choice question with one uncontestable correct option,
+  CLAIMABLE zone on a weak topic — a direct multiple-choice question with one uncontestable correct option,
   plausible-misconception distractors, readable for a struggling student. `why` states the answer, explains why,
   and names the misconception. All other rules still apply.
 - Match the school framing in the guidance; keep difficulty calm unless told otherwise.

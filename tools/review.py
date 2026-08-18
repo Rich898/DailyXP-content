@@ -88,7 +88,7 @@ the `why` mis-states a distractor's true answer; "trivial" = the three distracto
 match gives itself away. The reversed format itself is deliberate — never flag it as "ambiguous".
 
 Some sets are BATTLEGROUND format (the Friday Battleground): each steady slot is one claimable zone on a weak topic, and
-the format VARIES per zone — spot-the-lie (which statement is FALSE), true/false, plain multiple choice, or a sum shown
+the format VARIES per zone — spot-the-lie (which statement is FALSE), true/false, multiple choice, or a sum shown
 with four answer options. Judge each on its own format with the same categories. For spot-the-lie, verify ALL FOUR
 statements yourself: "multiple_answers" = a second statement is also false OR the keyed one is actually true; "factual_error"
 = the keyed statement is true / the `why` mis-explains. For true/false and sums, "factual_error" = the keyed answer is

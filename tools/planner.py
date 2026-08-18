@@ -366,10 +366,11 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
 
     # ---- FORMAT ROTATION (SEASONS.md LAW 2) --------------------------------
     # Assign a question format to each speed/steady slot from the bank, so a run
-    # isn't 11 identical recall MC. Skipped on boss (Battleground assigns its own
-    # Every MC question is a plain, direct recall question. (The typed-input types, MC format variety,
-    # hidden x2 and encore were built and removed after review — see git history if ever revisited.)
-    format_summary = "plain recall"
+    # isn't 11 identical questions. Speed/steady questions are currently direct,
+    # single-fact recall MC (the format bank is intentionally recall-only right now).
+    # Typed-input types, MC format variety, hidden x2 and encore were built and removed
+    # after review — see git history if ever revisited.
+    format_summary = "direct recall"
 
     ci = _composer_instructions(student, day, tag, shape_key, light_subject, ordered, directive)
 
