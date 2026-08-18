@@ -9,14 +9,14 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A rectangle has length 9cm and width 5cm. What is its area?",
-      "answer": "45cm²",
-      "why": "Area of a rectangle is length × width, so 9 × 5 = 45cm². 28 comes from adding sides twice (perimeter-style thinking), 14 from just adding length and width, 50 from rounding up wrongly.",
+      "prompt": "A triangle has base 10cm and height 6cm. What is its area?",
+      "answer": "30 cm²",
+      "why": "Triangle area is half of base times height: 0.5 × 10 × 6 = 30 cm². Forgetting to halve gives 60 cm², which is the rectangle area instead.",
       "options": [
-        "45cm²",
-        "28cm²",
-        "14cm²",
-        "50cm²"
+        "30 cm²",
+        "60 cm²",
+        "16 cm²",
+        "40 cm²"
       ],
       "fresh": false
     },
@@ -24,14 +24,14 @@
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In what year was William Shakespeare born?",
-      "answer": "1564",
-      "why": "Shakespeare was born in 1564 and died in 1616 — students often mix up the birth and death years. 1599 and 1588 are unrelated Elizabethan dates.",
+      "prompt": "Where was William Shakespeare born?",
+      "answer": "Stratford-upon-Avon",
+      "why": "Shakespeare was born in Stratford-upon-Avon in 1564. Verona is the setting of Romeo and Juliet, not his birthplace, and London is where he later worked, not where he was born.",
       "options": [
-        "1564",
-        "1616",
-        "1599",
-        "1588"
+        "Stratford-upon-Avon",
+        "London theatre district",
+        "Verona in Italy",
+        "Canterbury cathedral town"
       ],
       "fresh": false
     },
@@ -39,12 +39,12 @@
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What is the female sex cell called in animal reproduction?",
-      "answer": "Egg cell",
-      "why": "The egg cell (ovum) is the female gamete. Sperm is the male gamete, a zygote is the fertilised result, and an embryo develops after that — these stages are often confused.",
+      "prompt": "What is the male sex cell called in animal reproduction?",
+      "answer": "Sperm",
+      "why": "The male sex cell is the sperm; the egg is the female sex cell. A zygote is what forms after they combine, not a sex cell itself.",
       "options": [
-        "Egg cell",
-        "Sperm cell",
+        "Sperm",
+        "Egg",
         "Zygote",
         "Embryo"
       ],
@@ -54,14 +54,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Who called for the First Crusade in 1095?",
-      "answer": "Pope Urban II",
-      "why": "Pope Urban II called for the First Crusade at the Council of Clermont in 1095. Richard the Lionheart and Saladin were later crusade-era leaders, and Gregory VII is a different pope entirely.",
+      "prompt": "In what year did the First Crusade begin?",
+      "answer": "1096",
+      "why": "The First Crusade began in 1096. 1066 is the Norman Conquest, and the other dates belong to unrelated medieval events.",
       "options": [
-        "Pope Urban II",
-        "Richard the Lionheart",
-        "Saladin",
-        "Pope Gregory VII"
+        "1096",
+        "1066",
+        "1215",
+        "1453"
       ],
       "fresh": false
     },
@@ -69,14 +69,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "What is the volume of a cuboid 5cm by 3cm by 2cm?",
-      "answer": "30cm³",
-      "why": "Volume of a cuboid is length × width × height, so 5 × 3 × 2 = 30cm³. The distractors come from multiplying only two dimensions or adding instead of multiplying.",
+      "prompt": "What is the volume of a cube with side length 4cm?",
+      "answer": "64 cm³",
+      "why": "Cube volume is side cubed: 4 × 4 × 4 = 64 cm³. Multiplying only two sides gives the area of one face, not the volume.",
       "options": [
-        "30cm³",
-        "10cm³",
-        "20cm³",
-        "15cm³"
+        "64 cm³",
+        "16 cm³",
+        "48 cm³",
+        "12 cm³"
       ],
       "fresh": false
     },
@@ -84,14 +84,14 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A shape is an 8cm by 5cm rectangle with a 3cm by 5cm rectangle removed. What is the remaining area?",
-      "answer": "25cm²",
-      "why": "The whole rectangle is 8 × 5 = 40cm², and the removed piece is 3 × 5 = 15cm², so 40 − 15 = 25cm². Getting 40 or 15 alone means forgetting to subtract.",
+      "prompt": "A shape is a 10cm by 4cm rectangle with a 2cm by 4cm rectangle removed. What is the remaining area?",
+      "answer": "32 cm²",
+      "why": "The whole rectangle is 40 cm², minus the removed 8 cm² piece, leaving 32 cm². Forgetting to subtract gives the wrong total of 40 cm².",
       "options": [
-        "25cm²",
-        "40cm²",
-        "15cm²",
-        "55cm²"
+        "32 cm²",
+        "40 cm²",
+        "8 cm²",
+        "48 cm²"
       ],
       "fresh": false
     },
@@ -99,9 +99,9 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What term describes countries becoming more connected through trade and technology?",
+      "prompt": "What term describes countries becoming more linked through trade and technology?",
       "answer": "Globalisation",
-      "why": "Globalisation is the process of countries becoming more linked through trade, technology, and culture. Urbanisation, colonisation, and migration describe different, related but distinct processes.",
+      "why": "Globalisation is the growing connection between countries through trade, technology, and culture. Urbanisation instead refers to city growth.",
       "options": [
         "Globalisation",
         "Urbanisation",
@@ -114,14 +114,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "What was the main stated goal of the First Crusade?",
-      "answer": "Reclaim Jerusalem",
-      "why": "The First Crusade was called to reclaim Jerusalem and other holy sites from Muslim control. Trade expansion and conversion were later side-effects, not the original stated aim, and Constantinople was a Christian city the crusaders were meant to pass through, not attack.",
+      "prompt": "What was Jerusalem's religious importance to Christians, Muslims, and Jews during the Crusades?",
+      "answer": "A shared holy city",
+      "why": "Jerusalem held deep religious significance to all three faiths, which is exactly why control of the city was so fiercely contested during the Crusades.",
       "options": [
-        "Reclaim Jerusalem",
-        "Convert Muslims",
-        "Expand trade routes",
-        "Destroy Constantinople"
+        "A shared holy city",
+        "Only a trade hub",
+        "Only a military base",
+        "An unclaimed border town"
       ],
       "fresh": false
     },
@@ -129,14 +129,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What genre is Romeo and Juliet classified as?",
-      "answer": "Tragedy",
-      "why": "Romeo and Juliet is classified as a tragedy because it ends in the deaths of the main characters. Shakespeare also wrote comedies and histories, but this play fits neither, and it is a play, not a novel.",
+      "prompt": "Which acting company did Shakespeare belong to?",
+      "answer": "The Lord Chamberlain's Men",
+      "why": "Shakespeare was a member of the Lord Chamberlain's Men. The Royal Shakespeare Company is a modern theatre group, not his original one.",
       "options": [
-        "Tragedy",
-        "Comedy",
-        "History",
-        "Romance novel"
+        "The Lord Chamberlain's Men",
+        "The King's Players",
+        "The Globe Actors",
+        "The Royal Shakespeare Company"
       ],
       "fresh": false
     },
@@ -144,14 +144,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What technique is Shakespeare using when he calls Juliet 'the sun'?",
-      "answer": "Metaphor",
-      "why": "Calling Juliet 'the sun' directly, without using 'like' or 'as', is a metaphor. A simile would need a comparing word, and alliteration/onomatopoeia are unrelated sound techniques.",
+      "prompt": "What effect does the Chorus's prologue create at the start of Romeo and Juliet?",
+      "answer": "It reveals the tragic ending",
+      "why": "The prologue tells the audience the lovers will die, creating dramatic irony as we watch events unfold knowing the outcome.",
       "options": [
-        "Metaphor",
-        "Simile",
-        "Alliteration",
-        "Onomatopoeia"
+        "It reveals the tragic ending",
+        "It hides the ending",
+        "It introduces comic relief",
+        "It sets a joyful tone"
       ],
       "fresh": false
     },
@@ -159,14 +159,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when an organism reproduces from a single parent with no genetic variation?",
-      "answer": "Asexual reproduction",
-      "why": "Asexual reproduction involves only one parent and produces genetically identical offspring. Sexual reproduction needs two parents and creates variation, while fertilisation and pollination are steps within sexual reproduction.",
+      "prompt": "What is pollination in flowering plants?",
+      "answer": "Transfer of pollen to a stigma",
+      "why": "Pollination is simply the transfer of pollen to a stigma, which then allows fertilisation to occur. It is a separate step from fertilisation itself.",
       "options": [
-        "Asexual reproduction",
-        "Sexual reproduction",
-        "Fertilisation",
-        "Pollination"
+        "Transfer of pollen to a stigma",
+        "Fusion of egg and sperm",
+        "Growth of a seed into a plant",
+        "Splitting of a cell into two"
       ],
       "fresh": false
     },
@@ -174,7 +174,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says the fall of Rome was a single sudden event with one clear cause. Explain what this misses about how and why the Western Roman Empire actually declined."
+      "prompt": "A classmate says medieval Europe was just 'a dark, empty gap' between Rome and the Renaissance, with nothing important happening. Explain why historians reject this view, using at least one specific development from the medieval period."
     }
   ]
 }
