@@ -36,7 +36,12 @@ ASSESS_HORIZON_DAYS = 16          # boost a subject if an assessment falls withi
 # v3.1 question types (numeric/text/cloze/order + hidden x2 + encore) require the v3.1 SHELL to render.
 # GATE: keep this False until the new shells are deployed to Netlify — the old shell can't display the
 # new types and a run would break. Flip to True (one-line commit) once the shells are confirmed live.
-V31_TYPES_LIVE = True
+V31_TYPES_LIVE = False
+
+# MC "format variety" (odd-one-out, spot-the-lie, spot-the-error, matching, ordering-as-MC). Off = every
+# MC question is a plain, direct recall question (one clear question, four clear options). Kept OFF: the
+# clever formats produced confusing, wall-of-text questions. Flip True only to bring the variety back.
+MC_FORMAT_VARIETY = False
 
 SHAPES = {
     "standard": {"speed": 7, "steady": 4, "teach": 1},
@@ -351,9 +356,12 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
             if encore_plan:
                 _qt.assign_types(encore_plan, student, date_str, tag)
         # Trap-1 cap: never both a tap-to-order slot AND the MC ordering format in one run.
-        _excl = {_fmt.ORDERING} if any(sl.get("type") == "order" for sl in ordered) else None
-        _fmt.assign_formats(ordered, student, date_str, tag, exclude=_excl)
-        format_summary = _fmt.run_format_summary(ordered)
+        if MC_FORMAT_VARIETY:
+            _excl = {_fmt.ORDERING} if any(sl.get("type") == "order" for sl in ordered) else None
+            _fmt.assign_formats(ordered, student, date_str, tag, exclude=_excl)
+            format_summary = _fmt.run_format_summary(ordered)
+        else:
+            format_summary = "plain recall (format variety off)"   # every MC is a direct question
     else:
         format_summary = "boss/battleground (composer-assigned)"
 
