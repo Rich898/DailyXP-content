@@ -1,22 +1,22 @@
 {
   "student": "t1",
-  "date": "2026-08-17",
-  "day": "MON",
-  "tag": "T4.1",
-  "title": "DailyXP · MON 2026-08-17",
+  "date": "2026-08-18",
+  "day": "TUE",
+  "tag": "T4.2",
+  "title": "DailyXP · TUE 2026-08-18",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which of these does NOT belong when grouped with the other facts about Romeo and Juliet's setting and story?",
-      "answer": "Hamlet seeks revenge for his father's murder",
-      "why": "That plot belongs to Hamlet, a different Shakespeare play entirely. Romeo and Juliet centres on the feuding Capulets and Montagues in Verona, with Paris as Juliet's suitor.",
+      "prompt": "Which does NOT belong with the others about Romeo and Juliet's world?",
+      "answer": "Stratford-upon-Avon",
+      "why": "Verona, Mantua, and the Globe all relate to where the play is set or performed, but Stratford-upon-Avon is where Shakespeare was born, not part of the play's setting or original staging.",
       "options": [
-        "The play is set in Verona, Italy",
-        "The Capulets and Montagues are feuding families",
-        "Paris wants to marry Juliet",
-        "Hamlet seeks revenge for his father's murder"
+        "Verona",
+        "Mantua",
+        "Stratford-upon-Avon",
+        "Shakespeare's Globe"
       ],
       "fresh": false
     },
@@ -24,29 +24,30 @@
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which statement is FALSE about technique in Romeo and Juliet?",
-      "answer": "Shakespeare only ever wrote in strict rhyming couplets throughout the whole play",
-      "why": "Shakespeare mixes blank verse, prose, and rhyme depending on character and mood — he doesn't stick to rhyming couplets throughout. The prologue's sonnet form, the balcony's imagery, and the final dramatic irony are all genuine techniques in the play.",
+      "prompt": "Which of these statements about technique in Romeo and Juliet is FALSE?",
+      "answer": "Shakespeare avoids using any wordplay or puns throughout the entire play",
+      "why": "Shakespeare uses frequent puns and wordplay, especially through characters like Mercutio, so claiming he avoids it entirely misunderstands his comic and tragic style.",
       "options": [
-        "Shakespeare uses the sonnet form for the prologue",
-        "The balcony scene contains extended metaphor and imagery",
-        "Dramatic irony appears when the audience knows Juliet is alive but Romeo doesn't",
-        "Shakespeare only ever wrote in strict rhyming couplets throughout the whole play"
+        "The prologue is written as a sonnet to introduce the story",
+        "Shakespeare uses oxymorons like 'loving hate' to show conflicting emotions",
+        "Dramatic irony appears when the audience knows more than Romeo in the tomb scene",
+        "Shakespeare avoids using any wordplay or puns throughout the entire play"
       ],
-      "fresh": false
+      "fresh": false,
+      "x2": true
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A student explains why some plants can self-pollinate using this worked argument. Which step is WRONG? Step 1: Some flowering plants have both male and female parts in the same flower. Step 2: This allows self-pollination without needing another plant. Step 3: Because these plants can self-pollinate, all flowering plants must reproduce this way. Step 4: In reality, many flowering plants rely on cross-pollination by insects or wind for genetic variation.",
-      "answer": "Step 3: Because these plants can self-pollinate, all flowering plants must reproduce this way",
-      "why": "This step wrongly generalises from some plants to all plants. Many flowering plants actually depend on cross-pollination for genetic variety, as Step 4 correctly points out.",
+      "prompt": "Which term describes reproduction needing only one parent, producing genetically identical offspring?",
+      "answer": "asexual reproduction, needing only one parent organism",
+      "why": "Asexual reproduction involves a single parent and produces clones with no genetic variation, unlike sexual reproduction which needs two parents and gametes combining.",
       "options": [
-        "Step 1: Some flowering plants have both male and female parts in the same flower",
-        "Step 2: This allows self-pollination without needing another plant",
-        "Step 3: Because these plants can self-pollinate, all flowering plants must reproduce this way",
-        "Step 4: In reality, many flowering plants rely on cross-pollination by insects or wind for genetic variation"
+        "asexual reproduction, needing only one parent organism",
+        "sexual reproduction, needing two parent organisms",
+        "cross-pollination, needing wind or insect transfer",
+        "fertilisation, needing sperm and egg to combine"
       ],
       "fresh": false
     },
@@ -54,14 +55,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "After the Western Roman Empire collapsed, what best describes how political power was reorganised across most of Western Europe?",
-      "answer": "Power fragmented into local kingdoms and regional lordships",
-      "why": "Without a central Roman government, power split among local kings, warlords, and eventually feudal lords across Western Europe. There was no single unified successor state ruling the old western territories.",
+      "prompt": "Which does NOT belong with the others about early medieval Europe?",
+      "answer": "Roman senators",
+      "why": "After Rome fell, power shifted to feudal lords, warlords, and small kingdoms, not the old Roman senate, which had lost its authority and stopped functioning.",
       "options": [
-        "Power fragmented into local kingdoms and regional lordships",
-        "A single unified emperor continued ruling from Constantinople alone",
-        "Democratic city councils replaced all previous rulers",
-        "Rome's Senate kept full control of Italy and its former provinces"
+        "Feudal lords",
+        "Local warlords",
+        "Roman senators",
+        "Small kingdoms"
       ],
       "fresh": false
     },
@@ -69,14 +70,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which statement is FALSE about the feudal social structure?",
-      "answer": "Peasants (serfs) could freely buy and sell the land they worked",
-      "why": "Serfs were bound to the land and worked it for their lord, but they did not own it or have the right to sell it. The other statements correctly describe the obligations running up and down the feudal pyramid.",
+      "prompt": "Which of these statements about feudal social structure is FALSE?",
+      "answer": "Peasants could freely leave their lord's land whenever they chose",
+      "why": "Peasants, or serfs, were bound to the land they worked and needed permission to leave, unlike the mutual land-for-service obligations between kings, nobles, and knights.",
       "options": [
-        "The king granted land to lords in exchange for loyalty and service",
+        "The king granted land to nobles in exchange for loyalty and service",
         "Knights served lords in exchange for land and protection",
-        "Peasants (serfs) could freely buy and sell the land they worked",
-        "Lords owed military support and loyalty to the king"
+        "Peasants could freely leave their lord's land whenever they chose",
+        "Nobles owed military support to the king when called upon"
       ],
       "fresh": false
     },
@@ -84,14 +85,14 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which of these does NOT belong when grouped with the other examples of the 'love vs hate' theme in Romeo and Juliet?",
-      "answer": "Juliet asking the Nurse to fetch her a ladder for the wedding night",
-      "why": "This is a practical plot detail, not an example of love and hate colliding. The other three directly show the theme's tension between passionate love and violent hatred.",
+      "prompt": "Which quote best captures the love vs hate theme through contradiction, not just romance?",
+      "answer": "'My only love sprung from my only hate'",
+      "why": "This line directly fuses love and hate into one contradiction, showing Juliet's realisation that the boy she loves comes from her family's enemy, which is the theme working through conflict rather than affection alone.",
       "options": [
-        "Romeo and Juliet falling in love despite their families' feud",
-        "The oxymoron 'loving hate' describing their romance",
-        "The street brawl between Capulet and Montague servants",
-        "Juliet asking the Nurse to fetch her a ladder for the wedding night"
+        "'My only love sprung from my only hate'",
+        "'Good night, good night! Parting is such sweet sorrow'",
+        "'It is the east, and Juliet is the sun'",
+        "'A rose by any other name would smell as sweet'"
       ],
       "fresh": false
     },
@@ -99,14 +100,14 @@
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "By the height of its medieval power, the Catholic Church could excommunicate rulers, control education across Christendom, and demand payments called tithes. Which of these best shows the Church acting as a political power, not just a religious one?",
-      "answer": "The Church excommunicated kings and nobles who defied it, threatening their political legitimacy",
-      "why": "Excommunicating a king directly threatened his political authority, since subjects could see him as no longer legitimate — this shows the Church wielding real political power, unlike routine religious or financial activities like Mass or tithes.",
+      "prompt": "Which does NOT belong among examples of the medieval Church's political power?",
+      "answer": "Leading Sunday mass",
+      "why": "Excommunication, tithes, and controlling education all show the Church acting as a political force, while leading mass was simply a routine religious duty, not a display of political control.",
       "options": [
-        "The Church excommunicated kings and nobles who defied it, threatening their political legitimacy",
-        "The Church held Sunday Mass services that most villagers in the parish attended weekly",
-        "The Church trained monks who copied religious texts inside monastery libraries",
-        "The Church collected tithes from peasants to fund local parish church buildings"
+        "Excommunicating kings",
+        "Collecting tithes",
+        "Leading Sunday mass",
+        "Controlling education"
       ],
       "fresh": false
     },
@@ -114,14 +115,13 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Crusader knights swore an oath before departing, and many believed that fighting in the Holy Land could earn them ______ for their sins.",
-      "type": "cloze",
-      "answer": "forgiveness",
-      "why": "The Church promised crusaders spiritual reward, often framed as forgiveness of sins, as an incentive to join the dangerous campaigns to the Holy Land.",
+      "prompt": "What term describes the medieval Christian holy wars aimed at capturing Jerusalem from Muslim control?",
+      "type": "text",
+      "answer": "the Crusades",
+      "why": "The Crusades were a series of religious wars launched by European Christians, starting in 1096, aiming to seize and hold the Holy Land, especially Jerusalem.",
       "accept": [
-        "absolution",
-        "pardon",
-        "remission of sins"
+        "crusades",
+        "the crusades"
       ],
       "fresh": false
     },
@@ -129,28 +129,27 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Match each item to its correct detail about Shakespeare's life and work: 1) His birthplace, 2) The acting company he belonged to, 3) The genre of Romeo and Juliet, 4) His approximate lifespan. A) Tragedy. B) Stratford-upon-Avon. C) 1564-1616. D) The Lord Chamberlain's Men.",
-      "answer": "1-B, 2-D, 3-A, 4-C",
-      "why": "Shakespeare was born in Stratford-upon-Avon, belonged to the Lord Chamberlain's Men, wrote Romeo and Juliet as a tragedy, and lived roughly 1564-1616. Mixing these up confuses his biography with his plays' details.",
-      "options": [
-        "1-B, 2-D, 3-A, 4-C",
-        "1-D, 2-B, 3-C, 4-A",
-        "1-B, 2-A, 3-D, 4-C",
-        "1-C, 2-D, 3-A, 4-B"
+      "prompt": "What is the name of the London theatre most closely associated with Shakespeare's acting company?",
+      "type": "text",
+      "answer": "the Globe Theatre",
+      "why": "The Globe Theatre, built in 1599, was where Shakespeare's company, the Lord Chamberlain's Men, performed many of his plays, including Romeo and Juliet.",
+      "accept": [
+        "globe theatre",
+        "the globe",
+        "globe"
       ],
-      "fresh": false,
-      "x2": true
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What term describes a phrase like 'parting is such sweet sorrow', where two contradictory ideas are combined for effect?",
+      "prompt": "What term describes a hint or clue earlier in a story that suggests events to come later, such as Romeo's sense of dread before the party?",
       "type": "text",
-      "answer": "oxymoron",
-      "why": "An oxymoron joins two seemingly opposite terms, like 'sweet sorrow', to capture a complex or conflicting emotion — a technique Shakespeare uses often in Romeo and Juliet.",
+      "answer": "foreshadowing",
+      "why": "Foreshadowing is when a writer plants early clues about future events; Romeo's unease before the Capulet party hints at the tragedy to come.",
       "accept": [
-        "oxymoronic phrase"
+        "foreshadow"
       ],
       "fresh": false
     },
@@ -158,10 +157,10 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes reproduction where a male and female gamete combine, producing offspring with genetic variation from both parents?",
+      "prompt": "What is the term for offspring produced when male and female gametes join, combining genetic material from two parents?",
       "type": "text",
       "answer": "sexual reproduction",
-      "why": "Sexual reproduction combines genetic material from two parents, creating genetically varied offspring, unlike asexual reproduction which produces genetically identical clones.",
+      "why": "Sexual reproduction combines gametes from two parents, producing genetically varied offspring, unlike asexual reproduction which needs only one parent.",
       "accept": [
         "sexual"
       ],
@@ -171,7 +170,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says the Crusades should be studied only as a story of religious war, and that calling them a 'turning point' in history is an exaggeration. Explain, using your own reasoning and at least one specific long-term effect, why historians disagree with this dismissive view."
+      "prompt": "A classmate says the Crusades don't deserve much attention in history class because they were 'just religious wars that didn't achieve their goal.' Explain why historians still study the Crusades closely, using at least one specific long-term effect that goes beyond who controlled Jerusalem."
     }
   ],
   "encore": [
@@ -179,14 +178,14 @@
       "id": "E1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Put these events in the correct chronological order, from cause to final consequence, showing how the fall of Rome led to the rise of feudalism.",
-      "type": "order",
-      "why": "Each event causes the next: Rome's weakening leads to its collapse, which creates a power vacuum filled by local lords, ultimately producing the feudal system as a new way of organising society and protection.",
-      "sequence": [
-        "Weak central government and invasions weaken Roman authority",
-        "The Western Roman Empire collapses in 476 CE",
-        "Local lords and warlords fill the power vacuum for protection",
-        "A feudal system of land-for-loyalty develops across Western Europe"
+      "prompt": "A historian argues that the fall of Rome was a 'cause' while feudalism was a 'consequence.' Which best explains this relationship?",
+      "answer": "Rome's collapse left a power vacuum that feudalism filled to restore local order",
+      "why": "Cause and consequence means one event leads to another: Rome's fall removed centralised authority, and feudalism developed afterward as a new way to organise land, protection, and loyalty in that vacuum.",
+      "options": [
+        "Rome's collapse left a power vacuum that feudalism filled to restore local order",
+        "Feudalism existed before Rome fell and simply continued unchanged afterward",
+        "Rome's fall had no connection to how feudalism later developed in Europe",
+        "Feudalism caused Rome to fall by weakening its central government first"
       ],
       "fresh": false
     },
@@ -194,14 +193,13 @@
       "id": "E2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 10 cm and a height of 6 cm. What is its area?",
-      "answer": "30 cm²",
-      "why": "A triangle's area is half of base times height: 0.5 × 10 × 6 = 30 cm². Forgetting to halve gives the rectangle's area of 60 cm² instead, which is a common slip.",
-      "options": [
-        "30 cm²",
-        "60 cm²",
-        "16 cm²",
-        "20 cm²"
+      "prompt": "A triangle has a base of 12 cm and a height of 5 cm. What is its area in cm²?",
+      "type": "numeric",
+      "answer": "30",
+      "why": "Area of a triangle is half of base times height: 0.5 × 12 × 5 = 30 cm². A common mistake is forgetting to halve, which would give the rectangle's area instead.",
+      "accept": [
+        "30 cm2",
+        "30cm2"
       ],
       "fresh": false
     }
