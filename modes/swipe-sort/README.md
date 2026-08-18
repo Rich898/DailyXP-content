@@ -10,6 +10,23 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v5 changes (18 Aug) — responsiveness pass 2 + diagnostic
+Still chasing drag lag. Two things this build:
+- **`translate3d` on the card (and the fly animation)** instead of 2D `translate`. This
+  forces the browser to composite the card on the GPU every frame. With a plain 2D
+  translate, an unpromoted layer repaints the whole card (text/border/shadow) each frame —
+  the most likely cause of "it trails my finger the entire drag." translate3d is the
+  reliable force-GPU trick; `will-change` alone was evidently not being honoured here.
+- **Finger-tracking ring (diagnostic, temporary).** A ring marks the exact touch point,
+  moved with the same translate3d path. Purpose: isolate code-lag from environment-lag. If
+  the RING itself trails the finger, the latency is the in-app preview viewer (iframe/webview)
+  and the deployed shell in a real browser will be smooth. If the ring is glued but the card
+  trails, the card still needs work. Remove once the drag is signed off.
+
+If v5 still feels laggy INSIDE the file viewer but the ring is glued to the finger: the next
+step is to open the file in real mobile Safari/Chrome (outside the in-app viewer) as the
+definitive test, and/or deploy to a throwaway Netlify site for a true-browser check.
+
 ## v4 changes (18 Aug) — dragging responsiveness pass
 Target: kill the "card lags behind my finger" feel. (Visual polish deliberately deferred to
 a later pass per Rich.)

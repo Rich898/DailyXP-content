@@ -113,6 +113,15 @@ body{
   60%{transform:translateX(-4px)} 72%{transform:translateX(3px)} 86%{transform:translateX(-2px)}
 }
 
+#ring{
+  position:fixed; left:0; top:0; width:38px; height:38px; border-radius:50%;
+  border:2px solid rgba(14,107,168,.6); background:rgba(14,107,168,.10);
+  pointer-events:none; z-index:10; opacity:0; will-change:transform;
+  transform:translate3d(-100px,-100px,0) translate(-50%,-50%);
+}
+#ring.on{opacity:1}
+#ring::after{content:''; position:absolute; inset:14px; border-radius:50%; background:rgba(14,107,168,.7)}
+
 #hint{
   position:absolute; left:0; right:0; bottom:60px; text-align:center; pointer-events:none; z-index:6;
   font-family:var(--body); font-weight:600; font-size:14px; color:var(--haze);
@@ -174,7 +183,7 @@ body{
 
   <section id="intro" class="screen on">
     <div class="kicker">XP DAILY · MODE PROTOTYPE</div>
-    <div class="build" data-build="4">SWIPE SORT · v4</div>
+    <div class="build" data-build="5">SWIPE SORT · v5</div>
     <h1>SWIPE<br><em>SORT</em></h1>
     <p>Flick each card into the right bucket. Fast beats hesitant — wrong answers teach you on the spot.</p>
     <p class="note">Buckets change between rounds — watch the pills.<br>16 cards · 4 subjects · nothing is saved.</p>
@@ -216,6 +225,7 @@ body{
 </div>
 <div id="fx" aria-hidden="true"></div>
 <div id="flash" aria-hidden="true"></div>
+<div id="ring" aria-hidden="true"></div>
 
 <script>
 'use strict';
@@ -260,6 +270,11 @@ const scr = {intro:$('intro'), game:$('game'), end:$('end')};
 const stack = $('stack'), strip = $('strip'), inter = $('inter');
 const pillL = $('pillL'), pillR = $('pillR');
 const fill = $('timerfill');
+const ringEl = $('ring');
+
+function showRing(x,y){ ringEl.style.transform = 'translate3d('+x+'px,'+y+'px,0) translate(-50%,-50%)'; ringEl.classList.add('on'); }
+function moveRing(x,y){ ringEl.style.transform = 'translate3d('+x+'px,'+y+'px,0) translate(-50%,-50%)'; }
+function hideRing(){ ringEl.classList.remove('on'); }
 
 function show(name){ for(const k in scr) scr[k].classList.toggle('on', k===name); }
 function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
@@ -416,21 +431,25 @@ function attachDrag(el){
     el.classList.add('grabbing');
     drag = { id:e.pointerId, x0:e.clientX, y0:e.clientY, dx:0, dy:0, hist:[[performance.now(), e.clientX]] };
     paint(el, 0, 0);
+    showRing(e.clientX, e.clientY);
     if (!hinted){ hinted = true; $('hint').style.display = 'none'; }
   });
 
   el.addEventListener('pointermove', e=>{
     if (!drag || e.pointerId !== drag.id || phase !== 'card') return;
-    const evs = (e.getCoalescedEvents && e.getCoalescedEvents().length) ? e.getCoalescedEvents() : [e];
-    const now = performance.now();
-    for (const ev of evs) drag.hist.push([now, ev.clientX]);
-    if (drag.hist.length > 10) drag.hist.splice(0, drag.hist.length - 10);
-    drag.dx = e.clientX - drag.x0; drag.dy = e.clientY - drag.y0;
+    drag.dx = e.clientX - drag.x0;
+    drag.dy = e.clientY - drag.y0;
     paint(el, drag.dx, drag.dy);
+    moveRing(e.clientX, e.clientY);
+    const now = performance.now();
+    if (e.getCoalescedEvents){ for (const ev of e.getCoalescedEvents()) drag.hist.push([now, ev.clientX]); }
+    else drag.hist.push([now, e.clientX]);
+    if (drag.hist.length > 10) drag.hist.splice(0, drag.hist.length - 10);
   });
 
   const release = e=>{
     if (!drag || e.pointerId !== drag.id) return;
+    hideRing();
     if (phase !== 'card'){ drag = null; return; }
     const {dx, dy} = drag;
     const v = velocity(drag.hist);
@@ -458,7 +477,7 @@ function velocity(hist){
 }
 
 function paint(el, dx, dy){
-  el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + clamp(dx/20, -12, 12) + 'deg) scale(1.02)';
+  el.style.transform = 'translate3d(' + dx + 'px,' + dy + 'px,0) rotate(' + clamp(dx/20, -12, 12) + 'deg) scale(1.02)';
   const sl = el.querySelector('.stamp.SL'), sr = el.querySelector('.stamp.SR');
   const o = Math.min(1, Math.abs(dx)/90);
   sl.style.opacity = dx < 0 ? o : 0;
@@ -490,7 +509,7 @@ function flyToPill(el, side){
   el.style.transform = prev || 'none';   // restore current (dragged) pose as the start
   void el.offsetWidth;                    // commit it as the transition origin
   el.style.transition = 'transform .34s cubic-bezier(.35,.8,.35,1), opacity .34s ease';
-  el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(.42) rotate(0deg)';
+  el.style.transform = 'translate3d(' + dx + 'px,' + dy + 'px,0) scale(.42) rotate(0deg)';
   el.style.opacity = '0';
   el.classList.remove('grabbing');
   pillL.classList.remove('hot'); pillR.classList.remove('hot');
