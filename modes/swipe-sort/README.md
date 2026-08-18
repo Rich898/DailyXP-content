@@ -10,6 +10,11 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v3 changes (18 Aug)
+- **Card shrunk to a compact tile** (264×188) and **buckets enlarged into deep
+  container-style targets** — fixes the "huge card into a tiny pill" jank. The landing tile
+  now nests *inside* the bucket (lands at ~0.42 scale) instead of shrinking to a dot.
+
 ## v2 changes (18 Aug, after first play)
 - **Cards now fly INTO the chosen bucket** (shrink into the pill), not off-screen — the
   swipe/sort connection is now literal. Answers Rich's "feels like I have to swipe past the
