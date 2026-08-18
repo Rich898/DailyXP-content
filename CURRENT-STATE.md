@@ -56,10 +56,17 @@ See `UNDERSTANDING.md`, `LEDGER-RULES.md`.
 
 ## In the shell but DORMANT (built, then reverted after review — harmless, not exercised)
 
-Confirmed against real composed quizzes (all questions `type:(none)`, none of these flags):
-**numeric typed input**, **hidden double-XP** (`x2`), **encore** bonus round, **ordering**
-(drag slots), **format variety** (odd-one-out / spot-the-lie / …), **teach-back three-light**
-display. The code + CSS remain, but the generator never produces them, so no live quiz triggers them.
+Verified against real composed quizzes: the generator never emits these, so no live quiz
+triggers them — **numeric typed input** (`type:numeric`), **hidden double-XP** (`x2`; the
+in-shell mechanic — Blitz's double-XP lives at the family weekly-tally layer instead, see
+SEASONS.md), **encore** bonus round, **interactive ordering** (drag slots), the
+**standard-round format variety** (odd-one-out / spot-the-error / matching / ordering-as-MC),
+and the **teach-back three-light** display. The code + CSS remain but stay inert.
+
+> **NOT dormant — Friday Battleground varies question formats live.** Its four claimable
+> zones deliberately mix **spot-the-lie / true-false / multiple-choice / sum-as-MC** (all
+> render as four options — the variety is in the prompt, not a `type` field). Validated
+> against real output (14 Aug) and locked by `tools/test_planner_reversed.py`. See SEASONS.md.
 
 ## Separate / not wired
 
