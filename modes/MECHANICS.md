@@ -37,6 +37,7 @@ here before it's ever wired into live quizzes.
 | Swipe Sort  | APPROVED (not live) | Flick a statement into one of two labelled buckets.              |
 | Numeric     | APPROVED (not live) | Type the maths answer — calculator on method Qs, number pad on mental. |
 | Ordering    | APPROVED (not live) | Drag scrambled tiles into the correct sequence (live reflow). |
+| Short-text  | APPROVED (not live) | Type a word or two; a fuzzy matcher forgives typos/variants. |
 
 ---
 
@@ -181,6 +182,50 @@ here before it's ever wired into live quizzes.
 10. **Open decisions (resolve at integration).** Partial credit vs all-or-nothing + evidence
     weight; tile count; which topics are tagged ordering (a curriculum call); confirm steady-slot
     timing.
+
+---
+
+## Short-text — spec
+
+**Status:** APPROVED for fun/quality (v1). NOT yet integrated into live quizzes.
+**Preview / full build:** `modes/short-text/` (README has the matcher details).
+
+1. **What it is.** Type a one-or-few-word answer — no options to guess from. For terms, vocab,
+   key names, one-word definitions. The input is trivial; **the fuzzy matcher is the mechanic.**
+
+2. **Content fit.** Questions with a short canonical answer (~1–3 words) and a clear intended
+   term: key vocabulary, names, units, one-word concepts.
+
+3. **Content constraints.** A **canonical answer + a list of accepted variants/synonyms**
+   (`accept[]`) — including irregular plurals and symbol forms the matcher can't infer
+   (mitochondria/mitochondrion, oxygen/O2, question mark/?). Answer short enough to type fast.
+
+4. **Answer mode.** Free-text typed, judged by the **fuzzy matcher**: normalise (case, spacing,
+   punctuation, leading article, accents) → plural-fold → length-scaled edit distance, with **no
+   typo tolerance on words ≤3 chars**. Device autocorrect/autocapitalise/spellcheck **off** so
+   the kid's real answer is judged. Non-exact accepts are shown ("counted 'oxigen' as 'oxygen'").
+
+5. **Ledger rule.** No options to guess from → **strong** mastery evidence, above MC and well
+   above a 50/50 swipe. **Spelling never affects correctness** (same law as the teach-back).
+
+6. **Slotting.** **Steady round** (typing takes a beat). Short one-word answers *might* suit the
+   speed round with timing tuned.
+
+7. **Composer needs.** Generate the question, the canonical answer, a sensible **`accept[]`**
+   (synonyms, symbol forms, irregular plurals), and a re-teach `why`. Deterministic gate: one
+   clear intended term; `accept[]` well-formed; answer short.
+
+8. **Scale / generalisation.** Strong across subjects; the matcher is deterministic and
+   universal. The per-question risk is **accept-list quality** — the composer must supply the
+   variants the matcher can't infer.
+
+9. **When NOT to use.** Numeric answers (→ Numeric); long/open explanations (→ Teach-back);
+   questions with many equally-valid answers; and **anything where exact spelling IS the skill**
+   (a spelling test) — there "spelling never counts" would defeat the point.
+
+10. **Open decisions (resolve at integration).** Typo-threshold tuning + the `accept[]`
+    conventions the composer must follow; multi-answer support; evidence weight vs the others;
+    confirm steady-slot timing.
 
 ---
 
