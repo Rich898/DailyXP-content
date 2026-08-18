@@ -33,6 +33,10 @@ import re
 STATE_PRIORITY = {"REPAIR": 100, "shaky": 70, "developing": 45, "untested": 30, "solid": 12}
 ASSESS_HORIZON_DAYS = 16          # boost a subject if an assessment falls within this
 
+# Core academic subjects that must each appear at least once per quiz (when live), so a run can't skew
+# entirely to whatever's weakest and starve a subject (e.g. all English/History, no Maths).
+CORE_SUBJECTS = ("Maths", "English", "Science", "History")
+
 # v3.1 question types (numeric/text/cloze/order + hidden x2 + encore) require the v3.1 SHELL to render.
 # GATE: keep this False until the new shells are deployed to Netlify — the old shell can't display the
 # new types and a run would break. Flip to True (one-line commit) once the shells are confirmed live.
@@ -283,6 +287,36 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
             slots[-1]["throwback"] = True
             throwback_topic = cand["topic"]
             n_steady -= 1
+
+    # 1c) SUBJECT COVERAGE — guarantee each live core subject appears at least once, even if its topics
+    # are low-priority. Without this, a subject whose topics are all "untested" (low score) loses every
+    # slot to higher-priority subjects and gets starved forever. Runs before the general fill so the
+    # reserved slots are locked in; the priority fill then tops up the rest. Skipped on boss.
+    if not boss_mode:
+        present = {sl["subject"] for sl in slots}
+        for subj in CORE_SUBJECTS:
+            if subj in present or (n_speed <= 0 and n_steady <= 0):
+                continue
+            cand = phase = None
+            for ph in ("speed", "steady"):                 # prefer speed (recall) for the guaranteed slot
+                if (ph == "speed" and n_speed <= 0) or (ph == "steady" and n_steady <= 0):
+                    continue
+                for t in pool:
+                    if t["subject"] == subj and can_use(t, ph):
+                        cand, phase = t, ph
+                        break
+                if cand:
+                    break
+            if not cand:
+                continue                                    # subject not live / no eligible topic → skip it
+            commit(cand, phase)
+            slots.append(_slot("S" if phase == "speed" else "T", 0, phase, cand,
+                               extra="Subject-coverage slot — guarantees this subject appears in the quiz."))
+            present.add(subj)
+            if phase == "speed":
+                n_speed -= 1
+            else:
+                n_steady -= 1
 
     # 2) steady reasoning — top scorers, subject-spread
     while n_steady > 0:
