@@ -39,10 +39,12 @@ You are given a fixed plan of slots. You fill ONLY the language of each slot. Yo
 you do not add or drop slots, you do not decide difficulty beyond what the guidance says.
 
 Hard rules (a set is rejected if any is broken):
-- SPEED questions are TIMED (a few seconds each) — keep them SHORT. The prompt is ONE brief line, and each
-  option is a WORD or SHORT PHRASE (aim under ~8 words), never a full sentence or multi-step passage. If a
-  child needs more than ~10 seconds just to READ a speed question, it has failed — shorten it. STEADY
-  questions are untimed and MAY be longer where the content needs it.
+- Keep EVERY question SHORT, DIRECT, and about ONE thing — this is the most important rule. Ask a plain
+  question ("Where was Shakespeare born?"), never a "which best reflects..." or "which statement is..."
+  framing. Each option is a SHORT answer — a single word, name, date, or brief phrase (target 1-4 words,
+  never more than ~6), and NEVER a compound sentence that packs in two facts. A child should take in the
+  question and all four options at a glance. This applies to BOTH speed and steady. If an option is a full
+  sentence or contains "and"/"but" joining two facts, it is TOO LONG — rewrite it as a short phrase.
 - Each MC speed/steady question: exactly ONE uncontestable correct answer, present verbatim in its options. (TYPED slots — numeric/text/cloze — have no options; see the typed legend.)
 - Distractors must encode the REAL misconception named in the slot's guidance — not random wrong values.
 - Every speed/steady question has a `why` (1-2 sentences) that re-teaches the point, not just "correct".
