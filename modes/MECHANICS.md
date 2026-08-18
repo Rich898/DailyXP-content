@@ -35,6 +35,7 @@ here before it's ever wired into live quizzes.
 | Plain MC    | LIVE                | One question, four short options, one answer, a re-teach.        |
 | Teach-back  | LIVE                | "Explain it in your own words," graded on verdict + depth.       |
 | Swipe Sort  | APPROVED (not live) | Flick a statement into one of two labelled buckets.              |
+| Numeric     | APPROVED (not live) | Type the maths answer — calculator on method Qs, number pad on mental. |
 
 ---
 
@@ -89,7 +90,56 @@ here before it's ever wired into live quizzes.
 
 ---
 
-## Layer 2 — Mechanic MIX & variety policy — TO DEFINE (placeholder, do not pre-write)
+## Numeric / Calculator — spec
+
+**Status:** APPROVED for fun/quality (v1). NOT yet integrated into live quizzes.
+**Preview / full build:** `modes/numeric/` (README has the design rationale).
+
+1. **What it is.** A typed-answer maths mechanic — no options to guess from. The player types
+   the answer on a keypad; which keypad depends on what the question tests (see Content fit).
+
+2. **Content fit.** Maths questions with a **single numeric answer**, in two sub-types:
+   **method / applied** (area, %, solving, speed, rates) → a **working calculator**, because the
+   skill is the *setup*; and **mental-arithmetic** (number facts, times tables, mental sums) →
+   a **plain number pad**, because the arithmetic *is* the skill.
+
+3. **Content constraints.** The answer is one number (with an optional *display-only* unit —
+   `$`, `cm²`, `km/h` — never typed). Each question is tagged **calc** (method) or **no-calc**
+   (mental). Tag it wrong and you either hand a kid the answer (calc on a fact) or make a
+   method question needlessly painful.
+
+4. **Answer mode.** Typed on a keypad: a computing calculator (`+ − × ÷`, parens, `=`) for
+   method Qs; a plain number pad (digits, `.`, `±`, no operators) for mental Qs.
+
+5. **Ledger rule (two parts).** (a) A typed answer has no options to guess from, so numeric is
+   **stronger** mastery evidence than 4-option MC — a calc-off mental answer is stronger still.
+   Likely weights *more* (opposite end of the dial from a 50/50 swipe). (b) **Honest-signal
+   law:** calculator availability/use is **logged per answer**; a calc-assisted correct answer
+   is recorded as *"solved with a calculator,"* NEVER as mental-arithmetic mastery. Different
+   skills; the parent sees the true one. This is non-negotiable — it's the whole reason the
+   calculator is scoped.
+
+6. **Slotting.** Natural fit for the **steady round** (typing is a beat slower than a tap).
+   Quick mental-arithmetic numeric *could* work in the speed round with timing tuned for typing;
+   method/calculator questions need thinking time → steady. (Exact call = mix policy.)
+
+7. **Composer needs.** Generate a maths question with one numeric answer, the correct value, any
+   display unit, the **calc / no-calc tag**, and a re-teach `why`. Deterministic gate: answer is
+   numeric; the tag matches the question type (arithmetic-is-the-skill → no-calc); units are
+   display-only; answer is unambiguous under the tolerance policy.
+
+8. **Scale / generalisation.** Maths-specific by nature (numeric answers). Strong within maths;
+   deterministic judging via a safe expression evaluator (shunting-yard, no `eval`); performant.
+
+9. **When NOT to use.** Non-maths / non-numeric answers; answers that aren't a single value
+   (ranges, multi-part); anything where a written *explanation* is the point (that's teach-back);
+   answers sensitive to significant-figures/rounding beyond the tolerance policy.
+
+10. **Open decisions (resolve at integration).** Exact evidence weight (numeric vs MC vs swipe)
+    and how calc-availability annotates the ledger; which topics are tagged mental vs method
+    (a curriculum call); tolerance policy for messier answers; speed-round timing for typing.
+
+
 
 Fill this in **once the launch set of mechanics exists**, using the specs above as inputs.
 Questions it will answer:
