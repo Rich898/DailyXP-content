@@ -206,7 +206,7 @@ body{
     <h1>SWIPE<br><em>SORT</em></h1>
     <p>Flick each card into the right bucket. Chain them to set the board on fire.</p>
     <p class="note">Buckets change between rounds — watch the pills.<br>16 cards · 4 subjects · nothing is saved.</p>
-    <div class="build" data-build="8">SWIPE SORT · v8</div>
+    <div class="build" data-build="9">SWIPE SORT · v9</div>
     <button class="bigbtn" id="startbtn">Start</button>
   </section>
 
@@ -526,7 +526,8 @@ function velocity(hist){
   return dt > 0 ? (hist[hist.length-1][1] - hist[i][1]) / dt : 0;
 }
 function paint(el, dx, dy){
-  el.style.transform = 'translate3d(' + dx + 'px,' + dy + 'px,0) rotate(' + clamp(dx/20, -12, 12) + 'deg) scale(1.02)';
+  const s = clamp(1.02 - Math.abs(dx)/220, 0.55, 1.02);   // shrink toward bucket-size as you slide
+  el.style.transform = 'translate3d(' + dx + 'px,' + dy + 'px,0) rotate(' + clamp(dx/20, -12, 12) + 'deg) scale(' + s.toFixed(3) + ')';
   const sl = el.querySelector('.stamp.SL'), sr = el.querySelector('.stamp.SR');
   const o = Math.min(1, Math.abs(dx)/90);
   sl.style.opacity = dx < 0 ? o : 0;

@@ -10,6 +10,14 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v9 changes (18 Aug) — shrink starts during the slide
+Feedback: the shrink only kicked in after release (over the bucket), which felt abrupt.
+Now the card **starts shrinking as you slide it** toward a bucket (scale tied to horizontal
+drag distance, gentle: ~1.0 at centre down to a readable floor). The fly-in continues
+seamlessly from whatever size it's at into the bucket — no jump. 1:1 finger tracking
+(the signed-off drag feel) is unchanged; only scale responds to the drag.
+Dial to tune if wanted: the /220 divisor (smaller = shrinks faster) and the 0.55 floor.
+
 ## v8 changes (18 Aug) — "lands in the bucket" fix
 Playtest feedback (Rich's wife nailed it): it didn't feel like the card went INTO the
 bucket. Root causes: the card faded out mid-air (vanished NEAR the bucket, not into it) and
