@@ -9,14 +9,14 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 55°. What is the alternate angle on the other line?",
-      "answer": "55°",
-      "why": "Alternate angles between parallel lines are always equal, so the answer is 55°. 125° would be the co-interior angle instead.",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 62°. What is the alternate angle on the other line?",
+      "answer": "62°",
+      "why": "Alternate angles sit on opposite sides of the transversal between the parallel lines and are always equal, so the answer is 62°, not the co-interior supplement 118°.",
       "options": [
-        "55°",
-        "125°",
-        "35°",
-        "180°"
+        "62°",
+        "118°",
+        "28°",
+        "90°"
       ],
       "fresh": false
     },
@@ -24,14 +24,14 @@
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Magna Carta 1215 was mainly agreed to limit the power of whom?",
-      "answer": "The king",
-      "why": "Magna Carta forced King John to accept limits on royal power, making him subject to the law like everyone else.",
+      "prompt": "What did Magna Carta say the king had to do before punishing a free man?",
+      "answer": "Follow the law",
+      "why": "Magna Carta 1215 established that even the king was bound by the law and could not punish free men without lawful judgment, limiting royal power.",
       "options": [
-        "The king",
-        "The barons",
-        "The Church",
-        "The peasants"
+        "Follow the law",
+        "Consult the pope",
+        "Ask parliament",
+        "Pay a fine"
       ],
       "fresh": false
     },
@@ -39,14 +39,14 @@
       "id": "S3",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A quadrilateral has two pairs of parallel sides and all four sides equal, but no right angles. What is the most specific name for this shape?",
-      "answer": "Rhombus",
-      "why": "A rhombus has four equal sides and two pairs of parallel sides but does not need right angles. A square needs right angles too, a kite has no parallel sides, and a rectangle needs right angles but not equal sides.",
+      "prompt": "A triangle has one angle of 110° and no equal sides. What type of triangle is it?",
+      "answer": "Obtuse scalene",
+      "why": "An angle over 90° makes a triangle obtuse, and no equal sides makes it scalene, so it is an obtuse scalene triangle.",
       "options": [
-        "Rhombus",
-        "Square with tilt",
-        "Kite shape",
-        "Long rectangle"
+        "Obtuse scalene",
+        "Acute isosceles",
+        "Right angled",
+        "Equilateral"
       ],
       "fresh": false
     },
@@ -54,14 +54,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In which year did the First Crusade set out to capture Jerusalem?",
-      "answer": "1096",
-      "why": "The First Crusade began in 1096, launched after Pope Urban II called for a campaign to take Jerusalem.",
+      "prompt": "Which religion held Jerusalem as a holy city, alongside Christianity and Judaism, during the Crusades?",
+      "answer": "Islam",
+      "why": "Jerusalem was sacred to Christians, Jews, and Muslims alike, which is why control of the city was so fiercely contested during the Crusades.",
       "options": [
-        "1096",
-        "1215",
-        "1348",
-        "1066"
+        "Islam",
+        "Hinduism",
+        "Buddhism",
+        "Sikhism"
       ],
       "fresh": false
     },
@@ -69,14 +69,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What best describes a 'trigger' cause of a historical event?",
-      "answer": "Short-term spark",
-      "why": "A trigger cause is the short-term event that sets things off immediately, unlike long-term causes which build up over years.",
+      "prompt": "The Black Death killed huge numbers of workers. What was a long-term consequence of this labour shortage?",
+      "answer": "Peasants could demand higher wages",
+      "why": "The mass deaths (cause) meant fewer workers were left, so survivors could demand higher wages (consequence). The other options are earlier causes or unrelated events, not results of the labour shortage.",
       "options": [
-        "Short-term spark",
-        "Long-term buildup",
-        "Final result",
-        "Ongoing effect"
+        "Peasants could demand higher wages",
+        "Poor harvests spread across Europe",
+        "Trade routes brought the plague to England",
+        "Rats carried fleas into towns"
       ],
       "fresh": false
     },
@@ -84,14 +84,14 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What does globalisation mainly describe?",
-      "answer": "Growing world interconnection",
-      "why": "Globalisation refers to countries becoming more linked through trade, travel, and communication, not more isolated.",
+      "prompt": "Which of these best shows globalisation increasing interconnection?",
+      "answer": "Global supply chains",
+      "why": "Global supply chains link countries through trade and production, showing how globalisation connects economies worldwide, unlike purely local activities.",
       "options": [
-        "Growing world interconnection",
-        "Countries becoming isolated",
-        "One country ruling others",
-        "Fewer traded goods"
+        "Global supply chains",
+        "Local farmers market",
+        "Village town hall",
+        "School sports day"
       ],
       "fresh": false
     },
@@ -99,14 +99,14 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In which Italian city is Romeo and Juliet set?",
-      "answer": "Verona",
-      "why": "Shakespeare set Romeo and Juliet in Verona, home to the feuding Montague and Capulet families.",
+      "prompt": "Who wrote Romeo and Juliet?",
+      "answer": "William Shakespeare",
+      "why": "Romeo and Juliet was written by William Shakespeare in the 1590s, one of his earliest tragedies.",
       "options": [
-        "Verona",
-        "Venice",
-        "Florence",
-        "Rome"
+        "William Shakespeare",
+        "Christopher Marlowe",
+        "Geoffrey Chaucer",
+        "Ben Jonson"
       ],
       "fresh": false
     },
@@ -114,14 +114,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests whether the type of fertiliser affects plant height, using the same pot size and water amount for every plant. What is the controlled variable here?",
-      "answer": "Pot size and water amount",
-      "why": "The controlled variables are the things kept the same on purpose, like pot size and water, so only the fertiliser's effect is tested.",
+      "prompt": "A student tests whether the amount of water given affects plant height, keeping pot size the same for all plants. What is the independent variable?",
+      "answer": "Amount of water given",
+      "why": "The independent variable is the one the scientist deliberately changes — here, the amount of water. Plant height is measured (dependent), and pot size is kept the same (controlled).",
       "options": [
-        "Pot size and water amount",
-        "Type of fertiliser used",
-        "Height of the plants",
-        "Number of plants tested"
+        "Amount of water given",
+        "Height of the plant",
+        "Size of the pot",
+        "Type of plant used"
       ],
       "fresh": false,
       "repair": true
@@ -130,14 +130,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What technique does Shakespeare use when Romeo and Juliet speak in a shared sonnet at their first meeting?",
-      "answer": "Shared sonnet form",
-      "why": "Romeo and Juliet's first exchange forms a shared sonnet, showing their instant connection through matching poetic structure.",
+      "prompt": "What poetic form do Romeo and Juliet speak in when they first meet at the party?",
+      "answer": "Sonnet",
+      "why": "Shakespeare has Romeo and Juliet share a sonnet at their first meeting, its formal rhyme scheme signalling their instant romantic connection.",
       "options": [
-        "Shared sonnet form",
-        "Extended metaphor only",
-        "Dramatic irony",
-        "Soliloquy"
+        "Sonnet",
+        "Haiku",
+        "Ballad",
+        "Free verse"
       ],
       "fresh": false,
       "throwback": true
@@ -146,14 +146,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the main purpose of asexual reproduction for many simple organisms?",
-      "answer": "Quick population growth",
-      "why": "Asexual reproduction lets organisms multiply rapidly since only one parent is needed, though offspring are genetically identical.",
+      "prompt": "In sexual reproduction, offspring get genetic material from how many parents?",
+      "answer": "Two parents",
+      "why": "Sexual reproduction combines genetic material from two parents, creating genetic variation, unlike asexual reproduction where offspring come from one parent.",
       "options": [
-        "Quick population growth",
-        "Increased gene variation",
-        "Combining two parents",
-        "Producing unique offspring"
+        "Two parents",
+        "One parent",
+        "Three parents",
+        "Zero parents"
       ],
       "fresh": false
     },
@@ -161,14 +161,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 83°. What is the co-interior angle on the other line?",
-      "answer": "97°",
-      "why": "Co-interior angles add up to 180°, so 180° minus 83° gives 97°. They are not equal like alternate angles.",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 105°. What is the co-interior angle on the other line?",
+      "answer": "75°",
+      "why": "Co-interior (allied) angles sum to 180° because they lie between the parallel lines on the same side, so 180° minus 105° gives 75°.",
       "options": [
-        "97°",
-        "83°",
-        "17°",
-        "180°"
+        "75°",
+        "105°",
+        "285°",
+        "15°"
       ],
       "fresh": false
     },
@@ -176,7 +176,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your classmate says: 'In an experiment testing whether room temperature affects how fast ice melts, the melting time is the independent variable because it's what changes the most.' Using an example of your own (not sleep, sunlight, fertiliser, water temperature, or soil type), explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
+      "prompt": "Your classmate says: 'In an experiment testing whether the volume of music affects how fast a person reads, the number of pages read is the independent variable, since that's what changes most.' Using an example of your own, explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
     }
   ]
 }
