@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Ordering — XP Daily prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --field:#0B1220; --ink:#0C1521; --paper:#F7F8F4;
+  --bolt:#FFB800; --bolthi:#FFD34D; --boltdeep:#8A5A00;
+  --reef:#0E6BA8; --reefhi:#39A7DE; --flare:#FF4D29; --kelp:#16A46E;
+  --haze:#8A97AD; --line:rgba(255,255,255,.12);
+  --disp:'Archivo Black','Arial Black',sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--field); color:var(--paper); font-family:var(--body); height:100vh; height:100dvh; overflow:hidden; position:fixed; inset:0; width:100%; overscroll-behavior:none; -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; touch-action:none}
+#bg{position:fixed; inset:0; z-index:0; background:radial-gradient(120% 90% at 50% 8%, #16273f 0%, #0B1220 55%, #070c15 100%)}
+#bg .grid{position:absolute; inset:-25%; background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size:46px 46px; -webkit-mask-image:radial-gradient(circle at 50% 40%, #000 26%, transparent 74%); mask-image:radial-gradient(circle at 50% 40%, #000 26%, transparent 74%)}
+#app{position:relative; z-index:1; height:100%; display:flex; flex-direction:column; max-width:480px; margin:0 auto; padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom); touch-action:none}
+.screen{flex:1; display:none; flex-direction:column}
+.screen.on{display:flex}
+
+#intro{justify-content:center; align-items:center; text-align:center; padding:28px; gap:18px}
+#intro .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.2em; color:var(--haze)}
+#intro h1{font-family:var(--disp); font-size:clamp(44px,15vw,70px); line-height:.92; text-shadow:0 6px 0 rgba(0,0,0,.35)}
+#intro h1 em{font-style:normal; color:var(--bolt); text-shadow:0 0 30px rgba(255,184,0,.55), 0 6px 0 rgba(0,0,0,.35)}
+#intro p{font-size:16px; max-width:32ch; color:#C9D3E2}
+#intro .build{font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:.14em; color:#3a2600; background:var(--bolt); border-radius:999px; padding:5px 14px; box-shadow:0 0 22px rgba(255,184,0,.4)}
+.bigbtn{font-family:var(--disp); font-size:20px; letter-spacing:.06em; text-transform:uppercase; background:linear-gradient(#FFD34D,#FFB800); color:#3a2600; border:none; border-radius:16px; padding:16px 46px; box-shadow:0 6px 0 var(--boltdeep), 0 12px 32px rgba(255,184,0,.4); cursor:pointer}
+.bigbtn:active{transform:translateY(5px); box-shadow:0 1px 0 var(--boltdeep)}
+
+#game{padding:10px 14px 14px; gap:10px}
+.hud{display:flex; align-items:flex-end; justify-content:space-between}
+.hud .lab{font-family:var(--mono); font-size:10px; letter-spacing:.18em; color:var(--haze); text-transform:uppercase; margin-bottom:2px}
+.hud .val{font-family:var(--disp); font-size:22px; line-height:1}
+.hud .xp .val{color:var(--bolthi); text-shadow:0 0 18px rgba(255,184,0,.45)}
+.hud .cnt{text-align:right}
+.hud .cnt .val{font-size:18px; color:#C9D3E2}
+
+.qcard{position:relative; background:radial-gradient(125% 90% at 50% -10%, #FFFFFF 0%, #F6F7F1 60%, #E9EBE3 100%); color:var(--ink); border-radius:18px; box-shadow:0 7px 0 rgba(0,0,0,.35), 0 14px 26px rgba(0,0,0,.45), inset 0 2px 0 rgba(255,255,255,.95); overflow:hidden; margin-top:4px}
+.qcard::after{content:''; position:absolute; inset:8px; border-radius:12px; pointer-events:none; border:1.5px solid rgba(16,27,45,.14); box-shadow:inset 0 0 0 3px rgba(255,255,255,.55)}
+.qcard .in{position:relative; z-index:1; padding:14px 18px 16px; text-align:center}
+.qcard .eyebrow{font-family:var(--mono); font-weight:700; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--reef); display:block; margin-bottom:6px}
+.qcard .q{font-family:var(--disp); font-size:clamp(17px,4.6vw,22px); line-height:1.18; letter-spacing:-.01em; color:var(--ink)}
+
+.axis{display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--haze); padding:0 4px; margin-top:2px}
+#list{position:relative; margin-top:6px}
+.chip{position:absolute; left:0; right:0; top:0; display:flex; align-items:center; gap:12px; height:56px; padding:0 12px 0 10px; border-radius:14px; border:2px solid rgba(255,255,255,.14); background:rgba(255,255,255,.07); color:#fff; touch-action:none; will-change:transform; cursor:grab; box-shadow:0 3px 0 rgba(0,0,0,.3)}
+.chip.lift{cursor:grabbing; background:rgba(255,255,255,.17); box-shadow:0 10px 0 rgba(0,0,0,.4), 0 18px 30px rgba(0,0,0,.5); z-index:10; border-color:rgba(255,184,0,.5)}
+.chip .rank{flex:0 0 30px; height:30px; border-radius:8px; background:var(--reef); color:#fff; font-family:var(--mono); font-weight:700; font-size:15px; display:flex; align-items:center; justify-content:center; transition:background .2s}
+.chip .txt{flex:1; font-weight:600; font-size:15px; line-height:1.15; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.chip .grip{flex:0 0 auto; color:var(--haze); font-size:22px; line-height:1}
+.chip.ok{border-color:var(--kelp); background:rgba(22,164,110,.22); box-shadow:0 0 22px rgba(22,164,110,.5)}
+.chip.ok .rank{background:var(--kelp)}
+.chip.bad{border-color:var(--flare); background:rgba(255,77,41,.18)}
+.chip.bad .rank{background:var(--flare)}
+
+#submit{font-family:var(--disp); font-size:18px; letter-spacing:.05em; text-transform:uppercase; width:100%; padding:15px 0; border-radius:14px; border:none; background:linear-gradient(#FFD34D,#FFB800); color:#3a2600; box-shadow:0 5px 0 var(--boltdeep); cursor:pointer; margin-top:6px}
+#submit:active{transform:translateY(4px); box-shadow:0 1px 0 var(--boltdeep)}
+#result{margin-top:2px}
+.strip{border-radius:14px; padding:12px 16px; font-size:15px; font-weight:600; line-height:1.35}
+.strip.ok{background:rgba(22,164,110,.16); border:2px solid var(--kelp); color:#CFF3E1}
+.strip.bad{background:rgba(255,77,41,.14); border:2px solid var(--flare); color:#FFD9CF}
+.strip b{color:#fff}
+.strip .lil{display:block; margin-top:6px; font-size:13px; font-weight:600; color:#E6EDF5}
+#nextbtn{margin-top:10px; font-family:var(--disp); font-size:16px; text-transform:uppercase; width:100%; padding:13px 0; border-radius:13px; border:2px solid var(--line); background:rgba(255,255,255,.06); color:#fff; cursor:pointer}
+#nextbtn:active{transform:translateY(2px)}
+
+#fx{position:fixed; inset:0; pointer-events:none; z-index:9; overflow:visible}
+.spark{position:fixed; z-index:9; pointer-events:none; border-radius:3px; transform:translate(-50%,-50%); animation:burst .74s cubic-bezier(.15,.6,.4,1) forwards}
+@keyframes burst{0%{transform:translate(-50%,-50%) scale(.3); opacity:1}100%{transform:translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--r)); opacity:0}}
+#flash{position:fixed; inset:0; pointer-events:none; z-index:8; box-shadow:inset 0 0 0 0 rgba(255,77,41,0)}
+#flash.wrong{animation:redflash .5s ease}
+@keyframes redflash{0%{box-shadow:inset 0 0 0 0 rgba(255,77,41,0)}22%{box-shadow:inset 0 0 90px 30px rgba(255,77,41,.5)}100%{box-shadow:inset 0 0 0 0 rgba(255,77,41,0)}}
+#game.shake{animation:screenshake .42s ease}
+@keyframes screenshake{0%,100%{transform:translateX(0)}12%{transform:translateX(-8px)}24%{transform:translateX(7px)}36%{transform:translateX(-6px)}48%{transform:translateX(5px)}60%{transform:translateX(-3px)}72%{transform:translateX(2px)}}
+
+#end{justify-content:center; align-items:center; text-align:center; padding:24px; gap:16px; overflow-y:auto}
+#end .kicker{font-family:var(--mono); font-size:12px; letter-spacing:.2em; color:var(--haze)}
+#end h1{font-family:var(--disp); font-size:clamp(34px,10vw,48px); text-shadow:0 5px 0 rgba(0,0,0,.35)}
+.stats{display:flex; gap:12px; width:100%; max-width:340px}
+.stat{flex:1; background:rgba(255,255,255,.05); border:2px solid var(--line); border-radius:16px; padding:14px 6px}
+.stat b{display:block; font-family:var(--mono); font-size:24px; color:var(--bolthi)}
+.stat span{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--haze)}
+#missbox{width:100%; max-width:360px; text-align:left}
+#missbox h4{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--haze); margin:4px 0 8px}
+.miss{background:rgba(255,255,255,.04); border:2px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:8px; font-size:14px; color:#D6DEEA}
+.miss b{color:#8CF0C0}
+.miss small{display:block; color:var(--haze); margin-top:2px}
+#end .note{font-size:12px; color:var(--haze)}
+@media (prefers-reduced-motion:reduce){#bg .grid{display:none} #game.shake,#flash.wrong{animation:none} .spark{animation-duration:.4s} .chip{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="bg"><div class="grid"></div></div>
+<div id="app">
+
+  <section id="intro" class="screen on">
+    <div class="kicker">XP DAILY · MODE PROTOTYPE</div>
+    <h1>LINE<br><em>UP</em></h1>
+    <p>Drag the tiles into the right order — they slide out of each other's way as you go.</p>
+    <div class="build" data-build="1">ORDERING · v1</div>
+    <button class="bigbtn" id="startbtn">Start</button>
+  </section>
+
+  <section id="game" class="screen">
+    <div class="hud">
+      <div class="cell xp"><div class="lab">Score</div><div class="val" id="xp">0</div></div>
+      <div class="cell cnt"><div class="lab">Question</div><div class="val"><span id="cnum">1</span><span style="color:var(--haze)">/</span><span id="ctot">4</span></div></div>
+    </div>
+    <div class="qcard"><div class="in"><span class="eyebrow" id="eyebrow">Maths</span><div class="q" id="qtext">…</div></div></div>
+    <div class="axis"><span id="axtop">↑ first</span><span id="axbot">last ↓</span></div>
+    <div id="list"></div>
+    <button id="submit">Check order</button>
+    <div id="result"></div>
+  </section>
+
+  <section id="end" class="screen">
+    <div class="kicker">XP DAILY · ORDERING</div>
+    <h1>RUN COMPLETE</h1>
+    <div class="stats">
+      <div class="stat"><b id="exp">0</b><span>XP</span></div>
+      <div class="stat"><b id="eacc">0%</b><span>Perfect</span></div>
+    </div>
+    <div id="missbox"></div>
+    <button class="bigbtn" id="againbtn">Replay</button>
+    <div class="note">Prototype only — no XP is banked, nothing touches the ledger.</div>
+  </section>
+
+</div>
+<div id="fx" aria-hidden="true"></div>
+<div id="flash" aria-hidden="true"></div>
+
+<script>
+'use strict';
+/* ===== ordering questions: items listed in CORRECT order ===== */
+var QUESTIONS = [
+  {subject:'Maths', instr:'Order smallest \u2192 largest', top:'small', bot:'large',
+   items:[{label:'1/4'},{label:'0.5'},{label:'60%'},{label:'0.9'}],
+   why:'1/4 = 0.25, then 0.5, 60% = 0.6, then 0.9.'},
+  {subject:'History', instr:'Order earliest \u2192 latest', top:'earliest', bot:'latest',
+   items:[{label:'Norman Conquest (1066)'},{label:'Magna Carta (1215)'},{label:'Black Death (1348)'},{label:'Gunpowder Plot (1605)'}],
+   why:'1066 \u2192 1215 \u2192 1348 \u2192 1605.'},
+  {subject:'Science', instr:'Order smallest \u2192 largest', top:'smallest', bot:'largest',
+   items:[{label:'Atom'},{label:'Molecule'},{label:'Cell'},{label:'Organ'}],
+   why:'Atoms build molecules, molecules build cells, cells build organs.'},
+  {subject:'English', instr:'Order a plot: start \u2192 end', top:'start', bot:'end',
+   items:[{label:'Exposition'},{label:'Rising action'},{label:'Climax'},{label:'Resolution'}],
+   why:'Exposition sets it up, rising action builds tension, the climax is the turning point, the resolution ends it.'}
+];
+var CONFETTI = ['#FFD34D','#FFB800','#39A7DE','#16E08C','#ffffff'];
+var POINTS = 15, GAP = 10;
+
+var qi=0, xp=0, hits=0, misses=[];
+var items=[], order=[], chipEl={}, N=0, SLOT_H=66, drag=null, phase='idle';
+
+var $ = function(id){ return document.getElementById(id); };
+function range(n){ var a=[]; for(var i=0;i<n;i++) a.push(i); return a; }
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function shuffleDistinct(n){ var a; do{ a=shuffle(range(n)); } while(n>1 && a.every(function(v,i){return v===i;})); return a; }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+function cur(){ return QUESTIONS[qi]; }
+function show(name){ ['intro','game','end'].forEach(function(k){ $(k).classList.toggle('on', k===name); }); }
+
+function start(){ qi=0; xp=0; hits=0; misses=[]; $('ctot').textContent=QUESTIONS.length; $('xp').textContent='0'; show('game'); buildQuestion(); }
+
+function buildQuestion(){
+  var q=cur(); items=q.items; N=items.length; order=shuffleDistinct(N);
+  $('cnum').textContent=qi+1; $('eyebrow').textContent=q.subject; $('qtext').textContent=q.instr;
+  $('axtop').textContent='\u2191 '+q.top; $('axbot').textContent=q.bot+' \u2193';
+  var list=$('list'); list.innerHTML=''; chipEl={};
+  items.forEach(function(it, id){
+    var el=document.createElement('div'); el.className='chip'; el.setAttribute('data-id', id);
+    el.innerHTML='<div class="rank"></div><div class="txt">'+esc(it.label)+'</div><div class="grip">\u283F</div>';
+    list.appendChild(el); chipEl[id]=el; attachDrag(el, id);
+  });
+  SLOT_H = chipEl[0].offsetHeight + GAP;
+  list.style.height = (N*SLOT_H - GAP) + 'px';
+  layoutAll(false);
+  $('submit').style.display=''; $('result').innerHTML='';
+  phase='ordering';
+}
+
+function layoutAll(anim){
+  order.forEach(function(id, slot){
+    var el=chipEl[id];
+    el.querySelector('.rank').textContent = (slot+1);
+    if(drag && id===drag.id) return;              // dragged tile follows the finger, not its slot
+    el.style.transition = anim ? 'transform .22s cubic-bezier(.2,.85,.3,1)' : 'none';
+    el.style.transform = 'translate3d(0,'+(slot*SLOT_H)+'px,0)';
+  });
+}
+
+function attachDrag(el, id){
+  el.addEventListener('pointerdown', function(e){
+    if(phase!=='ordering') return;
+    el.setPointerCapture(e.pointerId);
+    var slot=order.indexOf(id);
+    drag={id:id, pid:e.pointerId, startY:e.clientY, startTop:slot*SLOT_H, curTop:slot*SLOT_H};
+    el.classList.add('lift'); el.style.transition='none';
+    el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)';
+    buzz(8);
+  });
+  el.addEventListener('pointermove', function(e){
+    if(!drag || drag.pid!==e.pointerId || phase!=='ordering') return;
+    drag.curTop = clamp(drag.startTop + (e.clientY - drag.startY), -10, (N-1)*SLOT_H + 10);
+    el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)';
+    var target = clamp(Math.round(drag.curTop / SLOT_H), 0, N-1);
+    var curIdx = order.indexOf(id);
+    if(target !== curIdx){ order.splice(curIdx,1); order.splice(target,0,id); layoutAll(true); }
+  });
+  var release=function(e){
+    if(!drag || drag.pid!==e.pointerId) return;
+    var slot=order.indexOf(id);
+    el.classList.remove('lift');
+    el.style.transition='transform .2s cubic-bezier(.3,1.35,.4,1)';
+    el.style.transform='translate3d(0,'+(slot*SLOT_H)+'px,0)';
+    drag=null;
+  };
+  el.addEventListener('pointerup', release);
+  el.addEventListener('pointercancel', release);
+}
+
+function submit(){
+  if(phase!=='ordering') return;
+  phase='reveal'; $('submit').style.display='none';
+  var correctCount=0;
+  order.forEach(function(id, slot){ var ok=(id===slot); if(ok) correctCount++; chipEl[id].classList.add(ok?'ok':'bad'); });
+  if(correctCount===N){
+    hits++; xp+=POINTS; $('xp').textContent=xp; buzz(18); burstList();
+    $('result').innerHTML='<div class="strip ok">\u2713 Perfect order! <b>+'+POINTS+'</b></div>';
+    setTimeout(nextQ, 1300);
+  } else {
+    buzz([30,50,30]); shakeScreen(); flashWrong();
+    var q=cur();
+    misses.push({q:q, correctCount:correctCount});
+    setTimeout(function(){                              // slide into the correct order — the teaching beat
+      order.forEach(function(id){ chipEl[id].classList.remove('ok','bad'); });
+      order = range(N); layoutAll(true);
+      order.forEach(function(id){ chipEl[id].classList.add('ok'); });
+      var seq = items.map(function(it){ return it.label; }).join('  \u2192  ');
+      $('result').innerHTML='<div class="strip bad">'+correctCount+' of '+N+' were in place. Correct order:'+
+        '<span class="lil">'+esc(seq)+'</span><span class="lil" style="color:var(--haze)">'+esc(q.why)+'</span></div>'+
+        '<button id="nextbtn">Got it \u2192</button>';
+      $('nextbtn').addEventListener('click', nextQ);
+    }, 780);
+  }
+}
+
+function nextQ(){ qi++; if(qi>=QUESTIONS.length) return finish(); buildQuestion(); }
+function finish(){
+  phase='done';
+  $('exp').textContent=xp;
+  $('eacc').textContent=Math.round(100*hits/QUESTIONS.length)+'%';
+  var box=$('missbox');
+  if(misses.length===0){ box.innerHTML='<p style="color:#8CF0C0;font-weight:600">Clean run \u2014 every sequence perfect.</p>'; }
+  else{
+    box.innerHTML='<h4>'+misses.length+' to revisit</h4>'+misses.map(function(m){
+      var seq=m.q.items.map(function(it){return it.label;}).join(' \u2192 ');
+      return '<div class="miss">'+esc(m.q.instr)+'<b> \u2014 '+m.correctCount+'/'+m.q.items.length+' in place</b><small>'+esc(seq)+'</small></div>';
+    }).join('');
+  }
+  show('end');
+}
+
+/* ===== fx ===== */
+function burstList(){ var r=$('list').getBoundingClientRect(); burst(r.left+r.width/2, r.top+r.height/2); }
+function burst(x,y){
+  var fx=$('fx');
+  for(var i=0;i<22;i++){
+    var s=document.createElement('i'); s.className='spark';
+    var ang=Math.random()*Math.PI*2, dist=44+Math.random()*78;
+    s.style.left=x+'px'; s.style.top=y+'px';
+    var sz=7+Math.random()*7; s.style.width=sz+'px'; s.style.height=sz+'px';
+    s.style.background=CONFETTI[i%CONFETTI.length];
+    s.style.setProperty('--tx',(Math.cos(ang)*dist).toFixed(1)+'px');
+    s.style.setProperty('--ty',(Math.sin(ang)*dist+30).toFixed(1)+'px');
+    s.style.setProperty('--r',(Math.random()*540-270).toFixed(0)+'deg');
+    if(Math.random()<0.4) s.style.borderRadius='50%';
+    fx.appendChild(s); (function(el){ setTimeout(function(){ el.remove(); },760); })(s);
+  }
+}
+function shakeScreen(){ var g=$('game'); g.classList.remove('shake'); void g.offsetWidth; g.classList.add('shake'); setTimeout(function(){ g.classList.remove('shake'); },440); }
+function flashWrong(){ var f=$('flash'); f.classList.remove('wrong'); void f.offsetWidth; f.classList.add('wrong'); setTimeout(function(){ f.classList.remove('wrong'); },520); }
+
+$('startbtn').addEventListener('click', start);
+$('againbtn').addEventListener('click', start);
+$('submit').addEventListener('click', submit);
+</script>
+</body>
+</html>
