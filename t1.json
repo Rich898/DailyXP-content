@@ -9,14 +9,14 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet was first performed at which type of London theatre?",
-      "answer": "An open-air playhouse",
-      "why": "Shakespeare's plays, including Romeo and Juliet, were performed at open-air playhouses like the Globe, with daylight performances and no electric lighting.",
+      "prompt": "Which acting company did Shakespeare belong to?",
+      "answer": "The Lord Chamberlain's Men",
+      "why": "Shakespeare was a member and shareholder of the Lord Chamberlain's Men, later renamed the King's Men. The other companies are invented names, not real Elizabethan troupes he belonged to.",
       "options": [
-        "An open-air playhouse",
-        "An indoor concert hall",
-        "A royal palace ballroom",
-        "A university lecture theatre"
+        "The Lord Chamberlain's Men",
+        "The King's Revels Players",
+        "The Admiral's Servants",
+        "The Queen's Comedians"
       ],
       "fresh": false
     },
@@ -24,14 +24,14 @@
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "\"Parting is such sweet sorrow\" uses which technique?",
-      "answer": "Oxymoron",
-      "why": "An oxymoron combines two contradictory ideas, like 'sweet sorrow', to capture mixed emotion in one phrase.",
+      "prompt": "What is it called when a character on stage reveals a hidden identity or feeling to the audience alone?",
+      "answer": "Aside",
+      "why": "An aside is a short remark a character makes directly to the audience, unheard by other characters. A soliloquy is longer and spoken alone on stage, not aimed at the audience mid-scene.",
       "options": [
-        "Oxymoron",
-        "Simile",
-        "Alliteration",
-        "Rhyme scheme"
+        "Aside",
+        "Soliloquy",
+        "Chorus",
+        "Sonnet"
       ],
       "fresh": false
     },
@@ -39,14 +39,14 @@
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Bees carrying pollen between flowers is an example of which process?",
-      "answer": "Cross-pollination",
-      "why": "Cross-pollination happens when pollen moves from one plant to another, often carried by insects like bees, increasing genetic variation.",
+      "prompt": "What is the main advantage of sexual reproduction over asexual reproduction?",
+      "answer": "Genetic variation",
+      "why": "Sexual reproduction mixes genes from two parents, creating genetic variation that helps populations adapt. Asexual reproduction is faster but produces identical clones.",
       "options": [
-        "Cross-pollination",
-        "Asexual budding",
-        "Self-fertilisation",
-        "Binary fission"
+        "Genetic variation",
+        "Faster growth rate",
+        "Fewer offspring needed",
+        "Simpler cell division"
       ],
       "fresh": false
     },
@@ -54,14 +54,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What year is generally given for Rome's fall?",
-      "answer": "476 CE",
-      "why": "476 CE is the traditionally cited year the last Western Roman emperor was deposed, marking the empire's fall.",
+      "prompt": "What replaced centralised Roman government in western Europe after Rome's fall?",
+      "answer": "Local feudal lords",
+      "why": "Power fragmented into local feudal lords controlling their own regions, rather than one central authority. There was no single elected or Byzantine ruler over western Europe.",
       "options": [
-        "476 CE",
-        "1066 CE",
-        "410 CE",
-        "800 CE"
+        "Local feudal lords",
+        "Elected councils",
+        "The Byzantine emperor",
+        "Roman legions still ruling"
       ],
       "fresh": false
     },
@@ -69,14 +69,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In the feudal pyramid, who stood directly below the king?",
-      "answer": "Nobles",
-      "why": "Nobles received land directly from the king in exchange for loyalty and military support, placing them just below him in rank.",
+      "prompt": "In feudal society, what did a lord give a vassal in return for loyalty and service?",
+      "answer": "Land called a fief",
+      "why": "Lords granted vassals land, called a fief, in exchange for military service and loyalty. This land-for-service bond was the core of the feudal relationship.",
       "options": [
-        "Nobles",
-        "Knights",
-        "Peasants",
-        "Merchants"
+        "Land called a fief",
+        "A share of taxes",
+        "A seat on his council",
+        "Freedom from all duties"
       ],
       "fresh": false
     },
@@ -84,13 +84,13 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which quote shows love vs hate through contradiction?",
-      "answer": "\"My only love sprung from my only hate\"",
-      "why": "This line directly fuses love and hate in one contradictory statement, showing the theme through paradox, not romance alone.",
+      "prompt": "In Romeo and Juliet, which line best captures the love vs hate theme through contradiction?",
+      "answer": "\"O brawling love, O loving hate\"",
+      "why": "This line pairs opposite ideas — love and hate — directly, showing how the two themes are tangled together. The other quotes are famous but don't combine the two opposites.",
       "options": [
-        "\"My only love sprung from my only hate\"",
-        "\"It is the east, and Juliet is the sun\"",
-        "\"Parting is such sweet sorrow\"",
+        "\"O brawling love, O loving hate\"",
+        "\"A rose by any other name\"",
+        "\"Wherefore art thou Romeo\"",
         "\"A plague o' both your houses\""
       ],
       "fresh": false
@@ -99,14 +99,14 @@
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which shows the medieval Church acting as a political power?",
-      "answer": "Excommunicating disobedient kings",
-      "why": "Excommunication threatened a ruler's legitimacy and afterlife, giving the Church real political leverage over kings, unlike purely religious rituals.",
+      "prompt": "What payment did the medieval Church demand from ordinary people as a religious duty?",
+      "answer": "Tithes",
+      "why": "Tithes were a portion of income, often a tenth, owed to the Church by ordinary people. Rents and tariffs were different kinds of payments unrelated to Church duty.",
       "options": [
-        "Excommunicating disobedient kings",
-        "Blessing a wedding ceremony",
-        "Teaching Bible stories in church",
-        "Ringing bells for Sunday mass"
+        "Tithes",
+        "Rents",
+        "Ransoms",
+        "Tariffs"
       ],
       "fresh": false
     },
@@ -114,14 +114,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "A student argues that because Jerusalem was eventually lost by the Crusaders, the Crusades left no lasting mark on history. Which response best challenges this using a specific long-term effect?",
-      "answer": "Trade routes opened by the Crusades increased contact between Europe and the Middle East, spreading goods and ideas long after Jerusalem was lost",
-      "why": "Even after Jerusalem changed hands again, the Crusades opened lasting trade and cultural exchange between Europe and the Middle East — a significant effect that has nothing to do with who held the city.",
+      "prompt": "Which Italian cities grew wealthy by transporting and supplying Crusader armies?",
+      "answer": "Venice and Genoa",
+      "why": "Venice and Genoa built major trade wealth by shipping soldiers and supplies to the Holy Land during the Crusades. The other Italian cities were significant but not the main Crusade trade hubs.",
       "options": [
-        "Trade routes opened by the Crusades increased contact between Europe and the Middle East, spreading goods and ideas long after Jerusalem was lost",
-        "The Crusades were fought entirely for religious reasons, so military outcomes in Jerusalem were never really the point of the wars",
-        "European knights who survived the Crusades returned home with more land and titles than before they left for the Holy Land",
-        "The Crusades ended quickly after the first campaign, so their effects on trade and culture were too brief to matter much"
+        "Venice and Genoa",
+        "Rome and Naples",
+        "Milan and Turin",
+        "Florence and Pisa"
       ],
       "fresh": false
     },
@@ -129,14 +129,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which of these best reflects a genuine fact about Shakespeare's life and the Globe Theatre?",
-      "answer": "Shakespeare was born in Stratford-upon-Avon and later performed with his company at the Globe",
-      "why": "Shakespeare was born in Stratford-upon-Avon and worked as an actor and playwright with the Lord Chamberlain's Men, who performed at the Globe. He didn't build the theatre himself, and Verona is the fictional setting of Romeo and Juliet, not his hometown.",
+      "prompt": "Around what year was William Shakespeare born?",
+      "answer": "1564",
+      "why": "Shakespeare was born in 1564 in Stratford-upon-Avon and died in 1616. 1601 and 1616 relate to his later works and death, not his birth.",
       "options": [
-        "Shakespeare was born in Stratford-upon-Avon and later performed with his company at the Globe",
-        "Shakespeare was born in London and built the Globe Theatre himself with his own money",
-        "Shakespeare was born in Stratford-upon-Avon but never performed in London theatres at all",
-        "Shakespeare was born in Verona and moved to London to write for the Globe company"
+        "1564",
+        "1601",
+        "1616",
+        "1550"
       ],
       "fresh": false
     },
@@ -144,14 +144,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which best explains why the balcony scene shows more than 'just romance'?",
-      "answer": "Shakespeare uses light and dark imagery, comparing Juliet to the sun, to elevate her importance and foreshadow the intensity of their doomed love",
-      "why": "The balcony scene uses light/dark imagery and metaphor, not just romantic dialogue — this technique elevates Juliet and hints at the emotional stakes ahead.",
+      "prompt": "What poetic rhythm does Shakespeare mainly use for dialogue in Romeo and Juliet?",
+      "answer": "Iambic pentameter",
+      "why": "Shakespeare wrote most dialogue in iambic pentameter, a rhythm of ten alternating stressed and unstressed syllables. Rhyming couplets appear sometimes but aren't the main structure.",
       "options": [
-        "Shakespeare uses light and dark imagery, comparing Juliet to the sun, to elevate her importance and foreshadow the intensity of their doomed love",
-        "The scene is written in simple prose so the audience can easily follow a straightforward romantic conversation between the two lovers",
-        "The scene relies mainly on stage directions describing physical movement rather than any language technique or imagery",
-        "The scene uses comic relief through the Nurse's jokes to lighten the romantic mood between Romeo and Juliet"
+        "Iambic pentameter",
+        "Trochaic tetrameter",
+        "Free verse",
+        "Rhyming couplets only"
       ],
       "fresh": false
     },
@@ -159,14 +159,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A gardener notices a spider plant growing small identical plantlets on runners with no flowers involved. Which term best describes this reproduction, and why?",
-      "answer": "Asexual reproduction, because only one parent is involved and the offspring are genetically identical to it",
-      "why": "Asexual reproduction needs only one parent and produces genetically identical offspring, exactly as seen with spider plant runners forming clones without flowers or gametes.",
+      "prompt": "Why do many flowering plants rely on insects or wind for pollination instead of self-pollinating?",
+      "answer": "It increases genetic variation",
+      "why": "Cross-pollination mixes genetic material from different plants, increasing variation and helping offspring survive changing conditions. Self-pollination is easier but produces less varied offspring.",
       "options": [
-        "Asexual reproduction, because only one parent is involved and the offspring are genetically identical to it",
-        "Sexual reproduction, because two separate plant structures combined their genetic material to form the plantlets",
-        "Cross-pollination, because the plantlets formed after pollen was transferred between two separate flowers",
-        "Fertilisation, because male and female gametes joined together inside the runner to create new plantlets"
+        "It increases genetic variation",
+        "It speeds up flowering time",
+        "It reduces need for sunlight",
+        "It prevents seed formation"
       ],
       "fresh": false
     },
@@ -174,7 +174,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says the Crusades are barely worth studying because they were 'religious wars fought over a city that changed hands again anyway.' Using your own reasoning, explain what this view overlooks — pick one specific long-term effect (such as trade, cultural exchange, or the growth of Italian port cities) and explain how it shows the Crusades mattered beyond who controlled Jerusalem."
+      "prompt": "A classmate says the Crusades only matter for religious history and have nothing to do with economics. Using your own reasoning, explain how the Crusades affected trade and the wealth of specific regions."
     }
   ]
 }
