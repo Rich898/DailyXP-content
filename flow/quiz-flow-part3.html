@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Quiz Flow — Part 3 · Frames × Loadout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8F4; --ink:#0C1521; --ink2:#33415A; --line:#E2E6DE;
+  --bolt:#B57A00; --reef:#0E6BA8; --kelp:#0E8A5F; --haze:#7A8496;
+  --disp:'Archivo Black','Arial Black',sans-serif; --body:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.5; -webkit-text-size-adjust:100%}
+.wrap{max-width:760px; margin:0 auto; padding:26px 18px 60px}
+header{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px}
+.kick{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--haze)}
+h1{font-family:var(--disp); font-size:clamp(28px,7.5vw,44px); line-height:1; margin:6px 0 8px}
+.q{background:#FDF7E6; border:1.5px solid #F0DFA6; border-left:5px solid var(--bolt); border-radius:10px; padding:12px 15px; font-size:14px; color:#4A3A0E; margin-top:10px}
+.two{display:flex; gap:12px; margin:22px 0}
+.layer{flex:1; border:2px solid var(--ink); border-radius:14px; padding:14px 15px; background:#fff}
+.layer .t{font-family:var(--disp); font-size:16px}
+.layer .d{font-size:13px; color:var(--ink2); margin-top:4px}
+.eq{align-self:center; font-family:var(--disp); font-size:24px; color:var(--haze)}
+.big{font-family:var(--disp); font-size:clamp(15px,4vw,18px); line-height:1.3; background:#EAF3F9; border-left:5px solid var(--reef); border-radius:10px; padding:12px 15px; color:#0A2A3D; margin:14px 0}
+.sec{margin-top:28px}
+.sec h2{font-family:var(--disp); font-size:19px; margin-bottom:8px; padding-bottom:5px; border-bottom:2px solid var(--line)}
+ul{list-style:none; margin:6px 0}
+li{position:relative; padding:6px 0 6px 20px; font-size:14.5px; border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:0}
+li::before{content:''; position:absolute; left:2px; top:13px; width:6px; height:6px; border-radius:50%; background:var(--bolt)}
+li b{color:var(--ink)}
+table{width:100%; border-collapse:collapse; margin:10px 0; font-size:13.5px}
+th,td{text-align:left; padding:10px 10px; border-bottom:1px solid var(--line); vertical-align:middle}
+th{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--haze); background:#F0F2ED}
+td b{color:var(--ink)}
+.zone{display:inline-flex; align-items:center; gap:8px; font-weight:700}
+.chip{width:20px; height:20px; border-radius:6px; box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.risk{margin-top:22px; background:#FBEEE9; border:1.5px solid #E7B7A6; border-left:5px solid #C23A20; border-radius:10px; padding:13px 15px; font-size:14px; color:#5A2417}
+.risk b{color:#3D160E}
+.open{margin-top:22px; border:2px dashed #C7CDBF; border-radius:12px; padding:14px 18px; background:#FBFCF9; font-size:13.5px; color:var(--ink2)}
+.open h3{font-family:var(--mono); font-weight:700; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--haze); margin-bottom:6px}
+.foot{margin-top:30px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; color:var(--haze)}
+code{font-family:var(--mono); font-size:.86em; background:#EEF0EC; padding:1px 5px; border-radius:4px}
+.clock{display:flex; gap:12px; margin:10px 0}
+.clk{flex:1; background:#fff; border:2px solid var(--line); border-radius:12px; padding:12px 14px}
+.clk .h{font-family:var(--mono); font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--reef)}
+.clk .b{font-size:13px; color:var(--ink2); margin-top:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kick">XP Daily · Quiz Flow · Part 3</div>
+    <h1>Frames × Loadout</h1>
+    <div class="q">Rich's question: now the loadout makes every day varied, does that change Wednesday and Friday? <b>Yes — it frees them to become what events are actually for.</b></div>
+  </header>
+
+  <div class="sec">
+    <h2>The insight</h2>
+    <p style="font-size:14px; color:var(--ink2)">The events were doing <b>two jobs at once</b> — worth pulling apart:</p>
+    <ul>
+      <li><b>Variety</b> — "today ≠ yesterday." The <b>loadout now owns this</b>.</li>
+      <li><b>Occasion</b> — "today is a <i>landmark</i>: purpose, stakes, emotion." This is what events are <i>for</i>.</li>
+    </ul>
+    <p style="font-size:14px; color:var(--ink2)">Variety is spice; occasion is a landmark. The tell that the old events were mis-defined — <i>"both are just different ways of doing MC"</i> — is that they were named after a <b>legacy mechanic</b>, not their essence. Battleground's essence is <i>claim your weak spots, no-lose, end-of-week redemption</i>; MC was incidental.</p>
+  </div>
+
+  <div class="two">
+    <div class="layer"><div class="t">Frame</div><div class="d">What <i>kind</i> of day it is — purpose, stakes, emotion. Neutral, or an event landmark.</div></div>
+    <div class="eq">×</div>
+    <div class="layer"><div class="t">Loadout</div><div class="d">Which <i>mechanics</i> fill it, dealt from the rotating deck.</div></div>
+  </div>
+  <div class="big">Event frames are special frames; the loadout fills them — with the FULL deck now, not just MC. Events don't compete with the loadout; the loadout powers them.</div>
+
+  <div class="sec">
+    <h2>Two rotation clocks</h2>
+    <div class="clock">
+      <div class="clk"><div class="h">Daily</div><div class="b">Mechanics rotate — the deck (Part 2).</div></div>
+      <div class="clk"><div class="h">By chapter</div><div class="b">Event frames rotate — a bank of frames.</div></div>
+    </div>
+    <p style="font-size:14px; color:var(--ink2)">Wednesday & Friday become <b>frame slots</b> that different frames rotate through over a term — so even the events stay fresh. (Realises SEASONS' "the event loadout is a chapter-level variable.")</p>
+  </div>
+
+  <div class="sec">
+    <h2>Battleground, reimagined</h2>
+    <p style="font-size:14px; color:var(--ink2)">Frame unchanged: <b>4 claimable zones on the kid's weak topics, no-lose, territory bar, "% claimed."</b> The loadout now fills each zone with the <b>best mechanic for that topic</b> — each zone wearing that mechanic's signature colour, so the board reads at a glance:</p>
+    <table>
+      <tr><th>The weak topic is…</th><th>Claim it by…</th></tr>
+      <tr><td>a vocab / key term</td><td><span class="zone"><span class="chip" style="background:#B26BE6"></span><b>typing it</b> — Short-text</span></td></tr>
+      <tr><td>a sequence / timeline / method</td><td><span class="zone"><span class="chip" style="background:#FFB800"></span><b>ordering it</b> — Ordering</span></td></tr>
+      <tr><td>a maths method</td><td><span class="zone"><span class="chip" style="background:#14C7C7"></span><b>solving it</b> — Numeric</span></td></tr>
+      <tr><td>a true/false-able fact</td><td><span class="zone"><span class="chip" style="background:#39A7DE"></span><b>swiping it</b> — Swipe</span></td></tr>
+      <tr><td>a plain fact / concept</td><td><span class="zone"><span class="chip" style="background:#16E08C"></span>picking it — MC / spot-the-lie</span></td></tr>
+    </table>
+    <p style="font-size:13.5px; color:var(--ink2)">"Claim your ground" becomes a <b>varied, multi-gesture redemption run</b> — far richer than four MC. The teach-back finishing move stays (explain the topic you just reclaimed).</p>
+  </div>
+
+  <div class="sec">
+    <h2>Blitz, reimagined</h2>
+    <ul>
+      <li>Frame = <b>tempo / energy</b>: fast, high-score, midweek. Filled with <b>fast</b> mechanics (rapid swipes, quick MC, mental Numeric) — "a fast day," not "an MC day."</li>
+      <li><b>Reversed</b> becomes a <b>card in the deck</b> — featured on Blitz day, but free to appear occasionally elsewhere. Decoupled from Wednesday.</li>
+    </ul>
+    <p style="font-size:13px; color:var(--haze)">Bonus — this fixes the naming trap: Wed/Fri are <b>frame slots</b>; the frame in each can rotate. No more "<code>boss</code> directive that produces Battleground."</p>
+  </div>
+
+  <div class="risk"><b>The risk to hold onto:</b> events derive power from <b>contrast</b>. Now the baseline is exciting, an event must be a real <b>step-change</b> (higher stakes / distinct frame / bigger reward), or it blends into "another varied day." Keep normal days a comfortable <i>daily run</i> so events stand out.</div>
+
+  <div class="open">
+    <h3>Open — event model</h3>
+    The bank of event frames (energy, redemption, boss, mystery…) · chapter rotation schedule · 2 events/week vs fewer (lean: keep both — midweek energy + Friday consolidation) · how the loadout picks the best mechanic per Battleground zone.
+  </div>
+
+  <div class="foot">Source of truth: QUIZ-FLOW.md · Part 3</div>
+
+</div>
+</body>
+</html>

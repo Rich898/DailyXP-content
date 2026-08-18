@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>XP Daily — Quiz Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8F4; --card:#FFFFFF; --ink:#0C1521; --ink2:#33415A; --line:#E2E6DE;
+  --bolt:#B57A00; --bolthi:#FFB800; --reef:#0E6BA8; --kelp:#0E8A5F; --flare:#C23A20; --haze:#7A8496;
+  --disp:'Archivo Black','Arial Black',sans-serif; --body:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.5; -webkit-text-size-adjust:100%}
+.wrap{max-width:760px; margin:0 auto; padding:26px 18px 60px}
+header{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px}
+.kick{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--haze)}
+h1{font-family:var(--disp); font-size:clamp(30px,8vw,46px); line-height:1; margin:6px 0 8px}
+.sub{font-size:14px; color:var(--ink2); max-width:60ch}
+.sec{margin-top:34px}
+.sec > h2{font-family:var(--disp); font-size:19px; display:flex; align-items:center; gap:10px; margin-bottom:4px}
+.sec > h2 .n{flex:0 0 28px; width:28px; height:28px; border-radius:8px; background:var(--ink); color:var(--paper); font-family:var(--mono); font-size:15px; display:flex; align-items:center; justify-content:center}
+.sec > .lead{font-size:13px; color:var(--haze); margin:0 0 12px 38px}
+.block{margin-left:38px}
+h3{font-family:var(--mono); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--reef); margin:16px 0 8px}
+h3.dim{color:var(--haze)}
+ul{list-style:none; margin:0}
+li{position:relative; padding:6px 0 6px 20px; font-size:14.5px; border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:0}
+li::before{content:''; position:absolute; left:2px; top:13px; width:6px; height:6px; border-radius:50%; background:var(--bolt)}
+li b{color:var(--ink)}
+.pill{display:inline-block; font-family:var(--mono); font-weight:700; font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:999px; vertical-align:middle; margin-right:6px}
+.p-live{background:#E1F3EA; color:var(--kelp); border:1px solid #B8E2CD}
+.p-appr{background:#FDF1D6; color:var(--bolt); border:1px solid #F2D89A}
+.p-dorm{background:#EEF0EC; color:var(--haze); border:1px solid var(--line)}
+.p-park{background:transparent; color:var(--haze); border:1px dashed #C7CDBF}
+table{width:100%; border-collapse:collapse; margin:8px 0; font-size:13.5px}
+th,td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+th{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--haze); background:#F0F2ED}
+tr td:first-child{font-weight:700; white-space:nowrap}
+.tot{font-family:var(--mono); font-weight:700; color:var(--reef)}
+.callout{margin:22px 0 0 38px; background:#FBEEE9; border:1.5px solid #E7B7A6; border-left:5px solid var(--flare); border-radius:10px; padding:13px 15px; font-size:13.5px; color:#5A2417}
+.callout .h{font-family:var(--mono); font-weight:700; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--flare); display:block; margin-bottom:5px}
+.part2{margin-top:40px; border:2px dashed #C7CDBF; border-radius:12px; padding:18px 20px; background:#FBFCF9}
+.part2 h2{font-family:var(--disp); font-size:18px; margin-bottom:8px}
+.part2 p{font-size:13.5px; color:var(--ink2)}
+.foot{margin-top:34px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; color:var(--haze)}
+code{font-family:var(--mono); font-size:.86em; background:#EEF0EC; padding:1px 5px; border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kick">XP Daily · Working Doc</div>
+    <h1>Quiz Flow</h1>
+    <p class="sub">Part 1 is the honest inventory of every part we have. Part 2 (the flow design) is the next step. Verified 18 Aug 2026 against the code and real composed quizzes — not from memory.</p>
+  </header>
+
+  <div class="sec">
+    <h2><span class="n">1</span> Answer mechanics</h2>
+    <p class="lead">How a single question is played.</p>
+    <div class="block">
+      <h3>Live</h3>
+      <ul>
+        <li><span class="pill p-live">Live</span><b>Plain MC</b> — one question, four short options, one answer, a re-teach.</li>
+        <li><span class="pill p-live">Live</span><b>Teach-back</b> — explain in your own words; LLM-graded on verdict + depth. 1 slot every run.</li>
+        <li><span class="pill p-live">Live</span><b>Confidence wager</b> (steady) — pick, then "How sure?" <b>Sure / Think so / Guessing</b> → Lock it in. This is the scheduling signal — it <b>gates ledger promotion</b> (§5), not just logged.</li>
+        <li><span class="pill p-live">Live</span><b>Reversed</b> (Wed speed mutator) — prompt states the ANSWER, options are candidate QUESTIONS. Fact slots only; calculations stay standard recall.</li>
+        <li><span class="pill p-live">Live</span><b>Battleground formats</b> (Friday-only, all 4-option) — spot-the-lie / true-false / sum-as-MC / MC, varied across the four zones.</li>
+      </ul>
+      <h3>Approved — built &amp; specced, not yet integrated</h3>
+      <ul>
+        <li><span class="pill p-appr">Approved</span><b>Swipe Sort</b> — flick a statement into one of two labelled buckets.</li>
+        <li><span class="pill p-appr">Approved</span><b>Numeric</b> — type the answer; calculator on method Qs, plain pad on mental (scoped + logged).</li>
+        <li><span class="pill p-appr">Approved</span><b>Ordering</b> — drag scrambled tiles into sequence (live reflow).</li>
+        <li><span class="pill p-appr">Approved</span><b>Short-text</b> — type a word or two; fuzzy matcher forgives typos/variants.</li>
+      </ul>
+      <h3 class="dim">Dormant · built then reverted (code inert)</h3>
+      <ul>
+        <li><span class="pill p-dorm">Dormant</span>Standard-run format variety, hidden in-app ×2, encore, old interactive ordering, teach-back three-lights, old typed inputs.</li>
+      </ul>
+      <h3 class="dim">Parked</h3>
+      <ul>
+        <li><span class="pill p-park">Parked</span><b>Tap-the-diagram</b> — a content-sourcing bet, not a shell build.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">2</span> Modes</h2>
+    <p class="lead">Quiz shapes / the weekly rhythm.</p>
+    <div class="block">
+      <table>
+        <tr><th>Day</th><th>Mode</th><th>Shape</th><th>Total</th></tr>
+        <tr><td>Mon/Tue/Thu</td><td><b>Standard</b></td><td>7 speed + 4 steady + 1 teach</td><td class="tot">12</td></tr>
+        <tr><td>Wed</td><td><b>Reversed Blitz</b></td><td>10 reversed-speed + 2 steady + 1 teach</td><td class="tot">13</td></tr>
+        <tr><td>Fri</td><td><b>Battleground</b></td><td>2 speed + 4 steady + 1 teach · claim 4 weak-topic zones, never win/lose, "% claimed"</td><td class="tot">7</td></tr>
+      </table>
+      <ul>
+        <li><b>Boss Nights</b> — preserved <i>future</i> mode (losable, HP, finishing move). Not wired; never Friday.</li>
+        <li><b>Season structure</b> — term → season; chapters → weeks. Constant weekly skeleton (Mon–Fri, a mid-week mutator slot, a Friday boss slot, weekends off). The event loadout is a chapter-level variable — novelty from rotation, not constant invention.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">3</span> In-quiz tools &amp; systems</h2>
+    <p class="lead">Features within a run.</p>
+    <div class="block">
+      <ul>
+        <li><b>Heats</b> — Heat 1 = speed round, Heat 2 = steady round, then the teach-back.</li>
+        <li><b>Timer</b> — speed round only (fuse + countdown, red under 6s; timeout = miss).</li>
+        <li><b>Combo</b> — speed round; ×N with a bonus at ≥2.</li>
+        <li><b>Skip</b> — "it'll come back around"; on a <code>fresh</code> topic, "I'll check when your class gets there."</li>
+        <li><b>Re-teach</b> — the "why" shown on every question.</li>
+        <li><b>XP / scoring</b>; <b>Blitz double-XP</b> at the family weekly-tally layer (never in-app).</li>
+        <li><b>Achievements / badges</b> — Sure Shot, Clean Run, Blitz Master/PB, etc.</li>
+        <li><b>Territory bar / % claimed</b> — Battleground only.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">4</span> Planner intelligence</h2>
+    <p class="lead">What picks the questions — generation-side, but it shapes the run.</p>
+    <div class="block">
+      <ul>
+        <li><b>Subject balance</b> — every core subject guaranteed, capped per run.</li>
+        <li><b>Repair</b> — weakest topics first.</li>
+        <li><b>Throwback</b> (LAW 3) — one aged-mastered topic in <i>every</i> run (continuous, not an event).</li>
+        <li><b>Fresh</b> — current class topics from the weekly Canvas sweep.</li>
+        <li><b>Answer-length gate</b> (LAW 1) — bans the "tap the longest option" tell.</li>
+        <li><b>Format bank</b> (LAW 2) — see the flagged discrepancy below.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">5</span> The ledger / IP</h2>
+    <p class="lead">The state under everything.</p>
+    <div class="block">
+      <ul>
+        <li><b>Two axes, independent</b> — <b>confidence</b> → scheduling (when to re-test); <b>depth</b> → reporting (what parents see). Solid is reached only by a confident, calm, <b>spaced</b> confirm.</li>
+        <li><b>Promotion logic</b> (<code>state_writer.py</code>): <b>Sure + correct</b> → can move toward solid (calm + spaced) · <b>Think so + correct</b> → developing at most, never straight to solid · <b>Guessing / lucky / trivially-fast correct</b> → untested, no promotion · <b>any wrong / lucky / trivial-correct</b> → resets a REPAIR topic's confirms to 0.</li>
+        <li>Deterministic code owns all scheduling + state; the <b>LLM only does language</b>.</li>
+        <li><b>Curriculum taxonomy</b> — maps messy Canvas content onto stable, masterable topics (the moat).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="n">6</span> Rules &amp; laws</h2>
+    <p class="lead">The constraints everything obeys.</p>
+    <div class="block">
+      <ul>
+        <li><b>Fair judging</b> — numeric equivalence (0.75 = ¾), fuzzy text; a right answer is never failed on a technicality.</li>
+        <li><b>Spelling &amp; punctuation are coaching-only</b> — never demote mastery.</li>
+        <li><b>Confidence is the scheduling signal</b> — the one player input that gates promotion.</li>
+        <li><b>Calculator use is logged</b> — calc-assisted correct is never counted as mental mastery.</li>
+        <li><b>Evidence weight</b> — a swipe (50/50) is weak; MC is medium; typed / numeric / ordering are strong.</li>
+        <li><b>No negation framing in the fast rounds</b> — spot-the-lie is Friday-only.</li>
+        <li><b>Short, fast-to-READ speed questions</b> — no walls of text, no puzzles in the timed round.</li>
+        <li><b>Reordering must be real drag</b> (Pointer Events, live slide) — never tap-to-order or HTML5 drag.</li>
+        <li><b>Process</b> — one mechanic at a time → isolated playable prototype → approved for fun AND quality → only then integrated.</li>
+        <li><b>Parent comms</b> — silence is the only "not done" signal; transparency law on the kid wrap.</li>
+        <li><b>SEASONS laws 1–5</b> — answer-length gate · format bank · throwback continuous · runtime≠target · new input types deferred (now being done as the approved mechanics).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="h">⚠ Flagged discrepancy — validated against real output</span>
+    <b>SEASONS.md line 133</b> says the standard-run format bank rotates 6 MC-family formats so "no run is 11 identical recall MC." Real standard quizzes (18 Aug) are <b>11 recall-MC, zero variety</b> — that rotation was reverted; variety is <b>Friday-Battleground-only</b> (which line 18 correctly states). Line 133 is stale and contradicts line 18. Recommend reconciling.
+  </div>
+
+  <div class="part2">
+    <h2>Part 2 — The Flow (to design)</h2>
+    <p>Empty. This is where we design what a run actually <i>feels</i> like now there's a real set of mechanics — how the approved mechanics slot into Heat 1 / Heat 2 / teach-back, per mode, without becoming a confusing pile. This is Layer 2 of the mechanics toolbox, finally with enough inputs (§1–6) to design properly.</p>
+  </div>
+
+  <div class="foot">Source of truth: QUIZ-FLOW.md · CURRENT-STATE.md · SEASONS.md · LEDGER-RULES.md · modes/MECHANICS.md</div>
+
+</div>
+</body>
+</html>

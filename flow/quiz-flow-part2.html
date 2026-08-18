@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Quiz Flow — Part 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F8F4; --card:#FFFFFF; --ink:#0C1521; --ink2:#33415A; --line:#E2E6DE;
+  --bolt:#B57A00; --reef:#0E6BA8; --kelp:#0E8A5F; --haze:#7A8496;
+  --disp:'Archivo Black','Arial Black',sans-serif; --body:'Space Grotesk',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.5; -webkit-text-size-adjust:100%}
+.wrap{max-width:760px; margin:0 auto; padding:26px 18px 60px}
+header{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px}
+.kick{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--haze)}
+h1{font-family:var(--disp); font-size:clamp(30px,8vw,46px); line-height:1; margin:6px 0 8px}
+.brief{background:#FDF7E6; border:1.5px solid #F0DFA6; border-left:5px solid var(--bolt); border-radius:10px; padding:12px 15px; font-size:14px; color:#4A3A0E; margin-top:10px}
+.brief b{color:#2C2408}
+.oneline{font-family:var(--disp); font-size:clamp(17px,4.6vw,21px); line-height:1.25; margin:28px 0 6px}
+.sec{margin-top:30px}
+.sec h2{font-family:var(--disp); font-size:19px; margin-bottom:8px; padding-bottom:5px; border-bottom:2px solid var(--line)}
+ul{list-style:none; margin:6px 0}
+li{position:relative; padding:6px 0 6px 20px; font-size:14.5px; border-bottom:1px solid var(--line)}
+li:last-child{border-bottom:0}
+li::before{content:''; position:absolute; left:2px; top:13px; width:6px; height:6px; border-radius:50%; background:var(--bolt)}
+li b{color:var(--ink)}
+.rule{background:#EAF3F9; border:1.5px solid #BEDDEE; border-left:5px solid var(--reef); border-radius:10px; padding:12px 15px; font-size:14px; color:#123A52; margin:12px 0}
+.rule b{color:#0A2A3D}
+table{width:100%; border-collapse:collapse; margin:10px 0; font-size:14px}
+th,td{text-align:left; padding:10px 10px; border-bottom:1px solid var(--line); vertical-align:middle}
+th{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--haze); background:#F0F2ED}
+.sw{display:inline-flex; align-items:center; gap:9px; font-weight:600}
+.chip{width:24px; height:24px; border-radius:7px; box-shadow:inset 0 0 0 1px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.15)}
+.mono{font-family:var(--mono); font-size:12.5px; color:var(--ink2)}
+.dep{margin-top:22px; background:#FBEEE9; border:1.5px solid #E7B7A6; border-left:5px solid #C23A20; border-radius:10px; padding:13px 15px; font-size:14px; color:#5A2417}
+.dep b{color:#3D160E}
+.open{margin-top:22px; border:2px dashed #C7CDBF; border-radius:12px; padding:14px 18px; background:#FBFCF9; font-size:13.5px; color:var(--ink2)}
+.open h3{font-family:var(--mono); font-weight:700; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--haze); margin-bottom:6px}
+.foot{margin-top:30px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; color:var(--haze)}
+code{font-family:var(--mono); font-size:.86em; background:#EEF0EC; padding:1px 5px; border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kick">XP Daily · Quiz Flow · Part 2</div>
+    <h1>The Flow</h1>
+    <div class="brief">The brief, in Rich's words: <b>"fun, and you don't quite know what today holds vs it being the same format every day."</b></div>
+  </header>
+
+  <div class="oneline">Same three modes — but the mechanics that fill them are dealt from a rotating daily loadout.</div>
+  <p style="font-size:14px; color:var(--ink2)">Every day feels different at the door; the learning machine underneath is identical. Novelty from <b>rotation of a fixed bank</b>, not constant invention — sustainable, and it avoids the confusing pile we reverted.</p>
+
+  <div class="sec">
+    <h2>The block model</h2>
+    <ul>
+      <li>A run is a sequence of <b>blocks</b>. Each block = <b>one mechanic, ~3 questions</b> (3 is the starting bet — a dial we tune on the boys).</li>
+      <li>Blocks sit in the mode's fixed skeleton: <b>Heat 1 (speed) → Heat 2 (steady) → teach-back finale.</b></li>
+      <li>Meeting a topic three ways across a run (swipe it, type it, order it) is deliberate <b>interleaving</b> — better for retention and transfer than drilling one gesture.</li>
+    </ul>
+    <div class="rule"><b>The core rule:</b> unpredictable day-to-day, coherent within a run. The gesture never changes <i>inside</i> a block — a block is one clear thing. The surprise is at the <b>doorway between blocks, never mid-question.</b> (Exactly what the reverted "new mechanic every question" pile got wrong.)</div>
+  </div>
+
+  <div class="sec">
+    <h2>The daily loadout</h2>
+    <ul>
+      <li>The loadout <b>deals which blocks, in which order</b>, into today's mode — like a daily-challenge / roguelike seed.</li>
+      <li>Mon/Tue/Thu = <b>Standard</b> mode, a different loadout each day. Wed = <b>Reversed Blitz</b>, Fri = <b>Battleground</b> — the two landmark events.</li>
+      <li>Fast gestures (<b>Swipe, Quick Recall</b>) fill Heat 1; steadier ones (<b>Numeric, Ordering, Short-text, Confidence-MC</b>) fill Heat 2. The exact rotation + placement is the <b>mix policy</b> (still to detail).</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>The curated frame (the polish)</h2>
+    <ul>
+      <li><b>"Today's run" reveal</b> — the run laid out as a <i>route</i> (blocks, colours, counts, length). The anticipation beat: "what've I got today." Different route tomorrow.</li>
+      <li><b>Transition cards</b> ("loading cards") between blocks — Heat label, block N of N, the mechanic (icon + colour + name), a one-line what's-next, the count, and a <b>progress rail</b>. This doorway makes a gesture-switch feel intentional and gives the run <b>chapters</b>.</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <h2>Length driven by signal (not padding)</h2>
+    <ul>
+      <li>Everyday run extends modestly — <b>mid-teens, not 12</b> — tolerable <i>only because</i> it's varied.</li>
+      <li>Extra slots weight toward <b>signal</b>: a confidence-tagged steady question or a teach-back tells the ledger far more than another plain MC. <b>Quantity of answers ≠ quantity of signal.</b></li>
+      <li><b>Length flexes by day</b> — some days a quick 10, some a meaty 16 (Wed 13, Fri 7). Another "what's today" lever.</li>
+    </ul>
+    <div class="rule"><b>The real ceiling is the streak.</b> The run must be finished every day — the whole product depends on it. A 12 they always finish beats a 20 they bail on twice a week. <b>The number is set by watching the boys' completion, not guessed.</b></div>
+  </div>
+
+  <div class="sec">
+    <h2>The mechanic colour system — a visual language</h2>
+    <p style="font-size:14px; color:var(--ink2)">Each mechanic has a <b>signature colour, used everywhere it appears</b> — reveal, transition card, the mechanic's own screen, and the reports. The colour becomes learnable ("violet = type a word"), and the product coheres into one system.</p>
+    <table>
+      <tr><th>Mechanic</th><th>Colour</th><th>Hex</th></tr>
+      <tr><td><span class="sw"><span class="chip" style="background:#16E08C"></span>Quick Recall (MC)</span></td><td>green</td><td class="mono">#16E08C</td></tr>
+      <tr><td><span class="sw"><span class="chip" style="background:#39A7DE"></span>Swipe Sort</span></td><td>blue</td><td class="mono">#39A7DE</td></tr>
+      <tr><td><span class="sw"><span class="chip" style="background:#14C7C7"></span>Numeric</span></td><td>teal</td><td class="mono">#14C7C7</td></tr>
+      <tr><td><span class="sw"><span class="chip" style="background:#FFB800"></span>Ordering</span></td><td>gold</td><td class="mono">#FFB800</td></tr>
+      <tr><td><span class="sw"><span class="chip" style="background:#B26BE6"></span>Short-text</span></td><td>violet</td><td class="mono">#B26BE6</td></tr>
+      <tr><td><span class="sw"><span class="chip" style="background:#FF6A45"></span>Teach-back</span></td><td>coral</td><td class="mono">#FF6A45</td></tr>
+    </table>
+    <p style="font-size:13px; color:var(--haze)">Colours are tunable. <b>Next step to complete the system:</b> thread each colour back into its mechanic's own preview — right now they only debut in the flow mock.</p>
+  </div>
+
+  <div class="dep"><b>The honest dependency:</b> this is only real as the mechanics go live. Today the deck has ~one card (MC), so every Standard day looks the same. <b>Each integration adds a card to the daily deck</b> — so this vision <i>is</i> the argument for integration, one at a time.</div>
+
+  <div class="open">
+    <h3>Open — to detail next</h3>
+    Exact block sizes (3 is the bet) · the rotation algorithm · which mechanic → which Heat (the mix policy) · per-day loadout design · final colour assignments.
+  </div>
+
+  <div class="foot">Source of truth: QUIZ-FLOW.md · mock: flow/run-mock.html</div>
+
+</div>
+</body>
+</html>
