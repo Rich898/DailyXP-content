@@ -36,6 +36,7 @@ here before it's ever wired into live quizzes.
 | Teach-back  | LIVE                | "Explain it in your own words," graded on verdict + depth.       |
 | Swipe Sort  | APPROVED (not live) | Flick a statement into one of two labelled buckets.              |
 | Numeric     | APPROVED (not live) | Type the maths answer — calculator on method Qs, number pad on mental. |
+| Ordering    | APPROVED (not live) | Drag scrambled tiles into the correct sequence (live reflow). |
 
 ---
 
@@ -140,6 +141,50 @@ here before it's ever wired into live quizzes.
     (a curriculum call); tolerance policy for messier answers; speed-round timing for typing.
 
 
+
+---
+
+## Ordering — spec
+
+**Status:** APPROVED for fun/quality (v1). NOT yet integrated into live quizzes.
+**Preview / full build:** `modes/ordering/` (README has the drag-feel notes).
+
+1. **What it is.** Drag scrambled tiles into the correct sequence — real live-reflow drag
+   (tiles slide out of the way under your finger). Tests sequencing, not recall.
+
+2. **Content fit.** Anything with a single correct linear order: **chronology** (timelines),
+   **method / process** steps, **size / magnitude**, **structure** (e.g. plot stages), rankings.
+
+3. **Content constraints.** A set of short items (**4 is the sweet spot; 5 max on a phone**)
+   with **one unambiguous correct order — no ties**. The ordering dimension is stated in the
+   instruction ("smallest → largest", "earliest → latest", "start → end").
+
+4. **Answer mode.** Drag-to-reorder — **Pointer Events, live reflow** (the swipe-sort physics).
+   **Not** tap-to-order, **not** HTML5 drag — that combination is what got the old one binned.
+
+5. **Ledger rule.** Guessing the whole order is 1/N! (1/24 for four tiles), so a correct
+   arrangement is **strong** mastery evidence — weights *more* than a 4-option MC, well above a
+   50/50 swipe. (Open: partial credit vs all-or-nothing, and how partial maps to evidence.)
+
+6. **Slotting.** **Steady round** — arranging takes time, so it's wrong for the timed speed round.
+
+7. **Composer needs.** Generate the items **in correct order** + the ordering dimension /
+   instruction + a re-teach `why`. Deterministic gate: exactly one unambiguous order (reject
+   ties / multiple valid orders), items short enough for a tile, 3–5 items.
+
+8. **Scale / generalisation.** Strong — works across subjects on any orderable dimension;
+   deterministic judging (compare to the canonical order); performant (`translate3d`).
+
+9. **When NOT to use.** Content with no single correct order (ties, multiple valid orders);
+   more than ~5 items (unwieldy on a phone); relationships that aren't linear/orderable.
+
+10. **Open decisions (resolve at integration).** Partial credit vs all-or-nothing + evidence
+    weight; tile count; which topics are tagged ordering (a curriculum call); confirm steady-slot
+    timing.
+
+---
+
+## Layer 2 — Mechanic MIX & variety policy — TO DEFINE (placeholder, do not pre-write)
 
 Fill this in **once the launch set of mechanics exists**, using the specs above as inputs.
 Questions it will answer:
