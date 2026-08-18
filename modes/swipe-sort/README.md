@@ -10,6 +10,23 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v6 changes (18 Aug) — arcade visual delivery + ring removed
+Direction chosen by Rich: **arcade energy — bold, punchy, motion-heavy**. Drag/commit logic
+left byte-for-byte identical (it was signed off); everything visual rebuilt around it.
+- **Dark energised playfield** in brand navy (not neon-on-black cliche), keeping the
+  bolt/blue/red palette. Subtle animated grid + a central glow that responds to play.
+- **Signature: streak charge-up.** Chaining correct sorts fills a heat meter (blue→orange),
+  brightens the playfield glow, lights the flame counter, and fires milestone callouts
+  (×3 / On Fire / Blazing / Unstoppable / Flawless) with a centre confetti burst. This is
+  spectacle only — it does NOT touch XP or the mastery ledger. XP per correct stays flat at 10.
+  (A *visible* combo multiplier would be a separate, deliberate decision, not snuck in here.)
+- Chunkier arcade buckets with glow, a dramatic glowing timer, punchy round-stage interstitial,
+  glowing +XP, subject-coloured accent bar on each card, best-streak stat on the end screen.
+- **Diagnostic finger-ring removed** now that the drag is signed off.
+
+Open question this raises: if streak should ever carry a real reward, that's an XP/ledger
+decision (and re-opens the hidden-multiplier caution from the 17–18 Aug purge). Deferred.
+
 ## v5 changes (18 Aug) — responsiveness pass 2 + diagnostic
 Still chasing drag lag. Two things this build:
 - **`translate3d` on the card (and the fly animation)** instead of 2D `translate`. This
