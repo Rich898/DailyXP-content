@@ -10,6 +10,19 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v8 changes (18 Aug) — "lands in the bucket" fix
+Playtest feedback (Rich's wife nailed it): it didn't feel like the card went INTO the
+bucket. Root causes: the card faded out mid-air (vanished NEAR the bucket, not into it) and
+stayed too big to fit, covering the bucket. Reworked the landing (drag itself untouched):
+- **Card shrinks to fit INSIDE the bucket** (scale .26, was .42) and **stays fully visible**
+  the whole way — no mid-air fade.
+- **Bucket opens to receive** (a "catching" state: lifts, brightens, inner-shadow mouth) as
+  the card arrives, then **catches and swallows** it (a squash "catch" animation) while the
+  bucket rises IN FRONT of the card (z-index) so the card is visibly taken in, not just gone.
+- Confetti + XP + streak now fire on the swallow, anchored at the bucket. Confetti still
+  correct-only. Wrong answers swallow into the chosen bucket too, then red-flash/shake/re-teach.
+- Verified: card now nests inside the bucket at arrival.
+
 ## v7 changes (18 Aug) — card craft
 Direction chosen: **card craft (type, finish, layout)**. Only the content card changed;
 playfield, streak, drag all untouched.

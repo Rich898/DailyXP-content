@@ -89,10 +89,13 @@ body{
 .pill.R{border-color:var(--bolt); color:var(--bolthi); box-shadow:inset 0 0 22px rgba(255,184,0,.10)}
 .pill.L.hot{background:var(--reef); color:#fff; transform:scale(1.06); box-shadow:0 0 28px rgba(46,155,214,.65), inset 0 0 26px rgba(255,255,255,.12)}
 .pill.R.hot{background:var(--bolt); color:#3a2600; transform:scale(1.06); box-shadow:0 0 28px rgba(255,184,0,.65), inset 0 0 26px rgba(0,0,0,.1)}
-.pill.ok{background:var(--kelp)!important; border-color:var(--kelp)!important; color:#fff!important; box-shadow:0 0 32px rgba(22,164,110,.75)!important; animation:pillpop .42s ease}
-.pill.bad{background:var(--flare)!important; border-color:var(--flare)!important; color:#fff!important; box-shadow:0 0 32px rgba(255,77,41,.75)!important; animation:pillbad .42s ease}
-@keyframes pillpop{0%{transform:scale(1)}40%{transform:scale(1.16)}100%{transform:scale(1)}}
-@keyframes pillbad{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.pill.catching{transform:scale(1.09)}
+.pill.L.catching{background:rgba(46,155,214,.16); box-shadow:0 0 30px rgba(46,155,214,.55), inset 0 9px 18px rgba(0,0,0,.30)}
+.pill.R.catching{background:rgba(255,184,0,.16); box-shadow:0 0 30px rgba(255,184,0,.55), inset 0 9px 18px rgba(0,0,0,.24)}
+.pill.ok{background:var(--kelp)!important; border-color:var(--kelp)!important; color:#fff!important; box-shadow:0 0 36px rgba(22,164,110,.85)!important}
+.pill.bad{background:var(--flare)!important; border-color:var(--flare)!important; color:#fff!important; box-shadow:0 0 36px rgba(255,77,41,.85)!important}
+.pill.catch{animation:catch .34s cubic-bezier(.3,1.4,.5,1)}
+@keyframes catch{0%{transform:scale(1.12)}30%{transform:scale(.9,1.09)}62%{transform:scale(1.06,.96)}100%{transform:scale(1)}}
 
 #stage{flex:1; position:relative; min-height:0; touch-action:none; margin-top:2px}
 #timer{position:absolute; top:2px; left:8px; right:8px; height:7px; background:rgba(255,255,255,.08); border-radius:99px; overflow:hidden; z-index:5; pointer-events:none}
@@ -150,8 +153,8 @@ body{
 #inter h3 .vs{color:var(--haze); font-size:15px; padding:0 8px}
 @keyframes interpop{from{opacity:0; transform:scale(.85) translateY(10px)}to{opacity:1; transform:none}}
 
-.float{position:absolute; z-index:8; font-family:var(--mono); font-weight:700; font-size:24px; color:#8CF0C0; text-shadow:0 0 12px rgba(22,164,110,.7); pointer-events:none; animation:rise .72s ease-out forwards}
-@keyframes rise{from{opacity:1; transform:translateY(0)}to{opacity:0; transform:translateY(-48px)}}
+.float2{position:fixed; z-index:11; transform:translate(-50%,-50%); font-family:var(--mono); font-weight:700; font-size:26px; color:#8CF0C0; text-shadow:0 0 14px rgba(22,164,110,.8); pointer-events:none; animation:rise2 .8s ease-out forwards}
+@keyframes rise2{from{opacity:1; transform:translate(-50%,-50%)}to{opacity:0; transform:translate(-50%,calc(-50% - 48px))}}
 
 #fx{position:fixed; inset:0; pointer-events:none; z-index:9; overflow:visible}
 .spark{position:fixed; z-index:9; pointer-events:none; will-change:transform,opacity; border-radius:3px; transform:translate(-50%,-50%); animation:burst .74s cubic-bezier(.15,.6,.4,1) forwards}
@@ -203,7 +206,7 @@ body{
     <h1>SWIPE<br><em>SORT</em></h1>
     <p>Flick each card into the right bucket. Chain them to set the board on fire.</p>
     <p class="note">Buckets change between rounds — watch the pills.<br>16 cards · 4 subjects · nothing is saved.</p>
-    <div class="build" data-build="7">SWIPE SORT · v7</div>
+    <div class="build" data-build="8">SWIPE SORT · v8</div>
     <button class="bigbtn" id="startbtn">Start</button>
   </section>
 
@@ -404,23 +407,37 @@ function commit(side, el){
   const c = deck[idx];
   const correct = side === c.side;
   const pill = side === 'L' ? pillL : pillR;
-  const at = flyToPill(el, side);
-  if (correct){
-    hits++; xp += XP_PER_HIT; $('xp').textContent = xp;
-    pill.classList.add('ok'); buzz(18);
-    floatXP(el);
-    bumpStreak();
-    setTimeout(()=> burst(at.x, at.y, CONFETTI), 100);
-    setTimeout(()=>{ pill.classList.remove('ok'); next(); }, 540);
-  } else {
-    misses.push(c);
-    pill.classList.add('bad'); buzz([30,50,30]);
-    resetStreak(); shakeScreen(); flashWrong();
-    const lbl = c.side === 'L' ? c.left : c.right;
-    strip.innerHTML = '\u2715 <b>' + esc(lbl) + '</b> \u2014 ' + esc(c.why);
-    strip.classList.add('on');
-    setTimeout(()=>{ pill.classList.remove('bad'); strip.classList.remove('on'); next(); }, 1850);
-  }
+  const at = flyToPill(el, side, pill);   // card shrinks to fit inside the bucket; bucket opens to receive
+  const FLIGHT = 300, SWALLOW = 175;
+
+  setTimeout(function(){                    // the bucket catches and swallows the card
+    pill.classList.remove('catching');
+    pill.style.position = 'relative'; pill.style.zIndex = '20';  // bucket comes in front of the card
+    pill.classList.add('catch');
+    pill.classList.add(correct ? 'ok' : 'bad');
+    el.style.transition = 'transform ' + SWALLOW + 'ms cubic-bezier(.5,.15,.7,1), opacity ' + SWALLOW + 'ms ease';
+    el.style.transform = 'translate3d(' + el._tx + 'px,' + (el._ty + 6) + 'px,0) scale(0) rotate(0deg)';
+    el.style.opacity = '0';
+    if (correct){
+      hits++; xp += XP_PER_HIT; $('xp').textContent = xp;
+      buzz(18); floatXP2(at); bumpStreak();
+      burst(at.x, at.y, CONFETTI);
+    } else {
+      misses.push(c); resetStreak(); buzz([30,50,30]); shakeScreen(); flashWrong();
+    }
+  }, FLIGHT);
+
+  setTimeout(function(){                    // reset the bucket, then advance
+    pill.classList.remove('catch','ok','bad');
+    pill.style.zIndex = ''; pill.style.position = '';
+    if (correct){ next(); }
+    else {
+      const lbl = c.side === 'L' ? c.left : c.right;
+      strip.innerHTML = '\u2715 <b>' + esc(lbl) + '</b> \u2014 ' + esc(c.why);
+      strip.classList.add('on');
+      setTimeout(function(){ strip.classList.remove('on'); next(); }, 1350);
+    }
+  }, FLIGHT + SWALLOW + 30);
 }
 function onTimeout(){
   if (!guard()) return;
@@ -525,8 +542,7 @@ function springBack(el){
   sl.style.opacity = 0; sr.style.opacity = 0;
   pillL.classList.remove('hot'); pillR.classList.remove('hot');
 }
-function flyToPill(el, side){
-  const pill = side === 'L' ? pillL : pillR;
+function flyToPill(el, side, pill){
   const pr = pill.getBoundingClientRect();
   const px = pr.left + pr.width/2, py = pr.top + pr.height/2;
   const prev = el.style.transform;
@@ -535,13 +551,14 @@ function flyToPill(el, side){
   const br = el.getBoundingClientRect();
   const bx = br.left + br.width/2, by = br.top + br.height/2;
   const dx = px - bx, dy = py - by;
+  el._tx = dx; el._ty = dy;
   el.style.transform = prev || 'none';
   void el.offsetWidth;
-  el.style.transition = 'transform .34s cubic-bezier(.35,.8,.35,1), opacity .34s ease';
-  el.style.transform = 'translate3d(' + dx + 'px,' + dy + 'px,0) scale(.42) rotate(0deg)';
-  el.style.opacity = '0';
+  el.style.transition = 'transform .3s cubic-bezier(.4,.55,.35,1)';
+  el.style.transform = 'translate3d(' + dx + 'px,' + dy + 'px,0) scale(.26) rotate(0deg)';  // shrink to fit INSIDE the bucket, stays visible
   el.classList.remove('grabbing');
   pillL.classList.remove('hot'); pillR.classList.remove('hot');
+  pill.classList.add('catching');   // bucket opens to receive
   return {x:px, y:py};
 }
 
@@ -582,14 +599,12 @@ function flashWrong(){
   f.classList.remove('wrong'); void f.offsetWidth; f.classList.add('wrong');
   setTimeout(()=> f.classList.remove('wrong'), 520);
 }
-function floatXP(el){
+function floatXP2(at){
   const f = document.createElement('div');
-  f.className = 'float'; f.textContent = '+' + XP_PER_HIT;
-  const r = el.getBoundingClientRect(), s = stack.getBoundingClientRect();
-  f.style.left = (r.left - s.left + r.width/2 - 18) + 'px';
-  f.style.top = (r.top - s.top + 6) + 'px';
-  stack.appendChild(f);
-  setTimeout(()=> f.remove(), 720);
+  f.className = 'float2'; f.textContent = '+' + XP_PER_HIT;
+  f.style.left = at.x + 'px'; f.style.top = (at.y - 6) + 'px';
+  $('fx').appendChild(f);
+  setTimeout(()=> f.remove(), 800);
 }
 
 /* ================= tap fallback ================= */
