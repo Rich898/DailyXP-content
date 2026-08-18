@@ -66,27 +66,10 @@ answer higher on depth BECAUSE it is correct is the single worst error you can m
 produces a false claim about a child's understanding. A messy, half-wrong answer that genuinely
 links two ideas causally IS "connects" even while its verdict is "partial".
 
-=== READING 3: "spelling" — a SEPARATE coaching light (NEVER affects verdict or depth) ===
-Rate ONLY the spelling of the answer, as a friendly signal shown to the student:
-- "green": essentially clean — no real spelling errors (an odd typo is fine).
-- "amber": a few spelling errors, but still easy to read.
-- "red": frequent spelling errors that make it hard to read.
-
-=== READING 4: "punctuation" — a SEPARATE coaching light (NEVER affects verdict or depth) ===
-Rate ONLY punctuation and sentence mechanics (capital letters, full stops, commas):
-- "green": properly punctuated — capitals and full stops where they belong.
-- "amber": some punctuation missing, but the answer is still followable.
-- "red": little or no punctuation (e.g. one long run-on with no stops or capitals).
-
-Spelling and punctuation are COACHING ONLY. They are shown to the student to help them improve, and they
-NEVER change verdict or depth. A brilliantly-understood answer riddled with spelling mistakes is still
-verdict:"solid" — with spelling:"red". Never let mechanics leak into the understanding readings, and never
-let understanding inflate the mechanics readings.
-
 Rules for judging both readings:
-- For VERDICT and DEPTH, judge SUBSTANCE, not style. The student is a secondary-school child and may write
-  informally or be an English-as-a-second-language learner. Spelling, grammar and punctuation DO NOT affect
-  verdict or depth — those live only in readings 3-4. Reward genuine understanding even when clumsily expressed.
+- Judge SUBSTANCE, not style. The student is a secondary-school child and may write informally or be an
+  English-as-a-second-language learner. Spelling, grammar and punctuation DO NOT matter. Reward genuine
+  understanding even when clumsily expressed.
 - Do NOT reward filler, hedging, plausible-sounding non-answers, or parroting the question back.
 - UNDER-CLAIM. Where the evidence is thin or you are between two rungs, return the LOWER rung. Every
   rung is a claim about a child that a parent may repeat to a teacher.
@@ -97,7 +80,6 @@ Rules for judging both readings:
 
 Output ONLY a JSON object, nothing else:
 {"verdict": "solid" | "partial" | "none", "depth": "not_yet" | "knows" | "lists" | "connects" | "applies",
- "spelling": "green" | "amber" | "red", "punctuation": "green" | "amber" | "red",
  "english": true | false, "evidence": "short quote from the answer", "reason": "one short sentence"}"""
 
 
@@ -170,12 +152,6 @@ def parse_json(text):
     return json.loads(t)
 
 
-def _light(val):
-    """Coaching light → one of green/amber/red; safe-default green (never falsely alarm on a grader hiccup)."""
-    x = str(val).strip().lower()
-    return x if x in ("green", "amber", "red") else "green"
-
-
 def normalise(grade, answer=""):
     """Coerce a model reply into a clean verdict dict; None if it isn't usable.
 
@@ -207,9 +183,7 @@ def normalise(grade, answer=""):
         # a teach-back that showed no understanding at all cannot claim a rung
         if v == "none" and depth not in ("not_yet", "knows"):
             depth, capped = "not_yet", "verdict none"
-    out = {"verdict": v, "english": eng, "reason": reason,
-           "spelling": _light(grade.get("spelling")),
-           "punctuation": _light(grade.get("punctuation"))}
+    out = {"verdict": v, "english": eng, "reason": reason}
     if depth is not None:
         out["depth"] = depth
         ev = str(grade.get("evidence", "")).strip()[:160]

@@ -45,44 +45,30 @@ Hard rules (a set is rejected if any is broken):
   never more than ~6), and NEVER a compound sentence that packs in two facts. A child should take in the
   question and all four options at a glance. This applies to BOTH speed and steady. If an option is a full
   sentence or contains "and"/"but" joining two facts, it is TOO LONG — rewrite it as a short phrase.
-- Each MC speed/steady question: exactly ONE uncontestable correct answer, present verbatim in its options. (TYPED slots — numeric/text/cloze — have no options; see the typed legend.)
+- Each speed/steady question: exactly ONE uncontestable correct answer, present verbatim in its four options.
 - Distractors must encode the REAL misconception named in the slot's guidance — not random wrong values.
 - Every speed/steady question has a `why` (1-2 sentences) that re-teaches the point, not just "correct".
 - Never reuse any prompt in the "already seen" list, and never repeat a prompt within this set.
 - Teach-back slots: a single reasoning prompt (no options/answer) — understanding is graded, not recall.
-- REVERSED slots (only when the plan's instructions declare them): the prompt states an answer and the four
-  options are candidate QUESTIONS — exactly one of which the stated answer genuinely answers; the other three
-  must be questions whose true answers clearly differ. All other rules still apply (one uncontestable pick,
-  `why` re-teaches, fresh prompts).
 - BATTLEGROUND slots (only when the plan's instructions declare them — the Friday Battleground): each slot is one
-  CLAIMABLE zone on a weak topic, and you pick the sharpest format for that topic from the MC family (all four-option,
-  since the shell has no typed input): spot-the-lie (four statements, one false), true/false (options ['True','False']),
-  plain multiple choice, or a sum shown WITH four answer options. Vary the formats across the four zones. Whatever the
-  format: one uncontestable correct option, plausible-misconception distractors, readable for a struggling student.
-  `why` states the answer, explains why, names the misconception. All other rules still apply.
+  CLAIMABLE zone on a weak topic — a plain multiple-choice question with one uncontestable correct option,
+  plausible-misconception distractors, readable for a struggling student. `why` states the answer, explains why,
+  and names the misconception. All other rules still apply.
 - Match the school framing in the guidance; keep difficulty calm unless told otherwise.
 
-Output ONLY a JSON object, no prose, no markdown fences. Each slot's shape depends on its `type`:
-- no `type` given = multiple choice: { "prompt": "...", "options": ["...","...","...","..."], "answer": "<one of options>", "why": "..." }
-- `type` "numeric" / "text" / "cloze" = TYPED (no options): { "prompt": "...", "answer": "...", "accept": ["...","..."], "why": "..." }  — build these EXACTLY per the TYPED-INPUT legend in the instructions.
-- `type` "order" = SEQUENCE (no options, no answer): { "prompt": "...", "sequence": ["<first>","<second>","<third>", ...], "why": "..." }  — items in the CORRECT order; the shell shuffles them for the student to tap back into order.
+Output ONLY a JSON object, no prose, no markdown fences:
+- speed/steady slot = multiple choice: { "prompt": "...", "options": ["...","...","...","..."], "answer": "<one of options>", "why": "..." }
 - teach slot: { "prompt": "..." }
 Include every slotId given, and no others."""
 
 
 def build_user(plan, seen):
     slots = []
-    for s in list(plan["slots"]) + list(plan.get("encore", [])):
+    for s in plan["slots"]:
         row = {
             "slotId": s["slot"], "phase": s["phase"], "subject": s["subject"],
             "topic": s["topic"], "intent": s["intent"], "guidance": s.get("guidance", ""),
         }
-        if s.get("format") and s.get("format") != "recall":
-            row["format"] = s["format"]      # composer applies the matching legend entry
-        if s.get("type") and s.get("type") != "mc":
-            row["type"] = s["type"]           # typed slot — composer applies the TYPED-INPUT legend
-        if s["slot"].startswith("E"):
-            row["bonus"] = True               # optional encore question — same rules, extra for bonus XP
         slots.append(row)
     payload = {
         "for": f"{plan['student']} {plan['tag']} ({plan['day']} {plan['date']})",
@@ -120,25 +106,14 @@ def parse_json(text):
 
 
 def _build_q(s, filled):
-    """Build one question dict from a plan slot + model output. Shared by the main set and the encore."""
+    """Build one question dict from a plan slot + model output. Plain multiple-choice only."""
     f = filled.get(s["slot"], {})
     q = {"id": s["slot"], "phase": s["phase"], "subject": s["subject"],
          "prompt": f.get("prompt", "")}
     if s["phase"] in ("speed", "steady"):
-        qtype = s.get("type", "mc")
-        if qtype != "mc":
-            q["type"] = qtype                         # mc stays implicit (back-compat)
-        if qtype != "order":
-            q["answer"] = f.get("answer")             # order carries a sequence, not an answer
+        q["answer"] = f.get("answer")
         q["why"] = f.get("why", "")
-        if qtype == "mc":
-            q["options"] = f.get("options", [])
-        elif qtype in ("numeric", "text", "cloze"):
-            acc = f.get("accept")                     # LLM-authored accepted variants (synonyms/units)
-            if acc is not None:
-                q["accept"] = acc
-        elif qtype == "order":
-            q["sequence"] = f.get("sequence", [])     # LLM-authored CORRECT order (shell shuffles for display)
+        q["options"] = f.get("options", [])
         # Carry fresh from the plan (a throwback slot is fresh:false — a revisit,
         # not new material; SEASONS.md LAW 3). Default true for everything else.
         q["fresh"] = bool(s.get("fresh", True))
@@ -147,23 +122,17 @@ def _build_q(s, filled):
             q["fresh"] = False
         if s["intent"] == "repair":
             q["repair"] = True
-        if s.get("x2"):
-            q["x2"] = True                            # hidden double-XP (shell doesn't betray it pre-answer)
     return q
 
 
 def assemble(plan, filled):
     """Build the set schema from the plan (structure) + model output (language)."""
     questions = [_build_q(s, filled) for s in plan["slots"]]
-    out = {
+    return {
         "student": plan["student"], "date": plan["date"], "day": plan["day"],
         "tag": plan["tag"], "title": f"DailyXP · {plan['day']} {plan['date']}",  # name-free title
         "questions": questions,
     }
-    encore = [_build_q(s, filled) for s in plan.get("encore", [])]
-    if encore:
-        out["encore"] = encore                        # optional bonus round (shell offers it after teach-back)
-    return out
 
 
 def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=2, history_dir=None):

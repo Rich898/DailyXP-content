@@ -59,40 +59,16 @@ KNOWN_SHAPES = {
 
 
 def _check_ss_answer(q, qid, errors, warns):
-    """Validate the answer shape of one speed/steady question (also used for encore questions)."""
-    qtype = q.get("type", "mc")
+    """Validate the answer shape of one speed/steady question (plain multiple-choice)."""
     ans = q.get("answer")
-    if qtype == "mc":
-        opts = q.get("options")
-        if not isinstance(opts, list) or len(opts) < 2:
-            errors.append(f"[{qid}] mc question needs an options list (>=2)")
-            opts = opts if isinstance(opts, list) else []
-        if ans is None:
-            errors.append(f"[{qid}] missing 'answer'")
-        elif opts and ans not in opts:
-            errors.append(f"[{qid}] answer {ans!r} is not one of options {opts}")
-    elif qtype in ("numeric", "text", "cloze"):
-        if not isinstance(ans, str) or ans.strip() == "":
-            errors.append(f"[{qid}] {qtype} question needs a non-empty string 'answer'")
-        acc = q.get("accept")
-        if acc is not None and (not isinstance(acc, list) or not all(isinstance(a, str) for a in acc)):
-            errors.append(f"[{qid}] 'accept' must be a list of strings")
-        if q.get("options"):
-            warns.append(f"[{qid}] {qtype} question carries 'options' — ignored (typed input, not multiple choice)")
-        if qtype == "numeric" and isinstance(ans, str) and not re.search(r"\d", ans):
-            errors.append(f"[{qid}] numeric answer {ans!r} contains no digit")
-        if qtype == "cloze" and "___" not in (q.get("prompt") or ""):
-            warns.append(f"[{qid}] cloze prompt has no blank (use ___ so the kid sees where to fill)")
-    elif qtype == "order":
-        seq = q.get("sequence")
-        if not isinstance(seq, list) or len(seq) < 2:
-            errors.append(f"[{qid}] order question needs a 'sequence' list (>=2 items, in the CORRECT order)")
-        elif len(set(map(str, seq))) != len(seq):
-            errors.append(f"[{qid}] order 'sequence' has duplicate items — items must be distinct to sequence unambiguously")
-        if q.get("options"):
-            warns.append(f"[{qid}] order question carries 'options' — ignored (tap-to-sequence, not multiple choice)")
-    else:
-        errors.append(f"[{qid}] unknown question type {qtype!r} (expected mc|numeric|text|cloze|order)")
+    opts = q.get("options")
+    if not isinstance(opts, list) or len(opts) < 2:
+        errors.append(f"[{qid}] question needs an options list (>=2)")
+        opts = opts if isinstance(opts, list) else []
+    if ans is None:
+        errors.append(f"[{qid}] missing 'answer'")
+    elif opts and ans not in opts:
+        errors.append(f"[{qid}] answer {ans!r} is not one of options {opts}")
     if not q.get("why"):
         errors.append(f"[{qid}] missing 'why' (every Q must re-teach)")
     fr = q.get("fresh")
@@ -155,31 +131,6 @@ def validate_set(s: dict, history_dir: str = None) -> tuple:
             _check_ss_answer(q, qid, errors, warns)
 
     shape = (counts["speed"], counts["steady"], counts["teach"])
-    x2s = [q.get("id", "?") for q in qs if q.get("x2")]
-    if len(x2s) > 1:
-        errors.append(f"at most ONE hidden double-XP (x2) question per set — got {len(x2s)}: {x2s}")
-
-    # Optional encore (bonus round): each question validated as a steady question; ids distinct from main.
-    encore = s.get("encore") or []
-    if not isinstance(encore, list):
-        errors.append("'encore' must be a list of questions")
-        encore = []
-    main_ids = set(ids)
-    for q in encore:
-        qid = q.get("id", "?")
-        for k in ("id", "phase", "subject", "prompt"):
-            if not q.get(k):
-                errors.append(f"[encore {qid}] missing '{k}'")
-        if q.get("phase") != "steady":
-            errors.append(f"[encore {qid}] encore questions must be phase 'steady', got {q.get('phase')!r}")
-        if q.get("id") in main_ids:
-            errors.append(f"[encore {qid}] id collides with a main-set question")
-        if q.get("x2"):
-            errors.append(f"[encore {qid}] encore questions can't be x2 (double-XP is a main-run moment)")
-        n = _norm(q.get("prompt", ""))
-        if n and n in seen:
-            errors.append(f"[encore {qid}] prompt REPEATS one this student has seen")
-        _check_ss_answer(q, qid, errors, warns)
 
     if counts["teach"] != 1:
         errors.append(f"exactly ONE teach question required (got {counts['teach']}) — "

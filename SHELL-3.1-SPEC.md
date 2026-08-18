@@ -1,3 +1,5 @@
+> ⚠️ **SUPERSEDED (18 Aug 2026).** The typed inputs / MC format variety described here were built and REMOVED after review. See **CURRENT-STATE.md** for what actually runs today. Kept for historical reference.
+
 # Shell v3.1 — build spec (scope: LARGE, game-only)
 
 *Goal: kill format monotony and deepen engagement for both boys. Skeleton (speed → steady → teach) stays; variety lives inside the slots. Beta kit SPLIT OUT into its own later build — v3.1 is purely the game upgrade.*

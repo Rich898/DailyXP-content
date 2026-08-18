@@ -38,16 +38,6 @@ ASSESS_HORIZON_DAYS = 16          # boost a subject if an assessment falls withi
 CORE_SUBJECTS = ("Maths", "English", "Science", "History")
 MAX_PER_SUBJECT = 3               # no single subject takes more than this many MC slots in one quiz
 
-# v3.1 question types (numeric/text/cloze/order + hidden x2 + encore) require the v3.1 SHELL to render.
-# GATE: keep this False until the new shells are deployed to Netlify — the old shell can't display the
-# new types and a run would break. Flip to True (one-line commit) once the shells are confirmed live.
-V31_TYPES_LIVE = False
-
-# MC "format variety" (odd-one-out, spot-the-lie, spot-the-error, matching, ordering-as-MC). Off = every
-# MC question is a plain, direct recall question (one clear question, four clear options). Kept OFF: the
-# clever formats produced confusing, wall-of-text questions. Flip True only to bring the variety back.
-MC_FORMAT_VARIETY = False
-
 SHAPES = {
     "standard": {"speed": 7, "steady": 4, "teach": 1},
     "blitz":    {"speed": 10, "steady": 2, "teach": 1},
@@ -377,40 +367,9 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
     # ---- FORMAT ROTATION (SEASONS.md LAW 2) --------------------------------
     # Assign a question format to each speed/steady slot from the bank, so a run
     # isn't 11 identical recall MC. Skipped on boss (Battleground assigns its own
-    # per-zone formats via the composer block). On a reversed day, fact-based speed
-    # slots may draw the reversed format; we flag eligibility with allow_reversed
-    # and let formats.py keep numeric topics safe. Throwback/teach stay recall
-    # (handled inside formats.eligible_formats).
-    type_summary = ""
-    encore_plan = []
-    if not boss_mode:
-        import formats as _fmt
-        reversed_day = "reversed" in (directive or "")
-        for sl in ordered:
-            if reversed_day and sl["phase"] == "speed":
-                sl["allow_reversed"] = True
-        # v3.1 INPUT types: standard days only — Wednesday (reversed) and Friday (boss) stay MC.
-        if V31_TYPES_LIVE and shape_key == "standard" and not reversed_day:
-            import qtypes as _qt
-            _qt.assign_types(ordered, student, date_str, tag)
-            _qt.assign_x2(ordered, student, date_str, tag)   # one hidden double-XP slot per run
-            type_summary = _qt.type_summary(ordered)
-            # Optional ENCORE (bonus round): 2 spare topics not already in the run, typed like steady.
-            _used = {sl["topic"] for sl in ordered}
-            _spare = [t for t in pool if t["topic"] not in _used][:2]
-            encore_plan = [_slot("E", i + 1, "steady", t, extra="BONUS encore question (optional extra for bonus XP)")
-                           for i, t in enumerate(_spare)]
-            if encore_plan:
-                _qt.assign_types(encore_plan, student, date_str, tag)
-        # Trap-1 cap: never both a tap-to-order slot AND the MC ordering format in one run.
-        if MC_FORMAT_VARIETY:
-            _excl = {_fmt.ORDERING} if any(sl.get("type") == "order" for sl in ordered) else None
-            _fmt.assign_formats(ordered, student, date_str, tag, exclude=_excl)
-            format_summary = _fmt.run_format_summary(ordered)
-        else:
-            format_summary = "plain recall (format variety off)"   # every MC is a direct question
-    else:
-        format_summary = "boss/battleground (composer-assigned)"
+    # Every MC question is a plain, direct recall question. (The typed-input types, MC format variety,
+    # hidden x2 and encore were built and removed after review — see git history if ever revisited.)
+    format_summary = "plain recall"
 
     ci = _composer_instructions(student, day, tag, shape_key, light_subject, ordered, directive)
 
@@ -420,8 +379,6 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         "requested_shape": dict(shape), "shortfall": shortfall,
         "slots": ordered, "composer_instructions": ci,
         "format_summary": format_summary,
-        "type_summary": type_summary,
-        "encore": encore_plan,
     }
 
 
@@ -491,48 +448,6 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
             "  across the four (don't make all four the same type). The two SPEED slots stay NORMAL recall (a warm-up). The teach-back\n"
             "  secures the ground claimed (the final push).")
     lines.append("Output must satisfy tools/validate.py before publish.")
-
-    # FORMAT LEGEND (SEASONS.md LAW 2): if any slot carries an assigned non-recall
-    # format, tell the composer exactly how to build each format it will encounter.
-    used_formats = {sl.get("format") for sl in slots if sl.get("format")}
-    non_recall = used_formats - {"recall", None}
-    if non_recall:
-        import formats as _fmt
-        lines.append("")
-        lines.append("QUESTION FORMATS (SEASONS.md LAW 2 — each slot below names its 'format'; build it EXACTLY per this legend). "
-                     "Every format is still four tappable options with one uncontestable correct answer, a re-teaching 'why', and "
-                     "the answer-length law applies to all of them:")
-        for f in sorted(non_recall):
-            lines.append("- " + _fmt.render_note(f))
-        lines.append("- " + _fmt.render_note("recall"))
-
-    # TYPED-INPUT LEGEND (Shell v3.1): slots carrying a `type` take a TYPED answer, not options.
-    used_types = {sl.get("type") for sl in slots if sl.get("type") and sl.get("type") != "mc"}
-    if used_types:
-        lines.append("")
-        lines.append("TYPED-INPUT SLOTS (Shell v3.1 — a slot below may name a 'type'; that slot takes a TYPED answer, NOT four "
-                     "options. Build it EXACTLY per this legend. There are no options, so the answer-length law does not apply; the "
-                     "point of a typed slot is that the student cannot reverse-engineer the answer from choices):")
-        if "numeric" in used_types:
-            lines.append('- type "numeric": a calculation with ONE numeric answer typed on a keypad. NO options. Emit '
-                         '{"prompt","answer","accept","why"}. answer = the canonical value WITH its unit if there is one (e.g. "30 cm\u00b2"). '
-                         'accept = every correct written form: ALWAYS include the bare number, plus unit variants and ascii/unicode forms '
-                         '(e.g. ["30","30 cm2","30cm\u00b2"]). Never accept a wrong unit. The prompt must have exactly one correct value. why re-teaches the method.')
-        if "text" in used_types:
-            lines.append('- type "text": a short term / name / date typed by the student. NO options. Emit {"prompt","answer","accept","why"}. '
-                         'answer = the canonical wording (keep it SHORT — a few words, typed recall, never an essay). accept = acceptable '
-                         'variants: synonyms, shortened forms, common spellings (e.g. answer "War Guilt Clause", accept ["war guilt","guilt clause"]). '
-                         'Matching ignores case and punctuation, so do NOT list case/punctuation variants.')
-        if "cloze" in used_types:
-            lines.append('- type "cloze": a fill-the-blank sentence. Put the blank IN the prompt as ______ (6+ underscores). NO options. '
-                         'Emit {"prompt","answer","accept","why"}. answer = the missing word/phrase (SHORT); accept = acceptable variants. '
-                         'The sentence around the blank must make the answer determinable for a student who knows the material.')
-        if "order" in used_types:
-            lines.append('- type "order": the student taps shuffled items back into the correct SEQUENCE. NO options, NO answer. '
-                         'Emit {"prompt","sequence","why"}. sequence = 3-5 SHORT, DISTINCT items in the ONE correct order (chronology, '
-                         'process steps, smallest-to-largest, etc.). The prompt states what to order by (e.g. "earliest first"). There '
-                         'must be exactly one defensible order. why = state the correct order and the reason. Only use this when the '
-                         'topic genuinely has a single correct sequence.')
     return "\n".join(lines)
 
 
@@ -553,18 +468,12 @@ def render(plan):
     out.append(f"  directive={plan.get('directive')}   shape={shape_str}")
     if plan.get("format_summary"):
         out.append(f"  formats={plan['format_summary']}")
-    if plan.get("type_summary"):
-        out.append(f"  input-types={plan['type_summary']}")
     for w in plan.get("shortfall", []):
         out.append(f"  \u26a0 POOL: {w}")
     out.append("-" * 78)
     for sl in plan["slots"]:
         tag = "REPAIR" if sl["intent"] == "repair" else sl["intent"]
-        typ = sl.get("type", "mc")
-        badge = typ.upper() if typ != "mc" else (("mc:" + sl["format"]) if sl.get("format") and sl.get("format") != "recall" else "")
-        if sl.get("x2"):
-            badge = (badge + " " if badge else "") + "\u2b50x2"
-        out.append(f"  {sl['slot']:<4} {sl['phase']:<6} {sl['subject']:<10} [{tag}/{sl['state']}] score {sl['score']}" + (f"  <{badge}>" if badge else ""))
+        out.append(f"  {sl['slot']:<4} {sl['phase']:<6} {sl['subject']:<10} [{tag}/{sl['state']}] score {sl['score']}")
         out.append(f"        {sl['topic']}")
         if sl["guidance"]:
             out.append(f"        \u21b3 {sl['guidance']}")

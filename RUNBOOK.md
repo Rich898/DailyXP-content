@@ -1,3 +1,5 @@
+> **Start here:** see **CURRENT-STATE.md** for what the quiz is today (plain multiple-choice + subject balance). Parts of this runbook predate the 18 Aug 2026 cleanup.
+
 # DailyXP — shell & pipeline runbook (public repo copy — no secrets, no personal URLs)
 
 ## Architecture (v3.0, live since 3 Aug 2026)

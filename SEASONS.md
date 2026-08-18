@@ -1,3 +1,5 @@
+> ⚠️ **SUPERSEDED (18 Aug 2026).** The typed inputs / MC format variety described here were built and REMOVED after review. See **CURRENT-STATE.md** for what actually runs today. Kept for historical reference.
+
 # Seasons — the live-game content calendar
 
 *Principle: run the school year like a live-service game. (Mechanics doctrine only — commercial strategy stays off-repo.)*
