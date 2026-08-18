@@ -9,14 +9,14 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which of these does NOT belong when grouped with the others about Shakespeare's world?",
-      "answer": "The printing press, invented in the 15th century by Johannes Gutenberg in Germany",
-      "why": "The Globe, Elizabeth I, and Brooke's poem are all directly tied to Shakespeare writing and staging Romeo and Juliet. The printing press is a real historical invention but has no direct connection to the play's composition or performance, making it the odd one out.",
+      "prompt": "Which of these does NOT belong when grouped with the other facts about Romeo and Juliet's setting and story?",
+      "answer": "Hamlet seeks revenge for his father's murder",
+      "why": "That plot belongs to Hamlet, a different Shakespeare play entirely. Romeo and Juliet centres on the feuding Capulets and Montagues in Verona, with Paris as Juliet's suitor.",
       "options": [
-        "The Globe Theatre, where many of Shakespeare's plays were performed for London audiences",
-        "Queen Elizabeth I, who reigned over much of Shakespeare's early career",
-        "Arthur Brooke's poem, an earlier source Shakespeare adapted for his tragedy",
-        "The printing press, invented in the 15th century by Johannes Gutenberg in Germany"
+        "The play is set in Verona, Italy",
+        "The Capulets and Montagues are feuding families",
+        "Paris wants to marry Juliet",
+        "Hamlet seeks revenge for his father's murder"
       ],
       "fresh": false
     },
@@ -24,14 +24,14 @@
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Match each figure or event to its correct role in the ending of Romeo and Juliet: 1) Friar John, 2) Friar Laurence's letter, 3) The plague quarantine, 4) Romeo's belief that Juliet is dead.",
-      "answer": "1-c, 2-b, 3-d, 4-a: Friar John failed to deliver the letter; the letter explained Juliet's fake death; quarantine delayed Friar John; Romeo believed Juliet was truly dead and killed himself",
-      "why": "Friar John, not the Nurse, was tasked with delivering Friar Laurence's letter to Romeo, but he was shut in a plague-quarantined house and never reached him. Because Romeo never learns the truth about Juliet's sleeping potion, he believes she is dead and takes his own life.",
+      "prompt": "Which statement is FALSE about technique in Romeo and Juliet?",
+      "answer": "Shakespeare only ever wrote in strict rhyming couplets throughout the whole play",
+      "why": "Shakespeare mixes blank verse, prose, and rhyme depending on character and mood — he doesn't stick to rhyming couplets throughout. The prologue's sonnet form, the balcony's imagery, and the final dramatic irony are all genuine techniques in the play.",
       "options": [
-        "1-c, 2-b, 3-d, 4-a: Friar John failed to deliver the letter; the letter explained Juliet's fake death; quarantine delayed Friar John; Romeo believed Juliet was truly dead and killed himself",
-        "1-a, 2-b, 3-d, 4-c: Friar John delivered the letter successfully; the letter explained Juliet's fake death; quarantine delayed the Nurse; Romeo believed Juliet was truly dead and killed himself",
-        "1-c, 2-a, 3-b, 4-d: Friar John failed to deliver the letter; the letter warned Romeo to flee Verona; quarantine delayed Friar Laurence himself; Romeo believed Juliet had betrayed him",
-        "1-d, 2-b, 3-c, 4-a: The Nurse failed to deliver the letter; the letter explained Juliet's fake death; quarantine delayed Friar John; Romeo believed Juliet was truly dead and killed himself"
+        "Shakespeare uses the sonnet form for the prologue",
+        "The balcony scene contains extended metaphor and imagery",
+        "Dramatic irony appears when the audience knows Juliet is alive but Romeo doesn't",
+        "Shakespeare only ever wrote in strict rhyming couplets throughout the whole play"
       ],
       "fresh": false
     },
@@ -39,14 +39,14 @@
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A student explains why some animals can reproduce without a mate using this worked argument. Which step is WRONG? Step 1: Aphids can reproduce asexually by cloning themselves. Step 2: This means all their offspring are genetically identical to the parent. Step 3: Because aphids can do this, all insects must also reproduce asexually. Step 4: In fact, most insects, like bees and butterflies, reproduce sexually.",
-      "answer": "Step 3: Because aphids can do this, all insects must also reproduce asexually",
-      "why": "Step 3 wrongly generalises from one species to an entire group. Aphids are unusual in being able to reproduce asexually, but most insects reproduce sexually, as Step 4 correctly states.",
+      "prompt": "A student explains why some plants can self-pollinate using this worked argument. Which step is WRONG? Step 1: Some flowering plants have both male and female parts in the same flower. Step 2: This allows self-pollination without needing another plant. Step 3: Because these plants can self-pollinate, all flowering plants must reproduce this way. Step 4: In reality, many flowering plants rely on cross-pollination by insects or wind for genetic variation.",
+      "answer": "Step 3: Because these plants can self-pollinate, all flowering plants must reproduce this way",
+      "why": "This step wrongly generalises from some plants to all plants. Many flowering plants actually depend on cross-pollination for genetic variety, as Step 4 correctly points out.",
       "options": [
-        "Step 1: Aphids can reproduce asexually by cloning themselves",
-        "Step 2: This means all their offspring are genetically identical to the parent",
-        "Step 3: Because aphids can do this, all insects must also reproduce asexually",
-        "Step 4: In fact, most insects, like bees and butterflies, reproduce sexually"
+        "Step 1: Some flowering plants have both male and female parts in the same flower",
+        "Step 2: This allows self-pollination without needing another plant",
+        "Step 3: Because these plants can self-pollinate, all flowering plants must reproduce this way",
+        "Step 4: In reality, many flowering plants rely on cross-pollination by insects or wind for genetic variation"
       ],
       "fresh": false
     },
@@ -54,14 +54,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which statement about the fall of Rome and the early medieval period that followed is FALSE?",
-      "answer": "Written record-keeping and learning improved immediately across Europe once Rome's central government collapsed",
-      "why": "Learning and record-keeping actually declined in much of Western Europe after Rome fell, since Roman administrative structures and schools broke down. The other three statements are accurate.",
+      "prompt": "After the Western Roman Empire collapsed, what best describes how political power was reorganised across most of Western Europe?",
+      "answer": "Power fragmented into local kingdoms and regional lordships",
+      "why": "Without a central Roman government, power split among local kings, warlords, and eventually feudal lords across Western Europe. There was no single unified successor state ruling the old western territories.",
       "options": [
-        "The Western Roman Empire's collapse was caused by a mix of invasions, economic decline, and political instability",
-        "The Eastern Roman Empire (Byzantine Empire) continued for centuries after the west fell",
-        "Feudalism developed partly to provide local protection and order once central Roman rule ended",
-        "Written record-keeping and learning improved immediately across Europe once Rome's central government collapsed"
+        "Power fragmented into local kingdoms and regional lordships",
+        "A single unified emperor continued ruling from Constantinople alone",
+        "Democratic city councils replaced all previous rulers",
+        "Rome's Senate kept full control of Italy and its former provinces"
       ],
       "fresh": false
     },
@@ -69,14 +69,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Put these feudal relationships in order, from the person who grants land FIRST down to the person who works it LAST: knight, king, peasant (serf), lord/noble.",
-      "answer": "King, lord/noble, knight, peasant (serf)",
-      "why": "The king granted land to lords/nobles, who granted portions to knights in exchange for military service, and peasants worked the land at the bottom of the pyramid with the least power.",
+      "prompt": "Which statement is FALSE about the feudal social structure?",
+      "answer": "Peasants (serfs) could freely buy and sell the land they worked",
+      "why": "Serfs were bound to the land and worked it for their lord, but they did not own it or have the right to sell it. The other statements correctly describe the obligations running up and down the feudal pyramid.",
       "options": [
-        "King, lord/noble, knight, peasant (serf)",
-        "King, knight, lord/noble, peasant (serf)",
-        "Lord/noble, king, knight, peasant (serf)",
-        "King, lord/noble, peasant (serf), knight"
+        "The king granted land to lords in exchange for loyalty and service",
+        "Knights served lords in exchange for land and protection",
+        "Peasants (serfs) could freely buy and sell the land they worked",
+        "Lords owed military support and loyalty to the king"
       ],
       "fresh": false
     },
@@ -84,14 +84,14 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, which line best shows the theme of love and hate fused together in a single paradox?",
-      "answer": "'My only love sprung from my only hate'",
-      "why": "This line is an oxymoron: Juliet names love and hate as coming from the same source, capturing the play's central theme directly. The other quotes are memorable but focus on conflict, fate, or farewell, not love and hate merged in one phrase.",
+      "prompt": "Which of these does NOT belong when grouped with the other examples of the 'love vs hate' theme in Romeo and Juliet?",
+      "answer": "Juliet asking the Nurse to fetch her a ladder for the wedding night",
+      "why": "This is a practical plot detail, not an example of love and hate colliding. The other three directly show the theme's tension between passionate love and violent hatred.",
       "options": [
-        "'My only love sprung from my only hate'",
-        "'A plague on both your houses'",
-        "'These violent delights have violent ends'",
-        "'Parting is such sweet sorrow'"
+        "Romeo and Juliet falling in love despite their families' feud",
+        "The oxymoron 'loving hate' describing their romance",
+        "The street brawl between Capulet and Montague servants",
+        "Juliet asking the Nurse to fetch her a ladder for the wedding night"
       ],
       "fresh": false
     },
@@ -99,14 +99,14 @@
       "id": "S7",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Put these developments of the medieval Catholic Church's power in the correct chronological order.",
-      "answer": "Church becomes major landowner, Church crowns and legitimises kings, Church launches the Crusades, Church's authority is challenged by later reformers",
-      "why": "The Church first built wealth and land, used that influence to legitimise rulers, then projected power abroad through the Crusades, before facing challenges to its authority much later — a steady rise before any decline.",
+      "prompt": "By the height of its medieval power, the Catholic Church could excommunicate rulers, control education across Christendom, and demand payments called tithes. Which of these best shows the Church acting as a political power, not just a religious one?",
+      "answer": "The Church excommunicated kings and nobles who defied it, threatening their political legitimacy",
+      "why": "Excommunicating a king directly threatened his political authority, since subjects could see him as no longer legitimate — this shows the Church wielding real political power, unlike routine religious or financial activities like Mass or tithes.",
       "options": [
-        "Church becomes major landowner, Church crowns and legitimises kings, Church launches the Crusades, Church's authority is challenged by later reformers",
-        "Church launches the Crusades, Church becomes major landowner, Church crowns and legitimises kings, Church's authority is challenged by later reformers",
-        "Church's authority is challenged by later reformers, Church becomes major landowner, Church crowns and legitimises kings, Church launches the Crusades",
-        "Church crowns and legitimises kings, Church becomes major landowner, Church launches the Crusades, Church's authority is challenged by later reformers"
+        "The Church excommunicated kings and nobles who defied it, threatening their political legitimacy",
+        "The Church held Sunday Mass services that most villagers in the parish attended weekly",
+        "The Church trained monks who copied religious texts inside monastery libraries",
+        "The Church collected tithes from peasants to fund local parish church buildings"
       ],
       "fresh": false
     },
@@ -114,13 +114,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "The First Crusade (1096-1099) was launched with the stated goal of recapturing ______ from Muslim control.",
+      "prompt": "Crusader knights swore an oath before departing, and many believed that fighting in the Holy Land could earn them ______ for their sins.",
       "type": "cloze",
-      "answer": "Jerusalem",
-      "why": "Jerusalem was the central holy city for Christians, Muslims, and Jews, and its capture was the First Crusade's main declared religious objective.",
+      "answer": "forgiveness",
+      "why": "The Church promised crusaders spiritual reward, often framed as forgiveness of sins, as an incentive to join the dangerous campaigns to the Holy Land.",
       "accept": [
-        "the Holy Land",
-        "jerusalem"
+        "absolution",
+        "pardon",
+        "remission of sins"
       ],
       "fresh": false
     },
@@ -128,14 +129,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Match each fact to its correct detail about Shakespeare's life and work: 1) Theatre he was associated with, 2) Monarch during much of his career, 3) Source material for Romeo and Juliet, 4) Century he wrote in. a) Elizabeth I. b) The Globe Theatre. c) 16th-17th century. d) Arthur Brooke's earlier poem.",
-      "answer": "1-b, 2-a, 3-d, 4-c",
-      "why": "Shakespeare worked at the Globe Theatre, during Elizabeth I's reign (later James I), adapted Romeo and Juliet from Arthur Brooke's earlier poem, and wrote across the late 16th into the early 17th century.",
+      "prompt": "Match each item to its correct detail about Shakespeare's life and work: 1) His birthplace, 2) The acting company he belonged to, 3) The genre of Romeo and Juliet, 4) His approximate lifespan. A) Tragedy. B) Stratford-upon-Avon. C) 1564-1616. D) The Lord Chamberlain's Men.",
+      "answer": "1-B, 2-D, 3-A, 4-C",
+      "why": "Shakespeare was born in Stratford-upon-Avon, belonged to the Lord Chamberlain's Men, wrote Romeo and Juliet as a tragedy, and lived roughly 1564-1616. Mixing these up confuses his biography with his plays' details.",
       "options": [
-        "1-b, 2-a, 3-d, 4-c",
-        "1-a, 2-b, 3-d, 4-c",
-        "1-b, 2-a, 3-c, 4-d",
-        "1-d, 2-a, 3-b, 4-c"
+        "1-B, 2-D, 3-A, 4-C",
+        "1-D, 2-B, 3-C, 4-A",
+        "1-B, 2-A, 3-D, 4-C",
+        "1-C, 2-D, 3-A, 4-B"
       ],
       "fresh": false,
       "x2": true
@@ -144,12 +145,12 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What term describes a play like Romeo and Juliet that ends in death and disaster, often caused by a character's flaws or fate?",
+      "prompt": "What term describes a phrase like 'parting is such sweet sorrow', where two contradictory ideas are combined for effect?",
       "type": "text",
-      "answer": "tragedy",
-      "why": "A tragedy is a play that ends in serious, often fatal, misfortune for the main characters, typically driven by flaws, fate, or circumstance — exactly the pattern in Romeo and Juliet.",
+      "answer": "oxymoron",
+      "why": "An oxymoron joins two seemingly opposite terms, like 'sweet sorrow', to capture a complex or conflicting emotion — a technique Shakespeare uses often in Romeo and Juliet.",
       "accept": [
-        "a tragedy"
+        "oxymoronic phrase"
       ],
       "fresh": false
     },
@@ -157,12 +158,12 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes reproduction that requires only one parent and produces genetically identical offspring?",
+      "prompt": "What term describes reproduction where a male and female gamete combine, producing offspring with genetic variation from both parents?",
       "type": "text",
-      "answer": "asexual reproduction",
-      "why": "Asexual reproduction involves a single parent and produces clones with identical DNA, unlike sexual reproduction which combines genetic material from two parents.",
+      "answer": "sexual reproduction",
+      "why": "Sexual reproduction combines genetic material from two parents, creating genetically varied offspring, unlike asexual reproduction which produces genetically identical clones.",
       "accept": [
-        "asexual"
+        "sexual"
       ],
       "fresh": false
     },
@@ -170,7 +171,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says the Crusades only matter for religious history and have nothing to do with subjects like trade, science, or geography today. Explain why this view is too narrow, using at least one specific long-term effect of the Crusades beyond religion."
+      "prompt": "A classmate says the Crusades should be studied only as a story of religious war, and that calling them a 'turning point' in history is an exaggeration. Explain, using your own reasoning and at least one specific long-term effect, why historians disagree with this dismissive view."
     }
   ],
   "encore": [
@@ -178,14 +179,14 @@
       "id": "E1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Put these steps in the correct order for analysing a cause-and-consequence chain in history (e.g. the fall of Rome leading to feudalism).",
+      "prompt": "Put these events in the correct chronological order, from cause to final consequence, showing how the fall of Rome led to the rise of feudalism.",
       "type": "order",
-      "why": "Good cause-and-consequence analysis moves step by step from the triggering event through immediate effects to the eventual long-term outcome, showing the chain of causation clearly rather than jumping straight to the end result.",
+      "why": "Each event causes the next: Rome's weakening leads to its collapse, which creates a power vacuum filled by local lords, ultimately producing the feudal system as a new way of organising society and protection.",
       "sequence": [
-        "Identify the initial event or change",
-        "Explain the immediate short-term effects",
-        "Trace how those effects led to further changes",
-        "Explain the longer-term consequence or new system that emerged"
+        "Weak central government and invasions weaken Roman authority",
+        "The Western Roman Empire collapses in 476 CE",
+        "Local lords and warlords fill the power vacuum for protection",
+        "A feudal system of land-for-loyalty develops across Western Europe"
       ],
       "fresh": false
     },
@@ -193,14 +194,14 @@
       "id": "E2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A rectangle has a base of 8 cm and a height of 5 cm. A triangle has the same base and height. What is the area of the triangle?",
-      "answer": "20 cm²",
-      "why": "A triangle's area is half the rectangle with the same base and height: (8 × 5) ÷ 2 = 20 cm². Forgetting to halve gives 40 cm² (the rectangle's area), and adding base and height instead of multiplying gives the other wrong answers.",
+      "prompt": "A triangle has a base of 10 cm and a height of 6 cm. What is its area?",
+      "answer": "30 cm²",
+      "why": "A triangle's area is half of base times height: 0.5 × 10 × 6 = 30 cm². Forgetting to halve gives the rectangle's area of 60 cm² instead, which is a common slip.",
       "options": [
-        "20 cm²",
-        "40 cm²",
-        "13 cm²",
-        "26 cm²"
+        "30 cm²",
+        "60 cm²",
+        "16 cm²",
+        "20 cm²"
       ],
       "fresh": false
     }
