@@ -9,14 +9,14 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has base 12cm and height 6cm. What is its area?",
-      "answer": "36cm²",
-      "why": "Area of a triangle is half base times height: 0.5 × 12 × 6 = 36cm². Forgetting to halve gives 72cm², a common mistake.",
+      "prompt": "A rectangle has length 9cm and width 5cm. What is its area?",
+      "answer": "45cm²",
+      "why": "Area of a rectangle is length × width, so 9 × 5 = 45cm². 28 comes from adding sides twice (perimeter-style thinking), 14 from just adding length and width, 50 from rounding up wrongly.",
       "options": [
-        "36cm²",
-        "72cm²",
-        "18cm²",
-        "144cm²"
+        "45cm²",
+        "28cm²",
+        "14cm²",
+        "50cm²"
       ],
       "fresh": false
     },
@@ -24,14 +24,14 @@
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, what is Juliet's last name?",
-      "answer": "Capulet",
-      "why": "Juliet belongs to House Capulet, the family feuding with Romeo's House Montague.",
+      "prompt": "In what year was William Shakespeare born?",
+      "answer": "1564",
+      "why": "Shakespeare was born in 1564 and died in 1616 — students often mix up the birth and death years. 1599 and 1588 are unrelated Elizabethan dates.",
       "options": [
-        "Capulet",
-        "Montague",
-        "Escalus",
-        "Tybalt"
+        "1564",
+        "1616",
+        "1599",
+        "1588"
       ],
       "fresh": false
     },
@@ -39,12 +39,12 @@
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What is the male sex cell in animal reproduction called?",
-      "answer": "Sperm",
-      "why": "Sperm is the male gamete; it fuses with the female gamete (egg) to form a zygote.",
+      "prompt": "What is the female sex cell called in animal reproduction?",
+      "answer": "Egg cell",
+      "why": "The egg cell (ovum) is the female gamete. Sperm is the male gamete, a zygote is the fertilised result, and an embryo develops after that — these stages are often confused.",
       "options": [
-        "Sperm",
-        "Egg",
+        "Egg cell",
+        "Sperm cell",
         "Zygote",
         "Embryo"
       ],
@@ -54,14 +54,14 @@
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In what year did the First Crusade begin?",
-      "answer": "1096",
-      "why": "The First Crusade launched in 1096, called by Pope Urban II the year before in 1095.",
+      "prompt": "Who called for the First Crusade in 1095?",
+      "answer": "Pope Urban II",
+      "why": "Pope Urban II called for the First Crusade at the Council of Clermont in 1095. Richard the Lionheart and Saladin were later crusade-era leaders, and Gregory VII is a different pope entirely.",
       "options": [
-        "1096",
-        "1215",
-        "1453",
-        "800"
+        "Pope Urban II",
+        "Richard the Lionheart",
+        "Saladin",
+        "Pope Gregory VII"
       ],
       "fresh": false
     },
@@ -69,14 +69,14 @@
       "id": "S5",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "What is the volume of a cube with side length 4cm?",
-      "answer": "64cm³",
-      "why": "Volume of a cube is side cubed: 4 × 4 × 4 = 64cm³. Squaring instead of cubing gives the wrong 16cm³.",
+      "prompt": "What is the volume of a cuboid 5cm by 3cm by 2cm?",
+      "answer": "30cm³",
+      "why": "Volume of a cuboid is length × width × height, so 5 × 3 × 2 = 30cm³. The distractors come from multiplying only two dimensions or adding instead of multiplying.",
       "options": [
-        "64cm³",
-        "16cm³",
-        "48cm³",
-        "24cm³"
+        "30cm³",
+        "10cm³",
+        "20cm³",
+        "15cm³"
       ],
       "fresh": false
     },
@@ -84,14 +84,14 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A shape is made of a 6cm by 4cm rectangle plus a 6cm by 2cm rectangle. What is the total area?",
-      "answer": "36cm²",
-      "why": "Add the two parts separately: 6×4=24cm² plus 6×2=12cm², giving 36cm² total. Missing one part gives 24cm².",
+      "prompt": "A shape is an 8cm by 5cm rectangle with a 3cm by 5cm rectangle removed. What is the remaining area?",
+      "answer": "25cm²",
+      "why": "The whole rectangle is 8 × 5 = 40cm², and the removed piece is 3 × 5 = 15cm², so 40 − 15 = 25cm². Getting 40 or 15 alone means forgetting to subtract.",
       "options": [
-        "36cm²",
-        "24cm²",
-        "12cm²",
-        "48cm²"
+        "25cm²",
+        "40cm²",
+        "15cm²",
+        "55cm²"
       ],
       "fresh": false
     },
@@ -99,14 +99,14 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What term describes countries becoming more linked through trade and technology?",
+      "prompt": "What term describes countries becoming more connected through trade and technology?",
       "answer": "Globalisation",
-      "why": "Globalisation describes growing interconnection between countries through trade, technology, and communication.",
+      "why": "Globalisation is the process of countries becoming more linked through trade, technology, and culture. Urbanisation, colonisation, and migration describe different, related but distinct processes.",
       "options": [
         "Globalisation",
         "Urbanisation",
-        "Migration",
-        "Colonisation"
+        "Colonisation",
+        "Migration"
       ],
       "fresh": false
     },
@@ -114,14 +114,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Which European trading cities profited most from shipping crusader armies to the Holy Land?",
-      "answer": "Venice and Genoa",
-      "why": "Venice and Genoa were Italian port cities that grew wealthy transporting and supplying crusader forces.",
+      "prompt": "What was the main stated goal of the First Crusade?",
+      "answer": "Reclaim Jerusalem",
+      "why": "The First Crusade was called to reclaim Jerusalem and other holy sites from Muslim control. Trade expansion and conversion were later side-effects, not the original stated aim, and Constantinople was a Christian city the crusaders were meant to pass through, not attack.",
       "options": [
-        "Venice and Genoa",
-        "Paris and London",
-        "Rome and Athens",
-        "Cairo and Baghdad"
+        "Reclaim Jerusalem",
+        "Convert Muslims",
+        "Expand trade routes",
+        "Destroy Constantinople"
       ],
       "fresh": false
     },
@@ -129,14 +129,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which acting company did Shakespeare belong to?",
-      "answer": "The Lord Chamberlain's Men",
-      "why": "Shakespeare belonged to The Lord Chamberlain's Men, later renamed The King's Men. The other names are invented and never existed as real Elizabethan companies.",
+      "prompt": "What genre is Romeo and Juliet classified as?",
+      "answer": "Tragedy",
+      "why": "Romeo and Juliet is classified as a tragedy because it ends in the deaths of the main characters. Shakespeare also wrote comedies and histories, but this play fits neither, and it is a play, not a novel.",
       "options": [
-        "The Lord Chamberlain's Men",
-        "The King's Royal Players",
-        "The Globe Tragedians",
-        "The Stratford Company"
+        "Tragedy",
+        "Comedy",
+        "History",
+        "Romance novel"
       ],
       "fresh": false
     },
@@ -144,14 +144,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What poetic form is the Romeo and Juliet prologue written in?",
-      "answer": "Sonnet",
-      "why": "The prologue is a 14-line sonnet, setting up the play's tragic outcome before the action begins.",
+      "prompt": "What technique is Shakespeare using when he calls Juliet 'the sun'?",
+      "answer": "Metaphor",
+      "why": "Calling Juliet 'the sun' directly, without using 'like' or 'as', is a metaphor. A simile would need a comparing word, and alliteration/onomatopoeia are unrelated sound techniques.",
       "options": [
-        "Sonnet",
-        "Haiku",
-        "Ballad",
-        "Limerick"
+        "Metaphor",
+        "Simile",
+        "Alliteration",
+        "Onomatopoeia"
       ],
       "fresh": false
     },
@@ -159,14 +159,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is a zygote formed from?",
-      "answer": "Two fused gametes",
-      "why": "A zygote forms when a sperm and egg (two gametes) fuse together during sexual reproduction.",
+      "prompt": "What is it called when an organism reproduces from a single parent with no genetic variation?",
+      "answer": "Asexual reproduction",
+      "why": "Asexual reproduction involves only one parent and produces genetically identical offspring. Sexual reproduction needs two parents and creates variation, while fertilisation and pollination are steps within sexual reproduction.",
       "options": [
-        "Two fused gametes",
-        "One divided cell",
-        "A cloned parent cell",
-        "A single sperm alone"
+        "Asexual reproduction",
+        "Sexual reproduction",
+        "Fertilisation",
+        "Pollination"
       ],
       "fresh": false
     },
@@ -174,7 +174,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "History",
-      "prompt": "A classmate says medieval Europe was 'just chaos' with nothing organised after Rome fell, since there was no empire anymore. Explain what this misses about how feudalism and the Church actually structured society."
+      "prompt": "A classmate says the fall of Rome was a single sudden event with one clear cause. Explain what this misses about how and why the Western Roman Empire actually declined."
     }
   ]
 }
