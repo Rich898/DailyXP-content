@@ -10,6 +10,19 @@ into one of two labelled buckets (True/False, Metal/Non-metal, Simile/Metaphor,
 Primary/Secondary…). Correct = XP pop and the next card slides up; wrong or too slow = a
 one-line re-teach strip, then keep moving.
 
+## v4 changes (18 Aug) — dragging responsiveness pass
+Target: kill the "card lags behind my finger" feel. (Visual polish deliberately deferred to
+a later pass per Rich.)
+- **`touch-action:none` down the whole play stack** (body → app → stage → stack → card),
+  not just the card. On touch devices this removes the browser's scroll-intent delay that
+  made the first part of every drag feel laggy.
+- **Full 1:1 finger tracking in both axes** (was 55% vertical). The card now sits directly
+  under the thumb on diagonal moves instead of trailing it.
+- **Coalesced pointer events** so we paint from the freshest sample on high-refresh screens.
+- **Dropped the blurred drop-shadow while dragging** (kept the hard offset shadow) so the
+  moving layer stays cheap to composite — smoother on lower-end phones.
+- Tighter anchor (scale 1.02) and gentler tilt so the grab point barely shifts.
+
 ## v3 changes (18 Aug)
 - **Card shrunk to a compact tile** (264×188) and **buckets enlarged into deep
   container-style targets** — fixes the "huge card into a tiny pill" jank. The landing tile

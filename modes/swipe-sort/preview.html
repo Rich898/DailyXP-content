@@ -22,8 +22,9 @@ body{
   background:var(--paper); color:var(--ink); font-family:var(--body);
   height:100vh; height:100dvh; overflow:hidden; position:fixed; inset:0; width:100%;
   overscroll-behavior:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
+  touch-action:none;
 }
-#app{height:100%; display:flex; flex-direction:column; max-width:480px; margin:0 auto; padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+#app{height:100%; display:flex; flex-direction:column; max-width:480px; margin:0 auto; padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom); touch-action:none}
 .screen{flex:1; display:none; flex-direction:column}
 .screen.on{display:flex}
 
@@ -63,12 +64,12 @@ body{
 @keyframes pillpop{0%{transform:scale(1)}40%{transform:scale(1.16)}100%{transform:scale(1)}}
 @keyframes pillbad{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
 
-#stage{flex:1; position:relative; min-height:0}
-#timer{position:absolute; top:0; left:6px; right:6px; height:5px; background:var(--line); border-radius:99px; overflow:hidden; z-index:5}
+#stage{flex:1; position:relative; min-height:0; touch-action:none}
+#timer{position:absolute; top:0; left:6px; right:6px; height:5px; background:var(--line); border-radius:99px; overflow:hidden; z-index:5; pointer-events:none}
 #timerfill{display:block; height:100%; width:100%; background:var(--ink); border-radius:99px}
 #timerfill.low{background:var(--flare)}
 
-#stack{position:absolute; inset:18px 4px 54px}
+#stack{position:absolute; inset:18px 4px 54px; touch-action:none}
 .card{
   position:absolute; inset:0; margin:auto; max-width:264px; max-height:188px;
   background:#fff; border:3px solid var(--ink); border-radius:18px;
@@ -88,7 +89,7 @@ body{
 .stamp.SL{left:10px; color:var(--reef); border-color:var(--reef); transform:rotate(-12deg)}
 .stamp.SR{right:10px; color:var(--boltdeep); border-color:var(--boltdeep); transform:rotate(12deg)}
 
-.card.top.grabbing{box-shadow:0 10px 0 rgba(16,27,45,.9), 0 18px 28px rgba(16,27,45,.26)}
+.card.top.grabbing{box-shadow:0 9px 0 rgba(16,27,45,.95)}
 
 #fx{position:fixed; inset:0; pointer-events:none; z-index:9; overflow:visible}
 .spark{position:fixed; z-index:9; pointer-events:none; will-change:transform,opacity; border-radius:3px;
@@ -173,7 +174,7 @@ body{
 
   <section id="intro" class="screen on">
     <div class="kicker">XP DAILY · MODE PROTOTYPE</div>
-    <div class="build" data-build="3">SWIPE SORT · v3</div>
+    <div class="build" data-build="4">SWIPE SORT · v4</div>
     <h1>SWIPE<br><em>SORT</em></h1>
     <p>Flick each card into the right bucket. Fast beats hesitant — wrong answers teach you on the spot.</p>
     <p class="note">Buckets change between rounds — watch the pills.<br>16 cards · 4 subjects · nothing is saved.</p>
@@ -420,9 +421,11 @@ function attachDrag(el){
 
   el.addEventListener('pointermove', e=>{
     if (!drag || e.pointerId !== drag.id || phase !== 'card') return;
+    const evs = (e.getCoalescedEvents && e.getCoalescedEvents().length) ? e.getCoalescedEvents() : [e];
+    const now = performance.now();
+    for (const ev of evs) drag.hist.push([now, ev.clientX]);
+    if (drag.hist.length > 10) drag.hist.splice(0, drag.hist.length - 10);
     drag.dx = e.clientX - drag.x0; drag.dy = e.clientY - drag.y0;
-    drag.hist.push([performance.now(), e.clientX]);
-    if (drag.hist.length > 8) drag.hist.shift();
     paint(el, drag.dx, drag.dy);
   });
 
@@ -455,7 +458,7 @@ function velocity(hist){
 }
 
 function paint(el, dx, dy){
-  el.style.transform = 'translate(' + dx + 'px,' + (dy*0.55) + 'px) rotate(' + clamp(dx/16, -15, 15) + 'deg) scale(1.03)';
+  el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + clamp(dx/20, -12, 12) + 'deg) scale(1.02)';
   const sl = el.querySelector('.stamp.SL'), sr = el.querySelector('.stamp.SR');
   const o = Math.min(1, Math.abs(dx)/90);
   sl.style.opacity = dx < 0 ? o : 0;
