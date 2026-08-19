@@ -408,24 +408,18 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
     if light_subject:
         lines.append(f"DIRECTIVE: light on {light_subject} (student just sat its assessment) — keep it to the single slot shown, calm difficulty.")
     if "reversed" in (directive or ""):
-        lines.append(
-            "REVERSED (this chapter's Wednesday mutator — SEASONS.md): every FACT-BASED speed slot is reversed; steady and teach stay normal.\n"
-            "- EXEMPT from reversal: any speed slot whose topic is a CALCULATION (equations, angles, area/volume, percentages —\n"
-            "  anything solved with arithmetic). Those slots stay STANDARD multiple-choice recall. Reason: candidate questions for a\n"
-            "  numeric answer routinely collide (several equations solving to the same x), which fails review and holds the set.\n"
-            "  Reversal trains fact discrimination; calculations don't discriminate, they compute.\n"
-            "- Prompt template, exactly: The answer is: \"<fact>\". Which question is this the answer to?\n"
-            "- <fact> is a real, checkable fact from that slot's topic (respect the guidance) — short, concrete (a date, term, value, name).\n"
-            "- Options: four candidate QUESTIONS from the student's actual study neighbourhood, all phrased as questions.\n"
-            "  Exactly ONE is genuinely answered by the stated fact. The other three must be real-sounding questions whose\n"
-            "  true answers are clearly DIFFERENT facts — near neighbours that get mixed up under pressure, never absurd fillers.\n"
-            "- NUMERIC TOPICS (equations, angles, percentages, any calculation): SOLVE every candidate question yourself BEFORE\n"
-            "  output. Each distractor question's true answer must be a DIFFERENT number from the stated fact AND from each other —\n"
-            "  two candidates computing to the same value is this format's most common failure and gets the whole set rejected\n"
-            "  (e.g. never offer both 'the co-interior partner of 70°' and 'the corresponding partner of 110°' when the stated\n"
-            "  fact is 110° — both are answered by it). If a distractor collides, change its NUMBERS, not its topic.\n"
-            "- answer = the correct question, verbatim from options.\n"
-            "- why = confirm the pair in one line AND state the true answer of the most tempting distractor question, so the near-miss is disarmed.")
+        lines.append("""
+REVERSED (this chapter's Wednesday mutator — SEASONS.md): every FACT-BASED speed slot is reversed; steady and teach stay normal.
+- EXEMPT from reversal: any CALCULATION topic (equations, angles, area/volume, percentages — anything solved with arithmetic). Those slots stay STANDARD multiple-choice recall. Reversal trains FACT discrimination; calculations compute, they don't discriminate.
+- The point: give the student the ANSWER and have them name what it belongs to — a FAST, TIMED, fast-to-READ speed question. This is a speed round, not a reading test.
+- Prompt: state the fact, then a short cue. Format: The answer is: "<fact>". Which one? — or a natural short variant, e.g. '<fact> — which event?' / 'which play?' / 'which term?' / 'which shape?'.
+- <fact> is a real, checkable fact — short and concrete (a date, term, value, name).
+- Options: four short labels — names, terms, or brief phrases naming the THINGS the fact could belong to (NOT questions, NOT full sentences). Length is whatever keeps them GENUINELY DISTINGUISHABLE by a student who knows the material: a proper noun or specific term is fine in 1-2 words (e.g. fact "Verona": Romeo and Juliet / Hamlet / Macbeth / Othello); a subtler concept may need up to ~6 words to stay unambiguous. As short as possible WHILE a knowledgeable student can tell them apart at a glance and a guesser cannot.
+- Exactly ONE label is what the fact is the answer to. The other three are real near-neighbours from the same study area whose true match is a DIFFERENT fact — the ones mixed up under pressure, never absurd fillers.
+- AMBIGUITY TEST (the real bar): if two options could be confused by a student who genuinely understands the topic — bare abstract look-alikes like 'Cause' vs 'Consequence' with nothing to separate them — the labels are too vague. Add the few words that distinguish them (e.g. 'the resulting event' vs 'the reason it happened'), or pick a fact whose options are naturally distinct. A correct answer must be recoverable by KNOWLEDGE, never only by guessing between look-alikes.
+- HARD RULE: if a fair set of options here would need full SENTENCES to make sense (common for numeric / "which scenario" topics), this topic is WRONG for reversal — make it a STANDARD recall question instead.
+- answer = the correct label, verbatim from options.
+- why = confirm the pair in one line and name the true match of the most tempting distractor.""")
     if shape_key == "boss":
         lines.append(
             "BATTLEGROUND (this is Friday's Battleground \u2014 the student's self-contained shot at claiming the ground on the\n"
