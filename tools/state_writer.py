@@ -83,6 +83,9 @@ def badge_for(q, medians, student, shell_flags):
     """classify() gives the doctrine badge; split the generic '✓' by confidence/pace.
     For a teach-back, upgrade the no-op 'TB' to a graded verdict badge when one is present."""
     rel, _ = relative_speed(q, medians, student)
+    if q.get("type") == "swipe":
+        # a swipe is a fast 50/50 sort — deliberately weak evidence (see transition()).
+        return ("SWIPE✓" if q.get("ok") else "SWIPE✗"), rel
     badge, _impl = classify(q, rel, shell_flags)
     if badge == "✓":
         conf = (q.get("confidence") or "").lower()
@@ -115,6 +118,19 @@ def transition(t, badge, rel, spaced, caveat):
     confirms = int(t.get("repair_confirms", 0))
     prior_badge = (t.get("last_result") or {}).get("badge")
     calm = rel not in ("fast", "trivial")   # None counts as calm (unmeasured → benefit of doubt)
+
+    # ---- swipe: a fast 50/50 sort. Weak evidence: it can gently RAISE a topic but NEVER reaches
+    #      solid on its own (a coin-flip is not mastery), and a miss holds rather than punishes. ----
+    if badge == "SWIPE✓":
+        if repair:
+            return "swipe-correct on REPAIR → held (a 50/50 sort can't confirm a repair)"
+        if cur == "untested":
+            t["state"] = "shaky"; return "swipe-correct → shaky (weak positive, gentle raise)"
+        if cur == "shaky":
+            t["state"] = "developing"; return "swipe-correct → developing (capped — swipe never reaches solid alone)"
+        return f"swipe-correct → held at {cur} (swipe never promotes to solid alone)"
+    if badge == "SWIPE✗":
+        return f"swipe-wrong → held at {cur} (a 50/50 miss is weak evidence)"
 
     # ---- REPAIR lane: state stays "REPAIR" until it earns out to developing ----
     if repair:
