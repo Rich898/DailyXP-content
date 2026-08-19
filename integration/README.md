@@ -91,3 +91,16 @@ first, never the boys.
 ## Full run with ALL THREE mechanics
 - [x] Verified end-to-end: Swipe Sort -> Quick Recall -> **Ordering** -> Numeric -> Checkpoint -> Teach-back, coherent doorways (incl. first-batch), records correct, zero JS errors.
 - [ ] Merge ordering into the LIVE template (staging only), then dogfood on t1.
+
+## Short-text mechanic — stage tracker (4th/last mechanic)
+- [x] **1a. Embeddable widget** — `short-text-widget.html`: `mountText(container, q, {onCommit,onDone})`.
+  Text input (autocorrect/spellcheck OFF, Enter submits) + the fuzzy matcher (the IP): norm (case/accents/
+  punct/leading-article) -> plural-fold -> length-scaled Levenshtein, NO typo tolerance on words <=3 chars.
+  Shows "counted 'X' as 'Y' - spelling never counts". Reports `{ok, value, fuzzy}`. Proven: typo/variant/
+  synonym/article accepted, wrong rejected, 4/5, zero JS errors.
+  Schema: `{ type:'text', subject, prompt, accept:[canonical, ...variants], why }`.
+- [ ] **1b. Wire into the STEADY round** (like numeric/order) — mount widget, record + advance.
+- [ ] **2. Composer** generates short-text (question + accept list [canonical + variants] + why).
+- [ ] **3. Planner** slots a Short-text block (t1 first).
+- [ ] **4. Validator** accepts text (accept list >=1, why).
+- [ ] **5. State-writer** weights short-text (typed, fuzzy-forgiving; strong).
