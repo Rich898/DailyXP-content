@@ -26,7 +26,7 @@
   .hdr h1{font-size:26px;margin:0;cursor:pointer}
   .hdr .pen{color:var(--haze);font-size:13px;font-family:'Space Grotesk';font-weight:400}
   .score{text-align:right}
-  .score .pts{font-size:24px;color:var(--flare);line-height:1}
+  .score .pts{font-size:24px;color:var(--flare);line-height:1;display:inline-block;transform-origin:center}
   .score .lbl{font-size:11px;color:var(--haze);letter-spacing:.08em}
   .rail{display:flex;gap:5px;margin:16px 0 26px;align-items:center}
   .seg{height:10px;flex:1;border-radius:3px;background:#E4E7DF;border:1px solid var(--line)}
@@ -94,6 +94,17 @@
   .tbl.red .g{color:var(--flare)}
   .tbreason{text-align:center;font-size:12px;color:var(--haze);margin-top:9px;font-weight:600}
   .tblwait{text-align:center;color:var(--haze);font-size:13px;margin:0 0 16px;font-weight:600}
+  .hglow{animation:hglowpulse 3.6s ease-in-out infinite}
+  @keyframes hglowpulse{0%,100%{text-shadow:0 0 18px rgba(255,77,41,.36),0 0 7px rgba(255,77,41,.26);transform:scale(1)}50%{text-shadow:0 0 36px rgba(255,77,41,.66),0 0 13px rgba(255,77,41,.44);transform:scale(1.015)}}
+  @media (prefers-reduced-motion: reduce){ .hglow{ animation:none; text-shadow:0 0 20px rgba(255,77,41,.4) } }
+  .tbscore-wait{display:flex;flex-direction:column;align-items:center;gap:16px;padding:44px 0}
+  .tbspin{width:40px;height:40px;border-radius:50%;border:4px solid rgba(16,27,45,.12);border-top-color:var(--reef);animation:tbspin 900ms linear infinite}
+  @keyframes tbspin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion: reduce){ .tbspin{ animation:none; border-top-color:var(--haze) } }
+  .tbwaitxt{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--haze);font-weight:600}
+  .tbscore-row .tbl{padding:18px 6px}
+  .tbscore-row .tbl .g{font-size:34px}
+  .tbscore-row .tbl .lb{font-size:11px;margin-top:8px}
   .deal{border-top:2px dashed var(--line);padding-top:14px;margin-bottom:20px;font-size:14px;color:var(--haze)}
   .note{font-size:14px;color:var(--haze)}
   .box{border:2px solid var(--line);border-radius:12px;padding:12px;background:#fff;font-size:13px;white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;margin-top:12px}
@@ -167,33 +178,36 @@
      small pooled overlay. Every effect DECORATES; none gates input or touches the
      clock. All of it is killed/softened under prefers-reduced-motion below. */
   #fxroot{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
-  .fxparticle{position:absolute;width:13px;height:13px;border-radius:3px;will-change:transform,opacity;opacity:0}
+  .fxparticle{position:absolute;width:16px;height:16px;border-radius:3px;will-change:transform,opacity;opacity:0}
   .fxrun{animation:fxfly var(--fxdur,720ms) cubic-bezier(.15,.6,.35,1) forwards}
   @keyframes fxfly{
     0%{opacity:1;transform:translate(0,0) scale(1) rotate(0)}
     100%{opacity:0;transform:translate(var(--fxdx),var(--fxdy)) scale(.4) rotate(var(--fxrot))}
   }
-  .fxpop{position:absolute;font-family:'Archivo Black','Arial Black',sans-serif;font-size:34px;letter-spacing:-.01em;will-change:transform,opacity;opacity:0;white-space:nowrap;text-shadow:0 2px 8px rgba(16,27,45,.18)}
+  .fxpop{position:absolute;font-family:'Archivo Black','Arial Black',sans-serif;font-size:46px;letter-spacing:-.01em;will-change:transform,opacity;opacity:0;white-space:nowrap;text-shadow:0 2px 8px rgba(16,27,45,.18)}
   .fxpop.run{animation:fxpop 900ms cubic-bezier(.2,1.1,.35,1) forwards}
-  @keyframes fxpop{0%{opacity:0;transform:translate(-50%,0) scale(.7)}25%{opacity:1;transform:translate(-50%,-14px) scale(1.08)}100%{opacity:0;transform:translate(-50%,-52px) scale(1)}}
+  @keyframes fxpop{0%{opacity:0;transform:translate(-50%,0) scale(.55)}24%{opacity:1;transform:translate(-50%,-18px) scale(1.24)}60%{opacity:1;transform:translate(-50%,-46px) scale(1)}100%{opacity:0;transform:translate(-50%,-74px) scale(1)}}
   .fxflash{position:absolute;inset:0;opacity:0;background:radial-gradient(circle at 50% 42%,var(--fxflashc,rgba(255,184,0,.5)),transparent 60%)}
   .fxflash.run{animation:fxflash 520ms ease-out forwards}
   @keyframes fxflash{0%{opacity:0}18%{opacity:1}100%{opacity:0}}
+  .fxring{position:absolute;border-radius:50%;border:3px solid rgba(255,255,255,.85);will-change:transform,opacity;transform:translate(-50%,-50%) scale(.15);opacity:0}
+  .fxring.run{animation:fxring 520ms cubic-bezier(.2,.7,.3,1) forwards}
+  @keyframes fxring{0%{opacity:.9;transform:translate(-50%,-50%) scale(.15);border-width:4px}100%{opacity:0;transform:translate(-50%,-50%) scale(1);border-width:1px}}
   /* screen kick — tiered by combo. shake is the classic motion-sickness trigger,
      so it is the FIRST thing reduced-motion removes. */
   .kick1{animation:kick1 300ms ease-out}
   .kick2{animation:kick2 380ms cubic-bezier(.36,.07,.19,.97)}
   .kick3{animation:kick3 460ms cubic-bezier(.36,.07,.19,.97)}
-  @keyframes kick1{0%,100%{transform:translate(0,0)}30%{transform:translate(-2px,-4px)}60%{transform:translate(2px,-1px)}}
-  @keyframes kick2{0%,100%{transform:translate(0,0)}20%{transform:translate(-8px,2px)}45%{transform:translate(8px,-2px)}70%{transform:translate(-4px,1px)}}
-  @keyframes kick3{0%,100%{transform:translate(0,0)}12%{transform:translate(-12px,4px)}28%{transform:translate(14px,-4px)}45%{transform:translate(-10px,2px)}62%{transform:translate(10px,-2px)}80%{transform:translate(-4px,0)}}
+  @keyframes kick1{0%,100%{transform:translate(0,0) scale(1)}30%{transform:translate(-5px,-7px) scale(1.015)}60%{transform:translate(5px,-2px) scale(1)}}
+  @keyframes kick2{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(-13px,4px) scale(1.03)}45%{transform:translate(13px,-4px) scale(1.02)}70%{transform:translate(-6px,2px) scale(1)}}
+  @keyframes kick3{0%,100%{transform:translate(0,0) scale(1)}12%{transform:translate(-20px,6px) scale(1.045)}28%{transform:translate(22px,-6px) scale(1.03)}45%{transform:translate(-16px,3px) scale(1.02)}62%{transform:translate(16px,-3px) scale(1.01)}80%{transform:translate(-6px,0) scale(1)}}
   @media (prefers-reduced-motion: reduce){
     .fuse,.opt{transition:none !important}
     .evtbanner .charge,.evtchip{animation:none !important}
     .bhero .huge{animation:none !important}
     /* FX: no shake at all; particles/flash suppressed; number pop keeps a gentle fade only */
     .kick1,.kick2,.kick3{animation:none !important}
-    .fxrun,.fxflash.run{animation:none !important;opacity:0 !important}
+    .fxrun,.fxflash.run,.fxring{animation:none !important;opacity:0 !important}
     .fxpop.run{animation:fxpopRM 700ms ease-out forwards !important}
     @keyframes fxpopRM{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,-18px)}}
   }
@@ -258,7 +272,16 @@
 
   .tcard{ text-align:center; padding:28px 8px 8px; display:flex; flex-direction:column; align-items:center; }
   .theat{ font-family:'Space Mono',ui-monospace,monospace; font-weight:700; font-size:12px; letter-spacing:.18em; color:var(--haze); }
-  .tic{ width:96px; height:96px; border-radius:24px; display:flex; align-items:center; justify-content:center; font-size:40px; color:#0b1220; box-shadow:0 8px 0 rgba(0,0,0,.3); margin-top:22px; animation:ticpop .5s cubic-bezier(.2,1.4,.4,1); }
+  .ticwrap{ position:relative; margin-top:22px; width:96px; height:96px; display:flex; align-items:center; justify-content:center; }
+  .tic{ position:relative; z-index:2; width:96px; height:96px; border-radius:24px; display:flex; align-items:center; justify-content:center; font-size:40px; color:#0b1220; background-image:linear-gradient(160deg,rgba(255,255,255,.42),rgba(255,255,255,0) 52%); box-shadow:0 10px 24px -6px var(--glow,rgba(57,167,222,.85)),0 2px 0 rgba(255,255,255,.35) inset,0 -6px 12px rgba(0,0,0,.18) inset; animation:ticpop .5s cubic-bezier(.2,1.4,.4,1); }
+  .tic svg{ width:46px; height:46px; display:block; }
+  .halo{ position:absolute; z-index:1; inset:-34px; border-radius:50%; background:radial-gradient(circle at 50% 46%,var(--glow,rgba(57,167,222,.85)) 0%,transparent 62%); opacity:.55; filter:blur(2px); }
+  .sheen{ position:absolute; z-index:3; inset:0; border-radius:24px; overflow:hidden; pointer-events:none; }
+  .sheen::before{ content:''; position:absolute; top:-60%; left:-45%; width:60%; height:220%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:rotate(8deg); }
+  @media (prefers-reduced-motion: no-preference){ .halo{ animation:ticbreathe 3.4s ease-in-out infinite } .sheen::before{ animation:ticsweep 3.4s ease-in-out infinite } }
+  @media (prefers-reduced-motion: reduce){ .sheen{ display:none } }
+  @keyframes ticbreathe{ 0%,100%{opacity:.4;transform:scale(1)} 50%{opacity:.72;transform:scale(1.08)} }
+  @keyframes ticsweep{ 0%,18%{left:-45%} 46%,100%{left:130%} }
   .tic-reef{ background:var(--reefhi); } .tic-kelp{ background:var(--kelp); }
   @keyframes ticpop{ from{opacity:0;transform:scale(.6) rotate(-6deg)} to{opacity:1;transform:none} }
   .tname{ font-family:'Archivo Black','Arial Black',sans-serif; font-size:clamp(30px,9vw,42px); margin:18px 0 8px; color:#F7F8F4; }
@@ -366,7 +389,7 @@ function makeFX(opts){
     try{ return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
     catch(e){ return false; }
   };
-  var MAX_PARTICLES = 60;          // hard cap — protects weak phones from unbounded emitters (doubled with the effect tiers)
+  var MAX_PARTICLES = 90;          // hard cap — protects weak phones from unbounded emitters (doubled with the effect tiers)
   var live = 0;
   function root(){ return doc && doc.getElementById("fxroot"); }
   function target(){ return doc && (doc.querySelector(".wrap") || doc.body); }
@@ -407,6 +430,7 @@ function makeFX(opts){
     var d = doc.createElement("div"); d.className = "fxpop";
     d.textContent = text; d.style.left = x+"px"; d.style.top = y+"px";
     if(color) d.style.color = color;
+    if(color){ var _g=(color.charAt(0)==="#"&&color.length===7)?color+"aa":color; d.style.textShadow="0 2px 10px rgba(0,0,0,.35), 0 0 22px "+_g; d.style.webkitTextStroke="1px rgba(255,255,255,.35)"; }
     r.appendChild(d); void d.offsetWidth; d.classList.add("run");
     d.addEventListener("animationend", function(){ if(d.parentNode) d.parentNode.removeChild(d); }, {once:true});
     setTimeout(function(){ if(d.parentNode) d.parentNode.removeChild(d); }, 1100);
@@ -420,6 +444,16 @@ function makeFX(opts){
     t.addEventListener("animationend", function h(){ t.classList.remove(cls); t.removeEventListener("animationend",h); });
     return true;
   }
+  function ring(){
+    var r = root(); if(!r || reduce()) return false;
+    var c = center();
+    var e = doc.createElement("div"); e.className = "fxring";
+    e.style.left = c.cx+"px"; e.style.top = c.cy+"px"; e.style.width = "190px"; e.style.height = "190px";
+    r.appendChild(e); void e.offsetWidth; e.classList.add("run");
+    e.addEventListener("animationend", function(){ if(e.parentNode) e.parentNode.removeChild(e); }, {once:true});
+    setTimeout(function(){ if(e.parentNode) e.parentNode.removeChild(e); }, 640);
+    return true;
+  }
 
   // shared center for bursts/pops (upper third, near the hero/question)
   function center(){
@@ -429,7 +463,7 @@ function makeFX(opts){
   // showpiece — the loudest single moment (blitz ×2 reveal, boss finisher): flash + full burst + max kick.
   function showpiece(pal){
     pal = pal || {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(255,184,0,.55)"};
-    var c=center(); flash(pal.flash); burst(c.cx, c.cy, pal.spark, 52); kick(3); return true;
+    var c=center(); flash(pal.flash); burst(c.cx, c.cy, pal.spark, 72); ring(); setTimeout(ring, 90); kick(3); return true;
   }
 
   // The one call the shell makes on a correct answer. `spec` is plain data:
@@ -444,12 +478,17 @@ function makeFX(opts){
     var combo = spec.combo||0, amp = spec.amp||1, flashFloor = spec.intense?2:3;
     var c = center();
     var n, k;
-    if(combo>=4){ n=40; k=3; } else if(combo===3){ n=28; k=3; } else if(combo===2){ n=16; k=2; } else { n=10; k=1; }
+    if(combo>=4){ n=56; k=3; } else if(combo===3){ n=40; k=3; } else if(combo===2){ n=24; k=2; } else { n=15; k=1; }
     n = Math.round(n*amp);
-    if(combo>=flashFloor) flash(pal.flash);
-    if(n>0) burst(c.cx, c.cy, pal.spark, n);
-    kick(k);
-    if(spec.points && !reduce()){ popNumber(c.cx, c.cy-30, "+"+spec.points, pal.pop); }
+    var play = function(){
+      if(combo>=flashFloor) flash(pal.flash);
+      if(n>0) burst(c.cx, c.cy, pal.spark, n);
+      if(k>=2) ring();
+      if(k>=3) setTimeout(ring, 70);
+      kick(k);
+      if(spec.points && !reduce()){ popNumber(c.cx, c.cy-30, "+"+spec.points, pal.pop); }
+    };
+    if(reduce()){ play(); } else { setTimeout(play, 45); }
   }
   return { celebrate:celebrate, showpiece:showpiece, burst:burst, flash:flash, popNumber:popNumber, kick:kick, _live:function(){return live;} };
 }
@@ -627,7 +666,14 @@ el("appName").addEventListener("click", function(){
   }
 });
 
-function setScore(){ el("pts").textContent = state.score.toLocaleString(); }
+function setScore(){
+  var e=el("pts"); if(!e) return;
+  var to=state.score, from=parseInt(e.getAttribute("data-v")||"0",10)||0; e.setAttribute("data-v",to);
+  if(to===from || typeof e.animate!=="function"){ e.textContent=to.toLocaleString(); return; }
+  try{ e.animate([{transform:"scale(1)"},{transform:"scale(1.26)",offset:.3},{transform:"scale(1)"}],{duration:360,easing:"cubic-bezier(.2,1.3,.4,1)"}); }catch(x){}
+  var t0=performance.now();
+  (function tick(now){ var t=Math.min(1,(now-t0)/380); e.textContent=Math.round(from+(to-from)*t).toLocaleString(); if(t<1) requestAnimationFrame(tick); })(performance.now());
+}
 
 function railHTML(){
   if(!QUESTIONS.length){ el("rail").innerHTML=""; return; }
@@ -648,6 +694,7 @@ function render(){ railHTML(); setScore();
   else if(state.screen==="steady") renderSteady();
   else if(state.screen==="transition") renderTransition();
   else if(state.screen==="teach") renderTeach();
+  else if(state.screen==="teachScore") renderTeachScore();
   else if(state.screen==="encoreOffer") renderEncoreOffer();
   else renderDone();
 }
@@ -665,9 +712,11 @@ function mountSwipe(container, q, cb){
     '</div>'+
     '<div class="sw-stage">'+
       '<div class="sw-card">'+
+        '<div class="sw-sheen"></div>'+
+        '<div class="sw-gloss"></div>'+
         '<div class="sw-face">'+
           (q.eyebrow||q.subject ? '<span class="sw-eyebrow" style="color:'+(q.eyebrowColor||'#8A97AD')+'">'+esc(q.eyebrow||q.subject)+'</span>' : '')+
-          '<h2>'+esc(q.prompt)+'</h2>'+
+          '<h2>'+esc((function(t){t=String(t||'');return t.length>120?t.slice(0,118).replace(/\s+\S*$/,'')+'\u2026':t;})(q.prompt))+'</h2>'+
           (q.idx ? '<span class="sw-idx">'+esc(q.idx)+'</span>' : '')+
         '</div>'+
         '<span class="sw-stamp SL">'+esc(q.left)+'</span>'+
@@ -680,17 +729,25 @@ function mountSwipe(container, q, cb){
   var pillL=container.querySelector('.sw-L'), pillR=container.querySelector('.sw-R');
   var card=container.querySelector('.sw-card'), stage=container.querySelector('.sw-stage');
   var strip=container.querySelector('.sw-strip'), fx=container.querySelector('.sw-fx');
+  (function(){ var _h2=card.querySelector('h2'); if(_h2){ var _L=(_h2.textContent||'').length; _h2.style.fontSize=(_L<=24?28:_L<=42?24:_L<=64?20:_L<=90?17:_L<=110?15:14)+'px'; } })();
   var phase='live', drag=null, done=false;
 
   function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
   function buzz(p){try{if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
 
+  var SW_BASE="0 8px 0 rgba(12,25,50,.32),0 18px 34px rgba(12,30,60,.42),0 0 0 1px rgba(57,167,222,.24),0 0 26px rgba(57,167,222,.16),inset 0 2px 0 rgba(255,255,255,.95),inset 0 4px 0 -1px rgba(57,167,222,.45),inset 0 -5px 10px rgba(16,27,45,.06)";
+  var _swRM=(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function paint(dx,dy){
-    var s=clamp(1.02-Math.abs(dx)/220,0.55,1.02);
-    card.style.transform='translate3d('+dx+'px,'+dy+'px,0) rotate('+clamp(dx/20,-12,12)+'deg) scale('+s.toFixed(3)+')';
+    var s=clamp(1.02-Math.abs(dx)/135,0.36,1.02);
+    card.style.transform='translate3d('+dx+'px,'+dy+'px,0) rotateY('+clamp(dx/8,-19,19).toFixed(1)+'deg) rotateX('+clamp(-dy/11,-11,11).toFixed(1)+'deg) rotate('+clamp(dx/22,-11,11).toFixed(1)+'deg) scale('+s.toFixed(3)+')';
     var o=Math.min(1,Math.abs(dx)/90);
     card.querySelector('.SL').style.opacity=dx<0?o:0;
     card.querySelector('.SR').style.opacity=dx>0?o:0;
+    card.style.setProperty('--gx',(50-dx/5).toFixed(1)+'%'); card.style.setProperty('--gy',(32-dy/6).toFixed(1)+'%');
+    var mag=Math.min(1,Math.abs(dx)/85);
+    if(dx<-4) card.style.boxShadow=SW_BASE+',0 0 '+(24+mag*64).toFixed(0)+'px rgba(57,167,222,'+(mag*0.95).toFixed(2)+')';
+    else if(dx>4) card.style.boxShadow=SW_BASE+',0 0 '+(24+mag*64).toFixed(0)+'px rgba(255,184,0,'+(mag*0.95).toFixed(2)+')';
+    else card.style.boxShadow='';
     pillL.classList.toggle('hot',dx<-30); pillR.classList.toggle('hot',dx>30);
   }
   function flyToPill(side){
@@ -752,7 +809,26 @@ function mountSwipe(container, q, cb){
   card.addEventListener('pointermove',function(e){
     if(!drag||e.pointerId!==drag.id||phase!=='live') return;
     drag.dx=e.clientX-drag.x0; drag.dy=e.clientY-drag.y0; paint(drag.dx,drag.dy);
-    var n=performance.now(); (e.getCoalescedEvents?e.getCoalescedEvents():[e]).forEach(function(ev){drag.hist.push([n,ev.clientX]);});
+    var n=performance.now();
+    if(!_swRM && Math.abs(drag.dx)>16 && n-(drag.lastTrail||0)>22 && stage.querySelectorAll('.sw-trail,.sw-tspark').length<96){
+      drag.lastTrail=n;
+      var cx=stage.clientWidth/2+drag.dx, cy=stage.clientHeight/2+drag.dy, col=drag.dx<0?'57,167,222':'255,184,0';
+      for(var ti=0;ti<3;ti++){ (function(){
+        var t=document.createElement('i'); t.className='sw-trail';
+        var sz=46+Math.random()*56;
+        t.style.left=(cx+(Math.random()-0.5)*62)+'px'; t.style.top=(cy+(Math.random()-0.5)*62)+'px';
+        t.style.width=sz+'px'; t.style.height=sz+'px';
+        t.style.setProperty('--tc','rgba('+col+','+(0.46+Math.random()*0.3).toFixed(2)+')');
+        stage.appendChild(t); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); }, 700);
+      })(); }
+      for(var si=0;si<2;si++){ (function(){
+        var sp=document.createElement('i'); sp.className='sw-tspark';
+        sp.style.left=(cx+(Math.random()-0.5)*36)+'px'; sp.style.top=(cy+(Math.random()-0.5)*36)+'px';
+        sp.style.setProperty('--tc','rgba('+col+',1)');
+        stage.appendChild(sp); setTimeout(function(){ if(sp.parentNode) sp.parentNode.removeChild(sp); }, 560);
+      })(); }
+    }
+    (e.getCoalescedEvents?e.getCoalescedEvents():[e]).forEach(function(ev){drag.hist.push([n,ev.clientX]);});
     if(drag.hist.length>10) drag.hist.splice(0,drag.hist.length-10);
   });
   function release(e){
@@ -762,7 +838,7 @@ function mountSwipe(container, q, cb){
     var w=card.getBoundingClientRect().width||300, thr=Math.min(88,w*.26);
     var flick=Math.abs(v)>.4&&Math.abs(dx)>22&&Math.sign(v)===Math.sign(dx);
     if(Math.abs(dx)>thr||flick) commit(dx<0?'L':'R');
-    else { card.style.transition='transform .3s cubic-bezier(.2,1.5,.4,1)'; card.style.transform=''; card.querySelector('.SL').style.opacity=0; card.querySelector('.SR').style.opacity=0; pillL.classList.remove('hot'); pillR.classList.remove('hot'); }
+    else { card.style.transition='transform .3s cubic-bezier(.2,1.5,.4,1)'; card.style.transform=''; card.style.boxShadow=''; card.style.setProperty('--gx','50%'); card.style.setProperty('--gy','30%'); card.querySelector('.SL').style.opacity=0; card.querySelector('.SR').style.opacity=0; pillL.classList.remove('hot'); pillR.classList.remove('hot'); }
   }
   function vel(h){ if(h.length<2)return 0; var t=h[h.length-1][0],i=h.length-2; while(i>0&&t-h[i][0]<90)i--; var dt=t-h[i][0]; return dt>0?(h[h.length-1][1]-h[i][1])/dt:0; }
   card.addEventListener('pointerup',release); card.addEventListener('pointercancel',release);
@@ -787,17 +863,17 @@ function swInjectCSS(){
   ".sw-pill.ok{background:#16A46E!important;border-color:#16A46E!important;color:#fff!important;box-shadow:0 0 36px rgba(22,164,110,.85)!important}"+
   ".sw-pill.bad{background:#FF4D29!important;border-color:#FF4D29!important;color:#fff!important;box-shadow:0 0 36px rgba(255,77,41,.85)!important}"+
   "@keyframes sw-catch{0%{transform:scale(1.12)}30%{transform:scale(.9,1.09)}62%{transform:scale(1.06,.96)}100%{transform:scale(1)}}"+
-  ".sw-stage{position:relative;height:calc(100% - 92px);min-height:340px;touch-action:none}"+
+  ".sw-stage{position:relative;height:calc(100% - 92px);min-height:340px;touch-action:none;background:radial-gradient(62% 42% at 50% 60%,rgba(180,205,235,.15),transparent 70%);perspective:1000px}"+
   ".sw-stage.shk{animation:sw-shk .42s ease}"+
   "@keyframes sw-shk{0%,100%{transform:translateX(0)}12%{transform:translateX(-8px)}24%{transform:translateX(7px)}36%{transform:translateX(-6px)}48%{transform:translateX(5px)}60%{transform:translateX(-3px)}72%{transform:translateX(2px)}}"+
-  ".sw-card{position:absolute;inset:0;margin:auto;max-width:270px;max-height:196px;background:radial-gradient(125% 85% at 50% -5%,#FFFFFF 0%,#F6F7F1 58%,#E9EBE3 100%);color:#0C1521;border:none;border-radius:20px;box-shadow:0 8px 0 rgba(0,0,0,.38),0 16px 30px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.95),inset 0 -4px 8px rgba(16,27,45,.07);text-align:center;touch-action:none;will-change:transform;overflow:hidden}"+
-  ".sw-card.grab{box-shadow:0 11px 0 rgba(0,0,0,.42),0 22px 36px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.95),inset 0 -4px 8px rgba(16,27,45,.07)}"+
+  ".sw-card{position:absolute;inset:0;margin:auto;max-width:270px;max-height:196px;background:radial-gradient(130% 92% at 50% -12%,#FFFFFF 0%,#EAF1FA 52%,#D6E2F1 100%);color:#0C1521;border:none;border-radius:20px;box-shadow:0 8px 0 rgba(12,25,50,.32),0 18px 34px rgba(12,30,60,.42),0 0 0 1px rgba(57,167,222,.24),0 0 26px rgba(57,167,222,.16),inset 0 2px 0 rgba(255,255,255,.95),inset 0 4px 0 -1px rgba(57,167,222,.45),inset 0 -5px 10px rgba(16,27,45,.06);text-align:center;touch-action:none;will-change:transform;overflow:hidden;z-index:2}"+
+  ".sw-card.grab{box-shadow:0 12px 0 rgba(12,25,50,.4),0 26px 42px rgba(12,30,60,.52),0 0 0 1px rgba(57,167,222,.38),0 0 38px rgba(57,167,222,.28),inset 0 2px 0 rgba(255,255,255,.95),inset 0 4px 0 -1px rgba(57,167,222,.6),inset 0 -5px 10px rgba(16,27,45,.06)}"+
   ".sw-card::before{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:1;background:repeating-linear-gradient(0deg,rgba(16,27,45,.02) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(16,27,45,.02) 0 1px,transparent 1px 4px)}"+
-  ".sw-card::after{content:'';position:absolute;inset:9px;border-radius:13px;pointer-events:none;z-index:1;border:1.5px solid rgba(16,27,45,.15);box-shadow:inset 0 0 0 3px rgba(255,255,255,.6)}"+
-  ".sw-face{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 20px}"+
+  ".sw-card::after{content:'';position:absolute;inset:9px;border-radius:13px;pointer-events:none;z-index:1;border:1.5px solid rgba(16,27,45,.15);box-shadow:inset 0 0 0 3px rgba(255,255,255,.6)}"+".sw-sheen{position:absolute;inset:0;z-index:1;border-radius:20px;overflow:hidden;pointer-events:none}"+".sw-sheen::before{content:'';position:absolute;top:-30%;height:160%;width:42%;left:-50%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.6),transparent);transform:rotate(6deg);animation:sw-shimmer 4.6s ease-in-out infinite}"+".sw-gloss{position:absolute;inset:0;z-index:1;border-radius:20px;pointer-events:none;overflow:hidden;mix-blend-mode:screen}"+".sw-gloss::before{content:'';position:absolute;width:165%;height:165%;left:var(--gx,50%);top:var(--gy,30%);transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,255,255,.72) 0%,rgba(255,255,255,.2) 34%,transparent 58%)}"+"@keyframes sw-shimmer{0%,12%{left:-50%}52%,100%{left:150%}}"+
+  ".sw-face{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 18px 30px}"+
   ".sw-face .sw-eyebrow{position:absolute;top:15px;left:0;right:0;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.22em;text-transform:uppercase}"+
   ".sw-face .sw-eyebrow::after{content:'';display:block;width:22px;height:2px;margin:5px auto 0;background:currentColor;opacity:.5;border-radius:2px}"+
-  ".sw-card h2{font-family:'Archivo Black',sans-serif;font-size:clamp(20px,6vw,29px);line-height:1.1;letter-spacing:-.01em;color:#0C1521}"+
+  ".sw-card h2{font-family:'Archivo Black',sans-serif;font-size:24px;line-height:1.14;letter-spacing:-.01em;color:#0C1521;max-height:128px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;margin:0}"+
   ".sw-face .sw-idx{position:absolute;bottom:13px;right:16px;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;color:rgba(16,27,45,.38);letter-spacing:.05em}"+
   ".sw-stamp{position:absolute;z-index:3;top:11px;font-family:'Archivo Black',sans-serif;font-size:14px;text-transform:uppercase;padding:3px 9px;border:3px solid;border-radius:9px;opacity:0;pointer-events:none;max-width:44%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
   ".sw-stamp.SL{left:10px;color:#0E6BA8;border-color:#0E6BA8;transform:rotate(-12deg)}"+
@@ -807,7 +883,9 @@ function swInjectCSS(){
   ".sw-strip b{color:#FFD34D}"+
   ".sw-fx{position:absolute;inset:0;pointer-events:none;z-index:9;overflow:visible}"+
   ".sw-spark{position:absolute;z-index:9;pointer-events:none;border-radius:3px;transform:translate(-50%,-50%);animation:sw-burst .74s cubic-bezier(.15,.6,.4,1) forwards}"+
-  "@keyframes sw-burst{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1) rotate(var(--r));opacity:0}}";
+  "@keyframes sw-burst{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1) rotate(var(--r));opacity:0}}"+
+  ".sw-trail{position:absolute;z-index:1;pointer-events:none;width:46px;height:46px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--tc,rgba(120,160,210,.5)) 0%,transparent 72%);filter:blur(5px);animation:sw-trailf .7s ease-out forwards}"+
+  "@keyframes sw-trailf{0%{opacity:.6;transform:translate(-50%,-50%) scale(.8)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.8)}}"+".sw-tspark{position:absolute;z-index:1;pointer-events:none;width:11px;height:11px;border-radius:50%;transform:translate(-50%,-50%);background:var(--tc,#fff);box-shadow:0 0 16px var(--tc,#fff),0 0 6px #fff;animation:sw-tsparkf .56s ease-out forwards}"+"@keyframes sw-tsparkf{0%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.25)}}"+"@media (prefers-reduced-motion: reduce){.sw-sheen::before{animation:none}}";
   document.head.appendChild(css);
 }
 
@@ -915,20 +993,20 @@ function nmInjectCSS(){
   if(document.getElementById('nm-widget-css')) return;
   var css=document.createElement('style'); css.id='nm-widget-css';
   css.textContent=
-  ".nm-mode{display:flex;align-items:center;justify-content:center;gap:7px;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:999px;width:fit-content;margin:0 auto 12px}"+
+  ".nm-mode{display:flex;align-items:center;justify-content:center;gap:7px;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:999px;width:fit-content;margin:0 auto 8px}"+
   ".nm-mode.calc{color:#39A7DE;border:1.5px solid rgba(57,167,222,.5);background:rgba(57,167,222,.09)}"+
   ".nm-mode.mental{color:#FFD34D;border:1.5px solid rgba(255,184,0,.5);background:rgba(255,184,0,.09)}"+
-  ".nm-display{background:#0b1a2e;border:2px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;min-height:58px;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(24px,8vw,32px);color:#fff;overflow-x:auto;white-space:nowrap;margin-bottom:12px}"+
+  ".nm-display{background:#0b1a2e;border:2px solid rgba(255,255,255,.14);border-radius:14px;padding:9px 14px;min-height:46px;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(22px,7.5vw,30px);color:#fff;overflow-x:auto;white-space:nowrap;margin-bottom:10px}"+
   ".nm-display.nudge{animation:nm-nudge .3s ease}"+
   "@keyframes nm-nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}"+
   ".nm-display .nm-ph{color:#8A97AD}.nm-display .nm-pre{color:#8A97AD}.nm-display .nm-unit{color:#8A97AD;font-size:.6em;align-self:center}"+
-  ".nm-pad{display:grid;gap:8px}.nm-pad.calc{grid-template-columns:repeat(4,1fr)}.nm-pad.num{grid-template-columns:repeat(3,1fr);max-width:288px;margin:0 auto;width:100%}"+
-  ".nm-key{font-family:'Archivo Black',sans-serif;font-size:22px;padding:15px 0;border-radius:13px;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;transition:transform .07s,background .1s}"+
+  ".nm-pad{display:grid;gap:6px}.nm-pad.calc{grid-template-columns:repeat(4,1fr)}.nm-pad.num{grid-template-columns:repeat(3,1fr);max-width:288px;margin:0 auto;width:100%}"+
+  ".nm-key{font-family:'Archivo Black',sans-serif;font-size:21px;padding:12px 0;border-radius:13px;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;transition:transform .07s,background .1s}"+
   ".nm-key:active{transform:translateY(3px);background:rgba(255,255,255,.14)}"+
   ".nm-key.op{color:#39A7DE;border-color:rgba(57,167,222,.4)}.nm-key.fn{color:#8A97AD;font-size:18px}"+
   ".nm-key.eq{background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;border:none;box-shadow:0 4px 0 #8A5A00}"+
   ".nm-key.eq:active{transform:translateY(4px);box-shadow:0 0 0 #8A5A00}"+
-  ".nm-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:12px}"+
+  ".nm-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:12px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:8px}"+
   ".nm-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
   ".nm-result{margin-top:10px}"+
   ".nm-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
@@ -1222,7 +1300,7 @@ function renderStart(){
   el("stage").innerHTML =
     '<div class="eyebrow">'+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' \u00b7 '+esc(QUIZ.tag):'')+'</div>'+
     banner+
-    '<h2 class="display big" style="margin:8px 0 2px">'+hero+'</h2>'+
+    '<h2 class="display big hglow" style="margin:8px 0 2px">'+hero+'</h2>'+
     '<div class="subhero">'+QUESTIONS.length+' questions \u00b7 ~'+mins+' min</div>'+
     route+
     '<button class="cta display" style="font-size:20px;margin-top:4px" onclick="startRun()">'+(boss?'Take the field \u2192':'Drop in \u2192')+'</button>'+
@@ -1399,6 +1477,7 @@ function finishSwipe(ok, label, timedOut){
   if(ok){ pts=SPEED_BASE+Math.round((SPEED_SECONDS-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
   state.combo=newCombo; state.score+=pts; setScore();
   state.records.push({id:q.id,subject:q.subject,phase:"speed",type:"swipe",picked:label,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts});
+  if(ok){ try{ FX.celebrate(fxSpec(newCombo, pts)); }catch(e){} }
   if(timedOut){
     var fl=el("flash");
     if(fl) fl.innerHTML='<div class="flash bad">\u23f1 Ran out of time.<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div></div>'+
@@ -1650,12 +1729,15 @@ function goBlockTransition(resumeIdx){
   var b=speedQs[resumeIdx].block || {};
   showTransition({kind:"speedBlock", resumeIdx:resumeIdx, eyebrow:(resumeIdx===0?"HEAT 1 · ":"NEXT UP · ")+String(b.label||"").toUpperCase(), hue:b.hue||"#39A7DE", icon:b.icon||"⇄", name:b.label||"Next", desc:b.sub||"", cnt:blockCount(resumeIdx)+" questions", cta:b.cta||"Bring it on →"});
 }
+var _SWIPE_ICO='<svg viewBox="0 0 48 48" fill="none" stroke="#0b1220" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="30" width="12" height="9" rx="2"/><path d="M22 30 L10 16"/><path d="M10 16 L10 22 M10 16 L16 16"/><path d="M26 30 L38 16"/><path d="M38 16 L38 22 M38 16 L32 16"/></svg>';
+function _ticGlyph(icon){ return icon==="\u21C6" ? _SWIPE_ICO : (icon||""); }
+function _ticGlow(h){ h=h||"#39A7DE"; if(h.charAt(0)!=="#"||h.length!==7) return "rgba(57,167,222,.85)"; return "rgba("+parseInt(h.substr(1,2),16)+","+parseInt(h.substr(3,2),16)+","+parseInt(h.substr(5,2),16)+",.85)"; }
 function renderTransition(){
   var c=state.trans||{};
   el("stage").innerHTML =
     '<div class="tcard">'+
       '<div class="theat">'+esc(c.eyebrow||"")+'</div>'+
-      '<div class="tic" style="background:'+(c.hue||"#39A7DE")+'">'+(c.icon||"")+'</div>'+
+      '<div class="ticwrap" style="--glow:'+_ticGlow(c.hue)+'"><div class="halo"></div><div class="sheen"></div><div class="tic" style="background-color:'+(c.hue||"#39A7DE")+'">'+_ticGlyph(c.icon)+'</div></div>'+
       '<h2 class="tname">'+esc(c.name||"")+'</h2>'+
       '<div class="tdesc">'+esc(c.desc||"")+'</div>'+
       '<div class="tcount">'+esc(c.cnt||"")+'</div>'+
@@ -1709,7 +1791,8 @@ function renderTeach(){
   '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">'+
     '<span class="num" id="tbCount" style="font-size:13px;color:var(--haze)">a few full sentences</span>'+
     '<button class="cta display" style="font-size:17px" id="tbBtn" disabled onclick="finishTeach()">'+(boss?'Secure it \u2192':'Send it \u2192')+'</button>'+
-  '</div>';
+  '</div>'+
+  '<div style="margin-top:16px;text-align:center">'+skipButtonHTML(teachQ,"skipTeach()")+'</div>';
   markShown("teach:0");
 }
 // The teach-back is the highest-value question, so its submit gate checks for a genuine
@@ -1749,30 +1832,55 @@ function finishTeach(){
   T.questionDone(teachQ.id,teachQ.subject,"teach",{ok:true,chars:v.length});
   state.score+=TEACH_POINTS; setScore();
   state.records.push({id:teachQ.id,subject:teachQ.subject,phase:"teach",text:v,ok:true,pts:TEACH_POINTS});
-  state.tbGrade="pending"; gradeTeachback(teachQ.subject, teachQ.prompt, v);   // instant lights (async)
-  if(EVENT==="battleground"){
-    // the kill shot: empty the still-visible HP bar, fire the showpiece, THEN reveal victory.
-    var bar=el("terrbar"); if(bar) bar.className="terrbar claim";
-    FX.showpiece(fxPalette());
-    setTimeout(function(){ state.screen="done"; render(); }, 780);   // let the secure beat land
+  state.tbGrade="pending";
+  if(EVENT==="battleground"){ var bar=el("terrbar"); if(bar) bar.className="terrbar claim"; FX.showpiece(fxPalette()); }  // kill shot on submit
+  state.screen="teachScore"; render();                                    // dedicated scoring beat
+  gradeTeachback(teachQ.subject, teachQ.prompt, v);                       // async grade fills it in
+  setTimeout(function(){ if(state.tbGrade==="pending"){ state.tbGrade=null; if(state.screen==="teachScore") renderTeachScore(); } }, 7000);  // don't trap on a slow grade
+}
+function skipTeach(){
+  T.questionDone(teachQ.id,teachQ.subject,"teach",{skipped:true});
+  state.records.push({id:teachQ.id,subject:teachQ.subject,phase:"teach",skipped:true,pts:0});
+  state.tbGrade=null;
+  state.screen = encoreQs.length ? "encoreOffer" : "done"; render();
+}
+function afterTeachScore(){ state.screen = encoreQs.length ? "encoreOffer" : "done"; render(); }
+function _tbRerender(){ if(state.screen==="teachScore") renderTeachScore(); else renderTbLights(); }
+function renderTeachScore(){
+  var g=state.tbGrade;
+  var head='<div class="eyebrow k" style="margin-bottom:8px">YOUR TEACH-BACK \u00b7 '+esc(teachQ.subject.toUpperCase())+'</div>';
+  if(g==="pending"){
+    el("stage").innerHTML = head + '<div class="tbscore-wait"><div class="tbspin"></div><div class="tbwaitxt">Marking your explanation\u2026</div></div>';
     return;
   }
-  state.screen = encoreQs.length ? "encoreOffer" : "done"; render();
+  if(!g || !g.verdict){
+    el("stage").innerHTML = head + '<h2 class="q" style="margin-bottom:6px">Locked in.</h2><p class="note" style="margin:0 0 18px">Full marking of your explanation lands in your weekly wrap.</p><button class="cta display" onclick="afterTeachScore()">Continue \u2192</button>';
+    return;
+  }
+  var acc = g.verdict==="solid"?"green":(g.verdict==="partial"?"amber":"red");
+  function cell(label,l){ return '<div class="tbl '+l+'"><div class="g">'+_tbGlyph(l)+'</div><div class="lb">'+label+'</div></div>'; }
+  var line = acc==="green"?"Nailed it.":(acc==="amber"?"Good \u2014 nearly there.":"Not quite \u2014 read the fix.");
+  el("stage").innerHTML = head +
+    '<h2 class="q" style="margin-bottom:4px">'+line+'</h2>'+
+    '<p class="note" style="margin:0 0 16px">How your explanation scored. Spelling and punctuation are coaching \u2014 they never change your mastery.</p>'+
+    '<div class="tblrow tbscore-row">'+cell("Accuracy",acc)+cell("Spelling",g.spelling||"green")+cell("Punctuation",g.punctuation||"green")+'</div>'+
+    (g.reason?'<div class="tbreason" style="margin:12px 0 0">'+esc(g.reason)+'</div>':'')+
+    '<button class="cta display" style="margin-top:20px" onclick="afterTeachScore()">Continue \u2192</button>';
 }
 
 // Live teach-back grading: POST the answer to the Supabase Edge Function, show green/amber/red for
 // accuracy + spelling + punctuation. Best-effort: on any failure the run is unaffected (the nightly
 // grader remains authoritative for the ledger). Spelling/punctuation are COACHING — never mastery.
 function gradeTeachback(subject, question, answer){
-  if(window.__TB_GRADE_STUB__){ state.tbGrade=window.__TB_GRADE_STUB__; renderTbLights(); return; }
-  if(!CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON){ state.tbGrade=null; renderTbLights(); return; }
+  if(window.__TB_GRADE_STUB__){ state.tbGrade=window.__TB_GRADE_STUB__; _tbRerender(); return; }
+  if(!CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON){ state.tbGrade=null; _tbRerender(); return; }
   var url=CONFIG.SUPABASE_URL+"/functions/v1/grade-teachback";
   var ctl=(typeof AbortController!=="undefined")?new AbortController():null;
   var to=ctl?setTimeout(function(){ ctl.abort(); },15000):null;
   fetch(url,{method:"POST",headers:{"content-type":"application/json","apikey":CONFIG.SUPABASE_ANON,"Authorization":"Bearer "+CONFIG.SUPABASE_ANON},body:JSON.stringify({subject:subject,question:question,answer:answer}),signal:ctl?ctl.signal:undefined})
     .then(function(r){ if(to)clearTimeout(to); if(!r.ok) throw new Error("grade "+r.status); return r.json(); })
-    .then(function(j){ state.tbGrade=(j&&j.verdict)?{verdict:j.verdict,depth:j.depth||null,spelling:j.spelling,punctuation:j.punctuation,reason:j.reason||""}:null; renderTbLights(); })
-    .catch(function(){ state.tbGrade=null; renderTbLights(); });   // silent — it'll land in the weekly wrap
+    .then(function(j){ state.tbGrade=(j&&j.verdict)?{verdict:j.verdict,depth:j.depth||null,spelling:j.spelling,punctuation:j.punctuation,reason:j.reason||""}:null; _tbRerender(); })
+    .catch(function(){ state.tbGrade=null; _tbRerender(); });   // silent — it'll land in the weekly wrap
 }
 function _tbGlyph(l){ return l==="green"?"\u2713":(l==="amber"?"\u25CF":"\u2717"); }
 function renderTbLights(){
@@ -1843,7 +1951,7 @@ function summaryText(){
     L.push(r.id+" "+r.subject+" "+(r.ok?"✓":"✗")+(r.phase==="speed"?(" "+r.timeUsed+"s"):(" · felt: "+r.confidence))+(r.picked===null?" (no answer)":""));
   });
   var tb=state.records.filter(function(r){return r.phase==="teach"})[0];
-  if(tb) L.push('Teach-back ('+tb.subject+'): "'+tb.text+'"');
+  if(tb && !tb.skipped) L.push('Teach-back ('+tb.subject+'): "'+tb.text+'"');
   return L.join("\n");
 }
 
@@ -1873,7 +1981,7 @@ function buildPayload(){
     maxScore: MAX_SCORE,
     speed: { right: speedAll.filter(function(r){return r.ok}).length, of: speedQs.length },
     steady: { right: steadyRecs.filter(function(r){return r.ok}).length, of: steadyQs.length },
-    teach: tb ? { done:true, chars: tb.text.length, text: tb.text } : { done:false },
+    teach: (tb && !tb.skipped) ? { done:true, chars: tb.text.length, text: tb.text } : { done:false, skipped: !!(tb && tb.skipped) },
     flags: {
       skips: f.skips.map(function(r){return r.id}),
       confidentWrong: f.cw.map(function(r){return r.id}),
@@ -2002,15 +2110,14 @@ function renderDone(){
           '<div class="src">'+sub+'</div>'+
         '</div>';
       })()
-    : '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
+    : '<h2 class="display hglow" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
       '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'))+
   badgesHTML(runLocalBadges(f))+
   '<div class="cards">'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
-    '<div class="card"><div class="num" style="font-size:22px;color:var(--kelp)">✓</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">TEACH-BACK</div></div>'+
+    '<div class="card"><div class="num" style="font-size:22px;color:'+((state.records.filter(function(r){return r.phase==="teach"})[0]||{}).skipped?"var(--haze)":"var(--kelp)")+'">'+((state.records.filter(function(r){return r.phase==="teach"})[0]||{}).skipped?"—":"✓")+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">TEACH-BACK</div></div>'+
   '</div>'+
-  '<div id="tbLights" class="tblights"></div>'+
   '<div id="sendStat" class="sendstat wait">⏳ Uploading to the Vault…</div>'+
   (function(){var fs=f.skips.filter(function(r){return r.fresh}).length; return fs?'<p class="note" style="margin:0 0 14px">'+fs+' marked "not covered yet" — that\'s intel, not a miss.</p>':'';})()+
   flags;

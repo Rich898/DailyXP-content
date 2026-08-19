@@ -39,9 +39,9 @@ CORE_SUBJECTS = ("Maths", "English", "Science", "History")
 MAX_PER_SUBJECT = 3               # no single subject takes more than this many MC slots in one quiz
 
 SHAPES = {
-    "standard": {"speed": 7, "steady": 4, "teach": 1},
-    "blitz":    {"speed": 10, "steady": 2, "teach": 1},
-    "boss":     {"speed": 2, "steady": 4, "teach": 1},   # chain-heavy; misses-as-attacks
+    "standard": {"speed": 12, "steady": 6, "teach": 1},   # ~5-6 min (was 7/4/1)
+    "blitz":    {"speed": 14, "steady": 5, "teach": 1},   # speed-heavy, ~5+ min
+    "boss":     {"speed": 2, "steady": 7, "teach": 1},   # chain-heavy; misses-as-attacks
 }
 # recall-flavoured subjects lean speed; reasoning-flavoured lean steady (soft hints only)
 SPEEDY = {"Maths", "History", "Science", "English", "Geography", "Commerce"}
@@ -164,11 +164,11 @@ def fresh_flag_for(t):
 
 
 _BLOCKS = {
-    "swipe":    {"label": "Swipe Sort",   "hue": "#39A7DE", "icon": "⇆", "sub": "Flick each into the right bucket", "cta": "Start swiping →"},
+    "swipe":    {"label": "Swipe Sort",   "hue": "#39A7DE", "icon": "⇆", "sub": "Flick each card up into its bucket", "cta": "Start swiping →"},
     "recall":   {"label": "Quick Recall", "hue": "#16E08C", "icon": "●", "sub": "Four options, one answer — keep it fast", "cta": "Keep going →"},
-    "reversed": {"label": "Reversed",     "hue": "#B26BE6", "icon": "⇄", "sub": "You’re given the answer — name what it belongs to", "cta": "Flip it →"},
-    "numeric":  {"label": "Numeric",      "hue": "#14C7C7", "icon": "#",       "sub": "Type the answer — calculator on method questions", "cta": "Start →"},
-    "order":    {"label": "Ordering",     "hue": "#FFB800", "icon": "⇅", "sub": "Drag the tiles into the right order", "cta": "Start →"},
+    "reversed": {"label": "Reversed",     "hue": "#B26BE6", "icon": "⇄", "sub": "Given a detail — name what it belongs to", "cta": "Flip it →"},
+    "numeric":  {"label": "Numeric",      "hue": "#14C7C7", "icon": "#",       "sub": "Type the answer", "cta": "Start →"},
+    "order":    {"label": "Drag It",      "hue": "#FFB800", "icon": "⇅", "sub": "Drag the tiles into order", "cta": "Start dragging →"},
     "text":     {"label": "Short Answer", "hue": "#E0559B", "icon": "✎", "sub": "Type it — spelling never counts", "cta": "Start →"},
 }
 
@@ -459,8 +459,9 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
         lines.append("""
 REVERSED (this chapter's Wednesday mutator — SEASONS.md): ONLY the speed slots marked mech "reversed" use the reversed format below (a CONTAINED Reversed block); every OTHER speed slot is a normal recall MC. Steady and teach stay normal.
 - EXEMPT from reversal: any CALCULATION topic (equations, angles, area/volume, percentages — anything solved with arithmetic). Those slots stay STANDARD multiple-choice recall. Reversal trains FACT discrimination; calculations compute, they don't discriminate.
-- The point: give the student the ANSWER and have them name what it belongs to — a FAST, TIMED, fast-to-READ speed question. This is a speed round, not a reading test.
-- Prompt: state the fact, then a short cue. Format: The answer is: "<fact>". Which one? — or a natural short variant, e.g. '<fact> — which event?' / 'which play?' / 'which term?' / 'which shape?'.
+- The point: give the student a DISTINGUISHING DETAIL and have them name what it belongs to — a FAST, TIMED, fast-to-READ speed question. This is a speed round, not a reading test.
+- Prompt: state the detail as a short statement, then a short category cue. Format: '<detail> — which play?' / 'which event?' / 'which term?' / 'which empire?' / 'which shape?'. Do NOT write "The answer is:", and do NOT append a full question that re-asks for the answer — just the detail plus the short cue.
+- HARD ANTI-LEAK RULE: <detail> is a fact ABOUT the correct option (its date, place, trait, quote, value) — it must NEVER be, contain, or paraphrase any of the four option labels, least of all the answer. If the only detail you can give is the option's own name, this topic is WRONG for reversal — make it a STANDARD recall question instead. (Good: 'Ruled from Constantinople, outlasted Rome's western half by ~1000 years — which empire?' -> Byzantine Empire. BAD: 'The answer is: the Byzantine Empire. Which empire survived in the east?' — that hands over the answer.)
 - <fact> is a real, checkable fact — short and concrete (a date, term, value, name).
 - Options: four short labels — names, terms, or brief phrases naming the THINGS the fact could belong to (NOT questions, NOT full sentences). Length is whatever keeps them GENUINELY DISTINGUISHABLE by a student who knows the material: a proper noun or specific term is fine in 1-2 words (e.g. fact "Verona": Romeo and Juliet / Hamlet / Macbeth / Othello); a subtler concept may need up to ~6 words to stay unambiguous. As short as possible WHILE a knowledgeable student can tell them apart at a glance and a guesser cannot.
 - Exactly ONE label is what the fact is the answer to. The other three are real near-neighbours from the same study area whose true match is a DIFFERENT fact — the ones mixed up under pressure, never absurd fillers.
