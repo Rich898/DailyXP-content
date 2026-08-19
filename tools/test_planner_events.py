@@ -56,10 +56,10 @@ rq = plan.get("requested_shape", plan["shape"])
 check("directive maps to blitz 10/2/1", (rq["speed"], rq["steady"], rq["teach"]) == (10, 2, 1))
 ci = plan["composer_instructions"]
 check("REVERSED block present", "REVERSED" in ci)
-check("declares fact-based speed slots reversed", "FACT-BASED speed slot" in ci)
+check("declares a CONTAINED reversed block (mech-based)", "CONTAINED Reversed block" in ci and 'mech "reversed"' in ci)
 check("exempts calculation slots (12 Aug HOLD root cause)", "EXEMPT from reversal" in ci and "CALCULATION" in ci)
-check("carries the prompt template", "Which question is this the answer to?" in ci)
-check("steady/teach stay normal", "steady and teach stay normal" in ci)
+check("carries the reversed prompt template", "The answer is:" in ci)
+check("steady/teach stay normal", "Steady and teach stay normal" in ci)
 
 print("planner: plain blitz directive stays classic")
 plan2 = planner.plan_set("y8", "2026-08-12", "WED", "H3.3 · BLITZ",
