@@ -167,6 +167,7 @@ _BLOCKS = {
     "swipe":    {"label": "Swipe Sort",   "hue": "#39A7DE", "icon": "⇆", "sub": "Flick each into the right bucket", "cta": "Start swiping →"},
     "recall":   {"label": "Quick Recall", "hue": "#16E08C", "icon": "●", "sub": "Four options, one answer — keep it fast", "cta": "Keep going →"},
     "reversed": {"label": "Reversed",     "hue": "#B26BE6", "icon": "⇄", "sub": "You’re given the answer — name what it belongs to", "cta": "Flip it →"},
+    "numeric":  {"label": "Numeric",      "hue": "#14C7C7", "icon": "#",       "sub": "Type the answer — calculator on method questions", "cta": "Start →"},
 }
 
 def assign_blocks(ordered, student, directive):
@@ -193,6 +194,9 @@ def assign_blocks(ordered, student, directive):
         sw_n = min(4, len(speed))
         stamp(speed[:sw_n], "swipe")
         stamp(speed[sw_n:], "recall")
+        # steady: the Maths slots become a Numeric block (typed answers, no clock); others stay MC.
+        for x in [y for y in ordered if y.get("phase") == "steady" and y.get("subject") == "Maths"]:
+            x["mech"] = "numeric"; x["type"] = "numeric"; x["block"] = copy.deepcopy(_BLOCKS["numeric"])
     # else: boys on a standard day — flat MC, no blocks (swipe not yet rolled to them).
 
 

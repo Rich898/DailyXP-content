@@ -63,6 +63,12 @@ Output ONLY a JSON object, no prose, no markdown fences:
   * prompt is ONE item/statement, readable at a glance (e.g. "Copper", "7 x 8 = 56", "Whales are fish").
   * left/right = a clean mutually-exclusive pair of SHORT labels (1-2 words): True/False, Metal/Non-metal, Prime/Composite, Fact/Opinion, Solid/Liquid. Fit the pair to the topic; default True/False.
   * answer copied verbatim from left or right. Across a swipe block VARY which side is correct — never all one bucket.
+- numeric slot (ONLY when the slot's "type" is "numeric"): a typed-answer maths question, NO options.
+  { "type":"numeric", "prompt":"<a clear maths question>", "answer":<the numeric answer as a NUMBER, not a string>, "calc":<true|false>, "pre":"<prefix e.g. $ or empty>", "post":"<unit e.g. ' cm' or empty>", "why":"..." }
+  * answer is a plain number (56, 105, 52.5) — the exact value only; units go in pre/post, never in answer.
+  * calc:true = a METHOD question (word problem / multi-step / needs a calculator for the arithmetic — knowing the method is the skill). calc:false = MENTAL (a times-table fact or simple operation — doing it in the head IS the skill; keep numbers small enough to do mentally).
+  * pre = prefix before the answer (e.g. "$"); post = unit after (e.g. " cm\u00b2", " km/h"). Empty string if none.
+  * why re-teaches the method or fact in one line.
 - teach slot: { "prompt": "..." }
 Include every slotId given, and no others."""
 
@@ -124,6 +130,17 @@ def _build_q(s, filled):
         q["left"] = f.get("left", "")
         q["right"] = f.get("right", "")
         q["answer"] = f.get("answer", "")
+        q["why"] = f.get("why", "")
+        q["fresh"] = bool(s.get("fresh", True))
+        if s.get("throwback"):
+            q["throwback"] = True
+            q["fresh"] = False
+    elif typ == "numeric" and s["phase"] in ("speed", "steady"):
+        q["type"] = "numeric"
+        q["answer"] = f.get("answer")
+        q["calc"] = bool(f.get("calc"))
+        q["pre"] = f.get("pre", "")
+        q["post"] = f.get("post", "")
         q["why"] = f.get("why", "")
         q["fresh"] = bool(s.get("fresh", True))
         if s.get("throwback"):

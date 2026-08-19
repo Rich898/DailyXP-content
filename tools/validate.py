@@ -71,6 +71,17 @@ def _check_ss_answer(q, qid, errors, warns):
         if not isinstance(q.get("fresh"), bool):
             errors.append(f"[{qid}] swipe must carry a boolean 'fresh'")
         return
+    if q.get("type") == "numeric":
+        ans = q.get("answer")
+        if isinstance(ans, bool) or not isinstance(ans, (int, float)):
+            errors.append(f"[{qid}] numeric answer must be a number, got {ans!r}")
+        if not isinstance(q.get("calc"), bool):
+            errors.append(f"[{qid}] numeric must carry a boolean 'calc' (method vs mental)")
+        if not q.get("why"):
+            errors.append(f"[{qid}] missing 'why' (every Q must re-teach)")
+        if not isinstance(q.get("fresh"), bool):
+            errors.append(f"[{qid}] numeric must carry a boolean 'fresh'")
+        return
     ans = q.get("answer")
     opts = q.get("options")
     if not isinstance(opts, list) or len(opts) < 2:

@@ -64,7 +64,13 @@ first, never the boys.
 - [x] **1b. Wired into the STEADY round** — `renderSteadyNumeric` mounts the widget (no confidence wager, no clock);
   `finishNumericSteady` records + advances. Proven: mental -> number pad, method -> calculator, both scored,
   records carry `usedCalc` (calc:False for mental, calc:True for method), advances to teach, zero JS errors.
-- [ ] **2. Composer** generates numeric questions (method/mental split, numeric answer, units, misconception `why`).
-- [ ] **3. Planner** slots a Numeric block (t1 first).
-- [ ] **4. Validator** accepts numeric (numeric answer, calc flag).
-- [ ] **5. State-writer** weights: a calc-assisted correct is "solved with a calculator" — NOT mental-arithmetic mastery.
+- [x] **2. Composer** generates numeric (method/mental split, numeric answer, units). Validated: real numeric block composes.
+- [x] **3. Planner** slots a Numeric block (t1, the Maths steady slots).
+- [x] **4. Validator** accepts numeric (number answer + calc bool).
+- [x] **5. State-writer**: numeric is strong (typed, no guessing) — promotes, capped at developing (no wager); usedCalc preserved for the parent report.
+
+
+## Full run + steady doorways
+- [x] Steady block doorways added (advanceSteady detects block change; Heat-2 doorway reflects the first steady block).
+- [x] Full run proven end-to-end: Swipe block -> Quick Recall -> **Numeric** -> Checkpoint -> Teach-back, coherent doorways throughout, numeric records carry usedCalc, zero JS errors.
+- [ ] Merge numeric + steady doorways into the LIVE template (currently staging only), then dogfood on t1.

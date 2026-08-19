@@ -86,6 +86,9 @@ def badge_for(q, medians, student, shell_flags):
     if q.get("type") == "swipe":
         # a swipe is a fast 50/50 sort — deliberately weak evidence (see transition()).
         return ("SWIPE✓" if q.get("ok") else "SWIPE✗"), rel
+    if q.get("type") == "numeric":
+        # typed answer, no options to guess (see transition()).
+        return ("NUM✓" if q.get("ok") else "NUM✗"), rel
     badge, _impl = classify(q, rel, shell_flags)
     if badge == "✓":
         conf = (q.get("confidence") or "").lower()
@@ -131,6 +134,21 @@ def transition(t, badge, rel, spaced, caveat):
         return f"swipe-correct → held at {cur} (swipe never promotes to solid alone)"
     if badge == "SWIPE✗":
         return f"swipe-wrong → held at {cur} (a 50/50 miss is weak evidence)"
+
+    # ---- numeric: a TYPED answer, no options to guess from — strong evidence. Promotes like a clean
+    #      correct but capped at developing (numeric carries no confidence wager, so solid needs deeper
+    #      evidence). usedCalc is preserved on the record so the parent report shows method vs mental. ----
+    if badge in ("NUM✓", "NUM✗"):
+        ok = (badge == "NUM✓")
+        if repair:
+            t.update(state="REPAIR", repair=True, repair_confirms=(confirms if ok else 0))
+            return "numeric on REPAIR → held" + ("" if ok else " (confirms reset)")
+        if ok:
+            if cur in ("untested", "shaky"):
+                t["state"] = "developing"
+            return f"numeric-correct → {t['state']} (typed, no guessing; capped at developing)"
+        t.update(state=IBOX[max(1, BOX[cur] - 1)], repair_confirms=0)
+        return f"numeric-wrong → {t['state']}"
 
     # ---- REPAIR lane: state stays "REPAIR" until it earns out to developing ----
     if repair:
