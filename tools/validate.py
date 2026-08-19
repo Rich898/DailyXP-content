@@ -71,6 +71,15 @@ def _check_ss_answer(q, qid, errors, warns):
         if not isinstance(q.get("fresh"), bool):
             errors.append(f"[{qid}] swipe must carry a boolean 'fresh'")
         return
+    if q.get("type") == "text":
+        acc = q.get("accept")
+        if not isinstance(acc, list) or len(acc) < 1 or not all(isinstance(x, str) and x.strip() for x in acc):
+            errors.append(f"[{qid}] text needs an 'accept' list of >=1 non-empty strings (accept[0]=canonical)")
+        if not q.get("why"):
+            errors.append(f"[{qid}] missing 'why' (every Q must re-teach)")
+        if not isinstance(q.get("fresh"), bool):
+            errors.append(f"[{qid}] text must carry a boolean 'fresh'")
+        return
     if q.get("type") == "order":
         seq = q.get("sequence")
         if not isinstance(seq, list) or len(seq) < 2:

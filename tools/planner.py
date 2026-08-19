@@ -169,6 +169,7 @@ _BLOCKS = {
     "reversed": {"label": "Reversed",     "hue": "#B26BE6", "icon": "⇄", "sub": "You’re given the answer — name what it belongs to", "cta": "Flip it →"},
     "numeric":  {"label": "Numeric",      "hue": "#14C7C7", "icon": "#",       "sub": "Type the answer — calculator on method questions", "cta": "Start →"},
     "order":    {"label": "Ordering",     "hue": "#FFB800", "icon": "⇅", "sub": "Drag the tiles into the right order", "cta": "Start →"},
+    "text":     {"label": "Short Answer", "hue": "#E0559B", "icon": "✎", "sub": "Type it — spelling never counts", "cta": "Start →"},
 }
 
 def assign_blocks(ordered, student, directive):
@@ -200,6 +201,8 @@ def assign_blocks(ordered, student, directive):
             x["mech"] = "numeric"; x["type"] = "numeric"; x["block"] = copy.deepcopy(_BLOCKS["numeric"])
         for x in [y for y in ordered if y.get("phase") == "steady" and y.get("subject") == "History"]:
             x["mech"] = "order"; x["type"] = "order"; x["block"] = copy.deepcopy(_BLOCKS["order"])
+        for x in [y for y in ordered if y.get("phase") == "steady" and y.get("subject") == "Science"]:
+            x["mech"] = "text"; x["type"] = "text"; x["block"] = copy.deepcopy(_BLOCKS["text"])
     # else: boys on a standard day — flat MC, no blocks (swipe not yet rolled to them).
 
 

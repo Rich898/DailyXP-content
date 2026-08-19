@@ -99,8 +99,8 @@ first, never the boys.
   Shows "counted 'X' as 'Y' - spelling never counts". Reports `{ok, value, fuzzy}`. Proven: typo/variant/
   synonym/article accepted, wrong rejected, 4/5, zero JS errors.
   Schema: `{ type:'text', subject, prompt, accept:[canonical, ...variants], why }`.
-- [ ] **1b. Wire into the STEADY round** (like numeric/order) — mount widget, record + advance.
-- [ ] **2. Composer** generates short-text (question + accept list [canonical + variants] + why).
-- [ ] **3. Planner** slots a Short-text block (t1 first).
-- [ ] **4. Validator** accepts text (accept list >=1, why).
-- [ ] **5. State-writer** weights short-text (typed, fuzzy-forgiving; strong).
+- [x] **1b. Wired into the STEADY round** — `renderSteadyText` mounts the widget, `finishTextSteady` records + advances (with `fuzzy` flag).
+- [x] **2. Composer** generates short-text (question + accept list + why). Verified: nucleus, meander, adjective — clean.
+- [x] **3. Planner** slots a Short Answer block (t1, the Science steady slots).
+- [x] **4. Validator** accepts text (accept list of >=1 non-empty strings).
+- [x] **5. State-writer** weights short-text like numeric/order (typed, strong, capped at developing).

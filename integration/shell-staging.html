@@ -1065,6 +1065,105 @@ function orInjectCSS(){
 }
 
 
+/* ===== embedded short-text widget ===== */
+function mountText(container, q, cb){
+  txInjectCSS();
+  var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
+  var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
+  var accept=q.accept||[], phase='answering', done=false;
+
+  container.innerHTML =
+    '<div class="tx-wrap"><input id="txInput" class="tx-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" placeholder="Type your answer" enterkeyhint="go"></div>'+
+    '<button class="tx-submit" id="txSubmit">Submit \u2192</button>'+
+    '<div class="tx-result" id="txResult"></div>';
+  var inp=container.querySelector('#txInput'), submitBtn=container.querySelector('#txSubmit'), result=container.querySelector('#txResult');
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+
+  /* ===== fuzzy matcher (the mechanic) — verbatim from the approved prototype ===== */
+  function norm(s){
+    s = String(s).toLowerCase().trim();
+    if(s.normalize) s = s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');   // strip accents
+    s = s.replace(/[.,!;:'"()\[\]{}\-_/]/g,' ');                             // noise punctuation -> space (keep ? for the '?' answer)
+    s = s.replace(/\s+/g,' ').trim();
+    s = s.replace(/^(the|a|an)\s+/,'');                                      // strip a leading article
+    return s;
+  }
+  function fold(s){ return s.replace(/ies$/,'y').replace(/([^s])es$/,'$1').replace(/([^s])s$/,'$1'); }
+  function lev(a,b){
+    var m=a.length,n=b.length; if(!m) return n; if(!n) return m;
+    var prev=[],cur=[],i,j; for(j=0;j<=n;j++) prev[j]=j;
+    for(i=1;i<=m;i++){ cur[0]=i;
+      for(j=1;j<=n;j++){ var c=a.charCodeAt(i-1)===b.charCodeAt(j-1)?0:1; cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+c); }
+      var t=prev; prev=cur; cur=t;
+    }
+    return prev[n];
+  }
+  function matched(raw){
+    var ni = norm(raw);
+    if(ni==='') return null;
+    for(var i=0;i<accept.length;i++){
+      var na = norm(accept[i]);
+      if(ni===na) return {exact:i===0};
+      if(fold(ni)===fold(na)) return {exact:false};
+      var L = Math.max(ni.length, na.length);
+      var thr = L<=3 ? 0 : Math.min(3, Math.max(1, Math.round(L/5)));   // no typo tolerance on tiny words
+      if(thr>0 && lev(ni,na)<=thr) return {exact:false};
+    }
+    return null;
+  }
+
+  function nudge(){ inp.classList.remove('nudge'); void inp.offsetWidth; inp.classList.add('nudge'); buzz(30); }
+  function finish(ok,val,fuzzy){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok, value:val, fuzzy:fuzzy}); }catch(e){} }
+  function doSubmit(){
+    if(phase!=='answering') return;
+    var raw=inp.value;
+    if(norm(raw)===''){ nudge(); return; }
+    var res = matched(raw);
+    phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
+    inp.readOnly=true; submitBtn.style.display='none';
+    var canon = accept[0];
+    if(res){
+      buzz(18); inp.classList.add('ok');
+      var fuzzy = res.exact ? '' : '<span class="tx-fuzzy">\u2713 counted \u201c'+esc(raw.trim())+'\u201d as \u201c'+esc(canon)+'\u201d \u2014 spelling never counts</span>';
+      result.innerHTML='<div class="tx-strip ok">\u2713 Correct'+(res.exact?' \u2014 <b>'+esc(canon)+'</b>':'')+fuzzy+'</div>';
+      setTimeout(function(){ finish(true, raw.trim(), !res.exact); }, res.exact?1200:1900);
+    } else {
+      inp.classList.add('bad'); buzz([30,50,30]);
+      result.innerHTML='<div class="tx-strip bad">\u2715 Not quite \u2014 the answer is <b>'+esc(canon)+'</b><span class="tx-lil">'+esc(q.why||'')+'</span></div>';
+      setTimeout(function(){ finish(false, raw.trim(), false); }, 1700);
+    }
+  }
+  submitBtn.addEventListener('click', doSubmit);
+  inp.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); doSubmit(); } });
+  setTimeout(function(){ try{ inp.focus(); }catch(e){} }, 60);
+}
+
+function txInjectCSS(){
+  if(document.getElementById('tx-widget-css')) return;
+  var css=document.createElement('style'); css.id='tx-widget-css';
+  css.textContent=
+  ".tx-input{width:100%;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:22px;text-align:center;padding:16px;border-radius:14px;border:2px solid rgba(255,255,255,.16);background:#0b1a2e;color:#fff;outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none}"+
+  ".tx-input::placeholder{color:#8A97AD;font-weight:600}"+
+  ".tx-input:focus{border-color:#39A7DE;box-shadow:0 0 0 3px rgba(57,167,222,.2)}"+
+  ".tx-input.ok{border-color:#16E08C;box-shadow:0 0 24px rgba(22,164,110,.45)}"+
+  ".tx-input.bad{border-color:#FF4D29;box-shadow:0 0 24px rgba(255,77,41,.45)}"+
+  ".tx-input.nudge{animation:tx-nudge .3s ease}"+
+  "@keyframes tx-nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}"+
+  ".tx-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:12px}"+
+  ".tx-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
+  ".tx-result{margin-top:10px}"+
+  ".tx-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
+  ".tx-strip.ok{background:rgba(22,164,110,.16);border:2px solid #16E08C;color:#CFF3E1}"+
+  ".tx-strip.bad{background:rgba(255,77,41,.14);border:2px solid #FF4D29;color:#FFD9CF}"+
+  ".tx-strip b{color:#fff}"+
+  ".tx-fuzzy{display:block;margin-top:6px;font-size:12px;font-weight:700;color:#FFD34D}"+
+  ".tx-lil{display:block;margin-top:6px;font-size:12px;font-weight:600;color:#8A97AD}";
+  document.head.appendChild(css);
+}
+
+
 function boot(){ state.screen="loading"; render(); loadQuiz(); }
 function loadQuiz(){
   var j = STAGING_QUIZ;   // INLINE synthetic quiz — integration harness only (no fetch)
@@ -1346,6 +1445,24 @@ function finishOrderSteady(q,res){
   if(res.ok) FX.celebrate(fxSpec(2, stpts));
   setTimeout(function(){ advanceSteady(); }, 320);
 }
+function renderSteadyText(q){
+  var eyebrow = state.encoreActive
+    ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+    : '<div class="eyebrow r" style="margin-bottom:8px">STEADY \u00b7 '+(state.idx+1)+'/'+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+' \u00b7 NO CLOCK</div>';
+  el("stage").innerHTML = eyebrow + '<h2 class="q">'+esc(q.prompt)+'</h2>' + '<div id="txMount" style="margin-top:6px"></div>' + skipButtonHTML(q,"skipSteady()");
+  markShown("steady:"+state.idx);
+  mountText(el("txMount"), q, { onDone:function(res){ finishTextSteady(q,res); } });
+}
+function finishTextSteady(q,res){
+  T.questionDone(q.id,q.subject,"steady",{ok:res.ok, fuzzy:res.fuzzy});
+  var stpts = res.ok ? x2mul(STEADY_POINTS, q) : 0;
+  state.score += stpts; setScore();
+  var strec={id:q.id,subject:q.subject,phase:"steady",type:"text",value:res.value,ok:res.ok,fuzzy:res.fuzzy,repair:!!q.repair,pts:stpts};
+  if(state.encoreActive) strec.encore=true;
+  state.records.push(strec);
+  if(res.ok) FX.celebrate(fxSpec(2, stpts));
+  setTimeout(function(){ advanceSteady(); }, 320);
+}
 function renderSteadyNumeric(q){
   var eyebrow = state.encoreActive
     ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
@@ -1368,6 +1485,7 @@ function renderSteady(){
   var q=curSteady();
   if(qType(q)==="numeric"){ return renderSteadyNumeric(q); }
   if(qType(q)==="order"){ return renderSteadyOrder(q); }
+  if(qType(q)==="text"){ return renderSteadyText(q); }
   var boss = (EVENT==="battleground");
   var answerHTML;
   if(isOrder(q)){

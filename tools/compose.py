@@ -75,6 +75,11 @@ Output ONLY a JSON object, no prose, no markdown fences:
   * MUST be an UNAMBIGUOUS single correct order (chronological, numeric size, magnitude, process steps) — never a subjective or tie-able order.
   * top/bot label the axis ends (Earliest/Latest, Smallest/Largest, First/Last, Closest/Farthest).
   * items are SHORT labels (a few words), readable at a glance; why states the correct order and the reason in one line.
+- text slot (ONLY when the slot's "type" is "text"): a typed SHORT-answer question, NO options.
+  { "type":"text", "prompt":"<a question with a short specific answer>", "accept":["<canonical answer>","<variant/synonym>"], "why":"..." }
+  * accept[0] is the CANONICAL answer (shown if wrong). Add genuine alternate forms/synonyms (e.g. ["oxygen","o2"], ["neil armstrong","armstrong"]).
+  * The answer must be SHORT (a word or two) with ONE clear correct answer. The matcher already forgives case/spelling/plurals/articles — do NOT add spelling variants, only real synonyms.
+  * why states the answer and a one-line reason.
 - teach slot: { "prompt": "..." }
 Include every slotId given, and no others."""
 
@@ -157,6 +162,14 @@ def _build_q(s, filled):
         q["sequence"] = f.get("sequence", [])
         q["top"] = f.get("top", "")
         q["bot"] = f.get("bot", "")
+        q["why"] = f.get("why", "")
+        q["fresh"] = bool(s.get("fresh", True))
+        if s.get("throwback"):
+            q["throwback"] = True
+            q["fresh"] = False
+    elif typ == "text" and s["phase"] in ("speed", "steady"):
+        q["type"] = "text"
+        q["accept"] = f.get("accept", [])
         q["why"] = f.get("why", "")
         q["fresh"] = bool(s.get("fresh", True))
         if s.get("throwback"):

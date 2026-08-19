@@ -92,6 +92,9 @@ def badge_for(q, medians, student, shell_flags):
     if q.get("type") == "order":
         # all-or-nothing sequence, no options (see transition()).
         return ("ORD✓" if q.get("ok") else "ORD✗"), rel
+    if q.get("type") == "text":
+        # typed short answer, fuzzy-matched, no options (see transition()).
+        return ("TXT✓" if q.get("ok") else "TXT✗"), rel
     badge, _impl = classify(q, rel, shell_flags)
     if badge == "✓":
         conf = (q.get("confidence") or "").lower()
@@ -141,8 +144,8 @@ def transition(t, badge, rel, spaced, caveat):
     # ---- numeric: a TYPED answer, no options to guess from — strong evidence. Promotes like a clean
     #      correct but capped at developing (numeric carries no confidence wager, so solid needs deeper
     #      evidence). usedCalc is preserved on the record so the parent report shows method vs mental. ----
-    if badge in ("ORD✓", "ORD✗", "NUM✓", "NUM✗"):
-        ok = badge in ("ORD✓", "NUM✓")
+    if badge in ("ORD✓", "ORD✗", "NUM✓", "NUM✗", "TXT✓", "TXT✗"):
+        ok = badge in ("ORD✓", "NUM✓", "TXT✓")
         if repair:
             t.update(state="REPAIR", repair=True, repair_confirms=(confirms if ok else 0))
             return "numeric on REPAIR → held" + ("" if ok else " (confirms reset)")
