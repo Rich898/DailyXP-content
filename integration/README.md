@@ -90,7 +90,9 @@ first, never the boys.
 
 ## Full run with ALL THREE mechanics
 - [x] Verified end-to-end: Swipe Sort -> Quick Recall -> **Ordering** -> Numeric -> Checkpoint -> Teach-back, coherent doorways (incl. first-batch), records correct, zero JS errors.
-- [ ] Merge ordering into the LIVE template (staging only), then dogfood on t1.
+- [x] Merged ordering + short-text into the LIVE template. ALL 4 mechanics live (swipe, numeric, ordering, short-text).
+  Note: steady widgets use delegation helpers to dodge a V8 large-adjacent-function binding quirk.
+- [ ] **NEXT: dogfood on t1** — deploy the live template to t1, play end-to-end on real infra.
 
 ## Short-text mechanic — stage tracker (4th/last mechanic)
 - [x] **1a. Embeddable widget** — `short-text-widget.html`: `mountText(container, q, {onCommit,onDone})`.
