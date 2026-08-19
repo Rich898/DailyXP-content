@@ -243,6 +243,19 @@
   .sendstat.wait{ background:var(--surf); border-color:var(--line); color:var(--haze); }
   .sendstat.good{ background:rgba(22,164,110,.16); border-color:var(--kelp); color:#CFF3E1; }
   .sendstat.fail{ background:rgba(255,77,41,.14); border-color:var(--flare); color:#FFD9CF; }
+
+  .subhero{ font-family:'Space Mono',ui-monospace,monospace; font-weight:700; font-size:13px; letter-spacing:.05em; color:var(--bolthi); margin:0 0 2px; }
+  .route{ margin:16px 0 20px; }
+  .rnode{ display:flex; align-items:center; gap:13px; padding:8px 2px; position:relative; }
+  .rnode .ric{ flex:0 0 44px; width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#0b1220; box-shadow:0 3px 0 rgba(0,0,0,.3); }
+  .ric-flare{ background:var(--flare); } .ric-reef{ background:var(--reefhi); } .ric-kelp{ background:var(--kelp); }
+  .rnode .rbody{ flex:1; text-align:left; }
+  .rnode .rnm{ font-family:'Archivo Black','Arial Black',sans-serif; font-size:16px; line-height:1; }
+  .rnode .rds{ font-size:12.5px; color:var(--haze); margin-top:3px; }
+  .rnode .rcnt{ font-family:'Space Mono',ui-monospace,monospace; font-weight:700; font-size:12px; color:#C9D3E2; background:rgba(255,255,255,.07); border:1px solid var(--line); border-radius:99px; padding:4px 11px; }
+  .rnode::after{ content:''; position:absolute; left:24px; top:52px; width:2px; height:12px; background:rgba(255,255,255,.14); }
+  .rnode.last::after{ display:none; }
+  .startfoot{ font-size:12.5px; color:var(--haze); margin-top:12px; }
 </style>
 </head>
 <body>
@@ -840,37 +853,32 @@ function renderLoadError(){
 
 function renderStart(){
   var ev = isBlitz(EVENT), rev = (EVENT==="reversed-blitz"), boss = (EVENT==="battleground");
+  var mins = Math.max(2, Math.round((speedQs.length*8 + steadyQs.length*22 + (teachQ?60:0))/60));
   var banner = ev
-  ? '<div class="evtbanner"><div class="bT">\u26a1 MID-WEEK BLITZ'+(rev?' \u2014 REVERSED':'')+'</div>'+
-    '<div class="bS">Everything you bank tonight counts <b>\u00d72</b> in the week\'s tally.</div>'+
-    '<div class="charge"></div></div>'
-  : (boss
-  ? '<div class="bgbanner"><div class="bT">\u2694 BATTLEGROUND</div>'+
-    '<div class="bS">The ground you struggled with this week \u2014 <b>claim it back</b>. Win as much of the field as you can. No losing here: it\'s all about how much ground you take.</div>'+
-    '<div class="frontline"></div></div>'
-  : '');
-  var hero = rev
-  ? '<h2 class="display big">Tonight runs<br>backwards.</h2>'
-  : (boss
-  ? '<h2 class="display big">Claim the<br>ground.</h2>'
-  : '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>');
-  var heat1 = rev
-  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_SECONDS+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Look closely: the devil\'s in the detail. Back-to-back corrects still stack a combo.</p>'
-  : (boss
-  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Warm-up.</b> '+speedQs.length+' quick swings, <b>'+SPEED_SECONDS+' seconds each</b>, before the fight starts.</p>'
-  : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>');
-  var heat2 = boss
-  ? '<p style="font-size:16px;margin:4px 0"><b style="color:var(--claim)">The field \u2014 '+steadyQs.length+' zones.</b> Each zone is a question on ground you slipped on this week. Claim it and the territory is yours. Miss and it stays contested \u2014 the answer\'s still shown, so you take it next time.</p>'
-  : '<p style="font-size:16px;margin:4px 0"><b style="color:var(--reef)">Heat 2 — Steady.</b> '+steadyQs.length+' questions, no clock. Only accuracy pays. Call how sure you are — be honest, it\'s how the thing works.</p>';
-  var heat3 = boss
-  ? '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Secure the ground \u2014 Teach-back.</b> Lock in the territory you claimed.</p>'
-  : '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Last wave — Teach-back.</b> One argument in your own words.</p>';
+    ? '<div class="evtbanner"><div class="bT">\u26a1 MID-WEEK BLITZ'+(rev?' \u2014 REVERSED':'')+'</div><div class="bS">Everything tonight counts <b>\u00d72</b> in the week\u2019s tally.</div><div class="charge"></div></div>'
+    : (boss
+    ? '<div class="bgbanner"><div class="bT">\u2694 BATTLEGROUND</div><div class="bS">Claim back the ground you slipped on \u2014 no losing, just how much you take.</div><div class="frontline"></div></div>'
+    : '');
+  var hero = rev ? 'Runs backwards.' : (boss ? 'Claim the ground.' : 'Today\u2019s run');
+  var route = '<div class="route">'+
+    routeNode('flare','\u26a1','Speed', speedQs.length+' Q'+(rev?' \u00b7 reversed':''), rev?'Pick the question':'Beat the clock', false)+
+    routeNode('reef','\u25c9','Steady', steadyQs.length+' Q', 'How sure? \u00b7 no clock', false)+
+    (teachQ?routeNode('kelp','\u25b6','Teach-back','1 Q','Explain one idea', true):'')+
+  '</div>';
   el("stage").innerHTML =
-  '<div class="eyebrow">SESSION SHEET · '+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' · '+esc(QUIZ.tag):'')+'</div>'+
-  banner + hero + heat1 + heat2 + heat3 +
-  '<p class="note" style="margin:0 0 18px">If class genuinely hasn\'t done a topic yet, hit <i>"haven\'t covered this yet"</i> — no penalty. It works: benched questions get checked against class later.</p>'+
-  '<div class="deal">Under five minutes, in and out. Bank the XP, then you\'re done. Weekends off.</div>'+
-  '<button class="cta display" style="font-size:20px" onclick="startRun()">'+(boss?'Take the field \u2192':'Drop in \u2192')+'</button>';
+    '<div class="eyebrow">'+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' \u00b7 '+esc(QUIZ.tag):'')+'</div>'+
+    banner+
+    '<h2 class="display big" style="margin:8px 0 2px">'+hero+'</h2>'+
+    '<div class="subhero">'+QUESTIONS.length+' questions \u00b7 ~'+mins+' min</div>'+
+    route+
+    '<button class="cta display" style="font-size:20px;margin-top:4px" onclick="startRun()">'+(boss?'Take the field \u2192':'Drop in \u2192')+'</button>'+
+    '<div class="startfoot">Not covered in class yet? Hit <i>skip</i> \u2014 no penalty.</div>';
+}
+function routeNode(hue, icon, name, cnt, desc, last){
+  return '<div class="rnode'+(last?' last':'')+'">'+
+    '<div class="ric ric-'+hue+'">'+icon+'</div>'+
+    '<div class="rbody"><div class="rnm">'+name+'</div><div class="rds">'+desc+'</div></div>'+
+    '<div class="rcnt">'+cnt+'</div></div>';
 }
 function startRun(){
   ATTEMPTS = bumpAttempt();
