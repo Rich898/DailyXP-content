@@ -1014,7 +1014,8 @@ function startRun(){
   T.startSession(); shownKey=null;
   state.idx=0; state.score=0; state.combo=0; state.records=[];
   state.sending=false; state.sent=false; lastPayload=null;
-  state.screen="speed"; render();
+  if(speedQs[0] && speedQs[0].block){ goBlockTransition(0); }
+  else { state.screen="speed"; render(); }
 }
 
 // ─────────── v3.1 INPUT TYPES — dispatch + scoring helpers ───────────
@@ -1401,7 +1402,7 @@ function goTransition(to){
 function blockCount(idx){ var b=speedQs[idx].block; if(!b) return 1; var n=0,i; for(i=0;i<speedQs.length;i++){ if(speedQs[i].block && speedQs[i].block.label===b.label) n++; } return n; }
 function goBlockTransition(resumeIdx){
   var b=speedQs[resumeIdx].block || {};
-  showTransition({kind:"speedBlock", resumeIdx:resumeIdx, eyebrow:"NEXT UP · "+String(b.label||"").toUpperCase(), hue:b.hue||"#39A7DE", icon:b.icon||"⇄", name:b.label||"Next", desc:b.sub||"", cnt:blockCount(resumeIdx)+" questions", cta:b.cta||"Bring it on →"});
+  showTransition({kind:"speedBlock", resumeIdx:resumeIdx, eyebrow:(resumeIdx===0?"HEAT 1 · ":"NEXT UP · ")+String(b.label||"").toUpperCase(), hue:b.hue||"#39A7DE", icon:b.icon||"⇄", name:b.label||"Next", desc:b.sub||"", cnt:blockCount(resumeIdx)+" questions", cta:b.cta||"Bring it on →"});
 }
 function renderTransition(){
   var c=state.trans||{};
