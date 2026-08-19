@@ -632,7 +632,7 @@ function setScore(){ el("pts").textContent = state.score.toLocaleString(); }
 
 function railHTML(){
   if(!QUESTIONS.length){ el("rail").innerHTML=""; return; }
-  var done = (state.screen==="start"||state.screen==="loading"||state.screen==="noquiz"||state.screen==="error")?0 : state.screen==="speed"?state.idx : state.screen==="steady"?speedQs.length+state.idx : state.screen==="teach"?speedQs.length+steadyQs.length : state.screen==="transition"?(state.transTo==="steady"?speedQs.length:speedQs.length+steadyQs.length) : QUESTIONS.length;
+  var done = (state.screen==="start"||state.screen==="loading"||state.screen==="noquiz"||state.screen==="error")?0 : state.screen==="speed"?state.idx : state.screen==="steady"?speedQs.length+state.idx : state.screen==="teach"?speedQs.length+steadyQs.length : state.screen==="transition"?(state.trans && state.trans.kind==="speedBlock" ? state.trans.resumeIdx : (state.trans && state.trans.target==="teach" ? speedQs.length+steadyQs.length : speedQs.length)) : QUESTIONS.length;
   var h="";
   speedQs.forEach(function(q,i){ h+='<div class="seg speed'+(done>i?" on":"")+'"></div>'; });
   steadyQs.forEach(function(q,i){ h+='<div class="seg steady'+(done>speedQs.length+i?" on":"")+'"></div>'; });
@@ -655,15 +655,7 @@ function render(){ railHTML(); setScore();
 
 // ── remote questions ──────────────────────────
 /* ===== INTEGRATION HARNESS: inline synthetic quiz (swipe + MC + steady + teach) ===== */
-var STAGING_QUIZ = { tag:"H4.2", questions:[
-  {id:"s1", phase:"speed", subject:"Maths",   type:"swipe", prompt:"7 \u00d7 8 = 56", left:"True", right:"False", answer:"True",  why:"7 \u00d7 8 = 56."},
-  {id:"s2", phase:"speed", subject:"Science", type:"swipe", prompt:"Copper", left:"Metal", right:"Non-metal", answer:"Metal", why:"Copper conducts \u2014 a metal."},
-  {id:"s3", phase:"speed", subject:"History", prompt:"When was the Magna Carta signed?", options:["1215","1066","1348","1485"], answer:"1215", why:"The Magna Carta was signed in 1215."},
-  {id:"s4", phase:"speed", subject:"Maths",   type:"swipe", prompt:"11 is a prime number", left:"True", right:"False", answer:"True", why:"11 is prime \u2014 only 1 and 11 divide it."},
-  {id:"e1", phase:"steady", subject:"Science", prompt:"Which gas do plants take in?", options:["Carbon dioxide","Oxygen","Nitrogen","Helium"], answer:"Carbon dioxide", why:"Plants take in carbon dioxide."},
-  {id:"e2", phase:"steady", subject:"English", prompt:"What is a noun?", options:["A naming word","An action word","A describing word","A joining word"], answer:"A naming word", why:"A noun names a person, place or thing."},
-  {id:"t1", phase:"teach", subject:"Science", prompt:"Explain photosynthesis in your own words."}
-]};
+var STAGING_QUIZ = {"tag": "H4.4", "questions": [{"id": "r1", "phase": "speed", "subject": "Science", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "Which gas do plants release in photosynthesis?", "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"], "answer": "Oxygen", "why": "Plants release oxygen."}, {"id": "r2", "phase": "speed", "subject": "History", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "Who was forced to seal the Magna Carta?", "options": ["King John", "William I", "Henry VIII", "Richard I"], "answer": "King John", "why": "King John sealed it in 1215."}, {"id": "r3", "phase": "speed", "subject": "Geography", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "What is the capital of France?", "options": ["Paris", "Lyon", "Marseille", "Nice"], "answer": "Paris", "why": "Paris is the capital."}, {"id": "r4", "phase": "speed", "subject": "English", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "What is a noun?", "options": ["A naming word", "An action word", "A describing word", "A joining word"], "answer": "A naming word", "why": "A noun names a person, place or thing."}, {"id": "r5", "phase": "speed", "subject": "Science", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "What is the powerhouse of the cell?", "options": ["Mitochondria", "Nucleus", "Ribosome", "Membrane"], "answer": "Mitochondria", "why": "The mitochondria."}, {"id": "v1", "phase": "speed", "subject": "History", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"1215\". Which one?", "options": ["Magna Carta signed", "Battle of Hastings", "First Crusade launched", "Black Death arrives"], "answer": "Magna Carta signed", "why": "1215 is when the Magna Carta was sealed; Hastings was 1066."}, {"id": "v2", "phase": "speed", "subject": "English", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"Verona\". Which one?", "options": ["Setting of Romeo and Juliet", "Setting of Macbeth", "Setting of Hamlet", "Setting of Othello"], "answer": "Setting of Romeo and Juliet", "why": "Verona is where Romeo and Juliet is set."}, {"id": "v3", "phase": "speed", "subject": "Science", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"the male sex cell\". Which one?", "options": ["Sperm", "Egg", "Zygote", "Embryo"], "answer": "Sperm", "why": "Sperm is the male sex cell; the egg is female."}, {"id": "v4", "phase": "speed", "subject": "Geography", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"countries becoming more connected\". Which one?", "options": ["Globalisation", "Urbanisation", "Migration", "Deforestation"], "answer": "Globalisation", "why": "Globalisation = growing connection between countries."}, {"id": "v5", "phase": "speed", "subject": "English", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"the opening speech that sets up the play\". Which one?", "options": ["The Prologue", "A soliloquy", "The epilogue", "Dramatic irony"], "answer": "The Prologue", "why": "The Prologue opens the play; a soliloquy is a character alone."}, {"id": "e1", "phase": "steady", "subject": "Science", "prompt": "Which gas do plants take in?", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Helium"], "answer": "Carbon dioxide", "why": "Plants take in carbon dioxide."}, {"id": "e2", "phase": "steady", "subject": "Maths", "prompt": "What is 15% of 200?", "options": ["30", "15", "45", "20"], "answer": "30", "why": "10% is 20, 5% is 10, so 15% is 30."}, {"id": "t1", "phase": "teach", "subject": "Science", "prompt": "Explain photosynthesis in your own words."}]};
 
 /* ===== embedded swipe widget (from integration/swipe-widget.html) ===== */
 function mountSwipe(container, q, cb){
@@ -1064,8 +1056,12 @@ function finishSwipe(ok, label, timedOut){
   }
 }
 function nextSpeed(){
-  if(state.idx+1<speedQs.length){ state.idx++; render(); }
-  else { state.idx=0; state.picked=null; state.confidence=null; state.locked=false; goTransition("steady"); }
+  if(state.idx+1<speedQs.length){
+    var cur=speedQs[state.idx].block, nxt=speedQs[state.idx+1].block;
+    var changed = (cur&&nxt) ? (cur.label!==nxt.label) : (!!cur!==!!nxt);
+    if(changed){ goBlockTransition(state.idx+1); }
+    else { state.idx++; render(); }
+  } else { state.idx=0; state.picked=null; state.confidence=null; state.locked=false; goTransition("steady"); }
 }
 
 // v3.1 typed-numeric (speed): enable Submit once something is typed; submit on tap or Enter.
@@ -1237,21 +1233,32 @@ function ninSteadyChanged(){
   var lock=document.getElementById("locksteady");
   if(lock) lock.disabled = !(state.picked && state.confidence);
 }
-function goTransition(to){ state.transTo=to; state.screen="transition"; render(); }
-function transProceed(){ state.screen=state.transTo; render(); }
+function showTransition(cfg){ state.trans=cfg; state.screen="transition"; render(); }
+function transProceed(){
+  var t=state.trans||{};
+  if(t.kind==="speedBlock"){ state.idx=t.resumeIdx; state.screen="speed"; render(); }
+  else { state.screen=t.target; render(); }
+}
+function goTransition(to){
+  showTransition(to==="steady"
+    ? {kind:"screen", target:"steady", eyebrow:"HEAT 2 · STEADY", hue:"#39A7DE", icon:"◉", name:"Steady", desc:"How sure? · no clock", cnt:steadyQs.length+" question"+(steadyQs.length===1?"":"s"), cta:"Bring it on →"}
+    : {kind:"screen", target:"teach", eyebrow:"FINAL WAVE · TEACH-BACK", hue:"#16E08C", icon:"▶", name:"Teach-back", desc:"Explain one idea in your own words.", cnt:"1 question", cta:"Let’s finish →"});
+}
+function blockCount(idx){ var b=speedQs[idx].block; if(!b) return 1; var n=0,i; for(i=0;i<speedQs.length;i++){ if(speedQs[i].block && speedQs[i].block.label===b.label) n++; } return n; }
+function goBlockTransition(resumeIdx){
+  var b=speedQs[resumeIdx].block || {};
+  showTransition({kind:"speedBlock", resumeIdx:resumeIdx, eyebrow:"NEXT UP · "+String(b.label||"").toUpperCase(), hue:b.hue||"#39A7DE", icon:b.icon||"⇄", name:b.label||"Next", desc:b.sub||"", cnt:blockCount(resumeIdx)+" questions", cta:b.cta||"Bring it on →"});
+}
 function renderTransition(){
-  var to=state.transTo;
-  var cfg = to==="steady"
-    ? {heat:"HEAT 2 OF 3 \u00b7 STEADY", hue:"reef", icon:"\u25c9", name:"Steady", desc:"How sure? \u00b7 no clock", cnt:steadyQs.length+" question"+(steadyQs.length===1?"":"s"), cta:"Bring it on \u2192"}
-    : {heat:"FINAL WAVE \u00b7 TEACH-BACK", hue:"kelp", icon:"\u25b6", name:"Teach-back", desc:"Explain one idea in your own words.", cnt:"1 question", cta:"Let\u2019s finish \u2192"};
+  var c=state.trans||{};
   el("stage").innerHTML =
     '<div class="tcard">'+
-      '<div class="theat">'+cfg.heat+'</div>'+
-      '<div class="tic tic-'+cfg.hue+'">'+cfg.icon+'</div>'+
-      '<h2 class="tname">'+cfg.name+'</h2>'+
-      '<div class="tdesc">'+cfg.desc+'</div>'+
-      '<div class="tcount">'+cfg.cnt+'</div>'+
-      '<button class="cta display tcont" onclick="transProceed()">'+cfg.cta+'</button>'+
+      '<div class="theat">'+esc(c.eyebrow||"")+'</div>'+
+      '<div class="tic" style="background:'+(c.hue||"#39A7DE")+'">'+(c.icon||"")+'</div>'+
+      '<h2 class="tname">'+esc(c.name||"")+'</h2>'+
+      '<div class="tdesc">'+esc(c.desc||"")+'</div>'+
+      '<div class="tcount">'+esc(c.cnt||"")+'</div>'+
+      '<button class="cta display tcont" onclick="transProceed()">'+esc(c.cta||"Continue →")+'</button>'+
     '</div>';
 }
 function nextSteady(){ advanceSteady(); }

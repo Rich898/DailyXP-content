@@ -32,3 +32,16 @@ first, never the boys.
 - [ ] **Apply to the LIVE shell** (`shell/template_v3.html`) — carefully, tested, dogfooded on t1.
 - [ ] **Extend to other surfaces** — parent report page, kid weekly wrap, and the event-night
   banners (Blitz's "inverted ink plate" needs a dark rethink; Battleground is already dark).
+
+
+## Block model (staging — shell side)
+- [x] **Shell renders BLOCKS with doorway cards.** Questions carry `block:{label,hue,icon,sub,cta}`;
+  the config-driven transition fires whenever the block changes (block boundary) as well as at Heat
+  boundaries. Proven: a 2-block speed round (Quick Recall x5 → **Reversed x5 block**) shows a
+  "NEXT UP · REVERSED" doorway mid-round, progress rail correct, zero JS errors. Generalises to any
+  mechanic-as-block (swipe/numeric/etc.).
+- [ ] **Reveal previews the blocks** (route by block, not just Heat) — refinement.
+- [ ] **Pipeline generates block-structured quizzes** — planner declares blocks + marks only the
+  Reversed block's slots as reversed; composer reverses only those. (The big remaining piece — makes
+  it real, not synthetic.)
+- [ ] Merge to live + dogfood on t1.
