@@ -21,3 +21,14 @@ first, never the boys.
 - [ ] **3. Planner** — mark slots `type:swipe`, **t1 seat only** at first.
 - [ ] **4. State-writer** — weight swipe as WEAK evidence (a 50/50 correct isn't strong mastery).
 - [ ] **5. Test end-to-end + dogfood on t1** → only then enable for the boys.
+
+
+## Dark design-system overhaul (staging)
+- [x] Repainted the whole quiz shell to the dark design system (dark field + grid, light text,
+  mechanic/accent colours, gold CTAs, card craft) in `shell-staging.html`. Resolves the swipe
+  theme mismatch by pulling everything UP to dark rather than the widget down to light. Verified:
+  start / swipe / MC / steady all render dark + coherent, selected/reveal states themed, zero JS errors.
+- [ ] **Codify tokens** as the ONE canonical design system so every surface uses the same values.
+- [ ] **Apply to the LIVE shell** (`shell/template_v3.html`) — carefully, tested, dogfooded on t1.
+- [ ] **Extend to other surfaces** — parent report page, kid weekly wrap, and the event-night
+  banners (Blitz's "inverted ink plate" needs a dark rethink; Battleground is already dark).
