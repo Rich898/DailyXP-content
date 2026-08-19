@@ -256,6 +256,16 @@
   .rnode::after{ content:''; position:absolute; left:24px; top:52px; width:2px; height:12px; background:rgba(255,255,255,.14); }
   .rnode.last::after{ display:none; }
   .startfoot{ font-size:12.5px; color:var(--haze); margin-top:12px; }
+
+  .tcard{ text-align:center; padding:28px 8px 8px; display:flex; flex-direction:column; align-items:center; }
+  .theat{ font-family:'Space Mono',ui-monospace,monospace; font-weight:700; font-size:12px; letter-spacing:.18em; color:var(--haze); }
+  .tic{ width:96px; height:96px; border-radius:24px; display:flex; align-items:center; justify-content:center; font-size:40px; color:#0b1220; box-shadow:0 8px 0 rgba(0,0,0,.3); margin-top:22px; animation:ticpop .5s cubic-bezier(.2,1.4,.4,1); }
+  .tic-reef{ background:var(--reefhi); } .tic-kelp{ background:var(--kelp); }
+  @keyframes ticpop{ from{opacity:0;transform:scale(.6) rotate(-6deg)} to{opacity:1;transform:none} }
+  .tname{ font-family:'Archivo Black','Arial Black',sans-serif; font-size:clamp(30px,9vw,42px); margin:18px 0 8px; color:#F7F8F4; }
+  .tdesc{ font-size:15px; color:#C9D3E2; max-width:26ch; }
+  .tcount{ font-family:'Space Mono',ui-monospace,monospace; font-weight:700; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#C9D3E2; background:rgba(255,255,255,.06); border:1px solid var(--line); border-radius:99px; padding:5px 14px; margin-top:16px; }
+  .tcont{ margin-top:26px; font-size:19px; }
 </style>
 </head>
 <body>
@@ -622,7 +632,7 @@ function setScore(){ el("pts").textContent = state.score.toLocaleString(); }
 
 function railHTML(){
   if(!QUESTIONS.length){ el("rail").innerHTML=""; return; }
-  var done = (state.screen==="start"||state.screen==="loading"||state.screen==="noquiz"||state.screen==="error")?0 : state.screen==="speed"?state.idx : state.screen==="steady"?speedQs.length+state.idx : state.screen==="teach"?speedQs.length+steadyQs.length : QUESTIONS.length;
+  var done = (state.screen==="start"||state.screen==="loading"||state.screen==="noquiz"||state.screen==="error")?0 : state.screen==="speed"?state.idx : state.screen==="steady"?speedQs.length+state.idx : state.screen==="teach"?speedQs.length+steadyQs.length : state.screen==="transition"?(state.transTo==="steady"?speedQs.length:speedQs.length+steadyQs.length) : QUESTIONS.length;
   var h="";
   speedQs.forEach(function(q,i){ h+='<div class="seg speed'+(done>i?" on":"")+'"></div>'; });
   steadyQs.forEach(function(q,i){ h+='<div class="seg steady'+(done>speedQs.length+i?" on":"")+'"></div>'; });
@@ -637,6 +647,7 @@ function render(){ railHTML(); setScore();
   else if(state.screen==="start") renderStart();
   else if(state.screen==="speed") renderSpeed();
   else if(state.screen==="steady") renderSteady();
+  else if(state.screen==="transition") renderTransition();
   else if(state.screen==="teach") renderTeach();
   else if(state.screen==="encoreOffer") renderEncoreOffer();
   else renderDone();
@@ -1054,7 +1065,7 @@ function finishSwipe(ok, label, timedOut){
 }
 function nextSpeed(){
   if(state.idx+1<speedQs.length){ state.idx++; render(); }
-  else { state.idx=0; state.screen="steady"; state.picked=null; state.confidence=null; state.locked=false; render(); }
+  else { state.idx=0; state.picked=null; state.confidence=null; state.locked=false; goTransition("steady"); }
 }
 
 // v3.1 typed-numeric (speed): enable Submit once something is typed; submit on tap or Enter.
@@ -1226,6 +1237,23 @@ function ninSteadyChanged(){
   var lock=document.getElementById("locksteady");
   if(lock) lock.disabled = !(state.picked && state.confidence);
 }
+function goTransition(to){ state.transTo=to; state.screen="transition"; render(); }
+function transProceed(){ state.screen=state.transTo; render(); }
+function renderTransition(){
+  var to=state.transTo;
+  var cfg = to==="steady"
+    ? {heat:"HEAT 2 OF 3 \u00b7 STEADY", hue:"reef", icon:"\u25c9", name:"Steady", desc:"How sure? \u00b7 no clock", cnt:steadyQs.length+" question"+(steadyQs.length===1?"":"s"), cta:"Bring it on \u2192"}
+    : {heat:"FINAL WAVE \u00b7 TEACH-BACK", hue:"kelp", icon:"\u25b6", name:"Teach-back", desc:"Explain one idea in your own words.", cnt:"1 question", cta:"Let\u2019s finish \u2192"};
+  el("stage").innerHTML =
+    '<div class="tcard">'+
+      '<div class="theat">'+cfg.heat+'</div>'+
+      '<div class="tic tic-'+cfg.hue+'">'+cfg.icon+'</div>'+
+      '<h2 class="tname">'+cfg.name+'</h2>'+
+      '<div class="tdesc">'+cfg.desc+'</div>'+
+      '<div class="tcount">'+cfg.cnt+'</div>'+
+      '<button class="cta display tcont" onclick="transProceed()">'+cfg.cta+'</button>'+
+    '</div>';
+}
 function nextSteady(){ advanceSteady(); }
 function advanceSteady(){
   state.picked=null; state.confidence=null; state.locked=false; state.order=[];
@@ -1235,7 +1263,7 @@ function advanceSteady(){
     return;
   }
   if(state.idx+1<steadyQs.length){ state.idx++; render(); }
-  else { state.screen="teach"; render(); }
+  else { goTransition("teach"); }
 }
 
 // Optional encore (bonus round): offered after the teach-back. Reuses the steady flow via curSteady().
