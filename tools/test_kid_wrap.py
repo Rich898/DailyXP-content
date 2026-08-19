@@ -165,7 +165,7 @@ runs = [
     {"student": "y8", "run_date": "2026-08-10", "tag": "H3.1", "score": 1585,
      "max_score": 2780, "name": "Harrison", "canonical": True,
      "questions": [{"phase": "speed", "ok": True, "secs": 8}]},
-    {"student": "y8", "run_date": "2026-08-11", "tag": "H3.2 · BLITZ", "score": 1358,
+    {"student": "y8", "run_date": "2026-08-11", "tag": "H3.2", "score": 1358,
      "max_score": 2780, "name": "Harrison", "canonical": True,
      "questions": [{"phase": "speed", "ok": True, "secs": 8},
                    {"phase": "speed", "ok": False, "secs": 8},
@@ -177,10 +177,10 @@ g = kw.game_facts(runs, "y8", days, [], date(2026, 8, 14),
 t("five day slots, blanks are None (no shame mark)",
   len(g["days"]) == 5 and g["days"][2]["pts"] is None)
 t("best-of-day points fill the bars", g["days"][0]["pts"] == 1585)
-t("the Blitz day carries its event mark", g["days"][1]["event"]["label"] == "Blitz")
+t("a standard day carries no event mark", g["days"][1]["event"] is None)
 t("streak anchors on the last PLAYED day (wrap before tonight's ingest never "
   "zeroes an honest streak)", g["streak"] == 2)
-t("events list carries the blitz", g["events"][0]["label"] == "Blitz")
+t("no events on a plain week (Blitz retired)", len(g["events"]) == 0)
 t("accuracy shows at >=10 scored questions", g["accuracy"]["pct"] == 55)
 g2 = kw.game_facts(runs, "y8", days, [], date(2026, 8, 14),
                    season_total=100, accuracy={"Maths": {"right": 3, "asked": 5}})
@@ -257,7 +257,7 @@ g3 = kw.game_facts(runs, "y8", days, [{"badge": "Clean Run", "date": "2026-08-10
                    topics=[{"topic": "Linear equations", "state": "developing",
                             "times_seen": 4},
                            {"topic": "Crusades", "state": "solid", "times_seen": 6}])
-t("cabinet has all twelve slots", len(g3["cabinet"]) == 12)
+t("cabinet has all eleven slots (Blitz Master retired)", len(g3["cabinet"]) == 11)
 t("earned slots light up (Streak tiers count as the family)", g3["collected"] == 3)
 t("rank derives from level", g3["rank"]["name"] == kw.rank_for(g3["level"]["n"])[0])
 t("streak hint counts nights to the next tier",
@@ -266,7 +266,7 @@ t("streak hint counts nights to the next tier",
 t("locked-it hint names the topic at the door of solid",
   any("Linear equations" in h["line"] for h in g3["hints"]))
 page4 = kw.render(CARD, stories=STORIES, quote=QUOTE, game=g3, coaching=coach_fix)
-t("cabinet renders with the count", "COLLECTED 3 / 12" in page4)
+t("cabinet renders with the count", "COLLECTED 3 / 11" in page4)
 t("this week's unlock is stamped NEW", ">NEW<" in page4)
 
 print("\nall kid-wrap laws hold.")

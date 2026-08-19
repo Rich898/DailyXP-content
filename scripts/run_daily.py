@@ -43,10 +43,9 @@ sys.path.insert(0, os.path.join(REPO, "tools"))
 
 W1_MONDAY = dt.date(2026, 7, 27)          # project week 1 = w/c Mon 27 Jul 2026
 MAX_REVIEW_ROUNDS = 2                      # recompose a flagged slot at most twice, then HOLD (never publish a flagged set)
-# Wednesday's value is the CHAPTER-LEVEL mutator (SEASONS.md) — rotate it at chapter
-# boundaries. "reversed blitz" keeps blitz shape (planner substring-matches "blitz")
-# and adds the REVERSED composition doctrine (planner/_composer_instructions).
-WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "reversed blitz", 3: "standard", 4: "boss"}
+# Weekly skeleton: Mon–Thu standard, Fri Battleground. (Blitz retired 20 Aug 2026 —
+# Reversed is becoming a daily question-type mechanic, not a Wednesday event.)
+WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "standard", 3: "standard", 4: "boss"}
 # (Kid nudge texts moved to tools/kid_nudge.py — the 4pm job owns them.)
 
 
@@ -55,11 +54,7 @@ def derive_tag(student, date):
     week = ((date - W1_MONDAY).days // 7) + 1
     wd = date.weekday() + 1                 # Mon=1..Fri=5
     tag = f"{roster.tag_initial(student)}{week}.{wd}"
-    if wd == 3:
-        # Chapter mutator name (SEASONS.md). Keep "BLITZ" as a substring — achievements
-        # (Blitz Master) and the shell's event detection both key on it.
-        tag += " · REVERSED BLITZ"
-    elif wd == 5:
+    if wd == 5:
         tag += " · BATTLEGROUND"
     return tag, week, wd
 

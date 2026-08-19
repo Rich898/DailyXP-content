@@ -117,7 +117,6 @@
      visual pun IS the mechanic on reversed nights. --bolt is event-only: chips,
      borders, dark-plate accents. Never body text on paper (contrast). */
   :root{ --bolt:#FFB800; --boltdeep:#8A5A00; --claim:#0E8A5F; --claimdeep:#0A5C40 }
-  .evtchip{display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--boltdeep);background:#FFF3D6;border:2px solid var(--bolt);border-radius:99px;padding:3px 9px;margin-top:6px;animation:chipPulse 2.4s ease-in-out infinite}
   @keyframes chipPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,0,.45)}50%{box-shadow:0 0 0 6px rgba(255,184,0,0)}}
   .evtbanner{background:var(--ink);color:var(--paper);border-radius:14px;padding:16px 18px 20px;margin:10px 0 16px;position:relative;overflow:hidden}
   .evtbanner .bT{font-family:'Archivo Black','Arial Black',sans-serif;font-size:21px;letter-spacing:.01em;line-height:1.12}
@@ -125,11 +124,8 @@
   .evtbanner .bS b{color:var(--bolt)}
   .evtbanner .charge{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--bolt),#FFE08A,var(--bolt));background-size:200% 100%;animation:charge 1.6s linear infinite}
   @keyframes charge{0%{background-position:0 0}100%{background-position:200% 0}}
-  .revtag{display:inline-block;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--boltdeep);background:#FFF3D6;border:1.5px solid var(--bolt);border-radius:6px;padding:2px 7px;margin-bottom:8px}
   /* Blitz finish HERO — the doubled number is the whole point of the night, so it leads. */
   .bhero{margin:6px 0 18px}
-  .bhero .cap{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.12em;color:var(--boltdeep);background:#FFF3D6;border:2px solid var(--bolt);border-radius:99px;padding:4px 11px;margin-bottom:10px}
-  .bhero .huge{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-0.02em;font-size:72px;line-height:.9;background:linear-gradient(135deg,var(--bolt) 0%,var(--flare) 115%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--flare);filter:drop-shadow(0 3px 10px rgba(255,138,41,.35));animation:heroPop .55s cubic-bezier(.2,1.3,.4,1) both}
   .bhero .src{font-size:15px;color:var(--haze);margin-top:6px}
   .bhero .src b{color:var(--boltdeep);font-weight:700}
   @keyframes heroPop{0%{opacity:0;transform:scale(.82)}60%{opacity:1;transform:scale(1.04)}100%{transform:scale(1)}}
@@ -171,7 +167,6 @@
     .terrbar .fill{transition:width .2s linear !important}
     .badge{animation:none !important}
   }
-  body.evt-blitz .seg.speed.on{background:var(--bolt)}
 
   /* ─────────── FX LAYER (baseline juice, all nights) ───────────
      Pure CSS transforms/opacity — GPU-cheap, no libraries, no DOM churn beyond a
@@ -357,20 +352,16 @@ var lastPayload=null;
 // (weekly tally — SEASONS.md). blitzTally() is display arithmetic only.
 function eventModeFor(tag){
   tag = String(tag||"");
-  if(/REVERSED/i.test(tag)) return "reversed-blitz";
-  if(/BLITZ/i.test(tag)) return "blitz";
   if(/BATTLEGROUND/i.test(tag)) return "battleground";   // Friday event
   return "";
 }
-function isBlitz(mode){ return mode==="blitz" || mode==="reversed-blitz"; }
-function blitzTally(score){ return (Number(score||0)*2).toLocaleString(); }
 /*EVENT-CORE-END*/
 var EVENT = "";
 function applyEvent(){
   EVENT = eventModeFor(QUIZ && QUIZ.tag);
-  document.body.className = isBlitz(EVENT) ? "evt-blitz" : (EVENT==="battleground" ? "evt-battleground" : "");
+  document.body.className = (EVENT==="battleground" ? "evt-battleground" : "");
   var c = el("evtChip");
-  if(c) c.innerHTML = isBlitz(EVENT) ? '<span class="evtchip">\u26a1 \u00d72 WEEK TALLY</span>' : "";
+  if(c) c.innerHTML = "";
 }
 
 /*FX-CORE-START*/
@@ -497,13 +488,11 @@ var FX = makeFX();
 // palette per mode — baseline uses the brand set; blitz/boss tint warm/bolt.
 function fxPalette(){
   if(EVENT==="battleground") return {spark:["#FF4D29","#8A5A00","#FFB800","#101B2D"], flash:"rgba(255,77,41,.5)", pop:"#FF4D29"};
-  if(isBlitz(EVENT)) return {spark:["#FFB800","#FF8A00","#FF4D29","#FFE08A"], flash:"rgba(255,184,0,.55)", pop:"var(--boltdeep)"};
   return {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(14,107,168,.4)", pop:"var(--flare)"};
 }
 // build the celebrate spec for the current mode — the Wednesday blitz amplifies + lowers the flash floor.
 function fxSpec(combo, points){
   var spec = { combo:combo, points:points, palette:fxPalette() };
-  if(isBlitz(EVENT)){ spec.amp = 1.4; spec.intense = true; }   // Wednesday steps up over the baseline
   return spec;
 }
 
@@ -1284,11 +1273,9 @@ function renderLoadError(){
 }
 
 function renderStart(){
-  var ev = isBlitz(EVENT), rev = (EVENT==="reversed-blitz"), boss = (EVENT==="battleground");
+  var boss = (EVENT==="battleground");
   var mins = Math.max(2, Math.round((speedQs.length*8 + steadyQs.length*22 + (teachQ?60:0))/60));
-  var banner = ev
-    ? '<div class="evtbanner"><div class="bT">\u26a1 MID-WEEK BLITZ'+(rev?' \u2014 REVERSED':'')+'</div><div class="bS">Everything tonight counts <b>\u00d72</b> in the week\u2019s tally.</div><div class="charge"></div></div>'
-    : (boss
+  var banner = (boss
     ? '<div class="bgbanner"><div class="bT">\u2694 BATTLEGROUND</div><div class="bS">Claim back the ground you slipped on \u2014 no losing, just how much you take.</div><div class="frontline"></div></div>'
     : '');
   var hero = rev ? 'Runs backwards.' : (boss ? 'Claim the ground.' : 'Today\u2019s run');
@@ -1392,7 +1379,6 @@ function renderSpeed(){
     '<div class="num" id="clock" style="font-size:22px">'+SPEED_SECONDS.toFixed(1)+'</div>'+
   '</div>'+
   '<div class="fusewrap"><div class="fuse" id="fuse" style="width:100%"></div></div>'+
-  (EVENT==="reversed-blitz"?'<div class="revtag">\u26a1 REVERSED</div>':'')+
   (qType(q)==="swipe" ? '' : '<h2 class="q" style="min-height:58px">'+esc(q.prompt)+'</h2>')+
   (qType(q)==="swipe"
     ? '<div id="swipeMount" style="height:460px"></div>'
@@ -2083,14 +2069,8 @@ function renderDone(){
     '</div>';
   }
   el("stage").innerHTML =
-  '<div class="eyebrow">FULL TIME'+(isBlitz(EVENT)?' \u00b7 MID-WEEK BLITZ':(EVENT==="battleground"?' \u00b7 BATTLEGROUND':''))+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
-  (isBlitz(EVENT)
-    ? '<div class="bhero">'+
-        '<div class="cap">\u26a1 DOUBLE XP BANKED</div>'+
-        '<div class="huge">'+blitzTally(state.score)+'</div>'+
-        '<div class="src">Your <b>'+state.score.toLocaleString()+'</b> tonight, doubled \u2014 into the week\'s tally.</div>'+
-      '</div>'
-    : (EVENT==="battleground"
+  '<div class="eyebrow">FULL TIME'+(EVENT==="battleground"?' \u00b7 BATTLEGROUND':'')+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
+  (EVENT==="battleground"
     ? (function(){
         var claimed = BG.pct(state.records, steadyQs), landed = steadyRecs.filter(function(r){return r.ok}).length;
         var tier = BG.tier(claimed);
@@ -2111,7 +2091,7 @@ function renderDone(){
         '</div>';
       })()
     : '<h2 class="display hglow" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
-      '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'))+
+      '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>')+
   badgesHTML(runLocalBadges(f))+
   '<div class="cards">'+
     '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
@@ -2121,8 +2101,7 @@ function renderDone(){
   '<div id="sendStat" class="sendstat wait">⏳ Uploading to the Vault…</div>'+
   (function(){var fs=f.skips.filter(function(r){return r.fresh}).length; return fs?'<p class="note" style="margin:0 0 14px">'+fs+' marked "not covered yet" — that\'s intel, not a miss.</p>':'';})()+
   flags;
-  if(isBlitz(EVENT)){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 160); } // ×2 reveal — timed to the hero pop-in
-  else if(EVENT!=="battleground" && runLocalBadges(f).length){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 200); } // badge unlock on a standard night
+  if(EVENT!=="battleground" && runLocalBadges(f).length){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 200); } // badge unlock on a standard night
   renderTbLights();   // shows "marking…" now, updates in place when the grade returns
   autoSubmit();
 }

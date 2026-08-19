@@ -28,7 +28,7 @@ check("unreadable live set -> suppressed", not send)
 
 print("— weekly skeleton flavour")
 _,_,t = decide(live("2026-08-12"), WED)
-check("Wednesday -> blitz flavour", "BLITZ" in t)
+check("Wednesday -> standard flavour (Blitz retired)", t == "XPDaily is up 👊")
 _,_,t = decide(live("2026-08-14"), FRI)
 check("Friday -> battleground flavour", "BATTLEGROUND" in t)
 # link append: when a play URL is given, it's on its own line at the end

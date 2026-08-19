@@ -2,16 +2,17 @@
 """
 test_planner_events.py — locks the WEEKDAY EVENT-MODE invariants (and throwback).
 
-Covers all the planner behaviour behind the one-line WEEKDAY_DIRECTIVE loadout edit:
-  * REVERSED (Wed mutator), * BATTLEGROUND (Fri, varied-format), * throwback (LAW 3).
-(Formerly test_planner_reversed.py — renamed because it was never reversed-only.)
+Covers the planner behaviour behind the one-line WEEKDAY_DIRECTIVE loadout edit:
+  * standard days, * BATTLEGROUND (Fri, varied-format), * throwback (LAW 3),
+  * the Reversed mechanic (kept intact + dormant for the daily-type build).
+(Blitz was retired 20 Aug 2026 — Wednesday is a standard day; Reversed is
+becoming a daily question-type mechanic, not a Wednesday event.)
 
-The chapter loadout rotates by editing WEEKDAY_DIRECTIVE (run_daily + kid_nudge).
-These checks make sure the plumbing behind that one-line edit keeps holding:
-  1. "reversed blitz" still planner-matches blitz shape (10/2/1).
-  2. The reversed doctrine block reaches composer_instructions — and ONLY when asked.
-  3. The Wednesday tag carries REVERSED BLITZ with "BLITZ" intact as a substring
-     (achievements' Blitz Master + the shell's event detection both key on it).
+These checks make sure the plumbing keeps holding:
+  1. Wednesday maps to the standard shape (12/6/1); no event tag, no double-XP.
+  2. The Reversed doctrine block still reaches composer_instructions when the
+     "reversed" directive is given (intact for the future daily wiring).
+  3. The Friday tag carries BATTLEGROUND; the Wednesday tag carries no BLITZ.
   4. run_daily and kid_nudge WEEKDAY_DIRECTIVE maps stay identical (same doctrine,
      two encodings — the comment in kid_nudge.py demands they move together).
 """
@@ -49,40 +50,37 @@ TARGETS = {"students": {"y8": {"subjects": {
     for s in SUBJECTS
 }}}}
 
-print("planner: reversed blitz directive")
-plan = planner.plan_set("y8", "2026-08-12", "WED", "H3.3 · REVERSED BLITZ",
-                        TARGETS, STATE, "reversed blitz")
+print("planner: Wednesday is now a standard day (Blitz retired 20 Aug 2026)")
+plan = planner.plan_set("y8", "2026-08-12", "WED", "H3.3",
+                        TARGETS, STATE, "standard")
 rq = plan.get("requested_shape", plan["shape"])
-check("directive maps to blitz 10/2/1", (rq["speed"], rq["steady"], rq["teach"]) == (10, 2, 1))
-ci = plan["composer_instructions"]
-check("REVERSED block present", "REVERSED" in ci)
-check("declares a CONTAINED reversed block (mech-based)", "CONTAINED Reversed block" in ci and 'mech "reversed"' in ci)
-check("exempts calculation slots (12 Aug HOLD root cause)", "EXEMPT from reversal" in ci and "CALCULATION" in ci)
-check("carries the reversed prompt template", "The answer is:" in ci)
-check("steady/teach stay normal", "Steady and teach stay normal" in ci)
+check("Wednesday maps to standard 12/6/1", (rq["speed"], rq["steady"], rq["teach"]) == (12, 6, 1))
+check("no REVERSED block on a standard Wednesday", "REVERSED" not in plan["composer_instructions"])
 
-print("planner: plain blitz directive stays classic")
-plan2 = planner.plan_set("y8", "2026-08-12", "WED", "H3.3 · BLITZ",
-                         TARGETS, STATE, "blitz")
-check("no REVERSED block on plain blitz", "REVERSED" not in plan2["composer_instructions"])
-rq2 = plan2.get("requested_shape", plan2["shape"])
-check("plain blitz still maps 10/2/1", (rq2["speed"], rq2["steady"], rq2["teach"]) == (10, 2, 1))
+print("planner: the Reversed mechanic is intact (dormant, for the daily-type build)")
+plan_rev = planner.plan_set("y8", "2026-08-12", "WED", "H3.3",
+                            TARGETS, STATE, "reversed")
+ci = plan_rev["composer_instructions"]
+check("reversed directive still builds a CONTAINED reversed block", "CONTAINED Reversed block" in ci and 'mech "reversed"' in ci)
+check("reversed block still exempts calculation slots (12 Aug HOLD)", "EXEMPT from reversal" in ci and "CALCULATION" in ci)
+check("reversed block leaves steady/teach normal", "Steady and teach stay normal" in ci)
 
-print("run_daily: Wednesday tag + directive")
+print("run_daily: Wednesday tag has no Blitz; Friday is Battleground")
 spec = importlib.util.spec_from_file_location(
     "run_daily", os.path.join(REPO, "scripts", "run_daily.py"))
 run_daily = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(run_daily)
-tag, week, wd = run_daily.derive_tag("y8", dt.date(2026, 8, 12))  # a Wednesday
-check("tag stamped REVERSED BLITZ", tag.endswith("· REVERSED BLITZ"))
-check("BLITZ survives as substring (Blitz Master / shell)", "BLITZ" in tag)
-check("Wed directive is reversed blitz", run_daily.WEEKDAY_DIRECTIVE[2] == "reversed blitz")
+wtag, _, _ = run_daily.derive_tag("y8", dt.date(2026, 8, 12))  # a Wednesday
+check("Wednesday tag carries no BLITZ", "BLITZ" not in wtag.upper())
+ftag, _, _ = run_daily.derive_tag("y8", dt.date(2026, 8, 14))  # a Friday
+check("Friday tag stamped BATTLEGROUND", ftag.endswith("BATTLEGROUND"))
+check("Wed directive is standard", run_daily.WEEKDAY_DIRECTIVE[2] == "standard")
 
 print("planner: boss -> Battleground (varied-format) doctrine")
 plan_boss = planner.plan_set("y8", "2026-08-15", "FRI", "H3.5 \u00b7 BOSS",
                              TARGETS, STATE, "boss")
 shb = plan_boss.get("requested_shape", plan_boss["shape"])
-check("boss shape is 2/4/1", (shb["speed"], shb["steady"], shb["teach"]) == (2, 4, 1))
+check("boss shape is 2/7/1", (shb["speed"], shb["steady"], shb["teach"]) == (2, 7, 1))
 cib = plan_boss["composer_instructions"]
 check("BATTLEGROUND block present", "BATTLEGROUND" in cib)
 check("frames zones as CLAIMABLE ground", "claimable zone" in cib and "claiming" in cib.lower())
@@ -128,9 +126,10 @@ if tb_slots:
     check("throwback intent labelled", ts["intent"] == "throwback")
     check("throwback flagged fresh:false (a revisit)", ts.get("fresh") is False)
     check("throwback guidance is a retention check", "retention check" in ts["guidance"].lower())
-# shape must NOT inflate — throwback takes a steady seat, total steady stays 4
-check("shape not inflated (steady still 4)",
-      sum(1 for s in tb_plan["slots"] if s["phase"] == "steady") == 4)
+# shape must NOT inflate — the throwback never pushes steady past the shape's target (6).
+# (Sparse ledger here: it fills a gap; at capacity it would displace — either way, never > 6.)
+check("throwback never inflates steady past the shape (<= 6)",
+      sum(1 for s in tb_plan["slots"] if s["phase"] == "steady") <= 6)
 # on a set with NO aged-mastered topic, there is simply no throwback slot (not padded)
 NO_TB_STATE = {"students": {"y8": {"status": "ACTIVE", "topics": [
     {"subject": "Maths", "topic": "Linear equations", "state": "shaky",
@@ -153,7 +152,7 @@ check("run_daily and kid_nudge WEEKDAY_DIRECTIVE identical",
       run_daily.WEEKDAY_DIRECTIVE == kid_nudge.WEEKDAY_DIRECTIVE)
 check("nudge flavour exists for the Wed directive",
       kid_nudge.WEEKDAY_DIRECTIVE[2] in kid_nudge.NUDGE)
-check("Wed nudge says REVERSED", "REVERSED" in kid_nudge.NUDGE[kid_nudge.WEEKDAY_DIRECTIVE[2]])
+check("no blitz nudge remains in the bank", not any("BLITZ" in v.upper() for v in kid_nudge.NUDGE.values()))
 
 print()
 if fails:

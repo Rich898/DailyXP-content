@@ -137,13 +137,13 @@ def violations(text):
 
 CABINET = ["First Blood", "Clean Run", "Locked It", "Comeback", "Full Clear",
            "Untouchable", "Streak", "Perfect Week", "Calm Hands", "Sure Shot",
-           "Boss Slayer", "Blitz Master"]
+           "Boss Slayer"]
 BADGE_ICON = {"First Blood": "\U0001fa78", "Clean Run": "\U0001f9ca",
               "Locked It": "\U0001f512", "Full Clear": "\U0001f4a0",
               "Comeback": "\U0001f501", "Untouchable": "\U0001f6e1",
               "Streak": "\U0001f525", "Perfect Week": "\U0001f4c5",
               "Calm Hands": "\U0001f9d8", "Sure Shot": "\U0001f3af",
-              "Boss Slayer": "\U0001f409", "Blitz Master": "\u26a1"}
+              "Boss Slayer": "\U0001f409"}
 BADGE_ACT = {
     "First Blood": "first run ever on the board",
     "Clean Run": "a whole run — zero lucky guesses, zero confident-wrongs",
@@ -156,12 +156,10 @@ BADGE_ACT = {
     "Calm Hands": "slowed down and landed one that used to get rushed",
     "Sure Shot": "called Sure on a repair topic — and it was",
     "Boss Slayer": "cleared Friday's event, every slot",
-    "Blitz Master": "beat your own Blitz record",
 }
 STREAK_TIERS = [(3, "Bronze"), (7, "Silver"), (14, "Gold")]
 
-_EVENT_KINDS = (("BLITZ", "Blitz", "\u26a1"),
-                ("BATTLEGROUND", "Battleground", "\U0001f6e1"),
+_EVENT_KINDS = (("BATTLEGROUND", "Battleground", "\U0001f6e1"),
                 ("BOSS", "Battleground", "\U0001f6e1"))
 
 
@@ -786,21 +784,15 @@ def _beat_block(card, stories, game):
                      "eases off it and spends the time elsewhere.</p></div>")
 
     for ev in game.get("events") or []:
-        if ev["label"] == "Blitz":
-            cards.append(f"<div class='beat rv'><span class='tagchip rank'>"
-                         f"{ev['icon']} BLITZ</span><h3>{ev['pts']:,} XP on the "
-                         f"doubled clock</h3><p>{_e(ev['day'])}'s tempo event — "
-                         "speed under pressure, banked.</p></div>")
-        else:
-            pct = round(100 * ev["zones_ok"] / ev["zones"]) if ev["zones"] else 0
-            tail = (" The field's yours this week." if pct == 100 else
-                    " Contested ground carries no penalty — it just comes back around.")
-            cards.append(f"<div class='beat rv'><span class='tagchip rank'>"
-                         f"{ev['icon']} BATTLEGROUND</span>"
-                         f"<h3>Claimed {ev['zones_ok']} of {ev['zones']} zones</h3>"
-                         f"{_stars(ev.get('stars', 0), 3)}"
-                         f"<p>{_e(ev['day'])}'s claim on the week's hardest ground."
-                         f"{tail}</p></div>")
+        pct = round(100 * ev["zones_ok"] / ev["zones"]) if ev["zones"] else 0
+        tail = (" The field's yours this week." if pct == 100 else
+                " Contested ground carries no penalty — it just comes back around.")
+        cards.append(f"<div class='beat rv'><span class='tagchip rank'>"
+                     f"{ev['icon']} BATTLEGROUND</span>"
+                     f"<h3>Claimed {ev['zones_ok']} of {ev['zones']} zones</h3>"
+                     f"{_stars(ev.get('stars', 0), 3)}"
+                     f"<p>{_e(ev['day'])}'s claim on the week's hardest ground."
+                     f"{tail}</p></div>")
 
     if not cards:
         cards.append("<div class='beat rv'><p style='margin:0'>Nothing closed out "

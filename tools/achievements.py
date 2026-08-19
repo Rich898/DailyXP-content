@@ -6,7 +6,7 @@ Runs right after the state-writer. Reads three event sources and awards any newl
 badges, deduped against a private earned-ledger so nothing ever fires twice:
 
   runs.json                 → run-shaped badges  (First Blood, Clean Run, Full Claim,
-                              Blitz Master, Perfect Week, Streak)
+                              Perfect Week, Streak)
   state_writer_log.jsonl    → transition badges  (Locked It, Comeback, Untouchable,
                               Calm Hands, Sure Shot)
   state.json                → snapshot badges    (Full Clear)
@@ -91,7 +91,6 @@ def run_badges(runs):
         return out
     out.append(("First Blood", "First Blood", runs[0].get("run_date"), "Completed your first quiz."))
 
-    blitz_best = None
     weekday_by_week, present = {}, set()
     for r in runs:
         sf = r.get("shell_flags", {}) or {}
@@ -110,12 +109,6 @@ def run_badges(runs):
         if (day == "FRI" or "BATTLEGROUND" in tag) and st.get("of") and st.get("right") == st.get("of"):
             out.append(("Full Claim", f"Full Claim|{rd}", rd, "Claimed the whole Friday Battleground."))
 
-        # Blitz Master — a Blitz run that beats your own previous Blitz best
-        if day == "WED" or "BLITZ" in tag:
-            sc = r.get("score") or 0
-            if blitz_best is not None and sc > blitz_best:
-                out.append(("Blitz Master", f"Blitz Master|{rd}", rd, "A new Blitz personal best."))
-            blitz_best = max(blitz_best or 0, sc)
 
         if sd:
             present.add(sd[:10])

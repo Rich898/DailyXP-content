@@ -275,7 +275,7 @@ def pick_focus(topics, radar, stand):
 # Week activity facts (the safe "this week" row) + best day.
 
 def week_activity(runs, student, this_days):
-    """days done, events cleared (boss/blitz tags), and the best single run —
+    """days done, events cleared (Battleground tags), and the best single run —
     all SAFE facts (no misses, no subjects). best_day carries a legal Friday XP.
     """
     mine = [r for r in runs if r.get("student") == student and r.get("run_date") in this_days]
@@ -288,7 +288,7 @@ def week_activity(runs, student, this_days):
             wd = date.fromisoformat(d).strftime("%a")
             best_by_day[d] = {"pts": sc, "day": wd, "date": d}
         tag = (r.get("tag") or "").upper()
-        if tag.endswith("BOSS") or "BLITZ" in tag or tag.endswith(".5"):
+        if tag.endswith("BOSS") or tag.endswith("BATTLEGROUND") or tag.endswith(".5"):
             events += 1
     best_day = max(best_by_day.values(), key=lambda x: x["pts"]) if best_by_day else None
     topics_practised = len({q for r in mine for q in _topics_in_run(r)})

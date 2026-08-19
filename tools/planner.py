@@ -17,7 +17,7 @@ Doctrine enforced in code:
   - spacing         -> solid = occasional maintenance only; longer-since-last_tested ranks higher
   - assessment      -> subjects with an assessment within the horizon get boosted; format shapes the teach-back
   - trivially-fast  -> respected via state (reader keeps such topics 'untested'; planner never treats them as solid)
-  - day directive   -> standard / blitz / boss / light-<subject> reshape the plan
+  - day directive   -> standard / boss / light-<subject> reshape the plan
   - no-repeat       -> topic selection only; the VALIDATOR is the hard question-level gate
 
 Usage:
@@ -40,7 +40,6 @@ MAX_PER_SUBJECT = 3               # no single subject takes more than this many 
 
 SHAPES = {
     "standard": {"speed": 12, "steady": 6, "teach": 1},   # ~5-6 min (was 7/4/1)
-    "blitz":    {"speed": 14, "steady": 5, "teach": 1},   # speed-heavy, ~5+ min
     "boss":     {"speed": 2, "steady": 7, "teach": 1},   # chain-heavy; misses-as-attacks
 }
 # recall-flavoured subjects lean speed; reasoning-flavoured lean steady (soft hints only)
@@ -187,7 +186,7 @@ def assign_blocks(ordered, student, directive):
             if mech == "swipe":
                 x["type"] = "swipe"
     if "reversed" in (directive or ""):
-        # Wednesday: a Quick Recall block, then a CONTAINED Reversed block (~5) — for everyone.
+        # Reversed directive: a Quick Recall block, then a CONTAINED Reversed block (~5).
         rev_n = min(5, len(speed))
         stamp(speed[:len(speed) - rev_n], "recall")
         stamp(speed[len(speed) - rev_n:], "reversed")
@@ -225,9 +224,7 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
 
     # ---- day directive -> shape + subject weighting ----
     directive = (directive or "standard").lower()
-    if "blitz" in directive:
-        shape_key = "blitz"
-    elif "boss" in directive:
+    if "boss" in directive:
         shape_key = "boss"
     else:
         shape_key = "standard"
@@ -457,7 +454,7 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
         lines.append(f"DIRECTIVE: light on {light_subject} (student just sat its assessment) — keep it to the single slot shown, calm difficulty.")
     if any(x.get("mech") == "reversed" for x in slots):
         lines.append("""
-REVERSED (this chapter's Wednesday mutator — SEASONS.md): ONLY the speed slots marked mech "reversed" use the reversed format below (a CONTAINED Reversed block); every OTHER speed slot is a normal recall MC. Steady and teach stay normal.
+REVERSED (a question-type mechanic — SEASONS.md): ONLY the speed slots marked mech "reversed" use the reversed format below (a CONTAINED Reversed block); every OTHER speed slot is a normal recall MC. Steady and teach stay normal.
 - EXEMPT from reversal: any CALCULATION topic (equations, angles, area/volume, percentages — anything solved with arithmetic). Those slots stay STANDARD multiple-choice recall. Reversal trains FACT discrimination; calculations compute, they don't discriminate.
 - The point: give the student a DISTINGUISHING DETAIL and have them name what it belongs to — a FAST, TIMED, fast-to-READ speed question. This is a speed round, not a reading test.
 - Prompt: state the detail as a short statement, then a short category cue. Format: '<detail> — which play?' / 'which event?' / 'which term?' / 'which empire?' / 'which shape?'. Do NOT write "The answer is:", and do NOT append a full question that re-asks for the answer — just the detail plus the short cue.

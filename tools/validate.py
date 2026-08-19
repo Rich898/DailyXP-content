@@ -11,7 +11,7 @@ Checks (ERROR = blocks publish, WARN = surfaced but allowed):
   ERROR  speed/steady missing boolean `fresh` (true=newly-introduced, false=established); throwback must be fresh:false
   ERROR  duplicate id within the set
   ERROR  prompt repeats one already seen by this student (history/ archive)
-  WARN   run shape != a known template (7/4/1 standard, 10/2/1 blitz, boss chain)
+  WARN   run shape != a known template (12/6/1 standard, 2/7/1 boss)
 
 Placeholder sets (status=="placeholder", empty questions) are valid by design.
 
@@ -53,8 +53,8 @@ def seen_prompts(student: str, history_dir: str = None) -> set:
 
 
 KNOWN_SHAPES = {
-    (7, 4, 1): "standard",
-    (10, 2, 1): "blitz",
+    (12, 6, 1): "standard",
+    (2, 7, 1): "boss",
 }
 
 
@@ -181,7 +181,7 @@ def validate_set(s: dict, history_dir: str = None) -> tuple:
                       "no submit)")
     if shape not in KNOWN_SHAPES:
         # boss chains and encores legitimately vary — warn, don't block
-        warns.append(f"run shape {shape} is non-standard (known: 7/4/1 standard, 10/2/1 blitz) — intended?")
+        warns.append(f"run shape {shape} is non-standard (known: 12/6/1 standard, 2/7/1 boss) — intended?")
 
     return errors, warns
 

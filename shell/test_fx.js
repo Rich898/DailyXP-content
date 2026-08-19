@@ -102,7 +102,7 @@ function loudness(spec) {
            flash: doc._fxroot.children.some(n => n.className.indexOf("fxflash") >= 0),
            kick: wrapKick ? +wrapKick[1] : 0 };
 }
-// blitz amplification: same combo, intense+amp -> louder + flashes earlier than baseline
+// amp+intense amplification: same combo -> louder + flashes earlier than baseline
 function loudnessSpec(spec){
   const { doc, fx } = build(false); fx.celebrate(spec);
   const wk = doc._wrap.className.match(/kick(\d)/);
@@ -121,14 +121,14 @@ check("combo 3 builds further + flashes", l3.particles > l2.particles && l3.flas
 check("combo 4+ is big (flash + heavy burst)", l4.flash === true && l4.particles >= 40, JSON.stringify(l4));
 check("boss finisher is the loudest of all", lb.flash && lb.particles >= 52 && lb.kick === 3 && lb.particles > l4.particles, JSON.stringify(lb));
 
-console.log("blitz step-up (amp + intense) vs baseline");
+console.log("amp step-up (amp + intense) vs baseline");
 const base2 = loudnessSpec({ combo:2, points:100 });
-const blitz2 = loudnessSpec({ combo:2, points:100, amp:1.4, intense:true });
+const amp2 = loudnessSpec({ combo:2, points:100, amp:1.4, intense:true });
 const base1 = loudnessSpec({ combo:1, points:100 });
-const blitz1 = loudnessSpec({ combo:1, points:100, amp:1.4, intense:true });
-check("blitz combo2 throws MORE particles than baseline combo2", blitz2.particles > base2.particles, base2.particles+" -> "+blitz2.particles);
-check("blitz flashes at combo 2 (baseline does not)", blitz2.flash === true && base2.flash === false);
-check("blitz combo1 also amplified over baseline", blitz1.particles > base1.particles, base1.particles+" -> "+blitz1.particles);
+const amp1 = loudnessSpec({ combo:1, points:100, amp:1.4, intense:true });
+check("amp combo2 throws MORE particles than baseline combo2", amp2.particles > base2.particles, base2.particles+" -> "+amp2.particles);
+check("amp flashes at combo 2 (baseline does not)", amp2.flash === true && base2.flash === false);
+check("amp combo1 also amplified over baseline", amp1.particles > base1.particles, base1.particles+" -> "+amp1.particles);
 
 console.log("showpiece primitive (×2 reveal / boss finisher)");
 {

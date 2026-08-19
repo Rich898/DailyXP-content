@@ -13,7 +13,7 @@ Rules:
   * VERIFY BEFORE TEXT. Fetch the same raw URL the shell fetches (publish.py's
     VERIFY pattern). Nudge only if live date == today and it's not a
     placeholder. Stale or frozen → silent suppression, loud in the log.
-  * FLAVOURED BY THE WEEKLY SKELETON. Wed = blitz, Fri = boss (the locked
+  * FLAVOURED BY THE WEEKLY SKELETON. Fri = Battleground (the locked
     skeleton from SEASONS.md — same mapping run_daily plans with).
   * ONE NUDGE PER KID PER DAY, enforced by a cursor in the private repo.
     This REPLACED the original stateless design (11 Aug 2026): GitHub's cron is
@@ -47,13 +47,12 @@ except ImportError:                                    # pragma: no cover
 
 RAW = "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/{student}.json"
 
-# The locked weekly skeleton (SEASONS.md): Wed = blitz, Fri = boss. Mirrors
+# The locked weekly skeleton (SEASONS.md): Fri = Battleground. Mirrors
 # WEEKDAY_DIRECTIVE in scripts/run_daily.py — if the skeleton ever changes,
 # change BOTH (they encode the same doctrine).
-WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "reversed blitz", 3: "standard", 4: "boss"}
+WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "standard", 3: "standard", 4: "boss"}
 NUDGE = {
     "standard": "XPDaily is up \U0001f44a",
-    "reversed blitz": "\u26a1 REVERSED BLITZ \u2014 you get the answers, find the questions. Double XP is live. XPDaily is up \U0001f44a",
     "boss": "\u2694 BATTLEGROUND \u2014 win the week. XPDaily is up \U0001f44a",
 }
 
