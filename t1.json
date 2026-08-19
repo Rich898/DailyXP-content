@@ -1,82 +1,105 @@
 {
   "student": "t1",
-  "date": "2026-08-18",
-  "day": "TUE",
-  "tag": "T4.2",
-  "title": "DailyXP · TUE 2026-08-18",
+  "date": "2026-08-19",
+  "day": "WED",
+  "tag": "T4.3 · REVERSED BLITZ",
+  "title": "DailyXP · WED 2026-08-19",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has base 10cm and height 6cm. What is its area?",
-      "answer": "30 cm²",
-      "why": "Triangle area is half of base times height: 0.5 × 10 × 6 = 30 cm². Forgetting to halve gives 60 cm², which is the rectangle area instead.",
-      "options": [
-        "30 cm²",
-        "60 cm²",
-        "16 cm²",
-        "40 cm²"
-      ],
+      "prompt": "Area of a triangle = base × height (no ÷2)",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each into the right bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The area of a triangle is half of base × height — the ÷2 accounts for the triangle being half a rectangle.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Where was William Shakespeare born?",
-      "answer": "Stratford-upon-Avon",
-      "why": "Shakespeare was born in Stratford-upon-Avon in 1564. Verona is the setting of Romeo and Juliet, not his birthplace, and London is where he later worked, not where he was born.",
-      "options": [
-        "Stratford-upon-Avon",
-        "London theatre district",
-        "Verona in Italy",
-        "Canterbury cathedral town"
-      ],
+      "prompt": "Romeo and Juliet was written by Christopher Marlowe",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each into the right bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "William Shakespeare wrote Romeo and Juliet, not Marlowe — a rival playwright often confused with him.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What is the male sex cell called in animal reproduction?",
-      "answer": "Sperm",
-      "why": "The male sex cell is the sperm; the egg is the female sex cell. A zygote is what forms after they combine, not a sex cell itself.",
-      "options": [
-        "Sperm",
-        "Egg",
-        "Zygote",
-        "Embryo"
-      ],
+      "prompt": "Sexual reproduction produces genetically identical offspring",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each into the right bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Sexual reproduction combines gametes from two parents, producing genetic variation — it's asexual reproduction that gives identical offspring.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In what year did the First Crusade begin?",
-      "answer": "1096",
-      "why": "The First Crusade began in 1096. 1066 is the Norman Conquest, and the other dates belong to unrelated medieval events.",
-      "options": [
-        "1096",
-        "1066",
-        "1215",
-        "1453"
-      ],
+      "prompt": "The Crusades were fought over control of Jerusalem",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each into the right bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Jerusalem was the central religious prize both Christians and Muslims fought to control during the Crusades.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "What is the volume of a cube with side length 4cm?",
-      "answer": "64 cm³",
-      "why": "Cube volume is side cubed: 4 × 4 × 4 = 64 cm³. Multiplying only two sides gives the area of one face, not the volume.",
+      "subject": "History",
+      "prompt": "The answer is: \"the Byzantine Empire\". Which power survived Rome's fall in the east?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The Byzantine Empire",
+      "why": "The Byzantine Empire was the continuation of Rome in the east and survived for centuries after the west fell; the others were later medieval powers.",
       "options": [
-        "64 cm³",
-        "16 cm³",
-        "48 cm³",
-        "12 cm³"
+        "The Byzantine Empire",
+        "The Holy Roman Empire",
+        "The Frankish Kingdom",
+        "The Papal States"
       ],
       "fresh": false
     },
@@ -84,29 +107,65 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A shape is a 10cm by 4cm rectangle with a 2cm by 4cm rectangle removed. What is the remaining area?",
-      "answer": "32 cm²",
-      "why": "The whole rectangle is 40 cm², minus the removed 8 cm² piece, leaving 32 cm². Forgetting to subtract gives the wrong total of 40 cm².",
+      "prompt": "What is the volume of a cuboid 6cm by 2cm by 3cm?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "36 cubic cm",
+      "why": "Volume of a cuboid is length × width × height: 6 × 2 × 3 = 36 cubic cm.",
       "options": [
-        "32 cm²",
-        "40 cm²",
-        "8 cm²",
-        "48 cm²"
+        "36 cubic cm",
+        "22 cubic cm",
+        "18 cubic cm",
+        "44 cubic cm"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A shape is a 12cm by 6cm rectangle with a 4cm by 3cm rectangle removed. What is the remaining area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "60 sq cm",
+      "why": "12 × 6 = 72, minus the removed 4 × 3 = 12, leaves 60 sq cm — remember to subtract the cut-out piece.",
+      "options": [
+        "60 sq cm",
+        "72 sq cm",
+        "48 sq cm",
+        "56 sq cm"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
       "subject": "Geography",
-      "prompt": "What term describes countries becoming more linked through trade and technology?",
+      "prompt": "The answer is: \"trade, culture, and technology spreading between countries\". Which term?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
       "answer": "Globalisation",
-      "why": "Globalisation is the growing connection between countries through trade, technology, and culture. Urbanisation instead refers to city growth.",
+      "why": "Globalisation describes countries becoming more linked through trade, culture, and technology; migration is people moving, not the wider process.",
       "options": [
         "Globalisation",
+        "Migration",
         "Urbanisation",
-        "Colonisation",
-        "Migration"
+        "Colonisation"
       ],
       "fresh": false
     },
@@ -114,14 +173,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "What was Jerusalem's religious importance to Christians, Muslims, and Jews during the Crusades?",
-      "answer": "A shared holy city",
-      "why": "Jerusalem held deep religious significance to all three faiths, which is exactly why control of the city was so fiercely contested during the Crusades.",
+      "prompt": "Who called for the First Crusade in 1095?",
+      "answer": "Pope Urban II",
+      "why": "Pope Urban II launched the First Crusade at the Council of Clermont in 1095, calling Christians to reclaim Jerusalem.",
       "options": [
-        "A shared holy city",
-        "Only a trade hub",
-        "Only a military base",
-        "An unclaimed border town"
+        "Pope Urban II",
+        "Pope Gregory VII",
+        "Richard the Lionheart",
+        "Emperor Constantine"
       ],
       "fresh": false
     },
@@ -129,52 +188,22 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which acting company did Shakespeare belong to?",
-      "answer": "The Lord Chamberlain's Men",
-      "why": "Shakespeare was a member of the Lord Chamberlain's Men. The Royal Shakespeare Company is a modern theatre group, not his original one.",
+      "prompt": "In which country is Verona, the setting of Romeo and Juliet, located?",
+      "answer": "Italy",
+      "why": "Verona is a city in Italy, where Shakespeare set most of Romeo and Juliet's action.",
       "options": [
-        "The Lord Chamberlain's Men",
-        "The King's Players",
-        "The Globe Actors",
-        "The Royal Shakespeare Company"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "What effect does the Chorus's prologue create at the start of Romeo and Juliet?",
-      "answer": "It reveals the tragic ending",
-      "why": "The prologue tells the audience the lovers will die, creating dramatic irony as we watch events unfold knowing the outcome.",
-      "options": [
-        "It reveals the tragic ending",
-        "It hides the ending",
-        "It introduces comic relief",
-        "It sets a joyful tone"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is pollination in flowering plants?",
-      "answer": "Transfer of pollen to a stigma",
-      "why": "Pollination is simply the transfer of pollen to a stigma, which then allows fertilisation to occur. It is a separate step from fertilisation itself.",
-      "options": [
-        "Transfer of pollen to a stigma",
-        "Fusion of egg and sperm",
-        "Growth of a seed into a plant",
-        "Splitting of a cell into two"
+        "Italy",
+        "Spain",
+        "France",
+        "Greece"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "History",
-      "prompt": "A classmate says medieval Europe was just 'a dark, empty gap' between Rome and the Renaissance, with nothing important happening. Explain why historians reject this view, using at least one specific development from the medieval period."
+      "subject": "English",
+      "prompt": "A student says the balcony scene's imagery of light and dark is 'just decoration' and has no real purpose. Explain, using specific language from the scene, why this imagery actually shapes the audience's understanding of the characters' love."
     }
   ]
 }
