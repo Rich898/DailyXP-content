@@ -69,6 +69,12 @@ Output ONLY a JSON object, no prose, no markdown fences:
   * calc:true = a METHOD question (word problem / multi-step / needs a calculator for the arithmetic — knowing the method is the skill). calc:false = MENTAL (a times-table fact or simple operation — doing it in the head IS the skill; keep numbers small enough to do mentally).
   * pre = prefix before the answer (e.g. "$"); post = unit after (e.g. " cm\u00b2", " km/h"). Empty string if none.
   * why re-teaches the method or fact in one line.
+- order slot (ONLY when the slot's "type" is "order"): a drag-to-SEQUENCE question, NO options.
+  { "type":"order", "prompt":"<what to order, e.g. 'Order these events by date'>", "sequence":["<item>","<item>","<item>","<item>"], "top":"<label for the top/first end>", "bot":"<label for the bottom/last end>", "why":"..." }
+  * sequence = 3-5 short items in their CORRECT order (top to bottom). The shell shuffles them; the student drags them back.
+  * MUST be an UNAMBIGUOUS single correct order (chronological, numeric size, magnitude, process steps) — never a subjective or tie-able order.
+  * top/bot label the axis ends (Earliest/Latest, Smallest/Largest, First/Last, Closest/Farthest).
+  * items are SHORT labels (a few words), readable at a glance; why states the correct order and the reason in one line.
 - teach slot: { "prompt": "..." }
 Include every slotId given, and no others."""
 
@@ -141,6 +147,16 @@ def _build_q(s, filled):
         q["calc"] = bool(f.get("calc"))
         q["pre"] = f.get("pre", "")
         q["post"] = f.get("post", "")
+        q["why"] = f.get("why", "")
+        q["fresh"] = bool(s.get("fresh", True))
+        if s.get("throwback"):
+            q["throwback"] = True
+            q["fresh"] = False
+    elif typ == "order" and s["phase"] in ("speed", "steady"):
+        q["type"] = "order"
+        q["sequence"] = f.get("sequence", [])
+        q["top"] = f.get("top", "")
+        q["bot"] = f.get("bot", "")
         q["why"] = f.get("why", "")
         q["fresh"] = bool(s.get("fresh", True))
         if s.get("throwback"):

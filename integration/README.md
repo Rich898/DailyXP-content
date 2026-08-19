@@ -81,8 +81,13 @@ first, never the boys.
   axis (top/bot), all-or-nothing judging with "X of N in place" + slide-into-correct-order teach-back.
   Reports `{ok, correctCount, total}`. Proven: drag-sorted to perfect, judged correct, zero JS errors.
   Schema: `{ type:'order', subject, prompt, sequence:[labels in CORRECT order], top, bot, why }`.
-- [ ] **1b. Wire into the STEADY round** (no clock; like numeric) — mount widget, record + advance.
-- [ ] **2. Composer** generates ordering (a sequence in correct order + axis + why).
-- [ ] **3. Planner** slots an Ordering block (t1 first).
-- [ ] **4. Validator** accepts order (a sequence list).
-- [ ] **5. State-writer** weights ordering (typed-like: strong, no guessing).
+- [x] **1b. Wired into the STEADY round** — `renderSteadyOrder` mounts the widget, `finishOrderSteady` records + advances. Plays in the full run.
+- [x] **2. Composer** generates ordering (unambiguous sequence + axis + why). Verified: medieval timeline, water cycle, place value — all clean.
+- [x] **3. Planner** slots an Ordering block (t1, the History steady slots).
+- [x] **4. Validator** accepts order (distinct sequence list of >=2).
+- [x] **5. State-writer** weights ordering like numeric (all-or-nothing, strong, capped at developing).
+
+
+## Full run with ALL THREE mechanics
+- [x] Verified end-to-end: Swipe Sort -> Quick Recall -> **Ordering** -> Numeric -> Checkpoint -> Teach-back, coherent doorways (incl. first-batch), records correct, zero JS errors.
+- [ ] Merge ordering into the LIVE template (staging only), then dogfood on t1.

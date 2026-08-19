@@ -655,7 +655,7 @@ function render(){ railHTML(); setScore();
 
 // ── remote questions ──────────────────────────
 /* ===== INTEGRATION HARNESS: inline synthetic quiz (swipe + MC + steady + teach) ===== */
-var STAGING_QUIZ = {"tag": "T4.4", "questions": [{"id": "S1", "phase": "speed", "subject": "Science", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "Whales are mammals", "left": "True", "right": "False", "answer": "True", "why": "Whales breathe air and feed milk \u2014 mammals.", "fresh": true}, {"id": "S2", "phase": "speed", "subject": "Maths", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "A square is a type of rectangle", "left": "True", "right": "False", "answer": "True", "why": "A square has 4 right angles \u2014 a special rectangle.", "fresh": true}, {"id": "S3", "phase": "speed", "subject": "History", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "The Great Fire of London was in 1966", "left": "True", "right": "False", "answer": "False", "why": "It was 1666.", "fresh": true}, {"id": "S4", "phase": "speed", "subject": "Science", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "Sound travels faster than light", "left": "True", "right": "False", "answer": "False", "why": "Light is far faster.", "fresh": true}, {"id": "S5", "phase": "speed", "subject": "English", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}, "prompt": "Who wrote Romeo and Juliet?", "options": ["Shakespeare", "Marlowe", "Dickens", "Austen"], "answer": "Shakespeare", "why": "Shakespeare.", "fresh": true}, {"id": "S6", "phase": "speed", "subject": "Geography", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}, "prompt": "Capital of Japan?", "options": ["Tokyo", "Osaka", "Kyoto", "Nagoya"], "answer": "Tokyo", "why": "Tokyo.", "fresh": true}, {"id": "S7", "phase": "speed", "subject": "History", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}, "prompt": "The Magna Carta was sealed in which year?", "options": ["1215", "1066", "1485", "1666"], "answer": "1215", "why": "1215.", "fresh": true}, {"id": "T1", "phase": "steady", "subject": "Maths", "block": {"label": "Numeric", "hue": "#14C7C7", "icon": "#", "sub": "Type the answer \u2014 calculator on method questions", "cta": "Start \u2192"}, "type": "numeric", "prompt": "7 \u00d7 8 = ?", "answer": 56, "calc": false, "pre": "", "post": "", "why": "7 \u00d7 8 = 56.", "fresh": true}, {"id": "T2", "phase": "steady", "subject": "Maths", "block": {"label": "Numeric", "hue": "#14C7C7", "icon": "#", "sub": "Type the answer \u2014 calculator on method questions", "cta": "Start \u2192"}, "type": "numeric", "prompt": "A rectangle is 12.5 cm by 8.4 cm. What is its area?", "answer": 105, "calc": true, "pre": "", "post": " cm\u00b2", "why": "12.5 \u00d7 8.4 = 105 cm\u00b2.", "fresh": true}, {"id": "T3", "phase": "steady", "subject": "Science", "block": {"label": "Checkpoint", "hue": "#39A7DE", "icon": "\u25c9", "sub": "How sure? \u00b7 no clock", "cta": "Bring it on \u2192"}, "prompt": "Which gas do plants take in?", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Helium"], "answer": "Carbon dioxide", "why": "CO2.", "fresh": true}, {"id": "T4", "phase": "steady", "subject": "English", "block": {"label": "Checkpoint", "hue": "#39A7DE", "icon": "\u25c9", "sub": "How sure? \u00b7 no clock", "cta": "Bring it on \u2192"}, "prompt": "A metaphor is best described as?", "options": ["A direct comparison", "A comparison using like/as", "A sound effect", "A rhyme"], "answer": "A direct comparison", "why": "A metaphor compares directly.", "fresh": true}, {"id": "TB1", "phase": "teach", "subject": "Science", "prompt": "Explain photosynthesis in your own words."}]};
+var STAGING_QUIZ = {"tag": "T4.4", "questions": [{"id": "S1", "phase": "speed", "subject": "Science", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "Whales are mammals", "left": "True", "right": "False", "answer": "True", "why": "Mammals \u2014 breathe air, feed milk.", "fresh": true}, {"id": "S2", "phase": "speed", "subject": "Maths", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "A square is a rectangle", "left": "True", "right": "False", "answer": "True", "why": "A special rectangle.", "fresh": true}, {"id": "S3", "phase": "speed", "subject": "History", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "The Great Fire of London was in 1966", "left": "True", "right": "False", "answer": "False", "why": "1666.", "fresh": true}, {"id": "S4", "phase": "speed", "subject": "English", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}, "prompt": "Who wrote Romeo and Juliet?", "options": ["Shakespeare", "Marlowe", "Dickens", "Austen"], "answer": "Shakespeare", "why": "Shakespeare.", "fresh": true}, {"id": "S5", "phase": "speed", "subject": "Geography", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}, "prompt": "Capital of Japan?", "options": ["Tokyo", "Osaka", "Kyoto", "Nagoya"], "answer": "Tokyo", "why": "Tokyo.", "fresh": true}, {"id": "T1", "phase": "steady", "subject": "History", "block": {"label": "Ordering", "hue": "#FFB800", "icon": "\u21c5", "sub": "Drag the tiles into the right order", "cta": "Start \u2192"}, "type": "order", "prompt": "Order these medieval English events", "sequence": ["Battle of Hastings", "Magna Carta signed", "Black Death arrives", "Battle of Bosworth Field"], "top": "Earliest", "bot": "Latest", "why": "1066, 1215, 1348, 1485.", "fresh": true}, {"id": "T2", "phase": "steady", "subject": "Science", "block": {"label": "Ordering", "hue": "#FFB800", "icon": "\u21c5", "sub": "Drag the tiles into the right order", "cta": "Start \u2192"}, "type": "order", "prompt": "Order the stages of the water cycle", "sequence": ["Evaporation", "Condensation", "Precipitation", "Collection"], "top": "First", "bot": "Last", "why": "Evaporate, condense, precipitate, collect.", "fresh": true}, {"id": "T3", "phase": "steady", "subject": "Maths", "block": {"label": "Numeric", "hue": "#14C7C7", "icon": "#", "sub": "Type the answer \u2014 calculator on method questions", "cta": "Start \u2192"}, "type": "numeric", "prompt": "A rectangle is 12.5 cm by 8.4 cm. What is its area?", "answer": 105, "calc": true, "pre": "", "post": " cm\u00b2", "why": "12.5 \u00d7 8.4 = 105.", "fresh": true}, {"id": "T4", "phase": "steady", "subject": "English", "block": {"label": "Checkpoint", "hue": "#39A7DE", "icon": "\u25c9", "sub": "How sure? \u00b7 no clock", "cta": "Bring it on \u2192"}, "prompt": "A metaphor is?", "options": ["A direct comparison", "A comparison using like/as", "A sound effect", "A rhyme"], "answer": "A direct comparison", "why": "Direct comparison.", "fresh": true}, {"id": "TB1", "phase": "teach", "subject": "Science", "prompt": "Explain photosynthesis in your own words."}]};
 
 /* ===== embedded swipe widget (from integration/swipe-widget.html) ===== */
 function mountSwipe(container, q, cb){
@@ -943,6 +943,128 @@ function nmInjectCSS(){
 }
 
 
+/* ===== embedded ordering widget ===== */
+function mountOrder(container, q, cb){
+  orInjectCSS();
+  var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
+  var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
+  var seq=q.sequence||[], N=seq.length, GAP=10, SLOT_H=66;
+  var order=[], chipEl={}, drag=null, phase='ordering', done=false;
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+  function range(n){ var a=[]; for(var i=0;i<n;i++) a.push(i); return a; }
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function shuffleDistinct(n){ var a; do{ a=shuffle(range(n)); } while(n>1 && a.every(function(v,i){return v===i;})); return a; }
+
+  order=shuffleDistinct(N);
+  container.innerHTML =
+    (q.top||q.bot ? '<div class="or-axis"><span>\u2191 '+esc(q.top||'')+'</span><span>'+esc(q.bot||'')+' \u2193</span></div>' : '')+
+    '<div class="or-hint">\u2195 Drag the tiles into order</div>'+
+    '<div class="or-list" id="orList"></div>'+
+    '<button class="or-submit" id="orSubmit">Check order</button>'+
+    '<div class="or-result" id="orResult"></div>';
+  var list=container.querySelector('#orList'), submitBtn=container.querySelector('#orSubmit'), result=container.querySelector('#orResult');
+
+  seq.forEach(function(label,id){
+    var el=document.createElement('div'); el.className='or-chip'; el.setAttribute('data-oid', id);
+    el.innerHTML='<div class="or-rank"></div><div class="or-txt">'+esc(label)+'</div><div class="or-grip">\u283F</div>';
+    list.appendChild(el); chipEl[id]=el; attachDrag(el,id);
+  });
+  SLOT_H = chipEl[0].offsetHeight + GAP;
+  list.style.height=(N*SLOT_H - GAP)+'px';
+  layoutAll(false);
+
+  function layoutAll(anim){
+    order.forEach(function(id,slot){
+      var el=chipEl[id]; el.querySelector('.or-rank').textContent=(slot+1);
+      if(drag && id===drag.id) return;
+      el.style.transition = anim ? 'transform .22s cubic-bezier(.2,.85,.3,1)' : 'none';
+      el.style.transform='translate3d(0,'+(slot*SLOT_H)+'px,0)';
+    });
+  }
+  function attachDrag(el,id){
+    el.addEventListener('pointerdown', function(e){
+      if(phase!=='ordering') return;
+      el.setPointerCapture(e.pointerId);
+      var slot=order.indexOf(id);
+      drag={id:id, pid:e.pointerId, startY:e.clientY, startTop:slot*SLOT_H, curTop:slot*SLOT_H};
+      el.classList.add('lift'); el.style.transition='none';
+      el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)'; buzz(8);
+    });
+    el.addEventListener('pointermove', function(e){
+      if(!drag || drag.pid!==e.pointerId || phase!=='ordering') return;
+      drag.curTop = clamp(drag.startTop + (e.clientY - drag.startY), -10, (N-1)*SLOT_H + 10);
+      el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)';
+      var target = clamp(Math.round(drag.curTop / SLOT_H), 0, N-1);
+      var curIdx = order.indexOf(id);
+      if(target !== curIdx){ order.splice(curIdx,1); order.splice(target,0,id); layoutAll(true); }
+    });
+    var release=function(e){
+      if(!drag || drag.pid!==e.pointerId) return;
+      var slot=order.indexOf(id);
+      el.classList.remove('lift');
+      el.style.transition='transform .2s cubic-bezier(.3,1.35,.4,1)';
+      el.style.transform='translate3d(0,'+(slot*SLOT_H)+'px,0)'; drag=null;
+    };
+    el.addEventListener('pointerup', release);
+    el.addEventListener('pointercancel', release);
+  }
+  function finish(ok,cc){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok, correctCount:cc, total:N}); }catch(e){} }
+  function doSubmit(){
+    if(phase!=='ordering') return;
+    phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
+    submitBtn.style.display='none';
+    var cc=0;
+    order.forEach(function(id,slot){ var good=(id===slot); if(good) cc++; chipEl[id].classList.add(good?'ok':'bad'); });
+    if(cc===N){
+      buzz(18);
+      result.innerHTML='<div class="or-strip ok">\u2713 Perfect order!</div>';
+      setTimeout(function(){ finish(true,cc); }, 1200);
+    } else {
+      buzz([30,50,30]);
+      setTimeout(function(){
+        order.forEach(function(id){ chipEl[id].classList.remove('ok','bad'); });
+        order=range(N); layoutAll(true);
+        order.forEach(function(id){ chipEl[id].classList.add('ok'); });
+        result.innerHTML='<div class="or-strip bad">'+cc+' of '+N+' in place. Correct order:'+
+          '<span class="or-lil">'+esc(seq.join('  \u2192  '))+'</span>'+
+          (q.why?'<span class="or-lil" style="color:#8A97AD">'+esc(q.why)+'</span>':'')+'</div>';
+        setTimeout(function(){ finish(false,cc); }, 1500);
+      }, 760);
+    }
+  }
+  submitBtn.addEventListener('click', doSubmit);
+}
+
+function orInjectCSS(){
+  if(document.getElementById('or-widget-css')) return;
+  var css=document.createElement('style'); css.id='or-widget-css';
+  css.textContent=
+  ".or-axis{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A97AD;margin-bottom:8px}"+
+  ".or-hint{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:600;color:#9AD3F2;text-align:center;margin-bottom:12px}"+
+  ".or-list{position:relative;margin-bottom:6px}"+
+  ".or-chip{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:12px;height:56px;padding:0 12px 0 10px;border-radius:14px;border:2px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;touch-action:none;will-change:transform;cursor:grab;box-shadow:0 3px 0 rgba(0,0,0,.3)}"+
+  ".or-chip.lift{cursor:grabbing;background:rgba(255,255,255,.17);box-shadow:0 10px 0 rgba(0,0,0,.4),0 18px 30px rgba(0,0,0,.5);z-index:10;border-color:rgba(255,184,0,.5)}"+
+  ".or-chip .or-rank{flex:0 0 30px;height:30px;border-radius:8px;background:#0E6BA8;color:#fff;font-family:'Space Mono',monospace;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s}"+
+  ".or-chip .or-txt{flex:1;font-weight:600;font-size:15px}"+
+  ".or-chip .or-grip{color:#8A97AD;font-size:18px}"+
+  ".or-chip.ok{border-color:#16E08C;background:rgba(22,164,110,.22);box-shadow:0 0 22px rgba(22,164,110,.5)}"+
+  ".or-chip.ok .or-rank{background:#16E08C}"+
+  ".or-chip.bad{border-color:#FF4D29;background:rgba(255,77,41,.18)}"+
+  ".or-chip.bad .or-rank{background:#FF4D29}"+
+  ".or-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:6px}"+
+  ".or-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
+  ".or-result{margin-top:10px}"+
+  ".or-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
+  ".or-strip.ok{background:rgba(22,164,110,.16);border:2px solid #16E08C;color:#CFF3E1}"+
+  ".or-strip.bad{background:rgba(255,77,41,.14);border:2px solid #FF4D29;color:#FFD9CF}"+
+  ".or-strip .or-lil{display:block;margin-top:6px;font-size:12.5px;font-weight:600}";
+  document.head.appendChild(css);
+}
+
+
 function boot(){ state.screen="loading"; render(); loadQuiz(); }
 function loadQuiz(){
   var j = STAGING_QUIZ;   // INLINE synthetic quiz — integration harness only (no fetch)
@@ -1206,6 +1328,24 @@ function submitSpeedTyped(){
 
 // The steady question in play — a normal steady slot, or an encore (bonus-round) question.
 function curSteady(){ return state.encoreActive ? encoreQs[state.encoreIdx] : steadyQs[state.idx]; }
+function renderSteadyOrder(q){
+  var eyebrow = state.encoreActive
+    ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+    : '<div class="eyebrow r" style="margin-bottom:8px">STEADY \u00b7 '+(state.idx+1)+'/'+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+' \u00b7 NO CLOCK</div>';
+  el("stage").innerHTML = eyebrow + '<h2 class="q">'+esc(q.prompt)+'</h2>' + '<div id="ordMount" style="margin-top:6px"></div>' + skipButtonHTML(q,"skipSteady()");
+  markShown("steady:"+state.idx);
+  mountOrder(el("ordMount"), q, { onDone:function(res){ finishOrderSteady(q,res); } });
+}
+function finishOrderSteady(q,res){
+  T.questionDone(q.id,q.subject,"steady",{ok:res.ok});
+  var stpts = res.ok ? x2mul(STEADY_POINTS, q) : 0;
+  state.score += stpts; setScore();
+  var strec={id:q.id,subject:q.subject,phase:"steady",type:"order",correctCount:res.correctCount,total:res.total,ok:res.ok,repair:!!q.repair,pts:stpts};
+  if(state.encoreActive) strec.encore=true;
+  state.records.push(strec);
+  if(res.ok) FX.celebrate(fxSpec(2, stpts));
+  setTimeout(function(){ advanceSteady(); }, 320);
+}
 function renderSteadyNumeric(q){
   var eyebrow = state.encoreActive
     ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
@@ -1227,6 +1367,7 @@ function finishNumericSteady(q,res){
 function renderSteady(){
   var q=curSteady();
   if(qType(q)==="numeric"){ return renderSteadyNumeric(q); }
+  if(qType(q)==="order"){ return renderSteadyOrder(q); }
   var boss = (EVENT==="battleground");
   var answerHTML;
   if(isOrder(q)){

@@ -71,6 +71,17 @@ def _check_ss_answer(q, qid, errors, warns):
         if not isinstance(q.get("fresh"), bool):
             errors.append(f"[{qid}] swipe must carry a boolean 'fresh'")
         return
+    if q.get("type") == "order":
+        seq = q.get("sequence")
+        if not isinstance(seq, list) or len(seq) < 2:
+            errors.append(f"[{qid}] order needs a 'sequence' list of >=2 items")
+        elif len({str(x) for x in seq}) != len(seq):
+            errors.append(f"[{qid}] order sequence has duplicate items")
+        if not q.get("why"):
+            errors.append(f"[{qid}] missing 'why' (every Q must re-teach)")
+        if not isinstance(q.get("fresh"), bool):
+            errors.append(f"[{qid}] order must carry a boolean 'fresh'")
+        return
     if q.get("type") == "numeric":
         ans = q.get("answer")
         if isinstance(ans, bool) or not isinstance(ans, (int, float)):
