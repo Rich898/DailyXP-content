@@ -44,9 +44,13 @@ function mountSwipe(container, q, onDone){
     '</div>'+
     '<div class="sw-stage">'+
       '<div class="sw-card">'+
+        '<div class="sw-face">'+
+          (q.eyebrow||q.subject ? '<span class="sw-eyebrow" style="color:'+(q.eyebrowColor||'#8A97AD')+'">'+esc(q.eyebrow||q.subject)+'</span>' : '')+
+          '<h2>'+esc(q.prompt)+'</h2>'+
+          (q.idx ? '<span class="sw-idx">'+esc(q.idx)+'</span>' : '')+
+        '</div>'+
         '<span class="sw-stamp SL">'+esc(q.left)+'</span>'+
         '<span class="sw-stamp SR">'+esc(q.right)+'</span>'+
-        '<h2>'+esc(q.prompt)+'</h2>'+
       '</div>'+
       '<div class="sw-strip"></div>'+
     '</div>'+
@@ -164,9 +168,15 @@ function injectCSS(){
   ".sw-stage{position:relative;height:calc(100% - 92px);min-height:340px;touch-action:none}"+
   ".sw-stage.shk{animation:sw-shk .42s ease}"+
   "@keyframes sw-shk{0%,100%{transform:translateX(0)}12%{transform:translateX(-8px)}24%{transform:translateX(7px)}36%{transform:translateX(-6px)}48%{transform:translateX(5px)}60%{transform:translateX(-3px)}72%{transform:translateX(2px)}}"+
-  ".sw-card{position:absolute;inset:0;margin:auto;max-width:264px;max-height:188px;background:radial-gradient(125% 85% at 50% -5%,#fff,#F6F7F1 58%,#E9EBE3);color:#0C1521;border-radius:18px;box-shadow:0 6px 0 rgba(0,0,0,.9);display:grid;place-items:center;padding:18px;text-align:center;touch-action:none;will-change:transform;overflow:hidden}"+
-  ".sw-card.grab{box-shadow:0 9px 0 rgba(16,27,45,.95)}"+
-  ".sw-card h2{font-family:'Archivo Black',sans-serif;font-size:clamp(19px,5.6vw,26px);line-height:1.14}"+
+  ".sw-card{position:absolute;inset:0;margin:auto;max-width:270px;max-height:196px;background:radial-gradient(125% 85% at 50% -5%,#FFFFFF 0%,#F6F7F1 58%,#E9EBE3 100%);color:#0C1521;border:none;border-radius:20px;box-shadow:0 8px 0 rgba(0,0,0,.38),0 16px 30px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.95),inset 0 -4px 8px rgba(16,27,45,.07);text-align:center;touch-action:none;will-change:transform;overflow:hidden}"+
+  ".sw-card.grab{box-shadow:0 11px 0 rgba(0,0,0,.42),0 22px 36px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.95),inset 0 -4px 8px rgba(16,27,45,.07)}"+
+  ".sw-card::before{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:1;background:repeating-linear-gradient(0deg,rgba(16,27,45,.02) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(16,27,45,.02) 0 1px,transparent 1px 4px)}"+
+  ".sw-card::after{content:'';position:absolute;inset:9px;border-radius:13px;pointer-events:none;z-index:1;border:1.5px solid rgba(16,27,45,.15);box-shadow:inset 0 0 0 3px rgba(255,255,255,.6)}"+
+  ".sw-face{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 20px}"+
+  ".sw-face .sw-eyebrow{position:absolute;top:15px;left:0;right:0;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.22em;text-transform:uppercase}"+
+  ".sw-face .sw-eyebrow::after{content:'';display:block;width:22px;height:2px;margin:5px auto 0;background:currentColor;opacity:.5;border-radius:2px}"+
+  ".sw-card h2{font-family:'Archivo Black',sans-serif;font-size:clamp(20px,6vw,29px);line-height:1.1;letter-spacing:-.01em;color:#0C1521}"+
+  ".sw-face .sw-idx{position:absolute;bottom:13px;right:16px;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;color:rgba(16,27,45,.38);letter-spacing:.05em}"+
   ".sw-stamp{position:absolute;z-index:3;top:11px;font-family:'Archivo Black',sans-serif;font-size:14px;text-transform:uppercase;padding:3px 9px;border:3px solid;border-radius:9px;opacity:0;pointer-events:none;max-width:44%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
   ".sw-stamp.SL{left:10px;color:#0E6BA8;border-color:#0E6BA8;transform:rotate(-12deg)}"+
   ".sw-stamp.SR{right:10px;color:#8A5A00;border-color:#FFB800;transform:rotate(12deg)}"+
@@ -180,16 +190,18 @@ function injectCSS(){
 }
 
 /* ===== harness: mount a block of 3 swipe questions, one at a time ===== */
+var ACC={Maths:'#B57A00', Science:'#0E8A5F', English:'#7A4F9E', History:'#0E6BA8'};
 var BLOCK=[
-  {type:'swipe', prompt:'7 \u00d7 8 = 56', left:'True', right:'False', answer:'True',  why:'7 \u00d7 8 = 56.'},
-  {type:'swipe', prompt:'Copper',        left:'Metal',right:'Non-metal',answer:'Metal', why:'copper conducts \u2014 metal.'},
-  {type:'swipe', prompt:'11 is even',    left:'True', right:'False', answer:'False', why:'11 is odd.'}
+  {type:'swipe', subject:'Maths',   prompt:'7 \u00d7 8 = 56', left:'True', right:'False', answer:'True',  why:'7 \u00d7 8 = 56.'},
+  {type:'swipe', subject:'Science', prompt:'Copper',        left:'Metal',right:'Non-metal',answer:'Metal', why:'copper conducts \u2014 metal.'},
+  {type:'swipe', subject:'Maths',   prompt:'11 is even',    left:'True', right:'False', answer:'False', why:'11 is odd.'}
 ];
 var i=0, score=0;
 function next(){
   if(i>=BLOCK.length){ document.getElementById('log').innerHTML='<b>Block complete</b> \u2014 score '+score+'/'+BLOCK.length+'. (This is the result the shell receives per question.)'; document.getElementById('mount').innerHTML=''; return; }
   document.getElementById('qn').textContent=i+1;
-  mountSwipe(document.getElementById('mount'), BLOCK[i], function(res){
+  var q=BLOCK[i]; q.eyebrow=q.subject; q.eyebrowColor=ACC[q.subject]||'#8A97AD'; q.idx=('0'+(i+1)).slice(-2);
+  mountSwipe(document.getElementById('mount'), q, function(res){
     if(res.ok){ score++; document.getElementById('score').textContent=score; }
     document.getElementById('log').innerHTML='Q'+(i+1)+': you chose <b>'+res.sideLabel+'</b> \u2192 '+(res.ok?'<b>correct</b>':'wrong')+'  ·  onDone({ok:'+res.ok+'}) fired';
     i++; setTimeout(next, 500);
