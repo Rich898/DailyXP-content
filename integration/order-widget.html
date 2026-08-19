@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Ordering widget — integration harness</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#070c15;background-image:radial-gradient(120% 90% at 50% 4%,#16273f,#0B1220 55%,#070c15 100%);background-attachment:fixed;font-family:'Space Grotesk',system-ui,sans-serif;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:14px;gap:10px}
+.note{max-width:420px;font-size:11px;color:#8A97AD;text-align:center}
+.frame{width:100%;max-width:420px;border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:14px}
+.hud{display:flex;justify-content:space-between;align-items:center;padding:0 4px 12px;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:#8A97AD}
+.hud b{font-family:'Archivo Black',sans-serif;color:#FFD34D;font-size:18px}
+.qh{font-family:'Archivo Black',sans-serif;font-size:clamp(16px,4.4vw,20px);line-height:1.2;text-align:center;margin:0 4px 14px}
+#mount{position:relative}
+.log{width:100%;max-width:420px;font-family:'Space Mono',monospace;font-size:12px;color:#8A97AD;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px;min-height:44px}
+.log b{color:#8CF0C0}
+</style></head>
+<body>
+<div class="note">INTEGRATION HARNESS — proving the ordering widget: real drag, live reflow, rank badges, all-or-nothing judging with a teach-back.</div>
+<div class="frame">
+  <div class="hud"><span>ORDER BLOCK · <span id="qn">1</span>/3</span><span>SCORE <b id="score">0</b></span></div>
+  <div class="qh" id="qh"></div>
+  <div id="mount"></div>
+</div>
+<div class="log" id="log">Mounted. Drag the tiles…</div>
+
+<script>
+'use strict';
+/* =======================================================================
+   mountOrder(container, q, cb)  — embeddable ordering widget
+   q: { type:'order', subject, prompt, sequence:[labels in CORRECT order], top, bot, why }
+   cb: { onCommit, onDone }   onDone -> { ok, correctCount, total }
+   ======================================================================= */
+function mountOrder(container, q, cb){
+  orInjectCSS();
+  var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
+  var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
+  var seq=q.sequence||[], N=seq.length, GAP=10, SLOT_H=66;
+  var order=[], chipEl={}, drag=null, phase='ordering', done=false;
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+  function range(n){ var a=[]; for(var i=0;i<n;i++) a.push(i); return a; }
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function shuffleDistinct(n){ var a; do{ a=shuffle(range(n)); } while(n>1 && a.every(function(v,i){return v===i;})); return a; }
+
+  order=shuffleDistinct(N);
+  container.innerHTML =
+    (q.top||q.bot ? '<div class="or-axis"><span>\u2191 '+esc(q.top||'')+'</span><span>'+esc(q.bot||'')+' \u2193</span></div>' : '')+
+    '<div class="or-list" id="orList"></div>'+
+    '<button class="or-submit" id="orSubmit">Check order</button>'+
+    '<div class="or-result" id="orResult"></div>';
+  var list=container.querySelector('#orList'), submitBtn=container.querySelector('#orSubmit'), result=container.querySelector('#orResult');
+
+  seq.forEach(function(label,id){
+    var el=document.createElement('div'); el.className='or-chip'; el.setAttribute('data-oid', id);
+    el.innerHTML='<div class="or-rank"></div><div class="or-txt">'+esc(label)+'</div><div class="or-grip">\u283F</div>';
+    list.appendChild(el); chipEl[id]=el; attachDrag(el,id);
+  });
+  SLOT_H = chipEl[0].offsetHeight + GAP;
+  list.style.height=(N*SLOT_H - GAP)+'px';
+  layoutAll(false);
+
+  function layoutAll(anim){
+    order.forEach(function(id,slot){
+      var el=chipEl[id]; el.querySelector('.or-rank').textContent=(slot+1);
+      if(drag && id===drag.id) return;
+      el.style.transition = anim ? 'transform .22s cubic-bezier(.2,.85,.3,1)' : 'none';
+      el.style.transform='translate3d(0,'+(slot*SLOT_H)+'px,0)';
+    });
+  }
+  function attachDrag(el,id){
+    el.addEventListener('pointerdown', function(e){
+      if(phase!=='ordering') return;
+      el.setPointerCapture(e.pointerId);
+      var slot=order.indexOf(id);
+      drag={id:id, pid:e.pointerId, startY:e.clientY, startTop:slot*SLOT_H, curTop:slot*SLOT_H};
+      el.classList.add('lift'); el.style.transition='none';
+      el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)'; buzz(8);
+    });
+    el.addEventListener('pointermove', function(e){
+      if(!drag || drag.pid!==e.pointerId || phase!=='ordering') return;
+      drag.curTop = clamp(drag.startTop + (e.clientY - drag.startY), -10, (N-1)*SLOT_H + 10);
+      el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)';
+      var target = clamp(Math.round(drag.curTop / SLOT_H), 0, N-1);
+      var curIdx = order.indexOf(id);
+      if(target !== curIdx){ order.splice(curIdx,1); order.splice(target,0,id); layoutAll(true); }
+    });
+    var release=function(e){
+      if(!drag || drag.pid!==e.pointerId) return;
+      var slot=order.indexOf(id);
+      el.classList.remove('lift');
+      el.style.transition='transform .2s cubic-bezier(.3,1.35,.4,1)';
+      el.style.transform='translate3d(0,'+(slot*SLOT_H)+'px,0)'; drag=null;
+    };
+    el.addEventListener('pointerup', release);
+    el.addEventListener('pointercancel', release);
+  }
+  function finish(ok,cc){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok, correctCount:cc, total:N}); }catch(e){} }
+  function doSubmit(){
+    if(phase!=='ordering') return;
+    phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
+    submitBtn.style.display='none';
+    var cc=0;
+    order.forEach(function(id,slot){ var good=(id===slot); if(good) cc++; chipEl[id].classList.add(good?'ok':'bad'); });
+    if(cc===N){
+      buzz(18);
+      result.innerHTML='<div class="or-strip ok">\u2713 Perfect order!</div>';
+      setTimeout(function(){ finish(true,cc); }, 1200);
+    } else {
+      buzz([30,50,30]);
+      setTimeout(function(){
+        order.forEach(function(id){ chipEl[id].classList.remove('ok','bad'); });
+        order=range(N); layoutAll(true);
+        order.forEach(function(id){ chipEl[id].classList.add('ok'); });
+        result.innerHTML='<div class="or-strip bad">'+cc+' of '+N+' in place. Correct order:'+
+          '<span class="or-lil">'+esc(seq.join('  \u2192  '))+'</span>'+
+          (q.why?'<span class="or-lil" style="color:#8A97AD">'+esc(q.why)+'</span>':'')+'</div>';
+        setTimeout(function(){ finish(false,cc); }, 1500);
+      }, 760);
+    }
+  }
+  submitBtn.addEventListener('click', doSubmit);
+}
+
+function orInjectCSS(){
+  if(document.getElementById('or-widget-css')) return;
+  var css=document.createElement('style'); css.id='or-widget-css';
+  css.textContent=
+  ".or-axis{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A97AD;margin-bottom:8px}"+
+  ".or-list{position:relative;margin-bottom:6px}"+
+  ".or-chip{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:12px;height:56px;padding:0 12px 0 10px;border-radius:14px;border:2px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;touch-action:none;will-change:transform;cursor:grab;box-shadow:0 3px 0 rgba(0,0,0,.3)}"+
+  ".or-chip.lift{cursor:grabbing;background:rgba(255,255,255,.17);box-shadow:0 10px 0 rgba(0,0,0,.4),0 18px 30px rgba(0,0,0,.5);z-index:10;border-color:rgba(255,184,0,.5)}"+
+  ".or-chip .or-rank{flex:0 0 30px;height:30px;border-radius:8px;background:#0E6BA8;color:#fff;font-family:'Space Mono',monospace;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s}"+
+  ".or-chip .or-txt{flex:1;font-weight:600;font-size:15px}"+
+  ".or-chip .or-grip{color:#8A97AD;font-size:18px}"+
+  ".or-chip.ok{border-color:#16E08C;background:rgba(22,164,110,.22);box-shadow:0 0 22px rgba(22,164,110,.5)}"+
+  ".or-chip.ok .or-rank{background:#16E08C}"+
+  ".or-chip.bad{border-color:#FF4D29;background:rgba(255,77,41,.18)}"+
+  ".or-chip.bad .or-rank{background:#FF4D29}"+
+  ".or-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:6px}"+
+  ".or-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
+  ".or-result{margin-top:10px}"+
+  ".or-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
+  ".or-strip.ok{background:rgba(22,164,110,.16);border:2px solid #16E08C;color:#CFF3E1}"+
+  ".or-strip.bad{background:rgba(255,77,41,.14);border:2px solid #FF4D29;color:#FFD9CF}"+
+  ".or-strip .or-lil{display:block;margin-top:6px;font-size:12.5px;font-weight:600}";
+  document.head.appendChild(css);
+}
+
+/* ===== harness ===== */
+var BLOCK=[
+  {type:'order', subject:'History', prompt:'Put these events in chronological order', sequence:['Battle of Hastings (1066)','Magna Carta (1215)','Great Fire of London (1666)','First flight (1903)'], top:'Earliest', bot:'Latest', why:'1066 → 1215 → 1666 → 1903.'},
+  {type:'order', subject:'Maths', prompt:'Order these fractions from smallest to largest', sequence:['1/4','1/3','1/2','3/4'], top:'Smallest', bot:'Largest', why:'0.25 < 0.33 < 0.5 < 0.75.'},
+  {type:'order', subject:'Science', prompt:'Order the planets by distance from the Sun', sequence:['Mercury','Venus','Earth','Mars'], top:'Closest', bot:'Farthest', why:'Mercury, Venus, Earth, Mars.'}
+];
+var i=0, score=0;
+function next(){
+  if(i>=BLOCK.length){ document.getElementById('log').innerHTML='<b>Block complete</b> \u2014 score '+score+'/'+BLOCK.length+'.'; document.getElementById('mount').innerHTML=''; document.getElementById('qh').textContent=''; return; }
+  document.getElementById('qn').textContent=i+1;
+  document.getElementById('qh').textContent=BLOCK[i].prompt;
+  mountOrder(document.getElementById('mount'), BLOCK[i], function(res){
+    if(res.ok){ score++; document.getElementById('score').textContent=score; }
+    document.getElementById('log').innerHTML='Q'+(i+1)+': '+(res.ok?'<b>perfect</b>':(res.correctCount+'/'+res.total+' in place'))+' \u2192 onDone fired';
+    i++; setTimeout(next, 600);
+  });
+}
+next();
+</script>
+</body></html>

@@ -74,3 +74,15 @@ first, never the boys.
 - [x] Steady block doorways added (advanceSteady detects block change; Heat-2 doorway reflects the first steady block).
 - [x] Full run proven end-to-end: Swipe block -> Quick Recall -> **Numeric** -> Checkpoint -> Teach-back, coherent doorways throughout, numeric records carry usedCalc, zero JS errors.
 - [ ] Merge numeric + steady doorways into the LIVE template (currently staging only), then dogfood on t1.
+
+## Ordering mechanic — stage tracker (3rd mechanic)
+- [x] **1a. Embeddable widget** — `order-widget.html`: `mountOrder(container, q, {onCommit,onDone})`.
+  Real Pointer-Events drag, live reflow (tiles slide out of the way), rank badges renumber, optional
+  axis (top/bot), all-or-nothing judging with "X of N in place" + slide-into-correct-order teach-back.
+  Reports `{ok, correctCount, total}`. Proven: drag-sorted to perfect, judged correct, zero JS errors.
+  Schema: `{ type:'order', subject, prompt, sequence:[labels in CORRECT order], top, bot, why }`.
+- [ ] **1b. Wire into the STEADY round** (no clock; like numeric) — mount widget, record + advance.
+- [ ] **2. Composer** generates ordering (a sequence in correct order + axis + why).
+- [ ] **3. Planner** slots an Ordering block (t1 first).
+- [ ] **4. Validator** accepts order (a sequence list).
+- [ ] **5. State-writer** weights ordering (typed-like: strong, no guessing).
