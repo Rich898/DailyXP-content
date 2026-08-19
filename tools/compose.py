@@ -58,6 +58,11 @@ Hard rules (a set is rejected if any is broken):
 
 Output ONLY a JSON object, no prose, no markdown fences:
 - speed/steady slot = multiple choice: { "prompt": "...", "options": ["...","...","...","..."], "answer": "<one of options>", "why": "..." }
+- swipe slot (ONLY when the slot's "type" is "swipe"): a fast two-way SORT, not multiple choice.
+  { "type":"swipe", "prompt":"<one short thing to judge>", "left":"<bucket A>", "right":"<bucket B>", "answer":"<exactly the correct bucket, copied from left or right>", "why":"..." }
+  * prompt is ONE item/statement, readable at a glance (e.g. "Copper", "7 x 8 = 56", "Whales are fish").
+  * left/right = a clean mutually-exclusive pair of SHORT labels (1-2 words): True/False, Metal/Non-metal, Prime/Composite, Fact/Opinion, Solid/Liquid. Fit the pair to the topic; default True/False.
+  * answer copied verbatim from left or right. Across a swipe block VARY which side is correct — never all one bucket.
 - teach slot: { "prompt": "..." }
 Include every slotId given, and no others."""
 
@@ -68,6 +73,7 @@ def build_user(plan, seen):
         row = {
             "slotId": s["slot"], "phase": s["phase"], "subject": s["subject"],
             "topic": s["topic"], "intent": s["intent"], "guidance": s.get("guidance", ""),
+            "type": s.get("type", "mc"),
         }
         slots.append(row)
     payload = {
@@ -106,16 +112,27 @@ def parse_json(text):
 
 
 def _build_q(s, filled):
-    """Build one question dict from a plan slot + model output. Plain multiple-choice only."""
+    """Build one question dict from a plan slot + model output. MC by default; swipe when slot type=swipe."""
     f = filled.get(s["slot"], {})
+    typ = s.get("type", "mc")
     q = {"id": s["slot"], "phase": s["phase"], "subject": s["subject"],
          "prompt": f.get("prompt", "")}
-    if s["phase"] in ("speed", "steady"):
+    if s.get("block"):
+        q["block"] = s["block"]            # block metadata drives the shell's doorway card
+    if typ == "swipe" and s["phase"] in ("speed", "steady"):
+        q["type"] = "swipe"
+        q["left"] = f.get("left", "")
+        q["right"] = f.get("right", "")
+        q["answer"] = f.get("answer", "")
+        q["why"] = f.get("why", "")
+        q["fresh"] = bool(s.get("fresh", True))
+        if s.get("throwback"):
+            q["throwback"] = True
+            q["fresh"] = False
+    elif s["phase"] in ("speed", "steady"):
         q["answer"] = f.get("answer")
         q["why"] = f.get("why", "")
         q["options"] = f.get("options", [])
-        # Carry fresh from the plan (a throwback slot is fresh:false — a revisit,
-        # not new material; SEASONS.md LAW 3). Default true for everything else.
         q["fresh"] = bool(s.get("fresh", True))
         if s.get("throwback"):
             q["throwback"] = True

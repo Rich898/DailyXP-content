@@ -59,7 +59,18 @@ KNOWN_SHAPES = {
 
 
 def _check_ss_answer(q, qid, errors, warns):
-    """Validate the answer shape of one speed/steady question (multiple-choice)."""
+    """Validate the answer shape of one speed/steady question (multiple-choice, or swipe)."""
+    if q.get("type") == "swipe":
+        left, right, ans = q.get("left"), q.get("right"), q.get("answer")
+        if not left or not right:
+            errors.append(f"[{qid}] swipe needs both 'left' and 'right' bucket labels")
+        if ans is None or ans not in (left, right):
+            errors.append(f"[{qid}] swipe answer {ans!r} must be exactly the 'left' ({left!r}) or 'right' ({right!r}) label")
+        if not q.get("why"):
+            errors.append(f"[{qid}] missing 'why' (every Q must re-teach)")
+        if not isinstance(q.get("fresh"), bool):
+            errors.append(f"[{qid}] swipe must carry a boolean 'fresh'")
+        return
     ans = q.get("answer")
     opts = q.get("options")
     if not isinstance(opts, list) or len(opts) < 2:
