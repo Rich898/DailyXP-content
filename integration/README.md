@@ -45,3 +45,11 @@ first, never the boys.
   Reversed block's slots as reversed; composer reverses only those. (The big remaining piece — makes
   it real, not synthetic.)
 - [ ] Merge to live + dogfood on t1.
+
+
+## Swipe LIVE + block model merged (this session)
+- [x] Composer generates swipe questions (True/False sorts when a topic has no natural split); validator accepts swipe.
+- [x] Planner declares a Swipe block for the **t1 test seat** (front of speed round) + Quick Recall block; swipe slots exempt from reversal.
+- [x] State-writer weights swipe as WEAK evidence: a correct swipe raises one box (untested->shaky->developing) but NEVER solid alone; a miss holds.
+- [x] Block model MERGED into the live template (config-driven doorways). Backward-compatible: block quizzes get block+Heat doorways, no-block quizzes get Heat doorways only (boys' quizzes unaffected). Verified both, zero JS errors.
+- [ ] **Deploy to t1 + dogfood** (play the swipe block end-to-end with real backend), then roll to the boys.
