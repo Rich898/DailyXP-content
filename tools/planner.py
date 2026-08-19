@@ -362,6 +362,17 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         counters[sl["phase"]] += 1
         sl["slot"] = f"{prefix[sl['phase']]}{counters[sl['phase']]}"
 
+    # ---- SWIPE BLOCK (test seat first): front of the speed round becomes a Swipe block ----
+    if student == "t1":
+        _speed = [x for x in ordered if x["phase"] == "speed"]
+        _swb = {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}
+        _qrb = {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25CF", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}
+        _n = min(4, len(_speed))
+        for x in _speed[:_n]:
+            x["type"] = "swipe"; x["block"] = _swb
+        for x in _speed[_n:]:
+            x["block"] = _qrb
+
     final_shape = {"speed": counters["speed"], "steady": counters["steady"], "teach": counters["teach"]}
 
     # ---- FORMAT ROTATION (SEASONS.md LAW 2) --------------------------------
@@ -373,6 +384,9 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
     format_summary = "direct recall"
 
     ci = _composer_instructions(student, day, tag, shape_key, light_subject, ordered, directive)
+    if any(x.get("type") == "swipe" for x in ordered):
+        ci += ("\nSWIPE BLOCK: slots with type \"swipe\" use the SWIPE schema (a two-way sort), NOT multiple choice, "
+               "and are never reversed regardless of any other directive. Fit each bucket pair to the topic; default True/False.")
 
     return {
         "student": student, "date": date_str, "day": day, "tag": tag,
