@@ -73,7 +73,7 @@ def build_user(plan, seen):
         row = {
             "slotId": s["slot"], "phase": s["phase"], "subject": s["subject"],
             "topic": s["topic"], "intent": s["intent"], "guidance": s.get("guidance", ""),
-            "type": s.get("type", "mc"),
+            "type": s.get("type", "mc"), "mech": s.get("mech", ""),
         }
         slots.append(row)
     payload = {

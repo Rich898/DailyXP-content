@@ -163,6 +163,39 @@ def fresh_flag_for(t):
     return bool(t.get("fresh", False))
 
 
+_BLOCKS = {
+    "swipe":    {"label": "Swipe Sort",   "hue": "#39A7DE", "icon": "⇆", "sub": "Flick each into the right bucket", "cta": "Start swiping →"},
+    "recall":   {"label": "Quick Recall", "hue": "#16E08C", "icon": "●", "sub": "Four options, one answer — keep it fast", "cta": "Keep going →"},
+    "reversed": {"label": "Reversed",     "hue": "#B26BE6", "icon": "⇄", "sub": "You’re given the answer — name what it belongs to", "cta": "Flip it →"},
+}
+
+def assign_blocks(ordered, student, directive):
+    """Deal the speed round into coherent mechanic BLOCKS (the day's loadout).
+    Each slot gets a 'mech' (so the composer generates it right) + 'block' metadata
+    (so the shell shows the right doorway). Coherent by construction: a block never mixes mechanics."""
+    import copy
+    speed = [x for x in ordered if x.get("phase") == "speed"]
+    if not speed:
+        return
+    def stamp(slots, mech):
+        for x in slots:
+            x["mech"] = mech
+            x["block"] = copy.deepcopy(_BLOCKS[mech])
+            if mech == "swipe":
+                x["type"] = "swipe"
+    if "reversed" in (directive or ""):
+        # Wednesday: a Quick Recall block, then a CONTAINED Reversed block (~5) — for everyone.
+        rev_n = min(5, len(speed))
+        stamp(speed[:len(speed) - rev_n], "recall")
+        stamp(speed[len(speed) - rev_n:], "reversed")
+    elif student == "t1":
+        # test seat, standard day: a Swipe block, then Quick Recall.
+        sw_n = min(4, len(speed))
+        stamp(speed[:sw_n], "swipe")
+        stamp(speed[sw_n:], "recall")
+    # else: boys on a standard day — flat MC, no blocks (swipe not yet rolled to them).
+
+
 def plan_set(student, date_str, day, tag, targets, state, directive):
     ref = dt.date.fromisoformat(date_str)
     s = state["students"][student]
@@ -362,16 +395,7 @@ def plan_set(student, date_str, day, tag, targets, state, directive):
         counters[sl["phase"]] += 1
         sl["slot"] = f"{prefix[sl['phase']]}{counters[sl['phase']]}"
 
-    # ---- SWIPE BLOCK (test seat first): front of the speed round becomes a Swipe block ----
-    if student == "t1":
-        _speed = [x for x in ordered if x["phase"] == "speed"]
-        _swb = {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}
-        _qrb = {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25CF", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}
-        _n = min(4, len(_speed))
-        for x in _speed[:_n]:
-            x["type"] = "swipe"; x["block"] = _swb
-        for x in _speed[_n:]:
-            x["block"] = _qrb
+    assign_blocks(ordered, student, directive)
 
     final_shape = {"speed": counters["speed"], "steady": counters["steady"], "teach": counters["teach"]}
 
@@ -421,9 +445,9 @@ def _composer_instructions(student, day, tag, shape_key, light_subject, slots, d
     ]
     if light_subject:
         lines.append(f"DIRECTIVE: light on {light_subject} (student just sat its assessment) — keep it to the single slot shown, calm difficulty.")
-    if "reversed" in (directive or ""):
+    if any(x.get("mech") == "reversed" for x in slots):
         lines.append("""
-REVERSED (this chapter's Wednesday mutator — SEASONS.md): every FACT-BASED speed slot is reversed; steady and teach stay normal.
+REVERSED (this chapter's Wednesday mutator — SEASONS.md): ONLY the speed slots marked mech "reversed" use the reversed format below (a CONTAINED Reversed block); every OTHER speed slot is a normal recall MC. Steady and teach stay normal.
 - EXEMPT from reversal: any CALCULATION topic (equations, angles, area/volume, percentages — anything solved with arithmetic). Those slots stay STANDARD multiple-choice recall. Reversal trains FACT discrimination; calculations compute, they don't discriminate.
 - The point: give the student the ANSWER and have them name what it belongs to — a FAST, TIMED, fast-to-READ speed question. This is a speed round, not a reading test.
 - Prompt: state the fact, then a short cue. Format: The answer is: "<fact>". Which one? — or a natural short variant, e.g. '<fact> — which event?' / 'which play?' / 'which term?' / 'which shape?'.
