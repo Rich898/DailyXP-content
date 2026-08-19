@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#F7F8F4" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="XPDaily" />
+<title>XPDaily — Test Seat (t1)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap');
+  :root{
+    --paper:#F7F8F4; --ink:#101B2D; --flare:#FF4D29; --reef:#0E6BA8;
+    --kelp:#0E8A5F; --haze:#7A8496; --line:#D9DDD3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+  .wrap{max-width:640px;margin:0 auto;padding:20px 16px 48px}
+  .display{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-0.01em}
+  .num{font-family:'Space Mono',ui-monospace,monospace;font-weight:700}
+  button{font-family:inherit}
+  button:focus-visible{outline:3px solid var(--reef);outline-offset:2px}
+  .hdr{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .hdr h1{font-size:26px;margin:0;cursor:pointer}
+  .hdr .pen{color:var(--haze);font-size:13px;font-family:'Space Grotesk';font-weight:400}
+  .score{text-align:right}
+  .score .pts{font-size:24px;color:var(--flare);line-height:1}
+  .score .lbl{font-size:11px;color:var(--haze);letter-spacing:.08em}
+  .rail{display:flex;gap:5px;margin:16px 0 26px;align-items:center}
+  .seg{height:10px;flex:1;border-radius:3px;background:#E4E7DF;border:1px solid var(--line)}
+  .seg.speed{transform:skewX(-18deg)}
+  .seg.teach{border-radius:99px}
+  .seg.on{border-color:transparent}
+  .seg.speed.on{background:var(--flare)}
+  .seg.steady.on{background:var(--reef)}
+  .seg.teach.on{background:var(--kelp)}
+  .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--haze)}
+  .eyebrow.f{color:var(--flare);font-weight:700}
+  .eyebrow.r{color:var(--reef);font-weight:700}
+  .eyebrow.k{color:var(--kelp);font-weight:700}
+  h2.big{font-size:40px;margin:10px 0 6px;line-height:1.05}
+  h2.q{font-size:22px;font-weight:700;margin:0 0 16px}
+  .opt{width:100%;text-align:left;padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-size:16px;font-weight:600;cursor:pointer;transition:transform .12s ease,border-color .12s ease}
+  .opt:active{transform:translateY(1px)}
+  .opts{display:grid;gap:10px}
+  .cta{background:var(--ink);color:var(--paper);font-size:18px;padding:15px 30px;border:none;border-radius:13px;cursor:pointer}
+  .cta:disabled{background:#C9CEC4;cursor:not-allowed}
+  .ghost{margin-top:12px;background:transparent;border:none;color:var(--haze);font-size:13px;text-decoration:underline;cursor:pointer;padding:4px;display:block}
+  .flash{margin-top:16px;padding:12px 16px;border-radius:12px;font-weight:600}
+  .flash.ok{background:#E8F4EE;border:2px solid var(--kelp)}
+  .flash.bad{background:#FCEBE6;border:2px solid var(--flare)}
+  .flash.skip{background:#EEF1EA;border:2px solid var(--line);color:var(--haze)}
+  .flash.x2{background:#FFF6DE;border:2px solid #E0B23A;color:#8A6512;font-weight:700}
+  .fusewrap{height:8px;background:#E4E7DF;border-radius:99px;overflow:hidden;margin-bottom:20px}
+  .fuse{height:100%;background:var(--ink);border-radius:99px;transition:width .1s linear}
+  .fuse.hot{background:var(--flare)}
+  .conf{display:flex;gap:8px}
+  .chip{padding:8px 14px;border-radius:99px;font-weight:700;font-size:14px;cursor:pointer;border:2px solid var(--line);background:#fff;color:var(--ink)}
+  .chip.onc{border-color:var(--reef);background:var(--reef);color:#fff}
+  .cards{display:flex;gap:10px;margin-bottom:18px}
+  .card{flex:1;border:2px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+  .flags{border-left:4px solid var(--flare);padding-left:12px;margin-bottom:18px}
+  .flags p{margin:4px 0;font-size:15px}
+  textarea{width:100%;padding:14px;font-size:16px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;resize:vertical}
+  .numin{margin-top:8px}
+  .ninput{width:100%;box-sizing:border-box;padding:16px;font-size:26px;font-weight:700;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);font-family:inherit;text-align:center;letter-spacing:.02em}
+  .ninput:focus{outline:none;border-color:var(--reef)}
+  .ninput-text{text-align:left;font-size:19px;font-weight:600;letter-spacing:0}
+  .ninsub{margin-top:12px;width:100%}
+  .ordertray{display:flex;flex-direction:column;gap:8px;margin:8px 0 14px}
+  .oslot{display:flex;align-items:center;gap:10px;min-height:50px;padding:10px 12px;border:2px dashed var(--line);border-radius:12px;background:#FAFBF9}
+  .oslot.filled{border-style:solid;background:#fff;cursor:pointer}
+  .oslot .onum{flex:0 0 26px;height:26px;border-radius:99px;background:var(--reef);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+  .oslot .otext{font-weight:600;font-size:15px}
+  .oslot .ohint{color:var(--haze);font-size:13px;font-weight:600}
+  .orderpool{display:flex;flex-wrap:wrap;gap:8px}
+  .ochip{padding:11px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:600;font-size:15px;cursor:pointer}
+  .ochip:active{transform:translateY(1px)}
+  .oslot.correct{border-color:var(--kelp);background:#E8F4EE}
+  .oslot.wrong{border-color:var(--flare);background:#FCEBE6}
+  .tblights{margin:2px 0 16px;padding:12px;border:2px solid var(--line);border-radius:14px;background:#FAFBF9}
+  .tbhead{text-align:center;font-size:11px;font-weight:800;letter-spacing:.09em;color:var(--reef);text-transform:uppercase;margin-bottom:9px}
+  .tblrow{display:flex;gap:8px;justify-content:center}
+  .tbl{flex:1;border:2px solid var(--line);border-radius:12px;padding:10px 4px;text-align:center;background:#fff}
+  .tbl .g{font-size:24px;font-weight:800;line-height:1}
+  .tbl .lb{font-size:10px;color:var(--haze);letter-spacing:.05em;margin-top:5px;text-transform:uppercase;font-weight:700}
+  .tbl.green{border-color:var(--kelp);background:#E8F4EE}
+  .tbl.green .g{color:var(--kelp)}
+  .tbl.amber{border-color:#C9962E;background:#FBF2E0}
+  .tbl.amber .g{color:#B9832A}
+  .tbl.red{border-color:var(--flare);background:#FCEBE6}
+  .tbl.red .g{color:var(--flare)}
+  .tbreason{text-align:center;font-size:12px;color:var(--haze);margin-top:9px;font-weight:600}
+  .tblwait{text-align:center;color:var(--haze);font-size:13px;margin:0 0 16px;font-weight:600}
+  .deal{border-top:2px dashed var(--line);padding-top:14px;margin-bottom:20px;font-size:14px;color:var(--haze)}
+  .note{font-size:14px;color:var(--haze)}
+  .box{border:2px solid var(--line);border-radius:12px;padding:12px;background:#fff;font-size:13px;white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;margin-top:12px}
+  .sendstat{margin:0 0 14px;padding:12px 14px;border-radius:12px;font-weight:600;font-size:15px}
+  .sendstat.wait{background:#EEF1EA;border:2px solid var(--line);color:var(--haze)}
+  .sendstat.good{background:#E8F4EE;border:2px solid var(--kelp)}
+  .sendstat.fail{background:#FCEBE6;border:2px solid var(--flare)}
+  /* ── EVENT LAYER (data-driven off the set's tag — dormant on standard nights) ──
+     Signature: the intro banner runs INVERTED (ink plate on the paper page) — the
+     visual pun IS the mechanic on reversed nights. --bolt is event-only: chips,
+     borders, dark-plate accents. Never body text on paper (contrast). */
+  :root{ --bolt:#FFB800; --boltdeep:#8A5A00; --claim:#0E8A5F; --claimdeep:#0A5C40 }
+  .evtchip{display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--boltdeep);background:#FFF3D6;border:2px solid var(--bolt);border-radius:99px;padding:3px 9px;margin-top:6px;animation:chipPulse 2.4s ease-in-out infinite}
+  @keyframes chipPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,0,.45)}50%{box-shadow:0 0 0 6px rgba(255,184,0,0)}}
+  .evtbanner{background:var(--ink);color:var(--paper);border-radius:14px;padding:16px 18px 20px;margin:10px 0 16px;position:relative;overflow:hidden}
+  .evtbanner .bT{font-family:'Archivo Black','Arial Black',sans-serif;font-size:21px;letter-spacing:.01em;line-height:1.12}
+  .evtbanner .bS{font-size:14px;margin-top:7px;color:#E9EBE4}
+  .evtbanner .bS b{color:var(--bolt)}
+  .evtbanner .charge{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--bolt),#FFE08A,var(--bolt));background-size:200% 100%;animation:charge 1.6s linear infinite}
+  @keyframes charge{0%{background-position:0 0}100%{background-position:200% 0}}
+  .revtag{display:inline-block;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;color:var(--boltdeep);background:#FFF3D6;border:1.5px solid var(--bolt);border-radius:6px;padding:2px 7px;margin-bottom:8px}
+  /* Blitz finish HERO — the doubled number is the whole point of the night, so it leads. */
+  .bhero{margin:6px 0 18px}
+  .bhero .cap{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.12em;color:var(--boltdeep);background:#FFF3D6;border:2px solid var(--bolt);border-radius:99px;padding:4px 11px;margin-bottom:10px}
+  .bhero .huge{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-0.02em;font-size:72px;line-height:.9;background:linear-gradient(135deg,var(--bolt) 0%,var(--flare) 115%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--flare);filter:drop-shadow(0 3px 10px rgba(255,138,41,.35));animation:heroPop .55s cubic-bezier(.2,1.3,.4,1) both}
+  .bhero .src{font-size:15px;color:var(--haze);margin-top:6px}
+  .bhero .src b{color:var(--boltdeep);font-weight:700}
+  @keyframes heroPop{0%{opacity:0;transform:scale(.82)}60%{opacity:1;transform:scale(1.04)}100%{transform:scale(1)}}
+
+  /* ─────────── BATTLEGROUND LAYER (Friday) ───────────
+     A territory claim skinned over the existing steady flow. Display-only: the bar
+     is driven off the records the shell already keeps, never off score/timing. */
+  .bgbanner{background:linear-gradient(135deg,#0A2A20,#0E1B2D);color:#F7F8F4;border-radius:14px;padding:16px 18px 20px;margin:10px 0 16px;position:relative;overflow:hidden;border:1px solid #1E5C46}
+  .bgbanner .bT{font-family:'Archivo Black','Arial Black',sans-serif;font-size:21px;letter-spacing:.01em;line-height:1.12}
+  .bgbanner .bS{font-size:14px;margin-top:7px;color:#D6EDE4}
+  .bgbanner .bS b{color:#4FD6A0}
+  .bgbanner .frontline{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--claim),#FFB800,var(--claim));background-size:200% 100%;animation:charge 2.2s linear infinite}
+  /* the territory bar — fills LEFT-TO-RIGHT as you claim ground */
+  .terrbar{margin:2px 0 18px;border:2px solid var(--claimdeep);border-radius:12px;padding:9px 11px;background:#07211A}
+  .terrbar .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+  .terrbar .nm{font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.06em;color:#4FD6A0}
+  .terrbar .st{font-size:11px;color:#7FB8A4;letter-spacing:.08em}
+  .terrbar .track{height:16px;border-radius:99px;background:#123A2E;overflow:hidden;position:relative}
+  .terrbar .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--claimdeep),var(--claim) 60%,#FFB800);width:0%;transition:width .55s cubic-bezier(.3,.9,.4,1)}
+  .terrbar.claim .track{animation:claimflash 360ms ease-out}
+  .terrbar.claim .fill{filter:brightness(1.35)}
+  @keyframes claimflash{0%,100%{transform:translateX(0)}30%{transform:translateX(3px)}60%{transform:translateX(-2px)}}
+  .terrbar.contested .track{animation:contested 420ms ease-out}
+  @keyframes contested{0%,100%{box-shadow:none}40%{box-shadow:0 0 0 3px rgba(127,184,164,.4)}}
+  .atktag{display:inline-block;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.1em;color:#4FD6A0;background:#0A2A20;border:1.5px solid var(--claimdeep);border-radius:6px;padding:2px 7px;margin-bottom:8px}
+  .claimverdict{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:12px;letter-spacing:.12em;color:var(--claimdeep);background:#E4F5EE;border:2px solid var(--claim);border-radius:99px;padding:4px 11px;margin-bottom:10px}
+  body.evt-battleground .seg.steady.on{background:var(--claim)}
+  /* run-local achievement unlocks on the finish screen (the immediate dopamine moment) */
+  .badges{margin:2px 0 16px;display:flex;flex-direction:column;gap:8px}
+  .badge{display:flex;align-items:center;gap:12px;border:2px solid var(--bolt);background:linear-gradient(135deg,#FFF9EB,#FFF3D6);border-radius:12px;padding:10px 13px;animation:badgePop .5s cubic-bezier(.2,1.25,.4,1) both}
+  .badge .bic{font-size:26px;line-height:1;flex:0 0 auto}
+  .badge .bnm{font-family:'Archivo Black','Arial Black',sans-serif;font-size:14px;color:var(--boltdeep);letter-spacing:.01em}
+  .badge .bds{font-size:12.5px;color:var(--haze);margin-top:1px}
+  .badge .unl{margin-left:auto;font-family:'Space Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;color:var(--boltdeep);opacity:.75}
+  @keyframes badgePop{0%{opacity:0;transform:translateY(8px) scale(.94)}60%{opacity:1;transform:translateY(0) scale(1.02)}100%{transform:scale(1)}}
+  @media (prefers-reduced-motion: reduce){
+    .bgbanner .frontline{animation:none !important}
+    .terrbar.claim .track,.terrbar.contested .track{animation:none !important}
+    .terrbar .fill{transition:width .2s linear !important}
+    .badge{animation:none !important}
+  }
+  body.evt-blitz .seg.speed.on{background:var(--bolt)}
+
+  /* ─────────── FX LAYER (baseline juice, all nights) ───────────
+     Pure CSS transforms/opacity — GPU-cheap, no libraries, no DOM churn beyond a
+     small pooled overlay. Every effect DECORATES; none gates input or touches the
+     clock. All of it is killed/softened under prefers-reduced-motion below. */
+  #fxroot{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+  .fxparticle{position:absolute;width:13px;height:13px;border-radius:3px;will-change:transform,opacity;opacity:0}
+  .fxrun{animation:fxfly var(--fxdur,720ms) cubic-bezier(.15,.6,.35,1) forwards}
+  @keyframes fxfly{
+    0%{opacity:1;transform:translate(0,0) scale(1) rotate(0)}
+    100%{opacity:0;transform:translate(var(--fxdx),var(--fxdy)) scale(.4) rotate(var(--fxrot))}
+  }
+  .fxpop{position:absolute;font-family:'Archivo Black','Arial Black',sans-serif;font-size:34px;letter-spacing:-.01em;will-change:transform,opacity;opacity:0;white-space:nowrap;text-shadow:0 2px 8px rgba(16,27,45,.18)}
+  .fxpop.run{animation:fxpop 900ms cubic-bezier(.2,1.1,.35,1) forwards}
+  @keyframes fxpop{0%{opacity:0;transform:translate(-50%,0) scale(.7)}25%{opacity:1;transform:translate(-50%,-14px) scale(1.08)}100%{opacity:0;transform:translate(-50%,-52px) scale(1)}}
+  .fxflash{position:absolute;inset:0;opacity:0;background:radial-gradient(circle at 50% 42%,var(--fxflashc,rgba(255,184,0,.5)),transparent 60%)}
+  .fxflash.run{animation:fxflash 520ms ease-out forwards}
+  @keyframes fxflash{0%{opacity:0}18%{opacity:1}100%{opacity:0}}
+  /* screen kick — tiered by combo. shake is the classic motion-sickness trigger,
+     so it is the FIRST thing reduced-motion removes. */
+  .kick1{animation:kick1 300ms ease-out}
+  .kick2{animation:kick2 380ms cubic-bezier(.36,.07,.19,.97)}
+  .kick3{animation:kick3 460ms cubic-bezier(.36,.07,.19,.97)}
+  @keyframes kick1{0%,100%{transform:translate(0,0)}30%{transform:translate(-2px,-4px)}60%{transform:translate(2px,-1px)}}
+  @keyframes kick2{0%,100%{transform:translate(0,0)}20%{transform:translate(-8px,2px)}45%{transform:translate(8px,-2px)}70%{transform:translate(-4px,1px)}}
+  @keyframes kick3{0%,100%{transform:translate(0,0)}12%{transform:translate(-12px,4px)}28%{transform:translate(14px,-4px)}45%{transform:translate(-10px,2px)}62%{transform:translate(10px,-2px)}80%{transform:translate(-4px,0)}}
+  @media (prefers-reduced-motion: reduce){
+    .fuse,.opt{transition:none !important}
+    .evtbanner .charge,.evtchip{animation:none !important}
+    .bhero .huge{animation:none !important}
+    /* FX: no shake at all; particles/flash suppressed; number pop keeps a gentle fade only */
+    .kick1,.kick2,.kick3{animation:none !important}
+    .fxrun,.fxflash.run{animation:none !important;opacity:0 !important}
+    .fxpop.run{animation:fxpopRM 700ms ease-out forwards !important}
+    @keyframes fxpopRM{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,-18px)}}
+  }
+  @media (prefers-reduced-motion: reduce){ .fuse,.opt{transition:none !important} .evtbanner .charge,.evtchip{animation:none !important} .bhero .huge{animation:none !important} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <h1 class="display" id="appName">XPDaily<span class="pen"> ✎</span></h1>
+    <div class="score"><div class="num pts" id="pts">0</div><div class="lbl">POINTS</div><div id="evtChip"></div></div>
+  </div>
+  <div class="rail" id="rail"></div>
+  <div id="stage"></div>
+</div>
+<div id="fxroot" aria-hidden="true"></div>
+
+<script>
+// ─────────────────────────────────────────────
+// DailyXP — SHELL v3.0 · the permanent shell
+// This file no longer contains questions. It is deployed ONCE per boy
+// and never redeployed for content. Changes from H1.7:
+//  · questions fetched from GitHub (y9.json / y8.json) at load —
+//    day/date/title now come from the data, killing stale-label bugs
+//  · TIMING REBUILT: single clock discipline — a question's clock
+//    starts when it renders, stops when it's answered/locked/sent.
+//    active = sum of question clocks, elapsed = wall clock,
+//    idle = the gap. Invariant active ≤ elapsed now holds by
+//    construction (the old qStart never reset between speed
+//    questions, so each question absorbed all time before it).
+//  · AUTO-SUBMIT on finish: full results POST to the family results
+//    Sheet the moment the run ends. Offline-safe: unsent results
+//    queue on the phone and auto-send next open. Backup email
+//    and copy remain as backups.
+//  · attempts / custom app name persist per boy (namespaced keys)
+//  · all game mechanics, scoring, and flag logic unchanged from H1.7
+//  · v3.0.5 EVENT LAYER: presentation only, driven by the set's tag —
+//    Blitz banner + ×2 week-tally chip + finish arithmetic, REVERSED
+//    speed styling. SCORING IS NEVER TOUCHED BY EVENTS: the ×2 lives
+//    at the family deal layer (weekly tally — SEASONS.md); the shell
+//    advertises the deal and shows the sum. Detection is TAG-ONLY so
+//    a warm-up played on a Wednesday can never promise ×2 falsely.
+// ─────────────────────────────────────────────
+var CONFIG = {
+  STUDENT: "t1",   // student code (name lives in the private roster, never here)
+  NAME: "Test Seat (t1)",
+  QUESTIONS_URL: "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/t1.json",
+  WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyqm-ejLSDP9F7wCjZCgx4E0Ugh285GJf7AjmH5TBeRJ44OTFI6H-CwJ2Gx7ZyE5f-mEQ/exec",
+  SUPABASE_URL: "https://ftknumgdmalxyjxvqlux.supabase.co",
+  SUPABASE_ANON: "sb_publishable_02mBzFnvRg5fZFrzq3w3pg_xXzVK7KF",
+  SHELL_VERSION: "3.1.0"
+};
+
+var SPEED_SECONDS = 30;
+var SPEED_BASE=100, TIME_BONUS=3, COMBO_BONUS=50, STEADY_POINTS=250, TEACH_POINTS=150;
+
+// Filled by loadQuiz() from the fetched JSON:
+var QUIZ=null, QUESTIONS=[], speedQs=[], steadyQs=[], teachQ=null, encoreQs=[], MAX_SCORE=0, shuffled={};
+
+var state = { screen:"loading", idx:0, score:0, combo:0, records:[], picked:null, confidence:null, locked:false, order:[], tbGrade:null, encoreActive:false, encoreIdx:0, appName:"XPDaily", sending:false, sent:false };
+var timer=null, tStart=0, answeredThis=false;
+var lastPayload=null;
+
+/*EVENT-CORE-START*/
+// Event layer — pure functions, testable by extraction (mirrors TIMING-CORE).
+// Detection is TAG-ONLY, deliberately stricter than achievements.py's lenient
+// (day=="WED" or BLITZ-in-tag): the shell PROMISES ×2 on screen, and a warm-up
+// or makeup set played on a Wednesday must never make that promise falsely.
+// run_daily stamps the tag deterministically — the tag is the carrier of truth.
+// Events never touch scoring: the ×2 is applied at the family deal layer
+// (weekly tally — SEASONS.md). blitzTally() is display arithmetic only.
+function eventModeFor(tag){
+  tag = String(tag||"");
+  if(/REVERSED/i.test(tag)) return "reversed-blitz";
+  if(/BLITZ/i.test(tag)) return "blitz";
+  if(/BATTLEGROUND/i.test(tag)) return "battleground";   // Friday event
+  return "";
+}
+function isBlitz(mode){ return mode==="blitz" || mode==="reversed-blitz"; }
+function blitzTally(score){ return (Number(score||0)*2).toLocaleString(); }
+/*EVENT-CORE-END*/
+var EVENT = "";
+function applyEvent(){
+  EVENT = eventModeFor(QUIZ && QUIZ.tag);
+  document.body.className = isBlitz(EVENT) ? "evt-blitz" : (EVENT==="battleground" ? "evt-battleground" : "");
+  var c = el("evtChip");
+  if(c) c.innerHTML = isBlitz(EVENT) ? '<span class="evtchip">\u26a1 \u00d72 WEEK TALLY</span>' : "";
+}
+
+/*FX-CORE-START*/
+// FX layer — pure decoration. HARD CONTRACT (proven by test_fx.js):
+//   · never reads or writes game state, score, combo, records, or timing
+//   · never gates input — it only spawns transient nodes / toggles a class
+//   · pooled + capped (particles cleaned up on animationend; hard MAX)
+//   · fully governed by prefers-reduced-motion (shake off, particles off,
+//     number-pop degrades to a gentle fade — see the CSS media query)
+// The rest of the shell calls fx.celebrate(...) at the "correct" moments; that is
+// the ONLY coupling. Palette is passed in so the blitz/boss overlays can tint it.
+function makeFX(opts){
+  opts = opts || {};
+  var doc = opts.document || (typeof document!=="undefined"?document:null);
+  var reduce = opts.reduceMotion || function(){
+    try{ return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+    catch(e){ return false; }
+  };
+  var MAX_PARTICLES = 60;          // hard cap — protects weak phones from unbounded emitters (doubled with the effect tiers)
+  var live = 0;
+  function root(){ return doc && doc.getElementById("fxroot"); }
+  function target(){ return doc && (doc.querySelector(".wrap") || doc.body); }
+
+  function burst(x, y, colors, n){
+    var r = root(); if(!r || reduce()) return 0;
+    n = Math.min(n||14, MAX_PARTICLES - live); if(n<=0) return 0;
+    for(var i=0;i<n;i++){
+      var p = doc.createElement("div"); p.className = "fxparticle";
+      var ang = Math.random()*Math.PI*2, dist = 80 + Math.random()*150;
+      p.style.left = x+"px"; p.style.top = y+"px";
+      p.style.background = colors[i % colors.length];
+      p.style.setProperty("--fxdx", Math.cos(ang)*dist + "px");
+      p.style.setProperty("--fxdy", (Math.sin(ang)*dist + 30) + "px"); // slight gravity
+      p.style.setProperty("--fxrot", (Math.random()*540-270)+"deg");
+      p.style.setProperty("--fxdur", (560 + Math.random()*260)+"ms");
+      r.appendChild(p); live++;
+      void p.offsetWidth; p.classList.add("fxrun");   // reflow so anim starts from origin
+      (function(node){
+        var done=function(){ if(node.parentNode){ node.parentNode.removeChild(node); live--; } };
+        node.addEventListener("animationend", done, {once:true});
+        setTimeout(done, 1100); // belt-and-braces cleanup if animationend is missed
+      })(p);
+    }
+    return n;
+  }
+  function flash(color){
+    var r = root(); if(!r || reduce()) return false;
+    var f = doc.createElement("div"); f.className = "fxflash";
+    if(color) f.style.setProperty("--fxflashc", color);
+    r.appendChild(f); void f.offsetWidth; f.classList.add("run");
+    f.addEventListener("animationend", function(){ if(f.parentNode) f.parentNode.removeChild(f); }, {once:true});
+    setTimeout(function(){ if(f.parentNode) f.parentNode.removeChild(f); }, 700);
+    return true;
+  }
+  function popNumber(x, y, text, color){
+    var r = root(); if(!r) return false;               // number pop survives reduced-motion (gentle fade)
+    var d = doc.createElement("div"); d.className = "fxpop";
+    d.textContent = text; d.style.left = x+"px"; d.style.top = y+"px";
+    if(color) d.style.color = color;
+    r.appendChild(d); void d.offsetWidth; d.classList.add("run");
+    d.addEventListener("animationend", function(){ if(d.parentNode) d.parentNode.removeChild(d); }, {once:true});
+    setTimeout(function(){ if(d.parentNode) d.parentNode.removeChild(d); }, 1100);
+    return true;
+  }
+  function kick(tier){
+    var t = target(); if(!t || reduce()) return false;
+    var cls = "kick"+Math.max(1,Math.min(3,tier||1));
+    t.classList.remove("kick1","kick2","kick3"); void t.offsetWidth;
+    t.classList.add(cls);
+    t.addEventListener("animationend", function h(){ t.classList.remove(cls); t.removeEventListener("animationend",h); });
+    return true;
+  }
+
+  // shared center for bursts/pops (upper third, near the hero/question)
+  function center(){
+    var r=root(); var rect=(r&&r.getBoundingClientRect)?r.getBoundingClientRect():{width:360,height:640};
+    return { cx:(rect.width||360)/2, cy:(rect.height||640)*0.34 };
+  }
+  // showpiece — the loudest single moment (blitz ×2 reveal, boss finisher): flash + full burst + max kick.
+  function showpiece(pal){
+    pal = pal || {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(255,184,0,.55)"};
+    var c=center(); flash(pal.flash); burst(c.cx, c.cy, pal.spark, 52); kick(3); return true;
+  }
+
+  // The one call the shell makes on a correct answer. `spec` is plain data:
+  //   { combo, points, palette, amp, intense, boss }
+  // Escalation lives HERE, keyed off combo — quiet-ish floor, louder when earned.
+  // `amp` scales particle counts and `intense` lowers the flash threshold — that's
+  // how the Wednesday blitz steps up over the baseline without new effect types.
+  function celebrate(spec){
+    spec = spec || {}; var r = root(); if(!r) return;
+    var pal = spec.palette || {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(255,184,0,.5)", pop:"#FF4D29"};
+    if(spec.boss){ return showpiece(pal); }
+    var combo = spec.combo||0, amp = spec.amp||1, flashFloor = spec.intense?2:3;
+    var c = center();
+    var n, k;
+    if(combo>=4){ n=40; k=3; } else if(combo===3){ n=28; k=3; } else if(combo===2){ n=16; k=2; } else { n=10; k=1; }
+    n = Math.round(n*amp);
+    if(combo>=flashFloor) flash(pal.flash);
+    if(n>0) burst(c.cx, c.cy, pal.spark, n);
+    kick(k);
+    if(spec.points && !reduce()){ popNumber(c.cx, c.cy-30, "+"+spec.points, pal.pop); }
+  }
+  return { celebrate:celebrate, showpiece:showpiece, burst:burst, flash:flash, popNumber:popNumber, kick:kick, _live:function(){return live;} };
+}
+/*FX-CORE-END*/
+var FX = makeFX();
+// palette per mode — baseline uses the brand set; blitz/boss tint warm/bolt.
+function fxPalette(){
+  if(EVENT==="battleground") return {spark:["#FF4D29","#8A5A00","#FFB800","#101B2D"], flash:"rgba(255,77,41,.5)", pop:"#FF4D29"};
+  if(isBlitz(EVENT)) return {spark:["#FFB800","#FF8A00","#FF4D29","#FFE08A"], flash:"rgba(255,184,0,.55)", pop:"var(--boltdeep)"};
+  return {spark:["#FF4D29","#0E6BA8","#0E8A5F","#FFB800"], flash:"rgba(14,107,168,.4)", pop:"var(--flare)"};
+}
+// build the celebrate spec for the current mode — the Wednesday blitz amplifies + lowers the flash floor.
+function fxSpec(combo, points){
+  var spec = { combo:combo, points:points, palette:fxPalette() };
+  if(isBlitz(EVENT)){ spec.amp = 1.4; spec.intense = true; }   // Wednesday steps up over the baseline
+  return spec;
+}
+
+/*BATTLEGROUND-CORE-START*/
+// Battleground layer — a territory claim skinned over the steady flow. HARD CONTRACT
+// (proven by test_battleground.js): the territory model is DISPLAY-ONLY, a pure function
+// of the steady records — it never writes score/combo/records/timing. There is NO win/lose:
+// the result is simply how much ground you claimed (0-100%). A miss leaves ground CONTESTED,
+// never a failure — a struggling kid can't "lose" their own weak spots. The % is honest
+// progress, and every Friday is a fresh, self-contained shot at claiming this week's ground.
+function makeBattleground(){
+  var W = 1, REPAIR_W = 1.4;   // repair zones are the harder ground -> worth a bigger share
+  function weight(r){ return (r && r.repair) ? REPAIR_W : W; }
+  // total ground available across all zones (from the steady question set)
+  function totalGround(zones){
+    var t = 0; (zones||[]).forEach(function(q){ t += weight(q); }); return t || 1;
+  }
+  // ground claimed so far = weight of every zone answered correctly (from records)
+  function claimedGround(recs){
+    var c = 0;
+    (recs||[]).forEach(function(r){
+      if(r && r.phase==="steady" && r.ok && !r.skipped){ c += weight(r); }
+    });
+    return c;
+  }
+  // % of the battleground claimed — 0 to 100, order-independent, pure.
+  function pct(recs, zones){ return Math.round(claimedGround(recs) / totalGround(zones) * 100); }
+  // how the claim reads at the finish — never a "loss", just how much ground you took.
+  function tier(p){
+    if(p >= 100) return "total";      // the whole field
+    if(p >= 75)  return "strong";
+    if(p >= 40)  return "solid";
+    if(p > 0)    return "foothold";
+    return "held";                    // 0% — you held the line; take it next week
+  }
+  return { W:W, REPAIR_W:REPAIR_W, totalGround:totalGround, claimedGround:claimedGround, pct:pct, tier:tier,
+           canLose:function(){ return false; } };   // no lose-condition, by design
+}
+/*BATTLEGROUND-CORE-END*/
+var BG = makeBattleground();
+
+// Run-local achievements — the subset the SHELL can honestly award at end-of-run (the
+// immediate in-quiz moment). History-dependent badges (streaks, Perfect Week, Comeback,
+// Full Clear, Sure Shot, Calm Hands, Blitz PB) need the ledger and are computed by the
+// nightly engine + surfaced on the kid dashboard — the shell can't know them here.
+// Conditions mirror achievements.py exactly so the shell never claims a badge the engine wouldn't.
+function runLocalBadges(flags){
+  var out = [];
+  var steady = state.records.filter(function(r){return r.phase==="steady"});
+  var steadyOK = steady.filter(function(r){return r.ok}).length;
+  // First Blood — first quiz ever completed (attempt counter == 1)
+  if((ATTEMPTS.total||0) === 1) out.push({ic:"\u{1F947}", nm:"First Blood", ds:"Your first run in the books."});
+  // Full Claim — a battleground run with every zone claimed (100% territory)
+  if(EVENT==="battleground" && steady.length>0 && steadyOK===steady.length)
+    out.push({ic:"\u{1F6A9}", nm:"Full Claim", ds:"Claimed the whole battleground \u2014 100%."});
+  // Clean Run — zero lucky guesses AND zero confident-wrongs across the whole quiz
+  if(flags && flags.lg.length===0 && flags.cw.length===0 && state.records.length>=3)
+    out.push({ic:"\u{1F3AF}", nm:"Clean Run", ds:"No lucky guesses, no sure-but-wrongs."});
+  return out;
+}
+function badgesHTML(badges){
+  if(!badges.length) return "";
+  return '<div class="badges">'+badges.map(function(b){
+    return '<div class="badge"><span class="bic">'+b.ic+'</span>'+
+      '<div><div class="bnm">'+esc(b.nm)+'</div><div class="bds">'+esc(b.ds)+'</div></div>'+
+      '<span class="unl">UNLOCKED</span></div>';
+  }).join("")+'</div>';
+}
+
+/*TIMING-CORE-START*/
+// Single source of truth for time. A question's clock starts when it is
+// shown (once — re-renders of the same question don't restart it) and
+// stops when it is answered / locked / submitted. Reveal-reading and
+// between-question pauses are idle by design.
+function makeTiming(now){
+  now = now || function(){ return Date.now(); };
+  var t = { sessionStart:0, qStart:null, activeMs:0,
+            phaseMs:{speed:0,steady:0,teach:0}, perQ:[] };
+  return {
+    startSession: function(){
+      t.sessionStart = now(); t.qStart = null; t.activeMs = 0;
+      t.phaseMs = {speed:0,steady:0,teach:0}; t.perQ = [];
+    },
+    questionShown: function(){ t.qStart = now(); },
+    questionDone: function(id, subject, phase, extra){
+      if(t.qStart === null) return null;        // double-fire safe: no open clock, no time booked
+      var ms = now() - t.qStart; t.qStart = null;
+      t.activeMs += ms;
+      if(t.phaseMs[phase] !== undefined) t.phaseMs[phase] += ms;
+      var rec = { id:id, subject:subject, phase:phase, secs:+(ms/1000).toFixed(1) };
+      if(extra){ for(var k in extra){ rec[k]=extra[k]; } }
+      t.perQ.push(rec);
+      return rec;
+    },
+    summary: function(){
+      var elapsedMs = now() - t.sessionStart;
+      var activeMs = Math.min(t.activeMs, elapsedMs); // defence vs device-clock jumps only
+      return {
+        elapsedSecs:+(elapsedMs/1000).toFixed(1),
+        activeSecs:+(activeMs/1000).toFixed(1),
+        idleSecs:+(Math.max(0,elapsedMs-activeMs)/1000).toFixed(1),
+        phases:{
+          speed:+(t.phaseMs.speed/1000).toFixed(1),
+          steady:+(t.phaseMs.steady/1000).toFixed(1),
+          teach:+(t.phaseMs.teach/1000).toFixed(1)
+        },
+        perQuestion: t.perQ.slice()
+      };
+    },
+    _raw: function(){ return { activeMs:t.activeMs, sessionStart:t.sessionStart }; }
+  };
+}
+/*TIMING-CORE-END*/
+var T = makeTiming();
+var shownKey = null;
+function markShown(key){ if(key !== shownKey){ shownKey = key; T.questionShown(); } }
+
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+// ── per-boy persistence (attempts + custom name), namespaced ──
+var ATTEMPT_KEY = "dxp_attempts_" + CONFIG.STUDENT;
+var NAME_KEY = "dxp_name_" + CONFIG.STUDENT;
+var OUTBOX_KEY = "dxp_outbox_" + CONFIG.STUDENT;
+// (Week-1 pre-namespaced attempt migration retired — the namespaced key has long
+//  since been the only one in use; the old one-off migration is no longer needed.)
+function _todayStr(){ return new Date().toLocaleDateString("en-CA"); } // YYYY-MM-DD
+function loadAttempts(){
+  try { var raw = window.localStorage.getItem(ATTEMPT_KEY); return raw ? JSON.parse(raw) : {total:0, byDay:{}}; }
+  catch(e){ return {total:0, byDay:{}}; }
+}
+function bumpAttempt(){
+  var a = loadAttempts(); var d = _todayStr();
+  a.total = (a.total||0) + 1;
+  a.byDay[d] = (a.byDay[d]||0) + 1;
+  if(!a.firstOfDay) a.firstOfDay = {};
+  if(!a.firstOfDay[d]) a.firstOfDay[d] = new Date().toLocaleTimeString("en-AU",{hour:"2-digit",minute:"2-digit"});
+  try { window.localStorage.setItem(ATTEMPT_KEY, JSON.stringify(a)); } catch(e){}
+  return a;
+}
+var ATTEMPTS = loadAttempts(); // snapshot for this run, set at start
+function fmtMMSS(sec){ sec=Math.round(sec); var m=Math.floor(sec/60), s2=sec%60; return m+":"+(s2<10?"0":"")+s2; }
+function fmtDate(){ return new Date().toLocaleDateString("en-AU",{weekday:"short",day:"numeric",month:"short",year:"numeric"}); }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function el(id){ return document.getElementById(id); }
+function quizLabel(){
+  if(!QUIZ) return fmtDate();
+  var d = QUIZ.dateLabel || QUIZ.date || fmtDate();
+  return (QUIZ.day ? QUIZ.day + " " : "") + d;
+}
+
+(function restoreName(){
+  try{ var n = window.localStorage.getItem(NAME_KEY); if(n) state.appName = n; }catch(e){}
+})();
+el("appName").innerHTML = esc(state.appName)+'<span class="pen"> ✎</span>';
+el("appName").addEventListener("click", function(){
+  var n = prompt("Name this thing (your call):", state.appName);
+  if(n){ state.appName = n.toUpperCase().slice(0,18);
+    el("appName").innerHTML = esc(state.appName)+'<span class="pen"> ✎</span>';
+    try{ window.localStorage.setItem(NAME_KEY, state.appName); }catch(e){}
+  }
+});
+
+function setScore(){ el("pts").textContent = state.score.toLocaleString(); }
+
+function railHTML(){
+  if(!QUESTIONS.length){ el("rail").innerHTML=""; return; }
+  var done = (state.screen==="start"||state.screen==="loading"||state.screen==="noquiz"||state.screen==="error")?0 : state.screen==="speed"?state.idx : state.screen==="steady"?speedQs.length+state.idx : state.screen==="teach"?speedQs.length+steadyQs.length : QUESTIONS.length;
+  var h="";
+  speedQs.forEach(function(q,i){ h+='<div class="seg speed'+(done>i?" on":"")+'"></div>'; });
+  steadyQs.forEach(function(q,i){ h+='<div class="seg steady'+(done>speedQs.length+i?" on":"")+'"></div>'; });
+  h+='<div class="seg teach'+(done>=QUESTIONS.length?" on":"")+'"></div>';
+  el("rail").innerHTML=h;
+}
+
+function render(){ railHTML(); setScore();
+  if(state.screen==="loading") renderLoading();
+  else if(state.screen==="noquiz") renderNoQuiz();
+  else if(state.screen==="error") renderLoadError();
+  else if(state.screen==="start") renderStart();
+  else if(state.screen==="speed") renderSpeed();
+  else if(state.screen==="steady") renderSteady();
+  else if(state.screen==="teach") renderTeach();
+  else if(state.screen==="encoreOffer") renderEncoreOffer();
+  else renderDone();
+}
+
+// ── remote questions ──────────────────────────
+/* ===== INTEGRATION HARNESS: inline synthetic quiz (swipe + MC + steady + teach) ===== */
+var STAGING_QUIZ = { tag:"H4.2", questions:[
+  {id:"s1", phase:"speed", subject:"Maths",   type:"swipe", prompt:"7 \u00d7 8 = 56", left:"True", right:"False", answer:"True",  why:"7 \u00d7 8 = 56."},
+  {id:"s2", phase:"speed", subject:"Science", type:"swipe", prompt:"Copper", left:"Metal", right:"Non-metal", answer:"Metal", why:"Copper conducts \u2014 a metal."},
+  {id:"s3", phase:"speed", subject:"History", prompt:"When was the Magna Carta signed?", options:["1215","1066","1348","1485"], answer:"1215", why:"The Magna Carta was signed in 1215."},
+  {id:"s4", phase:"speed", subject:"Maths",   type:"swipe", prompt:"11 is a prime number", left:"True", right:"False", answer:"True", why:"11 is prime \u2014 only 1 and 11 divide it."},
+  {id:"e1", phase:"steady", subject:"Science", prompt:"Which gas do plants take in?", options:["Carbon dioxide","Oxygen","Nitrogen","Helium"], answer:"Carbon dioxide", why:"Plants take in carbon dioxide."},
+  {id:"e2", phase:"steady", subject:"English", prompt:"What is a noun?", options:["A naming word","An action word","A describing word","A joining word"], answer:"A naming word", why:"A noun names a person, place or thing."},
+  {id:"t1", phase:"teach", subject:"Science", prompt:"Explain photosynthesis in your own words."}
+]};
+
+/* ===== embedded swipe widget (from integration/swipe-widget.html) ===== */
+function mountSwipe(container, q, cb){
+  swInjectCSS();
+  var _onCommit=(cb&&typeof cb==="object")?cb.onCommit:null;
+  var _onDone=(typeof cb==="function")?cb:((cb&&cb.onDone)||null);
+  container.innerHTML =
+    '<div class="sw-pills">'+
+      '<button class="sw-pill sw-L" type="button">'+esc(q.left)+'</button>'+
+      '<button class="sw-pill sw-R" type="button">'+esc(q.right)+'</button>'+
+    '</div>'+
+    '<div class="sw-stage">'+
+      '<div class="sw-card">'+
+        '<div class="sw-face">'+
+          (q.eyebrow||q.subject ? '<span class="sw-eyebrow" style="color:'+(q.eyebrowColor||'#8A97AD')+'">'+esc(q.eyebrow||q.subject)+'</span>' : '')+
+          '<h2>'+esc(q.prompt)+'</h2>'+
+          (q.idx ? '<span class="sw-idx">'+esc(q.idx)+'</span>' : '')+
+        '</div>'+
+        '<span class="sw-stamp SL">'+esc(q.left)+'</span>'+
+        '<span class="sw-stamp SR">'+esc(q.right)+'</span>'+
+      '</div>'+
+      '<div class="sw-strip"></div>'+
+    '</div>'+
+    '<div class="sw-fx"></div>';
+
+  var pillL=container.querySelector('.sw-L'), pillR=container.querySelector('.sw-R');
+  var card=container.querySelector('.sw-card'), stage=container.querySelector('.sw-stage');
+  var strip=container.querySelector('.sw-strip'), fx=container.querySelector('.sw-fx');
+  var phase='live', drag=null, done=false;
+
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+  function buzz(p){try{if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
+
+  function paint(dx,dy){
+    var s=clamp(1.02-Math.abs(dx)/220,0.55,1.02);
+    card.style.transform='translate3d('+dx+'px,'+dy+'px,0) rotate('+clamp(dx/20,-12,12)+'deg) scale('+s.toFixed(3)+')';
+    var o=Math.min(1,Math.abs(dx)/90);
+    card.querySelector('.SL').style.opacity=dx<0?o:0;
+    card.querySelector('.SR').style.opacity=dx>0?o:0;
+    pillL.classList.toggle('hot',dx<-30); pillR.classList.toggle('hot',dx>30);
+  }
+  function flyToPill(side){
+    var pill=side==='L'?pillL:pillR, pr=pill.getBoundingClientRect();
+    var px=pr.left+pr.width/2, py=pr.top+pr.height/2, prev=card.style.transform;
+    card.style.transition='none'; card.style.transform='none';
+    var br=card.getBoundingClientRect(), bx=br.left+br.width/2, by=br.top+br.height/2;
+    var dx=px-bx, dy=py-by;
+    card.style.transform=prev||'none'; void card.offsetWidth;
+    card.style.transition='transform .3s cubic-bezier(.4,.55,.35,1)';
+    card.style.transform='translate3d('+dx+'px,'+dy+'px,0) scale(.26) rotate(0deg)';
+    pillL.classList.remove('hot'); pillR.classList.remove('hot');
+    return {x:px,y:py,dx:dx,dy:dy,pill:pill};
+  }
+  function burst(x,y){
+    var C=['#FFD34D','#FFB800','#39A7DE','#16E08C','#fff'];
+    for(var i=0;i<20;i++){(function(){
+      var s=document.createElement('i'); s.className='sw-spark';
+      var a=Math.random()*Math.PI*2,d=42+Math.random()*72,z=7+Math.random()*7;
+      s.style.left=x+'px'; s.style.top=y+'px'; s.style.width=z+'px'; s.style.height=z+'px';
+      s.style.background=C[i%C.length];
+      s.style.setProperty('--tx',(Math.cos(a)*d).toFixed(1)+'px');
+      s.style.setProperty('--ty',(Math.sin(a)*d+30).toFixed(1)+'px');
+      s.style.setProperty('--r',(Math.random()*540-270)+'deg');
+      if(Math.random()<.4) s.style.borderRadius='50%';
+      fx.appendChild(s); setTimeout(function(){s.remove();},760);
+    })();}
+  }
+  function shake(){ stage.classList.remove('shk'); void stage.offsetWidth; stage.classList.add('shk'); setTimeout(function(){stage.classList.remove('shk');},440); }
+
+  function commit(side){
+    if(phase!=='live') return; phase='resolving'; try{ _onCommit&&_onCommit(); }catch(e){}
+    var label = side==='L' ? q.left : q.right;
+    var ok = label === q.answer;
+    var at = flyToPill(side);
+    var pill = at.pill;
+    setTimeout(function(){
+      pill.style.position='relative'; pill.style.zIndex='20'; pill.classList.add('catch',ok?'ok':'bad');
+      card.style.transition='transform .17s cubic-bezier(.5,.15,.7,1),opacity .17s ease';
+      card.style.transform='translate3d('+at.dx+'px,'+(at.dy+6)+'px,0) scale(0)'; card.style.opacity='0';
+      if(ok){ buzz(18); burst(at.x,at.y); }
+      else { buzz([30,50,30]); shake();
+        strip.innerHTML='\u2715 <b>'+esc(q.answer)+'</b> \u2014 '+esc(q.why); strip.classList.add('on'); }
+    }, 300);
+    setTimeout(function(){
+      pill.classList.remove('catch','ok','bad'); pill.style.zIndex=''; pill.style.position='';
+      if(done) return; done=true;
+      if(ok){ finishOut(ok,label); }
+      else { setTimeout(function(){ strip.classList.remove('on'); finishOut(ok,label); }, 1200); }
+    }, 300+180);
+  }
+  function finishOut(ok,label){ try{ _onDone && _onDone({ok:ok,sideLabel:label}); }catch(e){} }
+
+  /* drag */
+  card.addEventListener('pointerdown',function(e){
+    if(phase!=='live') return; card.setPointerCapture(e.pointerId); card.style.transition='none';
+    card.classList.add('grab'); drag={id:e.pointerId,x0:e.clientX,y0:e.clientY,dx:0,dy:0,hist:[[performance.now(),e.clientX]]}; paint(0,0);
+  });
+  card.addEventListener('pointermove',function(e){
+    if(!drag||e.pointerId!==drag.id||phase!=='live') return;
+    drag.dx=e.clientX-drag.x0; drag.dy=e.clientY-drag.y0; paint(drag.dx,drag.dy);
+    var n=performance.now(); (e.getCoalescedEvents?e.getCoalescedEvents():[e]).forEach(function(ev){drag.hist.push([n,ev.clientX]);});
+    if(drag.hist.length>10) drag.hist.splice(0,drag.hist.length-10);
+  });
+  function release(e){
+    if(!drag||e.pointerId!==drag.id) return;
+    if(phase!=='live'){ drag=null; return; }
+    var dx=drag.dx, v=vel(drag.hist); drag=null; card.classList.remove('grab');
+    var w=card.getBoundingClientRect().width||300, thr=Math.min(88,w*.26);
+    var flick=Math.abs(v)>.4&&Math.abs(dx)>22&&Math.sign(v)===Math.sign(dx);
+    if(Math.abs(dx)>thr||flick) commit(dx<0?'L':'R');
+    else { card.style.transition='transform .3s cubic-bezier(.2,1.5,.4,1)'; card.style.transform=''; card.querySelector('.SL').style.opacity=0; card.querySelector('.SR').style.opacity=0; pillL.classList.remove('hot'); pillR.classList.remove('hot'); }
+  }
+  function vel(h){ if(h.length<2)return 0; var t=h[h.length-1][0],i=h.length-2; while(i>0&&t-h[i][0]<90)i--; var dt=t-h[i][0]; return dt>0?(h[h.length-1][1]-h[i][1])/dt:0; }
+  card.addEventListener('pointerup',release); card.addEventListener('pointercancel',release);
+  pillL.addEventListener('click',function(){ if(phase==='live'){ card.style.transition='none'; commit('L'); } });
+  pillR.addEventListener('click',function(){ if(phase==='live'){ card.style.transition='none'; commit('R'); } });
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+}
+
+
+function swInjectCSS(){
+  if(document.getElementById('sw-widget-css')) return;
+  var css=document.createElement('style'); css.id='sw-widget-css';
+  css.textContent=
+  ".sw-pills{display:flex;gap:12px;padding:12px 14px 0}"+
+  ".sw-pill{flex:1;font-family:'Archivo Black',sans-serif;font-size:18px;text-transform:uppercase;letter-spacing:.03em;padding:21px 10px;border-radius:16px;border:2.5px solid;background:rgba(255,255,255,.04);color:#fff;transition:transform .15s,background .15s,box-shadow .15s,color .15s;cursor:pointer;touch-action:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
+  ".sw-L{border-color:#39A7DE;color:#9AD3F2;box-shadow:inset 0 0 22px rgba(46,155,214,.1)}"+
+  ".sw-R{border-color:#FFB800;color:#FFD34D;box-shadow:inset 0 0 22px rgba(255,184,0,.1)}"+
+  ".sw-L.hot{background:#0E6BA8;color:#fff;transform:scale(1.06);box-shadow:0 0 28px rgba(46,155,214,.65),inset 0 0 26px rgba(255,255,255,.12)}"+
+  ".sw-R.hot{background:#FFB800;color:#3a2600;transform:scale(1.06);box-shadow:0 0 28px rgba(255,184,0,.65)}"+
+  ".sw-pill.catch{animation:sw-catch .34s cubic-bezier(.3,1.4,.5,1)}"+
+  ".sw-pill.ok{background:#16A46E!important;border-color:#16A46E!important;color:#fff!important;box-shadow:0 0 36px rgba(22,164,110,.85)!important}"+
+  ".sw-pill.bad{background:#FF4D29!important;border-color:#FF4D29!important;color:#fff!important;box-shadow:0 0 36px rgba(255,77,41,.85)!important}"+
+  "@keyframes sw-catch{0%{transform:scale(1.12)}30%{transform:scale(.9,1.09)}62%{transform:scale(1.06,.96)}100%{transform:scale(1)}}"+
+  ".sw-stage{position:relative;height:calc(100% - 92px);min-height:340px;touch-action:none}"+
+  ".sw-stage.shk{animation:sw-shk .42s ease}"+
+  "@keyframes sw-shk{0%,100%{transform:translateX(0)}12%{transform:translateX(-8px)}24%{transform:translateX(7px)}36%{transform:translateX(-6px)}48%{transform:translateX(5px)}60%{transform:translateX(-3px)}72%{transform:translateX(2px)}}"+
+  ".sw-card{position:absolute;inset:0;margin:auto;max-width:270px;max-height:196px;background:radial-gradient(125% 85% at 50% -5%,#FFFFFF 0%,#F6F7F1 58%,#E9EBE3 100%);color:#0C1521;border:none;border-radius:20px;box-shadow:0 8px 0 rgba(0,0,0,.38),0 16px 30px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.95),inset 0 -4px 8px rgba(16,27,45,.07);text-align:center;touch-action:none;will-change:transform;overflow:hidden}"+
+  ".sw-card.grab{box-shadow:0 11px 0 rgba(0,0,0,.42),0 22px 36px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.95),inset 0 -4px 8px rgba(16,27,45,.07)}"+
+  ".sw-card::before{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:1;background:repeating-linear-gradient(0deg,rgba(16,27,45,.02) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(16,27,45,.02) 0 1px,transparent 1px 4px)}"+
+  ".sw-card::after{content:'';position:absolute;inset:9px;border-radius:13px;pointer-events:none;z-index:1;border:1.5px solid rgba(16,27,45,.15);box-shadow:inset 0 0 0 3px rgba(255,255,255,.6)}"+
+  ".sw-face{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px 20px}"+
+  ".sw-face .sw-eyebrow{position:absolute;top:15px;left:0;right:0;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.22em;text-transform:uppercase}"+
+  ".sw-face .sw-eyebrow::after{content:'';display:block;width:22px;height:2px;margin:5px auto 0;background:currentColor;opacity:.5;border-radius:2px}"+
+  ".sw-card h2{font-family:'Archivo Black',sans-serif;font-size:clamp(20px,6vw,29px);line-height:1.1;letter-spacing:-.01em;color:#0C1521}"+
+  ".sw-face .sw-idx{position:absolute;bottom:13px;right:16px;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;color:rgba(16,27,45,.38);letter-spacing:.05em}"+
+  ".sw-stamp{position:absolute;z-index:3;top:11px;font-family:'Archivo Black',sans-serif;font-size:14px;text-transform:uppercase;padding:3px 9px;border:3px solid;border-radius:9px;opacity:0;pointer-events:none;max-width:44%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
+  ".sw-stamp.SL{left:10px;color:#0E6BA8;border-color:#0E6BA8;transform:rotate(-12deg)}"+
+  ".sw-stamp.SR{right:10px;color:#8A5A00;border-color:#FFB800;transform:rotate(12deg)}"+
+  ".sw-strip{position:absolute;left:4px;right:4px;bottom:4px;z-index:6;background:#12233d;border:2px solid rgba(255,255,255,.14);color:#F7F8F4;border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.3;opacity:0;transform:translateY(12px);transition:opacity .18s,transform .18s;pointer-events:none}"+
+  ".sw-strip.on{opacity:1;transform:translateY(0)}"+
+  ".sw-strip b{color:#FFD34D}"+
+  ".sw-fx{position:absolute;inset:0;pointer-events:none;z-index:9;overflow:visible}"+
+  ".sw-spark{position:absolute;z-index:9;pointer-events:none;border-radius:3px;transform:translate(-50%,-50%);animation:sw-burst .74s cubic-bezier(.15,.6,.4,1) forwards}"+
+  "@keyframes sw-burst{0%{transform:translate(-50%,-50%) scale(.3);opacity:1}100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1) rotate(var(--r));opacity:0}}";
+  document.head.appendChild(css);
+}
+
+
+
+function boot(){ state.screen="loading"; render(); loadQuiz(); }
+function loadQuiz(){
+  var j = STAGING_QUIZ;   // INLINE synthetic quiz — integration harness only (no fetch)
+  QUIZ = j; QUESTIONS = j.questions; deriveQuiz(); applyEvent();
+  state.screen="start"; render(); flushOutbox();
+}
+function deriveQuiz(){
+  speedQs = QUESTIONS.filter(function(q){return q.phase==="speed"});
+  steadyQs = QUESTIONS.filter(function(q){return q.phase==="steady"});
+  teachQ = QUESTIONS.filter(function(q){return q.phase==="teach"})[0];
+  encoreQs = (QUIZ && QUIZ.encore) || [];
+  shuffled = {};
+  QUESTIONS.concat(encoreQs).forEach(function(q){ if(q.options) shuffled[q.id]=shuffle(q.options); else if(q.sequence) shuffled[q.id]=shuffle(q.sequence); });
+  var x2extra=0; QUESTIONS.forEach(function(q){ if(q.x2){ x2extra += (q.phase==="speed" ? (SPEED_BASE+SPEED_SECONDS*TIME_BONUS) : (q.phase==="steady" ? STEADY_POINTS : 0)); } });
+  MAX_SCORE = speedQs.length*(SPEED_BASE+SPEED_SECONDS*TIME_BONUS) + (speedQs.length>0?(speedQs.length-1)*COMBO_BONUS:0) + steadyQs.length*STEADY_POINTS + (teachQ?TEACH_POINTS:0) + x2extra;
+}
+function renderLoading(){
+  el("stage").innerHTML =
+  '<div class="eyebrow">XPDAILY · '+esc(CONFIG.NAME.toUpperCase())+'</div>'+
+  '<h2 class="display big">Loading tonight\'s run…</h2>'+
+  '<p class="note">Grabbing the latest questions.</p>';
+}
+function renderNoQuiz(){
+  el("stage").innerHTML =
+  '<div class="eyebrow">XPDAILY · '+esc(CONFIG.NAME.toUpperCase())+'</div>'+
+  '<h2 class="display big">No quiz posted yet.</h2>'+
+  '<p style="font-size:16px">Tonight\'s run isn\'t up. New quizzes land Monday to Friday — check back later, the machine\'s running late.</p>'+
+  '<button class="cta display" style="font-size:18px" onclick="boot()">Check again →</button>';
+}
+function renderLoadError(){
+  el("stage").innerHTML =
+  '<div class="eyebrow">XPDAILY · '+esc(CONFIG.NAME.toUpperCase())+'</div>'+
+  '<h2 class="display big">Couldn\'t load the quiz.</h2>'+
+  '<p style="font-size:16px">Probably no internet right now. Get back online and hit retry.</p>'+
+  '<button class="cta display" style="font-size:18px" onclick="boot()">Retry →</button>';
+}
+
+function renderStart(){
+  var ev = isBlitz(EVENT), rev = (EVENT==="reversed-blitz"), boss = (EVENT==="battleground");
+  var banner = ev
+  ? '<div class="evtbanner"><div class="bT">\u26a1 MID-WEEK BLITZ'+(rev?' \u2014 REVERSED':'')+'</div>'+
+    '<div class="bS">Everything you bank tonight counts <b>\u00d72</b> in the week\'s tally.</div>'+
+    '<div class="charge"></div></div>'
+  : (boss
+  ? '<div class="bgbanner"><div class="bT">\u2694 BATTLEGROUND</div>'+
+    '<div class="bS">The ground you struggled with this week \u2014 <b>claim it back</b>. Win as much of the field as you can. No losing here: it\'s all about how much ground you take.</div>'+
+    '<div class="frontline"></div></div>'
+  : '');
+  var hero = rev
+  ? '<h2 class="display big">Tonight runs<br>backwards.</h2>'
+  : (boss
+  ? '<h2 class="display big">Claim the<br>ground.</h2>'
+  : '<h2 class="display big">Tonight\'s run:<br>'+QUESTIONS.length+' questions.</h2>');
+  var heat1 = rev
+  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed, reversed.</b> '+speedQs.length+' answers, <b>'+SPEED_SECONDS+' seconds each</b>: you get the ANSWER — pick the QUESTION it belongs to. Look closely: the devil\'s in the detail. Back-to-back corrects still stack a combo.</p>'
+  : (boss
+  ? '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Warm-up.</b> '+speedQs.length+' quick swings, <b>'+SPEED_SECONDS+' seconds each</b>, before the fight starts.</p>'
+  : '<p style="font-size:16px;margin:10px 0 4px"><b style="color:var(--flare)">Heat 1 — Speed.</b> '+speedQs.length+' questions, <b>'+SPEED_SECONDS+' seconds each</b>. Fast and right still scores big. Back-to-back corrects stack a combo.</p>');
+  var heat2 = boss
+  ? '<p style="font-size:16px;margin:4px 0"><b style="color:var(--claim)">The field \u2014 '+steadyQs.length+' zones.</b> Each zone is a question on ground you slipped on this week. Claim it and the territory is yours. Miss and it stays contested \u2014 the answer\'s still shown, so you take it next time.</p>'
+  : '<p style="font-size:16px;margin:4px 0"><b style="color:var(--reef)">Heat 2 — Steady.</b> '+steadyQs.length+' questions, no clock. Only accuracy pays. Call how sure you are — be honest, it\'s how the thing works.</p>';
+  var heat3 = boss
+  ? '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Secure the ground \u2014 Teach-back.</b> Lock in the territory you claimed.</p>'
+  : '<p style="font-size:16px;margin:4px 0 12px"><b style="color:var(--kelp)">Last wave — Teach-back.</b> One argument in your own words.</p>';
+  el("stage").innerHTML =
+  '<div class="eyebrow">SESSION SHEET · '+esc(quizLabel().toUpperCase())+(QUIZ&&QUIZ.tag?' · '+esc(QUIZ.tag):'')+'</div>'+
+  banner + hero + heat1 + heat2 + heat3 +
+  '<p class="note" style="margin:0 0 18px">If class genuinely hasn\'t done a topic yet, hit <i>"haven\'t covered this yet"</i> — no penalty. It works: benched questions get checked against class later.</p>'+
+  '<div class="deal">Under five minutes, in and out. Bank the XP, then you\'re done. Weekends off.</div>'+
+  '<button class="cta display" style="font-size:20px" onclick="startRun()">'+(boss?'Take the field \u2192':'Drop in \u2192')+'</button>';
+}
+function startRun(){
+  ATTEMPTS = bumpAttempt();
+  T.startSession(); shownKey=null;
+  state.idx=0; state.score=0; state.combo=0; state.records=[];
+  state.sending=false; state.sent=false; lastPayload=null;
+  state.screen="speed"; render();
+}
+
+// ─────────── v3.1 INPUT TYPES — dispatch + scoring helpers ───────────
+// A question's answer mode. Back-compat: no type → "mc" (four tappable options, the v3.0 default).
+function qType(q){ return (q && q.type) || "mc"; }
+
+// The ONLY score-doubling in the shell (hidden double-XP). Isolated + audited (test_event.js strips
+// this core before its stray-doubling scan; test_x2.js proves the doubling itself).
+/*X2-CORE-START*/
+function x2mul(pts, q){ return (q && q.x2) ? pts * 2 : pts; }
+/*X2-CORE-END*/
+
+// Typed-numeric matching — MODERATE strictness (SEASONS/spec): the bare number OR the
+// number+correct unit earns credit; a wrong unit alone does not. Accepted forms live in the
+// per-question `accept` list; here we normalise spacing / unicode powers / thousands commas so
+// "30", "30 cm2", "30cm²" all collapse to the same key, and the bare number is always accepted.
+/*NUMERIC-CORE-START*/
+function _leadNum(s){ var m=String(s==null?"":s).match(/-?\d+(?:\.\d+)?/); return m?m[0]:null; }
+function _normAns(s){ return String(s==null?"":s).toLowerCase().replace(/\u00b2/g,"2").replace(/\u00b3/g,"3").replace(/\s+/g,"").replace(/,/g,""); }
+function numericOK(typed, q){
+  if(typed==null || String(typed).trim()==="") return false;
+  var t=_normAns(typed); if(!t) return false;
+  var set={}; set[_normAns(q.answer)]=1;
+  (q.accept||[]).forEach(function(a){ set[_normAns(a)]=1; });
+  var bare=_leadNum(q.answer); if(bare) set[_normAns(bare)]=1;   // bare number always earns credit
+  return !!set[t];
+}
+/*NUMERIC-CORE-END*/
+
+// Short-text / cloze matching — LOOSER than numeric: case-insensitive, punctuation and extra
+// spacing ignored, matched against the answer plus a per-question `accept` list of synonyms /
+// common misspellings (the tolerance is authored, never fuzzy-guessed — no false positives).
+/*TEXT-CORE-START*/
+function _normText(s){ return String(s==null?"":s).toLowerCase().replace(/[.,!?;:'"()\[\]/\\-]/g," ").replace(/\s+/g," ").trim(); }
+function textOK(typed, q){
+  if(typed==null) return false;
+  var t=_normText(typed); if(t==="") return false;
+  var set={}; set[_normText(q.answer)]=1;
+  (q.accept||[]).forEach(function(a){ set[_normText(a)]=1; });
+  return !!set[t];
+}
+/*TEXT-CORE-END*/
+
+// Typed-input dispatch: numeric (keypad), or text/cloze (word entry). MC is not typed.
+function isTyped(q){ var t=qType(q); return t==="numeric"||t==="text"||t==="cloze"; }
+function typedOK(typed, q){ return qType(q)==="numeric" ? numericOK(typed,q) : textOK(typed,q); }
+function inputModeFor(q){ return qType(q)==="numeric" ? "decimal" : "text"; }
+
+// Ordering (v3.1): tap shuffled items into sequence; scored on EXACT order. Steady-only.
+function isOrder(q){ return qType(q)==="order"; }
+function orderOK(seq, q){
+  var want=q.sequence||[]; if(!seq||seq.length!==want.length) return false;
+  for(var i=0;i<want.length;i++){ if(seq[i]!==want[i]) return false; }
+  return true;
+}
+
+// Universal skip (v3.1 item 8): a skip on EVERY question, no longer gated on `fresh`. A newly-
+// introduced topic (fresh:true) offers the benign "haven't covered this yet" escape; an established
+// topic offers a plain skip, which the ledger scores as a soft miss. The handler stamps the Q's
+// fresh flag onto the record so results_reader can tell the two apart.
+function skipButtonHTML(q, handler){
+  var label = q.fresh ? "haven't covered this yet \u2192" : "skip this one \u2192";
+  return '<button class="ghost" onclick="'+handler+'">'+esc(label)+'</button>';
+}
+
+function renderSpeed(){
+  var q=speedQs[state.idx]; answeredThis=false;
+  el("stage").innerHTML =
+  '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">'+
+    '<div class="eyebrow f">HEAT 1 · SPEED · '+(state.idx+1)+'/'+speedQs.length+' · '+esc(q.subject.toUpperCase())+'</div>'+
+    '<div class="num" id="clock" style="font-size:22px">'+SPEED_SECONDS.toFixed(1)+'</div>'+
+  '</div>'+
+  '<div class="fusewrap"><div class="fuse" id="fuse" style="width:100%"></div></div>'+
+  (EVENT==="reversed-blitz"?'<div class="revtag">\u26a1 REVERSED</div>':'')+
+  (qType(q)==="swipe" ? '' : '<h2 class="q" style="min-height:58px">'+esc(q.prompt)+'</h2>')+
+  (qType(q)==="swipe"
+    ? '<div id="swipeMount" style="height:460px"></div>'
+    : qType(q)==="numeric"
+    ? '<div class="numin">'+
+        '<input id="nin" class="ninput" inputmode="decimal" autocomplete="off" placeholder="type your answer" oninput="ninChanged()" onkeydown="if(event.key===\'Enter\'){event.preventDefault();submitSpeedTyped();}">'+
+        '<button class="cta ninsub" id="ninsub" disabled onclick="submitSpeedTyped()">Submit \u2192</button>'+
+      '</div>'
+    : '<div class="opts">'+ shuffled[q.id].map(function(o){ return '<button class="opt" onclick="answerSpeed(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>'; }).join("") +'</div>')+
+  skipButtonHTML(q,"answerSpeed(null,true)")+
+  (state.combo>=2?'<div class="num" style="margin-top:10px;color:var(--flare);font-size:14px">COMBO ×'+state.combo+' LIVE</div>':'')+
+  '<div id="flash"></div>';
+  markShown("speed:"+state.idx);
+  tStart=Date.now();
+  if(qType(q)==="swipe"){ q.eyebrow=q.subject; q.idx=("0"+(state.idx+1)).slice(-2);
+    mountSwipe(el("swipeMount"), q, { onCommit:function(){ clearInterval(timer); },
+      onDone:function(res){ finishSwipe(res.ok, res.sideLabel, false); } }); }
+  clearInterval(timer);
+  timer=setInterval(function(){
+    var left=Math.max(0,SPEED_SECONDS-(Date.now()-tStart)/1000);
+    var c=el("clock"), f=el("fuse");
+    if(c){ c.textContent=left.toFixed(1); c.style.color = left<6?"var(--flare)":"var(--ink)"; }
+    if(f){ f.style.width=(left/SPEED_SECONDS*100)+"%"; if(left<6) f.classList.add("hot"); }
+    if(left<=0){ clearInterval(timer); if(qType(speedQs[state.idx])==="swipe") finishSwipe(false,null,true); else doSpeedAnswer(null,false); }
+  },100);
+}
+
+function answerSpeed(btn, isSkip){
+  if(answeredThis) return;
+  clearInterval(timer);
+  doSpeedAnswer(btn?btn.getAttribute("data-v"):null, !!isSkip);
+}
+
+function doSpeedAnswer(choice,isSkip){
+  if(answeredThis) return; answeredThis=true;
+  var q=speedQs[state.idx];
+  var timeUsed=Math.min(SPEED_SECONDS,(Date.now()-tStart)/1000);
+  var fl=el("flash");
+  document.querySelectorAll(".opt").forEach(function(b){ b.disabled=true; });
+  var _ni=document.getElementById("nin"), _ns=document.getElementById("ninsub"); if(_ni) _ni.disabled=true; if(_ns) _ns.disabled=true;
+
+  if(isSkip){
+    T.questionDone(q.id,q.subject,"speed",{skipped:true});
+    state.records.push({id:q.id,subject:q.subject,phase:"speed",skipped:true,fresh:!!q.fresh,pts:0});
+    if(fl) fl.innerHTML='<div class="flash skip">'+(q.fresh?'Noted — I\'ll check when your class gets there.':'Skipped — it\'ll come back around.')+'</div>';
+    setTimeout(nextSpeed,700); return;
+  }
+  var ok = (qType(q)==="numeric") ? numericOK(choice,q) : (choice===q.answer);
+  T.questionDone(q.id,q.subject,"speed",{ok:ok,timeUsed:+timeUsed.toFixed(1)});
+  var newCombo = ok?state.combo+1:0;
+  var pts=0;
+  if(ok){ pts=SPEED_BASE+Math.round((SPEED_SECONDS-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
+  var doubled = !!(q.x2 && ok); if(doubled) pts=x2mul(pts,q);      // hidden double-XP (no pre-answer tell)
+  state.combo=newCombo; state.score+=pts; setScore();
+  var srec={id:q.id,subject:q.subject,phase:"speed",type:qType(q),picked:choice,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts}; if(q.x2) srec.x2=true;
+  state.records.push(srec);
+  if(ok){
+    FX.celebrate(fxSpec(doubled?3:newCombo, pts));  // decoration; state already committed above
+    if(fl) fl.innerHTML = doubled
+      ? '<div class="flash x2">\u2b50 DOUBLE XP! That one was secretly worth 2\u00d7 \u2014 <b>+'+pts+'</b></div>'
+      : '<div class="flash ok">✓ Got it'+(newCombo>=2?'&nbsp;&nbsp;+'+COMBO_BONUS+' combo':'')+'</div>';
+    setTimeout(nextSpeed, doubled?1400:900);
+  } else {
+    if(fl) fl.innerHTML =
+      '<div class="flash bad">'+
+        (choice===null ? '⏱ Ran out of time.' : '✗ Not quite.')+
+        '<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div>'+
+        '<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>'+
+        '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">Worth knowing for next time this comes up.</div>'+
+      '</div>'+
+      '<button class="cta display" style="margin-top:12px;font-size:16px" onclick="nextSpeed()">Got it →</button>';
+  }
+}
+
+function finishSwipe(ok, label, timedOut){
+  if(answeredThis) return; answeredThis=true;
+  clearInterval(timer);
+  var q=speedQs[state.idx];
+  var timeUsed=Math.min(SPEED_SECONDS,(Date.now()-tStart)/1000);
+  T.questionDone(q.id,q.subject,"speed",{ok:ok,timeUsed:+timeUsed.toFixed(1)});
+  var newCombo = ok?state.combo+1:0, pts=0;
+  if(ok){ pts=SPEED_BASE+Math.round((SPEED_SECONDS-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
+  state.combo=newCombo; state.score+=pts; setScore();
+  state.records.push({id:q.id,subject:q.subject,phase:"speed",type:"swipe",picked:label,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts});
+  if(timedOut){
+    var fl=el("flash");
+    if(fl) fl.innerHTML='<div class="flash bad">\u23f1 Ran out of time.<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div></div>'+
+      '<button class="cta display" style="margin-top:12px;font-size:16px" onclick="nextSpeed()">Got it \u2192</button>';
+  } else {
+    setTimeout(nextSpeed, 260);   // widget already showed its own feedback
+  }
+}
+function nextSpeed(){
+  if(state.idx+1<speedQs.length){ state.idx++; render(); }
+  else { state.idx=0; state.screen="steady"; state.picked=null; state.confidence=null; state.locked=false; render(); }
+}
+
+// v3.1 typed-numeric (speed): enable Submit once something is typed; submit on tap or Enter.
+function ninChanged(){
+  var i=document.getElementById("nin"), s=document.getElementById("ninsub");
+  if(i&&s) s.disabled = String(i.value).trim()==="";
+}
+function submitSpeedTyped(){
+  if(answeredThis) return;
+  var i=document.getElementById("nin"); var v=i?i.value:"";
+  if(String(v).trim()==="") return;         // never submit an empty answer
+  clearInterval(timer);
+  doSpeedAnswer(v, false);
+}
+
+// The steady question in play — a normal steady slot, or an encore (bonus-round) question.
+function curSteady(){ return state.encoreActive ? encoreQs[state.encoreIdx] : steadyQs[state.idx]; }
+function renderSteady(){
+  var q=curSteady();
+  var boss = (EVENT==="battleground");
+  var answerHTML;
+  if(isOrder(q)){
+    var seqLen=(q.sequence||[]).length;
+    var placed=state.order||[];
+    var pool=(shuffled[q.id]||[]).filter(function(o){ return placed.indexOf(o)===-1; });
+    var tray="";
+    for(var pi=0; pi<seqLen; pi++){
+      var it=placed[pi];
+      if(state.locked && it!=null){
+        var good=(q.sequence[pi]===it);
+        tray+='<div class="oslot filled '+(good?'correct':'wrong')+'"><span class="onum">'+(pi+1)+'</span><span class="otext">'+esc(it)+'</span></div>';
+      } else if(it!=null){
+        tray+='<div class="oslot filled" onclick="orderUnplace('+pi+')"><span class="onum">'+(pi+1)+'</span><span class="otext">'+esc(it)+'</span><span class="ohint" style="margin-left:auto">tap to remove</span></div>';
+      } else {
+        tray+='<div class="oslot"><span class="onum">'+(pi+1)+'</span><span class="ohint">tap an item below</span></div>';
+      }
+    }
+    var poolHTML = state.locked ? "" : '<div class="orderpool">'+pool.map(function(o){ return '<button class="ochip" onclick="orderPlace(\''+encodeURIComponent(o)+'\')">'+esc(o)+'</button>'; }).join("")+'</div>';
+    answerHTML='<div class="orderwrap"><div class="ordertray">'+tray+'</div>'+poolHTML+'</div>';
+  } else if(isTyped(q)){
+    var _v = state.picked==null ? "" : state.picked;
+    var _txt = qType(q)!=="numeric";
+    answerHTML = '<div class="numin"><input id="nin" class="ninput'+(_txt?' ninput-text':'')+'" inputmode="'+inputModeFor(q)+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type your answer" value="'+esc(_v)+'" '+(state.locked?'disabled':'')+' oninput="ninSteadyChanged()" onkeydown="if(event.key===\'Enter\'){event.preventDefault();}"></div>';
+  } else {
+    answerHTML = '<div class="opts">'+ shuffled[q.id].map(function(o){
+      var style="";
+      if(state.locked){
+        if(o===q.answer) style="border-color:var(--kelp);background:#E8F4EE";
+        else if(o===state.picked) style="border-color:var(--flare);background:#FCEBE6";
+      } else if(o===state.picked){ style="border-color:var(--reef);background:#EAF2F8"; }
+      return '<button class="opt" style="'+style+'" '+(state.locked?'disabled':'')+' onclick="pickSteady(this)" data-v="'+esc(o)+'">'+esc(o)+'</button>';
+    }).join("") +'</div>';
+  }
+
+  var lower="";
+  if(!state.locked){
+    lower =
+    '<div style="margin-top:18px">'+
+      '<div class="eyebrow" style="margin-bottom:8px;letter-spacing:.1em">HOW SURE?</div>'+
+      '<div class="conf">'+["Sure","Think so","Guessing"].map(function(c){
+        return '<button class="chip'+(state.confidence===c?' onc':'')+'" onclick="pickConf(\''+c+'\')">'+c+'</button>';
+      }).join("")+'</div>'+
+      '<button class="cta display" id="locksteady" style="margin-top:16px;font-size:17px" '+((steadyPicked(q)&&state.confidence)?'':'disabled')+' onclick="lockSteady()">Lock it in</button>'+
+      skipButtonHTML(q,"skipSteady()")+
+    '</div>';
+  } else {
+    var ok = isOrder(q) ? orderOK(state.order,q) : (isTyped(q) ? typedOK(state.picked,q) : (state.picked===q.answer));
+    var ansText = isOrder(q) ? (q.sequence||[]).join("  \u2192  ") : q.answer;
+    var okMsg = boss ? ('\u2694 Ground claimed! +'+STEADY_POINTS+'. '+esc(q.why))
+                     : (q.x2 ? '\u2b50 DOUBLE XP! That one was secretly worth 2\u00d7 \u2014 +'+x2mul(STEADY_POINTS,q)+'. '+esc(q.why)
+                            : '✓ +'+STEADY_POINTS+'. '+esc(q.why));
+    var badHead = boss ? '⛶ Ground still contested.' : '✗ Not quite.';
+    lower =
+    '<div style="margin-top:16px">'+
+      '<div class="flash '+(ok?'ok':'bad')+'" style="margin-top:0">'+
+        (ok
+          ? okMsg
+          : (badHead+
+             '<div style="margin-top:8px;font-weight:700">The answer: '+esc(ansText)+'</div>'+
+             '<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>'+
+             '<div style="margin-top:8px;font-size:13px;color:var(--haze);font-weight:400">'+(boss?'Take this ground next time.':'Worth knowing for next time this comes up.')+'</div>'))+
+      '</div>'+
+      '<button class="cta display" style="margin-top:14px;font-size:17px" onclick="nextSteady()">'+(boss?'Next zone →':'Next →')+'</button>'+
+    '</div>';
+  }
+
+  var bossBar = boss ? territoryBarHTML() : "";
+  var eyebrow = state.encoreActive
+  ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS ROUND \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+  : (boss
+  ? '<div class="atktag">\u2694 CLAIM ZONE '+(state.idx+1)+' / '+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+  : '<div class="eyebrow r" style="margin-bottom:8px">HEAT 2 · STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>');
+  el("stage").innerHTML =
+  bossBar + eyebrow +
+  '<h2 class="q">'+esc(q.prompt)+'</h2>'+
+  answerHTML+lower;
+  markShown("steady:"+state.idx);
+}
+// territory bar reflects the ground claimed so far, from the steady records (display-only).
+function territoryBarHTML(cls){
+  var p = BG.pct(state.records, steadyQs);
+  return '<div class="terrbar'+(cls?' '+cls:'')+'" id="terrbar">'+
+    '<div class="top"><span class="nm">\u2694 BATTLEGROUND</span><span class="st">GROUND CLAIMED</span></div>'+
+    '<div class="track"><div class="fill" id="terrfill" style="width:'+p+'%"></div></div>'+
+  '</div>';
+}
+function pickSteady(btn){ if(state.locked) return; state.picked=btn.getAttribute("data-v"); renderSteady(); }
+function pickConf(c){ if(state.locked) return; state.confidence=c; renderSteady(); }
+// Is the steady answer "provided"? (a pick for mc/typed; a complete sequence for order)
+function steadyPicked(q){
+  q = q || curSteady();
+  if(isOrder(q)) return (state.order||[]).length===(q.sequence||[]).length;
+  return !!state.picked;
+}
+// Ordering: tap a pool item into the next slot; tap a filled slot to pull it back.
+function orderPlace(enc){
+  if(state.locked) return;
+  var q=curSteady(); var it=decodeURIComponent(enc);
+  if((state.order||[]).indexOf(it)!==-1) return;
+  if((state.order||[]).length>=(q.sequence||[]).length) return;
+  state.order=(state.order||[]).concat([it]); renderSteady();
+}
+function orderUnplace(idx){
+  if(state.locked) return;
+  state.order=(state.order||[]).slice(); state.order.splice(idx,1); renderSteady();
+}
+function lockSteady(){
+  if(!steadyPicked()||!state.confidence||state.locked) return;
+  var q=curSteady();
+  var ok = isOrder(q) ? orderOK(state.order,q) : (isTyped(q) ? typedOK(state.picked,q) : (state.picked===q.answer));
+  var pickedVal = isOrder(q) ? (state.order||[]).slice() : state.picked;
+  T.questionDone(q.id,q.subject,"steady",{ok:ok,confidence:state.confidence});
+  var stpts = ok ? x2mul(STEADY_POINTS, q) : 0;   // hidden double-XP
+  state.score += stpts; setScore();
+  var strec={id:q.id,subject:q.subject,phase:"steady",type:qType(q),picked:pickedVal,ok:ok,confidence:state.confidence,repair:!!q.repair,pts:stpts}; if(q.x2) strec.x2=true; if(state.encoreActive) strec.encore=true;
+  state.records.push(strec);
+  if(EVENT==="battleground"){ claimBeat(ok); }              // decoration; records already committed above
+  else if(ok) FX.celebrate(fxSpec(q.x2?3:2, stpts)); // baseline/blitz steady win
+  state.locked=true; renderSteady();
+}
+// Claim feedback: a claimed zone advances the bar + a claim burst; a miss leaves the zone
+// contested (a muted beat, ground unchanged). Never a lose-condition — the % is honest progress.
+function claimBeat(hit){
+  // renderSteady re-renders with the new HP; drive the animation classes + FX just after.
+  setTimeout(function(){
+    var bar = el("terrbar"); var pal = fxPalette();
+    if(hit){
+      if(bar){ bar.className = "terrbar claim"; }
+      FX.burst( (el("fxroot")?el("fxroot").clientWidth:360)/2, 150, pal.spark, 22); FX.kick(2);
+    } else {
+      if(bar){ bar.className = "terrbar contested"; }
+      FX.flash("rgba(127,184,164,.35)"); FX.kick(2);   // ground stays contested (no penalty)
+    }
+  }, 40);
+}
+function skipSteady(){
+  var q=curSteady();
+  T.questionDone(q.id,q.subject,"steady",{skipped:true});
+  var skrec={id:q.id,subject:q.subject,phase:"steady",skipped:true,fresh:!!q.fresh,pts:0}; if(state.encoreActive) skrec.encore=true;
+  state.records.push(skrec);
+  advanceSteady();
+}
+// v3.1 typed-numeric (steady): the typed value IS the pick. Update state without re-rendering
+// (so the caret is kept) and toggle Lock directly; pickConf's re-render repopulates from state.picked.
+function ninSteadyChanged(){
+  if(state.locked) return;
+  var i=document.getElementById("nin"); if(!i) return;
+  state.picked = String(i.value).trim()==="" ? null : i.value;
+  var lock=document.getElementById("locksteady");
+  if(lock) lock.disabled = !(state.picked && state.confidence);
+}
+function nextSteady(){ advanceSteady(); }
+function advanceSteady(){
+  state.picked=null; state.confidence=null; state.locked=false; state.order=[];
+  if(state.encoreActive){
+    if(state.encoreIdx+1<encoreQs.length){ state.encoreIdx++; render(); }
+    else { state.encoreActive=false; state.screen="done"; render(); }   // bonus round over → results
+    return;
+  }
+  if(state.idx+1<steadyQs.length){ state.idx++; render(); }
+  else { state.screen="teach"; render(); }
+}
+
+// Optional encore (bonus round): offered after the teach-back. Reuses the steady flow via curSteady().
+function renderEncoreOffer(){
+  el("stage").innerHTML =
+  '<div class="eyebrow" style="color:#B9832A;letter-spacing:.08em">\u2b50 BONUS ROUND</div>'+
+  '<h2 class="display big" style="margin:8px 0 4px">Nice work.<br>Want bonus XP?</h2>'+
+  '<div style="font-size:15px;color:var(--haze);margin:8px 0 22px">You\'re on <b style="color:var(--flare)">'+state.score.toLocaleString()+'</b> XP. Take '+encoreQs.length+' quick bonus questions for extra \u2014 or bank what you\'ve got.</div>'+
+  '<button class="cta display" style="width:100%;font-size:18px" onclick="startEncore()">\u2b50 Yes \u2014 '+encoreQs.length+' more for bonus XP</button>'+
+  '<button class="cta display" style="width:100%;margin-top:10px;background:transparent;color:var(--ink);border:2px solid var(--line);font-size:16px" onclick="declineEncore()">No thanks, I\'m done</button>';
+}
+function startEncore(){
+  state.encoreActive=true; state.encoreIdx=0;
+  MAX_SCORE += encoreQs.length*STEADY_POINTS;   // bonus questions now count toward the total
+  state.picked=null; state.confidence=null; state.locked=false; state.order=[];
+  state.screen="steady"; render();
+}
+function declineEncore(){ state.screen="done"; render(); }
+
+function renderTeach(){
+  var boss = (EVENT==="battleground");
+  el("stage").innerHTML =
+  (boss ? territoryBarHTML() : "")+
+  (boss
+    ? '<div class="atktag">\u2694 SECURE THE GROUND \u00b7 '+esc(teachQ.subject.toUpperCase())+'</div>'
+    : '<div class="eyebrow k" style="margin-bottom:8px">LAST WAVE · TEACH-BACK · '+esc(teachQ.subject.toUpperCase())+'</div>')+
+  '<h2 class="q" style="margin-bottom:6px">'+esc(teachQ.prompt)+'</h2>'+
+  '<p class="note" style="margin:0 0 14px">'+(boss?'Explain it in your own words to lock in the ground you claimed. Reasons, not a list of parts.':'Reasons, not a list of parts. Why would anyone bother?')+'</p>'+
+  '<textarea id="tb" rows="6" placeholder="Nah mate, here\'s why…" oninput="tbInput()"></textarea>'+
+  '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">'+
+    '<span class="num" id="tbCount" style="font-size:13px;color:var(--haze)">a few full sentences</span>'+
+    '<button class="cta display" style="font-size:17px" id="tbBtn" disabled onclick="finishTeach()">'+(boss?'Secure it \u2192':'Send it \u2192')+'</button>'+
+  '</div>';
+  markShown("teach:0");
+}
+// The teach-back is the highest-value question, so its submit gate checks for a genuine
+// ATTEMPT — not just length. This is the EFFORT layer only: it stops keyboard-mashing,
+// single-word repetition and clearly-non-English text from getting the tick. It stays
+// PERMISSIVE (a real English attempt of any quality passes) because the true QUALITY +
+// correctness + language judgement is the server-side LLM grade, which reads the explanation
+// and decides whether the topic actually advances. The client cannot judge that (no AI here).
+var TB_COMMON = ["the","a","an","is","are","was","were","be","been","to","of","and","or","but",
+  "in","on","for","it","its","that","this","these","those","they","you","we","he","she","them",
+  "because","so","if","when","how","why","what","which","with","as","at","by","not","no","do",
+  "does","did","can","could","will","would","should","have","has","had","there","then","from",
+  "into","about","more","than","some","all","each","also","their","your","our","get","got","make"];
+function teachbackReady(v){
+  v = (v||"").trim();
+  if(v.length < 80) return {ok:false, hint:"Keep going \u2014 a few full sentences."};
+  var words = v.split(/\s+/).filter(function(w){ return w.replace(/[^A-Za-z]/g,"").length >= 2; });
+  if(words.length < 12) return {ok:false, hint:"Explain it in your own words \u2014 a few full sentences."};
+  var lower = {}; words.forEach(function(w){ var c=w.toLowerCase().replace(/[^a-z]/g,""); if(c) lower[c]=1; });
+  if(Object.keys(lower).length < 6) return {ok:false, hint:"Say it properly \u2014 real sentences, not one word repeated."};
+  var chars = {}; v.toLowerCase().replace(/[^a-z]/g,"").split("").forEach(function(c){ chars[c]=1; });
+  if(Object.keys(chars).length < 10) return {ok:false, hint:"That doesn\u2019t look like a real answer yet."};
+  var common = 0; for(var w in lower){ if(TB_COMMON.indexOf(w) >= 0) common++; }
+  if(common < 2) return {ok:false, hint:"Write it out in full English sentences."};
+  return {ok:true, hint:""};
+}
+function tbInput(){
+  var v=el("tb").value.trim();
+  var r=teachbackReady(v);
+  var wc = v ? v.split(/\s+/).filter(Boolean).length : 0;
+  el("tbCount").textContent = r.ok ? (wc+" words \u2713") : r.hint;
+  el("tbCount").style.color = r.ok ? "var(--kelp)" : "var(--haze)";
+  el("tbBtn").disabled = !r.ok;
+}
+function finishTeach(){
+  var v=el("tb").value.trim(); if(!teachbackReady(v).ok) return;
+  T.questionDone(teachQ.id,teachQ.subject,"teach",{ok:true,chars:v.length});
+  state.score+=TEACH_POINTS; setScore();
+  state.records.push({id:teachQ.id,subject:teachQ.subject,phase:"teach",text:v,ok:true,pts:TEACH_POINTS});
+  state.tbGrade="pending"; gradeTeachback(teachQ.subject, teachQ.prompt, v);   // instant lights (async)
+  if(EVENT==="battleground"){
+    // the kill shot: empty the still-visible HP bar, fire the showpiece, THEN reveal victory.
+    var bar=el("terrbar"); if(bar) bar.className="terrbar claim";
+    FX.showpiece(fxPalette());
+    setTimeout(function(){ state.screen="done"; render(); }, 780);   // let the secure beat land
+    return;
+  }
+  state.screen = encoreQs.length ? "encoreOffer" : "done"; render();
+}
+
+// Live teach-back grading: POST the answer to the Supabase Edge Function, show green/amber/red for
+// accuracy + spelling + punctuation. Best-effort: on any failure the run is unaffected (the nightly
+// grader remains authoritative for the ledger). Spelling/punctuation are COACHING — never mastery.
+function gradeTeachback(subject, question, answer){
+  if(window.__TB_GRADE_STUB__){ state.tbGrade=window.__TB_GRADE_STUB__; renderTbLights(); return; }
+  if(!CONFIG.SUPABASE_URL || !CONFIG.SUPABASE_ANON){ state.tbGrade=null; renderTbLights(); return; }
+  var url=CONFIG.SUPABASE_URL+"/functions/v1/grade-teachback";
+  var ctl=(typeof AbortController!=="undefined")?new AbortController():null;
+  var to=ctl?setTimeout(function(){ ctl.abort(); },15000):null;
+  fetch(url,{method:"POST",headers:{"content-type":"application/json","apikey":CONFIG.SUPABASE_ANON,"Authorization":"Bearer "+CONFIG.SUPABASE_ANON},body:JSON.stringify({subject:subject,question:question,answer:answer}),signal:ctl?ctl.signal:undefined})
+    .then(function(r){ if(to)clearTimeout(to); if(!r.ok) throw new Error("grade "+r.status); return r.json(); })
+    .then(function(j){ state.tbGrade=(j&&j.verdict)?{verdict:j.verdict,depth:j.depth||null,spelling:j.spelling,punctuation:j.punctuation,reason:j.reason||""}:null; renderTbLights(); })
+    .catch(function(){ state.tbGrade=null; renderTbLights(); });   // silent — it'll land in the weekly wrap
+}
+function _tbGlyph(l){ return l==="green"?"\u2713":(l==="amber"?"\u25CF":"\u2717"); }
+function renderTbLights(){
+  var box=el("tbLights"); if(!box) return;
+  var g=state.tbGrade;
+  if(g==="pending"){ box.innerHTML='<div class="tblwait">\u23F3 Marking your teach-back explanation\u2026</div>'; return; }
+  if(!g || !g.verdict){ box.innerHTML=""; return; }              // failed/absent → silent (wrap will show it)
+  var acc = g.verdict==="solid"?"green":(g.verdict==="partial"?"amber":"red");
+  function cell(label,l){ return '<div class="tbl '+l+'"><div class="g">'+_tbGlyph(l)+'</div><div class="lb">'+label+'</div></div>'; }
+  box.innerHTML =
+    '<div class="tbhead">\u270D\uFE0F Your teach-back explanation</div>'+
+    '<div class="tblrow">'+cell("Accuracy",acc)+cell("Spelling",g.spelling||"green")+cell("Punctuation",g.punctuation||"green")+'</div>'+
+    (g.reason?'<div class="tbreason">'+esc(g.reason)+'</div>':'');
+}
+
+// ── flag logic ─────────────────────────────
+// fast-but-wrong is relative to HIS OWN pace, not a fixed number.
+// slow-but-wrong: worked at it, came up empty.
+function analyse(){
+  var speedRecs=state.records.filter(function(r){return r.phase==="speed" && !r.skipped});
+  var corrects=speedRecs.filter(function(r){return r.ok});
+  var mean = corrects.length>=2
+    ? corrects.reduce(function(a,r){return a+r.timeUsed},0)/corrects.length
+    : null;
+  var fastCut = mean!==null ? mean*0.7 : 5;
+  var slowCut = SPEED_SECONDS*0.6; // 18s of a 30s window
+  return {
+    speedRecs: speedRecs,
+    fast: speedRecs.filter(function(r){return !r.ok && r.timeUsed < fastCut}),
+    slow: speedRecs.filter(function(r){return !r.ok && r.timeUsed >= slowCut})
+  };
+}
+
+function flagSets(){
+  var a=analyse();
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  return {
+    a: a,
+    skips: state.records.filter(function(r){return r.skipped}),
+    cw: steadyRecs.filter(function(r){return !r.ok&&!r.skipped&&r.confidence==="Sure"}),
+    lg: steadyRecs.filter(function(r){return r.ok&&r.confidence==="Guessing"})
+  };
+}
+
+function summaryText(){
+  var f=flagSets(); var a=f.a;
+  var speedAll=state.records.filter(function(r){return r.phase==="speed"});
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  var L=[];
+  L.push(state.appName+" · "+CONFIG.NAME.toUpperCase()+" · "+quizLabel()+(QUIZ&&QUIZ.tag?" · "+QUIZ.tag:"")+" · shell v"+CONFIG.SHELL_VERSION);
+  var tm=T.summary();
+  L.push("Active time "+fmtMMSS(tm.activeSecs)+"  (speed "+fmtMMSS(tm.phases.speed)+" · steady "+fmtMMSS(tm.phases.steady)+" · teach-back "+fmtMMSS(tm.phases.teach)+")");
+  L.push("Elapsed "+fmtMMSS(tm.elapsedSecs)+(tm.idleSecs>90 ? "  (incl. "+fmtMMSS(tm.idleSecs)+" paused/away)" : "")+(tm.activeSecs>20*60 ? "  ⚠ 20+ active min — worth trimming" : ""));
+  var _d=_todayStr(); var _today=(ATTEMPTS.byDay&&ATTEMPTS.byDay[_d])||1; var _first=(ATTEMPTS.firstOfDay&&ATTEMPTS.firstOfDay[_d])||"";
+  L.push("Attempt "+_today+" today"+(_today>1?"  (⚠ repeat run — first was "+_first+"; first run is the honest one)":"")+"  · "+(ATTEMPTS.total||1)+" all-time");
+  L.push("Score "+state.score.toLocaleString()+" / "+MAX_SCORE.toLocaleString()+" · Speed "+speedAll.filter(function(r){return r.ok}).length+"/"+speedQs.length+" · Steady "+steadyRecs.filter(function(r){return r.ok}).length+"/"+steadyQs.length+" · Teach-back done");
+  var _freshSk=f.skips.filter(function(r){return r.fresh}), _taughtSk=f.skips.filter(function(r){return !r.fresh});
+  if(_freshSk.length) L.push("NOT COVERED IN CLASS YET: "+_freshSk.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(_taughtSk.length) L.push("SKIPPED — ALREADY TAUGHT (soft miss): "+_taughtSk.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(f.cw.length) L.push("CONFIDENT-BUT-WRONG: "+f.cw.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(a.slow.length) L.push("SLOW-BUT-WRONG (real gap): "+a.slow.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(a.fast.length) L.push("FAST-BUT-WRONG (rushed): "+a.fast.map(function(r){return r.subject+" "+r.id}).join(", "));
+  if(f.lg.length) L.push("LUCKY GUESSES: "+f.lg.map(function(r){return r.subject+" "+r.id}).join(", "));
+  L.push("—");
+  state.records.forEach(function(r){
+    if(r.phase==="teach") return;
+    if(r.skipped){ L.push(r.id+" "+r.subject+" — "+(r.fresh?"skipped (not covered in class yet — intel, not a miss)":"skipped (already taught — soft miss)")); return; }
+    L.push(r.id+" "+r.subject+" "+(r.ok?"✓":"✗")+(r.phase==="speed"?(" "+r.timeUsed+"s"):(" · felt: "+r.confidence))+(r.picked===null?" (no answer)":""));
+  });
+  var tb=state.records.filter(function(r){return r.phase==="teach"})[0];
+  if(tb) L.push('Teach-back ('+tb.subject+'): "'+tb.text+'"');
+  return L.join("\n");
+}
+
+// ── auto-submit to the family results Sheet ──
+function buildPayload(){
+  var f=flagSets(); var a=f.a;
+  var speedAll=state.records.filter(function(r){return r.phase==="speed"});
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  var tb=state.records.filter(function(r){return r.phase==="teach"})[0];
+  var _d=_todayStr();
+  // Stable idempotency id for THIS run — generated once, reused on every retry (incl. offline outbox
+  // flush), so a re-sent run can't create a duplicate row (a unique index on payload->>'runId' dedupes).
+  if(!state.runId){ state.runId = Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,10); }
+  return {
+    shell: CONFIG.SHELL_VERSION,
+    runId: state.runId,
+    student: CONFIG.STUDENT,
+    name: CONFIG.NAME,
+    date: (QUIZ&&QUIZ.date)||_d,       // the quiz's date
+    day: (QUIZ&&QUIZ.day)||"",
+    tag: (QUIZ&&QUIZ.tag)||"",
+    deviceDate: _d,                     // the date it was actually run
+    ts: new Date().toISOString(),
+    attempt: (ATTEMPTS.byDay&&ATTEMPTS.byDay[_d])||1,
+    attemptsAllTime: ATTEMPTS.total||1,
+    score: state.score,
+    maxScore: MAX_SCORE,
+    speed: { right: speedAll.filter(function(r){return r.ok}).length, of: speedQs.length },
+    steady: { right: steadyRecs.filter(function(r){return r.ok}).length, of: steadyQs.length },
+    teach: tb ? { done:true, chars: tb.text.length, text: tb.text } : { done:false },
+    flags: {
+      skips: f.skips.map(function(r){return r.id}),
+      confidentWrong: f.cw.map(function(r){return r.id}),
+      slowWrong: a.slow.map(function(r){return r.id}),
+      fastWrong: a.fast.map(function(r){return r.id}),
+      luckyGuess: f.lg.map(function(r){return r.id})
+    },
+    records: state.records,
+    timing: T.summary(),
+    tbGrade: (state.tbGrade && state.tbGrade!=="pending") ? state.tbGrade : null,
+    summaryText: summaryText()
+  };
+}
+function sendPayload(p, cb){
+  // Dual-write (fire-and-forget): mirror the result into Supabase. The Sheet
+  // below stays the source of truth and owns the callback — this second write
+  // can never block or fail the submission. New API-key mode: role is carried
+  // by the apikey header, so no Authorization/Bearer header is sent.
+  if (CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON) {
+    try {
+      fetch(CONFIG.SUPABASE_URL + "/rest/v1/runs_raw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": CONFIG.SUPABASE_ANON,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({ payload: p })
+      }).catch(function(){});
+    } catch (e) {}
+  }
+  var ctl = (typeof AbortController!=="undefined") ? new AbortController() : null;
+  var to = ctl ? setTimeout(function(){ ctl.abort(); }, 12000) : null;
+  fetch(CONFIG.WEBHOOK_URL, {
+    method:"POST",
+    headers:{ "Content-Type":"text/plain;charset=utf-8" },
+    body: JSON.stringify(p),
+    signal: ctl ? ctl.signal : undefined
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(j){ if(to) clearTimeout(to); cb(!!(j && j.ok)); })
+  .catch(function(e){ if(to) clearTimeout(to); cb(false); });
+}
+function readOutbox(){ try{ return JSON.parse(window.localStorage.getItem(OUTBOX_KEY)||"[]"); }catch(e){ return []; } }
+function writeOutbox(a){ try{ window.localStorage.setItem(OUTBOX_KEY, JSON.stringify(a)); }catch(e){} }
+function flushOutbox(){
+  var a=readOutbox(); if(!a.length) return;
+  var p=a[0];
+  sendPayload(p, function(ok){
+    if(ok){ a.shift(); writeOutbox(a); if(a.length) flushOutbox(); }
+  });
+}
+function setSendStat(mode){
+  var s=el("sendStat"); if(!s) return;
+  if(mode==="send"){ s.className="sendstat wait"; s.innerHTML="⏳ Uploading to the Vault…"; }
+  else if(mode==="ok"){ s.className="sendstat good"; s.innerHTML="✓ You're done — results uploaded to the Vault."; }
+  else { s.className="sendstat fail"; s.innerHTML="⚠ Couldn\'t send (no internet?). Saved on this phone — it\'ll auto-send next time you open this. <a href=\"#\" onclick=\"retrySend();return false;\" style=\"color:var(--reef)\">Try again now</a>"; }
+}
+function autoSubmit(){
+  if(state.sent || state.sending) return;
+  state.sending=true; setSendStat("send");
+  lastPayload = buildPayload();
+  var p = lastPayload;
+  sendPayload(p, function(ok){
+    state.sending=false;
+    if(ok){ state.sent=true; setSendStat("ok"); }
+    else {
+      var a=readOutbox(); a.push(p); writeOutbox(a);
+      setSendStat("fail");
+    }
+  });
+}
+function retrySend(){
+  if(state.sent || state.sending || !lastPayload) return;
+  state.sending=true; setSendStat("send");
+  var p=lastPayload;
+  sendPayload(p, function(ok){
+    state.sending=false;
+    if(ok){
+      state.sent=true;
+      // it went through — pull the queued copy so it doesn't double-send later
+      var a=readOutbox().filter(function(x){ return x.ts!==p.ts; }); writeOutbox(a);
+      setSendStat("ok");
+    } else { setSendStat("fail"); }
+  });
+}
+
+function renderDone(){
+  var f=flagSets(); var a=f.a;
+  var speedAll=state.records.filter(function(r){return r.phase==="speed"});
+  var steadyRecs=state.records.filter(function(r){return r.phase==="steady"});
+  var flags="";
+  if(f.cw.length||a.fast.length||a.slow.length||f.lg.length){
+    flags='<div class="flags">'+
+      f.cw.map(function(r){return '<p><b>Felt sure, wasn\'t:</b> '+r.subject+' ('+r.id+'). That\'s the sneaky one.</p>'}).join("")+
+      a.slow.map(function(r){return '<p><b>Worked at it, didn\'t have it:</b> '+r.subject+' ('+r.id+'), '+r.timeUsed+'s. Not carelessness — that one just needs learning.</p>'}).join("")+
+      a.fast.map(function(r){return '<p><b>Quick off the mark, wrong:</b> '+r.subject+' ('+r.id+'), '+r.timeUsed+'s. You had time left.</p>'}).join("")+
+      f.lg.map(function(r){return '<p><b>Lucky guess:</b> '+r.subject+' ('+r.id+'). Right answer, still going on the review pile.</p>'}).join("")+
+    '</div>';
+  }
+  el("stage").innerHTML =
+  '<div class="eyebrow">FULL TIME'+(isBlitz(EVENT)?' \u00b7 MID-WEEK BLITZ':(EVENT==="battleground"?' \u00b7 BATTLEGROUND':''))+' \u00b7 '+esc(quizLabel().toUpperCase())+'</div>'+
+  (isBlitz(EVENT)
+    ? '<div class="bhero">'+
+        '<div class="cap">\u26a1 DOUBLE XP BANKED</div>'+
+        '<div class="huge">'+blitzTally(state.score)+'</div>'+
+        '<div class="src">Your <b>'+state.score.toLocaleString()+'</b> tonight, doubled \u2014 into the week\'s tally.</div>'+
+      '</div>'
+    : (EVENT==="battleground"
+    ? (function(){
+        var claimed = BG.pct(state.records, steadyQs), landed = steadyRecs.filter(function(r){return r.ok}).length;
+        var tier = BG.tier(claimed);
+        var headline = tier==="total" ? "THE FIELD IS YOURS"
+                     : tier==="strong" ? claimed+"% CLAIMED"
+                     : tier==="solid"  ? claimed+"% CLAIMED"
+                     : tier==="foothold" ? claimed+"% CLAIMED"
+                     : "GROUND HELD";
+        var sub = tier==="total"   ? '<b style="color:var(--claim)">Total claim \u2014 every zone taken.</b> The whole battleground is yours.'
+                : tier==="strong"  ? 'Strong week \u2014 you took '+landed+' of '+steadyQs.length+' zones. Big ground claimed.'
+                : tier==="solid"   ? 'You claimed '+landed+' of '+steadyQs.length+' zones. Real ground taken this week.'
+                : tier==="foothold"? 'A foothold \u2014 '+landed+' of '+steadyQs.length+' zones. Push for more next Friday.'
+                :                    'You held the line this week \u2014 no ground lost. The answers are yours now; take the field next Friday.';
+        return '<div class="bhero">'+
+          '<div class="claimverdict">\u2694 BATTLEGROUND \u2014 WIN THE WEEK</div>'+
+          '<h2 class="display" style="font-size:'+(tier==="total"?"46":"56")+'px;margin:2px 0;color:var(--claim)">'+headline+'</h2>'+
+          '<div class="src">'+sub+'</div>'+
+        '</div>';
+      })()
+    : '<h2 class="display" style="font-size:44px;margin:8px 0 2px;color:var(--flare)">'+state.score.toLocaleString()+'</h2>'+
+      '<div style="font-size:14px;color:var(--haze);margin-bottom:18px">of '+MAX_SCORE.toLocaleString()+' possible</div>'))+
+  badgesHTML(runLocalBadges(f))+
+  '<div class="cards">'+
+    '<div class="card"><div class="num" style="font-size:22px;color:var(--flare)">'+speedAll.filter(function(r){return r.ok}).length+'/'+speedQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">SPEED</div></div>'+
+    '<div class="card"><div class="num" style="font-size:22px;color:var(--reef)">'+steadyRecs.filter(function(r){return r.ok}).length+'/'+steadyQs.length+'</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">STEADY</div></div>'+
+    '<div class="card"><div class="num" style="font-size:22px;color:var(--kelp)">✓</div><div style="font-size:11px;color:var(--haze);letter-spacing:.08em">TEACH-BACK</div></div>'+
+  '</div>'+
+  '<div id="tbLights" class="tblights"></div>'+
+  '<div id="sendStat" class="sendstat wait">⏳ Uploading to the Vault…</div>'+
+  (function(){var fs=f.skips.filter(function(r){return r.fresh}).length; return fs?'<p class="note" style="margin:0 0 14px">'+fs+' marked "not covered yet" — that\'s intel, not a miss.</p>':'';})()+
+  flags;
+  if(isBlitz(EVENT)){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 160); } // ×2 reveal — timed to the hero pop-in
+  else if(EVENT!=="battleground" && runLocalBadges(f).length){ setTimeout(function(){ FX.showpiece(fxPalette()); }, 200); } // badge unlock on a standard night
+  renderTbLights();   // shows "marking…" now, updates in place when the grade returns
+  autoSubmit();
+}
+
+boot();
+</script>
+</body>
+</html>
