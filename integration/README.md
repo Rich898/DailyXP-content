@@ -61,7 +61,9 @@ first, never the boys.
   shunting-yard evaluator (no eval), 0.01 tolerance, pre/post units, calc-use logged (`usedCalc`).
   Reports `{ok, value, usedCalc}`. Proven: 2 mental + 2 method, 4/4, both keypads, zero JS errors.
   Schema: `{ type:'numeric', subject, prompt, answer:<number>, calc:<bool>, pre, post, why }`.
-- [ ] **1b. Wire into the STEADY round** (no clock — you compute, not tap-fast); mount widget, record + advance.
+- [x] **1b. Wired into the STEADY round** — `renderSteadyNumeric` mounts the widget (no confidence wager, no clock);
+  `finishNumericSteady` records + advances. Proven: mental -> number pad, method -> calculator, both scored,
+  records carry `usedCalc` (calc:False for mental, calc:True for method), advances to teach, zero JS errors.
 - [ ] **2. Composer** generates numeric questions (method/mental split, numeric answer, units, misconception `why`).
 - [ ] **3. Planner** slots a Numeric block (t1 first).
 - [ ] **4. Validator** accepts numeric (numeric answer, calc flag).

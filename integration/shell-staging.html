@@ -655,7 +655,7 @@ function render(){ railHTML(); setScore();
 
 // ── remote questions ──────────────────────────
 /* ===== INTEGRATION HARNESS: inline synthetic quiz (swipe + MC + steady + teach) ===== */
-var STAGING_QUIZ = {"tag": "H4.4", "questions": [{"id": "r1", "phase": "speed", "subject": "Science", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "Which gas do plants release in photosynthesis?", "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"], "answer": "Oxygen", "why": "Plants release oxygen."}, {"id": "r2", "phase": "speed", "subject": "History", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "Who was forced to seal the Magna Carta?", "options": ["King John", "William I", "Henry VIII", "Richard I"], "answer": "King John", "why": "King John sealed it in 1215."}, {"id": "r3", "phase": "speed", "subject": "Geography", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "What is the capital of France?", "options": ["Paris", "Lyon", "Marseille", "Nice"], "answer": "Paris", "why": "Paris is the capital."}, {"id": "r4", "phase": "speed", "subject": "English", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "What is a noun?", "options": ["A naming word", "An action word", "A describing word", "A joining word"], "answer": "A naming word", "why": "A noun names a person, place or thing."}, {"id": "r5", "phase": "speed", "subject": "Science", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Let\u2019s go \u2192"}, "prompt": "What is the powerhouse of the cell?", "options": ["Mitochondria", "Nucleus", "Ribosome", "Membrane"], "answer": "Mitochondria", "why": "The mitochondria."}, {"id": "v1", "phase": "speed", "subject": "History", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"1215\". Which one?", "options": ["Magna Carta signed", "Battle of Hastings", "First Crusade launched", "Black Death arrives"], "answer": "Magna Carta signed", "why": "1215 is when the Magna Carta was sealed; Hastings was 1066."}, {"id": "v2", "phase": "speed", "subject": "English", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"Verona\". Which one?", "options": ["Setting of Romeo and Juliet", "Setting of Macbeth", "Setting of Hamlet", "Setting of Othello"], "answer": "Setting of Romeo and Juliet", "why": "Verona is where Romeo and Juliet is set."}, {"id": "v3", "phase": "speed", "subject": "Science", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"the male sex cell\". Which one?", "options": ["Sperm", "Egg", "Zygote", "Embryo"], "answer": "Sperm", "why": "Sperm is the male sex cell; the egg is female."}, {"id": "v4", "phase": "speed", "subject": "Geography", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"countries becoming more connected\". Which one?", "options": ["Globalisation", "Urbanisation", "Migration", "Deforestation"], "answer": "Globalisation", "why": "Globalisation = growing connection between countries."}, {"id": "v5", "phase": "speed", "subject": "English", "block": {"label": "Reversed", "hue": "#B26BE6", "icon": "\u21c4", "sub": "You\u2019re given the answer \u2014 name what it belongs to", "cta": "Flip it \u2192"}, "prompt": "The answer is: \"the opening speech that sets up the play\". Which one?", "options": ["The Prologue", "A soliloquy", "The epilogue", "Dramatic irony"], "answer": "The Prologue", "why": "The Prologue opens the play; a soliloquy is a character alone."}, {"id": "e1", "phase": "steady", "subject": "Science", "prompt": "Which gas do plants take in?", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Helium"], "answer": "Carbon dioxide", "why": "Plants take in carbon dioxide."}, {"id": "e2", "phase": "steady", "subject": "Maths", "prompt": "What is 15% of 200?", "options": ["30", "15", "45", "20"], "answer": "30", "why": "10% is 20, 5% is 10, so 15% is 30."}, {"id": "t1", "phase": "teach", "subject": "Science", "prompt": "Explain photosynthesis in your own words."}]};
+var STAGING_QUIZ = {"tag": "H4.4", "questions": [{"id": "S1", "phase": "speed", "subject": "Science", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "Copper", "left": "Metal", "right": "Non-metal", "answer": "Metal", "why": "Copper conducts \u2014 a metal.", "fresh": true}, {"id": "S2", "phase": "speed", "subject": "Maths", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "11 is a prime number", "left": "True", "right": "False", "answer": "True", "why": "11 is prime.", "fresh": true}, {"id": "S3", "phase": "speed", "subject": "History", "block": {"label": "Swipe Sort", "hue": "#39A7DE", "icon": "\u21c6", "sub": "Flick each into the right bucket", "cta": "Start swiping \u2192"}, "type": "swipe", "prompt": "The Magna Carta was signed in 1215", "left": "True", "right": "False", "answer": "True", "why": "1215.", "fresh": true}, {"id": "S4", "phase": "speed", "subject": "English", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}, "prompt": "Who wrote Romeo and Juliet?", "options": ["Shakespeare", "Marlowe", "Dickens", "Chaucer"], "answer": "Shakespeare", "why": "Shakespeare wrote it.", "fresh": true}, {"id": "S5", "phase": "speed", "subject": "Geography", "block": {"label": "Quick Recall", "hue": "#16E08C", "icon": "\u25cf", "sub": "Four options, one answer \u2014 keep it fast", "cta": "Keep going \u2192"}, "prompt": "Capital of France?", "options": ["Paris", "Lyon", "Nice", "Marseille"], "answer": "Paris", "why": "Paris.", "fresh": true}, {"id": "T1", "phase": "steady", "subject": "Science", "prompt": "Which gas do plants take in?", "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Helium"], "answer": "Carbon dioxide", "why": "Plants take in CO2.", "fresh": true}, {"id": "T2", "phase": "steady", "subject": "Maths", "block": {"label": "Numeric", "hue": "#14C7C7", "icon": "#", "sub": "Type the answer \u2014 calculator on method questions", "cta": "Start \u2192"}, "type": "numeric", "prompt": "What is 15% of 200?", "answer": 30, "calc": false, "pre": "", "post": "", "why": "10% is 20, 5% is 10.", "fresh": true}, {"id": "T3", "phase": "steady", "subject": "Maths", "block": {"label": "Numeric", "hue": "#14C7C7", "icon": "#", "sub": "Type the answer \u2014 calculator on method questions", "cta": "Start \u2192"}, "type": "numeric", "prompt": "A rectangle is 12.5 cm by 8.4 cm. What is its area?", "answer": 105, "calc": true, "pre": "", "post": " cm\u00b2", "why": "12.5 \u00d7 8.4 = 105 cm\u00b2.", "fresh": true}, {"id": "TB1", "phase": "teach", "subject": "Science", "prompt": "Explain photosynthesis in your own words."}]};
 
 /* ===== embedded swipe widget (from integration/swipe-widget.html) ===== */
 function mountSwipe(container, q, cb){
@@ -815,6 +815,132 @@ function swInjectCSS(){
   document.head.appendChild(css);
 }
 
+
+
+/* ===== embedded numeric widget ===== */
+function mountNumeric(container, q, cb){
+  nmInjectCSS();
+  var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
+  var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
+  var CALC_KEYS=[['C','(',')','\u232b'],['7','8','9','\u00f7'],['4','5','6','\u00d7'],['1','2','3','\u2212'],['0','.','=','+']];
+  var NUM_KEYS =[['7','8','9'],['4','5','6'],['1','2','3'],['\u00b1','0','\u232b']];
+  var entry='', usedOp=false, phase='answering', done=false;
+
+  container.innerHTML =
+    '<div class="nm-mode '+(q.calc?'calc':'mental')+'">'+(q.calc?'\uD83D\uDDA9 Calculator \u2014 method':'\uD83E\uDDE0 Mental \u2014 no calculator')+'</div>'+
+    '<div class="nm-display" id="nmDisp"></div>'+
+    '<div class="nm-keys"></div>'+
+    '<button class="nm-submit" id="nmSubmit">Submit \u2192</button>'+
+    '<div class="nm-result" id="nmResult"></div>';
+  var disp=container.querySelector('#nmDisp'), keysWrap=container.querySelector('.nm-keys'),
+      submitBtn=container.querySelector('#nmSubmit'), result=container.querySelector('#nmResult');
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+  function trim(n){ return (Math.round(n*1e6)/1e6).toString(); }
+  function isOp(k){ return '+\u2212\u00d7\u00f7()'.indexOf(k)>=0 && k.length===1; }
+  function trailingSeg(s){ return s.replace(/.*[+\u2212\u00d7\u00f7()]/,''); }
+
+  /* safe shunting-yard evaluator (no eval) — verbatim from the approved prototype */
+  function evalExpr(raw){
+    var s=String(raw).replace(/\u00d7/g,'*').replace(/\u00f7/g,'/').replace(/\u2212/g,'-').trim();
+    if(s==='') return NaN;
+    if(s.charAt(0)==='-') s='0'+s;
+    var toks=s.match(/(\d+\.?\d*|\.\d+|[+\-*/()])/g); if(!toks) return NaN;
+    var out=[], ops=[], prec={'+':1,'-':1,'*':2,'/':2};
+    for(var i=0;i<toks.length;i++){ var t=toks[i];
+      if(/^[\d.]/.test(t)){ var n=parseFloat(t); if(!isFinite(n)) return NaN; out.push(n); }
+      else if(t==='('){ ops.push(t); }
+      else if(t===')'){ while(ops.length && ops[ops.length-1]!=='(') out.push(ops.pop()); if(!ops.length) return NaN; ops.pop(); }
+      else { while(ops.length && ops[ops.length-1]!=='(' && prec[ops[ops.length-1]]>=prec[t]) out.push(ops.pop()); ops.push(t); }
+    }
+    while(ops.length){ var o=ops.pop(); if(o==='(') return NaN; out.push(o); }
+    var st=[];
+    for(var j=0;j<out.length;j++){ var x=out[j];
+      if(typeof x==='number'){ st.push(x); }
+      else { var b=st.pop(), a=st.pop(); if(a===undefined||b===undefined) return NaN;
+        st.push(x==='+'?a+b:x==='-'?a-b:x==='*'?a*b:a/b); } }
+    return st.length===1 ? st[0] : NaN;
+  }
+  function judge(val){ return isFinite(val) && Math.abs(val - q.answer) <= 0.01; }
+
+  function paint(){
+    var shown = entry===''?'<span class="nm-ph">0</span>':esc(entry);
+    var pre = q.pre?'<span class="nm-pre">'+esc(q.pre)+'</span>':'';
+    var post = q.post?'<span class="nm-unit">'+esc(q.post)+'</span>':'';
+    disp.innerHTML = pre+shown+post;
+  }
+  function nudge(){ disp.classList.remove('nudge'); void disp.offsetWidth; disp.classList.add('nudge'); buzz(30); }
+  function renderKeys(){
+    var rows=q.calc?CALC_KEYS:NUM_KEYS, cls=q.calc?'nm-pad calc':'nm-pad num', html='<div class="'+cls+'">';
+    rows.forEach(function(row){ row.forEach(function(k){
+      var c='nm-key'; if(isOp(k)) c+=' op'; else if(k==='=') c+=' eq'; else if(k==='C'||k==='\u232b'||k==='\u00b1') c+=' fn';
+      html+='<button class="'+c+'" data-k="'+k+'">'+k+'</button>';
+    }); });
+    html+='</div>'; keysWrap.innerHTML=html;
+    var b=keysWrap.querySelectorAll('.nm-key'); for(var i=0;i<b.length;i++){ (function(btn){ btn.addEventListener('click',function(){ onKey(btn.getAttribute('data-k')); }); })(b[i]); }
+  }
+  function onKey(k){
+    if(phase!=='answering') return; buzz(6);
+    if(k==='C'){ entry=''; usedOp=false; }
+    else if(k==='\u232b'){ entry=entry.slice(0,-1); }
+    else if(k==='\u00b1'){ entry = entry.charAt(0)==='-'?entry.slice(1):'-'+entry; }
+    else if(k==='='){ var v=evalExpr(entry); if(isFinite(v)){ entry=trim(v); usedOp=true; } else nudge(); }
+    else if(k==='.'){ var seg=q.calc?trailingSeg(entry):entry; if(seg.indexOf('.')===-1) entry+='.'; }
+    else if(isOp(k)){ entry+=k; usedOp=true; }
+    else { entry+=k; }
+    paint();
+  }
+  function finish(ok,val,usedCalc){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok,value:val,usedCalc:usedCalc}); }catch(e){} }
+  function doSubmit(){
+    if(phase!=='answering') return;
+    var val = q.calc ? evalExpr(entry) : (entry===''||entry==='-'?NaN:parseFloat(entry));
+    if(!isFinite(val)){ nudge(); return; }
+    phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
+    submitBtn.style.display='none';
+    var ok=judge(val), usedCalc=!!(q.calc&&usedOp);
+    var ansStr=esc((q.pre||'')+trim(q.answer)+(q.post||''));
+    if(ok){
+      buzz(18);
+      var tag = q.calc ? (usedOp?'Computed on the calculator (logged).':'Answered directly \u2014 no calc used (logged).') : 'Mental \u2014 no calculator (logged).';
+      result.innerHTML='<div class="nm-strip ok">\u2713 Correct \u2014 <b>'+ansStr+'</b><span class="nm-lil">'+tag+'</span></div>';
+      setTimeout(function(){ finish(ok,val,usedCalc); }, 1200);
+    } else {
+      buzz([30,50,30]); nudge();
+      result.innerHTML='<div class="nm-strip bad">\u2715 Not quite \u2014 the answer is <b>'+ansStr+'</b><span class="nm-lil">'+esc(q.why||'')+'</span></div>';
+      setTimeout(function(){ finish(ok,val,usedCalc); }, 1600);
+    }
+  }
+  submitBtn.addEventListener('click', doSubmit);
+  renderKeys(); paint();
+}
+
+function nmInjectCSS(){
+  if(document.getElementById('nm-widget-css')) return;
+  var css=document.createElement('style'); css.id='nm-widget-css';
+  css.textContent=
+  ".nm-mode{display:flex;align-items:center;justify-content:center;gap:7px;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:999px;width:fit-content;margin:0 auto 12px}"+
+  ".nm-mode.calc{color:#39A7DE;border:1.5px solid rgba(57,167,222,.5);background:rgba(57,167,222,.09)}"+
+  ".nm-mode.mental{color:#FFD34D;border:1.5px solid rgba(255,184,0,.5);background:rgba(255,184,0,.09)}"+
+  ".nm-display{background:#0b1a2e;border:2px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;min-height:58px;display:flex;align-items:center;justify-content:flex-end;gap:6px;font-family:'Space Mono',monospace;font-weight:700;font-size:clamp(24px,8vw,32px);color:#fff;overflow-x:auto;white-space:nowrap;margin-bottom:12px}"+
+  ".nm-display.nudge{animation:nm-nudge .3s ease}"+
+  "@keyframes nm-nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}"+
+  ".nm-display .nm-ph{color:#8A97AD}.nm-display .nm-pre{color:#8A97AD}.nm-display .nm-unit{color:#8A97AD;font-size:.6em;align-self:center}"+
+  ".nm-pad{display:grid;gap:8px}.nm-pad.calc{grid-template-columns:repeat(4,1fr)}.nm-pad.num{grid-template-columns:repeat(3,1fr);max-width:288px;margin:0 auto;width:100%}"+
+  ".nm-key{font-family:'Archivo Black',sans-serif;font-size:22px;padding:15px 0;border-radius:13px;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;transition:transform .07s,background .1s}"+
+  ".nm-key:active{transform:translateY(3px);background:rgba(255,255,255,.14)}"+
+  ".nm-key.op{color:#39A7DE;border-color:rgba(57,167,222,.4)}.nm-key.fn{color:#8A97AD;font-size:18px}"+
+  ".nm-key.eq{background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;border:none;box-shadow:0 4px 0 #8A5A00}"+
+  ".nm-key.eq:active{transform:translateY(4px);box-shadow:0 0 0 #8A5A00}"+
+  ".nm-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:12px}"+
+  ".nm-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
+  ".nm-result{margin-top:10px}"+
+  ".nm-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
+  ".nm-strip.ok{background:rgba(22,164,110,.16);border:2px solid #16E08C;color:#CFF3E1}"+
+  ".nm-strip.bad{background:rgba(255,77,41,.14);border:2px solid #FF4D29;color:#FFD9CF}"+
+  ".nm-strip b{color:#fff}.nm-strip .nm-lil{display:block;margin-top:6px;font-size:12px;font-weight:600;color:#8A97AD}";
+  document.head.appendChild(css);
+}
 
 
 function boot(){ state.screen="loading"; render(); loadQuiz(); }
@@ -1079,8 +1205,27 @@ function submitSpeedTyped(){
 
 // The steady question in play — a normal steady slot, or an encore (bonus-round) question.
 function curSteady(){ return state.encoreActive ? encoreQs[state.encoreIdx] : steadyQs[state.idx]; }
+function renderSteadyNumeric(q){
+  var eyebrow = state.encoreActive
+    ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
+    : '<div class="eyebrow r" style="margin-bottom:8px">STEADY \u00b7 '+(state.idx+1)+'/'+steadyQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+' \u00b7 NO CLOCK</div>';
+  el("stage").innerHTML = eyebrow + '<h2 class="q">'+esc(q.prompt)+'</h2>' + '<div id="numMount" style="margin-top:6px"></div>' + skipButtonHTML(q,"skipSteady()");
+  markShown("steady:"+state.idx);
+  mountNumeric(el("numMount"), q, { onDone:function(res){ finishNumericSteady(q,res); } });
+}
+function finishNumericSteady(q,res){
+  T.questionDone(q.id,q.subject,"steady",{ok:res.ok, usedCalc:res.usedCalc});
+  var stpts = res.ok ? x2mul(STEADY_POINTS, q) : 0;
+  state.score += stpts; setScore();
+  var strec={id:q.id,subject:q.subject,phase:"steady",type:"numeric",value:res.value,ok:res.ok,usedCalc:res.usedCalc,repair:!!q.repair,pts:stpts};
+  if(state.encoreActive) strec.encore=true;
+  state.records.push(strec);
+  if(res.ok) FX.celebrate(fxSpec(2, stpts));
+  setTimeout(function(){ advanceSteady(); }, 320);
+}
 function renderSteady(){
   var q=curSteady();
+  if(qType(q)==="numeric"){ return renderSteadyNumeric(q); }
   var boss = (EVENT==="battleground");
   var answerHTML;
   if(isOrder(q)){
