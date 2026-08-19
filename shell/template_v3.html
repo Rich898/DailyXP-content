@@ -939,6 +939,227 @@ function nmInjectCSS(){
 }
 
 
+/* ===== embedded ordering widget ===== */
+function mountOrder(container, q, cb){
+  orInjectCSS();
+  var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
+  var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
+  var seq=q.sequence||[], N=seq.length, GAP=10, SLOT_H=66;
+  var order=[], chipEl={}, drag=null, phase='ordering', done=false;
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+  function range(n){ var a=[]; for(var i=0;i<n;i++) a.push(i); return a; }
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function shuffleDistinct(n){ var a; do{ a=shuffle(range(n)); } while(n>1 && a.every(function(v,i){return v===i;})); return a; }
+
+  order=shuffleDistinct(N);
+  container.innerHTML =
+    (q.top||q.bot ? '<div class="or-axis"><span>\u2191 '+esc(q.top||'')+'</span><span>'+esc(q.bot||'')+' \u2193</span></div>' : '')+
+    '<div class="or-hint">\u2195 Drag the tiles into order</div>'+
+    '<div class="or-list" id="orList"></div>'+
+    '<button class="or-submit" id="orSubmit">Check order</button>'+
+    '<div class="or-result" id="orResult"></div>';
+  var list=container.querySelector('#orList'), submitBtn=container.querySelector('#orSubmit'), result=container.querySelector('#orResult');
+
+  seq.forEach(function(label,id){
+    var el=document.createElement('div'); el.className='or-chip'; el.setAttribute('data-oid', id);
+    el.innerHTML='<div class="or-rank"></div><div class="or-txt">'+esc(label)+'</div><div class="or-grip">\u283F</div>';
+    list.appendChild(el); chipEl[id]=el; attachDrag(el,id);
+  });
+  SLOT_H = chipEl[0].offsetHeight + GAP;
+  list.style.height=(N*SLOT_H - GAP)+'px';
+  layoutAll(false);
+
+  function layoutAll(anim){
+    order.forEach(function(id,slot){
+      var el=chipEl[id]; el.querySelector('.or-rank').textContent=(slot+1);
+      if(drag && id===drag.id) return;
+      el.style.transition = anim ? 'transform .22s cubic-bezier(.2,.85,.3,1)' : 'none';
+      el.style.transform='translate3d(0,'+(slot*SLOT_H)+'px,0)';
+    });
+  }
+  function attachDrag(el,id){
+    el.addEventListener('pointerdown', function(e){
+      if(phase!=='ordering') return;
+      el.setPointerCapture(e.pointerId);
+      var slot=order.indexOf(id);
+      drag={id:id, pid:e.pointerId, startY:e.clientY, startTop:slot*SLOT_H, curTop:slot*SLOT_H};
+      el.classList.add('lift'); el.style.transition='none';
+      el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)'; buzz(8);
+    });
+    el.addEventListener('pointermove', function(e){
+      if(!drag || drag.pid!==e.pointerId || phase!=='ordering') return;
+      drag.curTop = clamp(drag.startTop + (e.clientY - drag.startY), -10, (N-1)*SLOT_H + 10);
+      el.style.transform='translate3d(0,'+drag.curTop+'px,0) scale(1.04)';
+      var target = clamp(Math.round(drag.curTop / SLOT_H), 0, N-1);
+      var curIdx = order.indexOf(id);
+      if(target !== curIdx){ order.splice(curIdx,1); order.splice(target,0,id); layoutAll(true); }
+    });
+    var release=function(e){
+      if(!drag || drag.pid!==e.pointerId) return;
+      var slot=order.indexOf(id);
+      el.classList.remove('lift');
+      el.style.transition='transform .2s cubic-bezier(.3,1.35,.4,1)';
+      el.style.transform='translate3d(0,'+(slot*SLOT_H)+'px,0)'; drag=null;
+    };
+    el.addEventListener('pointerup', release);
+    el.addEventListener('pointercancel', release);
+  }
+  function finish(ok,cc){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok, correctCount:cc, total:N}); }catch(e){} }
+  function doSubmit(){
+    if(phase!=='ordering') return;
+    phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
+    submitBtn.style.display='none';
+    var cc=0;
+    order.forEach(function(id,slot){ var good=(id===slot); if(good) cc++; chipEl[id].classList.add(good?'ok':'bad'); });
+    if(cc===N){
+      buzz(18);
+      result.innerHTML='<div class="or-strip ok">\u2713 Perfect order!</div>';
+      setTimeout(function(){ finish(true,cc); }, 1200);
+    } else {
+      buzz([30,50,30]);
+      setTimeout(function(){
+        order.forEach(function(id){ chipEl[id].classList.remove('ok','bad'); });
+        order=range(N); layoutAll(true);
+        order.forEach(function(id){ chipEl[id].classList.add('ok'); });
+        result.innerHTML='<div class="or-strip bad">'+cc+' of '+N+' in place. Correct order:'+
+          '<span class="or-lil">'+esc(seq.join('  \u2192  '))+'</span>'+
+          (q.why?'<span class="or-lil" style="color:#8A97AD">'+esc(q.why)+'</span>':'')+'</div>';
+        setTimeout(function(){ finish(false,cc); }, 1500);
+      }, 760);
+    }
+  }
+  submitBtn.addEventListener('click', doSubmit);
+}
+
+function orInjectCSS(){
+  if(document.getElementById('or-widget-css')) return;
+  var css=document.createElement('style'); css.id='or-widget-css';
+  css.textContent=
+  ".or-axis{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8A97AD;margin-bottom:8px}"+
+  ".or-hint{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:600;color:#9AD3F2;text-align:center;margin-bottom:12px}"+
+  ".or-list{position:relative;margin-bottom:6px}"+
+  ".or-chip{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:12px;height:56px;padding:0 12px 0 10px;border-radius:14px;border:2px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;touch-action:none;will-change:transform;cursor:grab;box-shadow:0 3px 0 rgba(0,0,0,.3)}"+
+  ".or-chip.lift{cursor:grabbing;background:rgba(255,255,255,.17);box-shadow:0 10px 0 rgba(0,0,0,.4),0 18px 30px rgba(0,0,0,.5);z-index:10;border-color:rgba(255,184,0,.5)}"+
+  ".or-chip .or-rank{flex:0 0 30px;height:30px;border-radius:8px;background:#0E6BA8;color:#fff;font-family:'Space Mono',monospace;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s}"+
+  ".or-chip .or-txt{flex:1;font-weight:600;font-size:15px}"+
+  ".or-chip .or-grip{color:#8A97AD;font-size:18px}"+
+  ".or-chip.ok{border-color:#16E08C;background:rgba(22,164,110,.22);box-shadow:0 0 22px rgba(22,164,110,.5)}"+
+  ".or-chip.ok .or-rank{background:#16E08C}"+
+  ".or-chip.bad{border-color:#FF4D29;background:rgba(255,77,41,.18)}"+
+  ".or-chip.bad .or-rank{background:#FF4D29}"+
+  ".or-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:6px}"+
+  ".or-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
+  ".or-result{margin-top:10px}"+
+  ".or-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
+  ".or-strip.ok{background:rgba(22,164,110,.16);border:2px solid #16E08C;color:#CFF3E1}"+
+  ".or-strip.bad{background:rgba(255,77,41,.14);border:2px solid #FF4D29;color:#FFD9CF}"+
+  ".or-strip .or-lil{display:block;margin-top:6px;font-size:12.5px;font-weight:600}";
+  document.head.appendChild(css);
+}
+
+
+/* ===== embedded short-text widget ===== */
+function mountText(container, q, cb){
+  txInjectCSS();
+  var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
+  var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
+  var accept=q.accept||[], phase='answering', done=false;
+
+  container.innerHTML =
+    '<div class="tx-wrap"><input id="txInput" class="tx-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" placeholder="Type your answer" enterkeyhint="go"></div>'+
+    '<button class="tx-submit" id="txSubmit">Submit \u2192</button>'+
+    '<div class="tx-result" id="txResult"></div>';
+  var inp=container.querySelector('#txInput'), submitBtn=container.querySelector('#txSubmit'), result=container.querySelector('#txResult');
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+
+  /* ===== fuzzy matcher (the mechanic) — verbatim from the approved prototype ===== */
+  function norm(s){
+    s = String(s).toLowerCase().trim();
+    if(s.normalize) s = s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');   // strip accents
+    s = s.replace(/[.,!;:'"()\[\]{}\-_/]/g,' ');                             // noise punctuation -> space (keep ? for the '?' answer)
+    s = s.replace(/\s+/g,' ').trim();
+    s = s.replace(/^(the|a|an)\s+/,'');                                      // strip a leading article
+    return s;
+  }
+  function fold(s){ return s.replace(/ies$/,'y').replace(/([^s])es$/,'$1').replace(/([^s])s$/,'$1'); }
+  function lev(a,b){
+    var m=a.length,n=b.length; if(!m) return n; if(!n) return m;
+    var prev=[],cur=[],i,j; for(j=0;j<=n;j++) prev[j]=j;
+    for(i=1;i<=m;i++){ cur[0]=i;
+      for(j=1;j<=n;j++){ var c=a.charCodeAt(i-1)===b.charCodeAt(j-1)?0:1; cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+c); }
+      var t=prev; prev=cur; cur=t;
+    }
+    return prev[n];
+  }
+  function matched(raw){
+    var ni = norm(raw);
+    if(ni==='') return null;
+    for(var i=0;i<accept.length;i++){
+      var na = norm(accept[i]);
+      if(ni===na) return {exact:i===0};
+      if(fold(ni)===fold(na)) return {exact:false};
+      var L = Math.max(ni.length, na.length);
+      var thr = L<=3 ? 0 : Math.min(3, Math.max(1, Math.round(L/5)));   // no typo tolerance on tiny words
+      if(thr>0 && lev(ni,na)<=thr) return {exact:false};
+    }
+    return null;
+  }
+
+  function nudge(){ inp.classList.remove('nudge'); void inp.offsetWidth; inp.classList.add('nudge'); buzz(30); }
+  function finish(ok,val,fuzzy){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok, value:val, fuzzy:fuzzy}); }catch(e){} }
+  function doSubmit(){
+    if(phase!=='answering') return;
+    var raw=inp.value;
+    if(norm(raw)===''){ nudge(); return; }
+    var res = matched(raw);
+    phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
+    inp.readOnly=true; submitBtn.style.display='none';
+    var canon = accept[0];
+    if(res){
+      buzz(18); inp.classList.add('ok');
+      var fuzzy = res.exact ? '' : '<span class="tx-fuzzy">\u2713 counted \u201c'+esc(raw.trim())+'\u201d as \u201c'+esc(canon)+'\u201d \u2014 spelling never counts</span>';
+      result.innerHTML='<div class="tx-strip ok">\u2713 Correct'+(res.exact?' \u2014 <b>'+esc(canon)+'</b>':'')+fuzzy+'</div>';
+      setTimeout(function(){ finish(true, raw.trim(), !res.exact); }, res.exact?1200:1900);
+    } else {
+      inp.classList.add('bad'); buzz([30,50,30]);
+      result.innerHTML='<div class="tx-strip bad">\u2715 Not quite \u2014 the answer is <b>'+esc(canon)+'</b><span class="tx-lil">'+esc(q.why||'')+'</span></div>';
+      setTimeout(function(){ finish(false, raw.trim(), false); }, 1700);
+    }
+  }
+  submitBtn.addEventListener('click', doSubmit);
+  inp.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); doSubmit(); } });
+  setTimeout(function(){ try{ inp.focus(); }catch(e){} }, 60);
+}
+
+function txInjectCSS(){
+  if(document.getElementById('tx-widget-css')) return;
+  var css=document.createElement('style'); css.id='tx-widget-css';
+  css.textContent=
+  ".tx-input{width:100%;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:22px;text-align:center;padding:16px;border-radius:14px;border:2px solid rgba(255,255,255,.16);background:#0b1a2e;color:#fff;outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none}"+
+  ".tx-input::placeholder{color:#8A97AD;font-weight:600}"+
+  ".tx-input:focus{border-color:#39A7DE;box-shadow:0 0 0 3px rgba(57,167,222,.2)}"+
+  ".tx-input.ok{border-color:#16E08C;box-shadow:0 0 24px rgba(22,164,110,.45)}"+
+  ".tx-input.bad{border-color:#FF4D29;box-shadow:0 0 24px rgba(255,77,41,.45)}"+
+  ".tx-input.nudge{animation:tx-nudge .3s ease}"+
+  "@keyframes tx-nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}"+
+  ".tx-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:12px}"+
+  ".tx-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
+  ".tx-result{margin-top:10px}"+
+  ".tx-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
+  ".tx-strip.ok{background:rgba(22,164,110,.16);border:2px solid #16E08C;color:#CFF3E1}"+
+  ".tx-strip.bad{background:rgba(255,77,41,.14);border:2px solid #FF4D29;color:#FFD9CF}"+
+  ".tx-strip b{color:#fff}"+
+  ".tx-fuzzy{display:block;margin-top:6px;font-size:12px;font-weight:700;color:#FFD34D}"+
+  ".tx-lil{display:block;margin-top:6px;font-size:12px;font-weight:600;color:#8A97AD}";
+  document.head.appendChild(css);
+}
+
+
 function boot(){ state.screen="loading"; render(); loadQuiz(); }
 function loadQuiz(){
   var url = CONFIG.QUESTIONS_URL + "?t=" + Date.now();
@@ -1208,6 +1429,27 @@ function submitSpeedTyped(){
 
 // The steady question in play — a normal steady slot, or an encore (bonus-round) question.
 function curSteady(){ return state.encoreActive ? encoreQs[state.encoreIdx] : steadyQs[state.idx]; }
+function _steadyView(q, mountFn, mdiv, finishFn){
+  var eyebrow = state.encoreActive
+    ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">⭐ BONUS · '+(state.encoreIdx+1)+'/'+encoreQs.length+' · '+esc(q.subject.toUpperCase())+'</div>'
+    : '<div class="eyebrow r" style="margin-bottom:8px">STEADY · '+(state.idx+1)+'/'+steadyQs.length+' · '+esc(q.subject.toUpperCase())+' · NO CLOCK</div>';
+  el("stage").innerHTML = eyebrow + '<h2 class="q">'+esc(q.prompt)+'</h2>' + '<div id="'+mdiv+'" style="margin-top:6px"></div>' + skipButtonHTML(q,"skipSteady()");
+  markShown("steady:"+state.idx);
+  mountFn(el(mdiv), q, { onDone:function(res){ finishFn(q,res); } });
+}
+function renderSteadySeq(q){ _steadyView(q, mountOrder, "ordMount", finishSeqSteady); }
+function renderSteadyText(q){ _steadyView(q, mountText, "txMount", finishTextSteady); }
+function finishSeqSteady(q,res){ _steadyDone(q, res, "order", {correctCount:res.correctCount, total:res.total}, null); }
+function finishTextSteady(q,res){ _steadyDone(q, res, "text", {value:res.value, fuzzy:res.fuzzy}, {fuzzy:res.fuzzy}); }
+function _steadyDone(q, res, type, extra, qdExtra){
+  var qd={ok:res.ok}; if(qdExtra){ for(var k in qdExtra){ qd[k]=qdExtra[k]; } }
+  T.questionDone(q.id,q.subject,"steady",qd);
+  var stpts = res.ok ? x2mul(STEADY_POINTS, q) : 0; state.score += stpts; setScore();
+  var strec={id:q.id,subject:q.subject,phase:"steady",type:type,ok:res.ok,repair:!!q.repair,pts:stpts};
+  if(extra){ for(var k2 in extra){ strec[k2]=extra[k2]; } }
+  if(state.encoreActive) strec.encore=true; state.records.push(strec);
+  if(res.ok) FX.celebrate(fxSpec(2, stpts)); setTimeout(function(){ advanceSteady(); }, 320);
+}
 function renderSteadyNumeric(q){
   var eyebrow = state.encoreActive
     ? '<div class="eyebrow" style="margin-bottom:8px;color:#B9832A;letter-spacing:.08em">\u2b50 BONUS \u00b7 '+(state.encoreIdx+1)+'/'+encoreQs.length+' \u00b7 '+esc(q.subject.toUpperCase())+'</div>'
@@ -1229,6 +1471,8 @@ function finishNumericSteady(q,res){
 function renderSteady(){
   var q=curSteady();
   if(qType(q)==="numeric"){ return renderSteadyNumeric(q); }
+  if(qType(q)==="order"){ return renderSteadySeq(q); }
+  if(qType(q)==="text"){ return renderSteadyText(q); }
   var boss = (EVENT==="battleground");
   var answerHTML;
   if(isOrder(q)){
