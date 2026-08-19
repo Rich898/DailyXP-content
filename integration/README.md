@@ -53,3 +53,16 @@ first, never the boys.
 - [x] State-writer weights swipe as WEAK evidence: a correct swipe raises one box (untested->shaky->developing) but NEVER solid alone; a miss holds.
 - [x] Block model MERGED into the live template (config-driven doorways). Backward-compatible: block quizzes get block+Heat doorways, no-block quizzes get Heat doorways only (boys' quizzes unaffected). Verified both, zero JS errors.
 - [ ] **Deploy to t1 + dogfood** (play the swipe block end-to-end with real backend), then roll to the boys.
+
+
+## Numeric mechanic — stage tracker (2nd mechanic, after swipe)
+- [x] **1a. Embeddable widget** — `numeric-widget.html`: `mountNumeric(container, q, {onCommit,onDone})`.
+  Scoped input: number pad for MENTAL (calc:false), full calculator for METHOD (calc:true). Safe
+  shunting-yard evaluator (no eval), 0.01 tolerance, pre/post units, calc-use logged (`usedCalc`).
+  Reports `{ok, value, usedCalc}`. Proven: 2 mental + 2 method, 4/4, both keypads, zero JS errors.
+  Schema: `{ type:'numeric', subject, prompt, answer:<number>, calc:<bool>, pre, post, why }`.
+- [ ] **1b. Wire into the STEADY round** (no clock — you compute, not tap-fast); mount widget, record + advance.
+- [ ] **2. Composer** generates numeric questions (method/mental split, numeric answer, units, misconception `why`).
+- [ ] **3. Planner** slots a Numeric block (t1 first).
+- [ ] **4. Validator** accepts numeric (numeric answer, calc flag).
+- [ ] **5. State-writer** weights: a calc-assisted correct is "solved with a calculator" — NOT mental-arithmetic mastery.
