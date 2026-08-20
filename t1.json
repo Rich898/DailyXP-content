@@ -9,7 +9,7 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Alternate angles are equal",
+      "prompt": "Co-interior angles add up to 180°",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Alternate angles form a 'Z' shape between parallel lines and are always equal.",
+      "why": "Co-interior (allied) angles between parallel lines are supplementary, always summing to 180°.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo is a Capulet",
+      "prompt": "Mercutio dies in the play",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Romeo belongs to the Montague family; Juliet is the Capulet — their families are rivals.",
+      "answer": "True",
+      "why": "Mercutio is killed by Tybalt in Act 3, a turning point that sparks Romeo's revenge.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Volcanoes only occur on land",
+      "prompt": "Tsunamis can be triggered by underwater earthquakes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Many volcanoes are underwater along mid-ocean ridges and subduction zones on the seafloor.",
+      "answer": "True",
+      "why": "A sudden shift of the seafloor during an underwater earthquake can displace huge volumes of water, generating a tsunami.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Change always happens quickly",
+      "prompt": "Continuity means nothing ever changes over time",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Historical change can be sudden or gradual, unfolding over centuries alongside continuity.",
+      "why": "Continuity means some things stay the same while other things change; it does not mean total absence of change.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What did Europe mainly gain from trade with Asia in medieval times?",
+      "prompt": "What did the Silk Road mainly connect across Asia and Europe?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Spices and silk",
-      "why": "Trade routes like the Silk Road brought valuable spices and silk from Asia into Europe.",
+      "answer": "Trade routes",
+      "why": "The Silk Road was a network of overland trade routes linking Asia and Europe, carrying goods, ideas, and technology.",
       "options": [
-        "Spices and silk",
-        "Gold coins only",
-        "New religions only",
-        "Printed books only"
+        "Trade routes",
+        "Ocean colonies",
+        "Military alliances",
+        "Royal marriages"
       ],
       "fresh": true
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What does 'mental health' actually refer to?",
+      "prompt": "What does 'mental health' describe?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Overall emotional wellbeing",
-      "why": "Mental health is about a person's overall emotional and psychological wellbeing, not just the presence of illness — everyone has mental health, good or bad, at all times.",
+      "answer": "Emotional wellbeing",
+      "why": "Mental health refers to a person's emotional, psychological, and social wellbeing, not just the absence of illness.",
       "options": [
-        "Overall emotional wellbeing",
-        "Only having a diagnosed illness",
-        "Only physical fitness levels",
-        "Only how smart someone is"
+        "Emotional wellbeing",
+        "Physical fitness only",
+        "Absence of illness only",
+        "Academic performance"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What's a common myth about people with mental illness?",
+      "prompt": "Is it true that mental illness means someone is dangerous?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "That they are always violent",
-      "why": "A widespread myth is that mental illness makes people dangerous or violent, but most people with mental illness are never violent — this stereotype adds to stigma and stops people seeking help.",
+      "answer": "Common myth",
+      "why": "This is a widespread myth; most people with mental illness are not violent and are more likely to be victims than perpetrators.",
       "options": [
-        "That they are always violent",
-        "That they can recover with support",
-        "That it affects thoughts and mood",
-        "That treatment can include therapy"
+        "Common myth",
+        "Proven fact",
+        "Medical rule",
+        "Legal definition"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which strategy helps calm strong anxiety in the moment?",
+      "prompt": "What is a healthy way to manage strong anger?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Slow, controlled breathing",
-      "why": "Slow, controlled breathing calms the body's stress response quickly, unlike avoidance or rumination, which tend to keep anxiety going or make it worse over time.",
+      "answer": "Pause and breathe",
+      "why": "Pausing and breathing helps regulate the body's stress response before reacting, rather than suppressing or exploding.",
       "options": [
-        "Slow, controlled breathing",
-        "Avoiding the trigger forever",
-        "Bottling feelings up quietly",
-        "Replaying the worry repeatedly"
+        "Pause and breathe",
+        "Bottle it up",
+        "Yell it out fast",
+        "Ignore it fully"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In film music, a sudden loud brass stab often signals what?",
+      "prompt": "In film music, what does a low sustained drone note usually create?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Shock or danger",
-      "why": "Loud, sudden brass stings are a common technique to signal shock, threat, or danger on screen.",
+      "answer": "A sense of dread",
+      "why": "A low sustained drone builds unease and tension, so composers use it to signal danger or dread rather than joy or comedy.",
       "options": [
-        "Shock or danger",
-        "Calm romance",
-        "Comedy relief",
-        "Peaceful ending"
+        "A sense of dread",
+        "A moment of comedy",
+        "A feeling of triumph",
+        "A burst of speed"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In the I-vi-IV-V progression in C major, which chord is the 'vi'?",
+      "prompt": "In the progression C-Am-F-G, which chord is the 'IV'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A minor",
-      "why": "The sixth chord built on C major's scale is A minor, giving the progression its familiar sad-pop feel.",
+      "answer": "F",
+      "why": "In C major, F is the fourth scale degree, making it the IV chord in the progression.",
       "options": [
-        "A minor",
-        "F major",
-        "G major",
-        "C major"
+        "F",
+        "C",
+        "Am",
+        "G"
       ],
       "fresh": false
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Adding extra instrument layers into a song's chorus mainly creates what effect?",
+      "prompt": "Stripping instruments back in a bridge section mainly creates what effect?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,13 +225,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A bigger, fuller sound",
-      "why": "Layering more instruments and voices thickens the texture, making the chorus feel larger than the verse.",
+      "answer": "Contrast",
+      "why": "Removing layers creates contrast against fuller sections like the chorus, making dynamics feel more varied.",
       "options": [
-        "A bigger, fuller sound",
-        "A quieter, thinner sound",
-        "A faster tempo only",
-        "A key change only"
+        "Contrast",
+        "Louder climax",
+        "Faster tempo",
+        "Key change"
       ],
       "fresh": false
     },
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "Globalisation mainly connects countries through which processes?",
+      "prompt": "What is 'interconnection' in Geography mainly about?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Trade, culture and technology",
-      "why": "Globalisation links countries through growing trade, cultural exchange and shared technology, not through countries adopting the same government, language or currency.",
+      "answer": "Links between places",
+      "why": "Interconnection describes the growing links between places through trade, technology, migration, and ideas.",
       "options": [
-        "Trade, culture and technology",
-        "Shared government and laws",
-        "Identical languages worldwide",
-        "One single world currency"
+        "Links between places",
+        "Border walls only",
+        "Isolated economies",
+        "Single-country trade"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 110°. What is its alternate angle, in degrees?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 65°. What is its co-interior angle, in degrees?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,18 +270,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 110,
+      "answer": 115,
       "calc": false,
       "pre": "",
       "post": "°",
-      "why": "Alternate angles between parallel lines are always equal, so the answer is also 110°.",
+      "why": "Co-interior angles sum to 180°, so 180 - 65 = 115°.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A quadrilateral has angles 100°, 80°, 100°, and one unknown angle. What is the unknown angle, in degrees?",
+      "prompt": "A triangle has angles 90° and 40°. What is the third angle, in degrees?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -290,18 +290,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 80,
-      "calc": true,
+      "answer": 50,
+      "calc": false,
       "pre": "",
       "post": "°",
-      "why": "Angles in a quadrilateral sum to 360°; 360 - 100 - 80 - 100 = 80°.",
+      "why": "Angles in a triangle sum to 180°, so 180 - 90 - 40 = 50°.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the sudden violent shaking of the ground caused by tectonic plate movement called?",
+      "prompt": "What term describes a volcanic mudflow made of ash and water?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "earthquake",
-        "earthquakes"
+        "lahar",
+        "lahars"
       ],
-      "why": "An earthquake is ground shaking caused by the sudden release of energy along a fault line.",
+      "why": "A lahar is a destructive mudflow of volcanic ash, rock, and water that can travel far from the volcano.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps for analysing why a historical event happened",
+      "prompt": "Order these stages of historical analysis from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -332,20 +332,20 @@
       "type": "order",
       "sequence": [
         "Identify the event",
-        "Find background factors",
-        "Find the immediate trigger",
-        "Explain the consequences"
+        "Gather evidence",
+        "Find causes",
+        "Assess consequences"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Good historical analysis starts by identifying the event, then background causes, the trigger, and finally its effects.",
+      "why": "Historians first identify what happened, then gather evidence, then work out causes, then assess the consequences that followed.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes the boundary where two tectonic plates move apart from each other?",
+      "prompt": "What is the boundary called where two plates slide past each other sideways?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -355,24 +355,25 @@
       },
       "type": "text",
       "accept": [
-        "divergent boundary",
-        "divergent"
+        "transform boundary",
+        "transform fault",
+        "conservative boundary"
       ],
-      "why": "A divergent boundary is where plates move apart, often forming new crust, like at mid-ocean ridges.",
+      "why": "A transform boundary is where plates slide horizontally past each other, often causing earthquakes without new crust forming.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Who does Juliet's family want her to marry instead of Romeo?",
-      "answer": "Paris",
-      "why": "Juliet's parents arrange for her to marry Paris, a wealthy kinsman of the Prince, adding to the tragedy.",
+      "prompt": "Who is Juliet's cousin, killed by Tybalt's rival Mercutio's death sparks?",
+      "answer": "Tybalt",
+      "why": "Tybalt kills Mercutio, and Romeo then kills Tybalt in revenge, escalating the tragedy.",
       "options": [
-        "Paris",
         "Tybalt",
-        "Mercutio",
-        "Benvolio"
+        "Paris",
+        "Benvolio",
+        "Balthasar"
       ],
       "fresh": false
     },
@@ -380,7 +381,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "A student says Shakespeare's plays don't need any historical context to be understood today. Explain why knowing about Elizabethan theatre and society actually changes how we read Romeo and Juliet."
+      "prompt": "A classmate says we only need to read Romeo and Juliet's words, and knowing about Shakespeare's own life adds nothing. Explain, using a specific fact about his life or era, why context actually changes how we understand the play."
     }
   ]
 }
