@@ -9,7 +9,7 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Piggy's glasses get smashed, weakening his sight",
+      "prompt": "The conch shell represents order and civilisation",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Piggy's glasses are broken during the story, symbolising the fading of reason and clear thinking among the boys.",
+      "why": "The conch symbolises rules and civilised order; as it loses power through the novel, society among the boys collapses.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Antibodies destroy pathogens by engulfing them directly",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Antibodies mark pathogens for destruction; it's phagocytes that engulf and digest them, not antibodies.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Weimar Republic used proportional representation",
+      "prompt": "Vaccines contain a weakened or harmless form of a pathogen",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Weimar's electoral system gave parties seats matching their vote share, which led to fragmented, unstable coalitions.",
+      "why": "Vaccines expose the immune system to a safe version of a pathogen so it learns to make antibodies without causing the disease.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S3",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Food ads mainly target adults with health warnings",
+      "subject": "History",
+      "prompt": "The Weimar Republic's constitution used proportional representation",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +58,34 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Food marketing often targets children with bright colours and cartoon characters, not adults with health warnings.",
+      "answer": "True",
+      "why": "Proportional representation matched seats to vote share, but it led to many small parties and unstable coalitions.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Placing sugary snacks at checkouts is a marketing technique",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Product placement near checkouts is a deliberate technique to prompt impulse buying, especially of unhealthy snacks.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is the term for people moving permanently into a country?",
+      "prompt": "Since the 1970s, Australia's immigration policy accepts migrants from many different countries. What is this policy called?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Immigration",
-      "why": "Immigration means moving into a country to live; emigration is leaving a country.",
+      "answer": "Multiculturalism policy",
+      "why": "The shift away from restricting migrants by race or origin, allowing migrants from many countries, is known as multiculturalism policy — not the earlier White Australia policy it replaced.",
       "options": [
-        "Immigration",
-        "Emigration",
-        "Urbanisation",
-        "Migration circuit"
+        "Multiculturalism policy",
+        "White Australia policy",
+        "Populate or perish scheme",
+        "Assisted passage scheme"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Where did Hitler's 1923 Putsch attempt take place?",
+      "prompt": "How did the Munich Putsch end for Hitler?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Munich",
-      "why": "Hitler launched his failed uprising in a Munich beer hall in 1923, aiming to seize power in Bavaria first.",
+      "answer": "Arrested and jailed briefly",
+      "why": "The 1923 putsch failed and Hitler was arrested, tried for treason, and served a short prison term, where he wrote Mein Kampf.",
       "options": [
-        "Munich",
-        "Berlin",
-        "Hamburg",
-        "Vienna"
+        "Arrested and jailed briefly",
+        "Executed for treason",
+        "Made chancellor immediately",
+        "Exiled from Germany"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Simplify: 5x + 2x",
+      "prompt": "Simplify: 4x + 3x",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -138,12 +138,12 @@
         "cta": "Keep going →"
       },
       "answer": "7x",
-      "why": "Like terms add directly: 5x + 2x = 7x, since the powers of x stay the same.",
+      "why": "Like terms with variable x are added together: 4x + 3x = 7x.",
       "options": [
         "7x",
-        "10x",
-        "5x2",
-        "7x2"
+        "12x",
+        "4x3",
+        "7"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: x + 6 = 14",
+      "prompt": "Solve for x: x − 5 = 9",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "x = 8",
-      "why": "Subtract 6 from both sides: 14 − 6 = 8, so x = 8.",
+      "answer": "14",
+      "why": "Add 5 to both sides: x = 9 + 5 = 14.",
       "options": [
-        "x = 8",
-        "x = 20",
-        "x = 6",
-        "x = 14"
+        "14",
+        "4",
+        "45",
+        "9"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Which section states the business's overall goals in brief?",
+      "prompt": "What does an executive summary do in a business plan?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Executive summary",
-      "why": "The executive summary briefly outlines the whole business plan's goals and highlights, read first by others.",
+      "answer": "Outlines the whole plan briefly",
+      "why": "An executive summary gives a short overview of the entire business plan so readers grasp the key points quickly.",
       "options": [
-        "Executive summary",
-        "Market analysis",
-        "SWOT analysis",
-        "Financial plan"
+        "Outlines the whole plan briefly",
+        "Lists daily cash transactions",
+        "Details staff job descriptions",
+        "Shows competitor pricing tables"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who first blows the conch to gather the boys?",
+      "prompt": "What does the conch losing its power symbolise?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Ralph",
-      "why": "Ralph blows the conch at Piggy's suggestion, calling the first assembly and establishing early order.",
+      "answer": "Breakdown of order among boys",
+      "why": "As the conch is ignored and eventually destroyed, it shows civilised order collapsing into savagery.",
       "options": [
-        "Ralph",
-        "Jack",
-        "Piggy",
-        "Simon"
+        "Breakdown of order among boys",
+        "Piggy's improving eyesight",
+        "The island growing safer",
+        "Ralph gaining more authority"
       ],
       "fresh": true
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Freud's model, which part seeks pleasure without restraint?",
+      "prompt": "In Freud's model of personality, which part seeks pleasure without restraint?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,13 +225,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Id",
-      "why": "The id is the primal, instinctive part of the mind driven by immediate desires, unlike the moral superego.",
+      "answer": "The id",
+      "why": "The id is the primitive part driven purely by instinct and pleasure, unlike the ego (which balances reality) or the superego (which enforces morals).",
       "options": [
-        "Id",
-        "Ego",
-        "Superego",
-        "Conscience"
+        "The id",
+        "The ego",
+        "The superego",
+        "The conscience"
       ],
       "fresh": true
     },
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A phone repair shop offers a screen-fixing service. What is being sold?",
+      "prompt": "A tutor teaching maths lessons is selling a…",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A service",
-      "why": "Fixing a screen is an action performed for the customer, making it a service rather than a physical product.",
+      "answer": "Service",
+      "why": "A service is an intangible action performed for a customer, like tutoring, unlike a product which is a physical item.",
       "options": [
-        "A service",
-        "A product",
-        "A logo",
-        "A brand"
+        "Service",
+        "Product",
+        "Logo",
+        "Brand"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 10 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 12 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,25 +270,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 40,
+      "answer": 42,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 10 × 8 = 40 cm². Halving is the step that's easy to rush past.",
+      "why": "Area of a triangle is ½ × base × height: ½ × 12 × 7 = 42 cm². Halving is the step that's easy to rush past.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Geography",
-      "prompt": "From a while back — a family moves to a city because there are more hospitals and schools there. This is an example of what kind of factor?",
+      "prompt": "From a while back — a family moves because there are more jobs in the city than their farming town. This job opportunity is an example of what kind of factor?",
       "answer": "Pull factor",
-      "why": "A pull factor draws people toward a new place, like better hospitals or schools, unlike push factors which drive people away.",
+      "why": "A pull factor is something attractive that draws people toward a new place, like better job opportunities.",
       "options": [
         "Pull factor",
         "Push factor",
-        "Urbanisation factor",
-        "Migration law"
+        "Chain factor",
+        "Seasonal factor"
       ],
       "fresh": false,
       "throwback": true
@@ -297,14 +297,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "D&T",
-      "prompt": "A market stall owner uses the same colours and logo on every sign and bag. What is this mainly building?",
-      "answer": "Brand recognition",
-      "why": "Consistent colours and logos help customers instantly recognise and remember a brand across a stall's products.",
+      "prompt": "A market stall sells only handmade wooden toys, unlike other stalls selling mass-produced plastic ones. What design factor is this mainly showing?",
+      "answer": "Innovation",
+      "why": "Innovation means offering something new or different from competitors, like unique handmade products in a market of mass-produced goods.",
       "options": [
-        "Brand recognition",
-        "Market analysis",
-        "A prototype",
-        "A SWOT analysis"
+        "Innovation",
+        "Branding",
+        "Pricing",
+        "Packaging"
       ],
       "fresh": false
     },
@@ -312,14 +312,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "A cereal ad uses a cartoon mascot and bright packaging. Which group is this mainly designed to attract?",
-      "answer": "Children",
-      "why": "Cartoon mascots and bright colours are classic marketing techniques aimed at appealing to children specifically.",
+      "prompt": "A snack ad shows teenagers laughing together while eating chips at a party. Which technique is this mainly using?",
+      "answer": "Linking product to social fun",
+      "why": "Ads often link snacks to enjoyable social moments, making the product feel desirable rather than focusing on health facts.",
       "options": [
-        "Children",
-        "Elderly shoppers",
-        "Nutritionists",
-        "Wholesale buyers"
+        "Linking product to social fun",
+        "Listing nutritional facts",
+        "Comparing prices to rivals",
+        "Warning about sugar content"
       ],
       "fresh": false
     },
@@ -327,14 +327,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Geography",
-      "prompt": "From a while back — after WWII, Australia's 'Populate or Perish' scheme mainly aimed to increase what?",
-      "answer": "Population and workforce",
-      "why": "The scheme aimed to grow Australia's population and labour force for security and industry after WWII.",
+      "prompt": "Since the 1970s, Australia's immigration policy shifted to accept migrants from many different countries. What is this policy called?",
+      "answer": "Multiculturalism",
+      "why": "Multiculturalism replaced the White Australia Policy, allowing migration from diverse countries and valuing cultural diversity.",
       "options": [
-        "Population and workforce",
-        "Farming exports",
-        "Tourist numbers",
-        "University enrolments"
+        "Multiculturalism",
+        "White Australia Policy",
+        "Populate or Perish",
+        "Assisted Passage Scheme"
       ],
       "fresh": false
     },
@@ -342,7 +342,7 @@
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps in Weimar Germany's early economic troubles",
+      "prompt": "Order these Weimar Republic events from earliest to latest",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -352,21 +352,21 @@
       },
       "type": "order",
       "sequence": [
-        "Treaty of Versailles imposes reparations",
-        "Government prints extra money",
-        "1923 hyperinflation crisis hits",
-        "Savings become worthless"
+        "Treaty of Versailles signed",
+        "Weimar Constitution adopted",
+        "Hyperinflation crisis",
+        "Munich Beer Hall Putsch"
       ],
       "top": "Earliest",
       "bot": "Latest",
-      "why": "Reparations pressured Germany to print money, causing 1923 hyperinflation, which wiped out ordinary people's savings.",
+      "why": "Versailles (1919) came first, then the Constitution (1919), followed by hyperinflation (1923), and finally the Putsch (Nov 1923).",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "D&T",
-      "prompt": "A new market stall has a great product but no consistent branding, while a rival stall has an average product but a strong, memorable logo and colours. Explain which stall is more likely to succeed early on, and why branding matters even when a product is already good."
+      "prompt": "A new market stall has a great product but no consistent branding. Explain why branding still matters for its early success, even though the product itself is already strong."
     }
   ]
 }
