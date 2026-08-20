@@ -9,7 +9,7 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Co-interior angles add to 180°",
+      "prompt": "Alternate angles are equal",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Co-interior (allied) angles between parallel lines are supplementary, always summing to 180°.",
+      "why": "Alternate angles form a Z-shape between parallel lines and are always equal.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The prologue reveals the lovers will die",
+      "prompt": "Romeo and Juliet die at the end of the play",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The prologue calls them 'star-crossed lovers' and tells the audience their deaths in advance, creating dramatic irony.",
+      "why": "The prologue tells us the 'star-crossed lovers' take their life, and the play ends with both their deaths.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A tsunami can be triggered by an underwater earthquake",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Sudden movement of the seabed during an underwater earthquake displaces water, generating a tsunami.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A cause always happens after its consequence",
+      "prompt": "Volcanoes only occur on land",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A cause happens before its consequence — the consequence is the result that follows the cause, not the other way round.",
+      "why": "Many volcanoes are underwater, especially along mid-ocean ridges and subduction zones on the seafloor.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A cause must happen before its consequence",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "By definition a cause comes before the effect it produces in time.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What did the Silk Road mainly connect?",
+      "prompt": "What did the Silk Road mainly transport between Asia and Europe?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Europe and Asia",
-      "why": "The Silk Road was a network of trade routes linking Europe and Asia, carrying goods like silk, spices, and ideas.",
+      "answer": "Goods like silk and spices",
+      "why": "The Silk Road was primarily a trade network for goods such as silk, spices, and other valuable products, alongside ideas and technology — not limited to a single commodity like gold or weapons.",
       "options": [
-        "Europe and Asia",
-        "Africa and Australia",
-        "Rome and Egypt only",
-        "England and Scotland"
+        "Goods like silk and spices",
+        "Only gold coins and gems",
+        "Only enslaved workers",
+        "Mostly weapons and armor"
       ],
       "fresh": true
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What does 'mental health' actually refer to?",
+      "prompt": "Mental health is best described as a state of what?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Overall emotional wellbeing",
-      "why": "Mental health describes a person's overall emotional and psychological wellbeing, not just the presence of illness.",
+      "answer": "Overall wellbeing",
+      "why": "Mental health refers to emotional, psychological and social wellbeing, not simply never feeling sad.",
       "options": [
-        "Overall emotional wellbeing",
-        "Only having a mental illness",
-        "Physical fitness level",
-        "Intelligence test score"
+        "Overall wellbeing",
+        "Absence of any sadness",
+        "A fixed permanent trait",
+        "Only physical fitness"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which statement about mental health is a myth?",
+      "prompt": "Which idea about mental health is a common myth?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,11 +137,11 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Only weak people struggle",
-      "why": "This is a harmful myth — mental health struggles can affect anyone regardless of strength or character.",
+      "answer": "Strong people never struggle",
+      "why": "This is a myth — mental health struggles can affect anyone regardless of strength or character.",
       "options": [
-        "Only weak people struggle",
-        "Anyone can experience it",
+        "Strong people never struggle",
+        "It affects thoughts and feelings",
         "It can change over time",
         "Support can help recovery"
       ],
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with strong emotions?",
+      "prompt": "Which strategy best helps manage strong anger?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Talk to someone trusted",
-      "why": "Sharing feelings with a trusted person is a healthy coping strategy, unlike suppressing or ignoring emotions.",
+      "answer": "Pause and breathe slowly",
+      "why": "Pausing and breathing slowly calms the body's stress response, unlike suppressing or venting anger explosively.",
       "options": [
-        "Talk to someone trusted",
-        "Bottle it up completely",
-        "Ignore it until it fades",
-        "Blame others for it"
+        "Pause and breathe slowly",
+        "Bottle it up silently",
+        "Shout to release it fast",
+        "Ignore it completely"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What is a leitmotif in film music?",
+      "prompt": "In film music, what is a recurring musical idea for a character called?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A recurring musical theme",
-      "why": "A leitmotif is a recurring musical theme linked to a character, place, or idea throughout a film.",
+      "answer": "A leitmotif",
+      "why": "A leitmotif is a recurring melodic theme linked to a specific character, place or idea in a film score.",
       "options": [
-        "A recurring musical theme",
-        "A single sound effect",
-        "The film's title screen",
-        "A silent scene"
+        "A leitmotif",
+        "A cadence",
+        "A time signature",
+        "A key change"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In the key of C, what chord is 'vi' in the I–vi–IV–V progression?",
+      "prompt": "In the key of C major, what note starts the IV chord?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A minor",
-      "why": "In C major, the sixth scale degree chord is A minor, giving the vi chord in I–vi–IV–V.",
+      "answer": "F",
+      "why": "In C major, the IV chord is built on the fourth scale degree, F, giving the chord F major.",
       "options": [
-        "A minor",
-        "F major",
-        "G major",
-        "C major"
+        "F",
+        "G",
+        "A",
+        "C"
       ],
       "fresh": false
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What usually creates contrast between verse and chorus?",
+      "prompt": "In a typical pop song, what usually makes the chorus stand out from the verse?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,13 +225,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Change in texture or dynamics",
-      "why": "Contrast between song sections often comes from adding layers, changing dynamics, or shifting texture.",
+      "answer": "Louder, fuller instruments",
+      "why": "Choruses usually add layers — more instruments, harmonies, and volume — to contrast with the sparser verse and create a lift in energy.",
       "options": [
-        "Change in texture or dynamics",
-        "Playing the exact same notes",
-        "Removing all instruments",
-        "Repeating the verse lyrics"
+        "Louder, fuller instruments",
+        "A slower steady tempo",
+        "Only one solo singer",
+        "Completely silent backing"
       ],
       "fresh": false
     },
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What does globalisation mainly increase between countries?",
+      "prompt": "Globalisation mainly increases what between countries?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Connections and trade",
-      "why": "Globalisation is the growing connection between countries through trade, technology, and culture.",
+      "answer": "Trade and connections",
+      "why": "Globalisation describes growing trade, travel, and communication links connecting countries more closely together.",
       "options": [
-        "Connections and trade",
-        "Physical distance",
+        "Trade and connections",
+        "Physical borders",
         "Language differences",
-        "Border restrictions"
+        "Isolation"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One co-interior angle is 65°. What is the other co-interior angle, in degrees?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 72°. What is its corresponding angle, in degrees?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,18 +270,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 115,
+      "answer": 72,
       "calc": false,
       "pre": "",
-      "post": " degrees",
-      "why": "Co-interior angles sum to 180°, so 180 − 65 = 115.",
+      "post": "°",
+      "why": "Corresponding angles sit in matching positions at each intersection and are always equal.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A quadrilateral has angles 90°, 90°, 90°, and one unknown angle. What is the unknown angle, in degrees?",
+      "prompt": "A triangle has angles 50° and 60°. What is the third angle, in degrees?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -290,18 +290,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 90,
-      "calc": false,
+      "answer": 70,
+      "calc": true,
       "pre": "",
-      "post": " degrees",
-      "why": "Angles in a quadrilateral sum to 360°, so 360 − 270 = 90.",
+      "post": "°",
+      "why": "Angles in a triangle sum to 180°, so 180 − 50 − 60 = 70°.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the name for a large sudden movement of mud and debris from a volcano, often mixed with melted ice or water?",
+      "prompt": "What term describes a fast-moving flow of hot gas and volcanic debris down a mountainside?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "lahar",
-        "lahars"
+        "pyroclastic flow",
+        "pyroclastic density current"
       ],
-      "why": "A lahar is a volcanic mudflow, often triggered when heat melts snow or ice on a volcano.",
+      "why": "A pyroclastic flow is a deadly, fast-moving current of hot ash, gas and rock from a volcanic eruption.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps in analysing cause and consequence for a historical event",
+      "prompt": "Order these steps in analysing historical cause and consequence",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -333,19 +333,19 @@
       "sequence": [
         "Identify the event",
         "Find its causes",
-        "Examine short-term consequences",
-        "Examine long-term consequences"
+        "Trace its consequences",
+        "Assess long-term significance"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Good historical analysis starts by identifying the event, then works back to causes, then forward through short-term and long-term consequences.",
+      "why": "Good historical analysis starts by identifying the event, then works backward to causes and forward to consequences, before judging significance.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for the boundary where two tectonic plates slide past each other sideways?",
+      "prompt": "What is the term for the boundary where two tectonic plates move toward each other?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -355,25 +355,24 @@
       },
       "type": "text",
       "accept": [
-        "transform boundary",
-        "conservative boundary",
-        "transform"
+        "convergent boundary",
+        "convergent"
       ],
-      "why": "A transform (conservative) boundary is where plates slide past each other, often causing earthquakes.",
+      "why": "A convergent boundary is where plates collide, often causing earthquakes, volcanoes, or mountain building.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Who does Romeo kill in a duel after Mercutio's death?",
-      "answer": "Tybalt, Juliet's cousin",
-      "why": "Romeo kills Tybalt to avenge Mercutio, which gets him banished from Verona and drives the plot toward tragedy.",
+      "prompt": "Who is Juliet's cousin that Romeo kills after Mercutio's death?",
+      "answer": "Tybalt",
+      "why": "Romeo kills Tybalt in revenge for Mercutio's death, setting up his banishment from Verona.",
       "options": [
-        "Tybalt, Juliet's cousin",
-        "Paris, Juliet's suitor",
-        "Benvolio, his own cousin",
-        "Friar Laurence, the priest"
+        "Tybalt",
+        "Paris",
+        "Benvolio",
+        "Balthasar"
       ],
       "fresh": false
     },
@@ -381,7 +380,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "A classmate says Shakespeare's plays don't need any historical context to understand, since 'a story is just a story.' Explain, using specific context about Elizabethan theatre or society, why understanding Shakespeare's background changes how we read Romeo and Juliet."
+      "prompt": "A student says knowing Shakespeare lived in Elizabethan England doesn't matter because 'the play speaks for itself.' Explain, using at least one specific piece of context about Shakespeare's life or times, why this context actually changes how we understand Romeo and Juliet."
     }
   ]
 }
