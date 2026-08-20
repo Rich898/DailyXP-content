@@ -42,7 +42,20 @@ labels each answer; the badges below are that doctrine, encoded.
 
 ### Not a test
 - **SKIP** (fresh-skip): not tested — no box change, `times_seen` **not** incremented, benched intel.
-- **TB** (teach-back): no box change in v1 (reasoning-grading is a language job for later; `teach.done` is a soft positive only).
+
+### Teach-back (graded nightly)
+Teach-backs are graded overnight (`tools/grade_teachback.py`); the verdict has a
+real box consequence, applied deterministically by the state-writer:
+
+| Verdict | Box consequence | On REPAIR |
+|---|---|---|
+| **TB✓** explained it well | promote one box; `developing→solid` only if spaced and no repeat-attempt caveat | counts as a confirm (1 of 2) |
+| **TB~** partial explanation | `untested→developing` only; otherwise held — a landing, never a promotion | held; confirms untouched |
+| **TB✗** couldn't explain it | no promote, holds the box — and it outranks a correct multiple-choice on the same topic that night, blocking that promotion (the fluency-illusion catch). Never demotes. | held; confirms reset |
+| **TB** ungraded, or integrity hold | no box change — a grader failure or unattributable text has no ledger consequence | held |
+
+This verdict touches only the confidence box. Depth — the second axis — is
+governed by `UNDERSTANDING.md` and never moves from a verdict.
 
 ## The REPAIR lane
 A topic with `repair:true`:

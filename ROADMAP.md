@@ -1,5 +1,20 @@
 # DailyXP — agreed roadmap (locked Mon 3 Aug 2026)
 
+## SOLO depth — the acting end (ratified 19 Aug)
+The grader measures depth (`grade_teachback.py`, live nightly); nothing yet acts
+on it. Build order, each step independently testable: depth writer in **shadow
+mode** (writes nowhere real) → replay history through it + owner reviews grades
+against real answers (the **calibration check**) → reporting **gate flag** →
+flip writer live with backfill → planner **targets** teach-backs at can-list-it
+topics → teach-back prompts aim one rung up → lift the gate. Later, separately:
+a genuine **transfer question type** (reversed does NOT qualify — it's
+recognition in reverse, ceiling `knows`; see `UNDERSTANDING.md` §3); intake
+seeding for the **confidence axis only** (depth is never seeded — earned only).
+**Debt:** the live-lights Edge Function (`grade-teachback`) source lives only
+inside Supabase — commit it to the repo and strip depth from its response,
+leaving the nightly grader the single depth instrument.
+
+
 ## This week (w/c 3 Aug) — shell FROZEN at v3.0
 Content-level changes only: teach-back prompt variety (argue-against, explain-to-a-younger-kid, mark-the-wrong-answer), difficulty pitched a notch harder (trivially-fast corrects = noise, not signal). Let the new pipeline bed in; keep Week-2 data comparable to Week 1.
 **Weekly cadence policy (locked):** Monday quizzes = ledger-driven consolidation by design (teachers rarely post the week's plan by Monday). Fresh Canvas content enters Tue–Fri, after the owner's weekly sweep — automated via student API tokens once the scheduler lands.

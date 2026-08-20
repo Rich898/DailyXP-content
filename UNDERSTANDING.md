@@ -28,7 +28,9 @@ explanation under exam pressure.* One axis alone cannot see it:
   needs recency and consistency).
 
 **Law: `state` never reads `depth`, and `depth` never reads `state`.** They are
-written by different evidence and consumed by different surfaces.
+written by different evidence and consumed by different surfaces. This law binds
+the ledger **writers**. The planner is a consumer and legitimately reads both
+axes — confidence to schedule, depth to choose what to ask next.
 
 ---
 
@@ -68,7 +70,8 @@ about a child's understanding, and is forbidden.
 | **Speed MCQ** (`speed`) | `knows` | Four options ⇒ ~25% guessable; one facet; no reasoning shown |
 | **Steady MCQ** (`steady`) | `lists` | Harder, confidence-paired, multi-facet across a set — but still recognition, not explanation |
 | **Teach-back** (`teach`) | `connects` | Free text; the only place relational reasoning is visible |
-| **Reversed / transfer** | `applies` | Given the area, find the width; the idea used in a new direction |
+| **Reversed** (`mech: reversed`) | `knows` | Recognition in reverse — "here's the answer, name what it belongs to" is still recognition, whatever day it runs |
+| **Transfer** (future, tagged) | `applies` | Not yet built. Requires a deliberately designed, explicitly tagged question type ("given the area, find the width"); until it exists, `applies` is unreachable — which is honest |
 
 Consequences, all binding:
 
@@ -95,11 +98,23 @@ whose ceiling reaches it:
 
 * → `knows` — one correct answer on the topic at any phase.
 * → `lists` — correct on **two or more distinct facets** of the topic across
-  different runs (not the same question twice).
+  different runs (not the same question twice). Operationally: correct on two
+  **different question prompts** on the topic, on two **different run dates**.
 * → `connects` — a teach-back graded as relational: the answer **links** ideas
   (cause→effect, part→whole, comparison), not merely enumerates them.
-* → `applies` — correct on a **reversed or transfer** item, or a teach-back that
-  carries the idea into an untaught context.
+* → `applies` — correct on an explicitly **tagged transfer** item, or a
+  teach-back that carries the idea into an untaught context. (No transfer item
+  type exists yet — see §3.)
+
+**What counts as evidence.** Only a **clean correct** evidences depth. Lucky
+corrects, trivially-fast corrects, and integrity-held answers never count. A
+swipe (a 50/50 sort) never evidences depth on its own.
+
+**Seeding.** Depth is never seeded from intake material — not from school
+reports, not from teacher comments. A report grade cannot distinguish `lists`
+from `connects`, so a seeded rung would be a claim with no evidence behind it.
+Intake material may seed the **confidence** axis only. Every rung a parent ever
+sees was earned inside the system.
 
 **Demotion** is deliberately reluctant:
 
@@ -161,8 +176,13 @@ must grade **structure, not correctness alone**:
 
 ## 7. Open
 
-* Rubric calibration against real teach-backs before depth is shown to parents.
-* Transfer/reversed items need explicit tagging at generation to be countable.
+* Rubric calibration against real teach-backs before depth is shown to the
+  family. The gate covers **every family-facing surface**, the kid wrap
+  included — until calibration passes, no rung renders anywhere; the kid page's
+  teach-back stamp waits with the rest.
+* A genuine transfer question type — designed, explicitly tagged at generation,
+  accepted by the validator, recognised by the state writer — is its own future
+  build. Reversed does not qualify (§3).
 * Confidence is currently captured on the steady phase only — calibration
   (confidence vs correctness) is a *third* reading and is not part of this
   ladder; it stays out until instrumentation is even.
