@@ -59,7 +59,7 @@ def derive_tag(student, date):
     return tag, week, wd
 
 
-def run(date, students, private_dir, directives_override, dry_run, push):
+def run(date, students, private_dir, directives_override, dry_run, push, skip_if_published=False):
     import planner
     import compose
     import review
@@ -209,6 +209,34 @@ def run(date, students, private_dir, directives_override, dry_run, push):
     summary = []
     for s in students:
         tag, week, wd = derive_tag(s, date)
+
+        # BACKUP-TRIGGER GUARD (fix 20 Aug 2026 — DAILY-PUBLISHING.md O1). Two schedulers fire
+        # this pipeline (pg_cron dispatch = primary, GitHub's own cron = demoted backup), and
+        # unlike the comms jobs it had no per-day guard — so it published TWICE most weekdays
+        # (proven 18 + 20 Aug): doubled API spend, and the second archive overwrote the first
+        # set's prompts out of the no-repeat history. The workflow passes --skip-if-published on
+        # `schedule` events ONLY, and this check makes those runs a per-student no-op when the
+        # live set is already today's — the same live-raw-URL truth publish VERIFYs and the 4pm
+        # nudge checks. pg_cron dispatch and manual runs never pass the flag, so they always
+        # publish. FAIL OPEN: if the live URL can't be read, we publish rather than skip. A HOLD
+        # or compose-fail day leaves the live date stale, so the backup rung genuinely retries.
+        if skip_if_published:
+            try:
+                import time as _t
+                import urllib.request as _ur
+                import publish as _pub
+                _live = json.loads(_ur.urlopen(
+                    _pub.RAW.format(student=s) + f"?cb={int(_t.time())}", timeout=15).read().decode())
+                if _live.get("date") == date.isoformat():
+                    print(f"[{s}] {tag}: live set is already today's "
+                          f"({'placeholder' if _live.get('status') == 'placeholder' else _live.get('tag')}) "
+                          f"— backup trigger no-op.")
+                    summary.append((s, tag, "already-published (backup no-op)"))
+                    continue
+                print(f"[{s}] {tag}: live set is {_live.get('date')!r}, not today — backup trigger proceeding.")
+            except Exception as _e:
+                print(f"[{s}] {tag}: ⚠ could not read live set ({type(_e).__name__}) — failing OPEN, proceeding to publish.")
+
         directive = directives_override.get(s) or WEEKDAY_DIRECTIVE.get(date.weekday(), "standard")
         plan = planner.plan_set(s, date.isoformat(), day, tag, targets, state, directive)
 
@@ -353,6 +381,9 @@ def main():
     for _c in _codes:
         ap.add_argument(f"--directive-{_c}", default=None)
     ap.add_argument("--dry-run", action="store_true", help="plan+compose only; no publish")
+    ap.add_argument("--skip-if-published", action="store_true",
+                    help="per-student no-op when the live set is already today's (the GitHub-cron "
+                         "backup trigger passes this; pg_cron dispatch and manual runs never do)")
     ap.add_argument("--no-push", action="store_true", help="publish locally but don't git push")
     a = ap.parse_args()
     date = dt.date.fromisoformat(a.date)
@@ -362,7 +393,8 @@ def main():
         v = getattr(a, f"directive_{_c}".replace("-", "_"), None)
         if v:
             overrides[_c] = v
-    sys.exit(run(date, students, a.private_dir, overrides, dry_run=a.dry_run, push=not a.no_push))
+    sys.exit(run(date, students, a.private_dir, overrides, dry_run=a.dry_run, push=not a.no_push,
+                 skip_if_published=a.skip_if_published))
 
 
 if __name__ == "__main__":

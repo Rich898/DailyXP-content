@@ -1,10 +1,20 @@
 # DailyXP — daily quiz pipeline
 #
-# Runs the whole loop for both boys: plan -> compose (API) -> publish (with live-URL
-# verify). A FROZEN boy gets a placeholder (no API). SMS is decoupled: the kid nudge is
-# the 4pm job (kid-nudge.yml), the parent soundbyte the evening one. See scripts/run_daily.py.
+# Runs the whole loop for every active roster seat (y8, y9, t1): ingest -> state-writer ->
+# seed -> plan -> compose (API) -> review -> publish (with live-URL verify). A FROZEN seat
+# gets a placeholder (no API). SMS is decoupled: the kid nudge is the 4pm job
+# (kid-nudge.yml), the parent soundbyte the evening one. See scripts/run_daily.py.
 #
-# SECRETS to add before this can run for real (repo Settings -> Secrets and variables -> Actions):
+# TRIGGERS (two schedulers, by design — DAILY-PUBLISHING.md §2):
+#   * Supabase pg_cron (PRIMARY) fires workflow_dispatch at 14:00 Sydney, DST-proof,
+#     deduped once per local day (supabase/002_scheduler.sql).
+#   * The `schedule:` cron below (BACKUP) stays enabled at 04:00 UTC. Backup runs pass
+#     --skip-if-published, so when the primary already published today's sets they are a
+#     per-student no-op — and when the 2pm run failed or HELD, the backup genuinely retries.
+#     (Fix 20 Aug 2026: before this guard the pipeline published twice most weekdays.)
+#   * Manual "Run workflow" always publishes (no guard) — use it for supervised runs.
+#
+# SECRETS required (repo Settings -> Secrets and variables -> Actions):
 #   DAILYXP_TOKEN            the fine-grained PAT that can read+write BOTH repos ("DailyXP both")
 #   ANTHROPIC_API_KEY        for compose
 #   RESULTS_URL              the read-only Apps Script /exec endpoint (Sheet -> runs.json ingestion)
@@ -14,7 +24,7 @@
 name: daily-quiz
 
 on:
-  workflow_dispatch:          # manual "Run workflow" button — use this for the first supervised runs
+  workflow_dispatch:          # manual button AND the pg_cron primary dispatch
     inputs:
       date:
         description: "Override date (YYYY-MM-DD). Blank = today."
@@ -31,13 +41,9 @@ on:
         required: false
         default: false
         type: boolean
-  # The second-pass review gate now EXISTS (tools/review.py, wired into run_daily) — the
-  # Cron ENABLED at go-live (Sun 9 Aug 2026). 2pm AEST Mon–Fri; DST note below.
-  # go-live (rollout: flip ON with a morning thumbs-up, per scripts/README). Run supervised
-  # via the manual "Run workflow" button until then; to auto-fire, uncomment the two lines below.
   schedule:
-  #   # 04:00 UTC = 14:00 AEST, Mon–Fri. (Sydney DST Oct–Apr shifts this to 15:00 AEDT —
-  #   # change the hour to 03 during DST if you want it pinned to 14:00 local.)
+    # BACKUP trigger only (see header). 04:00 UTC = 14:00 AEST; during Sydney DST
+    # (Oct–Apr) this slides to 15:00 local, which is fine for a guarded backup.
     - cron: "0 4 * * 1-5"
 
 concurrency:
@@ -77,6 +83,9 @@ jobs:
           [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
           [ "${{ github.event.inputs.student }}" != "both" ] && [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          # Backup-trigger guard: only GitHub's own cron passes the skip flag. pg_cron fires
+          # via workflow_dispatch, so the primary (and any manual run) always publishes.
+          [ "${{ github.event_name }}" = "schedule" ] && ARGS="$ARGS --skip-if-published"
           echo "run_daily $ARGS"
           python scripts/run_daily.py $ARGS
 
