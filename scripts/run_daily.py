@@ -121,6 +121,22 @@ def run(date, students, private_dir, directives_override, dry_run, push):
         except Exception as e:
             print(f"⚠ state-writer step failed ({e}) — proceeding with state.json as-is.\n")
 
+        # DEPTH SHADOW: the SOLO ladder's acting end, running in shadow mode (UNDERSTANDING.md,
+        # ROADMAP "SOLO depth — the acting end"). Reads the same runs + plans, writes ONLY to
+        # depth_shadow.json / its own cursor / its own audit log — never state.json. Fail-safe by
+        # construction: any error is logged and the night carries on untouched. Kill switch:
+        # DAILYXP_SKIP_DEPTH_SHADOW=1.
+        if os.environ.get("DAILYXP_SKIP_DEPTH_SHADOW") != "1":
+            try:
+                import depth_writer
+                _, dw_lines, dw_audit = depth_writer.process(private_dir, dry_run=dry_run)
+                print("--- depth ladder (SHADOW — writes nowhere real) ---")
+                print("\n".join(dw_lines))
+                print(f"({len(dw_audit)} rung change(s) in shadow)")
+                print("---------------------------------------------------\n")
+            except Exception as e:
+                print(f"⚠ depth-shadow step failed ({e}) — shadow only, night unaffected.\n")
+
     # ACHIEVEMENTS: badge the ledger from the just-updated state/log (ACHIEVEMENTS.md).
     # Deterministic + idempotent; feeds the in-quiz screen and the kid dashboard. Dry-run previews.
     if os.environ.get("DAILYXP_SKIP_ACHIEVEMENTS") != "1" and \
