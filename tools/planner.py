@@ -201,19 +201,19 @@ def assign_blocks(ordered, student, directive):
         rev_n = min(5, len(speed))
         stamp(speed[:len(speed) - rev_n], "recall")
         stamp(speed[len(speed) - rev_n:], "reversed")
-    elif student == "t1":
-        # test seat, standard day: a Swipe block, then Quick Recall.
+    else:
+        # standard day, ALL players — mechanics rolled to the boys 20 Aug 2026 (after t1 proved them
+        # end-to-end). A Swipe block, then Quick Recall.
         sw_n = min(4, len(speed))
         stamp(speed[:sw_n], "swipe")
         stamp(speed[sw_n:], "recall")
-        # steady: the Maths slots become a Numeric block (typed answers, no clock); others stay MC.
+        # steady: Maths -> Numeric (typed, no clock); History -> Drag It (order); Science -> Short Answer (text).
         for x in [y for y in ordered if y.get("phase") == "steady" and y.get("subject") == "Maths"]:
             x["mech"] = "numeric"; x["type"] = "numeric"; x["block"] = copy.deepcopy(_BLOCKS["numeric"])
         for x in [y for y in ordered if y.get("phase") == "steady" and y.get("subject") == "History"]:
             x["mech"] = "order"; x["type"] = "order"; x["block"] = copy.deepcopy(_BLOCKS["order"])
         for x in [y for y in ordered if y.get("phase") == "steady" and y.get("subject") == "Science"]:
             x["mech"] = "text"; x["type"] = "text"; x["block"] = copy.deepcopy(_BLOCKS["text"])
-    # else: boys on a standard day — flat MC, no blocks (swipe not yet rolled to them).
 
 
 def plan_set(student, date_str, day, tag, targets, state, directive):
