@@ -1,3 +1,5 @@
+> ⚠️ **SUPERSEDED (20 Aug 2026).** The 'Built vs not built' status below predates the comms builds, the Supabase cutover and the mechanics rollout. See **QUIZ-GENERATION.md** + **DAILY-PUBLISHING.md** for the verified current system.
+
 # DailyXP — system map (plain-English overview)
 
 What this project is, how the whole thing fits together, and — clearly — **what is built and

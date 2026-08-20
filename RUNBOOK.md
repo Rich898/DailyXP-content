@@ -1,3 +1,5 @@
+> ⚠️ **PARTIALLY SUPERSEDED (20 Aug 2026).** Operating truth now lives in **DAILY-PUBLISHING.md** (and **QUIZ-GENERATION.md** for content rules). Known-stale items here: tools/formats.py (deleted), the 7/4/1 shape, the fresh:true-on-everything law, the 'review prints longest-is-correct rate' claim. The gotchas sections remain valuable history.
+
 > **Start here:** see **CURRENT-STATE.md** for what the quiz is today (a daily learning game — timed speed round with combos, a confidence-wager steady round, teach-back, and weekday events), and **VISION.md** for why it exists. Parts of this runbook predate the 18 Aug 2026 cleanup.
 
 # DailyXP — shell & pipeline runbook (public repo copy — no secrets, no personal URLs)

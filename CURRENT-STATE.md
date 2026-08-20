@@ -1,3 +1,5 @@
+> ⚠️ **PARTIALLY SUPERSEDED (20 Aug 2026).** The mechanics rollout + LAW 6 landed after this was written — several claims below (typed mechanics dormant, swipe not integrated, three-light display dormant) are now WRONG. The verified source of truth is **QUIZ-GENERATION.md** + **DAILY-PUBLISHING.md**.
+
 # XP Daily — Current State (authoritative)
 
 _Last updated 18 Aug 2026. The source of truth for what the quiz actually is today. Verified against

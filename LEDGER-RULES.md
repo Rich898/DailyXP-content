@@ -1,3 +1,5 @@
+> ⚠️ **PARTIALLY SUPERSEDED (20 Aug 2026).** Teach-back grades now DO move the ledger (TB✓/TB~/TB✗), mechanic badges (swipe/numeric/order/text) exist, and the precedence list below is incomplete. The verified transition table is **QUIZ-GENERATION.md §3**.
+
 # Ledger transition rules — how a night's result moves a topic
 
 This is the **promotion logic**: the deterministic rules `tools/state_writer.py` applies to
