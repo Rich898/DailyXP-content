@@ -1,91 +1,91 @@
 {
   "student": "t1",
-  "date": "2026-08-19",
-  "day": "WED",
-  "tag": "T4.3 · REVERSED BLITZ",
-  "title": "DailyXP · WED 2026-08-19",
+  "date": "2026-08-20",
+  "day": "THU",
+  "tag": "T4.4",
+  "title": "DailyXP · THU 2026-08-20",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Area of a triangle = base × height (no ÷2)",
+      "prompt": "Co-interior angles add to 180°",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
         "icon": "⇆",
-        "sub": "Flick each into the right bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The area of a triangle is half of base × height — the ÷2 accounts for the triangle being half a rectangle.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo and Juliet was written by Christopher Marlowe",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each into the right bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "William Shakespeare wrote Romeo and Juliet, not Marlowe — a rival playwright often confused with him.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Sexual reproduction produces genetically identical offspring",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each into the right bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Sexual reproduction combines gametes from two parents, producing genetic variation — it's asexual reproduction that gives identical offspring.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Crusades were fought over control of Jerusalem",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each into the right bucket",
+        "sub": "Flick each card up into its bucket",
         "cta": "Start swiping →"
       },
       "type": "swipe",
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Jerusalem was the central religious prize both Christians and Muslims fought to control during the Crusades.",
+      "why": "Co-interior (allied) angles between parallel lines are supplementary, always summing to 180°.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "The prologue reveals the lovers will die",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "The prologue calls them 'star-crossed lovers' and tells the audience their deaths in advance, creating dramatic irony.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "A tsunami can be triggered by an underwater earthquake",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Sudden movement of the seabed during an underwater earthquake displaces water, generating a tsunami.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A cause always happens after its consequence",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "A cause happens before its consequence — the consequence is the result that follows the cause, not the other way round.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The answer is: \"the Byzantine Empire\". Which power survived Rome's fall in the east?",
+      "prompt": "What did the Silk Road mainly connect?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The Byzantine Empire",
-      "why": "The Byzantine Empire was the continuation of Rome in the east and survived for centuries after the west fell; the others were later medieval powers.",
+      "answer": "Europe and Asia",
+      "why": "The Silk Road was a network of trade routes linking Europe and Asia, carrying goods like silk, spices, and ideas.",
       "options": [
-        "The Byzantine Empire",
-        "The Holy Roman Empire",
-        "The Frankish Kingdom",
-        "The Papal States"
+        "Europe and Asia",
+        "Africa and Australia",
+        "Rome and Egypt only",
+        "England and Scotland"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "What is the volume of a cuboid 6cm by 2cm by 3cm?",
+      "subject": "PDHPE",
+      "prompt": "What does 'mental health' actually refer to?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "36 cubic cm",
-      "why": "Volume of a cuboid is length × width × height: 6 × 2 × 3 = 36 cubic cm.",
+      "answer": "Overall emotional wellbeing",
+      "why": "Mental health describes a person's overall emotional and psychological wellbeing, not just the presence of illness.",
       "options": [
-        "36 cubic cm",
-        "22 cubic cm",
-        "18 cubic cm",
-        "44 cubic cm"
+        "Overall emotional wellbeing",
+        "Only having a mental illness",
+        "Physical fitness level",
+        "Intelligence test score"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A shape is a 12cm by 6cm rectangle with a 4cm by 3cm rectangle removed. What is the remaining area?",
+      "subject": "PDHPE",
+      "prompt": "Which statement about mental health is a myth?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "60 sq cm",
-      "why": "12 × 6 = 72, minus the removed 4 × 3 = 12, leaves 60 sq cm — remember to subtract the cut-out piece.",
+      "answer": "Only weak people struggle",
+      "why": "This is a harmful myth — mental health struggles can affect anyone regardless of strength or character.",
       "options": [
-        "60 sq cm",
-        "72 sq cm",
-        "48 sq cm",
-        "56 sq cm"
+        "Only weak people struggle",
+        "Anyone can experience it",
+        "It can change over time",
+        "Support can help recovery"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Geography",
-      "prompt": "The answer is: \"trade, culture, and technology spreading between countries\". Which term?",
+      "subject": "PDHPE",
+      "prompt": "What is a healthy way to deal with strong emotions?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,43 +159,221 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Globalisation",
-      "why": "Globalisation describes countries becoming more linked through trade, culture, and technology; migration is people moving, not the wider process.",
+      "answer": "Talk to someone trusted",
+      "why": "Sharing feelings with a trusted person is a healthy coping strategy, unlike suppressing or ignoring emotions.",
       "options": [
-        "Globalisation",
-        "Migration",
-        "Urbanisation",
-        "Colonisation"
+        "Talk to someone trusted",
+        "Bottle it up completely",
+        "Ignore it until it fades",
+        "Blame others for it"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "What is a leitmotif in film music?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A recurring musical theme",
+      "why": "A leitmotif is a recurring musical theme linked to a character, place, or idea throughout a film.",
+      "options": [
+        "A recurring musical theme",
+        "A single sound effect",
+        "The film's title screen",
+        "A silent scene"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In the key of C, what chord is 'vi' in the I–vi–IV–V progression?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A minor",
+      "why": "In C major, the sixth scale degree chord is A minor, giving the vi chord in I–vi–IV–V.",
+      "options": [
+        "A minor",
+        "F major",
+        "G major",
+        "C major"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "What usually creates contrast between verse and chorus?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Change in texture or dynamics",
+      "why": "Contrast between song sections often comes from adding layers, changing dynamics, or shifting texture.",
+      "options": [
+        "Change in texture or dynamics",
+        "Playing the exact same notes",
+        "Removing all instruments",
+        "Repeating the verse lyrics"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What does globalisation mainly increase between countries?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Connections and trade",
+      "why": "Globalisation is the growing connection between countries through trade, technology, and culture.",
+      "options": [
+        "Connections and trade",
+        "Physical distance",
+        "Language differences",
+        "Border restrictions"
       ],
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Who called for the First Crusade in 1095?",
-      "answer": "Pope Urban II",
-      "why": "Pope Urban II launched the First Crusade at the Council of Clermont in 1095, calling Christians to reclaim Jerusalem.",
-      "options": [
-        "Pope Urban II",
-        "Pope Gregory VII",
-        "Richard the Lionheart",
-        "Emperor Constantine"
-      ],
+      "subject": "Maths",
+      "prompt": "Two parallel lines are cut by a transversal. One co-interior angle is 65°. What is the other co-interior angle, in degrees?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 115,
+      "calc": false,
+      "pre": "",
+      "post": " degrees",
+      "why": "Co-interior angles sum to 180°, so 180 − 65 = 115.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
+      "subject": "Maths",
+      "prompt": "A quadrilateral has angles 90°, 90°, 90°, and one unknown angle. What is the unknown angle, in degrees?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 90,
+      "calc": false,
+      "pre": "",
+      "post": " degrees",
+      "why": "Angles in a quadrilateral sum to 360°, so 360 − 270 = 90.",
+      "fresh": false
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "What is the name for a large sudden movement of mud and debris from a volcano, often mixed with melted ice or water?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "lahar",
+        "lahars"
+      ],
+      "why": "A lahar is a volcanic mudflow, often triggered when heat melts snow or ice on a volcano.",
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order these steps in analysing cause and consequence for a historical event",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Identify the event",
+        "Find its causes",
+        "Examine short-term consequences",
+        "Examine long-term consequences"
+      ],
+      "top": "First",
+      "bot": "Last",
+      "why": "Good historical analysis starts by identifying the event, then works back to causes, then forward through short-term and long-term consequences.",
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "What is the term for the boundary where two tectonic plates slide past each other sideways?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "transform boundary",
+        "conservative boundary",
+        "transform"
+      ],
+      "why": "A transform (conservative) boundary is where plates slide past each other, often causing earthquakes.",
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
       "subject": "English",
-      "prompt": "In which country is Verona, the setting of Romeo and Juliet, located?",
-      "answer": "Italy",
-      "why": "Verona is a city in Italy, where Shakespeare set most of Romeo and Juliet's action.",
+      "prompt": "Who does Romeo kill in a duel after Mercutio's death?",
+      "answer": "Tybalt, Juliet's cousin",
+      "why": "Romeo kills Tybalt to avenge Mercutio, which gets him banished from Verona and drives the plot toward tragedy.",
       "options": [
-        "Italy",
-        "Spain",
-        "France",
-        "Greece"
+        "Tybalt, Juliet's cousin",
+        "Paris, Juliet's suitor",
+        "Benvolio, his own cousin",
+        "Friar Laurence, the priest"
       ],
       "fresh": false
     },
@@ -203,7 +381,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "A student says the balcony scene's imagery of light and dark is 'just decoration' and has no real purpose. Explain, using specific language from the scene, why this imagery actually shapes the audience's understanding of the characters' love."
+      "prompt": "A classmate says Shakespeare's plays don't need any historical context to understand, since 'a story is just a story.' Explain, using specific context about Elizabethan theatre or society, why understanding Shakespeare's background changes how we read Romeo and Juliet."
     }
   ]
 }
