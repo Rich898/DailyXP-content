@@ -1,112 +1,188 @@
 {
   "student": "y8",
-  "date": "2026-08-18",
-  "day": "TUE",
-  "tag": "H4.2",
-  "title": "DailyXP · TUE 2026-08-18",
+  "date": "2026-08-20",
+  "day": "THU",
+  "tag": "H4.4",
+  "title": "DailyXP · THU 2026-08-20",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 62°. What is the alternate angle on the other line?",
-      "answer": "62°",
-      "why": "Alternate angles sit on opposite sides of the transversal between the parallel lines and are always equal, so the answer is 62°, not the co-interior supplement 118°.",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 85°. What is the vertically opposite angle?",
+      "answer": "85°",
+      "why": "Vertically opposite angles are equal, so the answer is 85°, not the co-interior supplement (95°).",
       "options": [
-        "62°",
-        "118°",
-        "28°",
-        "90°"
+        "85°",
+        "95°",
+        "180°",
+        "75°"
       ],
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What did Magna Carta say the king had to do before punishing a free man?",
-      "answer": "Follow the law",
-      "why": "Magna Carta 1215 established that even the king was bound by the law and could not punish free men without lawful judgment, limiting royal power.",
+      "subject": "English",
+      "prompt": "Who speaks the prologue in Romeo and Juliet?",
+      "answer": "The Chorus",
+      "why": "The Chorus delivers the 14-line prologue that sets up the whole story before the action begins.",
       "options": [
-        "Follow the law",
-        "Consult the pope",
-        "Ask parliament",
-        "Pay a fine"
+        "The Chorus",
+        "Romeo",
+        "Friar Laurence",
+        "Prince Escalus"
       ],
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has one angle of 110° and no equal sides. What type of triangle is it?",
-      "answer": "Obtuse scalene",
-      "why": "An angle over 90° makes a triangle obtuse, and no equal sides makes it scalene, so it is an obtuse scalene triangle.",
+      "subject": "History",
+      "prompt": "In history, what does 'continuity' mean?",
+      "answer": "Things staying the same",
+      "why": "Continuity means aspects of life stay the same over time, while change describes what is different — historians look for both, not just dramatic events.",
       "options": [
-        "Obtuse scalene",
-        "Acute isosceles",
-        "Right angled",
-        "Equilateral"
+        "Things staying the same",
+        "Things changing fast",
+        "A single trigger event",
+        "A turning point moment"
       ],
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Which religion held Jerusalem as a holy city, alongside Christianity and Judaism, during the Crusades?",
-      "answer": "Islam",
-      "why": "Jerusalem was sacred to Christians, Jews, and Muslims alike, which is why control of the city was so fiercely contested during the Crusades.",
+      "subject": "English",
+      "prompt": "Where was William Shakespeare born?",
+      "answer": "Stratford-upon-Avon",
+      "why": "Shakespeare was born in Stratford-upon-Avon in 1564, though he later worked mainly in London's theatres.",
       "options": [
-        "Islam",
-        "Hinduism",
-        "Buddhism",
-        "Sikhism"
+        "Stratford-upon-Avon",
+        "London city centre",
+        "Canterbury in Kent",
+        "York in Yorkshire"
       ],
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "The Black Death killed huge numbers of workers. What was a long-term consequence of this labour shortage?",
-      "answer": "Peasants could demand higher wages",
-      "why": "The mass deaths (cause) meant fewer workers were left, so survivors could demand higher wages (consequence). The other options are earlier causes or unrelated events, not results of the labour shortage.",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, who tries to stop the servants' street brawl?",
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword only to try to stop the fight, showing his peacemaking role, before Tybalt escalates it.",
       "options": [
-        "Peasants could demand higher wages",
-        "Poor harvests spread across Europe",
-        "Trade routes brought the plague to England",
-        "Rats carried fleas into towns"
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "Friar Laurence"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Geography",
-      "prompt": "Which of these best shows globalisation increasing interconnection?",
-      "answer": "Global supply chains",
-      "why": "Global supply chains link countries through trade and production, showing how globalisation connects economies worldwide, unlike purely local activities.",
+      "subject": "PDHPE",
+      "prompt": "What does 'mental health' actually refer to?",
+      "answer": "Overall emotional wellbeing",
+      "why": "Mental health means a person's overall emotional and psychological wellbeing, not just the presence of a diagnosed illness.",
       "options": [
-        "Global supply chains",
-        "Local farmers market",
-        "Village town hall",
-        "School sports day"
+        "Overall emotional wellbeing",
+        "Only serious mental illness",
+        "Physical fitness level",
+        "Intelligence and memory"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Who wrote Romeo and Juliet?",
-      "answer": "William Shakespeare",
-      "why": "Romeo and Juliet was written by William Shakespeare in the 1590s, one of his earliest tragedies.",
+      "subject": "PDHPE",
+      "prompt": "Which statement about mental health is a common myth?",
+      "answer": "Only weak people struggle",
+      "why": "This is a harmful myth — mental health struggles affect people regardless of strength or character.",
       "options": [
-        "William Shakespeare",
-        "Christopher Marlowe",
-        "Geoffrey Chaucer",
-        "Ben Jonson"
+        "Only weak people struggle",
+        "Anyone can be affected",
+        "It can change over time",
+        "Support can help recovery"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "What is a healthy way to deal with strong emotions?",
+      "answer": "Talk to someone trusted",
+      "why": "Naming and sharing feelings with a trusted person helps process emotions, unlike suppressing or ignoring them.",
+      "options": [
+        "Talk to someone trusted",
+        "Ignore the feeling completely",
+        "Bottle it up quietly",
+        "Blame others for it"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In film music, what is a 'leitmotif'?",
+      "answer": "A recurring musical theme",
+      "why": "A leitmotif is a short recurring musical idea linked to a character, place, or idea throughout a film.",
+      "options": [
+        "A recurring musical theme",
+        "A single loud sound effect",
+        "The film's opening credits",
+        "A change in film genre"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In the key of C major, which chord is 'vi' in the I–vi–IV–V progression?",
+      "answer": "A minor",
+      "why": "In C major, the vi chord built on the sixth note (A) is A minor, giving the progression its sadder colour.",
+      "options": [
+        "A minor",
+        "F major",
+        "G major",
+        "C major"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In song structure, what usually contrasts with the verse?",
+      "answer": "The chorus",
+      "why": "The chorus contrasts with the verse in melody and lyrics, giving the song its catchy, repeated highlight.",
+      "options": [
+        "The chorus",
+        "A second verse",
+        "The intro",
+        "The outro"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "Globalisation mainly describes what happening between countries?",
+      "answer": "Growing economic and cultural links",
+      "why": "Globalisation refers to countries becoming more connected through trade, culture, and technology, not less.",
+      "options": [
+        "Growing economic and cultural links",
+        "Countries becoming fully isolated",
+        "Borders closing permanently",
+        "Trade stopping between nations",
+        ""
       ],
       "fresh": false
     },
@@ -114,14 +190,14 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests whether the amount of water given affects plant height, keeping pot size the same for all plants. What is the independent variable?",
-      "answer": "Amount of water given",
-      "why": "The independent variable is the one the scientist deliberately changes — here, the amount of water. Plant height is measured (dependent), and pot size is kept the same (controlled).",
+      "prompt": "A student tests how the amount of water poured onto plants affects plant height, using the same type of water each time. What is the controlled variable here?",
+      "answer": "The type of water used",
+      "why": "The controlled variable is kept the same on purpose, like the type of water — the amount of water is the independent variable, and height is the dependent variable.",
       "options": [
-        "Amount of water given",
-        "Height of the plant",
-        "Size of the pot",
-        "Type of plant used"
+        "The type of water used",
+        "The amount of water poured",
+        "The height of the plants",
+        "The number of plants tested"
       ],
       "fresh": false,
       "repair": true
@@ -129,15 +205,15 @@
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "What poetic form do Romeo and Juliet speak in when they first meet at the party?",
-      "answer": "Sonnet",
-      "why": "Shakespeare has Romeo and Juliet share a sonnet at their first meeting, its formal rhyme scheme signalling their instant romantic connection.",
+      "subject": "History",
+      "prompt": "In medieval times, why could the Church punish people even kings feared?",
+      "answer": "It could excommunicate",
+      "why": "The Church could excommunicate people, cutting them off from salvation, which even kings feared — a powerful spiritual weapon beyond royal control.",
       "options": [
-        "Sonnet",
-        "Haiku",
-        "Ballad",
-        "Free verse"
+        "It could excommunicate",
+        "It collected all taxes",
+        "It owned every castle",
+        "It controlled the army"
       ],
       "fresh": false,
       "throwback": true
@@ -145,15 +221,15 @@
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "In sexual reproduction, offspring get genetic material from how many parents?",
-      "answer": "Two parents",
-      "why": "Sexual reproduction combines genetic material from two parents, creating genetic variation, unlike asexual reproduction where offspring come from one parent.",
+      "subject": "Maths",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 58°. What is the corresponding angle on the other line?",
+      "answer": "58°",
+      "why": "Corresponding angles are equal when lines are parallel, so the matching angle is also 58°.",
       "options": [
-        "Two parents",
-        "One parent",
-        "Three parents",
-        "Zero parents"
+        "58°",
+        "122°",
+        "180°",
+        "32°"
       ],
       "fresh": false
     },
@@ -161,14 +237,44 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 105°. What is the co-interior angle on the other line?",
-      "answer": "75°",
-      "why": "Co-interior (allied) angles sum to 180° because they lie between the parallel lines on the same side, so 180° minus 105° gives 75°.",
+      "prompt": "A triangle has angles of 40°, 40°, and 100°. What type of triangle is it?",
+      "answer": "Isosceles",
+      "why": "Two equal angles (40° and 40°) mean two equal sides, making this an isosceles triangle.",
       "options": [
-        "75°",
-        "105°",
-        "285°",
-        "15°"
+        "Isosceles",
+        "Equilateral",
+        "Scalene",
+        "Right-angled"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "What causes a tsunami after an undersea earthquake?",
+      "answer": "Sudden movement of the sea floor",
+      "why": "A tsunami is triggered when a sudden shift in the sea floor during an earthquake displaces huge volumes of water.",
+      "options": [
+        "Sudden movement of the sea floor",
+        "Heavy rainfall over the ocean",
+        "Strong winds pushing water",
+        "Melting polar ice caps"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "What is the key difference between a long-term cause and a short-term (trigger) cause?",
+      "answer": "Long-term causes build up over years",
+      "why": "Long-term causes develop gradually over time, while a trigger (short-term) cause is the immediate event that sets things off.",
+      "options": [
+        "Long-term causes build up over years",
+        "Short-term causes take decades",
+        "Long-term causes have no effect",
+        "Trigger causes are always ignored"
       ],
       "fresh": false
     },
@@ -176,7 +282,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Your classmate says: 'In an experiment testing whether the volume of music affects how fast a person reads, the number of pages read is the independent variable, since that's what changes most.' Using an example of your own, explain what actually makes a variable independent, dependent, or controlled, and correct your classmate's mistake."
+      "prompt": "Explain why the same magnitude earthquake can cause far more damage and deaths in one country than in another. Use ideas about wealth, building standards, and preparedness."
     }
   ]
 }
