@@ -1273,7 +1273,7 @@ function renderLoadError(){
 }
 
 function renderStart(){
-  var boss = (EVENT==="battleground");
+  var rev = false, boss = (EVENT==="battleground");   // rev: reversed is dormant (Blitz retired 20 Aug 2026)
   var mins = Math.max(2, Math.round((speedQs.length*8 + steadyQs.length*22 + (teachQ?60:0))/60));
   var banner = (boss
     ? '<div class="bgbanner"><div class="bT">\u2694 BATTLEGROUND</div><div class="bS">Claim back the ground you slipped on \u2014 no losing, just how much you take.</div><div class="frontline"></div></div>'
