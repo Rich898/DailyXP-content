@@ -1,8 +1,287 @@
 {
   "student": "y9",
-  "status": "placeholder",
-  "date": "2026-08-19",
-  "day": "",
-  "title": "DailyXP",
-  "questions": []
+  "date": "2026-08-20",
+  "day": "THU",
+  "tag": "R4.4",
+  "title": "DailyXP · THU 2026-08-20",
+  "questions": [
+    {
+      "id": "S1",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, what do the boys let die out because they'd rather hunt?",
+      "answer": "The signal fire",
+      "why": "The boys neglect the signal fire to go hunting, showing their priorities shifting from rescue to savagery.",
+      "options": [
+        "The signal fire",
+        "The conch shell",
+        "Piggy's glasses",
+        "The shelters"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "White blood cells called phagocytes destroy pathogens mainly by doing what?",
+      "answer": "Engulfing and digesting them",
+      "why": "Phagocytes work by engulfing and digesting pathogens; antibodies are made by lymphocytes, not phagocytes.",
+      "options": [
+        "Engulfing and digesting them",
+        "Producing antibody proteins",
+        "Releasing histamine chemicals",
+        "Filtering them in the kidneys"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What system of voting did the Weimar Republic's constitution use?",
+      "answer": "Proportional representation",
+      "why": "Proportional representation matched seats to vote share, but it led to many small parties and unstable coalitions.",
+      "options": [
+        "Proportional representation",
+        "First past the post",
+        "Single transferable vote",
+        "Direct presidential rule"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Cereal ads use cartoon mascots mainly to target which group?",
+      "answer": "Children",
+      "why": "Bright colours and cartoon characters are designed to appeal to children, who then influence family purchases.",
+      "options": [
+        "Children",
+        "Elderly shoppers",
+        "Office workers",
+        "Professional athletes"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What was Australia's post-WWII policy encouraging mass migration called?",
+      "answer": "Populate or perish",
+      "why": "\"Populate or perish\" reflected fears about national security combined with the need for industrial labour after WWII.",
+      "options": [
+        "Populate or perish",
+        "White Australia policy",
+        "Snowy Mountains scheme",
+        "Assisted passage act"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "In which German city did Hitler's 1923 Putsch take place?",
+      "answer": "Munich",
+      "why": "The failed uprising began in a Munich beer hall in 1923, so it is known as the Munich Beer Hall Putsch.",
+      "options": [
+        "Munich",
+        "Berlin",
+        "Hamburg",
+        "Nuremberg"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "Simplify: 3x + 5x",
+      "answer": "8x",
+      "why": "Like terms add their coefficients: 3x + 5x combines to 8x, keeping the same variable.",
+      "options": [
+        "8x",
+        "15x",
+        "8x²",
+        "3x5"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "Solve for x: x + 7 = 12",
+      "answer": "x = 5",
+      "why": "Subtracting 7 from both sides isolates x, giving x = 5.",
+      "options": [
+        "x = 5",
+        "x = 19",
+        "x = 7",
+        "x = 12"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "What is the main purpose of an executive summary in a business plan?",
+      "answer": "Summarise the whole plan",
+      "why": "The executive summary gives a brief overview of the entire business plan on one page.",
+      "options": [
+        "Summarise the whole plan",
+        "List competitor prices",
+        "Detail staff wages",
+        "Show the swot analysis"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, what does the conch shell mainly represent?",
+      "answer": "Order and civilisation",
+      "why": "The conch is used to call meetings and grant the right to speak, symbolising order and democratic rule.",
+      "options": [
+        "Order and civilisation",
+        "Fear of the beast",
+        "Piggy's intelligence",
+        "The boys' hunger"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In Freud's model, which part acts on instinct and desire alone?",
+      "answer": "The id",
+      "why": "The id is the primitive part of the mind driven by instinct and immediate desire, unlike the reasoning ego.",
+      "options": [
+        "The id",
+        "The ego",
+        "The superego",
+        "The unconscious"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A business's logo is mainly part of its…",
+      "answer": "Branding",
+      "why": "A logo helps build a business's visual identity, which is a core part of its branding.",
+      "options": [
+        "Branding",
+        "Market analysis",
+        "Swot analysis",
+        "Executive summary"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T1",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 10 cm and a height of 8 cm. Slow down and work it through: what is its area?",
+      "answer": "40 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 10 × 8 = 40 cm². Halving is the step that's easy to rush past.",
+      "options": [
+        "40 cm²",
+        "80 cm²",
+        "18 cm²",
+        "36 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
+      "subject": "Geography",
+      "prompt": "From a while back — a factor that pushes people to leave their home area is called a…",
+      "answer": "Push factor",
+      "why": "A push factor is a reason people leave a place, like drought or unemployment, unlike a pull factor which attracts them elsewhere.",
+      "options": [
+        "Push factor",
+        "Pull factor",
+        "Migration factor",
+        "Settlement factor"
+      ],
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "D&T",
+      "prompt": "In marketing, what does 'branding' mainly create for a product?",
+      "answer": "A recognisable identity",
+      "why": "Branding builds a recognisable identity through logos, colours and messaging, helping customers recognise a product.",
+      "options": [
+        "A recognisable identity",
+        "A lower price point",
+        "A longer warranty",
+        "A wider distribution area"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "PDHPE",
+      "prompt": "A phone case ad claims 'used by top athletes' to boost sales. This technique relies on what?",
+      "answer": "Celebrity endorsement",
+      "why": "Linking a product to a famous or admired person is celebrity endorsement, a common marketing technique to build trust.",
+      "options": [
+        "Celebrity endorsement",
+        "Nutritional labelling",
+        "Price discounting",
+        "Store shelf placement"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Geography",
+      "prompt": "What term describes people moving from farms to cities for factory jobs?",
+      "answer": "Urbanisation",
+      "why": "Urbanisation specifically means the shift of population from rural to urban areas, distinct from migration between countries.",
+      "options": [
+        "Urbanisation",
+        "International migration",
+        "Assisted passage",
+        "Rural depopulation"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "What crisis hit Weimar Germany's currency severely in 1923?",
+      "answer": "Hyperinflation",
+      "why": "In 1923, hyperinflation made German money almost worthless, badly damaging trust in the Weimar government.",
+      "options": [
+        "Hyperinflation",
+        "Stock market crash",
+        "Bank nationalisation",
+        "Currency ban"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "TB1",
+      "phase": "teach",
+      "subject": "D&T",
+      "prompt": "A new market stall wants a memorable brand. Explain why choosing a simple, distinctive logo and consistent colours matters more than just having a good product."
+    }
+  ]
 }
