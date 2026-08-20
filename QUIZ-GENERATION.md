@@ -487,10 +487,11 @@ SWIPE✓/✗, NUM✓/✗, ORD✓/✗, TXT✓/✗; all rank 99, so when two mecha
 `✓_plain` — outranks a typed-mechanic WRONG on the same topic (an MC correct silently wins
 over a numeric miss). Probably not intended given "typed = strong evidence".
 
-**C10 — LEDGER-RULES.md is stale.** It still says teach-backs cause "no box change in v1";
-its precedence list omits SKIP✗, the TB badges and all mechanic badges; "2nd CW on the
-topic" is really *consecutive* last-result CW in code; and it doesn't mention that a wrong
-on an `untested` topic moves it UP to shaky (the demotion floor).
+**C10 — LEDGER-RULES.md is partially stale.** The teach-back row was fixed mid-audit
+(commit `2223bb9`, 20 Aug — the graded TB✓/TB~/TB✗ table now matches the writer). Still
+stale: the precedence list omits SKIP✗ and all mechanic badges; "2nd CW on the topic" is
+really *consecutive* last-result CW in code; and it doesn't mention that a wrong on an
+`untested` topic moves it UP to shaky (the demotion floor).
 
 **C11 — The SOLO/depth pipeline stops at runs.json.** No writer puts `depth` on ledger
 topics (live state verified: zero), so the Friday depth snapshot is always empty and any
@@ -500,7 +501,12 @@ is unreachable legitimately — yet `grade_teachback.TEACH_CEILING` is dead code
 `applies` verdict CAN escape a teach-back whenever the answer contains any link word,
 violating the ceiling law. Also `state_writer.verdict_badge` checks a
 `grade["integrity_hold"]` key that nothing ever writes (the hold actually works by
-quarantined rows never being graded) — harmless but misleading.
+quarantined rows never being graded) — harmless but misleading. Note: the 19-Aug SOLO
+acting-end doctrine (LEDGER-RULES, commit `2223bb9`) ratifies the build order for the
+depth writer (shadow mode → calibration → gate → live+backfill → planner targeting) and
+rules that **reversed does NOT qualify as a transfer instrument (ceiling `knows`)** —
+which now contradicts UNDERSTANDING.md §3's own ceiling table ("Reversed / transfer →
+applies"). UNDERSTANDING.md needs that row corrected.
 
 **C12 — CURRENT-STATE.md ("authoritative", 18 Aug) is now materially wrong.** It says the
 typed mechanics, swipe, and the teach-back three-light display are dormant/not integrated;

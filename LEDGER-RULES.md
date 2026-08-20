@@ -1,4 +1,4 @@
-> ⚠️ **PARTIALLY SUPERSEDED (20 Aug 2026).** Teach-back grades now DO move the ledger (TB✓/TB~/TB✗), mechanic badges (swipe/numeric/order/text) exist, and the precedence list below is incomplete. The verified transition table is **QUIZ-GENERATION.md §3**.
+> ⚠️ **PARTIALLY STALE (20 Aug 2026).** The teach-back table below is current (ratified 19 Aug), but the governing-precedence list omits SKIP✗ and all mechanic badges (swipe/numeric/order/text), the '2nd CW' rule is really *consecutive* last-result CW in code, and a wrong on an untested topic moves it UP to shaky. Verified table: **QUIZ-GENERATION.md §3**.
 
 # Ledger transition rules — how a night's result moves a topic
 
