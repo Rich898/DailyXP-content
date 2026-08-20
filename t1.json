@@ -9,7 +9,7 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Co-interior angles add to 180°",
+      "prompt": "Alternate angles are equal",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,52 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Co-interior (allied) angles between parallel lines are supplementary, adding to 180°.",
+      "why": "Alternate angles form a 'Z' shape between parallel lines and are always equal.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The Prologue is spoken by a single narrator called the Chorus",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "A single figure called the Chorus delivers the Prologue, setting up the tragedy before the action starts.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Tsunamis can be triggered by underwater earthquakes",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "A sudden shift of the seabed during an underwater earthquake can displace huge volumes of water, causing a tsunami.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Continuity means nothing ever changes over time",
+      "prompt": "Romeo is a Capulet",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +40,52 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Continuity means some things stay the same while other things change around them, not that nothing changes at all.",
+      "why": "Romeo belongs to the Montague family; Juliet is the Capulet — their families are rivals.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "Volcanoes only occur on land",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Many volcanoes are underwater along mid-ocean ridges and subduction zones on the seafloor.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Change always happens quickly",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Historical change can be sudden or gradual, unfolding over centuries alongside continuity.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What good did the Silk Road mainly move from China towards Europe?",
+      "prompt": "What did Europe mainly gain from trade with Asia in medieval times?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Silk",
-      "why": "The Silk Road was named for silk, a prized Chinese good traded westward along the route.",
+      "answer": "Spices and silk",
+      "why": "Trade routes like the Silk Road brought valuable spices and silk from Asia into Europe.",
       "options": [
-        "Silk",
-        "Potatoes",
-        "Coffee",
-        "Sugar cane"
+        "Spices and silk",
+        "Gold coins only",
+        "New religions only",
+        "Printed books only"
       ],
       "fresh": true
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Mental health mainly refers to a person's what?",
+      "prompt": "What does 'mental health' actually refer to?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Emotional wellbeing",
-      "why": "Mental health describes emotional, psychological and social wellbeing, not physical measures like fitness or exam scores.",
+      "answer": "Overall emotional wellbeing",
+      "why": "Mental health is about a person's overall emotional and psychological wellbeing, not just the presence of illness — everyone has mental health, good or bad, at all times.",
       "options": [
-        "Emotional wellbeing",
-        "Physical fitness",
-        "Exam results",
-        "Height and weight"
+        "Overall emotional wellbeing",
+        "Only having a diagnosed illness",
+        "Only physical fitness levels",
+        "Only how smart someone is"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which idea about mental illness is a common myth?",
+      "prompt": "What's a common myth about people with mental illness?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "It shows weakness",
-      "why": "Believing mental illness shows personal weakness is a harmful myth; it is a health issue, not a character flaw.",
+      "answer": "That they are always violent",
+      "why": "A widespread myth is that mental illness makes people dangerous or violent, but most people with mental illness are never violent — this stereotype adds to stigma and stops people seeking help.",
       "options": [
-        "It shows weakness",
-        "It is treatable",
-        "It affects many people",
-        "It can improve with support"
+        "That they are always violent",
+        "That they can recover with support",
+        "That it affects thoughts and mood",
+        "That treatment can include therapy"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which strategy best helps calm strong anxiety?",
+      "prompt": "Which strategy helps calm strong anxiety in the moment?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Slow deep breathing",
-      "why": "Slow, deep breathing calms the body's stress response, while suppressing or venting anger doesn't resolve the feeling.",
+      "answer": "Slow, controlled breathing",
+      "why": "Slow, controlled breathing calms the body's stress response quickly, unlike avoidance or rumination, which tend to keep anxiety going or make it worse over time.",
       "options": [
-        "Slow deep breathing",
-        "Bottling it up",
-        "Avoiding it forever",
-        "Yelling at others"
+        "Slow, controlled breathing",
+        "Avoiding the trigger forever",
+        "Bottling feelings up quietly",
+        "Replaying the worry repeatedly"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In film music, quiet dissonant strings usually create what mood?",
+      "prompt": "In film music, a sudden loud brass stab often signals what?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Tension",
-      "why": "Dissonant, quiet string writing is a common film-music technique for building tension or unease.",
+      "answer": "Shock or danger",
+      "why": "Loud, sudden brass stings are a common technique to signal shock, threat, or danger on screen.",
       "options": [
-        "Tension",
-        "Joy",
-        "Romance",
-        "Comedy"
+        "Shock or danger",
+        "Calm romance",
+        "Comedy relief",
+        "Peaceful ending"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C major, what chord progression is the famous I–vi–IV–V pattern?",
+      "prompt": "In the I-vi-IV-V progression in C major, which chord is the 'vi'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "C–Am–F–G",
-      "why": "I–vi–IV–V in C major gives C–Am–F–G, the classic four-chord pop progression used in countless songs.",
+      "answer": "A minor",
+      "why": "The sixth chord built on C major's scale is A minor, giving the progression its familiar sad-pop feel.",
       "options": [
-        "C–Am–F–G",
-        "C–Dm–Em–F",
-        "C–F–G–Am",
-        "C–Em–Am–Dm"
+        "A minor",
+        "F major",
+        "G major",
+        "C major"
       ],
       "fresh": false
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In a pop song, what typically makes the chorus feel bigger than the verse?",
+      "prompt": "Adding extra instrument layers into a song's chorus mainly creates what effect?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,13 +225,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Extra layers added",
-      "why": "Choruses usually add layers like drums, backing vocals, or harmony to create a fuller, more energetic sound than the verse.",
+      "answer": "A bigger, fuller sound",
+      "why": "Layering more instruments and voices thickens the texture, making the chorus feel larger than the verse.",
       "options": [
-        "Extra layers added",
-        "One quiet solo voice",
-        "A sudden long silence",
-        "Slower tempo throughout"
+        "A bigger, fuller sound",
+        "A quieter, thinner sound",
+        "A faster tempo only",
+        "A key change only"
       ],
       "fresh": false
     },
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "Globalisation mainly links countries through what?",
+      "prompt": "Globalisation mainly connects countries through which processes?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Trade and technology",
-      "why": "Globalisation describes growing links between countries through trade, technology, and culture.",
+      "answer": "Trade, culture and technology",
+      "why": "Globalisation links countries through growing trade, cultural exchange and shared technology, not through countries adopting the same government, language or currency.",
       "options": [
-        "Trade and technology",
-        "Separate currencies only",
-        "Closed borders",
-        "Isolated economies"
+        "Trade, culture and technology",
+        "Shared government and laws",
+        "Identical languages worldwide",
+        "One single world currency"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 65°. What is its co-interior angle, in degrees?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 110°. What is its alternate angle, in degrees?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,18 +270,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 115,
+      "answer": 110,
       "calc": false,
       "pre": "",
       "post": "°",
-      "why": "Co-interior angles are supplementary, so 180 - 65 = 115°.",
+      "why": "Alternate angles between parallel lines are always equal, so the answer is also 110°.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A quadrilateral has angles 90°, 90°, 90°, and one unknown angle. What is the unknown angle, in degrees?",
+      "prompt": "A quadrilateral has angles 100°, 80°, 100°, and one unknown angle. What is the unknown angle, in degrees?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -290,18 +290,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 90,
-      "calc": false,
+      "answer": 80,
+      "calc": true,
       "pre": "",
       "post": "°",
-      "why": "Angles in a quadrilateral sum to 360°, so 360 - 270 = 90°.",
+      "why": "Angles in a quadrilateral sum to 360°; 360 - 100 - 80 - 100 = 80°.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes the mudflow of volcanic debris and water down a volcano's slopes?",
+      "prompt": "What is the sudden violent shaking of the ground caused by tectonic plate movement called?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "lahar",
-        "lahars"
+        "earthquake",
+        "earthquakes"
       ],
-      "why": "A lahar is a destructive mudflow made of volcanic ash, rock, and water flowing down a volcano's slopes.",
+      "why": "An earthquake is ground shaking caused by the sudden release of energy along a fault line.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order the stages of analysing a historical event's cause and consequence",
+      "prompt": "Order these steps for analysing why a historical event happened",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -332,20 +332,20 @@
       "type": "order",
       "sequence": [
         "Identify the event",
-        "Find its immediate causes",
-        "Find its long-term causes",
-        "Assess its consequences"
+        "Find background factors",
+        "Find the immediate trigger",
+        "Explain the consequences"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Historians first identify the event, then work out immediate causes, then deeper long-term causes, before assessing its consequences.",
+      "why": "Good historical analysis starts by identifying the event, then background causes, the trigger, and finally its effects.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for the boundary where two tectonic plates slide past each other sideways?",
+      "prompt": "What term describes the boundary where two tectonic plates move apart from each other?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -355,25 +355,24 @@
       },
       "type": "text",
       "accept": [
-        "conservative boundary",
-        "transform boundary",
-        "conservative plate boundary"
+        "divergent boundary",
+        "divergent"
       ],
-      "why": "A conservative (transform) boundary is where plates slide past each other, often causing earthquakes without new crust forming.",
+      "why": "A divergent boundary is where plates move apart, often forming new crust, like at mid-ocean ridges.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Who is Romeo's best friend killed by Tybalt in the play?",
-      "answer": "Mercutio",
-      "why": "Mercutio, Romeo's close friend, is killed by Tybalt, which sparks Romeo's fatal revenge.",
+      "prompt": "Who does Juliet's family want her to marry instead of Romeo?",
+      "answer": "Paris",
+      "why": "Juliet's parents arrange for her to marry Paris, a wealthy kinsman of the Prince, adding to the tragedy.",
       "options": [
-        "Mercutio",
-        "Benvolio",
         "Paris",
-        "Balthasar"
+        "Tybalt",
+        "Mercutio",
+        "Benvolio"
       ],
       "fresh": false
     },
@@ -381,7 +380,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "A student says knowing Shakespeare wrote Romeo and Juliet for a live Elizabethan audience with no scenery or special effects doesn't matter to understanding the play today. Explain why this historical context actually changes how we read or perform key scenes."
+      "prompt": "A student says Shakespeare's plays don't need any historical context to be understood today. Explain why knowing about Elizabethan theatre and society actually changes how we read Romeo and Juliet."
     }
   ]
 }
