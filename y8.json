@@ -9,7 +9,7 @@
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Alternate angles are equal",
+      "prompt": "Co-interior angles add to 180°",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Alternate angles form a 'Z' shape between parallel lines and are always equal.",
+      "why": "Co-interior (allied) angles between parallel lines are supplementary, always summing to 180°.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The Prince warns the feuding families early in the play",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Prince Escalus threatens death to anyone who disturbs the peace again after the opening brawl.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A consequence always happens before its cause",
+      "prompt": "Juliet is a Montague",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A cause comes first and leads to a consequence afterwards, never the other way round.",
+      "why": "Juliet is a Capulet; Romeo is the Montague — their families are the two feuding houses.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S3",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Shakespeare acted in his own plays",
+      "subject": "History",
+      "prompt": "Continuity means things stayed the same over time",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Shakespeare was an actor as well as a playwright, performing with his company the Lord Chamberlain's Men.",
+      "why": "Continuity refers to aspects of the past that remained unchanged, unlike 'change' which marks difference over time.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Shakespeare wrote only tragedies",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Shakespeare wrote comedies and histories too, such as A Midsummer Night's Dream and Henry V, not just tragedies.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to break up the servants' brawl?",
+      "prompt": "In Act 1 Scene 5, why does Tybalt want to fight Romeo at the Capulet party?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword to stop the fighting, showing his peacemaking role, before Tybalt escalates it.",
+      "answer": "He recognises Romeo's voice as a Montague",
+      "why": "Tybalt hears Romeo's voice and knows he is a Montague gatecrashing the party, which enrages him purely because of the family feud, not anything Romeo actually does.",
       "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Paris"
+        "Romeo insulted Lord Capulet directly",
+        "He recognises Romeo's voice as a Montague",
+        "Romeo tries to kiss Juliet in public",
+        "Romeo was caught stealing wine"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which best describes mental health?",
+      "prompt": "Mental health mainly refers to what?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,14 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Emotional wellbeing state",
-      "why": "Mental health is about overall emotional and psychological wellbeing, not the absence of any problems.",
+      "answer": "Emotional wellbeing",
+      "why": "Mental health is about emotional, psychological and social wellbeing, not a single measure like fitness or sleep.",
       "options": [
-        "Emotional wellbeing state",
-        "Having no problems",
+        "Emotional wellbeing",
         "Physical fitness level",
-        "A diagnosed illness"
+        "Amount of sleep had",
+        "Number of friends",
+        "IQ score"
       ],
       "fresh": false
     },
@@ -129,7 +130,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a healthy way to cope with exam stress?",
+      "prompt": "True or common myth: mental illness means someone is weak?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +138,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Talk to someone you trust",
-      "why": "Talking to someone trusted helps process stress; hiding feelings, skipping meals, or isolating yourself are common but unhealthy myths about coping.",
+      "answer": "Common myth",
+      "why": "This is a harmful myth — mental illness is not a weakness, it can affect anyone regardless of strength or character.",
       "options": [
-        "Talk to someone you trust",
-        "Bottle it up and hide it",
-        "Skip meals to focus more",
-        "Avoid friends until it passes"
+        "Common myth",
+        "Proven fact",
+        "Medical diagnosis",
+        "Official definition"
       ],
       "fresh": false
     },
@@ -151,7 +152,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a healthy first step when feeling overwhelmed?",
+      "prompt": "What is a healthy way to deal with anger?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +160,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Naming the feeling",
-      "why": "Naming and recognising an emotion helps you understand it, which is the first step to managing it well.",
+      "answer": "Pause and breathe",
+      "why": "Pausing to breathe helps regulate strong emotions, unlike bottling up or lashing out, which don't resolve the feeling.",
       "options": [
-        "Naming the feeling",
-        "Ignoring it fully",
-        "Bottling it up",
-        "Blaming someone else"
+        "Pause and breathe",
+        "Bottle it up fully",
+        "Yell at someone",
+        "Ignore it forever"
       ],
       "fresh": false
     },
@@ -173,7 +174,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In film music, what is a recurring musical idea for a character called?",
+      "prompt": "In film music, what is the term for music that mimics on-screen action closely?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +182,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A leitmotif",
-      "why": "A leitmotif is a recurring musical theme tied to a character or idea; the other terms describe unrelated musical concepts.",
+      "answer": "Mickey-mousing",
+      "why": "Mickey-mousing describes music that closely matches actions on screen, like a cartoon sound effect timed to movement.",
       "options": [
-        "A leitmotif",
-        "A random riff",
-        "A key change",
-        "A tempo marking"
+        "Mickey-mousing",
+        "Underscoring",
+        "Diegetic sound",
+        "Leitmotif"
       ],
       "fresh": false
     },
@@ -195,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord comes third?",
+      "prompt": "In the progression C–Am–F–G, which chord comes second?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +204,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "F major",
-      "why": "The order is C, Am, F, G, so F major is third; students often miscount and pick the chord before or after it.",
+      "answer": "A minor chord",
+      "why": "The progression runs C (I), Am (vi), F (IV), G (V) in order, so the second chord played is A minor.",
       "options": [
-        "F major",
-        "C major",
-        "A minor",
-        "G major"
+        "A minor chord",
+        "C major chord",
+        "F major chord",
+        "G major chord"
       ],
       "fresh": false
     },
@@ -217,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In song structure, what usually follows the chorus?",
+      "prompt": "In song structure, what usually comes right after the intro?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,13 +226,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A contrasting verse",
-      "why": "Songs often return to a verse for contrast after the chorus, rather than repeating sections back to back.",
+      "answer": "Verse",
+      "why": "The verse typically follows the intro, setting up the story before the song builds toward the chorus.",
       "options": [
-        "A contrasting verse",
-        "The intro again",
-        "A repeated chorus",
-        "A key change outro"
+        "Verse",
+        "Bridge",
+        "Outro",
+        "Key change"
       ],
       "fresh": false
     },
@@ -239,7 +240,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What does 'interconnection' mean in globalisation?",
+      "prompt": "What does globalisation mainly increase between countries?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +248,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Places linked by trade",
-      "why": "Interconnection describes how places worldwide are linked through trade, communication, and movement of people.",
+      "answer": "Interconnection",
+      "why": "Globalisation increases interconnection, linking countries through trade, culture, and communication.",
       "options": [
-        "Places linked by trade",
-        "Places becoming isolated",
-        "One country ruling all",
-        "Borders becoming stronger"
+        "Interconnection",
+        "Isolation",
+        "Border control",
+        "Language loss"
       ],
       "fresh": false
     },
@@ -261,7 +262,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if fertiliser amount affects plant height, what type of variable is plant height?",
+      "prompt": "In an experiment testing if music volume affects plant growth, what type of variable is 'plant growth'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,14 +275,14 @@
         "dependent variable",
         "dependent"
       ],
-      "why": "Plant height is measured as the outcome, making it the dependent variable — it depends on the fertiliser amount.",
+      "why": "Plant growth is what's measured as a result, making it the dependent variable, not the one changed on purpose.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these by how strong the Church's use of power is",
+      "prompt": "Order these by how the medieval Church used its power, from mildest to most severe",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -291,14 +292,14 @@
       },
       "type": "order",
       "sequence": [
-        "Church holds Sunday services",
-        "Church collects tithes from villagers",
-        "Church excommunicates a noble",
-        "Pope places a whole kingdom under interdict"
+        "Giving a warning",
+        "Public penance",
+        "Excommunication",
+        "Interdict on a kingdom"
       ],
-      "top": "Everyday",
-      "bot": "Most extreme",
-      "why": "Interdict, which stopped all religious services for a whole kingdom, was the Church's most extreme punishment, far beyond routine tithes or services.",
+      "top": "Mildest",
+      "bot": "Most severe",
+      "why": "The Church escalated from warnings to public penance, then excommunication of individuals, up to an interdict affecting a whole kingdom.",
       "fresh": false,
       "throwback": true
     },
@@ -306,7 +307,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 84°. What is the corresponding angle on the other line?",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 76°. What is the corresponding angle on the other line?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -315,18 +316,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 84,
+      "answer": 76,
       "calc": false,
       "pre": "",
       "post": "°",
-      "why": "Corresponding angles are in matching positions at each intersection and are always equal, so the answer is 84°.",
+      "why": "Corresponding angles are equal when lines are parallel, so the matching angle is also 76°.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has angles of 38° and 72°. What is the third angle?",
+      "prompt": "A triangle has angles of 55° and 65°. What is the third angle?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -335,18 +336,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 70,
+      "answer": 60,
       "calc": false,
       "pre": "",
       "post": "°",
-      "why": "Angles in a triangle always sum to 180°, so 180 − 38 − 72 = 70°.",
+      "why": "Angles in a triangle sum to 180°, so 180 − 55 − 65 = 60°.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for a sudden shaking of the ground caused by tectonic plate movement?",
+      "prompt": "What is the term for a giant sea wave caused by an underwater earthquake?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -356,16 +357,16 @@
       },
       "type": "text",
       "accept": [
-        "earthquake"
+        "tsunami"
       ],
-      "why": "An earthquake is caused by the sudden release of energy along a fault line as tectonic plates move.",
+      "why": "A tsunami is a large sea wave triggered by sudden movement of the ocean floor, often from an earthquake.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order this chain of events from first cause to final consequence",
+      "prompt": "Order this chain of events from root cause to final consequence: rising unemployment, factory closures, falling trade, government spending cuts",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -375,21 +376,21 @@
       },
       "type": "order",
       "sequence": [
-        "Poor harvest reduces food supply",
-        "Food prices rise sharply",
-        "Public anger grows at the government",
-        "Protests break out in cities"
+        "Falling trade",
+        "Factory closures",
+        "Rising unemployment",
+        "Government spending cuts"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Each event triggers the next: the harvest failure causes price rises, which cause anger, which causes protests.",
+      "top": "Root cause",
+      "bot": "Final consequence",
+      "why": "Falling trade caused factories to close, which caused unemployment to rise, which forced government spending cuts.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Two countries are hit by tectonic hazards of similar size, but one has far more deaths. Explain what factors could cause this difference in death toll."
+      "prompt": "Two countries are hit by earthquakes of the same magnitude, but one country has far fewer deaths. What factors, other than the earthquake's size, explain this difference?"
     }
   ]
 }
