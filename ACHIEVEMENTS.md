@@ -50,7 +50,13 @@ per run, or per week). ⭐ = directly rewards a core anti-fluency-illusion behav
 ### Event — you rose to the occasion
 | Badge | Unlocks when | Type |
 |---|---|---|
-| **Boss Slayer** | clear Friday's Boss (all boss steady slots correct) | per Friday |
+| **Full Claim** | claim the whole Friday Battleground — 100% of the territory (every zone) | per Friday |
+| **Personal Best** | a night's XP above your own previous best, any night (baseline seeded from history at introduction — 20 Aug 2026 — so no backdated flood) | repeatable |
+
+> **Changelog (20 Aug 2026):** *Boss Slayer* → **Full Claim** when Friday became Battleground
+> (no win/lose — the badge rewards 100% claimed, matching the shell's own tier language).
+> *Blitz Master* → **Personal Best** when the Blitz event was retired — same essence
+> (beat your own XP record), no longer tied to a night type.
 
 The payoff: **Comeback, Calm Hands and Sure Shot reward exactly the behaviours the whole system
 is built to produce** — fixing weaknesses, slowing down, and real rather than illusory

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Self-contained regression test for achievements.py — all 11 badge types + idempotency.
+"""Self-contained regression test for achievements.py — all 12 badge types + idempotency.
 Synthetic log/runs/state, no private data or names. CI-runnable: exit 0 = pass."""
 import json, os, sys, tempfile, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -36,6 +36,8 @@ runs = [
     R("W","WED","2026-08-05",(9,10),(2,2),1500),
     R("Th","THU","2026-08-06",(7,7),(4,4),1250, lucky=True),
     R("F·BOSS","FRI","2026-08-07",(2,2),(4,4),1400),
+    R("M","MON","2026-08-24",(7,7),(4,4),1600),           # > 1500 baseline, post-PB_FROM -> PB
+    R("T","TUE","2026-08-25",(6,7),(4,4),1300),           # under best -> no PB
 ]
 json.dump({"runs":runs}, open(f"{tmp}/work/runs.json","w"), indent=2)
 
@@ -48,7 +50,7 @@ json.dump(state, open(f"{tmp}/work/state.json","w"), indent=2)
 
 awarded, _ = ach.process(tmp, dry_run=False)
 got = {a["badge"] for a in awarded}
-expect = {"First Blood","Clean Run","Full Claim","Perfect Week","Streak",
+expect = {"First Blood","Clean Run","Full Claim","Personal Best","Perfect Week","Streak",
           "Locked It","Comeback","Sure Shot","Untouchable","Calm Hands","Full Clear"}
 awarded2, _ = ach.process(tmp, dry_run=False)
 
@@ -56,7 +58,9 @@ ok = True
 def chk(d,c):
     global ok; print(f"  [{'PASS' if c else 'FAIL'}] {d}"); ok = ok and c
 print("achievements regression:")
-chk("all 11 badge types fired", not (expect - got))
+chk("all 12 badge types fired", not (expect - got))
+chk("Personal Best fired once, post-introduction only",
+    [a["key"] for a in awarded if a["badge"]=="Personal Best"] == ["Personal Best|2026-08-24"])
 chk("no unexpected badge types", not (got - expect))
 chk("streak bronze only (5 days)", [a["key"] for a in awarded if a["badge"]=="Streak"] == ["Streak|bronze"])
 chk("Full Clear = Geography only", [a["key"] for a in awarded if a["badge"]=="Full Clear"] == ["Full Clear|Geography"])

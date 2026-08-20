@@ -6,7 +6,7 @@ Runs right after the state-writer. Reads three event sources and awards any newl
 badges, deduped against a private earned-ledger so nothing ever fires twice:
 
   runs.json                 → run-shaped badges  (First Blood, Clean Run, Full Claim,
-                              Perfect Week, Streak)
+                              Personal Best, Perfect Week, Streak)
   state_writer_log.jsonl    → transition badges  (Locked It, Comeback, Untouchable,
                               Calm Hands, Sure Shot)
   state.json                → snapshot badges    (Full Clear)
@@ -27,6 +27,9 @@ import sys
 from datetime import date, timedelta
 
 STREAK_TIERS = [(14, "gold"), (7, "silver"), (3, "bronze")]
+# Personal Best introduced 2026-08-20 (Blitz Master retired with the Blitz event).
+# Runs before this date only seed the baseline — no backdated PB flood on first nightly run.
+PB_FROM = "2026-08-20"
 ACTIVE_STATES = {"shaky", "developing", "solid", "REPAIR"}
 
 
@@ -92,6 +95,7 @@ def run_badges(runs):
     out.append(("First Blood", "First Blood", runs[0].get("run_date"), "Completed your first quiz."))
 
     weekday_by_week, present = {}, set()
+    best_score = 0
     for r in runs:
         sf = r.get("shell_flags", {}) or {}
         day = (r.get("day") or "").upper()
@@ -105,9 +109,20 @@ def run_badges(runs):
             out.append(("Clean Run", f"Clean Run|{rd}|{tag}", rd,
                         "A whole quiz with no lucky guesses and no confident-wrongs."))
 
-        # Boss Slayer — a Friday/Boss run with every steady slot correct
+        # Full Claim — a Friday Battleground run with every zone claimed (100% territory)
         if (day == "FRI" or "BATTLEGROUND" in tag) and st.get("of") and st.get("right") == st.get("of"):
             out.append(("Full Claim", f"Full Claim|{rd}", rd, "Claimed the whole Friday Battleground."))
+
+        # Personal Best — a night's XP above your own previous best (any night).
+        # Compete-with-past-self only. Earnable from PB_FROM; earlier runs seed the baseline.
+        try:
+            sc = int(r.get("score") or 0)
+        except (TypeError, ValueError):
+            sc = 0
+        if sc > best_score and best_score > 0 and rd and rd >= PB_FROM:
+            out.append(("Personal Best", f"Personal Best|{rd}", rd,
+                        f"New personal best — {sc} XP, your biggest night yet."))
+        best_score = max(best_score, sc)
 
 
         if sd:

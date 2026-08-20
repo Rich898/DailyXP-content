@@ -157,7 +157,7 @@ the writer no-ops on a stale runs.json until then.
 
 Deterministic, idempotent, no AI — the same shape as the state-writer, run right after it. Reads
 three event sources and awards any newly-unlocked badges, deduped against a private earned-ledger
-so nothing fires twice: `runs.json` for run-shaped badges (First Blood, Clean Run, Boss Slayer,
+so nothing fires twice: `runs.json` for run-shaped badges (First Blood, Clean Run, Full Claim, Personal Best,
 Perfect Week, Streak), `state_writer_log.jsonl` for transition badges (Locked It,
 Comeback, Untouchable, Calm Hands, Sure Shot), and `state.json` for snapshot badges (Full Clear).
 The 12-badge v1 set and its triggers live in **`ACHIEVEMENTS.md`**. Awarded badges feed the
