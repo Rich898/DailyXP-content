@@ -137,6 +137,10 @@ def test_depth_ladder():
     assert d == "lists", f"unlinked 'applies' must fall, got {d}"
     print("  [PASS] unlinked 'applies' falls (teach ceiling honoured)")
 
+    d, why = cap_depth("applies", "It floats because salt water is denser, so a ship rides higher there too.")
+    assert d == "connects", f"linked 'applies' must cap at the teach ceiling, got {d}"
+    print("  [PASS] linked 'applies' caps at 'connects' (hard teach ceiling — no transfer instrument yet)")
+
     # the two axes are independent in normalise()
     g = normalise({"verdict": "partial", "depth": "connects", "english": True,
                    "evidence": "because it melts", "reason": "x"},

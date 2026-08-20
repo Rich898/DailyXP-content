@@ -497,9 +497,10 @@ really *consecutive* last-result CW in code; and it doesn't mention that a wrong
 topics (live state verified: zero), so the Friday depth snapshot is always empty and any
 ledger-depth reporting can never fire; UNDERSTANDING.md §4's promotion rules and §3.4's
 "ladder steers the planner" are unimplemented; transfer questions are untagged so `applies`
-is unreachable legitimately — yet `grade_teachback.TEACH_CEILING` is dead code and an
-`applies` verdict CAN escape a teach-back whenever the answer contains any link word,
-violating the ceiling law. Also `state_writer.verdict_badge` checks a
+is unreachable legitimately. (Fixed 20 Aug: `grade_teachback.cap_depth` now enforces
+TEACH_CEILING as a hard cap — `applies` can no longer escape a teach-back — and the
+shadow depth writer (`tools/depth_writer.py`, landed same day) caps it independently;
+UNDERSTANDING.md's ceiling table corrected per the reversed-is-not-transfer ruling.) Also `state_writer.verdict_badge` checks a
 `grade["integrity_hold"]` key that nothing ever writes (the hold actually works by
 quarantined rows never being graded) — harmless but misleading. Note: the 19-Aug SOLO
 acting-end doctrine (LEDGER-RULES, commit `2223bb9`) ratifies the build order for the

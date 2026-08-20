@@ -116,8 +116,9 @@ LINK_MARKERS = (
     "but ", "however", "although", "even though", "instead",
 )
 
-# Teach-backs cannot evidence above "connects" except on explicit transfer
-# (UNDERSTANDING.md §3 ceiling law + §4 promotion rules).
+# Teach-backs cannot evidence above "connects" — HARD ceiling, enforced in
+# cap_depth (UNDERSTANDING.md §3 + the 19 Aug acting-end ruling: 'applies' needs
+# a tagged transfer instrument; reversed does not qualify).
 TEACH_CEILING = "connects"
 
 
@@ -129,11 +130,14 @@ def _has_link_language(answer):
 def cap_depth(depth, answer):
     """Deterministic ceiling on the model's depth rung. LOWERS ONLY, never raises.
 
-    Two guards, both from UNDERSTANDING.md:
-      1. 'applies' from a teach-back requires explicit transfer language; without
-         link language at all it cannot stand, so it falls to the teach ceiling.
-      2. 'connects' claims an explanation that JOINS ideas — if the answer carries
-         no linking language whatsoever, under-claim down to 'lists'.
+    Guards, all from UNDERSTANDING.md + the acting-end ruling (19 Aug 2026):
+      1. 'connects'/'applies' claims an explanation that JOINS ideas — if the answer
+         carries no linking language whatsoever, under-claim down to 'lists'.
+      2. THE TEACH CEILING IS HARD: a teach-back can evidence at most 'connects'.
+         'applies' requires a genuine transfer instrument, which does not exist yet
+         (and reversed does NOT qualify — recognition in reverse, ceiling 'knows').
+         So a linked 'applies' is capped to TEACH_CEILING here, at the instrument,
+         and every consumer (depth writer, Friday quote/stories) inherits it.
     Returns (depth, capped_reason|None) so the adjustment is auditable.
     """
     if depth not in DEPTH_LADDER:
@@ -141,6 +145,9 @@ def cap_depth(depth, answer):
     linked = _has_link_language(answer)
     if depth in ("connects", "applies") and not linked:
         return "lists", f"capped from {depth}: no linking language in answer"
+    if depth == "applies":
+        return TEACH_CEILING, ("capped from applies: teach-back ceiling — 'applies' needs a "
+                               "tagged transfer item (none exists yet)")
     return depth, None
 
 
