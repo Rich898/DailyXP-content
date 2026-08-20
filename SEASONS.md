@@ -128,11 +128,37 @@ an integrity fix. They are their own scheduled build (v3.1), evaluated after Law
 1–3 land. ~90% of the variety win (Laws 2–3) needs no shell change — that is why we
 ship variety now and stage v3.1 separately.
 
+### LAW 6 — the OUTLINE drives the quiz; the ledger only ranks (ratified 20 Aug 2026)
+
+The scraped weekly outline (Canvas) is the MENU the quiz fills from — the whole covered
+curriculum, cumulative across the term, not just this week. The ledger (per-topic mastery)
+sets PRIORITY only — which topics lead, which need the most attention — it NEVER caps the set.
+A thin "due" list changes a run's emphasis, never its length. Corollary rules:
+
+- **Seed on sight.** Every scraped topic is written into the ledger as `untested` the first time
+  it appears, stamped with `introduced_week`, so it is instantly askable and tracked — new
+  material is never invisible. (`tools/seed_menu.py`, wired into `scripts/run_daily.py` before
+  planning; additive + idempotent, never touches mastery.)
+- **Two tiers.** THIS WEEK (topics live in the latest scrape) is the priority and fills the bulk
+  of every run; PRIOR WEEKS (covered before, not in the current scrape) come in only as a bounded
+  throwback dose (LAW 3), weighted to recent weeks. Tier is the PRIMARY sort key in
+  `planner.eligible_pool` — this-week always outranks prior-week; mastery orders only WITHIN a tier.
+- **Always fill to shape.** The run fills every slot from the menu; it cannot go short because the
+  due-list is thin.
+
+Why this is a law: for weeks the quiz pulled questions from the *ledger*, not the *outline*, so
+new topics were never asked and the boys saw the same handful repeat ("you keep asking the same
+things"), and thin due-lists produced short/empty sets that failed to publish (the 20 Aug incident).
+The composer generates content from the outline on demand — there is never a content shortage.
+Source of truth: `tools/seed_menu.py` + `planner.eligible_pool` + the seed step in `run_daily.py`.
+
 ---
 
 **Current live loadout** — Season "Term 3": **Wednesday is a standard day** (Blitz retired 20 Aug 2026 — the mid-week event slot is currently unfilled) · Fri boss = ledger-built chain (Battleground). *(Reversed is being repurposed from the retired Wednesday event into a daily question-type mechanic — a separate build; the mechanic is kept intact but dormant meanwhile.)*
 
 **Live since 17 Aug 2026 (every standard run, all seats):** the answer-length gate (LAW 1) blocks the "tap the longest" tell, and the throwback mechanic (LAW 3) weaves one aged-mastered slot into every run as a spacing-driven retention check. Both are no-shell-cost and ledger-transparent, seeded deterministically. Origin: the boys' own beta feedback. Full doctrine: LAWS 1–5 above.
+
+**20 Aug 2026 — the answer mechanics rolled to all seats.** Swipe / Numeric / Drag-to-order / Short-answer were t1-only (dogfood gate). After t1 proved them end-to-end (planner → compose → publish → shell render), the gate in `planner.assign_blocks` was lifted so Harrison and Roshan now get the full mechanic mix on standard days. Shell v3.1 (which renders them) must be deployed per seat for the mechanics to show. Same day: the outline-drives-the-quiz fix landed (LAW 6).
 
 > **LAW 2 status — corrected 19 Aug 2026:** the standard-run format-bank rotation was **reverted after review** (varied MC-family formats read as confusing / wall-of-text in a fast round). Standard speed/steady slots are **direct recall MC** — validated against real quizzes (18 Aug: all recall-MC; see `CURRENT-STATE.md`). Varied formats survive **Friday-Battleground-only** (see the Battleground entry above). Reversed is being **repurposed from the retired Wednesday event (Blitz retired 20 Aug 2026) into a daily question-type mechanic** — a separate build. Daily variety is delivered by the approved answer mechanics — Swipe / Numeric / Ordering / Short-text (see `modes/MECHANICS.md`) — with Reversed to join them as a daily card.
 
