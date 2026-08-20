@@ -31,7 +31,7 @@ first, never the boys.
 - [ ] **Codify tokens** as the ONE canonical design system so every surface uses the same values.
 - [ ] **Apply to the LIVE shell** (`shell/template_v3.html`) — carefully, tested, dogfooded on t1.
 - [ ] **Extend to other surfaces** — parent report page, kid weekly wrap, and the event-night
-  banners (Blitz's "inverted ink plate" needs a dark rethink; Battleground is already dark).
+  banners (Battleground is already dark).
 
 
 ## Block model (staging — shell side)

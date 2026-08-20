@@ -51,7 +51,6 @@ per run, or per week). ⭐ = directly rewards a core anti-fluency-illusion behav
 | Badge | Unlocks when | Type |
 |---|---|---|
 | **Boss Slayer** | clear Friday's Boss (all boss steady slots correct) | per Friday |
-| **Blitz Master** | a Blitz run above your own XP personal best | repeatable |
 
 The payoff: **Comeback, Calm Hands and Sure Shot reward exactly the behaviours the whole system
 is built to produce** — fixing weaknesses, slowing down, and real rather than illusory

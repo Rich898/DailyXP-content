@@ -6,7 +6,7 @@
 | When | Kid gets | Parent gets |
 |---|---|---|
 | Once, at onboarding | Access text: personal link + "Add to Home Screen" | — |
-| Mon–Fri **4:00pm** | **"XP Daily is up"** nudge (⚡ blitz flavour Wed, 🐉 boss Fri) — sent only after the live set is verified as *today's* | — |
+| Mon–Fri **4:00pm** | **"XP Daily is up"** nudge (🐉 boss flavour Fri) — sent only after the live set is verified as *today's* | — |
 | Mon–Fri evening, **on completion** | — | **Soundbyte**: did it + XP + verdict, nothing else |
 | **Wed** evening, **on completion or 8:25pm cutoff** | — | **Merged check-in**: Wednesday's soundbyte three beats + midweek body (replaces the plain Wed soundbyte) |
 | **Fri** evening | **Weekly wrap** link + **kid portal** link | **Weekly report** link (the report carries the parent-portal link) |

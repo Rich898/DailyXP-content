@@ -18,9 +18,8 @@ and never was, a plain multiple-choice quiz.** See `VISION.md`.
 
 | Day | Directive | Shape | Total |
 |---|---|---|---|
-| Mon / Tue / Thu | standard | 7 speed + 4 steady + 1 teach-back | 12 |
-| **Wed** | reversed blitz | **10 speed + 2 steady + 1 teach-back** | 13 |
-| **Fri** | "boss" → **BATTLEGROUND** | **2 speed + 4 steady + 1 teach-back** | 7 |
+| Mon–Thu | standard | 12 speed + 6 steady + 1 teach-back | 19 |
+| **Fri** | "boss" → **BATTLEGROUND** | **2 speed + 7 steady + 1 teach-back** | 10 |
 
 Frozen students (e.g. a kid away at camp) → placeholder, no quiz.
 
@@ -43,7 +42,7 @@ Canvas sweep). Deterministic **state-writer** ledger; the teach-back grade feeds
 
 ## Live payoff surfaces
 
-- **Achievements** (Sure Shot, Clean Run — "no lucky guesses, no sure-but-wrongs", Blitz PB…).
+- **Achievements** (Sure Shot, Clean Run — "no lucky guesses, no sure-but-wrongs"…).
 - **Friday report** surfaces the metacognition quadrants: **"Felt sure, wasn't — the sneaky one"**
   (confidently wrong) and **lucky guesses** (right but "Guessing").
 
@@ -58,8 +57,7 @@ See `UNDERSTANDING.md`, `LEDGER-RULES.md`.
 
 Verified against real composed quizzes: the generator never emits these, so no live quiz
 triggers them — **numeric typed input** (`type:numeric`), **hidden double-XP** (`x2`; the
-in-shell mechanic — Blitz's double-XP lives at the family weekly-tally layer instead, see
-SEASONS.md), **encore** bonus round, **interactive ordering** (drag slots), the
+in-shell mechanic — one random question per run, secretly doubled), **encore** bonus round, **interactive ordering** (drag slots), the
 **standard-round format variety** (odd-one-out / spot-the-error / matching / ordering-as-MC),
 and the **teach-back three-light** display. The code + CSS remain but stay inert.
 

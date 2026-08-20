@@ -67,7 +67,7 @@ to a parent:
 * **Streak** — nights in a row. The single most motivating number in the system.
 * **Season total and level** — the long arc.
 * **Badges earned this week** — with the specific act that earned them.
-* **Boss / blitz results** — the week's set-piece events, won or survived.
+* **Battleground results** — the week's Friday set-piece event, won or survived.
 
 Note the asymmetry and keep it: the parent report **leads with mastery** and
 demotes points; the kid page **leads with the game** and carries mastery inside

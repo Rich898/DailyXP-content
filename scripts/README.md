@@ -19,7 +19,7 @@ gated on `RESULTS_URL`/`RESULTS_KEY` (skipped locally → uses the committed run
 - FROZEN boy → placeholder, no API call, no SMS.
 - Weekends → skipped.
 - Compose or publish failure → **yesterday's set stays live**, never a broken one.
-- Directive by weekday: Mon/Tue/Thu standard, Wed blitz, Fri boss (override per boy with flags).
+- Directive by weekday: Mon–Thu standard, Fri boss (override per boy with flags).
 
 Triggered by `.github/workflows/daily-quiz.yml`: weekday cron at 14:00 AEST, plus a
 manual **Run workflow** button (with date / student / dry-run inputs) for supervised runs.

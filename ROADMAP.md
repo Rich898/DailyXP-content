@@ -5,8 +5,7 @@ Content-level changes only: teach-back prompt variety (argue-against, explain-to
 **Weekly cadence policy (locked):** Monday quizzes = ledger-driven consolidation by design (teachers rarely post the week's plan by Monday). Fresh Canvas content enters Tue–Fri, after the owner's weekly sweep — automated via student API tokens once the scheduler lands.
 
 ### Events this week (locked)
-- **Mon / Tue / Thu:** standard 7/4/1 sets — the comparable control.
-- **Wed — MUTATOR NIGHT (Blitz):** 10 speed + 2 steady + 1 teach-back; double-XP applied at the family deal layer (weekly tally), not in-app. Announced Tue night via short "patch notes".
+- **Mon–Thu:** standard 12/6/1 sets — the comparable control (Wednesday folded in; Blitz retired 20 Aug 2026).
 - **Fri — BOSS NIGHT:** per-student boss built from that student's ledger weaknesses — a chained 3–4 question steady sequence on the flagged gap, the week's actual misses resurfaced as "attacks", teach-back as the finishing move. Boss composed from ledger state as of Thu night.
 - Rationale: events on exactly two nights vs a stable control = honest read on engagement lift. Head-to-head/sibling formats deliberately shelved — mechanics must generalise to single-player universal adoption.
 

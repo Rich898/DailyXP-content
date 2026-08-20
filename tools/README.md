@@ -102,7 +102,7 @@ Doctrine enforced in code:
   solid(maintenance). Spacing uses `last_tested`.
 - **Assessment-aware:** a subject with an assessment inside the horizon gets
   boosted, and the assessment *format* shapes the teach-back.
-- Day directive reshapes: `standard` 7/4/1, `blitz` 10/2/1, `boss` chain,
+- Day directive reshapes: `standard` 12/6/1, `boss` chain,
   `light <subject>` = global cap of one slot (post-test days).
 - Tolerant topic join (exact→substring→stem) survives wording drift between the
   two files — but canonical topic IDs shared by both is the proper fix (the moat).
@@ -158,7 +158,7 @@ the writer no-ops on a stale runs.json until then.
 Deterministic, idempotent, no AI — the same shape as the state-writer, run right after it. Reads
 three event sources and awards any newly-unlocked badges, deduped against a private earned-ledger
 so nothing fires twice: `runs.json` for run-shaped badges (First Blood, Clean Run, Boss Slayer,
-Blitz Master, Perfect Week, Streak), `state_writer_log.jsonl` for transition badges (Locked It,
+Perfect Week, Streak), `state_writer_log.jsonl` for transition badges (Locked It,
 Comeback, Untouchable, Calm Hands, Sure Shot), and `state.json` for snapshot badges (Full Clear).
 The 12-badge v1 set and its triggers live in **`ACHIEVEMENTS.md`**. Awarded badges feed the
 in-quiz end screen and the kid dashboard. Writes `work/achievements_earned.json` (the badge
@@ -192,7 +192,7 @@ cache, or wrong-branch push now fails LOUD in the same call. Token from
 
 **Note going forward:** keep names OUT of published set `title` fields (legacy
 sets had them). The shell renders the title publicly — a neutral title like
-"DailyXP · Wed Blitz ⚡" is fine.
+"DailyXP · Fri Battleground" is fine.
 
 ---
 
@@ -255,7 +255,7 @@ publish: at 4:00pm (school's out, phones back in hands) it fetches the SAME
 raw URL the shell fetches, and only if the live set is verified as *today's*
 (and not a placeholder) does it text — a review HOLD or frozen day texts
 nobody, and the 2pm→4pm gap is the human-intervention window. Flavoured by the
-weekly skeleton (⚡ Wed blitz, 🐉 Fri boss — mirrors `WEEKDAY_DIRECTIVE`;
+weekly skeleton (🐉 Fri boss — mirrors `WEEKDAY_DIRECTIVE`;
 change both if the skeleton ever changes). Stateless: reads the live URL,
 sends, writes nothing. Tests: `python3 tools/test_kid_nudge.py`.
 CLI: `python3 tools/kid_nudge.py [--student y8|y9] [--date YYYY-MM-DD] [--dry-run]`.

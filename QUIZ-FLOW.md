@@ -40,13 +40,12 @@ loadout — the target model._
 
 | Day | Mode | Shape | Total |
 |---|---|---|---|
-| Mon/Tue/Thu | **Standard** | 7 speed + 4 steady + 1 teach | 12 |
-| Wed | **Reversed Blitz** | 10 reversed-speed + 2 steady + 1 teach | 13 |
-| Fri | **Battleground** | 2 speed + 4 steady + 1 teach; claim 4 weak-topic zones, never win/lose, "% claimed" | 7 |
+| Mon–Thu | **Standard** | 12 speed + 6 steady + 1 teach | 19 |
+| Fri | **Battleground** | 2 speed + 7 steady + 1 teach; claim weak-topic zones, never win/lose, "% claimed" | 10 |
 
 - **Boss Nights** — preserved *future* mode (losable, HP, finishing move). NOT wired; NEVER Friday.
 - **Season structure** — term → season; chapters → weeks. Constant weekly skeleton (Mon–Fri runs,
-  a mid-week mutator slot, a Friday boss slot, weekends off). The **event loadout is a
+  a mid-week event slot (currently unfilled — Blitz retired), a Friday boss slot, weekends off). The **event loadout is a
   chapter-level variable** — novelty from rotation, not constant invention.
 
 ### 3. In-quiz tools / systems (features within a run)
@@ -56,9 +55,8 @@ loadout — the target model._
 - **Combo** — speed round; ×N with a combo bonus at ≥2.
 - **Skip** — "it'll come back around"; on a `fresh` topic, "I'll check when your class gets there."
 - **Re-teach** — the "why" shown on every question.
-- **XP / scoring**; **Blitz double-XP** at the family weekly-tally layer (never in-app).
-- **Achievements / badges** — Sure Shot, Clean Run (no lucky guesses / no sure-but-wrongs),
-  Blitz Master/PB, etc.
+- **XP / scoring**; **hidden double-XP question** (one per run, secretly doubled, in-shell).
+- **Achievements / badges** — Sure Shot, Clean Run (no lucky guesses / no sure-but-wrongs), etc.
 - **Territory bar / % claimed** — Battleground only.
 
 ### 4. Planner intelligence (what picks the questions — generation-side, shapes the run)
@@ -135,8 +133,8 @@ avoids the confusing pile we reverted).
 ### The daily loadout
 - The loadout **deals which blocks, in which order**, into today's mode — like a daily-challenge /
   roguelike seed.
-- Mon/Tue/Thu = **Standard** mode, a different loadout each day. Wed = **Reversed Blitz**, Fri =
-  **Battleground** (the two landmark events).
+- Mon–Thu = **Standard** mode, a different loadout each day. Fri =
+  **Battleground** (the week's landmark event).
 - Speed-eligible mechanics (fast gestures: **Swipe, Quick Recall**) fill Heat 1; steady-eligible
   (**Numeric, Ordering, Short-text, Confidence-MC**) fill Heat 2. Which mechanic lands where, and
   the rotation algorithm, is the **mix policy** (MECHANICS.md Layer 2) — still to detail.
@@ -208,8 +206,9 @@ The tell that the old events were mis-defined — *"both are just different ways
 that they were named after a **legacy mechanic**, not their **essence**:
 - **Battleground's essence** = *your own weak topics, no-lose, claim the ground, end-of-week
   redemption.* MC was incidental — you could claim a topic by swiping / typing / ordering it.
-- **Reversed Blitz** = **Blitz** (a tempo/energy frame) **+ Reversed** (one MC mechanic). The energy
-  is the event; Reversed is just a card.
+- **Reversed Blitz** *(retired 20 Aug 2026)* was **Blitz** (a tempo/energy frame) **+ Reversed** (one MC
+  mechanic) — the energy was the event, Reversed just a card. Retired: Wednesday is standard; Reversed
+  becomes a daily question-type mechanic (below).
 
 ### The model: two independent layers
 - **Frame** = what *kind* of day it is — its purpose, stakes, emotion. Neutral (a normal daily run)
@@ -225,7 +224,7 @@ Events don't *compete* with the loadout; the loadout *powers* them.
 - **Mechanics rotate daily** — the deck (Part 2).
 - **Event frames rotate by chapter** — a *bank of frames* (energy, redemption, boss, mystery…).
 - Wednesday and Friday become **frame slots** that different frames rotate through over a term — so
-  even the events stay fresh, instead of "reversed-blitz + battleground forever." (This realises
+  even the events stay fresh, instead of "one event forever." (This realises
   SEASONS' "the event loadout is a chapter-level variable.")
 
 ### Battleground, reimagined — concrete
@@ -245,15 +244,15 @@ a glance:
 So "claim your ground" becomes a **varied, multi-gesture redemption run** — far richer than four MC.
 The **teach-back finishing move stays** (explain the topic you just reclaimed).
 
-### Blitz, reimagined — concrete
-Frame = **tempo/energy**: fast, high-score, midweek. The loadout fills it with **fast** mechanics
-(rapid swipes, quick MC, mental Numeric) — Blitz becomes "a *fast day*," not "an MC day."
-**Reversed** becomes a **card in the deck** (a mechanic), featured on Blitz day but free to appear
-occasionally elsewhere — decoupled from Wednesday.
+### Blitz, retired (20 Aug 2026) — concrete
+The Blitz event was **retired**: Wednesday is now a plain **standard** day, and the mid-week event
+slot sits unfilled until a future frame is drawn. **Reversed** is decoupled from Wednesday entirely
+and becomes a **daily question-type mechanic** (a card in the deck), free to appear on any day. That
+wiring is a separate build — the mechanic is kept intact but dormant until it lands.
 
 ### Bonus: this fixes the naming trap
-Wed/Fri are **frame slots**; the frame currently in each is "Blitz" and "Battleground" — and those
-can rotate. No more "Friday's directive is literally called `boss` but produces Battleground."
+Wed/Fri are **frame slots**; Wednesday's slot is currently unfilled (Blitz retired), Friday's frame
+is "Battleground" — and those can rotate. No more "Friday's directive is literally called `boss` but produces Battleground."
 
 ### The risk to hold onto
 Events derive power from **contrast**. Now the baseline is genuinely exciting, an event has to be a

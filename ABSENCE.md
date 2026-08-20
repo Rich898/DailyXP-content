@@ -15,4 +15,4 @@
 - Ledger stays frozen during absence — no penalty, trend simply shows the gap honestly.
 
 ## This week (Aug 2026)
-Roshan off sick all week. Ledger frozen, zero pressure, Blitz sits available but optional. Harrison unaffected. On return, untested topics resurface automatically — no catch-up wall.
+Roshan off sick all week. Ledger frozen, zero pressure, nightly runs sit available but optional. Harrison unaffected. On return, untested topics resurface automatically — no catch-up wall.
