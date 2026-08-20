@@ -124,7 +124,16 @@ def score_topic(tp, tgt, ref):
 
 
 def eligible_pool(state_student, tmap, ref):
-    """Topics eligible for slots: in state AND (subject live in targets OR REPAIR OR has a live target row)."""
+    """Topics eligible for slots: in state AND (subject live in targets OR REPAIR OR has a live target row).
+
+    TWO-TIER (locked 20 Aug 2026 — the outline-drives-the-quiz doctrine):
+      tier 1 = THIS WEEK  — the topic is live in the LATEST scrape (exact match). The bulk of the run.
+      tier 2 = PRIOR WEEKS — covered before, not in the current scrape. A bounded throwback dose only.
+    Tier is the PRIMARY sort key, so this-week always outranks prior-week and the run fills with
+    current material first. Mastery/spacing (score_topic) orders WITHIN a tier — weakest leads, never
+    "whatever's oldest on the report card". Exact-name match on purpose: resolve_target's tolerant
+    matching would let a prior topic borrow "live" and jump tiers (the canonical-taxonomy phase-2 fix)."""
+    current = {k for k, v in tmap.items() if (v or {}).get("status") == "live"}
     pool = []
     for tp in state_student["topics"]:
         tgt = resolve_target(tp["topic"], tmap)
@@ -137,9 +146,11 @@ def eligible_pool(state_student, tmap, ref):
             "note": tp.get("note", ""), "fresh": (tgt or {}).get("fresh", False),
             "status": (tgt or {}).get("status"), "assessment": (tgt or {}).get("assessment"),
             "format": (tgt or {}).get("format"),
+            "tier": 1 if tp["topic"] in current else 2,
             "score": score_topic(tp, tgt, ref),
         })
-    pool.sort(key=lambda x: x["score"], reverse=True)
+    # THIS WEEK first (tier asc), then weakest-first within the tier (score desc).
+    pool.sort(key=lambda x: (x["tier"], -x["score"]))
     return pool
 
 

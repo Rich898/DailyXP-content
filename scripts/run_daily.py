@@ -159,6 +159,18 @@ def run(date, students, private_dir, directives_override, dry_run, push):
             targets["students"][_s] = targets["students"][_al]
             print(f"targets: {_s} aliased to {_al}'s curriculum (roster).")
 
+    # SEED THE MENU (locked 20 Aug 2026 — outline-drives-the-quiz doctrine): write every scraped
+    # topic into the ledger, stamped with the week it first appeared, so the planner fills
+    # THIS-WEEK-FIRST from the whole covered curriculum instead of starving on a thin "due" list.
+    # Additive + idempotent: adds new topics as `untested`, back-stamps the week, never touches mastery.
+    import seed_menu as _seed
+    for _s in students:
+        _al = _roster.targets_alias(_s)
+        _rep = _seed.seed_player(state, _s, _al, tdir)
+        if _rep["added"] or _rep["stamped_existing"]:
+            print(f"[{_s}] menu seed: +{len(_rep['added'])} new topics, {_rep['stamped_existing']} "
+                  f"back-stamped (ledger {_rep['ledger_before']}→{_rep['ledger_after']}, menu {_rep['menu_size']}).")
+
     day = date.strftime("%a").upper()
     print(f"=== DailyXP run — {day} {date} {'(DRY RUN)' if dry_run else ''} ===")
     ingest_on = bool(os.environ.get("RESULTS_URL") and os.environ.get("RESULTS_KEY"))
