@@ -180,12 +180,24 @@ def run(date, students, private_dir, directives_override, dry_run, push):
     # THIS-WEEK-FIRST from the whole covered curriculum instead of starving on a thin "due" list.
     # Additive + idempotent: adds new topics as `untested`, back-stamps the week, never touches mastery.
     import seed_menu as _seed
+    _seed_changed = False
     for _s in students:
         _al = _roster.targets_alias(_s)
         _rep = _seed.seed_player(state, _s, _al, tdir)
         if _rep["added"] or _rep["stamped_existing"]:
+            _seed_changed = True
             print(f"[{_s}] menu seed: +{len(_rep['added'])} new topics, {_rep['stamped_existing']} "
                   f"back-stamped (ledger {_rep['ledger_before']}→{_rep['ledger_after']}, menu {_rep['menu_size']}).")
+    # PERSIST the seeded ledger (fix 20 Aug 2026 — QUIZ-GENERATION.md C1). Seeding mutated the
+    # in-memory state only, so seeded topics never reached disk and the next morning's
+    # state-writer skipped their results ("not in ledger") — the feedback loop was silently
+    # broken for every seeded topic. Writing here makes the menu durable; the workflow's
+    # commit-private step carries it. Written on dry runs too (same precedent as the persisted
+    # plan: shadow-runs keep the writer honest). Additive only — mastery is never touched here.
+    if _seed_changed:
+        with open(os.path.join(private_dir, "work", "state.json"), "w") as _sf:
+            json.dump(state, _sf, indent=2, ensure_ascii=False)
+        print("menu seed: state.json persisted (seeded topics are now durable).")
 
     day = date.strftime("%a").upper()
     print(f"=== DailyXP run — {day} {date} {'(DRY RUN)' if dry_run else ''} ===")
