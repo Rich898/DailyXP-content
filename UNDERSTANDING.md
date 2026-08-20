@@ -81,7 +81,8 @@ Consequences, all binding:
 2. **Only a teach-back can move a topic to `connects`.** We run roughly one or
    two a night, so depth moves *slowly* — weeks, not days.
 3. **Only a transfer question can move a topic to `applies`.** These must be
-   deliberately planned; they don't occur by accident.
+   deliberately planned; they don't occur by accident. The teach-back path to
+   `applies` is closed in code (`cap_depth`, 20 Aug 2026), not just in doctrine.
 4. **Therefore the ladder is a planning instruction, not just a label.** If a
    topic sits at `lists` and we want to know whether he can connect it, the
    planner must *schedule a teach-back on it*. The next rung dictates the next
@@ -102,9 +103,11 @@ whose ceiling reaches it:
   **different question prompts** on the topic, on two **different run dates**.
 * → `connects` — a teach-back graded as relational: the answer **links** ideas
   (cause→effect, part→whole, comparison), not merely enumerates them.
-* → `applies` — correct on an explicitly **tagged transfer** item, or a
-  teach-back that carries the idea into an untaught context. (No transfer item
-  type exists yet — see §3.)
+* → `applies` — correct on an explicitly **tagged transfer** item ONLY. A
+  teach-back can never evidence `applies` — the ceiling is HARD, enforced at the
+  instrument (`grade_teachback.cap_depth` caps any `applies` verdict at
+  `connects`) and again in the depth writer. (No transfer item type exists yet
+  — see §3 — so `applies` is currently unreachable, which is honest.)
 
 **What counts as evidence.** Only a **clean correct** evidences depth. Lucky
 corrects, trivially-fast corrects, and integrity-held answers never count. A
