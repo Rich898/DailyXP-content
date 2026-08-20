@@ -9,7 +9,7 @@
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The boys start with rules and order, but end in savagery and murder",
+      "prompt": "Piggy's glasses get smashed, weakening his sight",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The novel traces the boys' descent from civilised order into savagery, showing how quickly the veneer of civilisation can vanish.",
+      "why": "Piggy's glasses are broken during the story, symbolising the fading of reason and clear thinking among the boys.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "White blood cells help defend the body against pathogens",
+      "prompt": "Antibodies destroy pathogens by engulfing them directly",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "White blood cells like phagocytes and lymphocytes are central to the immune system's defence against pathogens.",
+      "answer": "False",
+      "why": "Antibodies mark pathogens for destruction; it's phagocytes that engulf and digest them, not antibodies.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Weimar Republic's constitution gave women the right to vote",
+      "prompt": "The Weimar Republic used proportional representation",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The 1919 Weimar constitution gave all adult men and women equal voting rights, which was progressive for its time.",
+      "why": "Weimar's electoral system gave parties seats matching their vote share, which led to fragmented, unstable coalitions.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Advertising can shape what foods people choose to buy",
+      "prompt": "Food ads mainly target adults with health warnings",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Marketing techniques like packaging, celebrity endorsement and mascots are designed to influence food choices.",
+      "answer": "False",
+      "why": "Food marketing often targets children with bright colours and cartoon characters, not adults with health warnings.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "After WWII, why did Australia's government actively recruit migrants from Britain and Europe?",
+      "prompt": "What is the term for people moving permanently into a country?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To fill jobs in growing factories",
-      "why": "Post-war Australia had a labour shortage as industry expanded, so it recruited migrants under schemes like 'Populate or Perish' to work in factories.",
+      "answer": "Immigration",
+      "why": "Immigration means moving into a country to live; emigration is leaving a country.",
       "options": [
-        "To fill jobs in growing factories",
-        "To boost farm exports to Asia",
-        "To repay wartime debts to allies",
-        "To reduce city housing costs"
+        "Immigration",
+        "Emigration",
+        "Urbanisation",
+        "Migration circuit"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What was Hitler's failed 1923 uprising commonly called?",
+      "prompt": "Where did Hitler's 1923 Putsch attempt take place?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Beer Hall Putsch",
-      "why": "Hitler's failed attempt to seize power in 1923 is known as the Beer Hall Putsch, after the Munich beer hall where it began.",
+      "answer": "Munich",
+      "why": "Hitler launched his failed uprising in a Munich beer hall in 1923, aiming to seize power in Bavaria first.",
       "options": [
-        "Beer Hall Putsch",
-        "November Revolution",
-        "Spartacist Uprising",
-        "Kapp Putsch"
+        "Munich",
+        "Berlin",
+        "Hamburg",
+        "Vienna"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Simplify: 4x + 3x",
+      "prompt": "Simplify: 5x + 2x",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -138,12 +138,12 @@
         "cta": "Keep going →"
       },
       "answer": "7x",
-      "why": "Like terms with the same variable are added by adding their coefficients: 4x + 3x = 7x.",
+      "why": "Like terms add directly: 5x + 2x = 7x, since the powers of x stay the same.",
       "options": [
         "7x",
-        "12x",
-        "7x²",
-        "4x3x"
+        "10x",
+        "5x2",
+        "7x2"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: x + 9 = 15",
+      "prompt": "Solve for x: x + 6 = 14",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "x = 6",
-      "why": "Subtract 9 from both sides: 15 − 9 = 6, so x = 6.",
+      "answer": "x = 8",
+      "why": "Subtract 6 from both sides: 14 − 6 = 8, so x = 8.",
       "options": [
+        "x = 8",
+        "x = 20",
         "x = 6",
-        "x = 24",
-        "x = 15",
-        "x = 9"
+        "x = 14"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "In a business plan, what does the market analysis section mainly cover?",
+      "prompt": "Which section states the business's overall goals in brief?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Customers, competitors and demand",
-      "why": "Market analysis looks at who the customers are, who the competitors are, and how much demand exists — not the summary, staffing, or branding details.",
+      "answer": "Executive summary",
+      "why": "The executive summary briefly outlines the whole business plan's goals and highlights, read first by others.",
       "options": [
-        "Customers, competitors and demand",
-        "A one-page summary of the plan",
-        "Staff wages and daily rosters",
-        "Logo colours and shop signage"
+        "Executive summary",
+        "Market analysis",
+        "SWOT analysis",
+        "Financial plan"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Lord of the Flies, what does the conch mainly symbolise?",
+      "prompt": "Who first blows the conch to gather the boys?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Order and authority",
-      "why": "The conch represents civilised order and rules, and its destruction later marks the collapse of that order.",
+      "answer": "Ralph",
+      "why": "Ralph blows the conch at Piggy's suggestion, calling the first assembly and establishing early order.",
       "options": [
-        "Order and authority",
-        "Fear of the beast",
-        "Hunting skill",
-        "Jack's leadership"
+        "Ralph",
+        "Jack",
+        "Piggy",
+        "Simon"
       ],
       "fresh": true
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Freud's model, which part follows moral rules and conscience?",
+      "prompt": "In Freud's model, which part seeks pleasure without restraint?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,13 +225,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Superego",
-      "why": "The superego represents internalised moral standards and conscience, unlike the instinct-driven id.",
+      "answer": "Id",
+      "why": "The id is the primal, instinctive part of the mind driven by immediate desires, unlike the moral superego.",
       "options": [
-        "Superego",
         "Id",
         "Ego",
-        "Unconscious"
+        "Superego",
+        "Conscience"
       ],
       "fresh": true
     },
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A bakery designs a simple, memorable logo for its bread bags. What is this logo mainly doing?",
+      "prompt": "A phone repair shop offers a screen-fixing service. What is being sold?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Building brand recognition",
-      "why": "A logo's main job is to make a brand instantly recognisable to customers, not to list ingredients, set prices, or track orders.",
+      "answer": "A service",
+      "why": "Fixing a screen is an action performed for the customer, making it a service rather than a physical product.",
       "options": [
-        "Building brand recognition",
-        "Listing product ingredients",
-        "Setting the bread's price",
-        "Recording customer orders"
+        "A service",
+        "A product",
+        "A logo",
+        "A brand"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 10 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,25 +270,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 42,
-      "calc": true,
+      "answer": 40,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height: ½ × 12 × 7 = 42 cm². Always halve after multiplying base and height.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 10 × 8 = 40 cm². Halving is the step that's easy to rush past.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Geography",
-      "prompt": "From a while back — what do we call a factor that attracts people to a new place?",
+      "prompt": "From a while back — a family moves to a city because there are more hospitals and schools there. This is an example of what kind of factor?",
       "answer": "Pull factor",
-      "why": "A pull factor is something that attracts people to a place, like jobs or better living conditions, opposite to a push factor.",
+      "why": "A pull factor draws people toward a new place, like better hospitals or schools, unlike push factors which drive people away.",
       "options": [
         "Pull factor",
         "Push factor",
-        "Migration factor",
-        "Urban factor"
+        "Urbanisation factor",
+        "Migration law"
       ],
       "fresh": false,
       "throwback": true
@@ -297,14 +297,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "D&T",
-      "prompt": "In marketing, what does a distinctive logo mainly help a brand achieve?",
-      "answer": "Easy recognition",
-      "why": "A distinctive logo helps customers quickly recognise and remember a brand among competitors.",
+      "prompt": "A market stall owner uses the same colours and logo on every sign and bag. What is this mainly building?",
+      "answer": "Brand recognition",
+      "why": "Consistent colours and logos help customers instantly recognise and remember a brand across a stall's products.",
       "options": [
-        "Easy recognition",
-        "Lower production costs",
-        "Faster delivery",
-        "Cheaper materials"
+        "Brand recognition",
+        "Market analysis",
+        "A prototype",
+        "A SWOT analysis"
       ],
       "fresh": false
     },
@@ -312,14 +312,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Bright colours and toys in food ads mainly aim to attract which group?",
+      "prompt": "A cereal ad uses a cartoon mascot and bright packaging. Which group is this mainly designed to attract?",
       "answer": "Children",
-      "why": "Advertisers use bright colours, toys and mascots because these techniques are especially effective at appealing to children.",
+      "why": "Cartoon mascots and bright colours are classic marketing techniques aimed at appealing to children specifically.",
       "options": [
         "Children",
-        "Retirees",
-        "Farmers",
-        "Office workers"
+        "Elderly shoppers",
+        "Nutritionists",
+        "Wholesale buyers"
       ],
       "fresh": false
     },
@@ -327,14 +327,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Geography",
-      "prompt": "What is it called when people move from farms to cities for factory work?",
-      "answer": "Urbanisation",
-      "why": "Urbanisation is the process of population shifting from rural areas into cities, often for industrial jobs.",
+      "prompt": "From a while back — after WWII, Australia's 'Populate or Perish' scheme mainly aimed to increase what?",
+      "answer": "Population and workforce",
+      "why": "The scheme aimed to grow Australia's population and labour force for security and industry after WWII.",
       "options": [
-        "Urbanisation",
-        "Federation",
-        "Emigration",
-        "Colonisation"
+        "Population and workforce",
+        "Farming exports",
+        "Tourist numbers",
+        "University enrolments"
       ],
       "fresh": false
     },
@@ -342,7 +342,7 @@
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these Weimar Republic events from earliest to latest",
+      "prompt": "Order these steps in Weimar Germany's early economic troubles",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -352,21 +352,21 @@
       },
       "type": "order",
       "sequence": [
-        "Treaty of Versailles signed",
-        "Weimar constitution adopted",
-        "Hyperinflation crisis",
-        "Beer Hall Putsch"
+        "Treaty of Versailles imposes reparations",
+        "Government prints extra money",
+        "1923 hyperinflation crisis hits",
+        "Savings become worthless"
       ],
       "top": "Earliest",
       "bot": "Latest",
-      "why": "Versailles was signed in 1919, the constitution followed in 1919, hyperinflation struck in 1923, and the Putsch happened later that same year.",
+      "why": "Reparations pressured Germany to print money, causing 1923 hyperinflation, which wiped out ordinary people's savings.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "D&T",
-      "prompt": "Explain why a market stall needs strong branding even if its product is already good quality."
+      "prompt": "A new market stall has a great product but no consistent branding, while a rival stall has an average product but a strong, memorable logo and colours. Explain which stall is more likely to succeed early on, and why branding matters even when a product is already good."
     }
   ]
 }
