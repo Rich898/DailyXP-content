@@ -78,6 +78,12 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RESULTS_URL: ${{ secrets.RESULTS_URL }}
           RESULTS_KEY: ${{ secrets.RESULTS_KEY }}
+          # Supabase settling-week wiring (fix 20 Aug 2026 — DAILY-PUBLISHING.md O2):
+          # with both credential pairs present, ingest_results auto-runs BOTH mode —
+          # the Sheet stays truth; the run prints the supabase-sink agreement line.
+          # The flip to Supabase-only (INGEST_SOURCE=supabase) is a later, deliberate act.
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
           ARGS="--private-dir ./private"
           [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
