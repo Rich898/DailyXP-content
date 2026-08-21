@@ -168,6 +168,33 @@ check("cursor prevents reprocessing (no new changes)", audit2 == [] and
       json.dumps(shadow2, sort_keys=True) == before)
 
 # ---------------------------------------------------------------------------
+# Awaiting grade: an ungraded teach-back with text parks the WHOLE run un-cursored
+# ---------------------------------------------------------------------------
+plan("2026-08-16", [
+    ("S1", "speed", "Geo", "parked_speed", {}),
+    ("B1", "teach", "Geo", "parked_teach", {}),
+])
+night4 = run("2026-08-16", "2026-08-16", "2026-08-16T18:00:00", [
+    Q("S1", "speed", ok=True, secs=9.0),
+    Q("B1", "teach", ok=True, text="a real written answer, not yet graded"),   # no tb_grade
+])
+write_runs([night1, night2, night2b, night3, night4])
+shadow, lines, audit = dw.process(tmp)
+print("awaiting grade")
+check("nothing from the run applies while its teach-back is ungraded",
+      depth_of(shadow, "parked_speed") == "not_yet")
+
+# ... then the grade lands (grader scanned the backlog) and the run applies in full, once
+night4["questions"][1]["tb_grade"] = {"verdict": "solid", "depth": "connects", "evidence": "linked"}
+write_runs([night1, night2, night2b, night3, night4])
+shadow, lines, audit = dw.process(tmp)
+check("once graded, the parked run applies in full", depth_of(shadow, "parked_speed") == "knows"
+      and depth_of(shadow, "parked_teach") == "connects")
+shadow, lines, audit = dw.process(tmp)
+check("and only once (no double-count on reprocess)",
+      len([a for a in audit]) == 0)
+
+# ---------------------------------------------------------------------------
 n_fail = PASS.count(False)
 print(f"\ndepth ladder acting end: {'all green' if not n_fail else f'{n_fail} FAILURE(S)'}")
 sys.exit(1 if n_fail else 0)

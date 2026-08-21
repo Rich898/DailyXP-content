@@ -227,6 +227,18 @@ def process(private_dir, dry_run=False):
             badge, _rel = badge_for(q, medians, s, r.get("shell_flags") or {})
             per_topic.setdefault((sl["subject"], sl.get("topic")), []).append((badge, q, sl))
 
+        # A teach-back with text but no grade yet: the grade may still be coming (the nightly
+        # grader scans the backlog). Pre-scan and, if found, apply NOTHING from this run and
+        # leave it un-cursored, so the whole run is applied exactly once — the night its grade
+        # lands. (Applying the rest now and re-applying later would double-count evidence.)
+        awaiting_grade = any(
+            badge == "TB" and (q.get("text") or "").strip() and not q.get("tb_grade")
+            for hits in per_topic.values() for badge, q, _sl in hits)
+        if awaiting_grade:
+            lines.append("  ⏳ teach-back written but not yet graded — run left unprocessed; "
+                         "it will be applied in full the night its grade lands.")
+            continue
+
         moved = 0
         for (subject, topic), hits in sorted(per_topic.items()):
             if not topic:
