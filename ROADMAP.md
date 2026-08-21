@@ -10,7 +10,12 @@ topics → teach-back prompts aim one rung up → lift the gate. Later, separate
 a genuine **transfer question type** (reversed does NOT qualify — it's
 recognition in reverse, ceiling `knows`; see `UNDERSTANDING.md` §3); intake
 seeding for the **confidence axis only** (depth is never seeded — earned only).
-**Debt:** the live-lights Edge Function (`grade-teachback`) source lives only
+**Debt:** migrate pipeline API auth from the static `ANTHROPIC_API_KEY`
+secret to workload identity federation (GA June 2026) — no standing key to
+die silently or leak; needs Console setup (service account + federation
+rule), workflow `id-token` permission, and a token-exchange change in
+`grade_teachback.py`/`compose.py` (currently bare urllib). Keys keep
+working meanwhile; migrate when convenient. Also: the live-lights Edge Function (`grade-teachback`) source lives only
 inside Supabase — commit it to the repo and strip depth from its response,
 leaving the nightly grader the single depth instrument.
 
