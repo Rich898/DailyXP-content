@@ -812,6 +812,9 @@ def _words_block(quote):
         attr = f"{_e(quote['subject'])} teach-back &middot; {attr}"
     depth = quote.get("depth")
     stamp, why = "", ""
+    import os
+    if os.environ.get("DAILYXP_DEPTH_REPORTS_LIVE") != "1":
+        depth = None   # calibration gate (UNDERSTANDING.md §7): no rung renders anywhere until lifted
     if depth in ("connects", "applies"):
         stamp = (f"<span class='stamp'>HIT: {_e(RUNG_LABEL.get(depth, depth)).upper()}"
                  "</span>")

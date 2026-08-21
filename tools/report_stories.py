@@ -159,8 +159,15 @@ def detect_to_close(topic, trace, subject, misc):
             "next": "re-tested next week, and tonight's note covers it"}
 
 
+def _depth_reports_live():
+    import os
+    return os.environ.get("DAILYXP_DEPTH_REPORTS_LIVE") == "1"
+
+
 def detect_deepened(topic, subject, before, after, evidence):
     """A topic that moved UP the depth ladder — the story only we can tell."""
+    if not _depth_reports_live():
+        return None   # calibration gate: no rung renders anywhere until lifted
     from friday_report import LANDED  # noqa: F401  (kept for symmetry of imports)
     ladder = ["not_yet", "knows", "lists", "connects", "applies"]
     if before is None or after is None:
