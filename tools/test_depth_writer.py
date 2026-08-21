@@ -220,6 +220,31 @@ check("an unjoinable run is cursored once, not nagged nightly",
       not any("unjoinable" in l for l in lines2))
 
 # ---------------------------------------------------------------------------
+# Live mode: mirrors depth onto the ledger, touches nothing else
+# ---------------------------------------------------------------------------
+ledger = {"generated": "2026-07-01", "students": {"s1": {"topics": [
+    {"subject": "Sci", "topic": "clean_speed", "state": "developing", "times_seen": 3},
+    {"subject": "Mat", "topic": "two_facets", "state": "solid", "streak": 2},
+]}}}
+json.dump(ledger, open(f"{tmp}/work/state.json", "w"), indent=2)
+os.environ["DAILYXP_DEPTH_LIVE"] = "1"
+# force one reprocess by clearing the cursor (shadow rebuild is free by design)
+os.remove(f"{tmp}/work/depth_writer_cursor.json"); os.remove(f"{tmp}/work/depth_shadow.json")
+shadow, lines, audit = dw.process(tmp)
+os.environ.pop("DAILYXP_DEPTH_LIVE", None)
+st = json.load(open(f"{tmp}/work/state.json"))
+by = {t["topic"]: t for t in st["students"]["s1"]["topics"]}
+print("live mode")
+check("depth mirrored onto a ledger topic", by["clean_speed"].get("depth") == "knows")
+check("evidence mirrored with it", bool(by["clean_speed"].get("depth_evidence")))
+check("confidence fields untouched", by["clean_speed"]["state"] == "developing"
+      and by["clean_speed"]["times_seen"] == 3 and by["two_facets"]["state"] == "solid")
+check("internal counters stay OFF the ledger", "steady_dates" not in by["two_facets"]
+      and "tb_recent" not in by["two_facets"])
+check("unmatched shadow topics skipped loudly, night survives",
+      any("not in ledger" in l for l in lines))
+
+# ---------------------------------------------------------------------------
 n_fail = PASS.count(False)
 print(f"\ndepth ladder acting end: {'all green' if not n_fail else f'{n_fail} FAILURE(S)'}")
 sys.exit(1 if n_fail else 0)

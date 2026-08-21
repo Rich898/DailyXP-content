@@ -11,7 +11,9 @@ deterministically, no API, no language — and in shadow mode writes ONLY to:
     {private}/work/depth_writer_cursor.json  which runs have been applied
     {private}/work/depth_writer_log.jsonl    an audit line per rung change
 
-It NEVER opens state.json. That is the shadow guarantee: the confidence axis is
+In shadow mode it NEVER opens state.json (live mode — DAILYXP_DEPTH_LIVE=1 —
+additionally mirrors `depth`/`depth_evidence` onto ledger topics; see
+mirror_to_ledger). That is the shadow guarantee: the confidence axis is
 untouchable by construction, provable by byte-comparison. (Two-axes law: this
 module never reads `state`, `repair`, or the confidence tap — depth evidence is
 correctness + question identity + question type only.)
@@ -183,7 +185,39 @@ def apply_run_to_topic(t, hits, set_date, run_date, caveat):
     return None
 
 
-def process(private_dir, dry_run=False):
+def mirror_to_ledger(private_dir, shadow, lines):
+    """LIVE MODE ONLY. Mirror the shadow's public outcome — `depth` and
+    `depth_evidence`, nothing else — onto state.json topics via the state
+    writer's own tolerant join. Internal counters (steady_dates, tb_recent)
+    stay in the shadow file: working memory is not ledger.  Confidence fields
+    are never touched; this function only ever ADDS/UPDATES the two depth keys.
+    Topics in shadow but not in the ledger are skipped, loudly."""
+    import state_writer as sw
+    state_path = os.path.join(private_dir, "work", "state.json")
+    state = json.load(open(state_path))
+    mirrored, missing = 0, 0
+    for s, d in shadow.get("students", {}).items():
+        stu = state.get("students", {}).get(s)
+        if not stu:
+            continue
+        for t in d.get("topics", []):
+            lt = sw.find_topic(stu, t["subject"], t["topic"])
+            if lt is None:
+                missing += 1
+                lines.append(f"  ⚠ live mirror: {s} {t['subject']}/{t['topic']} not in ledger — skipped.")
+                continue
+            if lt.get("depth") != t["depth"]:
+                lt["depth"] = t["depth"]
+                if t.get("depth_evidence"):
+                    lt["depth_evidence"] = t["depth_evidence"]
+                mirrored += 1
+    json.dump(state, open(state_path, "w"), indent=2, ensure_ascii=False)
+    lines.append(f"  live mirror: {mirrored} topic(s) updated on the ledger"
+                 + (f", {missing} unmatched" if missing else "") + ".")
+    return mirrored
+
+
+def process(private_dir, dry_run=False, live=None):
     runs_path = os.path.join(private_dir, "work", "runs.json")
     shadow_path = os.path.join(private_dir, "work", "depth_shadow.json")
     cursor_path = os.path.join(private_dir, "work", "depth_writer_cursor.json")
@@ -261,13 +295,18 @@ def process(private_dir, dry_run=False):
             lines.append("  · no rung movement (depth moves in weeks by design)")
         processed.add(f"{s}|{r.get('ts_raw')}")
 
+    if live is None:
+        live = os.environ.get("DAILYXP_DEPTH_LIVE") == "1"
     if not dry_run:
         shadow["generated"] = datetime.now(timezone.utc).isoformat()
+        shadow["mode"] = "live" if live else "shadow"
         json.dump(shadow, open(shadow_path, "w"), indent=2, ensure_ascii=False)
         json.dump({"processed": sorted(processed)}, open(cursor_path, "w"), indent=2)
         with open(log_path, "a") as f:
             for a in audit:
                 f.write(json.dumps(a, ensure_ascii=False) + "\n")
+        if live:
+            mirror_to_ledger(private_dir, shadow, lines)
     return shadow, lines, audit
 
 

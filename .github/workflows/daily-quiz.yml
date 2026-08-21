@@ -76,6 +76,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DAILYXP_DEPTH_LIVE: "1"   # depth writes to the ledger; reports stay gated until DAILYXP_DEPTH_REPORTS_LIVE=1
           RESULTS_URL: ${{ secrets.RESULTS_URL }}
           RESULTS_KEY: ${{ secrets.RESULTS_KEY }}
           # Supabase settling-week wiring (fix 20 Aug 2026 — DAILY-PUBLISHING.md O2):
