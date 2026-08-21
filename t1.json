@@ -1,72 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-08-20",
-  "day": "THU",
-  "tag": "T4.4",
-  "title": "DailyXP · THU 2026-08-20",
+  "date": "2026-08-21",
+  "day": "FRI",
+  "tag": "T4.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-08-21",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Co-interior angles add up to 180°",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Co-interior (allied) angles between parallel lines are supplementary, always summing to 180°.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
       "subject": "English",
-      "prompt": "Mercutio dies in the play",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Mercutio is killed by Tybalt in Act 3, a turning point that sparks Romeo's revenge.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Tsunamis can be triggered by underwater earthquakes",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "A sudden shift of the seafloor during an underwater earthquake can displace huge volumes of water, generating a tsunami.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Continuity means nothing ever changes over time",
+      "prompt": "Romeo and Juliet are from the same family",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,230 +21,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Continuity means some things stay the same while other things change; it does not mean total absence of change.",
+      "why": "False — they belong to rival families, the Montagues and Capulets, which is the whole source of the feud.",
       "fresh": false
     },
     {
-      "id": "S5",
+      "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What did the Silk Road mainly connect across Asia and Europe?",
+      "subject": "English",
+      "prompt": "Shakespeare acted in his own plays",
       "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
       },
-      "answer": "Trade routes",
-      "why": "The Silk Road was a network of overland trade routes linking Asia and Europe, carrying goods, ideas, and technology.",
-      "options": [
-        "Trade routes",
-        "Ocean colonies",
-        "Military alliances",
-        "Royal marriages"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What does 'mental health' describe?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Emotional wellbeing",
-      "why": "Mental health refers to a person's emotional, psychological, and social wellbeing, not just the absence of illness.",
-      "options": [
-        "Emotional wellbeing",
-        "Physical fitness only",
-        "Absence of illness only",
-        "Academic performance"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Is it true that mental illness means someone is dangerous?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Common myth",
-      "why": "This is a widespread myth; most people with mental illness are not violent and are more likely to be victims than perpetrators.",
-      "options": [
-        "Common myth",
-        "Proven fact",
-        "Medical rule",
-        "Legal definition"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a healthy way to manage strong anger?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Pause and breathe",
-      "why": "Pausing and breathing helps regulate the body's stress response before reacting, rather than suppressing or exploding.",
-      "options": [
-        "Pause and breathe",
-        "Bottle it up",
-        "Yell it out fast",
-        "Ignore it fully"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In film music, what does a low sustained drone note usually create?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A sense of dread",
-      "why": "A low sustained drone builds unease and tension, so composers use it to signal danger or dread rather than joy or comedy.",
-      "options": [
-        "A sense of dread",
-        "A moment of comedy",
-        "A feeling of triumph",
-        "A burst of speed"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, which chord is the 'IV'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "F",
-      "why": "In C major, F is the fourth scale degree, making it the IV chord in the progression.",
-      "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "Stripping instruments back in a bridge section mainly creates what effect?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Contrast",
-      "why": "Removing layers creates contrast against fuller sections like the chorus, making dynamics feel more varied.",
-      "options": [
-        "Contrast",
-        "Louder climax",
-        "Faster tempo",
-        "Key change"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What is 'interconnection' in Geography mainly about?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Links between places",
-      "why": "Interconnection describes the growing links between places through trade, technology, migration, and ideas.",
-      "options": [
-        "Links between places",
-        "Border walls only",
-        "Isolated economies",
-        "Single-country trade"
-      ],
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "True — Shakespeare was an actor as well as a writer, performing with the Lord Chamberlain's Men.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 65°. What is its co-interior angle, in degrees?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 115,
-      "calc": false,
-      "pre": "",
-      "post": "°",
-      "why": "Co-interior angles sum to 180°, so 180 - 65 = 115°.",
-      "fresh": false
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A triangle has angles 90° and 40°. What is the third angle, in degrees?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 50,
-      "calc": false,
-      "pre": "",
-      "post": "°",
-      "why": "Angles in a triangle sum to 180°, so 180 - 90 - 40 = 50°.",
-      "fresh": false
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes a volcanic mudflow made of ash and water?",
+      "prompt": "What word describes a sudden shaking of the ground caused by moving tectonic plates?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +57,77 @@
       },
       "type": "text",
       "accept": [
-        "lahar",
-        "lahars"
+        "earthquake",
+        "earthquakes"
       ],
-      "why": "A lahar is a destructive mudflow of volcanic ash, rock, and water that can travel far from the volcano.",
+      "why": "An earthquake happens when built-up stress at a plate boundary is suddenly released, shaking the ground.",
+      "fresh": false
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 72°. What is its alternate angle, in degrees?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 72,
+      "calc": false,
+      "pre": "",
+      "post": "°",
+      "why": "Alternate angles are equal, so the alternate angle is also 72°.",
+      "fresh": false
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "A quadrilateral has all sides equal length but no right angles. How many equal sides does it have?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 4,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "This describes a rhombus — all 4 sides are equal, but the angles don't have to be 90°, unlike a square.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
+      "subject": "Maths",
+      "prompt": "A parallelogram has one angle of 70°. What is the size of its opposite angle, in degrees?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 70,
+      "calc": false,
+      "pre": "",
+      "post": "°",
+      "why": "In a parallelogram, opposite angles are always equal, so the opposite angle is also 70°.",
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages of historical analysis from first to last",
+      "prompt": "Order these steps of historical analysis from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -331,21 +137,21 @@
       },
       "type": "order",
       "sequence": [
-        "Identify the event",
-        "Gather evidence",
-        "Find causes",
-        "Assess consequences"
+        "Gather sources",
+        "Identify cause",
+        "Assess consequence",
+        "Judge change over time"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Historians first identify what happened, then gather evidence, then work out causes, then assess the consequences that followed.",
+      "why": "Historians first gather evidence, then work out causes, then trace consequences, and finally judge what changed or stayed the same over time.",
       "fresh": false
     },
     {
-      "id": "T5",
+      "id": "T6",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the boundary called where two plates slide past each other sideways?",
+      "prompt": "What is the name for a giant sea wave caused by an underwater earthquake?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -355,33 +161,39 @@
       },
       "type": "text",
       "accept": [
-        "transform boundary",
-        "transform fault",
-        "conservative boundary"
+        "tsunami",
+        "tsunamis"
       ],
-      "why": "A transform boundary is where plates slide horizontally past each other, often causing earthquakes without new crust forming.",
+      "why": "A tsunami is a series of huge waves triggered when an underwater earthquake displaces a large volume of water.",
       "fresh": false
     },
     {
-      "id": "T6",
+      "id": "T7",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Who is Juliet's cousin, killed by Tybalt's rival Mercutio's death sparks?",
-      "answer": "Tybalt",
-      "why": "Tybalt kills Mercutio, and Romeo then kills Tybalt in revenge, escalating the tragedy.",
-      "options": [
-        "Tybalt",
-        "Paris",
-        "Benvolio",
-        "Balthasar"
+      "subject": "Science",
+      "prompt": "What structural feature helps a building sway safely instead of cracking during an earthquake?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "base isolators",
+        "flexible foundation",
+        "shock absorbers",
+        "dampers"
       ],
-      "fresh": false
+      "why": "Base isolators or dampers let a building flex and absorb shaking, rather than rigidly resisting it and cracking.",
+      "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "English",
-      "prompt": "A classmate says we only need to read Romeo and Juliet's words, and knowing about Shakespeare's own life adds nothing. Explain, using a specific fact about his life or era, why context actually changes how we understand the play."
+      "subject": "History",
+      "prompt": "A classmate says the Battle of Hastings in 1066 'caused' the entire feudal system, as if nothing before it mattered. Explain why historians would push back on treating one event as the sole cause of such a big, long-term change."
     }
   ]
 }
