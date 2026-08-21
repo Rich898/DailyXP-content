@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-08-20",
-  "day": "THU",
-  "tag": "H4.4",
-  "title": "DailyXP · THU 2026-08-20",
+  "date": "2026-08-21",
+  "day": "FRI",
+  "tag": "H4.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-08-21",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Co-interior angles add to 180°",
+      "subject": "Music",
+      "prompt": "A drum-and-bass groove that plays underneath the whole song",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Co-interior (allied) angles between parallel lines are supplementary, always summing to 180°.",
+      "left": "Layer",
+      "right": "Contrasting section",
+      "answer": "Layer",
+      "why": "A layer is a part added on top of others playing at the same time, like a bassline running through a song; a contrasting section is a different part of the song's structure, like a bridge.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Juliet is a Montague",
+      "subject": "Science",
+      "prompt": "An earthquake striking a country with strict building codes and early-warning systems",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,232 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Juliet is a Capulet; Romeo is the Montague — their families are the two feuding houses.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Continuity means things stayed the same over time",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Continuity refers to aspects of the past that remained unchanged, unlike 'change' which marks difference over time.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Shakespeare wrote only tragedies",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Shakespeare wrote comedies and histories too, such as A Midsummer Night's Dream and Henry V, not just tragedies.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 5, why does Tybalt want to fight Romeo at the Capulet party?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "He recognises Romeo's voice as a Montague",
-      "why": "Tybalt hears Romeo's voice and knows he is a Montague gatecrashing the party, which enrages him purely because of the family feud, not anything Romeo actually does.",
-      "options": [
-        "Romeo insulted Lord Capulet directly",
-        "He recognises Romeo's voice as a Montague",
-        "Romeo tries to kiss Juliet in public",
-        "Romeo was caught stealing wine"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Mental health mainly refers to what?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Emotional wellbeing",
-      "why": "Mental health is about emotional, psychological and social wellbeing, not a single measure like fitness or sleep.",
-      "options": [
-        "Emotional wellbeing",
-        "Physical fitness level",
-        "Amount of sleep had",
-        "Number of friends",
-        "IQ score"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "True or common myth: mental illness means someone is weak?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Common myth",
-      "why": "This is a harmful myth — mental illness is not a weakness, it can affect anyone regardless of strength or character.",
-      "options": [
-        "Common myth",
-        "Proven fact",
-        "Medical diagnosis",
-        "Official definition"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with anger?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Pause and breathe",
-      "why": "Pausing to breathe helps regulate strong emotions, unlike bottling up or lashing out, which don't resolve the feeling.",
-      "options": [
-        "Pause and breathe",
-        "Bottle it up fully",
-        "Yell at someone",
-        "Ignore it forever"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In film music, what is the term for music that mimics on-screen action closely?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Mickey-mousing",
-      "why": "Mickey-mousing describes music that closely matches actions on screen, like a cartoon sound effect timed to movement.",
-      "options": [
-        "Mickey-mousing",
-        "Underscoring",
-        "Diegetic sound",
-        "Leitmotif"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord comes second?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A minor chord",
-      "why": "The progression runs C (I), Am (vi), F (IV), G (V) in order, so the second chord played is A minor.",
-      "options": [
-        "A minor chord",
-        "C major chord",
-        "F major chord",
-        "G major chord"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In song structure, what usually comes right after the intro?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Verse",
-      "why": "The verse typically follows the intro, setting up the story before the song builds toward the chorus.",
-      "options": [
-        "Verse",
-        "Bridge",
-        "Outro",
-        "Key change"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What does globalisation mainly increase between countries?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Interconnection",
-      "why": "Globalisation increases interconnection, linking countries through trade, culture, and communication.",
-      "options": [
-        "Interconnection",
-        "Isolation",
-        "Border control",
-        "Language loss"
-      ],
+      "left": "Fewer deaths",
+      "right": "More deaths",
+      "answer": "Fewer deaths",
+      "why": "Strict building codes and warning systems reduce deaths because they protect people and structures before and during the quake — preparedness matters as much as the quake's size.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if music volume affects plant growth, what type of variable is 'plant growth'?",
+      "prompt": "In an experiment testing if fertiliser amount affects plant height, keeping water the same for all plants, what is the controlled variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -272,17 +57,17 @@
       },
       "type": "text",
       "accept": [
-        "dependent variable",
-        "dependent"
+        "water",
+        "amount of water"
       ],
-      "why": "Plant growth is what's measured as a result, making it the dependent variable, not the one changed on purpose.",
+      "why": "The controlled variable is whatever is deliberately kept the same so it can't affect the result — here, that's the water. Fertiliser is the independent variable (what's changed) and plant height is the dependent variable (what's measured).",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these by how the medieval Church used its power, from mildest to most severe",
+      "prompt": "Order these events from root cause to final consequence",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -292,62 +77,36 @@
       },
       "type": "order",
       "sequence": [
-        "Giving a warning",
-        "Public penance",
-        "Excommunication",
-        "Interdict on a kingdom"
+        "Poor harvests reduce food supply",
+        "Food prices rise sharply",
+        "People struggle to afford food",
+        "Anger grows against the government"
       ],
-      "top": "Mildest",
-      "bot": "Most severe",
-      "why": "The Church escalated from warnings to public penance, then excommunication of individuals, up to an interdict affecting a whole kingdom.",
-      "fresh": false,
-      "throwback": true
+      "top": "Root cause",
+      "bot": "Final consequence",
+      "why": "The chain starts with the root cause (poor harvests) and ends with the final consequence (anger at the government) — each step causes the next.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 76°. What is the corresponding angle on the other line?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 76,
-      "calc": false,
-      "pre": "",
-      "post": "°",
-      "why": "Corresponding angles are equal when lines are parallel, so the matching angle is also 76°.",
+      "subject": "Music",
+      "prompt": "In song structure, what is the term for a section that gives a song's main theme, repeated with the same melody and lyrics each time?",
+      "answer": "Chorus",
+      "why": "The chorus repeats with the same melody and lyrics each time and carries the song's main theme; a bridge contrasts by introducing new material instead of repeating.",
+      "options": [
+        "Chorus",
+        "Bridge",
+        "Intro",
+        "Outro"
+      ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A triangle has angles of 55° and 65°. What is the third angle?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 60,
-      "calc": false,
-      "pre": "",
-      "post": "°",
-      "why": "Angles in a triangle sum to 180°, so 180 − 55 − 65 = 60°.",
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for a giant sea wave caused by an underwater earthquake?",
+      "prompt": "What term describes a wave caused by the sudden movement of the sea floor during an underwater earthquake?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -359,38 +118,69 @@
       "accept": [
         "tsunami"
       ],
-      "why": "A tsunami is a large sea wave triggered by sudden movement of the ocean floor, often from an earthquake.",
+      "why": "A tsunami is a giant sea wave triggered by sudden movement of the sea floor, most often during an underwater earthquake.",
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "Two parallel lines are cut by a transversal. One angle is 84°. What is the alternate angle on the other line?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 84,
+      "calc": false,
+      "pre": "",
+      "post": "°",
+      "why": "Alternate angles are equal — they sit on opposite sides of the transversal between the parallel lines, so the answer is 84°.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order this chain of events from root cause to final consequence: rising unemployment, factory closures, falling trade, government spending cuts",
+      "subject": "Maths",
+      "prompt": "A triangle has two angles of 40° each. What is the size of the third angle?",
       "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
       },
-      "type": "order",
-      "sequence": [
-        "Falling trade",
-        "Factory closures",
-        "Rising unemployment",
-        "Government spending cuts"
+      "type": "numeric",
+      "answer": 100,
+      "calc": false,
+      "pre": "",
+      "post": "°",
+      "why": "Angles in a triangle sum to 180°. 180 − 40 − 40 = 100°, so this is an obtuse triangle (one angle over 90°), not an acute one — don't assume equal base angles mean a small third angle.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "In the Romeo and Juliet prologue, what does the Chorus say the two families share?",
+      "answer": "An ancient grudge",
+      "why": "The prologue opens by describing the Montagues and Capulets as sharing an 'ancient grudge', setting up the feud that drives the whole play.",
+      "options": [
+        "An ancient grudge",
+        "A trade agreement",
+        "A royal marriage",
+        "A shared house"
       ],
-      "top": "Root cause",
-      "bot": "Final consequence",
-      "why": "Falling trade caused factories to close, which caused unemployment to rise, which forced government spending cuts.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Science",
-      "prompt": "Two countries are hit by earthquakes of the same magnitude, but one country has far fewer deaths. What factors, other than the earthquake's size, explain this difference?"
+      "subject": "History",
+      "prompt": "A historian says 'the plague caused the labour shortage, and the labour shortage caused peasants to demand higher wages.' Explain why it matters to separate these two links in the chain rather than treating the whole event as one single cause."
     }
   ]
 }
