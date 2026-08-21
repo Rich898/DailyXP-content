@@ -212,7 +212,9 @@ def process(private_dir, dry_run=False):
         lines.append("\n" + head)
         lines.append("-" * min(len(head), 96))
         if slotmap is None:
-            lines.append(f"  ⚠ no persisted plan at plans/{s}/{sd}.json — cannot join to topics; SKIPPED.")
+            lines.append(f"  ⚠ no persisted plan at plans/{s}/{sd}.json — permanently unjoinable; "
+                         "its evidence is unreachable and it will not be raised again.")
+            processed.add(f"{s}|{r.get('ts_raw')}")
             continue
         caveat = bool(r.get("canonical_caveat"))
         if caveat:
@@ -233,7 +235,10 @@ def process(private_dir, dry_run=False):
         # lands. (Applying the rest now and re-applying later would double-count evidence.)
         awaiting_grade = any(
             badge == "TB" and (q.get("text") or "").strip() and not q.get("tb_grade")
+            and (q.get("tb_integrity") or {}).get("verdict") != "quarantine"
             for hits in per_topic.values() for badge, q, _sl in hits)
+        # (Quarantined text is never sent for grading — its grade will never come, so it
+        # must not park the run. It simply contributes nothing, same as the state writer.)
         if awaiting_grade:
             lines.append("  ⏳ teach-back written but not yet graded — run left unprocessed; "
                          "it will be applied in full the night its grade lands.")

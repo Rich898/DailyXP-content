@@ -195,6 +195,31 @@ check("and only once (no double-count on reprocess)",
       len([a for a in audit]) == 0)
 
 # ---------------------------------------------------------------------------
+# Quarantine + unjoinable runs: neither may park or nag forever
+# ---------------------------------------------------------------------------
+plan("2026-08-18", [
+    ("S1", "speed", "Geo", "quarantine_speed", {}),
+    ("B1", "teach", "Geo", "quarantine_teach", {}),
+])
+night5 = run("2026-08-18", "2026-08-18", "2026-08-18T18:00:00", [
+    Q("S1", "speed", ok=True, secs=9.0),
+    Q("B1", "teach", ok=True, text="text someone else wrote"),   # no grade, ever
+])
+night5["questions"][1]["tb_integrity"] = {"verdict": "quarantine"}
+night6 = run("2026-08-19", "2026-08-19", "2026-08-19T18:00:00", [   # no plan file for this date
+    Q("S1", "speed", ok=True, secs=9.0),
+])
+write_runs([night1, night2, night2b, night3, night4, night5, night6])
+shadow, lines, audit = dw.process(tmp)
+print("quarantine + unjoinable")
+check("a quarantined teach-back does not park its run (rest applies)",
+      depth_of(shadow, "quarantine_speed") == "knows")
+check("quarantined text itself evidences nothing", depth_of(shadow, "quarantine_teach") == "not_yet")
+shadow, lines2, audit2 = dw.process(tmp)
+check("an unjoinable run is cursored once, not nagged nightly",
+      not any("unjoinable" in l for l in lines2))
+
+# ---------------------------------------------------------------------------
 n_fail = PASS.count(False)
 print(f"\ndepth ladder acting end: {'all green' if not n_fail else f'{n_fail} FAILURE(S)'}")
 sys.exit(1 if n_fail else 0)
