@@ -220,12 +220,13 @@ def fetch_course(cv, course, log):
         fresh = now - dt.timedelta(days=ANNOUNCEMENT_WINDOW_DAYS)
         for a in cv.paged(f"/api/v1/courses/{cid}/discussion_topics",
                           {"only_announcements": "true"}):
-            posted = parse_when(a.get("posted_at"))
-            if posted and posted < fresh:
-                continue
+            when = parse_when(a.get("posted_at")) or parse_when(a.get("created_at"))
+            if when is None or when < fresh:
+                continue  # undated or old = out; recency must be provable
             msg, cut = truncate(a.get("message"), DESC_TRUNCATE_CHARS)
             out["announcements"].append({
                 "title": a.get("title"), "posted_at": a.get("posted_at"),
+                "created_at": a.get("created_at"),
                 "message": msg, "truncated": cut,
             })
 

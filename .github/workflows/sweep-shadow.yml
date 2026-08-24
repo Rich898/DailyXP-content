@@ -23,6 +23,10 @@ on:
         description: "Seat code to sweep (blank or 'all' = every eligible seat)"
         required: false
         default: "all"
+      mode:
+        description: "full = fetch+summarise | fetch = raw pull only | summarise = reuse today's dump"
+        required: false
+        default: "full"
 
 jobs:
   shadow:
@@ -48,19 +52,51 @@ jobs:
       - name: Install deps
         run: pip install --quiet requests
 
+      - name: Compute stamp and seat filter
+        run: |
+          echo "STAMP=$(TZ=Australia/Sydney date +%F)" >> "$GITHUB_ENV"
+          SEAT_ARG=""
+          if [ -n "${{ github.event.inputs.seat }}" ] && [ "${{ github.event.inputs.seat }}" != "all" ]; then
+            SEAT_ARG="--seat ${{ github.event.inputs.seat }}"
+          fi
+          echo "SEAT_ARG=${SEAT_ARG}" >> "$GITHUB_ENV"
+
       - name: Run shadow fetch
+        if: ${{ github.event.inputs.mode != 'summarise' }}
         env:
           CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
           CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
           CANVAS_TOKEN_Y9: ${{ secrets.CANVAS_TOKEN_Y9 }}
         run: |
-          STAMP=$(TZ=Australia/Sydney date +%F)
-          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
-          SEAT_ARG=""
-          if [ -n "${{ github.event.inputs.seat }}" ] && [ "${{ github.event.inputs.seat }}" != "all" ]; then
-            SEAT_ARG="--seat ${{ github.event.inputs.seat }}"
-          fi
           python3 tools/sweep_fetch.py --out "private/shadow/sweeps/${STAMP}" ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Summarise into targets format (LLM language layer)
+        if: ${{ github.event.inputs.mode != 'fetch' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 tools/sweep_summarise.py \
+            --dump "private/shadow/sweeps/${STAMP}" \
+            --out  "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
+            --manual-dir private/targets ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate (deterministic gate)
+        if: ${{ github.event.inputs.mode != 'fetch' }}
+        run: |
+          python3 tools/sweep_validate.py \
+            --targets "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
+            --dump "private/shadow/sweeps/${STAMP}" \
+            --manual-dir private/targets | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Diff against newest manual sweep
+        if: ${{ github.event.inputs.mode != 'fetch' }}
+        run: |
+          MANUAL=$(ls private/targets/*.json | sort | tail -1)
+          echo "diffing against ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
+          python3 tools/sweep_diff.py \
+            --machine "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
+            --manual "${MANUAL}" \
+            --out "private/shadow/sweeps/${STAMP}/DIFF.md" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit shadow dump to private repo
         working-directory: private
