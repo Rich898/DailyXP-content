@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-08-21",
-  "day": "FRI",
-  "tag": "R4.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-21",
+  "date": "2026-08-24",
+  "day": "MON",
+  "tag": "R5.1",
+  "title": "DailyXP · MON 2026-08-24",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Vaccines give you the actual disease at full strength",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "False — vaccines use a weakened or harmless form of a pathogen, or just a fragment of it, so your body learns to fight it without getting the actual disease.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Free samples in supermarkets are a marketing technique",
+      "subject": "English",
+      "prompt": "Piggy's glasses are used to light the signal fire",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,247 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — giving free samples is a deliberate marketing technique to get customers to try and then buy a product.",
+      "why": "Piggy's specs are the only way to start a fire on the island, tying his intellect to the group's survival.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "Skin is part of the body's first line of defence",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Skin is a physical barrier that stops most pathogens entering the body before the immune system needs to act.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "Australia's population has been shaped mainly by migration",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Waves of migration, from British settlement to post-war and modern multicultural intakes, have driven Australia's population growth.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The 1923 Munich Putsch succeeded in overthrowing the government",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The putsch failed within a day and Hitler was arrested, though the trial later boosted his profile.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "Solve for x: 2x + 5 = 17",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "6",
+      "why": "Subtract 5 from both sides to get 2x = 12, then divide by 2 to get x = 6.",
+      "options": [
+        "6",
+        "11",
+        "9",
+        "8"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "Which section of a business plan explains how the business will be run day-to-day?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Operations plan",
+      "why": "The operations plan covers daily running details like staffing, suppliers and location, separate from the summary or market research.",
+      "options": [
+        "Operations plan",
+        "Executive summary",
+        "Market analysis",
+        "SWOT analysis"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What does it mean when the conch shell cracks and shatters?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Order has collapsed",
+      "why": "The conch's destruction marks the final breakdown of rules and civilised authority on the island.",
+      "options": [
+        "Order has collapsed",
+        "Ralph has won",
+        "The fire is lit",
+        "Rescue has arrived"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A plumber fixing a leaking pipe for a fee is providing a…",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Service",
+      "why": "A service is work done for someone, unlike a product, which is a physical item they keep.",
+      "options": [
+        "Service",
+        "Product",
+        "Logo",
+        "Brand"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "D&T",
+      "prompt": "A stall sells plain toys but redesigns its logo to use bold colours and a mascot. What is this mainly doing?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Building its brand",
+      "why": "Branding is about creating a recognisable identity through logo, colours and imagery, not about price or costs.",
+      "options": [
+        "Building its brand",
+        "Cutting production costs",
+        "Lowering the price",
+        "Copying a competitor's stock"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What was a key strength of the Weimar Republic's constitution?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Wide voting rights",
+      "why": "The Weimar constitution gave all adult men and women the vote from 1919, which was highly democratic for its time.",
+      "options": [
+        "Wide voting rights",
+        "No president",
+        "Single-party rule",
+        "No elections"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "Simplify: 5y − 2y + 3",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "3y + 3",
+      "why": "Combine like terms 5y and 2y to get 3y, then keep the separate +3 term.",
+      "options": [
+        "3y + 3",
+        "3y",
+        "7y + 3",
+        "3y − 3"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "A worker moves to a city because factory wages are higher there. What kind of factor is this?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Pull factor",
+      "why": "Higher wages attract people to a new place, making it a pull factor rather than something driving them away.",
+      "options": [
+        "Pull factor",
+        "Push factor",
+        "Natural factor",
+        "Political factor"
+      ],
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 10 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,83 +270,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 63,
-      "calc": true,
+      "answer": 40,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 14 × 9 = 63 cm². Always halve after multiplying base by height — that's the step rushing skips.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 10 × 8 = 40 cm². Halving is the step that's easy to rush past.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "D&T",
-      "prompt": "A drink brand redesigns its can with bold colours and a lightning bolt to stand out on shelves. What design factor is this mainly about?",
-      "answer": "Visual appeal",
-      "why": "Bold colours and eye-catching graphics are about visual appeal — making the product stand out and attract attention on the shelf.",
-      "options": [
-        "Visual appeal",
-        "Function",
-        "Safety",
-        "Sustainability"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is the name for a substance the body produces to specifically target and destroy a pathogen?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "antibody",
-        "antibodies"
-      ],
-      "why": "Antibodies are produced by lymphocytes to specifically recognise and destroy a particular pathogen.",
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "A cereal box uses cartoon characters and bright colours aimed at kids. What technique is this?",
-      "answer": "targeting children with characters",
-      "why": "Cartoon characters and bright colours are designed to appeal directly to children, making them pester parents to buy. The other options describe real but different marketing tactics not shown here.",
-      "options": [
-        "targeting children with characters",
-        "using a celebrity endorsement",
-        "offering a discount coupon",
-        "showing nutrition facts clearly"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
-      "subject": "Geography",
-      "prompt": "A young couple leaves a war-torn country and is granted permanent protection to live in Australia. What type of migrant are they?",
-      "answer": "Refugee",
-      "why": "A refugee flees danger such as war or persecution and is granted protection, unlike an economic migrant who moves mainly for jobs.",
-      "options": [
-        "Refugee",
-        "Economic migrant",
-        "Skilled migrant",
-        "Internal migrant"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events of the 1923 Munich Putsch",
+      "prompt": "From a while back — order these steps in explaining a historical cause and its consequence, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -142,41 +291,87 @@
       },
       "type": "order",
       "sequence": [
-        "Hitler declares a national revolution in a beer hall",
-        "Nazi supporters march through Munich",
-        "Police open fire on the marchers",
-        "Hitler is arrested and put on trial"
+        "Identify the cause",
+        "Explain how it led to change",
+        "State the consequence",
+        "Link consequence back to significance"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "The putsch began with Hitler's beer hall declaration, led to a march, ended in gunfire from police, and finished with Hitler's arrest and trial.",
+      "top": "First",
+      "bot": "Last",
+      "why": "Good cause/consequence explanations start with the cause, trace the mechanism, state what resulted, then explain why it mattered.",
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "What type of white blood cell engulfs and digests invading pathogens?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "phagocyte",
+        "phagocytes"
+      ],
+      "why": "Phagocytes are white blood cells that surround and digest pathogens as part of the body's non-specific defence.",
       "fresh": false
     },
     {
-      "id": "T7",
+      "id": "T4",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Solve for x: 3x + 4 = 19",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 5,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Subtract 4 from both sides to get 3x = 15, then divide by 3 to get x = 5.",
+      "subject": "English",
+      "prompt": "Why do the boys' painted faces matter in Lord of the Flies?",
+      "answer": "They hide identity and shame",
+      "why": "The masks let the boys act without guilt, freeing their savage instincts as civilisation slips away.",
+      "options": [
+        "They hide identity and shame",
+        "They keep boys warm",
+        "They mark who is chief",
+        "They scare off animals only"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "PDHPE",
+      "prompt": "A cereal ad uses cartoon mascots and prizes to appeal to children. What is this technique called?",
+      "answer": "Targeting children",
+      "why": "Using mascots and prizes aimed at kids is a marketing technique called targeting children, designed to influence their food choices regardless of nutrition.",
+      "options": [
+        "Targeting children",
+        "Comparing prices",
+        "Listing ingredients",
+        "Offering a refund"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "Geography",
+      "prompt": "Since the 1970s, Australia accepts migrants from many different countries. What is this policy called?",
+      "answer": "Multiculturalism",
+      "why": "Multiculturalism describes Australia's post-1970s shift to welcoming migrants from diverse countries, replacing earlier restrictive policies.",
+      "options": [
+        "Multiculturalism",
+        "White Australia Policy",
+        "Populate or Perish",
+        "Assisted Passage Scheme"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "D&T",
-      "prompt": "A student picks a strong product for their market stall but changes their logo, colours and packaging every week. Explain why this hurts their branding, even though the product itself is good."
+      "subject": "PDHPE",
+      "prompt": "A teenager sees an ad showing an athlete drinking a sugary sports drink after training. Explain how this ad might influence their food choice, even if the drink isn't actually healthy."
     }
   ]
 }
