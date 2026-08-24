@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-08-21",
-  "day": "FRI",
-  "tag": "T4.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-21",
+  "date": "2026-08-24",
+  "day": "MON",
+  "tag": "T5.1",
+  "title": "DailyXP · MON 2026-08-24",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo and Juliet are from the same family",
+      "subject": "Maths",
+      "prompt": "Rolling a die and getting a 7",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "False — they belong to rival families, the Montagues and Capulets, which is the whole source of the feud.",
-      "fresh": false
+      "left": "Possible",
+      "right": "Impossible",
+      "answer": "Impossible",
+      "why": "A standard die only has faces 1-6, so rolling a 7 can never happen.",
+      "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Shakespeare acted in his own plays",
+      "prompt": "Romeo and Juliet die at the end of the play",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,243 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — Shakespeare was an actor as well as a writer, performing with the Lord Chamberlain's Men.",
+      "why": "Both die by suicide in the final act, fulfilling the prologue's promise of 'star-crossed lovers'.",
       "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "Volcanoes mostly occur at plate boundaries",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Most volcanic activity happens where tectonic plates meet, especially along the Pacific Ring of Fire.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "An event can have more than one cause",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Historians look for multiple causes working together, not a single simple trigger.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Which of these is part of good mental health?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Coping with normal stress",
+      "why": "Mental health is about coping with everyday stress and functioning well, not the absence of any negative feelings.",
+      "options": [
+        "Coping with normal stress",
+        "Never feeling sad",
+        "Avoiding all problems",
+        "Being alone all the time"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What usually causes an earthquake?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Moving tectonic plates",
+      "why": "Earthquakes happen when built-up stress along plate boundaries suddenly releases, shaking the ground.",
+      "options": [
+        "Moving tectonic plates",
+        "Ocean tides rising",
+        "Heavy rainfall",
+        "Changes in air pressure"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In which country did Shakespeare live and write?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "England",
+      "why": "Shakespeare was born in Stratford-upon-Avon and worked mainly in London, England.",
+      "options": [
+        "England",
+        "Italy",
+        "France",
+        "Scotland"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, why do the Capulet and Montague servants start fighting?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Old family grudge",
+      "why": "The servants brawl simply because they serve rival houses locked in an ancient feud — the play opens by showing hatred runs so deep it infects even the servants, not over any specific dispute.",
+      "options": [
+        "Old family grudge",
+        "Argument over money owed",
+        "Insult about Lady Capulet",
+        "Dispute over stolen goods"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Is depression simply a sign of personal weakness?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "No, it's a real illness",
+      "why": "Depression is a genuine medical condition caused by many factors, not a character flaw or lack of willpower.",
+      "options": [
+        "No, it's a real illness",
+        "Yes, weak people get depressed",
+        "Yes, but only in adults",
+        "No, only rich people get it"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In the progression C-Am-F-G, which chord is the 'I'?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "C",
+      "why": "In the key of C major, C is the tonic chord, labelled 'I' in Roman numeral chord analysis.",
+      "options": [
+        "C",
+        "Am",
+        "F",
+        "G"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "Adding extra instrument layers in a chorus mainly creates what effect?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A bigger, fuller sound",
+      "why": "Stacking more instruments and voices in a chorus builds energy and volume compared to sparser verses.",
+      "options": [
+        "A bigger, fuller sound",
+        "A quieter, thinner sound",
+        "A slower tempo",
+        "A key change"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What was a key reason warrior rule (shoguns) rose in Japan?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Weak central emperor control",
+      "why": "As imperial authority weakened, powerful regional warrior clans and samurai filled the power gap, leading to shogunate rule.",
+      "options": [
+        "Weak central emperor control",
+        "Foreign invasion by China",
+        "Introduction of Buddhism",
+        "Discovery of gold mines"
+      ],
+      "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "How do you say 'delicious' in Japanese?",
+      "answer": "Oishii",
+      "why": "'Oishii' means 'delicious' and is commonly said while eating or complimenting food in Japanese.",
+      "options": [
+        "Oishii",
+        "Arigatou",
+        "Sumimasen",
+        "Konnichiwa"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
       "subject": "Science",
-      "prompt": "What word describes a sudden shaking of the ground caused by moving tectonic plates?",
+      "prompt": "What term describes a volcanic mudflow of ash mixed with water?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -57,57 +286,31 @@
       },
       "type": "text",
       "accept": [
-        "earthquake",
-        "earthquakes"
+        "lahar"
       ],
-      "why": "An earthquake happens when built-up stress at a plate boundary is suddenly released, shaking the ground.",
-      "fresh": false
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 72°. What is its alternate angle, in degrees?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 72,
-      "calc": false,
-      "pre": "",
-      "post": "°",
-      "why": "Alternate angles are equal, so the alternate angle is also 72°.",
+      "why": "A lahar is a fast-moving mudflow made of volcanic ash, debris, and water, often triggered by eruptions or melting snow.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A quadrilateral has all sides equal length but no right angles. How many equal sides does it have?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 4,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "This describes a rhombus — all 4 sides are equal, but the angles don't have to be 90°, unlike a square.",
+      "subject": "PDHPE",
+      "prompt": "Which of these best describes good mental health?",
+      "answer": "Coping well with life's stress",
+      "why": "Good mental health isn't the absence of hard feelings — it's being able to cope with stress, manage emotions, and keep functioning even when things get tough.",
+      "options": [
+        "Coping well with life's stress",
+        "Never feeling sad or anxious",
+        "Being naturally cheerful always",
+        "Having no problems at all"
+      ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A parallelogram has one angle of 70°. What is the size of its opposite angle, in degrees?",
+      "prompt": "A bag has 3 red and 7 blue marbles. What is the probability of drawing red, as a fraction out of 10?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -116,18 +319,38 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 70,
+      "answer": 3,
       "calc": false,
       "pre": "",
-      "post": "°",
-      "why": "In a parallelogram, opposite angles are always equal, so the opposite angle is also 70°.",
-      "fresh": false
+      "post": "/10",
+      "why": "There are 3 red marbles out of 10 total, so the probability is 3/10.",
+      "fresh": true
     },
     {
       "id": "T5",
       "phase": "steady",
+      "subject": "Maths",
+      "prompt": "The probability of rain tomorrow is 0.35. What is the probability it does NOT rain?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.65,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Complementary probabilities add to 1, so 1 − 0.35 = 0.65 chance of no rain.",
+      "fresh": true
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of historical analysis from first to last",
+      "prompt": "Order these steps of historical cause-and-consequence analysis",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -137,63 +360,21 @@
       },
       "type": "order",
       "sequence": [
-        "Gather sources",
-        "Identify cause",
-        "Assess consequence",
-        "Judge change over time"
+        "Identify the event",
+        "Find its causes",
+        "Examine its consequences",
+        "Assess long-term change"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Historians first gather evidence, then work out causes, then trace consequences, and finally judge what changed or stayed the same over time.",
+      "why": "Historians first identify an event, then explore what caused it, what it led to, and finally how it changed things over time.",
       "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is the name for a giant sea wave caused by an underwater earthquake?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "tsunami",
-        "tsunamis"
-      ],
-      "why": "A tsunami is a series of huge waves triggered when an underwater earthquake displaces a large volume of water.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Science",
-      "prompt": "What structural feature helps a building sway safely instead of cracking during an earthquake?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "base isolators",
-        "flexible foundation",
-        "shock absorbers",
-        "dampers"
-      ],
-      "why": "Base isolators or dampers let a building flex and absorb shaking, rather than rigidly resisting it and cracking.",
-      "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "History",
-      "prompt": "A classmate says the Battle of Hastings in 1066 'caused' the entire feudal system, as if nothing before it mattered. Explain why historians would push back on treating one event as the sole cause of such a big, long-term change."
+      "subject": "Japanese",
+      "prompt": "Explain why simply memorising a list of Japanese food words is not the same as being able to actually order food in a restaurant."
     }
   ]
 }
