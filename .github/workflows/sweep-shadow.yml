@@ -1,0 +1,77 @@
+# sweep-shadow.yml — SHADOW-ONLY automated Canvas sweep (trust-ladder stage).
+#
+# What this is: on-demand (workflow_dispatch ONLY — deliberately NO schedule)
+# raw pull of each seat's Canvas via that student's own API token, written to
+# the PRIVATE repo under shadow/sweeps/<sydney-date>/. That path is physically
+# outside targets/, which the live pipeline auto-picks — so nothing this
+# workflow does can reach a real quiz. Promotion path: after the shadow sweep
+# matches or beats the manual sweep two weekends running, a separate
+# weekly-sweep.yml gains the pg_cron slot and writes targets/ via the
+# validator gate. That workflow does not exist yet, by design.
+#
+# Secrets required (repo → Settings → Secrets and variables → Actions):
+#   CANVAS_BASE_URL   the school Canvas address, e.g. https://xxx.instructure.com
+#   CANVAS_TOKEN_Y8   student token for seat y8 (minted by the student,
+#   CANVAS_TOKEN_Y9    Settings → Approved Integrations → New Access Token)
+#   DAILYXP_TOKEN     existing fine-grained PAT, both repos
+name: sweep-shadow
+
+on:
+  workflow_dispatch:
+    inputs:
+      seat:
+        description: "Seat code to sweep (blank or 'all' = every eligible seat)"
+        required: false
+        default: "all"
+
+jobs:
+  shadow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout content repo (code + roster)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DAILYXP_TOKEN }}
+
+      - name: Checkout private repo (shadow destination)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          path: private
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install --quiet requests
+
+      - name: Run shadow fetch
+        env:
+          CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
+          CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
+          CANVAS_TOKEN_Y9: ${{ secrets.CANVAS_TOKEN_Y9 }}
+        run: |
+          STAMP=$(TZ=Australia/Sydney date +%F)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          SEAT_ARG=""
+          if [ -n "${{ github.event.inputs.seat }}" ] && [ "${{ github.event.inputs.seat }}" != "all" ]; then
+            SEAT_ARG="--seat ${{ github.event.inputs.seat }}"
+          fi
+          python3 tools/sweep_fetch.py --out "private/shadow/sweeps/${STAMP}" ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit shadow dump to private repo
+        working-directory: private
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "richdrw@gmail.com"
+          git add shadow/sweeps
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -m "shadow sweep ${STAMP} (raw pull)"
+            git pull --rebase origin main
+            git push origin main
+          fi
