@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-08-21",
-  "day": "FRI",
-  "tag": "H4.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-21",
+  "date": "2026-08-24",
+  "day": "MON",
+  "tag": "H5.1",
+  "title": "DailyXP · MON 2026-08-24",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "A drum-and-bass groove that plays underneath the whole song",
+      "subject": "Maths",
+      "prompt": "Rolling a 7 on a single standard die",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Layer",
-      "right": "Contrasting section",
-      "answer": "Layer",
-      "why": "A layer is a part added on top of others playing at the same time, like a bassline running through a song; a contrasting section is a different part of the song's structure, like a bridge.",
-      "fresh": false
+      "left": "Possible",
+      "right": "Impossible",
+      "answer": "Impossible",
+      "why": "A standard die only has faces 1–6, so rolling a 7 can never happen.",
+      "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "An earthquake striking a country with strict building codes and early-warning systems",
+      "subject": "English",
+      "prompt": "Romeo is a Capulet",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,17 +37,231 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Fewer deaths",
-      "right": "More deaths",
-      "answer": "Fewer deaths",
-      "why": "Strict building codes and warning systems reduce deaths because they protect people and structures before and during the quake — preparedness matters as much as the quake's size.",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Romeo belongs to the Montague family, not the Capulets — the two families are rivals.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A cause always happens after its consequence",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "A cause comes before its consequence — the cause triggers the event, and the consequence follows it.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "A bridge section usually repeats the chorus melody exactly",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "A bridge is meant to contrast with the rest of the song, using a different melody or feel before returning to the chorus.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "What does 'mental health' actually refer to?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Overall emotional wellbeing",
+      "why": "Mental health means your overall emotional and psychological wellbeing, not just the presence or absence of illness, and everyone has mental health that can be good or poor.",
+      "options": [
+        "Overall emotional wellbeing",
+        "Only having a diagnosed illness",
+        "Physical fitness levels only",
+        "Being happy all the time"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "In a Japanese restaurant, what does 'itadakimasu' mean?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Before eating phrase",
+      "why": "'Itadakimasu' is said before starting to eat, showing thanks for the food — it's not used after finishing.",
+      "options": [
+        "Thank you for the meal",
+        "Before eating phrase",
+        "The bill please",
+        "I am full"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, who starts the fight in the street brawl?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The servants",
+      "why": "The brawl in Act 1 Scene 1 begins with servants of the two households trading insults before the nobles join in.",
+      "options": [
+        "The servants",
+        "Romeo and Tybalt",
+        "The Prince",
+        "Lord Capulet"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Which of these is a common myth about mental health?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "It's a sign of weakness",
+      "why": "Believing mental illness shows weakness is a harmful myth — it's a health condition, not a character flaw.",
+      "options": [
+        "It can affect anyone",
+        "It's a sign of weakness",
+        "It can be treated",
+        "Talking about it helps"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In the progression C–Am–F–G, which chord is the F?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The IV chord",
+      "why": "In the key of C, F is the fourth note of the scale, making it the IV chord in this progression.",
+      "options": [
+        "The IV chord",
+        "The vi chord",
+        "The I chord",
+        "The V chord"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "The chance of rain tomorrow is 30%. What is the chance it does NOT rain?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "70%",
+      "why": "Complementary events add to 100%, so if rain is 30%, not raining must be 100% − 30% = 70%.",
+      "options": [
+        "70%",
+        "30%",
+        "50%",
+        "60%"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "In a Venn diagram, where do items belonging to both sets go?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "In the overlap",
+      "why": "The overlapping region of a Venn diagram shows items that belong to both sets at the same time.",
+      "options": [
+        "In the overlap",
+        "Outside both circles",
+        "In one circle only",
+        "Above the circles"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In what century did Shakespeare write Romeo and Juliet?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The 16th century",
+      "why": "Shakespeare wrote Romeo and Juliet around 1594-1596, placing it in the late 16th century, during the Elizabethan era.",
+      "options": [
+        "The 16th century",
+        "The 18th century",
+        "The 14th century",
+        "The 20th century"
+      ],
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if fertiliser amount affects plant height, keeping water the same for all plants, what is the controlled variable?",
+      "prompt": "A student tests if the type of music affects how fast plants grow, keeping water the same for all plants. What kind of variable is 'water amount'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -57,17 +271,17 @@
       },
       "type": "text",
       "accept": [
-        "water",
-        "amount of water"
+        "controlled variable",
+        "controlled"
       ],
-      "why": "The controlled variable is whatever is deliberately kept the same so it can't affect the result — here, that's the water. Fertiliser is the independent variable (what's changed) and plant height is the dependent variable (what's measured).",
+      "why": "Water amount is kept the same on purpose so it can't affect the result — that makes it the controlled variable.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events from root cause to final consequence",
+      "prompt": "Order these groups in the feudal system from most to least power",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -77,36 +291,22 @@
       },
       "type": "order",
       "sequence": [
-        "Poor harvests reduce food supply",
-        "Food prices rise sharply",
-        "People struggle to afford food",
-        "Anger grows against the government"
+        "King",
+        "Nobles",
+        "Knights",
+        "Peasants"
       ],
-      "top": "Root cause",
-      "bot": "Final consequence",
-      "why": "The chain starts with the root cause (poor harvests) and ends with the final consequence (anger at the government) — each step causes the next.",
-      "fresh": false
+      "top": "Most power",
+      "bot": "Least power",
+      "why": "The feudal hierarchy ran King, then nobles who held land from him, then knights who served the nobles, then peasants at the bottom who worked the land.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In song structure, what is the term for a section that gives a song's main theme, repeated with the same melody and lyrics each time?",
-      "answer": "Chorus",
-      "why": "The chorus repeats with the same melody and lyrics each time and carries the song's main theme; a bridge contrasts by introducing new material instead of repeating.",
-      "options": [
-        "Chorus",
-        "Bridge",
-        "Intro",
-        "Outro"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes a wave caused by the sudden movement of the sea floor during an underwater earthquake?",
+      "prompt": "What is the term for the point on Earth's surface directly above an earthquake's origin?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -116,71 +316,71 @@
       },
       "type": "text",
       "accept": [
-        "tsunami"
+        "epicentre",
+        "epicenter"
       ],
-      "why": "A tsunami is a giant sea wave triggered by sudden movement of the sea floor, most often during an underwater earthquake.",
+      "why": "The epicentre is the point on the surface directly above where the earthquake starts underground (the focus).",
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order this chain of events from root cause to final consequence",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Poor harvests",
+        "Food shortages",
+        "Rising prices",
+        "Public unrest"
+      ],
+      "top": "Root cause",
+      "bot": "Final consequence",
+      "why": "Poor harvests reduce food supply, causing shortages, which push prices up, eventually leading to public unrest.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Two parallel lines are cut by a transversal. One angle is 84°. What is the alternate angle on the other line?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 84,
-      "calc": false,
-      "pre": "",
-      "post": "°",
-      "why": "Alternate angles are equal — they sit on opposite sides of the transversal between the parallel lines, so the answer is 84°.",
+      "subject": "Music",
+      "prompt": "Which song section usually has the fullest layering of instruments?",
+      "answer": "Chorus",
+      "why": "The chorus is usually the most layered and energetic section, built up to feel like the song's peak moment.",
+      "options": [
+        "Chorus",
+        "Intro",
+        "Bridge",
+        "Verse"
+      ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A triangle has two angles of 40° each. What is the size of the third angle?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 100,
-      "calc": false,
-      "pre": "",
-      "post": "°",
-      "why": "Angles in a triangle sum to 180°. 180 − 40 − 40 = 100°, so this is an obtuse triangle (one angle over 90°), not an acute one — don't assume equal base angles mean a small third angle.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "In the Romeo and Juliet prologue, what does the Chorus say the two families share?",
-      "answer": "An ancient grudge",
-      "why": "The prologue opens by describing the Montagues and Capulets as sharing an 'ancient grudge', setting up the feud that drives the whole play.",
+      "subject": "PDHPE",
+      "prompt": "Which of these best shows positive mental health?",
+      "answer": "Managing stress well",
+      "why": "Positive mental health is about handling life's stress and challenges effectively, not avoiding feelings altogether.",
       "options": [
-        "An ancient grudge",
-        "A trade agreement",
-        "A royal marriage",
-        "A shared house"
+        "Managing stress well",
+        "Never feeling worried",
+        "Avoiding all problems",
+        "Being alone often"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "History",
-      "prompt": "A historian says 'the plague caused the labour shortage, and the labour shortage caused peasants to demand higher wages.' Explain why it matters to separate these two links in the chain rather than treating the whole event as one single cause."
+      "subject": "Science",
+      "prompt": "Explain why two earthquakes of the same magnitude can cause very different amounts of damage in different countries."
     }
   ]
 }
