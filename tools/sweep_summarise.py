@@ -208,7 +208,7 @@ def call_llm(system, user):
             text = "".join(b.get("text", "") for b in data.get("content", []))
             text = re.sub(r"^```(json)?|```$", "", text.strip(),
                           flags=re.M).strip()
-            data = json.loads(text)
+            data, _ = json.JSONDecoder().raw_decode(text)  # ignore trailing junk
             if isinstance(data, list):      # model sent a bare topics array
                 data = {"unit": "", "topics": data}
             if not isinstance(data, dict):
