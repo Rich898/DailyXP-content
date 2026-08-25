@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-08-24",
-  "day": "MON",
-  "tag": "H5.1",
-  "title": "DailyXP · MON 2026-08-24",
+  "date": "2026-08-25",
+  "day": "TUE",
+  "tag": "H5.2",
+  "title": "DailyXP · TUE 2026-08-25",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Rolling a 7 on a single standard die",
+      "prompt": "The chance of an event happening plus the chance of it not happening equals 1",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Possible",
-      "right": "Impossible",
-      "answer": "Impossible",
-      "why": "A standard die only has faces 1–6, so rolling a 7 can never happen.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Probabilities of an event and its complement always add to 1, since together they cover every possible outcome.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo is a Capulet",
+      "prompt": "Shakespeare wrote during the reign of Elizabeth I and James I",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Romeo belongs to the Montague family, not the Capulets — the two families are rivals.",
+      "answer": "True",
+      "why": "Shakespeare's career spanned both the late Elizabethan era and the early Jacobean era under James I.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "A cause always happens after its consequence",
+      "subject": "Science",
+      "prompt": "The Richter scale measures how much damage an earthquake causes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A cause comes before its consequence — the cause triggers the event, and the consequence follows it.",
+      "why": "The Richter scale measures the magnitude (energy released) of an earthquake, not the damage, which depends on other factors like location and building design.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "A bridge section usually repeats the chorus melody exactly",
+      "subject": "History",
+      "prompt": "A trigger cause is the same as a long-term cause",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A bridge is meant to contrast with the rest of the song, using a different melody or feel before returning to the chorus.",
+      "why": "A trigger cause is the immediate spark for an event, while a long-term cause is a deeper, slow-building condition; historians treat them differently.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What does 'mental health' actually refer to?",
+      "subject": "Music",
+      "prompt": "In the progression I–vi–IV–V, which chord is the vi?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Overall emotional wellbeing",
-      "why": "Mental health means your overall emotional and psychological wellbeing, not just the presence or absence of illness, and everyone has mental health that can be good or poor.",
+      "answer": "Am, the relative minor",
+      "why": "In C major, vi is A minor, the relative minor chord built on the sixth scale degree — I is C, IV is F, V is G.",
       "options": [
-        "Overall emotional wellbeing",
-        "Only having a diagnosed illness",
-        "Physical fitness levels only",
-        "Being happy all the time"
+        "Am, the relative minor",
+        "F, the subdominant chord",
+        "G, the dominant chord",
+        "C, the tonic chord"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "In a Japanese restaurant, what does 'itadakimasu' mean?",
+      "subject": "Music",
+      "prompt": "Which song section usually introduces the song before the verse?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Before eating phrase",
-      "why": "'Itadakimasu' is said before starting to eat, showing thanks for the food — it's not used after finishing.",
+      "answer": "Intro",
+      "why": "The intro sets up the mood and instrumentation before the first verse begins.",
       "options": [
-        "Thank you for the meal",
-        "Before eating phrase",
-        "The bill please",
-        "I am full"
+        "Intro",
+        "Chorus",
+        "Bridge",
+        "Outro"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, who starts the fight in the street brawl?",
+      "subject": "Maths",
+      "prompt": "A spinner has a 40% chance of landing blue. What is the chance it does not land blue?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The servants",
-      "why": "The brawl in Act 1 Scene 1 begins with servants of the two households trading insults before the nobles join in.",
+      "answer": "60%",
+      "why": "Complementary events add to 100%, so the chance of not blue is 100% minus 40%, which is 60%.",
       "options": [
-        "The servants",
-        "Romeo and Tybalt",
-        "The Prince",
-        "Lord Capulet"
+        "60%",
+        "40%",
+        "50%",
+        "10%"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which of these is a common myth about mental health?",
+      "subject": "Maths",
+      "prompt": "In a Venn diagram, where do items in neither set go?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "It's a sign of weakness",
-      "why": "Believing mental illness shows weakness is a harmful myth — it's a health condition, not a character flaw.",
+      "answer": "Outside both circles",
+      "why": "Items that belong to neither set are placed outside both circles but still within the rectangle representing the whole sample space.",
       "options": [
-        "It can affect anyone",
-        "It's a sign of weakness",
-        "It can be treated",
-        "Talking about it helps"
+        "Outside both circles",
+        "In the overlap",
+        "Inside circle A only",
+        "Inside circle B only"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the F?",
+      "subject": "PDHPE",
+      "prompt": "What is a healthy first step when feeling overwhelmed by anger?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The IV chord",
-      "why": "In the key of C, F is the fourth note of the scale, making it the IV chord in this progression.",
+      "answer": "Pause and breathe",
+      "why": "Pausing to breathe calms the body's stress response, giving you time to respond thoughtfully instead of reacting impulsively.",
       "options": [
-        "The IV chord",
-        "The vi chord",
-        "The I chord",
-        "The V chord"
+        "Pause and breathe",
+        "Shout it out loudly",
+        "Ignore it completely",
+        "Blame someone else"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "The chance of rain tomorrow is 30%. What is the chance it does NOT rain?",
+      "subject": "English",
+      "prompt": "In the prologue, what does the Chorus call the feud between the two families?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,21 +203,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "70%",
-      "why": "Complementary events add to 100%, so if rain is 30%, not raining must be 100% − 30% = 70%.",
+      "answer": "Ancient grudge",
+      "why": "The prologue describes the feud as an 'ancient grudge', showing it has lasted for generations before the play begins.",
       "options": [
-        "70%",
-        "30%",
-        "50%",
-        "60%"
+        "Ancient grudge",
+        "New rivalry",
+        "Small dispute",
+        "Recent quarrel"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "In a Venn diagram, where do items belonging to both sets go?",
+      "subject": "PDHPE",
+      "prompt": "True or common myth: people with mental illness can just snap out of it?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,21 +225,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "In the overlap",
-      "why": "The overlapping region of a Venn diagram shows items that belong to both sets at the same time.",
+      "answer": "Common myth",
+      "why": "Mental illness involves real biological and psychological factors; it cannot simply be willed away, so this idea is a harmful myth.",
       "options": [
-        "In the overlap",
-        "Outside both circles",
-        "In one circle only",
-        "Above the circles"
+        "Common myth",
+        "Proven fact",
+        "Medical rule",
+        "Scientific law"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "In what century did Shakespeare write Romeo and Juliet?",
+      "subject": "PDHPE",
+      "prompt": "What does 'mental health' mainly refer to?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The 16th century",
-      "why": "Shakespeare wrote Romeo and Juliet around 1594-1596, placing it in the late 16th century, during the Elizabethan era.",
+      "answer": "Our emotional and psychological wellbeing",
+      "why": "Mental health means overall emotional and psychological wellbeing, not just the presence or absence of illness — everyone has mental health, just as everyone has physical health.",
       "options": [
-        "The 16th century",
-        "The 18th century",
-        "The 14th century",
-        "The 20th century"
+        "Our emotional and psychological wellbeing",
+        "Only having a diagnosed mental illness",
+        "How physically fit a person is",
+        "How intelligent a person is"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the type of music affects how fast plants grow, keeping water the same for all plants. What kind of variable is 'water amount'?",
+      "prompt": "A student tests whether the amount of light affects seed germination speed, keeping temperature the same. What type of variable is 'temperature'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,14 +274,14 @@
         "controlled variable",
         "controlled"
       ],
-      "why": "Water amount is kept the same on purpose so it can't affect the result — that makes it the controlled variable.",
+      "why": "Temperature is kept the same on purpose so it cannot affect the result, making it the controlled variable.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups in the feudal system from most to least power",
+      "prompt": "Order these stages from the fall of Rome to the medieval era",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -291,22 +291,37 @@
       },
       "type": "order",
       "sequence": [
-        "King",
-        "Nobles",
-        "Knights",
-        "Peasants"
+        "Western Roman Empire falls",
+        "Europe fragments into small kingdoms",
+        "Feudal system develops",
+        "Medieval castles and knights emerge"
       ],
-      "top": "Most power",
-      "bot": "Least power",
-      "why": "The feudal hierarchy ran King, then nobles who held land from him, then knights who served the nobles, then peasants at the bottom who worked the land.",
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "Rome's fall in 476 CE led to political fragmentation, which gave rise to feudalism and eventually the castles and knights of the medieval period.",
       "fresh": false,
       "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "In a Japanese restaurant, what do you say before eating to show thanks for the meal?",
+      "answer": "Itadakimasu, before eating",
+      "why": "Itadakimasu is said before eating to show thanks for the food, while gochisousama is said after the meal to thank the host or chef.",
+      "options": [
+        "Itadakimasu, before eating",
+        "Gochisousama, after eating",
+        "Sumimasen, to call staff",
+        "Oishii, meaning delicious"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for the point on Earth's surface directly above an earthquake's origin?",
+      "prompt": "What is the term for a series of powerful ocean waves caused by a sudden earthquake at sea?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -316,17 +331,16 @@
       },
       "type": "text",
       "accept": [
-        "epicentre",
-        "epicenter"
+        "tsunami"
       ],
-      "why": "The epicentre is the point on the surface directly above where the earthquake starts underground (the focus).",
+      "why": "A tsunami is triggered when an underwater earthquake displaces a huge volume of water, sending waves across the ocean.",
       "fresh": false
     },
     {
-      "id": "T4",
+      "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order this chain of events from root cause to final consequence",
+      "prompt": "Arrange this chain from earliest cause to final result",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -336,51 +350,36 @@
       },
       "type": "order",
       "sequence": [
-        "Poor harvests",
-        "Food shortages",
-        "Rising prices",
-        "Public unrest"
+        "Poor harvests occur",
+        "Food prices rise sharply",
+        "Public anger grows",
+        "Government faces unrest"
       ],
-      "top": "Root cause",
-      "bot": "Final consequence",
-      "why": "Poor harvests reduce food supply, causing shortages, which push prices up, eventually leading to public unrest.",
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
-      "subject": "Music",
-      "prompt": "Which song section usually has the fullest layering of instruments?",
-      "answer": "Chorus",
-      "why": "The chorus is usually the most layered and energetic section, built up to feel like the song's peak moment.",
-      "options": [
-        "Chorus",
-        "Intro",
-        "Bridge",
-        "Verse"
-      ],
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "Each event triggers the next: poor harvests raise prices, which fuels anger, which eventually threatens the government's stability.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Which of these best shows positive mental health?",
-      "answer": "Managing stress well",
-      "why": "Positive mental health is about handling life's stress and challenges effectively, not avoiding feelings altogether.",
+      "subject": "English",
+      "prompt": "In which century was Shakespeare born?",
+      "answer": "16th century",
+      "why": "Shakespeare was born in 1564, which falls within the 16th century.",
       "options": [
-        "Managing stress well",
-        "Never feeling worried",
-        "Avoiding all problems",
-        "Being alone often"
+        "16th century",
+        "14th century",
+        "15th century",
+        "17th century"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Science",
-      "prompt": "Explain why two earthquakes of the same magnitude can cause very different amounts of damage in different countries."
+      "subject": "Japanese",
+      "prompt": "Explain how you would politely order food and ask for the bill in a Japanese restaurant, using at least two phrases you've learned."
     }
   ]
 }
