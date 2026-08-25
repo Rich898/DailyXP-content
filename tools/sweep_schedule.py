@@ -71,7 +71,7 @@ API_URL = "https://api.anthropic.com/v1/messages"
 LLM_RETRIES = 2
 
 NOTICE_PAT = re.compile(r"year\s*group", re.I)   # how we spot the noticeboard
-FILE_PAT = re.compile(r"assess", re.I)           # ...and the schedule PDF
+FILE_PAT = re.compile(r"assess|exam\s+timetable", re.I)  # ...and the schedule PDF
 PDF_MAX_BYTES = 15 * 1024 * 1024
 
 # PDF subject spelling -> targets subject spelling (lowercase keys).
@@ -249,9 +249,11 @@ def task_match(a, b):
     return len(ta & tb) / max(1, len(ta | tb)) >= 0.6
 
 
-def attach(subjects, rows, seat_chg):
+def attach(subjects, rows, seat_chg, stamp):
     """THE FILL-AND-STAMP ATTACH. Pure code; edits topics in place and writes
-    a per-subject schedule_pass changelog. Returns totals."""
+    a per-subject schedule_pass changelog. Rows dated BEFORE the sweep stamp
+    are parked (past_rows), never attached — a stale timetable is thereby
+    harmless. Returns totals."""
     filled = stamped = conflicts = 0
     for row in rows:
         names = norm_subject(row["subject"], list(subjects))
@@ -264,10 +266,15 @@ def attach(subjects, rows, seat_chg):
             entry = subjects.get(name) or {}
             chg = seat_chg.setdefault(name, {}).setdefault(
                 "schedule_pass", {"filled": [], "stamped": [],
-                                  "date_conflicts": [], "undated_rows": []})
+                                  "date_conflicts": [], "undated_rows": [],
+                                  "past_rows": []})
             if not row["date"]:
                 chg["undated_rows"].append(
                     {"task": row["task"], "note": row["date_confidence"]})
+                continue
+            if row["date"] < stamp:  # ISO strings compare correctly
+                chg["past_rows"].append(
+                    {"task": row["task"], "date": row["date"]})
                 continue
             hit = False
             for topic in entry.get("topics", []):
@@ -395,16 +402,17 @@ def main():
                  f"{n_cand} assessment-PDF candidate(s)")
         if args.list:
             if n_cand == 0:
-                failures.append(f"{code}: probe found no PDF matching "
-                                f"/{FILE_PAT.pattern}/ — tune FILE_PAT")
+                annotate(f"{code}: NOTE — no current assessment/exam-timetable "
+                         f"PDF on the noticeboard; dates will ride classroom "
+                         f"sources until the school posts one")
             continue
 
         cands = pick_schedule_pdf(files)
         if not cands:
-            failures.append(f"{code}: no file matching /{FILE_PAT.pattern}/ "
-                            f"+ .pdf on the noticeboard")
-            log(f"{code}: FAILED — no assessment-schedule PDF matched "
-                f"(file names -> noticeboard-files.txt, private repo)")
+            log(f"{code}: no current assessment/exam-timetable PDF on the "
+                f"noticeboard — skipping seat (dates ride classroom sources)")
+            annotate(f"{code}: NOTE — no current assessment/exam-timetable "
+                     f"PDF on the noticeboard this week; nothing attached")
             continue
         chosen = cands[0]
         private_lines.append(
@@ -439,7 +447,7 @@ def main():
             continue
         seat_chg = (targets.setdefault("sweep_update", {})
                     .setdefault("seats", {}).setdefault(code, {}))
-        f_, s_, c_ = attach(sd.get("subjects", {}), rows, seat_chg)
+        f_, s_, c_ = attach(sd.get("subjects", {}), rows, seat_chg, today)
         totals["filled"] += f_
         totals["stamped"] += s_
         totals["conflicts"] += c_
