@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-08-24",
-  "day": "MON",
-  "tag": "T5.1",
-  "title": "DailyXP · MON 2026-08-24",
+  "date": "2026-08-25",
+  "day": "TUE",
+  "tag": "T5.2",
+  "title": "DailyXP · TUE 2026-08-25",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Rolling a die and getting a 7",
+      "prompt": "Rolling a die: getting an even number and getting a 5 are complementary",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Possible",
-      "right": "Impossible",
-      "answer": "Impossible",
-      "why": "A standard die only has faces 1-6, so rolling a 7 can never happen.",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Complementary events must cover all outcomes between them. Even numbers and 5 don't include 1 or 3, so they are not complementary.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet die at the end of the play",
+      "prompt": "In Act 1, the Prince threatens death for further street brawling",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Both die by suicide in the final act, fulfilling the prologue's promise of 'star-crossed lovers'.",
+      "why": "In Scene 1 the Prince warns that any future fighting between the families will be punished by death.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Volcanoes mostly occur at plate boundaries",
+      "prompt": "Most tsunamis are caused by underwater earthquakes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Most volcanic activity happens where tectonic plates meet, especially along the Pacific Ring of Fire.",
+      "why": "Sudden vertical movement of the seafloor during an underwater earthquake displaces huge volumes of water, creating a tsunami.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "History",
-      "prompt": "An event can have more than one cause",
+      "prompt": "A historical event can have several causes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Historians look for multiple causes working together, not a single simple trigger.",
+      "why": "Historians treat causation as complex — big events usually result from multiple long-term and short-term causes working together.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which of these is part of good mental health?",
+      "subject": "Music",
+      "prompt": "In the progression C–Am–F–G, which chord is the 'vi'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Coping with normal stress",
-      "why": "Mental health is about coping with everyday stress and functioning well, not the absence of any negative feelings.",
+      "answer": "Am chord",
+      "why": "Am is built on the 6th note of the C major scale, making it the 'vi' chord — the minor chord that gives the progression its emotional lift.",
       "options": [
-        "Coping with normal stress",
-        "Never feeling sad",
-        "Avoiding all problems",
-        "Being alone all the time"
+        "Am chord",
+        "C major chord",
+        "F major chord",
+        "G major chord"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "What usually causes an earthquake?",
+      "subject": "PDHPE",
+      "prompt": "Which of these best describes mental health?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Moving tectonic plates",
-      "why": "Earthquakes happen when built-up stress along plate boundaries suddenly releases, shaking the ground.",
+      "answer": "How you feel, think, and cope daily",
+      "why": "Mental health is about overall emotional and psychological wellbeing, not the total absence of sadness or illness.",
       "options": [
-        "Moving tectonic plates",
-        "Ocean tides rising",
-        "Heavy rainfall",
-        "Changes in air pressure"
+        "How you feel, think, and cope daily",
+        "Never feeling sad or stressed",
+        "Being physically fit and strong",
+        "Having no diagnosed illness"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "In which country did Shakespeare live and write?",
+      "subject": "Maths",
+      "prompt": "A coin is flipped twice. What is the chance of two heads?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "England",
-      "why": "Shakespeare was born in Stratford-upon-Avon and worked mainly in London, England.",
+      "answer": "1/4",
+      "why": "Each flip has a 1/2 chance of heads, so two independent flips give 1/2 × 1/2 = 1/4.",
       "options": [
-        "England",
-        "Italy",
-        "France",
-        "Scotland"
+        "1/4",
+        "1/2",
+        "1/3",
+        "2/3"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, why do the Capulet and Montague servants start fighting?",
+      "prompt": "Who is Juliet's father in the play?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Old family grudge",
-      "why": "The servants brawl simply because they serve rival houses locked in an ancient feud — the play opens by showing hatred runs so deep it infects even the servants, not over any specific dispute.",
+      "answer": "Lord Capulet",
+      "why": "Juliet belongs to the Capulet household, and Lord Capulet is her father throughout the play.",
       "options": [
-        "Old family grudge",
-        "Argument over money owed",
-        "Insult about Lady Capulet",
-        "Dispute over stolen goods"
+        "Lord Capulet",
+        "Lord Montague",
+        "Friar Laurence",
+        "Prince Escalus"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Is depression simply a sign of personal weakness?",
+      "prompt": "What's a common myth about seeking help for mental health?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "No, it's a real illness",
-      "why": "Depression is a genuine medical condition caused by many factors, not a character flaw or lack of willpower.",
+      "answer": "Asking for help shows weakness",
+      "why": "Seeking help is actually a sign of strength and self-awareness, not weakness — this myth stops many people getting support they need.",
       "options": [
-        "No, it's a real illness",
-        "Yes, weak people get depressed",
-        "Yes, but only in adults",
-        "No, only rich people get it"
+        "Asking for help shows weakness",
+        "Talking to someone can ease stress",
+        "Counsellors keep things private",
+        "Early support helps recovery"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, which chord is the 'I'?",
+      "prompt": "Bringing back the chorus with fuller instrumentation usually creates what effect?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,21 +203,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "C",
-      "why": "In the key of C major, C is the tonic chord, labelled 'I' in Roman numeral chord analysis.",
+      "answer": "A lift in energy",
+      "why": "Adding layers back in after a stripped-back section creates contrast and builds energy, a common structural technique.",
       "options": [
-        "C",
-        "Am",
-        "F",
-        "G"
+        "A lift in energy",
+        "A quiet fade-out",
+        "A sudden key change",
+        "A tempo slowdown"
       ],
       "fresh": false
     },
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "Adding extra instrument layers in a chorus mainly creates what effect?",
+      "subject": "History",
+      "prompt": "What kind of terrain covers most of Japan?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,21 +225,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A bigger, fuller sound",
-      "why": "Stacking more instruments and voices in a chorus builds energy and volume compared to sparser verses.",
+      "answer": "Mountainous",
+      "why": "Japan's mountainous geography limited farmable land and encouraged regional warrior control, helping shoguns rise to power.",
       "options": [
-        "A bigger, fuller sound",
-        "A quieter, thinner sound",
-        "A slower tempo",
-        "A key change"
+        "Mountainous",
+        "Flat desert",
+        "Grassy plains",
+        "Dense swamp"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What was a key reason warrior rule (shoguns) rose in Japan?",
+      "subject": "Science",
+      "prompt": "What mainly causes most volcanic eruptions?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,36 +247,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Weak central emperor control",
-      "why": "As imperial authority weakened, powerful regional warrior clans and samurai filled the power gap, leading to shogunate rule.",
+      "answer": "Magma rising at boundaries",
+      "why": "Volcanoes mostly form where magma rises through weaknesses at tectonic plate boundaries, not from unrelated weather or water processes.",
       "options": [
-        "Weak central emperor control",
-        "Foreign invasion by China",
-        "Introduction of Buddhism",
-        "Discovery of gold mines"
+        "Magma rising at boundaries",
+        "Ocean currents shifting",
+        "Sudden air pressure drops",
+        "Underground rivers flooding"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'delicious' in Japanese?",
-      "answer": "Oishii",
-      "why": "'Oishii' means 'delicious' and is commonly said while eating or complimenting food in Japanese.",
-      "options": [
-        "Oishii",
-        "Arigatou",
-        "Sumimasen",
-        "Konnichiwa"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes a volcanic mudflow of ash mixed with water?",
+      "prompt": "What is the term for a violent mudflow of volcanic ash and water?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -288,93 +273,94 @@
       "accept": [
         "lahar"
       ],
-      "why": "A lahar is a fast-moving mudflow made of volcanic ash, debris, and water, often triggered by eruptions or melting snow.",
+      "why": "A lahar is a fast-moving mudflow made of volcanic ash mixed with water, often triggered by eruptions or heavy rain.",
       "fresh": false
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "The probability of drawing a red card from a deck is 0.5. What is the probability of NOT drawing red?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.5,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Complementary probabilities always add to 1, so 1 − 0.5 = 0.5.",
+      "fresh": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Which of these best describes good mental health?",
-      "answer": "Coping well with life's stress",
-      "why": "Good mental health isn't the absence of hard feelings — it's being able to cope with stress, manage emotions, and keep functioning even when things get tough.",
+      "subject": "Japanese",
+      "prompt": "How do you say 'thank you for the meal' in Japanese after eating?",
+      "answer": "Gochisousama",
+      "why": "Gochisousama is said after finishing a meal to thank the person who provided or cooked it.",
       "options": [
-        "Coping well with life's stress",
-        "Never feeling sad or anxious",
-        "Being naturally cheerful always",
-        "Having no problems at all"
+        "Gochisousama",
+        "Itadakimasu",
+        "Oishii desu",
+        "Sumimasen"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 3 red and 7 blue marbles. What is the probability of drawing red, as a fraction out of 10?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 3,
-      "calc": false,
-      "pre": "",
-      "post": "/10",
-      "why": "There are 3 red marbles out of 10 total, so the probability is 3/10.",
-      "fresh": true
+      "subject": "English",
+      "prompt": "In Act 1 Scene 5, what draws Romeo's attention to Juliet?",
+      "answer": "Her beauty across room",
+      "why": "Romeo first notices Juliet's beauty from across the room at the Capulet feast, sparking his famous instant admiration.",
+      "options": [
+        "Her beauty across room",
+        "Her family's wealth display",
+        "Her dancing skill shown",
+        "Her loud voice heard"
+      ],
+      "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "The probability of rain tomorrow is 0.35. What is the probability it does NOT rain?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.65,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Complementary probabilities add to 1, so 1 − 0.35 = 0.65 chance of no rain.",
-      "fresh": true
+      "subject": "Music",
+      "prompt": "In the key of C major, which chord is built on the fifth note of the scale?",
+      "answer": "G",
+      "why": "The fifth note of the C major scale is G, so the G chord is the 'V' chord in this key.",
+      "options": [
+        "G",
+        "F",
+        "Am",
+        "C"
+      ],
+      "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps of historical cause-and-consequence analysis",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Identify the event",
-        "Find its causes",
-        "Examine its consequences",
-        "Assess long-term change"
+      "subject": "PDHPE",
+      "prompt": "Which of these is a sign of good mental health?",
+      "answer": "Coping with everyday stress",
+      "why": "Good mental health means being able to manage normal stress and emotions, not the absence of any negative feeling.",
+      "options": [
+        "Coping with everyday stress",
+        "Never feeling upset at all",
+        "Avoiding all social contact",
+        "Ignoring your emotions completely"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Historians first identify an event, then explore what caused it, what it led to, and finally how it changed things over time.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Japanese",
-      "prompt": "Explain why simply memorising a list of Japanese food words is not the same as being able to actually order food in a restaurant."
+      "prompt": "Explain why knowing Japanese food words alone doesn't mean you can actually order a meal at a restaurant in Japan."
     }
   ]
 }
