@@ -3,18 +3,20 @@
 sweep_diff.py — the shadow SCOREBOARD (limb #1d). Deterministic. No LLM.
 
 Compares a machine-summarised sweep against a manual targets file, topic by
-topic, and writes the side-by-side markdown that decides promotion. The
-trust-ladder rule: the scheduled sweep only replaces the manual one after
-this report shows match-or-better two weekends running.
+topic — the side-by-side that decides promotion. Trust-ladder rule: the
+scheduled sweep only replaces the manual one after this shows match-or-better
+two weekends running.
 
-Matching is fuzzy on normalised topic names (token overlap), because the
-same teaching topic worded two ways is a match, not a miss.
+Matching is fuzzy on normalised topic names (token overlap) with two
+fairness rules learned from the first shadow run:
+  - abbreviations expand before matching (R&J -> Romeo and Juliet, & -> and)
+  - split credit: one manual topic covered by several machine topics (or
+    vice versa) counts as FOUND, not as a miss plus noise.
 
 Buckets per seat/subject:
-  MATCHED       both sweeps found it
-  MANUAL-ONLY   the machine missed it   (the number that matters most)
-  MACHINE-ONLY  extra finds — noise OR genuinely new content; human-judged
-Plus an assessment-date agreement table.
+  MATCHED        found (1:1 or split coverage)
+  MANUAL-ONLY    the machine genuinely missed it (the number that matters)
+  MACHINE-ONLY   extra finds with no manual counterpart — noise OR new; judged
 
 Usage:
   python3 tools/sweep_diff.py --machine <targets-shadow.json> \
@@ -26,10 +28,14 @@ import re
 
 STOP = {"the", "a", "an", "of", "in", "and", "for", "to", "with", "on",
         "unit", "intro", "introduction"}
+ABBREV = [("r&j", "romeo and juliet"), ("&", " and "), ("lotf", "lord of the flies")]
 
 
 def toks(s):
-    words = re.findall(r"[a-z0-9]+", (s or "").lower())
+    s = (s or "").lower()
+    for a, b in ABBREV:
+        s = s.replace(a, b)
+    words = re.findall(r"[a-z0-9]+", s)
     return {w for w in words if w not in STOP and len(w) > 1}
 
 
@@ -69,7 +75,7 @@ def main():
 
     lines = [f"# Shadow sweep vs manual — machine `{args.machine}` "
              f"vs manual `{args.manual}`", ""]
-    grand = {"matched": 0, "manual_only": 0, "machine_only": 0}
+    found = manual_total = machine_only_total = 0
 
     for seat in sorted(set(mn) | set(mc)):
         lines.append(f"## {seat}")
@@ -78,28 +84,33 @@ def main():
         for subj in subjects:
             man = subject_topics(mn, seat, subj)
             mac = subject_topics(mc, seat, subj)
+            manual_total += len(man)
             used = set()
-            matched, manual_only = [], []
+            pairs, misses = [], []
             for m in man:
                 hit = next((i for i, x in enumerate(mac)
                             if i not in used and match(m, x)), None)
                 if hit is None:
-                    manual_only.append(m)
+                    misses.append(m)
                 else:
                     used.add(hit)
-                    matched.append((m, mac[hit]))
-            machine_only = [x for i, x in enumerate(mac) if i not in used]
-            grand["matched"] += len(matched)
-            grand["manual_only"] += len(manual_only)
-            grand["machine_only"] += len(machine_only)
-            lines.append(f"### {subj} — {len(matched)} matched · "
-                         f"{len(manual_only)} manual-only · "
-                         f"{len(machine_only)} machine-only")
-            for m, x in matched:
-                lines.append(f"- MATCH: `{m}` ≈ `{x}`")
-            for m in manual_only:
+                    pairs.append((m, mac[hit], ""))
+            split_found = [m for m in misses if any(match(m, x) for x in mac)]
+            misses = [m for m in misses if m not in split_found]
+            for m in split_found:
+                pairs.append((m, next(x for x in mac if match(m, x)),
+                              " (split coverage)"))
+            extras = [x for i, x in enumerate(mac) if i not in used
+                      and not any(match(x, m2) for m2 in man)]
+            found += len(pairs)
+            machine_only_total += len(extras)
+            lines.append(f"### {subj} — {len(pairs)} found · "
+                         f"{len(misses)} manual-only · {len(extras)} machine-only")
+            for m, x, tag in pairs:
+                lines.append(f"- MATCH{tag}: `{m}` ≈ `{x}`")
+            for m in misses:
                 lines.append(f"- **MANUAL-ONLY (machine missed): `{m}`**")
-            for x in machine_only:
+            for x in extras:
                 lines.append(f"- MACHINE-ONLY (judge: noise or new?): `{x}`")
         ma, mb = assessments(mn, seat), assessments(mc, seat)
         lines.append(f"### {seat} assessment dates")
@@ -113,12 +124,10 @@ def main():
                          + (f" · machine-only: {sorted(mac_only)}" if mac_only else ""))
         lines.append("")
 
-    total = sum(grand.values())
-    score = (f"**SCOREBOARD: {grand['matched']} matched · "
-             f"{grand['manual_only']} manual-only (missed) · "
-             f"{grand['machine_only']} machine-only** "
-             f"({0 if not total else round(100 * grand['matched'] / max(1, grand['matched'] + grand['manual_only']))}% "
-             f"of manual topics found)")
+    pct = 0 if not manual_total else round(100 * found / manual_total)
+    score = (f"**SCOREBOARD: {found}/{manual_total} manual topics found "
+             f"({pct}%) · {manual_total - found} missed · "
+             f"{machine_only_total} machine-only**")
     lines.insert(2, score)
     lines.insert(3, "")
     with open(args.out, "w", encoding="utf-8") as f:

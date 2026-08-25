@@ -45,6 +45,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--targets", required=True)
     ap.add_argument("--dump", required=True)
+    ap.add_argument("--base", help="previous targets file — every topic in it "
+                                   "must survive into --targets (the "
+                                   "carry-forward law)")
     ap.add_argument("--manual-dir", default="private/targets")
     args = ap.parse_args()
 
@@ -107,12 +110,34 @@ def main():
                 if a and a.get("date"):
                     try:
                         d = dt.date.fromisoformat(a["date"])
+                        if d == stamp_d:
+                            warns.append(f"{seat}/{name}: assessment date "
+                                         f"equals sweep day — possible "
+                                         f"relative-date anchor, verify")
                         if not (-30 <= (d - stamp_d).days <= 180):
                             warns.append(f"{seat}/{name}: assessment date "
                                          f"{a['date']} outside window")
                     except ValueError:
                         fails.append(f"{seat}/{name}: unparseable "
                                      f"assessment date {a['date']!r}")
+        # THE CARRY-FORWARD LAW: every base topic survives, or the gate fails.
+        if args.base:
+            base = json.load(open(args.base, encoding="utf-8"))
+            bsubs = (base.get("students", {}).get(seat, {}) or {}).get(
+                "subjects", {})
+            su = (t.get("sweep_update", {}).get("seats", {})
+                  .get(seat, {}))
+            for bsubj, bentry in bsubs.items():
+                have = {x.get("topic") for x in
+                        (subjects.get(bsubj, {}) or {}).get("topics", [])}
+                removed = {r.get("topic") for r in
+                           (su.get(bsubj, {}) or {}).get("removed", [])}
+                for bt in bentry.get("topics", []):
+                    nm = bt.get("topic")
+                    if nm not in have and nm not in removed:
+                        fails.append(f"CARRY-FORWARD VIOLATION: {seat}/"
+                                     f"{bsubj}/'{nm}' dropped without an "
+                                     f"explicit removal record")
         if not (BAND[0] <= total <= BAND[1]):
             fails.append(f"{seat}: {total} topics outside sane band {BAND}")
 

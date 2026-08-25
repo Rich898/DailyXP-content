@@ -52,7 +52,7 @@ jobs:
       - name: Install deps
         run: pip install --quiet requests
 
-      - name: Compute stamp and seat filter
+      - name: Compute stamp, seat filter, base and manual targets
         run: |
           echo "STAMP=$(TZ=Australia/Sydney date +%F)" >> "$GITHUB_ENV"
           SEAT_ARG=""
@@ -60,6 +60,12 @@ jobs:
             SEAT_ARG="--seat ${{ github.event.inputs.seat }}"
           fi
           echo "SEAT_ARG=${SEAT_ARG}" >> "$GITHUB_ENV"
+          MANUAL=$(ls private/targets/*.json | sort | tail -1)
+          BASE=$(ls private/targets/*.json | sort | tail -2 | head -1)
+          if [ "$BASE" = "$MANUAL" ]; then BASE=""; fi
+          echo "MANUAL=${MANUAL}" >> "$GITHUB_ENV"
+          echo "BASE=${BASE}" >> "$GITHUB_ENV"
+          echo "carry-forward base: ${BASE:-none (first sweep)} | diff target: ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Run shadow fetch
         if: ${{ github.event.inputs.mode != 'summarise' }}
@@ -78,7 +84,7 @@ jobs:
           python3 tools/sweep_summarise.py \
             --dump "private/shadow/sweeps/${STAMP}" \
             --out  "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
-            --manual-dir private/targets ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
+            --manual-dir private/targets ${BASE:+--base "$BASE"} ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Validate (deterministic gate)
         if: ${{ github.event.inputs.mode != 'fetch' }}
@@ -86,12 +92,11 @@ jobs:
           python3 tools/sweep_validate.py \
             --targets "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
             --dump "private/shadow/sweeps/${STAMP}" \
-            --manual-dir private/targets | tee -a "$GITHUB_STEP_SUMMARY"
+            --manual-dir private/targets ${BASE:+--base "$BASE"} | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Diff against newest manual sweep
         if: ${{ github.event.inputs.mode != 'fetch' }}
         run: |
-          MANUAL=$(ls private/targets/*.json | sort | tail -1)
           echo "diffing against ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
           python3 tools/sweep_diff.py \
             --machine "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
