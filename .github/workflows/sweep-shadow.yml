@@ -10,6 +10,12 @@
 # beats the manual sweep, the output destination moves to targets/ behind the
 # validator gate. Until then this stays observation-only.
 #
+# The SCHEDULE-PASS (limb #1d) runs after summarise: it reads the assessment-
+# schedule PDF from each seat's year-group noticeboard (files on that ONE
+# course only — see tools/sweep_schedule.py's declared scope) and fills/stamps
+# assessment dates into the shadow targets before the validator gate. A failed
+# schedule-pass turns the run red but never blocks validate/diff/commit.
+#
 # Secrets required (repo → Settings → Secrets and variables → Actions):
 #   CANVAS_BASE_URL   the school Canvas address, e.g. https://xxx.instructure.com
 #   CANVAS_TOKEN_Y8   student token for seat y8 (minted by the student,
@@ -27,7 +33,7 @@ on:
         required: false
         default: "all"
       mode:
-        description: "full = fetch+summarise | fetch = raw pull only | summarise = reuse today's dump"
+        description: "full = fetch+summarise+schedule | fetch = raw pull only | summarise = reuse today's dump | schedule = schedule-pass only, newest dump | schedule-list = probe: list noticeboard files, change nothing"
         required: false
         default: "full"
 
@@ -55,14 +61,26 @@ jobs:
       - name: Install deps
         run: pip install --quiet requests
 
-      - name: Compute stamp, seat filter, base and manual targets
+      - name: Compute mode, stamp, seat filter, dump dir, base and manual targets
+        id: setup
         run: |
-          echo "STAMP=$(TZ=Australia/Sydney date +%F)" >> "$GITHUB_ENV"
+          MODE="${{ github.event.inputs.mode }}"
+          if [ -z "$MODE" ]; then MODE="full"; fi
+          echo "mode=${MODE}" >> "$GITHUB_OUTPUT"
+          STAMP=$(TZ=Australia/Sydney date +%F)
+          echo "STAMP=${STAMP}" >> "$GITHUB_ENV"
           SEAT_ARG=""
           if [ -n "${{ github.event.inputs.seat }}" ] && [ "${{ github.event.inputs.seat }}" != "all" ]; then
             SEAT_ARG="--seat ${{ github.event.inputs.seat }}"
           fi
           echo "SEAT_ARG=${SEAT_ARG}" >> "$GITHUB_ENV"
+          if [ "$MODE" = "full" ] || [ "$MODE" = "fetch" ] || [ -d "private/shadow/sweeps/${STAMP}" ]; then
+            DUMP_DIR="private/shadow/sweeps/${STAMP}"
+          else
+            DUMP_DIR=$(ls -d private/shadow/sweeps/*/ 2>/dev/null | sort | tail -1 || true)
+            DUMP_DIR="${DUMP_DIR%/}"
+          fi
+          echo "DUMP_DIR=${DUMP_DIR}" >> "$GITHUB_ENV"
           MANUAL=$(ls private/targets/*.json | sort | tail -1)
           WEEK_MON=$(TZ=Australia/Sydney date -d "-$(( $(TZ=Australia/Sydney date +%u) - 1 )) days" +%F)
           MANUAL_DATE=$(basename "$MANUAL" .json)
@@ -76,10 +94,10 @@ jobs:
           fi
           echo "MANUAL=${MANUAL}" >> "$GITHUB_ENV"
           echo "BASE=${BASE}" >> "$GITHUB_ENV"
-          echo "carry-forward base: ${BASE:-none (first sweep)} | diff target: ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "mode: ${MODE} | dump dir: ${DUMP_DIR} | carry-forward base: ${BASE:-none (first sweep)} | diff target: ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Run shadow fetch
-        if: ${{ github.event.inputs.mode != 'summarise' }}
+        if: ${{ steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'fetch' }}
         env:
           CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
           CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
@@ -89,36 +107,61 @@ jobs:
           python3 tools/sweep_fetch.py --out "private/shadow/sweeps/${STAMP}" ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Summarise into targets format (LLM language layer)
-        if: ${{ github.event.inputs.mode != 'fetch' }}
+        if: ${{ steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           set -o pipefail
           python3 tools/sweep_summarise.py \
-            --dump "private/shadow/sweeps/${STAMP}" \
-            --out  "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
+            --dump "${DUMP_DIR}" \
+            --out  "${DUMP_DIR}/targets-shadow.json" \
             --manual-dir private/targets ${BASE:+--base "$BASE"} ${SEAT_ARG} 2>&1 \
-            | tee "private/shadow/sweeps/${STAMP}/summarise.log" | tee -a "$GITHUB_STEP_SUMMARY"
+            | tee "${DUMP_DIR}/summarise.log" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Schedule-pass probe (list noticeboard files, change nothing)
+        if: ${{ steps.setup.outputs.mode == 'schedule-list' }}
+        env:
+          CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
+          CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
+          CANVAS_TOKEN_Y9: ${{ secrets.CANVAS_TOKEN_Y9 }}
+        run: |
+          set -o pipefail
+          python3 tools/sweep_schedule.py --dump "${DUMP_DIR}" --list ${SEAT_ARG} 2>&1 \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Schedule-pass (assessment PDF dates -> shadow targets)
+        if: ${{ steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'schedule' }}
+        env:
+          CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
+          CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
+          CANVAS_TOKEN_Y9: ${{ secrets.CANVAS_TOKEN_Y9 }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -o pipefail
+          python3 tools/sweep_schedule.py \
+            --dump "${DUMP_DIR}" \
+            --targets "${DUMP_DIR}/targets-shadow.json" ${SEAT_ARG} 2>&1 \
+            | tee "${DUMP_DIR}/schedule.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Validate (deterministic gate)
-        if: ${{ github.event.inputs.mode != 'fetch' }}
+        if: ${{ !cancelled() && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
         run: |
           set -o pipefail
           python3 tools/sweep_validate.py \
-            --targets "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
-            --dump "private/shadow/sweeps/${STAMP}" \
+            --targets "${DUMP_DIR}/targets-shadow.json" \
+            --dump "${DUMP_DIR}" \
             --manual-dir private/targets ${BASE:+--base "$BASE"} 2>&1 \
-            | tee "private/shadow/sweeps/${STAMP}/validate.log" | tee -a "$GITHUB_STEP_SUMMARY"
+            | tee "${DUMP_DIR}/validate.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Diff against newest manual sweep
-        if: ${{ !cancelled() && github.event.inputs.mode != 'fetch' }}
+        if: ${{ !cancelled() && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
         run: |
           echo "diffing against ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
           set -o pipefail
           python3 tools/sweep_diff.py \
-            --machine "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
+            --machine "${DUMP_DIR}/targets-shadow.json" \
             --manual "${MANUAL}" \
-            --out "private/shadow/sweeps/${STAMP}/DIFF.md" 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
+            --out "${DUMP_DIR}/DIFF.md" 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit shadow dump to private repo
         if: always()
