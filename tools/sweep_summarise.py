@@ -345,9 +345,13 @@ def main():
     }
 
     excluded, failed, truncs, llm_calls = [], [], 0, 0
+    roster_codes = {st.get("code") for st in
+                    json.load(open("roster.json", encoding="utf-8"))
+                    .get("students", [])}
     for seat_file in sorted(glob.glob(os.path.join(args.dump, "*.json"))):
         code = os.path.splitext(os.path.basename(seat_file))[0]
-        if code == "manifest" or (args.seat and code != args.seat):
+        # only real roster seats — never our own prior outputs in the folder
+        if code not in roster_codes or (args.seat and code != args.seat):
             continue
         dump = json.load(open(seat_file, encoding="utf-8"))
         bsubs = (base_students.get(code, {}) or {}).get("subjects", {})

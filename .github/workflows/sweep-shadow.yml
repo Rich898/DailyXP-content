@@ -100,7 +100,7 @@ jobs:
             | tee "private/shadow/sweeps/${STAMP}/validate.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Diff against newest manual sweep
-        if: ${{ github.event.inputs.mode != 'fetch' }}
+        if: ${{ !cancelled() && github.event.inputs.mode != 'fetch' }}
         run: |
           echo "diffing against ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
           set -o pipefail
