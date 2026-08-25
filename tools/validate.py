@@ -8,6 +8,9 @@ Checks (ERROR = blocks publish, WARN = surfaced but allowed):
   ERROR  mc missing options(>=2) or answer-not-in-options; numeric/text/cloze missing a string answer; any Q missing why
   ERROR  unknown question type (expected mc|numeric|text|cloze)
   ERROR  answer not exactly one of options
+  ERROR  scrub (mode=='scrub', ratified 25 Aug 2026): only on multiple-choice; speed phase only;
+         EXACTLY 4 unique options; no negative stems (not/except/false); no all/none-of-the-above;
+         no answer-length tell (SEASONS LAW 1 sole-longest gate, upgraded to ERROR on this surface)
   ERROR  speed/steady missing boolean `fresh` (true=newly-introduced, false=established); throwback must be fresh:false
   ERROR  duplicate id within the set
   ERROR  prompt repeats one already seen by this student (history/ archive)
@@ -26,6 +29,8 @@ import glob
 import os
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(REPO, "tools"))
+from answer_length import sole_longest_violation  # SEASONS LAW 1 — the ratified length-tell gate
 
 
 def _norm(p: str) -> str:
@@ -58,8 +63,36 @@ KNOWN_SHAPES = {
 }
 
 
+NEG_STEM = re.compile(r"(?i)\b(not|except|false)\b")
+ABOVE_OPT = re.compile(r"(?i)\b(all|none)\s+of\s+(the\s+above|these)\b")
+
+
+def _check_scrub(q, qid, errors):
+    """Scrub It delivery mode (ratified 25 Aug 2026): the child physically erases the
+    three wrong answers, so distractor quality is load-bearing — HARD gates, not warns.
+    The ledger never learns the mode; these checks protect the GESTURE, not the evidence."""
+    if q.get("phase") != "speed":
+        errors.append(f"[{qid}] mode:'scrub' is a speed-round delivery mode — the shell only mounts it in speed (got phase {q.get('phase')!r})")
+    opts = q.get("options") if isinstance(q.get("options"), list) else []
+    if len(opts) != 4:
+        errors.append(f"[{qid}] scrub needs EXACTLY 4 options (the widget deals 4 tiles; 3 erases = win), got {len(opts)}")
+    normed = [str(o).strip().lower() for o in opts]
+    if len(set(normed)) != len(normed):
+        errors.append(f"[{qid}] scrub options must be unique — a duplicate tile makes the erase ambiguous")
+    if NEG_STEM.search(q.get("prompt", "") or ""):
+        errors.append(f"[{qid}] scrub forbids negative stems (not/except/false) — the child ERASES wrong answers; a negative stem inverts the gesture")
+    for o in opts:
+        if ABOVE_OPT.search(str(o)):
+            errors.append(f"[{qid}] scrub forbids all/none-of-the-above options ({o!r}) — tiles must be erasable on their own merits")
+            break
+    if sole_longest_violation(q):
+        errors.append(f"[{qid}] scrub answer-length tell: the correct option is the sole longest by a clear margin (SEASONS LAW 1) — a child could win by erasing the three short tiles without reading")
+
+
 def _check_ss_answer(q, qid, errors, warns):
     """Validate the answer shape of one speed/steady question (multiple-choice, or swipe)."""
+    if q.get("mode") == "scrub" and q.get("type") in ("swipe", "numeric", "order", "text", "cloze"):
+        errors.append(f"[{qid}] mode:'scrub' is only valid on multiple-choice (got type {q.get('type')!r})")
     if q.get("type") == "swipe":
         left, right, ans = q.get("left"), q.get("right"), q.get("answer")
         if not left or not right:
@@ -113,6 +146,8 @@ def _check_ss_answer(q, qid, errors, warns):
         errors.append(f"[{qid}] answer {ans!r} is not one of options {opts}")
     if not q.get("why"):
         errors.append(f"[{qid}] missing 'why' (every Q must re-teach)")
+    if q.get("mode") == "scrub":
+        _check_scrub(q, qid, errors)
     fr = q.get("fresh")
     if not isinstance(fr, bool):
         errors.append(f"[{qid}] speed/steady must carry a boolean 'fresh' "

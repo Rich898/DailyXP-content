@@ -58,6 +58,11 @@ Hard rules (a set is rejected if any is broken):
 
 Output ONLY a JSON object, no prose, no markdown fences:
 - speed/steady slot = multiple choice: { "prompt": "...", "options": ["...","...","...","..."], "answer": "<one of options>", "why": "..." }
+- scrub slot (ONLY when the slot's "mode" is "scrub"): SAME multiple-choice JSON as speed/steady — but the child physically RUBS OUT the three wrong answers with a finger, so distractor quality is load-bearing. Extra hard rules for these slots:
+  * EXACTLY four options. Distractors are the SAME CATEGORY as the answer (prefer the misconception named in the guidance over random wrong facts), mutually exclusive with it, one unambiguous correct answer.
+  * Similar length and format across ALL FOUR options — the correct answer must never stand out as the longest or the shortest.
+  * NEVER "all of the above" / "none of the above" / compound options.
+  * NEVER a negative stem ("Which is NOT...", "All EXCEPT...", "Which is false...") — the child ERASES wrong answers; a negative stem inverts the gesture.
 - swipe slot (ONLY when the slot's "type" is "swipe"): a fast two-way SORT, not multiple choice.
   { "type":"swipe", "prompt":"<one short thing to judge>", "left":"<bucket A>", "right":"<bucket B>", "answer":"<exactly the correct bucket, copied from left or right>", "why":"..." }
   * prompt is ONE item/statement, readable at a glance (e.g. "Copper", "7 x 8 = 56", "Whales are fish").
@@ -91,6 +96,7 @@ def build_user(plan, seen):
             "slotId": s["slot"], "phase": s["phase"], "subject": s["subject"],
             "topic": s["topic"], "intent": s["intent"], "guidance": s.get("guidance", ""),
             "type": s.get("type", "mc"), "mech": s.get("mech", ""),
+            "mode": s.get("mode", ""),
         }
         slots.append(row)
     payload = {
@@ -179,6 +185,8 @@ def _build_q(s, filled):
         q["answer"] = f.get("answer")
         q["why"] = f.get("why", "")
         q["options"] = f.get("options", [])
+        if s.get("mode") == "scrub":
+            q["mode"] = "scrub"        # delivery mode from the PLAN, never from the model
         q["fresh"] = bool(s.get("fresh", True))
         if s.get("throwback"):
             q["throwback"] = True

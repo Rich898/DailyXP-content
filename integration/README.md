@@ -5,6 +5,35 @@
 and deliberately switched on — and the composer will emit new mechanics for the `t1` test seat
 first, never the boys.
 
+## Scrub It — stage tracker (MC delivery mode, 5th mechanic; ratified 25 Aug 2026)
+- [x] **1a. Embeddable widget** — `scrub-widget.html`: `mountScrub(container, q, {onCommit,onDone})`.
+  Rub out the three wrong answers; last one standing auto-commits green. Shards break ratified;
+  ER_TUNE locked {brush:22, cover:0.62, revs:2, crumb:2}; deliberate-stroke law, no undo, partials
+  never heal, answer-erase = instant miss + green reveal. Approved on a real mobile play-through.
+- [x] **1b. Wired into the STAGING shell** (`089c629`) — `mode:'scrub'` MC routes to the widget in
+  `renderSpeed`; **the SHELL pays on onDone** (feedback-ownership law: FX.celebrate + XP + hidden x2,
+  identical to tap MC; widget owns shards+buzz only; no shake anywhere); records stay ledger-blind
+  (`type:"mc"` + `mode`/telemetry alongside); tiles served in the shell's SHUFFLED order (guess-floor
+  parity); clock runs across all three erases, outcome sealed at the 3rd commit so the fuse can't eat
+  the resolve. Locked by `shell/test_scrub.js` (53 checks) + `shell/browser_proof_scrub.js` (real
+  headless-Chromium play-through: win / deliberate miss / hidden-x2, **zero JS errors**). Fuse length
+  approved by Rich's own play-through.
+- [x] **2+4. Composer + validator — land together by architecture** — `compose_set` retries against
+  `validate_set`, so the validator's scrub gates ARE the composer's generation-time enforcement.
+  Composer: SYSTEM prompt carries the scrub distractor rules; slot `mode:'scrub'` passes to the model
+  and is stamped onto the question from the PLAN only (structure is plan-owned — a model-emitted mode
+  is ignored). Validator HARD gates (ERROR, not warn): speed-only; MC-only; EXACTLY 4 unique options;
+  no negative stems (not/except/false); no all/none-of-the-above; answer-length tell via the ratified
+  SEASONS LAW 1 sole-longest gate. Tap MC untouched. Locked by `tools/test_scrub_compose.py` (21
+  checks) + zero regression in `test_validate.py` / `test_answer_length.py`.
+- [ ] **3. Planner** — declare a Scrub It block (`_BLOCKS["scrub"]`, ratified identity: label
+  "Scrub It" · hue #B18CFF · icon ⌫ · "Rub out the wrong answers with your finger"), **t1 seat only**.
+- [ ] **5. State-writer** — VERIFY-not-change: scrub records land exactly as tap MC (recognition
+  evidence, 25% guess floor, capped at "knows it"); telemetry preserved for reporting; nothing
+  touches depth.
+- [ ] **6. End-to-end on t1** — real plan → compose (live API) → validate → publish → real browser
+  play-through with results ingested. Boys untouched; live-template merge is a separate decision.
+
 ## Swipe integration — stage tracker
 - [x] **1a. Embeddable widget** — `swipe-widget.html`: `mountSwipe(container, q, onDone)` renders one
   swipe question (real drag physics, fly-into-bucket, fx), reports `{ok, sideLabel}`. Proven in a
