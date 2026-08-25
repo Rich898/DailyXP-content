@@ -26,8 +26,12 @@ first, never the boys.
   no negative stems (not/except/false); no all/none-of-the-above; answer-length tell via the ratified
   SEASONS LAW 1 sole-longest gate. Tap MC untouched. Locked by `tools/test_scrub_compose.py` (21
   checks) + zero regression in `test_validate.py` / `test_answer_length.py`.
-- [ ] **3. Planner** — declare a Scrub It block (`_BLOCKS["scrub"]`, ratified identity: label
-  "Scrub It" · hue #B18CFF · icon ⌫ · "Rub out the wrong answers with your finger"), **t1 seat only**.
+- [x] **3. Planner** — `_BLOCKS["scrub"]` carries the ratified identity; standard days deal
+  swipe 4 → recall → **Scrub It 3 as the FINAL speed block** (the order approved in the staging
+  play-through) for the **t1 seat ONLY** — same rollout law as every mechanic (y8/y9 plans provably
+  scrub-free in every field; reversed-directive days untouched). Slots carry `mode:'scrub'` + block,
+  type stays MC. Locked by `tools/test_planner_scrub.py` (14 checks incl. a full deterministic
+  plan → compose → validate roundtrip publishing clean); zero regression in `test_planner_events.py`.
 - [ ] **5. State-writer** — VERIFY-not-change: scrub records land exactly as tap MC (recognition
   evidence, 25% guess floor, capped at "knows it"); telemetry preserved for reporting; nothing
   touches depth.
