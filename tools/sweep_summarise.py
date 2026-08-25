@@ -208,7 +208,12 @@ def call_llm(system, user):
             text = "".join(b.get("text", "") for b in data.get("content", []))
             text = re.sub(r"^```(json)?|```$", "", text.strip(),
                           flags=re.M).strip()
-            return json.loads(text)
+            data = json.loads(text)
+            if isinstance(data, list):      # model sent a bare topics array
+                data = {"unit": "", "topics": data}
+            if not isinstance(data, dict):
+                raise ValueError(f"unexpected JSON shape: {type(data).__name__}")
+            return data
         except Exception as e:  # noqa: BLE001
             last = e
             time.sleep(3 * attempt)
@@ -398,8 +403,9 @@ def main():
                 merged, chg = merge_subject(
                     (bsubs.get(s, {}) or {}).get("topics", []), mine)
                 if merged or s in bsubs or not hsie or s == "History":
-                    subjects[s] = {"unit": str(res.get("unit", "")).strip(),
-                                   "topics": merged}
+                    unit = (str(res.get("unit", "")).strip()
+                            or (bsubs.get(s, {}) or {}).get("unit", ""))
+                    subjects[s] = {"unit": unit, "topics": merged}
                     seat_chg[s] = chg
                     log(f"{code}/{s}: {len(merged)} topics "
                         f"(+{len(chg['added'])} new, "
