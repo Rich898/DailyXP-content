@@ -193,7 +193,7 @@ def system_prompt(legends, today, hsie, has_base):
 def call_llm(system, user):
     key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if not key:
-        sys.exit("sweep_summarise: ANTHROPIC_API_KEY not set")
+        raise RuntimeError("ANTHROPIC_API_KEY not set")
     body = json.dumps({"model": MODEL, "max_tokens": 3000, "temperature": 0,
                        "system": system,
                        "messages": [{"role": "user", "content": user}]}).encode()
@@ -355,19 +355,22 @@ def main():
             targets_subjects = (list(HSIE_STRANDS) if hsie else [subject])
             base_pairs = [(s, t) for s in targets_subjects
                           for t in (bsubs.get(s, {}) or {}).get("topics", [])]
-            payload, cut = course_payload(course)
-            truncs += cut
-            payload += base_block(base_pairs, hsie)
-            if args.dry_run:
-                res = {"unit": "(dry-run)", "topics": []}
-            else:
-                try:
+            res = None
+            try:
+                payload, cut = course_payload(course)
+                truncs += cut
+                payload += base_block(base_pairs, hsie)
+                if args.dry_run:
+                    res = {"unit": "(dry-run)", "topics": []}
+                else:
                     llm_calls += 1
                     res = call_llm(system_prompt(legends, today, hsie,
                                                  bool(base_pairs)), payload)
-                except Exception as e:  # noqa: BLE001
-                    failed.append(f"{code}/{course.get('name')}: {e}")
-                    res = None
+            except Exception as e:  # noqa: BLE001
+                import traceback
+                traceback.print_exc(file=sys.stderr)
+                failed.append(f"{code}/{course.get('name')}: {e}")
+                res = None
             if res is None:
                 for s in targets_subjects:
                     bt = (bsubs.get(s, {}) or {}).get("topics", [])
@@ -378,8 +381,14 @@ def main():
                                                        for t in bt],
                                    "sweep_failed": True}
                 continue
-            topics = [t for t in (sane_topic(x, hsie)
-                                  for x in res.get("topics", [])) if t]
+            try:
+                topics = [t for t in (sane_topic(x, hsie)
+                                      for x in res.get("topics", [])) if t]
+            except Exception as e:  # noqa: BLE001
+                import traceback
+                traceback.print_exc(file=sys.stderr)
+                failed.append(f"{code}/{course.get('name')}: sane: {e}")
+                topics = []
             for s in targets_subjects:
                 if hsie:
                     mine = [{k: v for k, v in t.items() if k != "_strand"}

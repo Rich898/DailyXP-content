@@ -74,6 +74,7 @@ jobs:
           CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
           CANVAS_TOKEN_Y9: ${{ secrets.CANVAS_TOKEN_Y9 }}
         run: |
+          set -o pipefail
           python3 tools/sweep_fetch.py --out "private/shadow/sweeps/${STAMP}" ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Summarise into targets format (LLM language layer)
@@ -81,29 +82,35 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
+          set -o pipefail
           python3 tools/sweep_summarise.py \
             --dump "private/shadow/sweeps/${STAMP}" \
             --out  "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
-            --manual-dir private/targets ${BASE:+--base "$BASE"} ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
+            --manual-dir private/targets ${BASE:+--base "$BASE"} ${SEAT_ARG} 2>&1 \
+            | tee "private/shadow/sweeps/${STAMP}/summarise.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Validate (deterministic gate)
         if: ${{ github.event.inputs.mode != 'fetch' }}
         run: |
+          set -o pipefail
           python3 tools/sweep_validate.py \
             --targets "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
             --dump "private/shadow/sweeps/${STAMP}" \
-            --manual-dir private/targets ${BASE:+--base "$BASE"} | tee -a "$GITHUB_STEP_SUMMARY"
+            --manual-dir private/targets ${BASE:+--base "$BASE"} 2>&1 \
+            | tee "private/shadow/sweeps/${STAMP}/validate.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Diff against newest manual sweep
         if: ${{ github.event.inputs.mode != 'fetch' }}
         run: |
           echo "diffing against ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
+          set -o pipefail
           python3 tools/sweep_diff.py \
             --machine "private/shadow/sweeps/${STAMP}/targets-shadow.json" \
             --manual "${MANUAL}" \
-            --out "private/shadow/sweeps/${STAMP}/DIFF.md" | tee -a "$GITHUB_STEP_SUMMARY"
+            --out "private/shadow/sweeps/${STAMP}/DIFF.md" 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit shadow dump to private repo
+        if: always()
         working-directory: private
         run: |
           git config user.name "DailyXP"
