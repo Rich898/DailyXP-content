@@ -91,6 +91,12 @@ def log(msg):
     print(msg, flush=True)
 
 
+def annotate(msg):
+    """A one-line, PRIVACY-SAFE verdict (codes and counts only, never names)
+    pinned to the top of the run summary — and readable via the checks API."""
+    print(f"::notice title=schedule-pass::{msg}", flush=True)
+
+
 # ---------------------------------------------------------------- Canvas side
 
 def noticeboard_course(dump):
@@ -333,6 +339,12 @@ def main():
     if args.targets:
         targets = json.load(open(args.targets, encoding="utf-8"))
 
+    # THE OUTPUT LAW for this tool: stdout/annotations reach PUBLIC run logs,
+    # so they carry seat codes, counts and verdicts ONLY. Anything school-
+    # identifying (course names, file names, error detail that may embed the
+    # school domain) goes into private_lines -> noticeboard-files.txt inside
+    # the dump dir, which the workflow commits to the PRIVATE repo.
+    private_lines = []
     processed = 0
     failures, totals = [], {"filled": 0, "stamped": 0, "conflicts": 0}
     for seat_file in sorted(glob.glob(os.path.join(args.dump, "*.json"))):
@@ -349,9 +361,13 @@ def main():
         nb = noticeboard_course(dump)
         if not nb:
             failures.append(f"{code}: no course matching /{NOTICE_PAT.pattern}/")
-            log(f"{code}: FAILED — no noticeboard course found in dump; "
-                f"courses were: "
+            private_lines.append(
+                f"{code}: NO noticeboard match; courses were: "
                 f"{[c.get('name') for c in dump.get('courses', [])]}")
+            log(f"{code}: FAILED — no course name matches the noticeboard "
+                f"pattern (course names -> noticeboard-files.txt, private repo)")
+            annotate(f"{code}: no noticeboard match among "
+                     f"{len(dump.get('courses', []))} courses — tune NOTICE_PAT")
             continue
         cv = Canvas(base_url, token)
         try:
@@ -365,32 +381,42 @@ def main():
             log(f"{code}: FAILED — files list: {e}")
             continue
 
-        log(f"{code}: noticeboard = '{nb.get('name')}' (course {nb['id']}), "
-            f"{len(files)} files")
+        private_lines.append(f"{code}: noticeboard = '{nb.get('name')}' "
+                             f"(course {nb['id']}), {len(files)} files")
+        for fobj in files:
+            private_lines.append(
+                f"  - {fobj.get('display_name')}  "
+                f"[{fobj.get('content-type')}]  "
+                f"updated {fobj.get('updated_at')}  {fobj.get('size')} bytes")
+        n_cand = len(pick_schedule_pdf(files))
+        log(f"{code}: noticeboard found — {len(files)} files, {n_cand} "
+            f"matching /{FILE_PAT.pattern}/ + .pdf")
+        annotate(f"{code}: noticeboard found — {len(files)} files, "
+                 f"{n_cand} assessment-PDF candidate(s)")
         if args.list:
-            for f in files:
-                log(f"  - {f.get('display_name')}  "
-                    f"[{f.get('content-type')}]  "
-                    f"updated {f.get('updated_at')}  {f.get('size')} bytes")
+            if n_cand == 0:
+                failures.append(f"{code}: probe found no PDF matching "
+                                f"/{FILE_PAT.pattern}/ — tune FILE_PAT")
             continue
 
         cands = pick_schedule_pdf(files)
         if not cands:
             failures.append(f"{code}: no file matching /{FILE_PAT.pattern}/ "
                             f"+ .pdf on the noticeboard")
-            log(f"{code}: FAILED — no assessment-schedule PDF found; files "
-                f"were: {[f.get('display_name') for f in files]}")
+            log(f"{code}: FAILED — no assessment-schedule PDF matched "
+                f"(file names -> noticeboard-files.txt, private repo)")
             continue
         chosen = cands[0]
+        private_lines.append(
+            f"{code}: chose '{chosen.get('display_name')}'"
+            + (f"; skipped {[c.get('display_name') for c in cands[1:]]}"
+               if len(cands) > 1 else ""))
         if len(cands) > 1:
-            log(f"{code}: {len(cands)} candidates; using newest "
-                f"'{chosen.get('display_name')}', skipped "
-                f"{[c.get('display_name') for c in cands[1:]]}")
+            log(f"{code}: {len(cands)} candidates; using the newest")
         try:
             pdf_path = os.path.join(args.dump, f"schedule-{code}.pdf")
             pdf = download_pdf(chosen.get("url"), pdf_path)
-            log(f"{code}: downloaded '{chosen.get('display_name')}' "
-                f"({len(pdf)} bytes) -> {pdf_path}")
+            log(f"{code}: downloaded schedule PDF ({len(pdf)} bytes)")
             year_hint = nb.get("name") or f"seat {code}"
             rows = [r for r in (sane_row(x) for x in
                                 call_llm_pdf(extract_prompt(year_hint, today),
@@ -401,8 +427,10 @@ def main():
             dated = sum(1 for r in rows if r["date"])
             log(f"{code}: extracted {len(rows)} rows ({dated} dated)")
         except Exception as e:  # noqa: BLE001
-            failures.append(f"{code}: extract: {e}")
-            log(f"{code}: FAILED — extract: {e}")
+            failures.append(f"{code}: extract failed ({type(e).__name__})")
+            private_lines.append(f"{code}: extract detail: {e}")
+            log(f"{code}: FAILED — extract ({type(e).__name__}; detail -> "
+                f"noticeboard-files.txt, private repo)")
             continue
 
         sd = (targets.get("students", {}) or {}).get(code)
@@ -417,6 +445,14 @@ def main():
         totals["conflicts"] += c_
         log(f"{code}: schedule-pass — {f_} filled, {s_} stamped, "
             f"{c_} date conflicts (classroom kept)")
+        annotate(f"{code}: {f_} dates filled, {s_} stamped, "
+                 f"{c_} conflicts (classroom kept)")
+
+    if private_lines:
+        lp = os.path.join(args.dump, "noticeboard-files.txt")
+        with open(lp, "w", encoding="utf-8") as f:
+            f.write("\n".join(private_lines) + "\n")
+        log(f"wrote name-bearing detail -> {lp} (private repo only)")
 
     if targets is not None and not args.list:
         note = (f" Schedule-pass: {totals['filled']} dates filled, "
@@ -428,10 +464,12 @@ def main():
         log(f"wrote {args.targets} —{note}")
 
     if processed == 0:
+        annotate("FAILED — no seat dumps found in the dump folder")
         log(f"SCHEDULE-PASS FAILED — no seat dumps found in {args.dump} "
             f"(silent no-ops are the enemy)")
         sys.exit(4)
     if failures:
+        annotate(f"FAILED — {len(failures)} problem(s): {'; '.join(failures)}")
         log(f"SCHEDULE-PASS FAILURES ({len(failures)}): {failures}")
         sys.exit(4)
 
