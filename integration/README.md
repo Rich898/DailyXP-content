@@ -32,9 +32,14 @@ first, never the boys.
   scrub-free in every field; reversed-directive days untouched). Slots carry `mode:'scrub'` + block,
   type stays MC. Locked by `tools/test_planner_scrub.py` (14 checks incl. a full deterministic
   plan → compose → validate roundtrip publishing clean); zero regression in `test_planner_events.py`.
-- [ ] **5. State-writer** — VERIFY-not-change: scrub records land exactly as tap MC (recognition
-  evidence, 25% guess floor, capped at "knows it"); telemetry preserved for reporting; nothing
-  touches depth.
+- [x] **5. State-writer — VERIFY, not change** — NOTHING changed in state_writer / depth_writer /
+  results_reader for scrub, and `tools/test_scrub_statewriter.py` (25 checks) proves that was correct:
+  a scrub record and a tap-MC twin with the same evidence produce byte-identical badges AND state
+  mutations (clean / confident-wrong / considered-wrong / think-so); the scrub telemetry subobject and
+  `mode` flag are read NOWHERE on the record→state path (stripping or garbling them changes no badge,
+  no transition); guess-floor parity holds (guessing→LUCKY, trivial→TRIV✓, clean confident raises ≤1
+  box); the depth axis is blind (item_ceiling identical to tap MC — recognition cap, never
+  applies/connects). Zero regression in `test_state_writer` / `test_depth_writer` / `test_depth_gate`.
 - [ ] **6. End-to-end on t1** — real plan → compose (live API) → validate → publish → real browser
   play-through with results ingested. Boys untouched; live-template merge is a separate decision.
 
