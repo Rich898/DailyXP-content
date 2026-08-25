@@ -1,13 +1,14 @@
 # sweep-shadow.yml — SHADOW-ONLY automated Canvas sweep (trust-ladder stage).
 #
-# What this is: on-demand (workflow_dispatch ONLY — deliberately NO schedule)
-# raw pull of each seat's Canvas via that student's own API token, written to
-# the PRIVATE repo under shadow/sweeps/<sydney-date>/. That path is physically
-# outside targets/, which the live pipeline auto-picks — so nothing this
-# workflow does can reach a real quiz. Promotion path: after the shadow sweep
-# matches or beats the manual sweep two weekends running, a separate
-# weekly-sweep.yml gains the pg_cron slot and writes targets/ via the
-# validator gate. That workflow does not exist yet, by design.
+# What this is: a raw pull of each seat's Canvas via that student's own API
+# token, written to the PRIVATE repo under shadow/sweeps/<sydney-date>/. That
+# path is physically outside targets/, which the live pipeline auto-picks —
+# so nothing this workflow does can reach a real quiz.
+# Triggers: a Monday-morning timer (21:07 UTC Sunday = 07:07 Sydney, 08:07
+# during AEDT) plus the on-demand button. The timer only ever feeds shadow/;
+# promotion is a separate, later change: after the shadow sweep matches or
+# beats the manual sweep, the output destination moves to targets/ behind the
+# validator gate. Until then this stays observation-only.
 #
 # Secrets required (repo → Settings → Secrets and variables → Actions):
 #   CANVAS_BASE_URL   the school Canvas address, e.g. https://xxx.instructure.com
@@ -17,6 +18,8 @@
 name: sweep-shadow
 
 on:
+  schedule:
+    - cron: "7 21 * * 0"   # Sun 21:07 UTC = Mon 07:07 Sydney (AEST)
   workflow_dispatch:
     inputs:
       seat:
@@ -61,8 +64,16 @@ jobs:
           fi
           echo "SEAT_ARG=${SEAT_ARG}" >> "$GITHUB_ENV"
           MANUAL=$(ls private/targets/*.json | sort | tail -1)
-          BASE=$(ls private/targets/*.json | sort | tail -2 | head -1)
-          if [ "$BASE" = "$MANUAL" ]; then BASE=""; fi
+          WEEK_MON=$(TZ=Australia/Sydney date -d "-$(( $(TZ=Australia/Sydney date +%u) - 1 )) days" +%F)
+          MANUAL_DATE=$(basename "$MANUAL" .json)
+          if [ "$MANUAL_DATE" \< "$WEEK_MON" ]; then
+            # this week's manual isn't in yet — the sweep UPDATES last week's file
+            BASE="$MANUAL"
+          else
+            # this week's manual exists — replay mode: build on the week before, compare to it
+            BASE=$(ls private/targets/*.json | sort | tail -2 | head -1)
+            if [ "$BASE" = "$MANUAL" ]; then BASE=""; fi
+          fi
           echo "MANUAL=${MANUAL}" >> "$GITHUB_ENV"
           echo "BASE=${BASE}" >> "$GITHUB_ENV"
           echo "carry-forward base: ${BASE:-none (first sweep)} | diff target: ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
