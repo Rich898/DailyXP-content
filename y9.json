@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-08-24",
-  "day": "MON",
-  "tag": "R5.1",
-  "title": "DailyXP · MON 2026-08-24",
+  "date": "2026-08-25",
+  "day": "TUE",
+  "tag": "R5.2",
+  "title": "DailyXP · TUE 2026-08-25",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Piggy's glasses are used to light the signal fire",
+      "prompt": "The boys start off civilised and slowly become savage",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,52 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Piggy's specs are the only way to start a fire on the island, tying his intellect to the group's survival.",
+      "why": "The novel traces a decline from ordered schoolboys into violent savages, showing Golding's view that civilisation is a thin veneer over human nature.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Skin is part of the body's first line of defence",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Skin is a physical barrier that stops most pathogens entering the body before the immune system needs to act.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "Australia's population has been shaped mainly by migration",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Waves of migration, from British settlement to post-war and modern multicultural intakes, have driven Australia's population growth.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The 1923 Munich Putsch succeeded in overthrowing the government",
+      "prompt": "HIV directly kills bacteria in the blood",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +40,52 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The putsch failed within a day and Hitler was arrested, though the trial later boosted his profile.",
+      "why": "HIV attacks the immune system itself, destroying white blood cells, which weakens the body's ability to fight off other infections.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The 1923 Munich Putsch succeeded in seizing power",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The putsch collapsed within a day and Hitler was arrested; he did not gain power through this attempted coup.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "3x + 2x simplifies to 5x",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Like terms with the same variable add together: 3x + 2x combines to 5x.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 2x + 5 = 17",
+      "prompt": "Solve for x: 4x − 3 = 13",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "6",
-      "why": "Subtract 5 from both sides to get 2x = 12, then divide by 2 to get x = 6.",
+      "answer": "x = 4",
+      "why": "Add 3 to both sides to get 4x = 16, then divide by 4 to get x = 4.",
       "options": [
-        "6",
-        "11",
-        "9",
-        "8"
+        "x = 4",
+        "x = 3",
+        "x = 5",
+        "x = 10"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Which section of a business plan explains how the business will be run day-to-day?",
+      "subject": "English",
+      "prompt": "In Freud's model, which part is guided by moral rules and conscience?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Operations plan",
-      "why": "The operations plan covers daily running details like staffing, suppliers and location, separate from the summary or market research.",
+      "answer": "The superego",
+      "why": "The superego holds our internalised morals and conscience, judging right and wrong — unlike the id (pleasure) or ego (reality-testing).",
       "options": [
-        "Operations plan",
-        "Executive summary",
-        "Market analysis",
-        "SWOT analysis"
+        "The superego",
+        "The id, seeking pleasure",
+        "The ego, testing reality",
+        "The libido, driving instinct"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "What does it mean when the conch shell cracks and shatters?",
+      "subject": "PDHPE",
+      "prompt": "A drink ad shows an athlete winning after drinking it. What technique is this?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,109 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Order has collapsed",
-      "why": "The conch's destruction marks the final breakdown of rules and civilised authority on the island.",
+      "answer": "Celebrity endorsement",
+      "why": "Using an athlete to link a product with success and health is celebrity endorsement, even if the drink itself is unhealthy.",
       "options": [
-        "Order has collapsed",
-        "Ralph has won",
-        "The fire is lit",
-        "Rescue has arrived"
+        "Celebrity endorsement",
+        "Bulk discount pricing",
+        "Nutrition labelling",
+        "Shelf placement"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What is the term for people leaving their home country to live elsewhere?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Emigration",
+      "why": "Emigration describes leaving one's home country, while immigration describes arriving in a new one.",
+      "options": [
+        "Emigration",
+        "Urbanisation",
+        "Assimilation",
+        "Repatriation"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What system let Germany's president rule without parliament in emergencies?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Article 48",
+      "why": "Article 48 of the Weimar constitution allowed the president to bypass parliament during emergencies, weakening democracy over time.",
+      "options": [
+        "Article 48",
+        "Proportional representation",
+        "The Reichstag vote",
+        "The Kaiser's decree"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "A city gains new factories and its population booms with rural workers. What is this called?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Urbanisation",
+      "why": "Urbanisation is the growth of city populations as people move from rural areas, usually chasing work.",
+      "options": [
+        "Urbanisation",
+        "Emigration",
+        "Assimilation",
+        "Multiculturalism"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A plumber fixing a leaking pipe for a fee is providing a…",
+      "prompt": "Which part of a business plan explains the whole plan in one page?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Executive summary",
+      "why": "The executive summary gives a brief overview of the whole business plan so readers grasp it quickly.",
+      "options": [
+        "Executive summary",
+        "Market analysis",
+        "SWOT analysis",
+        "Operations plan"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A hairdresser cutting hair for a fee is providing a…",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -160,100 +248,12 @@
         "cta": "Keep going →"
       },
       "answer": "Service",
-      "why": "A service is work done for someone, unlike a product, which is a physical item they keep.",
+      "why": "A service is an intangible action performed for a customer, unlike a product which is a physical item sold.",
       "options": [
         "Service",
         "Product",
         "Logo",
-        "Brand"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "D&T",
-      "prompt": "A stall sells plain toys but redesigns its logo to use bold colours and a mascot. What is this mainly doing?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Building its brand",
-      "why": "Branding is about creating a recognisable identity through logo, colours and imagery, not about price or costs.",
-      "options": [
-        "Building its brand",
-        "Cutting production costs",
-        "Lowering the price",
-        "Copying a competitor's stock"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What was a key strength of the Weimar Republic's constitution?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Wide voting rights",
-      "why": "The Weimar constitution gave all adult men and women the vote from 1919, which was highly democratic for its time.",
-      "options": [
-        "Wide voting rights",
-        "No president",
-        "Single-party rule",
-        "No elections"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Simplify: 5y − 2y + 3",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "3y + 3",
-      "why": "Combine like terms 5y and 2y to get 3y, then keep the separate +3 term.",
-      "options": [
-        "3y + 3",
-        "3y",
-        "7y + 3",
-        "3y − 3"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "A worker moves to a city because factory wages are higher there. What kind of factor is this?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Pull factor",
-      "why": "Higher wages attract people to a new place, making it a pull factor rather than something driving them away.",
-      "options": [
-        "Pull factor",
-        "Push factor",
-        "Natural factor",
-        "Political factor"
+        "Market gap"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 10 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 17 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,43 +270,49 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 40,
+      "answer": 51,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 10 × 8 = 40 cm². Halving is the step that's easy to rush past.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 17 × 6 = 51 cm².",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "From a while back — order these steps in explaining a historical cause and its consequence, from first to last",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Identify the cause",
-        "Explain how it led to change",
-        "State the consequence",
-        "Link consequence back to significance"
+      "subject": "Commerce",
+      "prompt": "From a while back — a bakery changes its logo to a simple wheat-stalk icon in warm gold tones. What is this logo mainly doing?",
+      "answer": "Building brand identity",
+      "why": "A logo's design choices, like colours and icons, are meant to build a recognisable brand identity that customers connect with.",
+      "options": [
+        "Building brand identity",
+        "Setting the price",
+        "Listing ingredients",
+        "Running a SWOT analysis"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Good cause/consequence explanations start with the cause, trace the mechanism, state what resulted, then explain why it mattered.",
       "fresh": false,
       "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, what does the conch shell mainly symbolise?",
+      "answer": "Order and civilisation",
+      "why": "The conch gives its holder the right to speak and calls meetings, representing the rules and order the boys initially uphold before descending into savagery.",
+      "options": [
+        "Order and civilisation",
+        "Fear of the beast",
+        "Piggy's cleverness",
+        "The signal fire's smoke"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
       "subject": "Science",
-      "prompt": "What type of white blood cell engulfs and digests invading pathogens?",
+      "prompt": "What type of white blood cell produces antibodies against a specific pathogen?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -316,62 +322,56 @@
       },
       "type": "text",
       "accept": [
-        "phagocyte",
-        "phagocytes"
+        "lymphocyte",
+        "lymphocytes"
       ],
-      "why": "Phagocytes are white blood cells that surround and digest pathogens as part of the body's non-specific defence.",
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "Why do the boys' painted faces matter in Lord of the Flies?",
-      "answer": "They hide identity and shame",
-      "why": "The masks let the boys act without guilt, freeing their savage instincts as civilisation slips away.",
-      "options": [
-        "They hide identity and shame",
-        "They keep boys warm",
-        "They mark who is chief",
-        "They scare off animals only"
-      ],
+      "why": "Lymphocytes are the white blood cells that recognise specific pathogens and produce matching antibodies to fight them.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "A cereal ad uses cartoon mascots and prizes to appeal to children. What is this technique called?",
-      "answer": "Targeting children",
-      "why": "Using mascots and prizes aimed at kids is a marketing technique called targeting children, designed to influence their food choices regardless of nutrition.",
-      "options": [
-        "Targeting children",
-        "Comparing prices",
-        "Listing ingredients",
-        "Offering a refund"
+      "subject": "History",
+      "prompt": "Put these stages of the Munich Putsch in order",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Hitler declares a revolution in a beer hall",
+        "Nazis march through Munich streets",
+        "Police open fire on the marchers",
+        "Hitler is arrested and put on trial"
       ],
+      "top": "First",
+      "bot": "Last",
+      "why": "The putsch began with Hitler's beer hall declaration, moved to a street march, was stopped by police gunfire, and ended with Hitler's arrest and trial.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Geography",
-      "prompt": "Since the 1970s, Australia accepts migrants from many different countries. What is this policy called?",
-      "answer": "Multiculturalism",
-      "why": "Multiculturalism describes Australia's post-1970s shift to welcoming migrants from diverse countries, replacing earlier restrictive policies.",
+      "subject": "D&T",
+      "prompt": "A market stall keeps changing its packaging colours every week. Why does this weaken its branding?",
+      "answer": "Customers can't recognise it",
+      "why": "Consistent branding helps customers recognise and trust a product; constantly changing it stops that recognition from forming.",
       "options": [
-        "Multiculturalism",
-        "White Australia Policy",
-        "Populate or Perish",
-        "Assisted Passage Scheme"
+        "Customers can't recognise it",
+        "It lowers production costs",
+        "It improves product quality",
+        "It increases shelf space"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "A teenager sees an ad showing an athlete drinking a sugary sports drink after training. Explain how this ad might influence their food choice, even if the drink isn't actually healthy."
+      "subject": "D&T",
+      "prompt": "A new market stall has an excellent product but no consistent logo or colours. Explain why this could still hold back its success, even with a great product."
     }
   ]
 }
