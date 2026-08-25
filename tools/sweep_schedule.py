@@ -12,10 +12,20 @@ noticeboard — and downloads ONLY assessment-schedule PDFs from it. It never
 widens the fetcher's six content surfaces, never reads files on academic
 courses, and never touches grades, submissions, inbox, or people.
 
+Candidate handling: the tool reads up to the THREE NEWEST matching PDFs per
+seat, oldest first, and pools every extracted row — no single-winner picking,
+because a year-long assessment booklet uploaded in February can be more
+current than a half-yearly timetable uploaded in May. Where two documents
+date the same task, the newer document wins. Rows dated BEFORE the sweep are
+parked in the changelog (past_rows), never attached — a stale document costs
+one extraction call and can never smear old dates onto live topics. A seat
+with no matching PDF at all is a NOTICE, not a failure: its dates ride the
+classroom sweep that week.
+
 Division of labour (doctrine): the LLM reads the PDF and transcribes
-subject/task/date triples — language only, one call per seat. CODE decides
-everything else: which course, which file, subject normalisation, and the
-fill-and-stamp attach (ratified 25 Aug 2026):
+subject/task/date triples — language only, one call per document. CODE
+decides everything else: which course, which files, subject normalisation,
+and the fill-and-stamp attach (ratified 25 Aug 2026):
 
   FILL  — a topic already carries an assessment whose task matches a PDF row:
           the PDF confirms or fixes its date (the term calendar wins).
@@ -294,10 +304,12 @@ def attach(subjects, rows, seat_chg, stamp):
                          "classroom": old_date, "pdf": row["date"],
                          "kept": "classroom"})
                     continue
+                base_conf = old_conf.split(" (was ")[0] if old_conf else ""
                 a["date"] = row["date"]
                 a["date_confidence"] = ("CONFIRMED — assessment schedule PDF"
                                         + (f" (was {old_date or 'null'}, "
-                                           f"{old_conf})" if old_conf else ""))
+                                           f"{base_conf})" if base_conf
+                                           else ""))
                 filled += 1
                 chg["filled"].append({"topic": topic["topic"],
                                       "task": a["task"], "date": row["date"]})
@@ -407,39 +419,39 @@ def main():
                          f"sources until the school posts one")
             continue
 
-        cands = pick_schedule_pdf(files)
+        cands = pick_schedule_pdf(files)[:3]  # at most the three newest
         if not cands:
             log(f"{code}: no current assessment/exam-timetable PDF on the "
                 f"noticeboard — skipping seat (dates ride classroom sources)")
             annotate(f"{code}: NOTE — no current assessment/exam-timetable "
                      f"PDF on the noticeboard this week; nothing attached")
             continue
-        chosen = cands[0]
         private_lines.append(
-            f"{code}: chose '{chosen.get('display_name')}'"
-            + (f"; skipped {[c.get('display_name') for c in cands[1:]]}"
-               if len(cands) > 1 else ""))
-        if len(cands) > 1:
-            log(f"{code}: {len(cands)} candidates; using the newest")
-        try:
-            pdf_path = os.path.join(args.dump, f"schedule-{code}.pdf")
-            pdf = download_pdf(chosen.get("url"), pdf_path)
-            log(f"{code}: downloaded schedule PDF ({len(pdf)} bytes)")
-            year_hint = nb.get("name") or f"seat {code}"
-            rows = [r for r in (sane_row(x) for x in
-                                call_llm_pdf(extract_prompt(year_hint, today),
-                                             pdf)) if r]
-            with open(os.path.join(args.dump, f"schedule-{code}.json"), "w",
-                      encoding="utf-8") as f:
-                json.dump(rows, f, ensure_ascii=False, indent=1)
-            dated = sum(1 for r in rows if r["date"])
-            log(f"{code}: extracted {len(rows)} rows ({dated} dated)")
-        except Exception as e:  # noqa: BLE001
-            failures.append(f"{code}: extract failed ({type(e).__name__})")
-            private_lines.append(f"{code}: extract detail: {e}")
-            log(f"{code}: FAILED — extract ({type(e).__name__}; detail -> "
-                f"noticeboard-files.txt, private repo)")
-            continue
+            f"{code}: reading {len(cands)} candidate doc(s): "
+            f"{[c.get('display_name') for c in cands]}")
+        log(f"{code}: reading {len(cands)} candidate doc(s), oldest first — "
+            f"newer docs win on overlap, past dates park")
+        year_hint = nb.get("name") or f"seat {code}"
+        rows = []
+        for i, doc in enumerate(reversed(cands), 1):  # oldest -> newest
+            try:
+                pdf_path = os.path.join(args.dump, f"schedule-{code}-{i}.pdf")
+                pdf = download_pdf(doc.get("url"), pdf_path)
+                doc_rows = [r for r in (sane_row(x) for x in call_llm_pdf(
+                    extract_prompt(year_hint, today), pdf)) if r]
+                dated = sum(1 for r in doc_rows if r["date"])
+                log(f"{code}: doc {i}/{len(cands)} — {len(pdf)} bytes, "
+                    f"{len(doc_rows)} rows ({dated} dated)")
+                rows.extend(doc_rows)
+            except Exception as e:  # noqa: BLE001
+                failures.append(f"{code}: extract failed "
+                                f"({type(e).__name__}) on doc {i}")
+                private_lines.append(f"{code}: doc {i} extract detail: {e}")
+                log(f"{code}: FAILED — doc {i} extract ({type(e).__name__}; "
+                    f"detail -> noticeboard-files.txt, private repo)")
+        with open(os.path.join(args.dump, f"schedule-{code}.json"), "w",
+                  encoding="utf-8") as f:
+            json.dump(rows, f, ensure_ascii=False, indent=1)
 
         sd = (targets.get("students", {}) or {}).get(code)
         if sd is None:
