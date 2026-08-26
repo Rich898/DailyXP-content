@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-08-25",
-  "day": "TUE",
-  "tag": "R5.2",
-  "title": "DailyXP · TUE 2026-08-25",
+  "date": "2026-08-26",
+  "day": "WED",
+  "tag": "R5.3",
+  "title": "DailyXP · WED 2026-08-26",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The boys start off civilised and slowly become savage",
+      "prompt": "Simon is murdered by the other boys in a frenzy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The novel traces a decline from ordered schoolboys into violent savages, showing Golding's view that civilisation is a thin veneer over human nature.",
+      "why": "Simon is killed during the boys' wild dance, showing how far their savagery has grown.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "HIV directly kills bacteria in the blood",
+      "prompt": "Antibodies destroy pathogens directly like phagocytes do",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "HIV attacks the immune system itself, destroying white blood cells, which weakens the body's ability to fight off other infections.",
+      "why": "Antibodies tag pathogens for destruction; phagocytes are the ones that engulf and digest them.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The 1923 Munich Putsch succeeded in seizing power",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The putsch collapsed within a day and Hitler was arrested; he did not gain power through this attempted coup.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "3x + 2x simplifies to 5x",
+      "prompt": "The 1923 Munich Putsch took place in a beer hall",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Like terms with the same variable add together: 3x + 2x combines to 5x.",
+      "why": "Hitler launched the putsch by interrupting a meeting at Munich's Bürgerbräukeller beer hall.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "7x is a like term with 7y",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Like terms must have the same variable; x and y are different letters, so they can't combine.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 4x − 3 = 13",
+      "prompt": "Solve for x: 5x + 2 = 22",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "x = 4",
-      "why": "Add 3 to both sides to get 4x = 16, then divide by 4 to get x = 4.",
+      "answer": "4",
+      "why": "Subtract 2 to get 5x = 20, then divide by 5 to get x = 4.",
       "options": [
-        "x = 4",
-        "x = 3",
-        "x = 5",
-        "x = 10"
+        "4",
+        "5",
+        "20",
+        "24"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Freud's model, which part is guided by moral rules and conscience?",
+      "prompt": "In Freud's model, which part balances desires with reality?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The superego",
-      "why": "The superego holds our internalised morals and conscience, judging right and wrong — unlike the id (pleasure) or ego (reality-testing).",
+      "answer": "Ego",
+      "why": "The ego is the rational part that mediates between the id's urges and the superego's morals.",
       "options": [
-        "The superego",
-        "The id, seeking pleasure",
-        "The ego, testing reality",
-        "The libido, driving instinct"
+        "Ego",
+        "Id",
+        "Superego",
+        "Libido"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "A drink ad shows an athlete winning after drinking it. What technique is this?",
+      "prompt": "A chip ad shows teens laughing at a party. What technique is this?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Celebrity endorsement",
-      "why": "Using an athlete to link a product with success and health is celebrity endorsement, even if the drink itself is unhealthy.",
+      "answer": "Emotional appeal",
+      "why": "The ad links the snack to fun and friendship rather than facts about the food, so it's using emotional appeal to influence choice.",
       "options": [
-        "Celebrity endorsement",
-        "Bulk discount pricing",
+        "Emotional appeal",
         "Nutrition labelling",
-        "Shelf placement"
+        "Price discount",
+        "Health warning"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is the term for people leaving their home country to live elsewhere?",
+      "prompt": "What is Australia's policy of accepting migrants from many countries called?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Emigration",
-      "why": "Emigration describes leaving one's home country, while immigration describes arriving in a new one.",
+      "answer": "Multiculturalism",
+      "why": "Since the 1970s, Australia adopted multiculturalism, welcoming migrants from diverse countries, replacing earlier restrictive policies.",
       "options": [
-        "Emigration",
-        "Urbanisation",
-        "Assimilation",
-        "Repatriation"
+        "Multiculturalism",
+        "White Australia policy",
+        "Populate or perish",
+        "Assisted passage scheme"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What system let Germany's president rule without parliament in emergencies?",
+      "prompt": "What event in 1923 badly damaged trust in the Weimar government?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Article 48",
-      "why": "Article 48 of the Weimar constitution allowed the president to bypass parliament during emergencies, weakening democracy over time.",
+      "answer": "Hyperinflation",
+      "why": "Hyperinflation in 1923 made money worthless overnight, wrecking savings and public trust.",
       "options": [
-        "Article 48",
-        "Proportional representation",
-        "The Reichstag vote",
-        "The Kaiser's decree"
+        "Hyperinflation",
+        "The Putsch trial",
+        "An election loss",
+        "A stock crash"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A city gains new factories and its population booms with rural workers. What is this called?",
+      "prompt": "A family moves overseas to escape war and danger. What is this factor called?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Urbanisation",
-      "why": "Urbanisation is the growth of city populations as people move from rural areas, usually chasing work.",
+      "answer": "Push factor",
+      "why": "A push factor drives people away from their home, like war, danger, or hardship.",
       "options": [
-        "Urbanisation",
-        "Emigration",
-        "Assimilation",
-        "Multiculturalism"
+        "Push factor",
+        "Pull factor",
+        "Urban factor",
+        "Trade factor"
       ],
       "fresh": false
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Which part of a business plan explains the whole plan in one page?",
+      "prompt": "Which section of a business plan lists strengths, weaknesses, opportunities, threats?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,13 +225,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Executive summary",
-      "why": "The executive summary gives a brief overview of the whole business plan so readers grasp it quickly.",
+      "answer": "SWOT analysis",
+      "why": "A SWOT analysis specifically examines strengths, weaknesses, opportunities, and threats.",
       "options": [
-        "Executive summary",
-        "Market analysis",
         "SWOT analysis",
-        "Operations plan"
+        "Market analysis",
+        "Executive summary",
+        "Mission statement"
       ],
       "fresh": false
     },
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A hairdresser cutting hair for a fee is providing a…",
+      "prompt": "A bakery sells fresh bread loaves to customers. What is this an example of?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Service",
-      "why": "A service is an intangible action performed for a customer, unlike a product which is a physical item sold.",
+      "answer": "A product",
+      "why": "A product is a physical item made and sold, unlike a service which is an action performed for someone.",
       "options": [
-        "Service",
-        "Product",
-        "Logo",
-        "Market gap"
+        "A product",
+        "A service",
+        "A brand",
+        "A market"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 17 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 20 cm and a height of 5 cm. Work through it calmly: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,25 +270,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 51,
+      "answer": 50,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 17 × 6 = 51 cm².",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 20 × 5 = 50 cm².",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "From a while back — a bakery changes its logo to a simple wheat-stalk icon in warm gold tones. What is this logo mainly doing?",
-      "answer": "Building brand identity",
-      "why": "A logo's design choices, like colours and icons, are meant to build a recognisable brand identity that customers connect with.",
+      "prompt": "From a while back — a shoe brand redesigns its logo with a bold swoosh symbol. What is this logo mainly trying to build?",
+      "answer": "Brand recognition",
+      "why": "A distinctive logo helps customers instantly recognise and remember a brand.",
       "options": [
-        "Building brand identity",
-        "Setting the price",
-        "Listing ingredients",
-        "Running a SWOT analysis"
+        "Brand recognition",
+        "A market analysis",
+        "A SWOT analysis",
+        "An executive summary"
       ],
       "fresh": false,
       "throwback": true
@@ -297,14 +297,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Lord of the Flies, what does the conch shell mainly symbolise?",
-      "answer": "Order and civilisation",
-      "why": "The conch gives its holder the right to speak and calls meetings, representing the rules and order the boys initially uphold before descending into savagery.",
+      "prompt": "Why do the boys paint their faces in Lord of the Flies?",
+      "answer": "It hides who they are",
+      "why": "The paint acts as a mask, freeing the boys from identity and shame as they turn savage.",
       "options": [
-        "Order and civilisation",
-        "Fear of the beast",
-        "Piggy's cleverness",
-        "The signal fire's smoke"
+        "It hides who they are",
+        "It marks them as chief",
+        "It keeps them cool",
+        "It scares animals only"
       ],
       "fresh": false
     },
@@ -312,7 +312,7 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What type of white blood cell produces antibodies against a specific pathogen?",
+      "prompt": "What is the name of the process where phagocytes engulf and digest pathogens?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -322,17 +322,16 @@
       },
       "type": "text",
       "accept": [
-        "lymphocyte",
-        "lymphocytes"
+        "phagocytosis"
       ],
-      "why": "Lymphocytes are the white blood cells that recognise specific pathogens and produce matching antibodies to fight them.",
+      "why": "Phagocytosis is the process where a phagocyte surrounds and digests a pathogen.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Put these stages of the Munich Putsch in order",
+      "prompt": "Order these stages of the Munich Putsch story from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -342,28 +341,28 @@
       },
       "type": "order",
       "sequence": [
-        "Hitler declares a revolution in a beer hall",
-        "Nazis march through Munich streets",
-        "Police open fire on the marchers",
-        "Hitler is arrested and put on trial"
+        "Hitler interrupts the beer hall meeting",
+        "Nazis march through Munich",
+        "Police open fire on marchers",
+        "Hitler is arrested and tried"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "The putsch began with Hitler's beer hall declaration, moved to a street march, was stopped by police gunfire, and ended with Hitler's arrest and trial.",
+      "why": "The putsch began at the beer hall, moved to a street march, was stopped by police gunfire, and ended with Hitler's arrest and trial.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "D&T",
-      "prompt": "A market stall keeps changing its packaging colours every week. Why does this weaken its branding?",
-      "answer": "Customers can't recognise it",
-      "why": "Consistent branding helps customers recognise and trust a product; constantly changing it stops that recognition from forming.",
+      "prompt": "A stall owner keeps testing new packaging ideas before launch. What is this an example of?",
+      "answer": "Innovation",
+      "why": "Innovation means developing new or improved ideas, like testing new packaging designs.",
       "options": [
-        "Customers can't recognise it",
-        "It lowers production costs",
-        "It improves product quality",
-        "It increases shelf space"
+        "Innovation",
+        "Branding",
+        "A logo",
+        "A market analysis"
       ],
       "fresh": false
     },
@@ -371,7 +370,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "D&T",
-      "prompt": "A new market stall has an excellent product but no consistent logo or colours. Explain why this could still hold back its success, even with a great product."
+      "prompt": "A market stall has a bold, memorable logo but poor quality products. Explain why strong branding alone won't guarantee long-term success."
     }
   ]
 }
