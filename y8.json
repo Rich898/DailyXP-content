@@ -8,65 +8,8 @@
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Flipping a coin twice, getting two heads",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Independent",
-      "right": "Dependent",
-      "answer": "Independent",
-      "why": "Each coin flip is unaffected by the other flip's result, so the events are independent.",
-      "fresh": true
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
       "subject": "English",
-      "prompt": "Shakespeare acted in his own plays",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Shakespeare was also an actor, performing with his company the Lord Chamberlain's Men (later the King's Men).",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Tectonic plates move only a few centimetres a year",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Plates typically shift a few centimetres per year, roughly the speed fingernails grow, but pressure builds up over long periods.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A trigger cause explains the whole event by itself",
+      "prompt": "Shakespeare wrote Romeo and Juliet in the 21st century",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +21,71 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A trigger cause only sparks the event; long-term causes build the conditions that make it happen.",
+      "why": "Shakespeare wrote in the late 1500s, during the Elizabethan era, not the 21st century.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Change over time always means everything got better",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Change over time can be positive, negative, or mixed — historians look for what actually changed, not assume improvement.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Gochisousama' means 'thank you for the meal'",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Gochisousama (deshita)' is said after eating to thank the cook or host.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "A song's chorus usually has fewer layers than the verse",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Choruses usually add more instruments and layers than verses, making them feel bigger and fuller.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the G?",
+      "subject": "PDHPE",
+      "prompt": "What does 'mental health' mean?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The fourth chord",
-      "why": "G is the last chord in C–Am–F–G, so it's the fourth chord in the sequence.",
+      "answer": "How you think, feel, act",
+      "why": "Mental health is about how you think, feel, and behave day to day — not just the presence of illness, and not the same as never having bad feelings.",
       "options": [
-        "The first chord",
-        "The second chord",
-        "The third chord",
-        "The fourth chord"
+        "How you think, feel, act",
+        "Only having a diagnosed illness",
+        "Never feeling sad or upset",
+        "Physical fitness and diet only"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In song structure, what usually builds the most energy before the final chorus?",
+      "subject": "Maths",
+      "prompt": "A spinner has 5 equal sections. What is the chance of landing on any one section?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The bridge",
-      "why": "The bridge contrasts with earlier sections and builds tension, setting up a stronger final chorus.",
+      "answer": "1/5",
+      "why": "With 5 equally likely sections, each one has a 1 in 5 chance of being landed on.",
       "options": [
-        "The intro",
-        "The bridge",
-        "The verse",
-        "The outro"
+        "1/5",
+        "1/4",
+        "5/5",
+        "1/10"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A bag has a 65% chance of drawing red. What is the chance of not drawing red?",
+      "prompt": "The chance of winning a game is 3/8. What is the chance of not winning?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "35%",
-      "why": "Complementary events add to 100%, so the chance of not red is 100% − 65% = 35%.",
+      "answer": "5/8",
+      "why": "Complementary events add to 1, so the chance of not winning is 1 minus 3/8, which is 5/8.",
       "options": [
-        "65%",
-        "35%",
-        "50%",
-        "100%"
+        "5/8",
+        "3/8",
+        "1/8",
+        "8/8"
       ],
       "fresh": true
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "In a Venn diagram, where does an item that fits only one set go?",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, why do the Capulet and Montague servants fight?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Inside one circle only",
-      "why": "An item belonging to just one set is placed in that circle's own area, not in the shared overlap.",
+      "answer": "Old family hatred",
+      "why": "The servants fight simply because of the long-running feud between their two households, not any single new grievance.",
       "options": [
-        "Overlap region",
-        "Outside both circles",
-        "Inside one circle only",
-        "On the boundary line"
+        "Old family hatred",
+        "A stolen sword",
+        "A gambling debt",
+        "An arranged marriage"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a healthy way to calm down when feeling anxious?",
+      "prompt": "What is a common myth about depression?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Deep breathing",
-      "why": "Deep breathing slows the body's stress response and helps calm anxious feelings in the moment.",
+      "answer": "People can just snap out of it",
+      "why": "A common myth is that people can just snap out of depression — it's a real condition that often needs support or treatment, not willpower.",
       "options": [
-        "Deep breathing",
-        "Bottling it up",
-        "Avoiding everyone",
-        "Ignoring the feeling"
+        "People can just snap out of it",
+        "It can affect daily energy levels",
+        "It often needs proper treatment",
+        "It can affect people of any age"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Who does Juliet's family arrange for her to marry?",
+      "subject": "PDHPE",
+      "prompt": "What is a healthy way to deal with sadness?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,21 +203,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Paris",
-      "why": "Juliet's parents arrange her marriage to Count Paris, which conflicts with her secret marriage to Romeo.",
+      "answer": "Talk to someone you trust",
+      "why": "Sharing feelings with someone trusted helps process emotions, while bottling up or avoiding them tends to make things worse.",
       "options": [
-        "Paris",
-        "Tybalt",
-        "Mercutio",
-        "Benvolio"
+        "Talk to someone you trust",
+        "Bottle it up completely",
+        "Ignore it and hope it passes",
+        "Avoid everyone around you"
       ],
       "fresh": false
     },
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a common myth about people with depression?",
+      "subject": "Music",
+      "prompt": "In the progression C–Am–F–G, which chord is the 'I'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,21 +225,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They are just sad",
-      "why": "Depression is a medical condition, not simple sadness, and dismissing it as sadness is a harmful myth.",
+      "answer": "C",
+      "why": "In the key of C major, C is the root chord, so it is the 'I' (one) chord in the numbering system.",
       "options": [
-        "They are just sad",
-        "It is a real illness",
-        "It can be treated",
-        "It affects mood"
+        "C",
+        "Am",
+        "F",
+        "G"
       ],
       "fresh": false
     },
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Good mental health mainly means what?",
+      "subject": "History",
+      "prompt": "Why did warrior rule rise in early Japan?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,21 +247,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Coping well daily",
-      "why": "Mental health is about coping with everyday challenges and emotions, not the absence of any negative feelings.",
+      "answer": "Emperor lost real power to warriors",
+      "why": "The emperor kept his title but real power shifted to powerful warrior clans and eventually the shogun, who ruled in practice.",
       "options": [
-        "Coping well daily",
-        "Never feeling sad",
-        "Being always happy",
-        "Avoiding all stress"
+        "Emperor lost real power to warriors",
+        "Farmers demanded a warrior king",
+        "China invaded and installed shoguns",
+        "Priests handed control to samurai"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if screen brightness affects eye strain, what type of variable is 'room temperature' if it's kept the same for everyone?",
+      "prompt": "In an experiment testing if study time affects test scores, keeping the test difficulty the same, what type of variable is 'test difficulty'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,54 +274,35 @@
         "controlled variable",
         "controlled"
       ],
-      "why": "Anything deliberately kept the same across all tests is the controlled variable, so it can't affect the result.",
+      "why": "Test difficulty is kept the same on purpose so it can't affect the results — that makes it the controlled variable.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these stages from earliest to latest",
+      "subject": "Maths",
+      "prompt": "A box measures 6 cm by 5 cm by 4 cm. What is its volume?",
       "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
       },
-      "type": "order",
-      "sequence": [
-        "Western Roman Empire falls",
-        "Feudal system develops",
-        "Crusades begin",
-        "Magna Carta signed"
-      ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "Rome fell in 476 CE, feudalism grew in the centuries after, the Crusades began in 1096, and Magna Carta was signed in 1215.",
+      "type": "numeric",
+      "answer": 120,
+      "calc": false,
+      "pre": "",
+      "post": " cm³",
+      "why": "Volume of a rectangular prism is length × width × height, so 6 × 5 × 4 = 120 cm³.",
       "fresh": false,
       "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'delicious' in Japanese?",
-      "answer": "Oishii",
-      "why": "'Oishii' means delicious, used to compliment food, while the others are phrases said before or after eating.",
-      "options": [
-        "Oishii",
-        "Itadakimasu",
-        "Onegaishimasu",
-        "Gochisousama"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for the point on Earth's surface directly above where an earthquake starts?",
+      "prompt": "What is the name for the point underground where an earthquake actually starts?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -331,56 +312,62 @@
       },
       "type": "text",
       "accept": [
-        "epicentre",
-        "epicenter"
+        "focus",
+        "hypocentre"
       ],
-      "why": "The epicentre is the surface point directly above the focus, where the earthquake's energy originates underground.",
+      "why": "The focus (or hypocentre) is the point underground where the earthquake originates, unlike the epicentre which is on the surface above it.",
       "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "How do you say 'water' in Japanese?",
+      "answer": "Mizu",
+      "why": "'Mizu' means water in Japanese; 'ocha' is tea, 'gohan' is rice, and 'sakana' is fish.",
+      "options": [
+        "Mizu",
+        "Ocha",
+        "Gohan",
+        "Sakana"
+      ],
+      "fresh": true
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order this chain from root cause to final consequence",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Poor harvests occur",
-        "Food prices rise",
-        "Public anger grows",
-        "Riots break out"
+      "subject": "English",
+      "prompt": "Which theatre in London is most associated with Shakespeare's plays?",
+      "answer": "The Globe",
+      "why": "The Globe Theatre in London was built for Shakespeare's acting company and staged many of his plays.",
+      "options": [
+        "The Globe",
+        "The Old Vic",
+        "Sadler's Wells",
+        "The Lyceum"
       ],
-      "top": "Root cause",
-      "bot": "Final consequence",
-      "why": "The root cause (poor harvests) sets off a chain: prices rise, anger grows, and this finally erupts into riots.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Which king was on the English throne when Shakespeare began writing plays?",
-      "answer": "Elizabeth I",
-      "why": "Shakespeare began his career under Elizabeth I, later continuing under James I.",
+      "subject": "Music",
+      "prompt": "In song structure, which section usually has the most instrument layers?",
+      "answer": "The chorus",
+      "why": "The chorus usually has the fullest layering of instruments, giving the song its biggest, most energetic moment.",
       "options": [
-        "Henry VIII",
-        "Elizabeth I",
-        "Charles I",
-        "Edward VI"
+        "The chorus",
+        "The intro",
+        "The bridge",
+        "The verse"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Japanese",
-      "prompt": "A classmate is nervous about ordering food in Japanese at a restaurant. Explain what they should say to ask for the menu, order a dish, and thank the chef afterwards, and why each phrase fits that moment."
+      "subject": "Science",
+      "prompt": "Explain why two tectonic hazard events of similar size can lead to very different levels of destruction, using ideas beyond just the size of the earthquake or eruption itself."
     }
   ]
 }
