@@ -217,33 +217,42 @@ def _err_slot(err):
     return m.group(1) if m else None
 
 
-def _retry_message(errors):
-    """A pointed retry instruction (HARDENING-BRIEF item 5). The old retry dumped the
-    raw errors and asked for the whole set again, so the model regenerated every slot
-    and often broke a good one while fixing the bad one — the churn that exhausted the
-    budget on 26 Aug. Instead: name each failing slot with its SPECIFIC fix, and tell
-    the model to change ONLY those slots and keep the rest verbatim."""
+def _fix_hint(errs):
+    """Pointed, model-actionable fix text for one slot's validation errors."""
+    fixes = []
+    for e in errs:
+        if "length tell" in e:
+            fixes.append(guidance_note(None))
+        elif "REPEATS" in e:
+            fixes.append("This prompt was already served to this student (it is in "
+                         "already_seen_prompts). Ask a GENUINELY DIFFERENT question on the same "
+                         "topic — a different fact, angle, or value — never a reworded version of a "
+                         "seen prompt.")
+        else:
+            fixes.append(e.split("] ", 1)[-1] if "] " in e else e)
+    return "  ".join(fixes)
+
+
+def _partition_errors(errors):
+    """Split validation errors into ({slotId: [errs]} slot-scoped, [set-level errs])."""
     slot_errs, set_errs = {}, []
     for e in errors:
         sid = _err_slot(e)
         (slot_errs.setdefault(sid, []).append(e) if sid else set_errs.append(e))
+    return slot_errs, set_errs
+
+
+def _retry_message(errors):
+    """Whole-set retry instruction (the fallback path): name each failing slot with its
+    SPECIFIC fix and tell the model to change ONLY those slots, keeping the rest verbatim.
+    Used for a set-level error that can't be sliced, or when slicing is switched off."""
+    slot_errs, set_errs = _partition_errors(errors)
     lines = ["Your previous set was REJECTED. Do NOT regenerate the whole set from scratch."]
     if slot_errs:
         lines.append("Change ONLY these slots — keep every OTHER slot's prompt, options, answer "
                      "and why EXACTLY as you last sent them:")
         for sid, es in slot_errs.items():
-            fixes = []
-            for e in es:
-                if "length tell" in e:
-                    fixes.append(guidance_note(None))
-                elif "REPEATS" in e:
-                    fixes.append("This prompt was already served to this student (it is in "
-                                 "already_seen_prompts). Ask a GENUINELY DIFFERENT question on the "
-                                 "same topic — a different fact, angle, or value — never a reworded "
-                                 "version of a seen prompt.")
-                else:
-                    fixes.append(e.split("] ", 1)[-1] if "] " in e else e)
-            lines.append(f"  - slot {sid}: " + "  ".join(fixes))
+            lines.append(f"  - slot {sid}: " + _fix_hint(es))
     if set_errs:
         lines.append("Set-level problems to fix as well:")
         lines += [f"  - {e}" for e in set_errs]
@@ -251,8 +260,41 @@ def _retry_message(errors):
     return "\n".join(lines)
 
 
+def build_user_slots(plan, slot_ids, prev_filled, objections, seen):
+    """A FOCUSED message that recomposes ONLY the named slots (slot-splicing, HARDENING
+    item 5 follow-up). The rest of the set is fixed and must not be resent — this is what
+    stops the whole-set churn that made fixing one slot re-roll the good ones."""
+    rows = []
+    for s in plan["slots"]:
+        if s["slot"] in slot_ids:
+            rows.append({
+                "slotId": s["slot"], "phase": s["phase"], "subject": s["subject"],
+                "topic": s["topic"], "intent": s["intent"], "guidance": s.get("guidance", ""),
+                "type": s.get("type", "mc"), "mech": s.get("mech", ""), "mode": s.get("mode", ""),
+                "your_rejected_version": prev_filled.get(s["slot"]),
+                "why_rejected__fix_exactly_this": objections.get(s["slot"], ""),
+            })
+    payload = {
+        "for": f"{plan['student']} {plan['tag']} ({plan['day']} {plan['date']})",
+        "instructions": plan.get("composer_instructions", ""),
+        "rewrite_only_these_slots": rows,
+        "already_seen_prompts": sorted(seen),
+    }
+    return ("The set was rejected only on the slots below. Rewrite ONLY these slots — fix exactly the "
+            "stated problem, stay on the same topic and intent, and do NOT resend or change any other "
+            "slot. Output ONLY a JSON object keyed by slotId, each value carrying the same fields you "
+            "would normally emit for that slot type (prompt/options/answer/why, etc.).\n\n"
+            + json.dumps(payload, ensure_ascii=False, indent=2))
+
+
 def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=None, history_dir=None):
-    """Returns (set_dict | None, errors). Retries feeding validation errors back to the model."""
+    """Returns (set_dict | None, errors).
+
+    First pass composes the whole set. On a validation failure the retry recomposes ONLY
+    the slots that failed (slot-splicing) and stitches them back, so fixing one bad slot
+    never churns the good ones — the reliable fix for the deep-history t1 compose-fails
+    (HARDENING item 5 follow-up). Falls back to a whole-set regenerate for the rare
+    set-level error, or when DAILYXP_WHOLE_SET_RECOMPOSE=1 forces the old behaviour."""
     api_key = api_key or os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         return None, ["ANTHROPIC_API_KEY not set"]
@@ -265,28 +307,42 @@ def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=
     if max_retries is None:
         # Scrub blocks carry extra hard constraints (exactly 4 tiles, no negative stem,
         # no answer-length tell) and the deepest-history seats meet repeat pressure first,
-        # so a scrub-bearing plan gets a larger budget before it gives up (HARDENING item 5:
-        # the 26 Aug t1 compose-fail exhausted a budget of 2 on exactly these two gates).
+        # so a scrub-bearing plan gets a larger budget before it gives up.
         max_retries = 4 if any(sl.get("mode") == "scrub" for sl in plan.get("slots", [])) else 2
+    splice = os.environ.get("DAILYXP_WHOLE_SET_RECOMPOSE") != "1"
 
-    user = build_user(plan, seen)
-    last_errors = []
+    filled, last_errors = None, []
     for attempt in range(max_retries + 1):
         try:
-            raw = call_api(SYSTEM, user, model, api_key)
-            filled = parse_json(raw)
+            if filled is None:
+                # first pass (or recovery from a parse error) — compose the whole set
+                filled = parse_json(call_api(SYSTEM, build_user(plan, seen), model, api_key))
+            else:
+                slot_errs, set_errs = _partition_errors(last_errors)
+                if splice and slot_errs and not set_errs:
+                    # SLOT-SPLICE: recompose only the failing slots; keep the rest verbatim
+                    objs = {sid: _fix_hint(es) for sid, es in slot_errs.items()}
+                    sub = parse_json(call_api(
+                        SYSTEM, build_user_slots(plan, set(slot_errs), filled, objs, seen), model, api_key))
+                    if isinstance(sub, dict):
+                        for sid in slot_errs:
+                            if sid in sub:
+                                filled[sid] = sub[sid]
+                else:
+                    # whole-set regenerate (set-level error, or slicing disabled)
+                    filled = parse_json(call_api(
+                        SYSTEM, build_user(plan, seen) + "\n\n" + _retry_message(last_errors), model, api_key))
         except urllib.error.HTTPError as e:
             return None, [f"API HTTP {e.code}: {e.read().decode()[:200]}"]
         except Exception as e:
             last_errors = [f"compose/parse error: {e}"]
-            user += f"\n\nYour previous reply could not be parsed as the required JSON object ({e}). Reply with ONLY the JSON object."
+            filled = None                 # bad reply → fresh whole-set compose next round
             continue
         candidate = assemble(plan, filled)
         errors, warns = validate_set(candidate, history_dir)
         if not errors:
             return candidate, warns
         last_errors = errors
-        user += "\n\n" + _retry_message(errors)
     return None, last_errors
 
 
