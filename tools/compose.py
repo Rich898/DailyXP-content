@@ -29,6 +29,7 @@ import urllib.error
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "tools"))
 from validate import validate_set, seen_prompts  # noqa: E402
+from answer_length import guidance_note  # noqa: E402  — reuse the ratified length-tell fix note
 
 API_URL = "https://api.anthropic.com/v1/messages"
 DEFAULT_MODEL = "claude-sonnet-5"   # strong + economical for language tasks; override with --model
@@ -206,7 +207,51 @@ def assemble(plan, filled):
     }
 
 
-def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=2, history_dir=None):
+_SLOT_ERR_RE = re.compile(r"^\s*\[([^\]]+)\]")
+
+
+def _err_slot(err):
+    """The slot id an error is scoped to (validate prefixes slot errors with [id]),
+    or None for a set-level error (missing date, wrong teach count, …)."""
+    m = _SLOT_ERR_RE.match(err or "")
+    return m.group(1) if m else None
+
+
+def _retry_message(errors):
+    """A pointed retry instruction (HARDENING-BRIEF item 5). The old retry dumped the
+    raw errors and asked for the whole set again, so the model regenerated every slot
+    and often broke a good one while fixing the bad one — the churn that exhausted the
+    budget on 26 Aug. Instead: name each failing slot with its SPECIFIC fix, and tell
+    the model to change ONLY those slots and keep the rest verbatim."""
+    slot_errs, set_errs = {}, []
+    for e in errors:
+        sid = _err_slot(e)
+        (slot_errs.setdefault(sid, []).append(e) if sid else set_errs.append(e))
+    lines = ["Your previous set was REJECTED. Do NOT regenerate the whole set from scratch."]
+    if slot_errs:
+        lines.append("Change ONLY these slots — keep every OTHER slot's prompt, options, answer "
+                     "and why EXACTLY as you last sent them:")
+        for sid, es in slot_errs.items():
+            fixes = []
+            for e in es:
+                if "length tell" in e:
+                    fixes.append(guidance_note(None))
+                elif "REPEATS" in e:
+                    fixes.append("This prompt was already served to this student (it is in "
+                                 "already_seen_prompts). Ask a GENUINELY DIFFERENT question on the "
+                                 "same topic — a different fact, angle, or value — never a reworded "
+                                 "version of a seen prompt.")
+                else:
+                    fixes.append(e.split("] ", 1)[-1] if "] " in e else e)
+            lines.append(f"  - slot {sid}: " + "  ".join(fixes))
+    if set_errs:
+        lines.append("Set-level problems to fix as well:")
+        lines += [f"  - {e}" for e in set_errs]
+    lines.append("Resend the COMPLETE JSON object for the whole set, with only the required changes applied.")
+    return "\n".join(lines)
+
+
+def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=None, history_dir=None):
     """Returns (set_dict | None, errors). Retries feeding validation errors back to the model."""
     api_key = api_key or os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
@@ -217,6 +262,12 @@ def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=
                  "day": "", "title": "DailyXP", "questions": []}, [])
     if seen is None:
         seen = seen_prompts(plan["student"], history_dir)
+    if max_retries is None:
+        # Scrub blocks carry extra hard constraints (exactly 4 tiles, no negative stem,
+        # no answer-length tell) and the deepest-history seats meet repeat pressure first,
+        # so a scrub-bearing plan gets a larger budget before it gives up (HARDENING item 5:
+        # the 26 Aug t1 compose-fail exhausted a budget of 2 on exactly these two gates).
+        max_retries = 4 if any(sl.get("mode") == "scrub" for sl in plan.get("slots", [])) else 2
 
     user = build_user(plan, seen)
     last_errors = []
@@ -235,8 +286,7 @@ def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=
         if not errors:
             return candidate, warns
         last_errors = errors
-        user += ("\n\nYour previous set FAILED validation with these errors — fix them and resend the full JSON object:\n"
-                 + "\n".join("- " + e for e in errors))
+        user += "\n\n" + _retry_message(errors)
     return None, last_errors
 
 
