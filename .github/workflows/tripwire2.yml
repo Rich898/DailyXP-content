@@ -10,7 +10,9 @@ name: tripwire2
 # as timeouts).
 #
 # Silent when healthy. Alerts go to Rich's handset only (seat t1).
-# SHADOW-FIRST: sends nothing until the repo variable TRIPWIRE2_LIVE is "true".
+# ARM SWITCH is the TRIPWIRE2_LIVE env below — "true" = live/sends, anything
+# else = shadow (logs only). Version-controlled here, so arming/disarming is a
+# commit in this repo, not a dashboard toggle — Claude can flip it directly.
 #
 # One evening rung keeps it small; GitHub cron is best-effort, so a dropped run
 # means no check that evening — acceptable because Tripwire 1 already covers the
@@ -45,7 +47,7 @@ jobs:
       - name: Did today's runs happen?
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TRIPWIRE2_LIVE: ${{ vars.TRIPWIRE2_LIVE }}
+          TRIPWIRE2_LIVE: "true"   # ARM SWITCH — "true" sends; "false"/anything else = shadow
           MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
           MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
           MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
