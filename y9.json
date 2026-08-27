@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-08-26",
-  "day": "WED",
-  "tag": "R5.3",
-  "title": "DailyXP · WED 2026-08-26",
+  "date": "2026-08-27",
+  "day": "THU",
+  "tag": "R5.4",
+  "title": "DailyXP · THU 2026-08-27",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Piggy dies before Simon does",
+      "prompt": "Simon is murdered by the other boys in a frenzy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Simon is killed first, mistaken for the beast during the boys' frenzy; Piggy is killed later when Roger releases the boulder.",
+      "answer": "True",
+      "why": "The boys kill Simon in the storm, mistaking him for the beast — showing how far their savagery has grown.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Memory cells help the body respond faster to a pathogen it has met before",
+      "prompt": "The immune system's first line of defence is nasal hair trapping particles",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Memory cells stay in the blood after an infection and allow a much faster antibody response if the same pathogen returns.",
+      "why": "Nasal hair, skin, and mucus are all part of the first line of defence — physical barriers that stop pathogens entering the body before the immune system reacts.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Hitler was arrested after the Munich Putsch",
+      "prompt": "The Munich Putsch took place in 1923",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The putsch collapsed within a day and Hitler was arrested and later tried for treason, though he used the trial to gain publicity.",
+      "why": "Hitler attempted his failed takeover in Munich in November 1923, during a period of economic crisis.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "3(x + 2) expands to 3x + 6",
+      "prompt": "7x − 3x simplifies to 4x",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Multiplying out the bracket means both terms inside get multiplied by 3, giving 3x + 6.",
+      "why": "Subtracting like terms: 7x − 3x leaves 4x, since only the coefficients change.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 6x + 3 = 21",
+      "prompt": "Solve for x: 5x − 4 = 21",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "3",
-      "why": "Subtract 3 from both sides to get 6x = 18, then divide by 6 to get x = 3.",
+      "answer": "x = 5",
+      "why": "Add 4 to both sides to get 5x = 25, then divide by 5 to get x = 5.",
       "options": [
-        "3",
-        "4",
-        "18",
-        "24"
+        "x = 5",
+        "x = 4",
+        "x = 17",
+        "x = 25"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which part of Freud's model acts on instinct with no regard for consequences?",
+      "prompt": "In Freud's model, which part balances desires against reality?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The id",
-      "why": "The id is the primitive part of personality driven purely by instinct and desire, with no concern for rules or reality.",
+      "answer": "Ego",
+      "why": "The ego is the realistic part of the mind that mediates between the id's impulses and the superego's morals.",
       "options": [
-        "The id",
-        "The ego",
-        "The superego",
-        "The conscience"
+        "Ego",
+        "Id",
+        "Superego",
+        "Libido"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "A soft drink ad shows a famous athlete celebrating a win while drinking it. What technique is this?",
+      "prompt": "Fast food ads often show meals as fun and exciting. What effect does this aim to have?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Celebrity endorsement",
-      "why": "Using a famous, admired person to make a product look desirable is celebrity endorsement — it sells an image, not the food's actual value.",
+      "answer": "Boost appeal",
+      "why": "Marketing uses fun, exciting imagery to make food more appealing, regardless of its actual nutritional value.",
       "options": [
-        "Celebrity endorsement",
-        "Free sample handout",
-        "Shelf placement trick",
-        "Nutrition labelling"
+        "Boost appeal",
+        "Lower price",
+        "Improve nutrition",
+        "Reduce portion size"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is a 'push factor' in migration?",
+      "prompt": "After WWII, why did Australia's government actively recruit migrants from Europe?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A reason to leave a place",
-      "why": "Push factors are negative conditions, like war or unemployment, that drive people to leave their home country.",
+      "answer": "To fill labour shortages in growing industries",
+      "why": "Australia's factories and infrastructure projects needed workers after WWII, so the government ran schemes to attract migrant labour — a classic pull factor, not about debt or exports.",
       "options": [
-        "A reason to leave a place",
-        "A reason to move to a place",
-        "A type of visa",
-        "A government migration quota"
+        "To fill labour shortages in growing industries",
+        "To boost farm exports to European markets",
+        "To repay wartime debts owed to Britain",
+        "To reduce the cost of running schools"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What was the Weimar Republic's system of government?",
+      "prompt": "What replaced the Kaiser's rule in Germany after WWI?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A democracy",
-      "why": "The Weimar Republic was Germany's first attempt at a democratic government, formed after the Kaiser's abdication in 1918.",
+      "answer": "Weimar Republic",
+      "why": "The Weimar Republic was the democratic government formed in Germany after the Kaiser abdicated in 1918.",
       "options": [
-        "A democracy",
-        "A monarchy",
-        "A military dictatorship",
-        "A one-party state"
+        "Weimar Republic",
+        "Third Reich",
+        "Prussian Empire",
+        "Bavarian Monarchy"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A drought forces a farming family off their land, and they move to a city with steady jobs. What is the drought?",
+      "prompt": "A family moves overseas seeking safety from war. What is this an example of?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A push factor",
-      "why": "A push factor drives people away from a place, like a drought ruining farmland; a pull factor draws them toward somewhere new, like available jobs.",
+      "answer": "Push factor",
+      "why": "War is a push factor — something negative that forces people to leave their home country.",
       "options": [
-        "A push factor",
-        "A pull factor",
-        "A birth factor",
-        "An urban factor"
+        "Push factor",
+        "Pull factor",
+        "Urbanisation",
+        "Assimilation"
       ],
       "fresh": false
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Which part of a business plan outlines the day-to-day running of the business?",
+      "prompt": "Which business plan section outlines the whole plan briefly at the start?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,12 +225,12 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Operations plan",
-      "why": "The operations plan covers daily running details like staffing, suppliers and processes, separate from the summary or market research.",
+      "answer": "Executive summary",
+      "why": "The executive summary gives a short overview of the entire business plan, placed at the beginning.",
       "options": [
-        "Operations plan",
         "Executive summary",
         "Market analysis",
+        "Operations plan",
         "SWOT analysis"
       ],
       "fresh": false
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A tutor charges families a fee to teach maths lessons after school. What is the tutor selling?",
+      "prompt": "A bakery's logo mainly helps customers do what?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A service",
-      "why": "A service is an action done for a customer, like tutoring; a product is a physical item you can hold, like a book or toy.",
+      "answer": "Recognise the brand",
+      "why": "A logo builds recognition, helping customers quickly identify and remember the business.",
       "options": [
-        "A service",
-        "A physical product",
-        "A logo design",
-        "A market stall"
+        "Recognise the brand",
+        "Set the price",
+        "Choose ingredients",
+        "Plan deliveries"
       ],
       "fresh": false
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 19 cm and a height of 6 cm. Work through it calmly: what is its area?",
+      "prompt": "A triangle has a base of 20 cm and a height of 6 cm. Work through it calmly: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,25 +270,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 57,
+      "answer": 60,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 19 × 6 = 57 cm². Halving is the step rushing skips.",
+      "why": "Area of a triangle is ½ × base × height: ½ × 20 × 6 = 60 cm².",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "A café changes its logo to a simple coffee-bean icon in warm brown tones. What is this logo mainly doing?",
-      "answer": "Building a recognisable identity",
-      "why": "A logo's main job is to create a memorable, recognisable identity for the brand, not to give practical details like hours or prices.",
+      "prompt": "A shop uses the same colours and symbol on every product and ad. What is this mainly building?",
+      "answer": "Brand recognition",
+      "why": "Consistent colours and symbols across products help customers instantly recognise and trust the brand.",
       "options": [
-        "Building a recognisable identity",
-        "Listing its menu items",
-        "Explaining its opening hours",
-        "Setting its prices"
+        "Brand recognition",
+        "Lower costs",
+        "Faster delivery",
+        "Higher wages"
       ],
       "fresh": false,
       "throwback": true
@@ -297,14 +297,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Lord of the Flies, what does Piggy's smashed glasses show about the boys' situation?",
-      "answer": "Civilisation is failing",
-      "why": "Breaking Piggy's glasses destroys their last reliable way to make fire, showing how the boys' grip on order and civilised behaviour keeps crumbling.",
+      "prompt": "What does the beast in Lord of the Flies mainly represent?",
+      "answer": "Inner human savagery",
+      "why": "The beast isn't a real creature — it symbolises the savage instinct hidden within the boys themselves.",
       "options": [
-        "Civilisation is failing",
-        "Piggy has escaped danger",
-        "Fire is no longer needed",
-        "Ralph has gained new power"
+        "Inner human savagery",
+        "A real monster",
+        "The island's weather",
+        "Naval rescue"
       ],
       "fresh": false
     },
@@ -312,7 +312,7 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the name for a substance introduced into the body to trigger immunity without causing the disease?",
+      "prompt": "What is the general term for a disease-causing organism like a virus or bacterium?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -322,17 +322,17 @@
       },
       "type": "text",
       "accept": [
-        "vaccine",
-        "vaccination"
+        "pathogen",
+        "pathogens"
       ],
-      "why": "A vaccine contains a weakened or harmless form of a pathogen, training the immune system to respond quickly to the real thing.",
+      "why": "A pathogen is any organism, such as a virus or bacterium, that causes disease in the body.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events of the Munich Putsch story",
+      "prompt": "Order these Munich Putsch events from earliest to latest",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -342,28 +342,28 @@
       },
       "type": "order",
       "sequence": [
-        "Hitler declares a national revolution in the beer hall",
-        "Nazis march through Munich",
+        "Hitler plans to seize Bavarian government",
+        "Nazis march through Munich streets",
         "Police open fire on the marchers",
         "Hitler is arrested and put on trial"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "The putsch began with Hitler's declaration in the beer hall, moved to a street march, ended in gunfire, then Hitler's arrest and trial.",
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "The putsch began with Hitler's plan, moved to the street march, ended in gunfire, and finished with his arrest and trial.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "D&T",
-      "prompt": "A market stall designs its product to be easy to carry and use outdoors. What design factor is this mainly about?",
+      "prompt": "A stall designs packaging that's lightweight and easy to pack for travel. What design factor is this?",
       "answer": "Function",
-      "why": "Function refers to how well a product works for its purpose, like being practical and easy to use outdoors.",
+      "why": "Function refers to how well a product works for its purpose — here, being practical and easy to transport.",
       "options": [
         "Function",
         "Aesthetics",
-        "Innovation",
-        "Branding"
+        "Cost",
+        "Sustainability"
       ],
       "fresh": false
     },
@@ -371,7 +371,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "D&T",
-      "prompt": "Explain why a market stall needs both a strong product and consistent branding to succeed, using an example to show what happens if one is missing."
+      "prompt": "Explain why a market stall's branding and its product design need to work together, not just separately, to attract customers."
     }
   ]
 }
