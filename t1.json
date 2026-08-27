@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-08-25",
-  "day": "TUE",
-  "tag": "T5.2",
-  "title": "DailyXP · TUE 2026-08-25",
+  "date": "2026-08-27",
+  "day": "THU",
+  "tag": "T5.4",
+  "title": "DailyXP · THU 2026-08-27",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Rolling a die: getting an even number and getting a 5 are complementary",
+      "prompt": "Rolling a die: 'getting a 3' and 'not getting a 3' are complementary events",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Complementary events must cover all outcomes between them. Even numbers and 5 don't include 1 or 3, so they are not complementary.",
+      "answer": "True",
+      "why": "Complementary events cover all outcomes with no overlap — 'a 3' and 'not a 3' together account for every possibility on the die.",
       "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1, the Prince threatens death for further street brawling",
+      "subject": "Science",
+      "prompt": "Landslides can be triggered by earthquakes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In Scene 1 the Prince warns that any future fighting between the families will be punished by death.",
+      "why": "Earthquake shaking can destabilise slopes, triggering landslides as a secondary hazard alongside the quake itself.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Most tsunamis are caused by underwater earthquakes",
+      "subject": "History",
+      "prompt": "Change over time can happen gradually, not just through single dramatic events",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Sudden vertical movement of the seafloor during an underwater earthquake displaces huge volumes of water, creating a tsunami.",
+      "why": "Historical change is often slow and cumulative, not always caused by one sudden turning point.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "A historical event can have several causes",
+      "subject": "Music",
+      "prompt": "In the progression C-Am-F-G, the chords stay the same every time it repeats",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Historians treat causation as complex — big events usually result from multiple long-term and short-term causes working together.",
+      "why": "A chord progression is a fixed repeating pattern — C-Am-F-G stays in that order each time it loops.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the 'vi'?",
+      "subject": "PDHPE",
+      "prompt": "What does 'mental health' mean?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Am chord",
-      "why": "Am is built on the 6th note of the C major scale, making it the 'vi' chord — the minor chord that gives the progression its emotional lift.",
+      "answer": "How you think, feel, and cope",
+      "why": "Mental health is about how you think, feel, and cope with daily life — it's not the absence of sadness or illness, and it's separate from physical fitness.",
       "options": [
-        "Am chord",
-        "C major chord",
-        "F major chord",
-        "G major chord"
+        "How you think, feel, and cope",
+        "Never feeling sad or upset",
+        "Having no diagnosed illness",
+        "Being physically fit and strong"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which of these best describes mental health?",
+      "subject": "Maths",
+      "prompt": "A spinner has 5 equal sections. What is the probability of landing on section 3?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "How you feel, think, and cope daily",
-      "why": "Mental health is about overall emotional and psychological wellbeing, not the total absence of sadness or illness.",
+      "answer": "1/5",
+      "why": "There are 5 equally likely sections, so any one section has a 1/5 chance.",
       "options": [
-        "How you feel, think, and cope daily",
-        "Never feeling sad or stressed",
-        "Being physically fit and strong",
-        "Having no diagnosed illness"
+        "1/5",
+        "1/3",
+        "3/5",
+        "5/1"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A coin is flipped twice. What is the chance of two heads?",
+      "subject": "Science",
+      "prompt": "What mainly causes most earthquakes?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "1/4",
-      "why": "Each flip has a 1/2 chance of heads, so two independent flips give 1/2 × 1/2 = 1/4.",
+      "answer": "Moving tectonic plates",
+      "why": "Most earthquakes happen when moving tectonic plates grind, collide, or slip past each other, releasing built-up stress as seismic waves — not from rain, tides, or mining.",
       "options": [
-        "1/4",
-        "1/2",
-        "1/3",
-        "2/3"
+        "Moving tectonic plates",
+        "Heavy rainfall and floods",
+        "Strong ocean tides",
+        "Underground mining works"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who is Juliet's father in the play?",
+      "prompt": "Who kills Tybalt in the play?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Lord Capulet",
-      "why": "Juliet belongs to the Capulet household, and Lord Capulet is her father throughout the play.",
+      "answer": "Romeo",
+      "why": "Romeo kills Tybalt to avenge Mercutio's death, setting up his banishment.",
       "options": [
-        "Lord Capulet",
-        "Lord Montague",
-        "Friar Laurence",
-        "Prince Escalus"
+        "Romeo",
+        "Mercutio",
+        "Paris",
+        "Benvolio"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a common myth about seeking help for mental health?",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, why do the servants start fighting?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,87 +181,141 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Asking for help shows weakness",
-      "why": "Seeking help is actually a sign of strength and self-awareness, not weakness — this myth stops many people getting support they need.",
+      "answer": "Old family feud",
+      "why": "The opening brawl shows the long-running Capulet–Montague feud spilling onto the streets of Verona.",
       "options": [
-        "Asking for help shows weakness",
-        "Talking to someone can ease stress",
-        "Counsellors keep things private",
-        "Early support helps recovery"
+        "Old family feud",
+        "A stolen sword",
+        "A land dispute",
+        "An insult to Juliet"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "Bringing back the chorus with fuller instrumentation usually creates what effect?",
+      "subject": "PDHPE",
+      "prompt": "What's a common myth about mental illness?",
       "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
       },
-      "answer": "A lift in energy",
-      "why": "Adding layers back in after a stripped-back section creates contrast and builds energy, a common structural technique.",
+      "answer": "It means someone is dangerous",
+      "why": "A harmful myth is that mental illness makes someone dangerous — most people with mental illness are not violent.",
       "options": [
-        "A lift in energy",
-        "A quiet fade-out",
-        "A sudden key change",
-        "A tempo slowdown"
+        "It means someone is dangerous",
+        "It can affect anyone",
+        "It can be treated",
+        "It often improves with support"
       ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What kind of terrain covers most of Japan?",
+      "subject": "Music",
+      "prompt": "Dropping to just one instrument in a verse mainly creates what effect?",
       "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
       },
-      "answer": "Mountainous",
-      "why": "Japan's mountainous geography limited farmable land and encouraged regional warrior control, helping shoguns rise to power.",
+      "answer": "A sparse, intimate sound",
+      "why": "Stripping away layers thins the texture, making a section feel sparse and intimate compared to fuller sections like the chorus.",
       "options": [
-        "Mountainous",
-        "Flat desert",
-        "Grassy plains",
-        "Dense swamp"
+        "A sparse, intimate sound",
+        "A fuller, bigger sound",
+        "A faster tempo change",
+        "A key change upward"
       ],
-      "fresh": true
+      "mode": "scrub",
+      "fresh": false
     },
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "What mainly causes most volcanic eruptions?",
+      "subject": "History",
+      "prompt": "What kind of terrain made central rule difficult across old Japan?",
       "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
       },
-      "answer": "Magma rising at boundaries",
-      "why": "Volcanoes mostly form where magma rises through weaknesses at tectonic plate boundaries, not from unrelated weather or water processes.",
+      "answer": "Mountainous, divided land",
+      "why": "Japan's mountainous terrain split the land into isolated regions, making it hard for a central emperor to control distant areas directly.",
       "options": [
-        "Magma rising at boundaries",
-        "Ocean currents shifting",
-        "Sudden air pressure drops",
-        "Underground rivers flooding"
+        "Mountainous, divided land",
+        "Flat, open plains",
+        "Dense tropical jungle",
+        "Endless desert regions"
       ],
-      "fresh": false
+      "mode": "scrub",
+      "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
+      "subject": "English",
+      "prompt": "Which quote shows hate turning violent, not just love?",
+      "answer": "'A plague o' both your houses'",
+      "why": "Mercutio's dying curse shows hate erupting into real violence and death, the destructive side of the love vs hate theme.",
+      "options": [
+        "'A plague o' both your houses'",
+        "'My only love sprung from my only hate'",
+        "'It is the east, and Juliet is the sun'",
+        "'Parting is such sweet sorrow'"
+      ],
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "How do you say 'thank you for the meal' in Japanese?",
+      "answer": "Gochisousama",
+      "why": "'Gochisousama' is said after eating to thank someone for the meal, unlike 'oishii' (delicious) or greetings.",
+      "options": [
+        "Gochisousama",
+        "Oishii desu",
+        "Konnichiwa",
+        "Sumimasen"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "The probability of drawing a blue marble is 0.4. What is the probability of NOT drawing blue?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.6,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Complementary probabilities add to 1, so 1 - 0.4 = 0.6.",
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for a violent mudflow of volcanic ash and water?",
+      "prompt": "What term describes a violent mudflow of volcanic ash and water?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -271,73 +325,24 @@
       },
       "type": "text",
       "accept": [
-        "lahar"
+        "lahar",
+        "lahars"
       ],
-      "why": "A lahar is a fast-moving mudflow made of volcanic ash mixed with water, often triggered by eruptions or heavy rain.",
-      "fresh": false
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "The probability of drawing a red card from a deck is 0.5. What is the probability of NOT drawing red?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.5,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Complementary probabilities always add to 1, so 1 − 0.5 = 0.5.",
-      "fresh": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'thank you for the meal' in Japanese after eating?",
-      "answer": "Gochisousama",
-      "why": "Gochisousama is said after finishing a meal to thank the person who provided or cooked it.",
-      "options": [
-        "Gochisousama",
-        "Itadakimasu",
-        "Oishii desu",
-        "Sumimasen"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 5, what draws Romeo's attention to Juliet?",
-      "answer": "Her beauty across room",
-      "why": "Romeo first notices Juliet's beauty from across the room at the Capulet feast, sparking his famous instant admiration.",
-      "options": [
-        "Her beauty across room",
-        "Her family's wealth display",
-        "Her dancing skill shown",
-        "Her loud voice heard"
-      ],
+      "why": "A lahar is a fast-moving mudflow of volcanic ash mixed with water, often triggered by eruptions or heavy rain on ash deposits.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the key of C major, which chord is built on the fifth note of the scale?",
-      "answer": "G",
-      "why": "The fifth note of the C major scale is G, so the G chord is the 'V' chord in this key.",
+      "prompt": "In the progression C-Am-F-G, which chord is the 'V'?",
+      "answer": "G chord",
+      "why": "In the key of C major, G is built on the fifth note of the scale, making it the 'V' chord in the progression C-Am-F-G.",
       "options": [
-        "G",
-        "F",
-        "Am",
-        "C"
+        "G chord",
+        "C chord",
+        "Am chord",
+        "F chord"
       ],
       "fresh": false
     },
@@ -345,14 +350,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Which of these is a sign of good mental health?",
-      "answer": "Coping with everyday stress",
-      "why": "Good mental health means being able to manage normal stress and emotions, not the absence of any negative feeling.",
+      "prompt": "Which habit best supports good mental health?",
+      "answer": "Talking about problems",
+      "why": "Openly talking about problems helps people process emotions and get support, which builds good mental health over time.",
       "options": [
-        "Coping with everyday stress",
-        "Never feeling upset at all",
+        "Talking about problems",
+        "Bottling up feelings",
         "Avoiding all social contact",
-        "Ignoring your emotions completely"
+        "Ignoring sleep needs"
       ],
       "fresh": false
     },
@@ -360,7 +365,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Japanese",
-      "prompt": "Explain why knowing Japanese food words alone doesn't mean you can actually order a meal at a restaurant in Japan."
+      "prompt": "Explain why knowing how to order food in Japanese requires more than just memorising vocabulary — what else do you need to understand?"
     }
   ]
 }
