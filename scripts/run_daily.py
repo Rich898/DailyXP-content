@@ -366,6 +366,32 @@ def run(date, students, private_dir, directives_override, dry_run, push, skip_if
     print("\n=== summary ===")
     for s, tag, st in summary:
         print(f"  {s}  {tag:<16} {st}")
+
+    # NO SILENT SEAT FAILURES (HARDENING-BRIEF item 4). A seat that compose-failed,
+    # HELD on review, or failed to publish leaves kids on a stale-or-absent set — yet
+    # the run still exits 0, deliberately: the healthy seats' public + private commits
+    # MUST land, and hard-failing here would skip the workflow's private-commit step and
+    # lose their history/ledger writes. The third "green tick lie" of 26 Aug was exactly
+    # this — t1 compose-failed, the run stayed green, and the failure surfaced nowhere.
+    # So name the down seats loudly instead: a warning annotation on the run (always
+    # visible in Actions) and an ops text to Rich's handset (armed via
+    # DAILYXP_SEAT_ALERT_LIVE). Silent only when every seat is fine.
+    DONE_OK = {"published", "already-published (backup no-op)", "dry-run-ok"}
+    down = [(s, tag, st) for s, tag, st in summary if st not in DONE_OK]
+    if down and not dry_run:
+        detail = "; ".join(f"{s} {st}" for s, tag, st in down)
+        print(f"::warning title=DailyXP seat down::{detail}")      # keeps the run from reading all-green
+        msg = f"XP Daily pipeline: seat(s) DOWN — {detail}. Kids on a stale/held set; needs a human."
+        if os.environ.get("DAILYXP_SEAT_ALERT_LIVE", "").strip().lower() == "true":
+            try:
+                import notify
+                ok, nd = notify.send_sms("t1", msg, ref=f"xpd-seatdown-{date.isoformat()}")
+                print(f"seat-down alert {'sent' if ok else 'FAILED: ' + str(nd)}")
+            except Exception as e:
+                print(f"seat-down alert step failed ({e}) — the warning above still stands.")
+        else:
+            print(f"seat-down alert [SHADOW — set DAILYXP_SEAT_ALERT_LIVE=true to arm] would send: {msg}")
+
     # NOTE: after a real run, commit the private repo (updated history archive + any state
     # writes) back — handled by the workflow's 'commit private' step.
     return 0
