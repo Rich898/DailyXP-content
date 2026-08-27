@@ -1,53 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-08-26",
-  "day": "WED",
-  "tag": "H5.3",
-  "title": "DailyXP · WED 2026-08-26",
+  "date": "2026-08-27",
+  "day": "THU",
+  "tag": "H5.4",
+  "title": "DailyXP · THU 2026-08-27",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Shakespeare wrote Romeo and Juliet in the 21st century",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Shakespeare wrote in the late 1500s, during the Elizabethan era, not the 21st century.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Change over time always means everything got better",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Change over time can be positive, negative, or mixed — historians look for what actually changed, not assume improvement.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'Gochisousama' means 'thank you for the meal'",
+      "prompt": "Shakespeare wrote Romeo and Juliet",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Gochisousama (deshita)' is said after eating to thank the cook or host.",
-      "fresh": true
+      "why": "Shakespeare did write Romeo and Juliet, one of his most famous tragedies.",
+      "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S2",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "A song's chorus usually has fewer layers than the verse",
+      "subject": "History",
+      "prompt": "A consequence always happens before its cause",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +40,52 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Choruses usually add more instruments and layers than verses, making them feel bigger and fuller.",
+      "why": "A cause always comes first and a consequence follows it — the order can never be reversed.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Oishii' means delicious",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Oishii' is the Japanese word used to say food tastes delicious.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "The bridge usually has fewer layers than the chorus",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "A bridge often strips instruments back to create contrast before the final chorus returns.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What does 'mental health' mean?",
+      "prompt": "Mental health mainly describes a person's",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "How you think, feel, act",
-      "why": "Mental health is about how you think, feel, and behave day to day — not just the presence of illness, and not the same as never having bad feelings.",
+      "answer": "overall wellbeing",
+      "why": "Mental health refers to a person's emotional and psychological wellbeing, not fitness, grades, or money.",
       "options": [
-        "How you think, feel, act",
-        "Only having a diagnosed illness",
-        "Never feeling sad or upset",
-        "Physical fitness and diet only"
+        "overall wellbeing",
+        "physical fitness level",
+        "exam results",
+        "family income"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A spinner has 5 equal sections. What is the chance of landing on any one section?",
+      "prompt": "A bag has 4 red and 6 blue balls. What is P(red)?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "1/5",
-      "why": "With 5 equally likely sections, each one has a 1 in 5 chance of being landed on.",
+      "answer": "4/10",
+      "why": "Probability is favourable outcomes over total outcomes: 4 red out of 10 balls total.",
       "options": [
-        "1/5",
-        "1/4",
-        "5/5",
-        "1/10"
+        "4/10",
+        "6/10",
+        "4/6",
+        "10/4"
       ],
       "fresh": true
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "The chance of winning a game is 3/8. What is the chance of not winning?",
+      "prompt": "The chance of a coin landing heads is 1/2. What is P(not heads)?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "5/8",
-      "why": "Complementary events add to 1, so the chance of not winning is 1 minus 3/8, which is 5/8.",
+      "answer": "1/2",
+      "why": "Complementary events add to 1, so 1 minus 1/2 leaves 1/2.",
       "options": [
-        "5/8",
-        "3/8",
-        "1/8",
-        "8/8"
+        "1/2",
+        "1/4",
+        "0",
+        "1"
       ],
       "fresh": true
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, why do the Capulet and Montague servants fight?",
+      "prompt": "In Act 1 Scene 1, who tries to stop the servants fighting?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Old family hatred",
-      "why": "The servants fight simply because of the long-running feud between their two households, not any single new grievance.",
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to try to part the brawling servants, showing his peacekeeping role.",
       "options": [
-        "Old family hatred",
-        "A stolen sword",
-        "A gambling debt",
-        "An arranged marriage"
+        "Benvolio",
+        "Tybalt",
+        "Romeo",
+        "Capulet"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a common myth about depression?",
+      "prompt": "Which of these is a myth about mental illness?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "People can just snap out of it",
-      "why": "A common myth is that people can just snap out of depression — it's a real condition that often needs support or treatment, not willpower.",
+      "answer": "It shows weakness",
+      "why": "Mental illness is not a sign of weakness — it is a real health condition, unlike the other true statements.",
       "options": [
-        "People can just snap out of it",
-        "It can affect daily energy levels",
-        "It often needs proper treatment",
-        "It can affect people of any age"
+        "It shows weakness",
+        "It is common",
+        "It can be treated",
+        "It affects mood"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with sadness?",
+      "prompt": "What is a healthy way to deal with stress?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -203,13 +203,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Talk to someone you trust",
-      "why": "Sharing feelings with someone trusted helps process emotions, while bottling up or avoiding them tends to make things worse.",
+      "answer": "Talk to someone",
+      "why": "Talking to someone trusted helps process stress, unlike bottling it up or avoiding it.",
       "options": [
-        "Talk to someone you trust",
-        "Bottle it up completely",
-        "Ignore it and hope it passes",
-        "Avoid everyone around you"
+        "Talk to someone",
+        "Bottle it up",
+        "Avoid everyone",
+        "Ignore it fully"
       ],
       "fresh": false
     },
@@ -217,7 +217,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the 'I'?",
+      "prompt": "In C–Am–F–G, which chord is the 'IV'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -225,12 +225,12 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "C",
-      "why": "In the key of C major, C is the root chord, so it is the 'I' (one) chord in the numbering system.",
+      "answer": "F",
+      "why": "In this progression F is the fourth chord of the scale, making it the IV chord.",
       "options": [
+        "F",
         "C",
         "Am",
-        "F",
         "G"
       ],
       "fresh": false
@@ -239,7 +239,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Why did warrior rule rise in early Japan?",
+      "prompt": "Why did warrior rule (the samurai) rise to power in early Japan?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -247,13 +247,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Emperor lost real power to warriors",
-      "why": "The emperor kept his title but real power shifted to powerful warrior clans and eventually the shogun, who ruled in practice.",
+      "answer": "Weak central government left regions needing local military protection",
+      "why": "As the emperor's central control weakened, powerful local landowners built their own armed forces (samurai) to defend their territory, shifting real power to warrior clans rather than the court.",
       "options": [
-        "Emperor lost real power to warriors",
-        "Farmers demanded a warrior king",
-        "China invaded and installed shoguns",
-        "Priests handed control to samurai"
+        "Weak central government left regions needing local military protection",
+        "Emperors banned farming and forced everyone into armies",
+        "Foreign invaders occupied Japan and installed warrior governors",
+        "Buddhist monks demanded a warrior class replace the nobles"
       ],
       "fresh": true
     },
@@ -261,7 +261,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if study time affects test scores, keeping the test difficulty the same, what type of variable is 'test difficulty'?",
+      "prompt": "A student tests if pot colour affects plant growth, keeping water the same. Name the type of variable 'water' is.",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,14 +274,14 @@
         "controlled variable",
         "controlled"
       ],
-      "why": "Test difficulty is kept the same on purpose so it can't affect the results — that makes it the controlled variable.",
+      "why": "Water is kept the same on purpose, making it the controlled variable, not the one being measured or changed.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A box measures 6 cm by 5 cm by 4 cm. What is its volume?",
+      "prompt": "A cube has sides of 5 cm. What is its volume?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -290,11 +290,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 120,
+      "answer": 125,
       "calc": false,
       "pre": "",
       "post": " cm³",
-      "why": "Volume of a rectangular prism is length × width × height, so 6 × 5 × 4 = 120 cm³.",
+      "why": "Volume of a cube is side × side × side, so 5 × 5 × 5 = 125 cm³.",
       "fresh": false,
       "throwback": true
     },
@@ -302,7 +302,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the name for the point underground where an earthquake actually starts?",
+      "prompt": "What is the term for the underground point where an earthquake starts?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -315,21 +315,21 @@
         "focus",
         "hypocentre"
       ],
-      "why": "The focus (or hypocentre) is the point underground where the earthquake originates, unlike the epicentre which is on the surface above it.",
+      "why": "The focus is the underground point where the earthquake's energy is released.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say 'water' in Japanese?",
-      "answer": "Mizu",
-      "why": "'Mizu' means water in Japanese; 'ocha' is tea, 'gohan' is rice, and 'sakana' is fish.",
+      "prompt": "How do you say 'delicious' in Japanese?",
+      "answer": "Oishii",
+      "why": "'Oishii' means delicious, distinct from meal-time phrases like itadakimasu or gochisousama.",
       "options": [
-        "Mizu",
-        "Ocha",
-        "Gohan",
-        "Sakana"
+        "Oishii",
+        "Itadakimasu",
+        "Gochisousama",
+        "Arigatou"
       ],
       "fresh": true
     },
@@ -337,14 +337,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which theatre in London is most associated with Shakespeare's plays?",
-      "answer": "The Globe",
-      "why": "The Globe Theatre in London was built for Shakespeare's acting company and staged many of his plays.",
+      "prompt": "Shakespeare lived mainly during which two monarchs' reigns?",
+      "answer": "Elizabeth I and James I",
+      "why": "Shakespeare wrote across the reigns of Elizabeth I and James I in the late 1500s and early 1600s.",
       "options": [
-        "The Globe",
-        "The Old Vic",
-        "Sadler's Wells",
-        "The Lyceum"
+        "Elizabeth I and James I",
+        "Henry VIII and Mary I",
+        "Victoria and Edward VII",
+        "Elizabeth II and George VI"
       ],
       "fresh": false
     },
@@ -352,14 +352,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In song structure, which section usually has the most instrument layers?",
-      "answer": "The chorus",
-      "why": "The chorus usually has the fullest layering of instruments, giving the song its biggest, most energetic moment.",
+      "prompt": "Which song section usually has the fullest instrument layering?",
+      "answer": "Chorus",
+      "why": "The chorus is usually the biggest, fullest moment, with the most layers of instruments and vocals.",
       "options": [
-        "The chorus",
-        "The intro",
-        "The bridge",
-        "The verse"
+        "Chorus",
+        "Intro",
+        "Bridge",
+        "Verse"
       ],
       "fresh": false
     },
@@ -367,7 +367,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Explain why two tectonic hazard events of similar size can lead to very different levels of destruction, using ideas beyond just the size of the earthquake or eruption itself."
+      "prompt": "Two towns are hit by tectonic hazards of similar size, but one suffers far worse damage. Explain what factors beyond the size of the event could cause this difference, and why understanding this matters more than just memorising facts about the disaster."
     }
   ]
 }
