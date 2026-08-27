@@ -72,6 +72,10 @@ jobs:
       - name: Build + deploy + send
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Depth rungs render on the family-facing surfaces (parent report +
+          # kid wrap). Rubric calibration — the gate condition in UNDERSTANDING.md
+          # §7 — passed 13/13 on 22 Aug, so the depth story is shown, not withheld.
+          DAILYXP_DEPTH_REPORTS_LIVE: "1"
           MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
           MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
           MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
