@@ -1,0 +1,57 @@
+name: tripwire2
+
+# Tripwire 2 — the GitHub-side half of the dispatch alarm (HARDENING item 3).
+#
+# Runs on GitHub's OWN schedule cron — no dispatch token anywhere in its path —
+# and asks "did today's expected runs actually happen?" via the Actions API.
+# The complement to Tripwire 1 (Supabase-side): a dead dispatch token or a
+# paused Supabase shows up here as a missing run. The two guard each other;
+# this one is blind only if GitHub itself is fully down (which Tripwire 1 sees
+# as timeouts).
+#
+# Silent when healthy. Alerts go to Rich's handset only (seat t1).
+# SHADOW-FIRST: sends nothing until the repo variable TRIPWIRE2_LIVE is "true".
+#
+# One evening rung keeps it small; GitHub cron is best-effort, so a dropped run
+# means no check that evening — acceptable because Tripwire 1 already covers the
+# common (token-death) case within a minute. Add rungs later if wanted.
+
+on:
+  schedule:
+    - cron: "15 8 * * 1-5"    # 18:15 AEST weekdays — after quiz (14:00) + nudge (16:00) + ladders
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "check and report, never send"
+        type: boolean
+        default: false
+
+concurrency:
+  group: tripwire2
+  cancel-in-progress: false
+
+permissions:
+  contents: read      # checkout tools/
+  actions: read       # read workflow run history
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Did today's runs happen?
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRIPWIRE2_LIVE: ${{ vars.TRIPWIRE2_LIVE }}
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          # Rich's own handset ONLY — ops alerts never touch a parent or kid seat.
+          MOBILE_MESSAGE_TO_T1: ${{ secrets.MOBILE_MESSAGE_TO_T1 }}
+        run: |
+          ARGS=""
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="--dry-run"
+          python3 tools/tripwire2.py $ARGS
