@@ -88,7 +88,7 @@ jobs:
           # Seat-down ops alert (HARDENING item 4): if a seat compose-fails / holds / fails
           # to publish, text Rich. Shadow by default — flip to "true" to arm the SMS (the
           # warning annotation shows either way). Version-controlled arm switch, no dashboard.
-          DAILYXP_SEAT_ALERT_LIVE: "false"
+          DAILYXP_SEAT_ALERT_LIVE: "true"
           MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
           MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
           MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
