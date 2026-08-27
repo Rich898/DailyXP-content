@@ -85,6 +85,14 @@ jobs:
           # The flip to Supabase-only (INGEST_SOURCE=supabase) is a later, deliberate act.
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          # Seat-down ops alert (HARDENING item 4): if a seat compose-fails / holds / fails
+          # to publish, text Rich. Shadow by default — flip to "true" to arm the SMS (the
+          # warning annotation shows either way). Version-controlled arm switch, no dashboard.
+          DAILYXP_SEAT_ALERT_LIVE: "false"
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          MOBILE_MESSAGE_TO_T1: ${{ secrets.MOBILE_MESSAGE_TO_T1 }}   # Rich's handset — ops only
         run: |
           ARGS="--private-dir ./private"
           [ -n "${{ github.event.inputs.date }}" ] && ARGS="$ARGS --date ${{ github.event.inputs.date }}"
