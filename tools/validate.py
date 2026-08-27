@@ -199,9 +199,14 @@ def validate_set(s: dict, history_dir: str = None) -> tuple:
             continue
         counts[phase] += 1
 
-        # no-repeat (all phases with a prompt)
+        # no-repeat (recall prompts only). Teach-back slots are EXEMPT: they are
+        # reasoning prompts ("explain X in your own words") — re-asking one is good
+        # spaced practice, not a recall repeat, and the deepest-history seats (t1)
+        # otherwise compose-fail once every fresh teach-back is exhausted (HARDENING
+        # item 5 follow-up, 27 Aug 2026). The composer is still fed already_seen and
+        # told to prefer unseen prompts, so a repeat only surfaces when fresh runs out.
         n = _norm(q.get("prompt", ""))
-        if n and n in seen:
+        if n and n in seen and phase != "teach":
             errors.append(f"[{qid}] prompt REPEATS one this student has seen: {q.get('prompt','')[:60]!r}")
 
         if phase in ("speed", "steady"):
