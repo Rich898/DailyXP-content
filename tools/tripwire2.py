@@ -27,9 +27,10 @@ DEPENDENCIES, deliberately minimal — this must survive when other things don't
   * MOBILE_MESSAGE_* secrets         (the same creds the other workflows hold)
 No dispatch PAT, no Supabase, no private-repo checkout.
 
-SHADOW-FIRST: it sends nothing until armed. Arm by setting the repo variable
-TRIPWIRE2_LIVE=true (arrives here as env TRIPWIRE2_LIVE). Until then it logs
-what it WOULD text and sends nothing — the same discipline as Tripwire 1.
+SHADOW-FIRST: it sends nothing until armed. The arm switch is the
+TRIPWIRE2_LIVE env in the workflow ("true" = live) — version-controlled, so
+flipping it is a commit, not a dashboard toggle. Until armed it logs what it
+WOULD text and sends nothing — the same discipline as Tripwire 1.
 
 ALERTS GO TO RICH ONLY (seat t1) — ops never lands on a kid or parent phone.
 
