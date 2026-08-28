@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-08-27",
-  "day": "THU",
-  "tag": "R5.4",
-  "title": "DailyXP · THU 2026-08-27",
+  "date": "2026-08-28",
+  "day": "FRI",
+  "tag": "R5.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-08-28",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Simon is murdered by the other boys in a frenzy",
+      "subject": "Science",
+      "prompt": "Vaccines contain the actual disease at full strength",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,34 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "The boys kill Simon in the storm, mistaking him for the beast — showing how far their savagery has grown.",
+      "answer": "False",
+      "why": "False — vaccines use a weakened or harmless form of a pathogen to train the immune system without causing full disease.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "The immune system's first line of defence is nasal hair trapping particles",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Nasal hair, skin, and mucus are all part of the first line of defence — physical barriers that stop pathogens entering the body before the immune system reacts.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "History",
-      "prompt": "The Munich Putsch took place in 1923",
+      "prompt": "The Munich Putsch overthrew the German government in 1923",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,210 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Hitler attempted his failed takeover in Munich in November 1923, during a period of economic crisis.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "7x − 3x simplifies to 4x",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Subtracting like terms: 7x − 3x leaves 4x, since only the coefficients change.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Solve for x: 5x − 4 = 21",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "x = 5",
-      "why": "Add 4 to both sides to get 5x = 25, then divide by 5 to get x = 5.",
-      "options": [
-        "x = 5",
-        "x = 4",
-        "x = 17",
-        "x = 25"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Freud's model, which part balances desires against reality?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Ego",
-      "why": "The ego is the realistic part of the mind that mediates between the id's impulses and the superego's morals.",
-      "options": [
-        "Ego",
-        "Id",
-        "Superego",
-        "Libido"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Fast food ads often show meals as fun and exciting. What effect does this aim to have?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Boost appeal",
-      "why": "Marketing uses fun, exciting imagery to make food more appealing, regardless of its actual nutritional value.",
-      "options": [
-        "Boost appeal",
-        "Lower price",
-        "Improve nutrition",
-        "Reduce portion size"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "After WWII, why did Australia's government actively recruit migrants from Europe?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "To fill labour shortages in growing industries",
-      "why": "Australia's factories and infrastructure projects needed workers after WWII, so the government ran schemes to attract migrant labour — a classic pull factor, not about debt or exports.",
-      "options": [
-        "To fill labour shortages in growing industries",
-        "To boost farm exports to European markets",
-        "To repay wartime debts owed to Britain",
-        "To reduce the cost of running schools"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What replaced the Kaiser's rule in Germany after WWI?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Weimar Republic",
-      "why": "The Weimar Republic was the democratic government formed in Germany after the Kaiser abdicated in 1918.",
-      "options": [
-        "Weimar Republic",
-        "Third Reich",
-        "Prussian Empire",
-        "Bavarian Monarchy"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "A family moves overseas seeking safety from war. What is this an example of?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Push factor",
-      "why": "War is a push factor — something negative that forces people to leave their home country.",
-      "options": [
-        "Push factor",
-        "Pull factor",
-        "Urbanisation",
-        "Assimilation"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Which business plan section outlines the whole plan briefly at the start?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Executive summary",
-      "why": "The executive summary gives a short overview of the entire business plan, placed at the beginning.",
-      "options": [
-        "Executive summary",
-        "Market analysis",
-        "Operations plan",
-        "SWOT analysis"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "A bakery's logo mainly helps customers do what?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Recognise the brand",
-      "why": "A logo builds recognition, helping customers quickly identify and remember the business.",
-      "options": [
-        "Recognise the brand",
-        "Set the price",
-        "Choose ingredients",
-        "Plan deliveries"
-      ],
+      "answer": "False",
+      "why": "False — the putsch failed within a day; Hitler was arrested, though he later used the trial to gain publicity.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 20 cm and a height of 6 cm. Work through it calmly: what is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -270,49 +56,33 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 60,
+      "answer": 72,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height: ½ × 20 × 6 = 60 cm².",
+      "why": "Area = ½ × base × height = ½ × 16 × 9 = 72 cm². Halve first, then multiply — don't skip the ½.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "A shop uses the same colours and symbol on every product and ad. What is this mainly building?",
-      "answer": "Brand recognition",
-      "why": "Consistent colours and symbols across products help customers instantly recognise and trust the brand.",
-      "options": [
-        "Brand recognition",
-        "Lower costs",
-        "Faster delivery",
-        "Higher wages"
-      ],
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "English",
-      "prompt": "What does the beast in Lord of the Flies mainly represent?",
-      "answer": "Inner human savagery",
-      "why": "The beast isn't a real creature — it symbolises the savage instinct hidden within the boys themselves.",
+      "prompt": "What is a central theme of Lord of the Flies?",
+      "answer": "Innocence turning to savagery",
+      "why": "The boys start out civilised but descend into savagery — Golding shows how easily order breaks down without society's rules.",
       "options": [
-        "Inner human savagery",
-        "A real monster",
-        "The island's weather",
-        "Naval rescue"
+        "Innocence turning to savagery",
+        "The dangers of city life",
+        "The value of team sports",
+        "The importance of good manners"
       ],
       "fresh": false
     },
     {
-      "id": "T4",
+      "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the general term for a disease-causing organism like a virus or bacterium?",
+      "prompt": "What type of white blood cell produces antibodies to target a specific pathogen?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -322,17 +92,17 @@
       },
       "type": "text",
       "accept": [
-        "pathogen",
-        "pathogens"
+        "lymphocyte",
+        "lymphocytes"
       ],
-      "why": "A pathogen is any organism, such as a virus or bacterium, that causes disease in the body.",
+      "why": "Lymphocytes produce antibodies that lock onto a specific pathogen, unlike phagocytes which engulf pathogens generally.",
       "fresh": false
     },
     {
-      "id": "T5",
+      "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these Munich Putsch events from earliest to latest",
+      "prompt": "Order these events of the Munich Putsch",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -342,36 +112,76 @@
       },
       "type": "order",
       "sequence": [
-        "Hitler plans to seize Bavarian government",
-        "Nazis march through Munich streets",
+        "Hitler declares a national revolution in the beer hall",
+        "Nazi supporters march through Munich",
         "Police open fire on the marchers",
         "Hitler is arrested and put on trial"
       ],
       "top": "Earliest",
       "bot": "Latest",
-      "why": "The putsch began with Hitler's plan, moved to the street march, ended in gunfire, and finished with his arrest and trial.",
+      "why": "The putsch began with Hitler's beer hall declaration, moved to the street march, was stopped by police gunfire, and ended with Hitler's arrest and trial.",
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "D&T",
+      "prompt": "A market stall keeps the same logo, colours and packaging on every product for a whole year. What is this mainly building?",
+      "answer": "brand recognition",
+      "why": "Consistent branding builds recognition, so customers spot the stall instantly — that's the marketing point, not price, size, or supply chains, which are unrelated business factors.",
+      "options": [
+        "brand recognition",
+        "a lower price point",
+        "a bigger stall size",
+        "a shorter supply chain"
+      ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "D&T",
-      "prompt": "A stall designs packaging that's lightweight and easy to pack for travel. What design factor is this?",
-      "answer": "Function",
-      "why": "Function refers to how well a product works for its purpose — here, being practical and easy to transport.",
-      "options": [
-        "Function",
-        "Aesthetics",
-        "Cost",
-        "Sustainability"
-      ],
+      "subject": "Maths",
+      "prompt": "Simplify: 6x + 2x, then find its value when x = 3",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 24,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "6x + 2x = 8x, and 8 × 3 = 24. Combine like terms first, then substitute.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "Solve for x: 3x + 7 = 22",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 5,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Subtract 7 from both sides to get 3x = 15, then divide by 3 to get x = 5.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "D&T",
-      "prompt": "Explain why a market stall's branding and its product design need to work together, not just separately, to attract customers."
+      "subject": "English",
+      "prompt": "Point → evidence → explain: pick one moment from Lord of the Flies that shows innocence turning to savagery. State your point, give the evidence (what happens), then explain what it reveals about the boys."
     }
   ]
 }
