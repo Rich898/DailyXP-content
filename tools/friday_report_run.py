@@ -122,6 +122,28 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
     return card, stories, quote, acc, notes, speed, wow
 
 
+def _send_and_mark(code, body, cursor, wk, sent, skipped):
+    """Send one parent report and advance the weekly cursor ONLY on real success.
+
+    send_sms returns (ok, detail): ok is False on a transport failure OR a
+    per-message rejection inside a 2xx body. Gating on ok is the fix — a
+    non-empty tuple is always truthy, so the old `if notify.send_sms(...)`
+    advanced the cursor even on a hard failure, marking a silently-unsent
+    report as sent and skipping retry. detail can echo the number/message, so
+    only a coarse, PII-free reason reaches the public Actions log.
+    """
+    ok, detail = notify.send_sms(f"parents:{code}", body)
+    if ok:
+        cursor[code] = wk
+        sent.append(code)
+        print("  SENT ✓")
+        return True
+    reason = (detail or "unknown").splitlines()[0].split(":", 1)[0][:48]
+    print(f"  SEND FAILED ({reason}) — cursor not advanced, safe to re-run.")
+    skipped.append(code)
+    return False
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--private-dir", required=True)
@@ -207,12 +229,7 @@ def main():
         if a.no_sms:
             print("  --no-sms: not sending.")
             continue
-        if notify.send_sms(f"parents:{code}", body):
-            cursor[code] = wk
-            sent.append(code)
-            print("  SENT ✓")
-        else:
-            print("  SEND FAILED — cursor not advanced, safe to re-run.")
+        _send_and_mark(code, body, cursor, wk, sent, skipped)
 
     if not a.dry_run:
         cp = os.path.join(priv, CURSOR)
