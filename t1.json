@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-08-27",
-  "day": "THU",
-  "tag": "T5.4",
-  "title": "DailyXP · THU 2026-08-27",
+  "date": "2026-08-28",
+  "day": "FRI",
+  "tag": "T5.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-08-28",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Rolling a die: 'getting a 3' and 'not getting a 3' are complementary events",
+      "subject": "Science",
+      "prompt": "Pyroclastic flows can occur without any volcanic eruption",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,53 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Complementary events cover all outcomes with no overlap — 'a 3' and 'not a 3' together account for every possibility on the die.",
-      "fresh": true
+      "answer": "False",
+      "why": "False — pyroclastic flows are made of hot gas and volcanic debris, so they only happen as a result of a volcanic eruption.",
+      "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Landslides can be triggered by earthquakes",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Earthquake shaking can destabilise slopes, triggering landslides as a secondary hazard alongside the quake itself.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Change over time can happen gradually, not just through single dramatic events",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Historical change is often slow and cumulative, not always caused by one sudden turning point.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
       "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, the chords stay the same every time it repeats",
+      "prompt": "In C–Am–F–G, the F chord is the 'IV'",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,224 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "A chord progression is a fixed repeating pattern — C-Am-F-G stays in that order each time it loops.",
+      "why": "True — F is the fourth note of the C major scale, so it's the IV chord in the progression.",
       "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What does 'mental health' mean?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "How you think, feel, and cope",
-      "why": "Mental health is about how you think, feel, and cope with daily life — it's not the absence of sadness or illness, and it's separate from physical fitness.",
-      "options": [
-        "How you think, feel, and cope",
-        "Never feeling sad or upset",
-        "Having no diagnosed illness",
-        "Being physically fit and strong"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A spinner has 5 equal sections. What is the probability of landing on section 3?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "1/5",
-      "why": "There are 5 equally likely sections, so any one section has a 1/5 chance.",
-      "options": [
-        "1/5",
-        "1/3",
-        "3/5",
-        "5/1"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What mainly causes most earthquakes?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Moving tectonic plates",
-      "why": "Most earthquakes happen when moving tectonic plates grind, collide, or slip past each other, releasing built-up stress as seismic waves — not from rain, tides, or mining.",
-      "options": [
-        "Moving tectonic plates",
-        "Heavy rainfall and floods",
-        "Strong ocean tides",
-        "Underground mining works"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Who kills Tybalt in the play?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Romeo",
-      "why": "Romeo kills Tybalt to avenge Mercutio's death, setting up his banishment.",
-      "options": [
-        "Romeo",
-        "Mercutio",
-        "Paris",
-        "Benvolio"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, why do the servants start fighting?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Old family feud",
-      "why": "The opening brawl shows the long-running Capulet–Montague feud spilling onto the streets of Verona.",
-      "options": [
-        "Old family feud",
-        "A stolen sword",
-        "A land dispute",
-        "An insult to Juliet"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a common myth about mental illness?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "It means someone is dangerous",
-      "why": "A harmful myth is that mental illness makes someone dangerous — most people with mental illness are not violent.",
-      "options": [
-        "It means someone is dangerous",
-        "It can affect anyone",
-        "It can be treated",
-        "It often improves with support"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "Dropping to just one instrument in a verse mainly creates what effect?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "A sparse, intimate sound",
-      "why": "Stripping away layers thins the texture, making a section feel sparse and intimate compared to fuller sections like the chorus.",
-      "options": [
-        "A sparse, intimate sound",
-        "A fuller, bigger sound",
-        "A faster tempo change",
-        "A key change upward"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What kind of terrain made central rule difficult across old Japan?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Mountainous, divided land",
-      "why": "Japan's mountainous terrain split the land into isolated regions, making it hard for a central emperor to control distant areas directly.",
-      "options": [
-        "Mountainous, divided land",
-        "Flat, open plains",
-        "Dense tropical jungle",
-        "Endless desert regions"
-      ],
-      "mode": "scrub",
-      "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Which quote shows hate turning violent, not just love?",
-      "answer": "'A plague o' both your houses'",
-      "why": "Mercutio's dying curse shows hate erupting into real violence and death, the destructive side of the love vs hate theme.",
-      "options": [
-        "'A plague o' both your houses'",
-        "'My only love sprung from my only hate'",
-        "'It is the east, and Juliet is the sun'",
-        "'Parting is such sweet sorrow'"
-      ],
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'thank you for the meal' in Japanese?",
-      "answer": "Gochisousama",
-      "why": "'Gochisousama' is said after eating to thank someone for the meal, unlike 'oishii' (delicious) or greetings.",
-      "options": [
-        "Gochisousama",
-        "Oishii desu",
-        "Konnichiwa",
-        "Sumimasen"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "Maths",
-      "prompt": "The probability of drawing a blue marble is 0.4. What is the probability of NOT drawing blue?",
+      "prompt": "The probability of picking a vowel from a bag of letter tiles is 0.3. What is the probability of NOT picking a vowel?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -304,18 +56,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.6,
+      "answer": 0.7,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Complementary probabilities add to 1, so 1 - 0.4 = 0.6.",
+      "why": "Complementary events always add to 1, so 1 − 0.3 = 0.7.",
       "fresh": true
     },
     {
-      "id": "T4",
+      "id": "T2",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes a violent mudflow of volcanic ash and water?",
+      "prompt": "What is the name for the boundary where two tectonic plates move apart from each other?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -325,47 +77,106 @@
       },
       "type": "text",
       "accept": [
-        "lahar",
-        "lahars"
+        "divergent boundary",
+        "divergent"
       ],
-      "why": "A lahar is a fast-moving mudflow of volcanic ash mixed with water, often triggered by eruptions or heavy rain on ash deposits.",
+      "why": "A divergent boundary is where plates move apart, often creating new crust as magma rises between them.",
       "fresh": false
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord is the 'V'?",
+      "answer": "G, the fifth chord",
+      "why": "G is the fifth note of the C major scale, making it the 'V' chord. Am is 'vi', F is 'IV', and C is 'I' — the roman numeral just marks the chord's position in the scale.",
+      "options": [
+        "G, the fifth chord",
+        "Am, the sixth chord",
+        "F, the fourth chord",
+        "C, the first chord"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "What does 'oishii' mean in Japanese?",
+      "answer": "Delicious",
+      "why": "'Oishii' means delicious — a key word for reacting to food, easily confused with polite phrases like 'thank you' since both come up at meals.",
+      "options": [
+        "Delicious",
+        "Thank you",
+        "Please",
+        "Water"
+      ],
+      "fresh": true
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, which chord is the 'V'?",
-      "answer": "G chord",
-      "why": "In the key of C major, G is built on the fifth note of the scale, making it the 'V' chord in the progression C-Am-F-G.",
+      "subject": "PDHPE",
+      "prompt": "What's a healthy way to handle stress?",
+      "answer": "Talk to someone about it",
+      "why": "Talking to someone you trust is a healthy coping strategy — bottling up or ignoring stress doesn't resolve it and can make things worse over time.",
       "options": [
-        "G chord",
-        "C chord",
-        "Am chord",
-        "F chord"
+        "Talk to someone about it",
+        "Ignore it completely",
+        "Pretend it isn't happening",
+        "Bottle it up"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Which habit best supports good mental health?",
-      "answer": "Talking about problems",
-      "why": "Openly talking about problems helps people process emotions and get support, which builds good mental health over time.",
-      "options": [
-        "Talking about problems",
-        "Bottling up feelings",
-        "Avoiding all social contact",
-        "Ignoring sleep needs"
+      "subject": "Maths",
+      "prompt": "A spinner has 8 equal sections. What is the probability of landing on section 5, as a fraction out of 8?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.125,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Each section is equally likely, so the chance of any one section is 1 out of 8, which equals 0.125.",
+      "fresh": true
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order these steps of analysing cause and consequence in history",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Identify the event",
+        "Find the causes",
+        "Trace the consequences",
+        "Judge long-term significance"
       ],
+      "top": "First",
+      "bot": "Last",
+      "why": "Good historical analysis starts with identifying the event, then works outward to causes, then consequences, and finally judges lasting significance.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Japanese",
-      "prompt": "Explain why knowing how to order food in Japanese requires more than just memorising vocabulary — what else do you need to understand?"
+      "subject": "Maths",
+      "prompt": "A student says 'the probability of NOT rolling a 6 on a die is also 1/6, since there's only one way to fail.' Explain what's wrong with this reasoning about complementary events."
     }
   ]
 }
