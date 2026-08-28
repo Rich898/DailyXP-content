@@ -205,11 +205,12 @@ def assign_blocks(ordered, student, directive):
     else:
         # standard day, ALL players — mechanics rolled to the boys 20 Aug 2026 (after t1 proved them
         # end-to-end). A Swipe block, then Quick Recall.
-        # Scrub It (5th mechanic, ratified 25 Aug 2026): T1 SEAT ONLY until proven end-to-end —
-        # same rollout law as every mechanic before it. Dealt as the FINAL speed block
-        # (swipe → recall → scrub, the order approved in the staging play-through).
+        # Scrub It (5th mechanic): rolled to ALL seats 27 Aug 2026 — t1 proved it end-to-end
+        # and the composer was hardened (slot-splicing) so scrub composes reliably for every
+        # seat, not just the deepest-history one. Same rollout law as every mechanic before it.
+        # Dealt as the FINAL speed block (swipe → recall → scrub, the staging-approved order).
         sw_n = min(4, len(speed))
-        sc_n = min(3, max(0, len(speed) - sw_n)) if student == "t1" else 0
+        sc_n = min(3, max(0, len(speed) - sw_n))
         stamp(speed[:sw_n], "swipe")
         stamp(speed[sw_n:len(speed) - sc_n], "recall")
         if sc_n:

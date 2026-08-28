@@ -2,10 +2,10 @@
 """test_planner_scrub.py — locks Scrub It's planner stage (stage 3, ratified 25 Aug 2026).
 
 The invariants:
-  1. T1 GATE — on a standard day, t1's speed round ends with a Scrub It block
-     (swipe → recall → scrub, the order approved in the staging play-through);
-     y8 and y9 plans contain NO scrub anywhere, in any field. Same rollout law
-     as every mechanic before it.
+  1. ROLLOUT — on a standard day, EVERY active seat's speed round ends with a
+     Scrub It block (swipe → recall → scrub, the staging-approved order). Rolled
+     from t1-only to all seats 27 Aug 2026, once t1 proved it end-to-end and the
+     composer was hardened (slot-splicing) so scrub composes reliably for everyone.
   2. IDENTITY — scrub slots carry the ratified block object (Scrub It · #B18CFF ·
      ⌫ · "Rub out the wrong answers with your finger") and mode:'scrub';
      type stays MC (the ledger never learns the delivery mode).
@@ -73,11 +73,16 @@ check("blocks stay coherent (no mechanic mixing inside a block run)",
 check("steady mechanics untouched (numeric/order/text by subject)",
       all(x.get("mech") in ("numeric", "order", "text", None) for x in p["slots"] if x["phase"] == "steady"))
 
-# ---- 1: the boys get NOTHING -------------------------------------------------
+# ---- 1: scrub is now rolled to ALL seats (27 Aug 2026) — the boys get it too --
 for kid in ("y8", "y9"):
     pk = plan_for(kid)
-    flat = json.dumps(pk)
-    check(f"{kid} plan contains no scrub in any field", "scrub" not in flat.lower(), flat[:80])
+    kspeed = [x for x in pk["slots"] if x["phase"] == "speed"]
+    kscrubs = [x for x in kspeed if x.get("mech") == "scrub"]
+    check(f"{kid} standard day now deals a Scrub It block (rolled out)",
+          len(kscrubs) == 3, f"got {len(kscrubs)}")
+    check(f"{kid} scrub is the FINAL speed block, with mode + ratified identity",
+          [x.get("mech") for x in kspeed[-3:]] == ["scrub"] * 3
+          and all(x.get("mode") == "scrub" and x.get("block") == RAT and "type" not in x for x in kscrubs))
 
 # ---- 3: reversed directive unchanged ----------------------------------------
 pr = plan_for("t1", "reversed")
