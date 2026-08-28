@@ -70,8 +70,56 @@ def _recipients(target):
     return _split(_env(f"MOBILE_MESSAGE_TO_{target.upper()}"))
 
 
+# Statuses Mobile Message can report per-message inside an HTTP-2xx body. A 2xx
+# means the request was ACCEPTED, not that every message was — a bad number or
+# an out-of-credit account comes back 200 with a per-message rejection. We fail
+# ONLY on a status we positively recognise as a rejection (denylist), so an
+# unfamiliar or success status can never be mistaken for a failure and block a
+# real send. True end-of-line delivery confirmation needs the delivery webhook;
+# this closes the send-response hole, which is what silently advanced the cursor.
+_REJECT_STATUSES = {
+    "failed", "invalid", "rejected", "error", "errored", "undelivered",
+    "bounced", "expired", "blocked", "unsubscribed", "opted_out", "opted-out",
+    "insufficient_credit", "insufficient credit", "no_credit",
+}
+
+
+def _delivery_ok(raw, n_expected=None):
+    """(ok, detail) from a 2xx body. Fail-OPEN: an unparseable body or a body
+    with no recognisable per-message results keeps the prior 'accepted' meaning;
+    we only return False when the provider explicitly reports a rejection."""
+    try:
+        data = json.loads(raw)
+    except (ValueError, TypeError):
+        return True, raw                      # 2xx we can't parse -> accepted
+    results = data if isinstance(data, list) else None
+    if isinstance(data, dict):
+        for k in ("results", "messages", "data"):
+            if isinstance(data.get(k), list):
+                results = data[k]
+                break
+    if not results:
+        return True, raw                      # no per-message detail -> accepted
+    rejected = []
+    for item in results:
+        if isinstance(item, dict):
+            status = str(item.get("status", "")).strip().lower()
+            if status in _REJECT_STATUSES:
+                rejected.append(status)
+    if rejected:
+        # summary only — never echo numbers/message text into a public log
+        return False, (f"provider rejected {len(rejected)}/{len(results)} "
+                       f"message(s): {sorted(set(rejected))}")
+    return True, raw
+
+
 def send_sms(target, text, ref=None, dry_run=False):
-    """Send `text` to a target group (y8|y9|parents). Returns (ok, detail)."""
+    """Send `text` to a target group (y8|y9|parents). Returns (ok, detail).
+
+    `ok` reflects real acceptance: a transport failure (non-2xx / exception) OR
+    a per-message rejection inside a 2xx body both return ok=False, so a caller
+    that gates a cursor on `ok` never marks a silently-rejected message as sent.
+    """
     to = _recipients(target)
     if not to:
         return False, f"no recipient configured for {target!r} (set MOBILE_MESSAGE_TO_*)"
@@ -93,11 +141,12 @@ def send_sms(target, text, ref=None, dry_run=False):
     })
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            return True, r.read().decode()
+            raw = r.read().decode()
     except urllib.error.HTTPError as e:
         return False, f"HTTP {e.code}: {e.read().decode()[:200]}"
     except Exception as e:
         return False, str(e)
+    return _delivery_ok(raw, len(to))
 
 
 def main():
