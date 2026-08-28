@@ -1,34 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-08-27",
-  "day": "THU",
-  "tag": "H5.4",
-  "title": "DailyXP · THU 2026-08-27",
+  "date": "2026-08-28",
+  "day": "FRI",
+  "tag": "H5.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-08-28",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Shakespeare wrote Romeo and Juliet",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Shakespeare did write Romeo and Juliet, one of his most famous tragedies.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A consequence always happens before its cause",
+      "prompt": "Shakespeare wrote in the 21st century",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A cause always comes first and a consequence follows it — the order can never be reversed.",
+      "why": "False — Shakespeare wrote in the late 1500s/early 1600s, during the Elizabethan and Jacobean eras, not modern times.",
       "fresh": false
     },
     {
-      "id": "S3",
+      "id": "S2",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'Oishii' means delicious",
+      "subject": "Music",
+      "prompt": "The chorus is usually the fullest layered section",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,209 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Oishii' is the Japanese word used to say food tastes delicious.",
-      "fresh": true
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "The bridge usually has fewer layers than the chorus",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "A bridge often strips instruments back to create contrast before the final chorus returns.",
+      "why": "True — the chorus typically stacks the most instruments and layers to make it feel bigger than the verse.",
       "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Mental health mainly describes a person's",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "overall wellbeing",
-      "why": "Mental health refers to a person's emotional and psychological wellbeing, not fitness, grades, or money.",
-      "options": [
-        "overall wellbeing",
-        "physical fitness level",
-        "exam results",
-        "family income"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A bag has 4 red and 6 blue balls. What is P(red)?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "4/10",
-      "why": "Probability is favourable outcomes over total outcomes: 4 red out of 10 balls total.",
-      "options": [
-        "4/10",
-        "6/10",
-        "4/6",
-        "10/4"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "The chance of a coin landing heads is 1/2. What is P(not heads)?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "1/2",
-      "why": "Complementary events add to 1, so 1 minus 1/2 leaves 1/2.",
-      "options": [
-        "1/2",
-        "1/4",
-        "0",
-        "1"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to stop the servants fighting?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword to try to part the brawling servants, showing his peacekeeping role.",
-      "options": [
-        "Benvolio",
-        "Tybalt",
-        "Romeo",
-        "Capulet"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which of these is a myth about mental illness?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "It shows weakness",
-      "why": "Mental illness is not a sign of weakness — it is a real health condition, unlike the other true statements.",
-      "options": [
-        "It shows weakness",
-        "It is common",
-        "It can be treated",
-        "It affects mood"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with stress?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Talk to someone",
-      "why": "Talking to someone trusted helps process stress, unlike bottling it up or avoiding it.",
-      "options": [
-        "Talk to someone",
-        "Bottle it up",
-        "Avoid everyone",
-        "Ignore it fully"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the 'IV'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "F",
-      "why": "In this progression F is the fourth chord of the scale, making it the IV chord.",
-      "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Why did warrior rule (the samurai) rise to power in early Japan?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Weak central government left regions needing local military protection",
-      "why": "As the emperor's central control weakened, powerful local landowners built their own armed forces (samurai) to defend their territory, shifting real power to warrior clans rather than the court.",
-      "options": [
-        "Weak central government left regions needing local military protection",
-        "Emperors banned farming and forced everyone into armies",
-        "Foreign invaders occupied Japan and installed warrior governors",
-        "Buddhist monks demanded a warrior class replace the nobles"
-      ],
-      "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if pot colour affects plant growth, keeping water the same. Name the type of variable 'water' is.",
+      "prompt": "In an experiment, what type of variable do you deliberately change?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -271,17 +57,82 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "controlled"
+        "independent variable",
+        "independent"
       ],
-      "why": "Water is kept the same on purpose, making it the controlled variable, not the one being measured or changed.",
+      "why": "The independent variable is the one you choose to change on purpose, e.g. amount of light given to plants.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "What is the term for the point on Earth's surface directly above where an earthquake starts?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "epicentre",
+        "epicenter"
+      ],
+      "why": "The epicentre is the surface point directly above the focus, the underground origin of the earthquake.",
+      "fresh": false
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "Which two monarchs' reigns did Shakespeare mainly write during?",
+      "answer": "Elizabeth I and James I",
+      "why": "Shakespeare's career spanned the reigns of Elizabeth I and James I, roughly 1590s-1610s, not earlier Tudor or later Stuart/Victorian periods.",
+      "options": [
+        "Elizabeth I and James I",
+        "Henry VIII and Elizabeth I",
+        "James I and Charles I",
+        "Victoria and Edward VII"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "Music",
+      "prompt": "In song structure, what is a 'hook' most known for?",
+      "answer": "Catchy, memorable phrase",
+      "why": "A hook is the short, catchy musical or lyrical phrase designed to stick in the listener's memory, often found in the chorus.",
+      "options": [
+        "Catchy, memorable phrase",
+        "Slow tempo change",
+        "Longest section",
+        "Instrumental solo only"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "PDHPE",
+      "prompt": "Why is talking to someone good for mental health?",
+      "answer": "Eases emotional burden",
+      "why": "Talking to someone shares the emotional load and provides support, which helps wellbeing — it doesn't mean you're weak or only useful during illness.",
+      "options": [
+        "Eases emotional burden",
+        "Fixes problems instantly",
+        "Proves you are weak",
+        "Only needed when ill"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
       "subject": "Maths",
-      "prompt": "A cube has sides of 5 cm. What is its volume?",
+      "prompt": "A bag has 3 red and 7 blue balls. What is P(red) as a decimal?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -290,84 +141,38 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 125,
+      "answer": 0.3,
       "calc": false,
       "pre": "",
-      "post": " cm³",
-      "why": "Volume of a cube is side × side × side, so 5 × 5 × 5 = 125 cm³.",
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is the term for the underground point where an earthquake starts?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "focus",
-        "hypocentre"
-      ],
-      "why": "The focus is the underground point where the earthquake's energy is released.",
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'delicious' in Japanese?",
-      "answer": "Oishii",
-      "why": "'Oishii' means delicious, distinct from meal-time phrases like itadakimasu or gochisousama.",
-      "options": [
-        "Oishii",
-        "Itadakimasu",
-        "Gochisousama",
-        "Arigatou"
-      ],
+      "post": "",
+      "why": "P(red) = 3/10 = 0.3, the number of red balls over the total number of balls.",
       "fresh": true
     },
     {
-      "id": "T5",
+      "id": "T7",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Shakespeare lived mainly during which two monarchs' reigns?",
-      "answer": "Elizabeth I and James I",
-      "why": "Shakespeare wrote across the reigns of Elizabeth I and James I in the late 1500s and early 1600s.",
-      "options": [
-        "Elizabeth I and James I",
-        "Henry VIII and Mary I",
-        "Victoria and Edward VII",
-        "Elizabeth II and George VI"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
-      "subject": "Music",
-      "prompt": "Which song section usually has the fullest instrument layering?",
-      "answer": "Chorus",
-      "why": "The chorus is usually the biggest, fullest moment, with the most layers of instruments and vocals.",
-      "options": [
-        "Chorus",
-        "Intro",
-        "Bridge",
-        "Verse"
-      ],
-      "fresh": false
+      "subject": "Maths",
+      "prompt": "The chance of an event happening is 0.65. What is the chance it does not happen?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.35,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Complementary events add to 1, so 1 − 0.65 = 0.35 is the chance it does not happen.",
+      "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Science",
-      "prompt": "Two towns are hit by tectonic hazards of similar size, but one suffers far worse damage. Explain what factors beyond the size of the event could cause this difference, and why understanding this matters more than just memorising facts about the disaster."
+      "prompt": "Two towns are hit by earthquakes of the same magnitude, but one suffers far more damage and deaths. Explain what factors, other than the size of the earthquake, could cause this difference."
     }
   ]
 }
