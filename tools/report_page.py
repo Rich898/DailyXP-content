@@ -38,9 +38,9 @@ import html
 
 _CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap');
-:root{--paper:#F7F8F4;--ink:#101B2D;--flare:#FF4D29;--reef:#0E6BA8;--kelp:#0E8A5F;--haze:#7A8496;--line:#D9DDD3;--card:#FFF}
+:root{--ink:#EAF0F7;--flare:#FF6A47;--reef:#5AA9E6;--kelp:#4FD6A0;--haze:#8B97AC;--line:#243247;--card:#101F35}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:#0B1220;background-image:radial-gradient(120% 90% at 50% 2%,#16273f 0%,#0B1220 55%,#070c15 100%);background-attachment:fixed;color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-text-size-adjust:100%}
 .wrap{max-width:640px;margin:0 auto;padding:22px 16px 60px}
 .display{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em}
 .num{font-family:'Space Mono',ui-monospace,monospace;font-weight:700}
@@ -55,39 +55,39 @@ h1.word{font-size:50px;line-height:1;margin:0 0 6px}
 .depth{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
 .depth .move{font-size:17px;line-height:1.45;margin:0 0 4px}
 .depth .arrow{color:var(--kelp);font-weight:700}
-.rung{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;background:#EEF1EA;color:var(--ink)}
-.rung.hi{background:#E8F4EE;color:var(--kelp)}
+.rung{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;background:#1C2B42;color:var(--ink)}
+.rung.hi{background:#123528;color:var(--kelp)}
 .ladder{display:flex;gap:4px;margin-top:12px;font-size:10px;color:var(--haze);flex-wrap:wrap}
-.ladder span{padding:3px 7px;border-radius:6px;background:#EEF1EA}
-.ladder span.on{background:var(--kelp);color:#fff;font-weight:700}
+.ladder span{padding:3px 7px;border-radius:6px;background:#1C2B42}
+.ladder span.on{background:var(--kelp);color:#06231A;font-weight:700}
 .assess{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
 .assess .task{font-size:19px;font-weight:700;margin:0 0 3px}
 .assess .when{font-size:13px;color:var(--haze)}
 .assess .read{margin-top:9px;font-size:15px;line-height:1.45}
 .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;margin-left:7px;vertical-align:middle}
-.pill.ready{background:#E8F4EE;color:var(--kelp)}.pill.building{background:#E7F0F6;color:var(--reef)}.pill.early{background:#FDECE7;color:var(--flare)}
+.pill.ready{background:#123528;color:var(--kelp)}.pill.building{background:#122C42;color:var(--reef)}.pill.early{background:#2E1813;color:var(--flare)}
 .story{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:10px}
 .story h3{font-size:16px;margin:0 0 3px;line-height:1.3}
 .tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:5px;margin-bottom:8px}
-.tag.RESOLVED,.tag.DEEPENED{background:#E8F4EE;color:var(--kelp)}
-.tag.TRENDINGWELL{background:#E7F0F6;color:var(--reef)}
-.tag.WATCHING{background:#FFF4E5;color:#9A6300}
-.tag.TOCLOSE{background:#FDECE7;color:var(--flare)}
+.tag.RESOLVED,.tag.DEEPENED{background:#123528;color:var(--kelp)}
+.tag.TRENDINGWELL{background:#122C42;color:var(--reef)}
+.tag.WATCHING{background:#2C2512;color:#E7B24A}
+.tag.TOCLOSE{background:#2E1813;color:var(--flare)}
 .scale{margin:11px 0 4px}
 .scale .track{display:flex;gap:3px;height:9px}
-.scale .track b{flex:1;border-radius:99px;background:#E8EAE4}
-.scale .track b.on0{background:#E8663C}
+.scale .track b{flex:1;border-radius:99px;background:#1C2B42}
+.scale .track b.on0{background:#F0703F}
 .scale .track b.on1{background:#E8963C}
-.scale .track b.on2{background:#7FA83C}
+.scale .track b.on2{background:#8FBE45}
 .scale .track b.on3{background:var(--kelp)}
 .scale .lab{display:flex;justify-content:space-between;margin-top:6px;font-size:11.5px;color:var(--haze)}
 .scale .lab b{font-weight:700;color:var(--ink)}
 .days{display:flex;gap:4px;margin-top:7px;align-items:center}
 .days u{text-decoration:none;font-size:10px;color:var(--haze);margin-right:3px;letter-spacing:.08em}
-.days i{font-style:normal;width:7px;height:7px;border-radius:99px;background:#D6D9D1;display:inline-block}
+.days i{font-style:normal;width:7px;height:7px;border-radius:99px;background:#33415C;display:inline-block}
 .days i.y{background:var(--kelp)}
 .days i.n{background:#E8963C}
-.diag{background:#FAFBF8;border-left:3px solid var(--line);padding:9px 12px;margin:9px 0;font-size:14px;line-height:1.45}
+.diag{background:#0D1A2C;border-left:3px solid var(--line);padding:9px 12px;margin:9px 0;font-size:14px;line-height:1.45}
 .diag b{color:var(--flare)}
 .next{font-size:14px;color:var(--haze);line-height:1.45;margin-top:8px}
 .next b{color:var(--ink);font-weight:600}
@@ -95,14 +95,14 @@ h1.word{font-size:50px;line-height:1;margin:0 0 6px}
 .quote .attr{display:block;margin-top:9px;font-size:12px;color:var(--haze)}
 .sd{display:grid;gap:10px}
 .sd .box{border-radius:14px;padding:16px 18px}
-.sd .say{background:#E8F4EE;border:1px solid #BFE6D2}
-.sd .do{background:var(--ink);color:var(--paper)}
+.sd .say{background:#123528;border:1px solid #1E5C46}
+.sd .do{background:#0C1728;border:1px solid #24324B;color:var(--ink)}
 .sd .lbl{font-size:11px;letter-spacing:.15em;margin-bottom:6px;opacity:.75}
 .sd .body{font-size:16px;line-height:1.5}
 .acc{width:100%;border-collapse:collapse;font-size:14px}
 .acc td{padding:7px 4px;border-bottom:1px solid var(--line)}
 .acc td.b{width:50%}
-.acc .bar{height:8px;border-radius:99px;background:#E4E7DF;overflow:hidden}
+.acc .bar{height:8px;border-radius:99px;background:#1C2B42;overflow:hidden}
 .acc .bar span{display:block;height:100%;background:var(--kelp);border-radius:99px}
 .acc td.n{text-align:right;color:var(--haze);font-size:13px}
 .wow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}
@@ -454,7 +454,7 @@ def render(card, stories=None, quote=None, accuracy=None, kid_wrap_url=None,
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<meta name="theme-color" content="#F7F8F4" />
+<meta name="theme-color" content="#0B1220" />
 <title>XPDaily — {_e(name)}'s week</title>
 <style>{_CSS}</style>
 </head>
