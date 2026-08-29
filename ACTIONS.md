@@ -9,6 +9,12 @@ hands or say-so · 🟠 READY — Claude builds it next session on the go-ahead 
 ⏳ GATED — blocked on a named precondition · 📋 DECIDE — a ratification call
 (PARENT-COMMS-V2.md §11).
 
+**29 Aug 2026 — alignment recorded:** Rich read the proposal (the "Full
+Picture" page) and is aligned on decisions 1–8. Formal doctrine amendments
+land with each build, not before. Next session's workstream:
+**KID-WRAP-BRIEF.md** (B2). B1 is approved and mapped, executes after or
+alongside it.
+
 ---
 
 ## A. Now (this weekend)
@@ -17,7 +23,7 @@ hands or say-so · 🟠 READY — Claude builds it next session on the go-ahead 
 |---|---|---|---|
 | A1 | ~~Unstick Netlify publishing~~ — **CLOSED, not the cause.** Rich's Claude-browser inspection (29 Aug, read-only): auto-publishing on, nothing locked, newest deploy Published. Real cause → A11. | Rich ✓ | ✅ verified |
 | A11 | **Case-collision root cause fixed.** Netlify lowercases paths; our mixed-case slugs meant a carried-forward live page and its own replacement collided in one manifest and the stale one won — pages only landed when NEW to the site (why y8/y9 serve Thursday's *light* builds and t1 serves its 21 Aug page). All paths/URLs/manifest keys now lowercase at use; future slugs generate lowercase; regression tests lock it. RUNBOOK Gotcha #11. | Claude | ✅ this branch |
-| A12 | **Stale-page recovery button:** `redeploy=true` input on the Friday workflow — re-renders + re-deploys the already-sent week (no SMS, no cursor/snapshot writes). *After A10 merges, Rich dispatches it once: all three pages go dark, stamp-verified, ~2 minutes.* | Claude built, **Rich fires** | 🟠 after A10 |
+| A12 | **Stale-page recovery button:** `redeploy=true` input on the Friday workflow — re-renders + re-deploys the already-sent week (no SMS, no cursor/snapshot writes). Fired 29 Aug (run #17): all three pages live, dark, stamp-verified; carried-forward counts finally reconcile. Test SMS with the report link delivered to parents:t1 same day. | Claude | ✅ verified live |
 | A2 | **Build stamp on every report page** (`<meta xpdaily-build>` + footer): View Source answers "which build is this". | Claude | ✅ this branch |
 | A3 | **Verify that can't lie:** `netlify_deploy.verify()` now demands the exact stamp of the render it just uploaded (with a short CDN-propagation retry). A locked/stale site now fails the run loudly and the SMS goes out link-less instead of linking a wrong page. *This alone would have caught Friday's failure at send time.* | Claude | ✅ this branch |
 | A4 | **PII out of public Actions logs:** Friday runner no longer prints kids' first names or per-kid report URLs (this repo is public → its logs are public). Dry-run SMS bodies go to preview files, not logs. | Claude | ✅ this branch |
@@ -26,14 +32,14 @@ hands or say-so · 🟠 READY — Claude builds it next session on the go-ahead 
 | A7 | **Activity math honest:** a pipeline HOLD or recorded absence no longer counts against the kid — denominator reads the completion record (`schedule.json`, any of its shapes), and a fully-excused shortfall can't produce "Quiet — nudge the habit". *Law served: our gaps are never reported as the kid's.* | Claude | ✅ this branch |
 | A8 | **Test suite runs on the pipeline's own Python:** two test files used 3.12-only f-strings and couldn't execute on CI's 3.11 at all. Fixed; all suites green on 3.11. | Claude | ✅ this branch |
 | A9 | **RUNBOOK Gotcha #10:** `--no-sms` deploys to LIVE per-kid URLs (how Thursday's light pages went live); inspection is `--dry-run`. | Claude | ✅ this branch |
-| A10 | **Merge this branch to main.** None of A2–A9/A11–A12 protects anything until it's on main (scheduled runs check out main). *Done means: PR merged, then A12 fired once → all three live pages dark + build-stamped.* | **Rich** (merge) | 🔴 next |
+| A10 | **Merge to main.** Done 29 Aug: PR #16 merged (strategy doc + hardening + case-collision fix), A12 fired, live pages verified dark. | **Rich** ✓ | ✅ |
 
 ## B. Before Friday 4 Sep (next send)
 
 | # | Action | Owner | Status |
 |---|---|---|---|
-| B1 | **Friday/Wednesday sends move to pg_cron** (Supabase `xp_schedule` rows; GitHub crons demoted to cursor-guarded backup). GitHub *skipped all three* Friday crons on 28 Aug — the send only happened because Rich pressed the button. Also fixes the 4 Oct DST hour-shift before it hits parent sends. SQL is ready; it touches live triggering, so it lands on Rich's explicit go. | Claude builds, **Rich go** | 🟠 |
-| B2 | **Kid wrap chain:** dark repaint of `kid_wrap.py` + fix stale cabinet (drop Boss Slayer; add Full Claim, Personal Best) + wire deploy in `friday_report_run` (today `kid_wrap_url=None` — kids' earned badges have NO weekly surface, and parents have been getting Friday detail the kid's mirror surface never shows: a transparency-law breach in practice). Same build stamp goes in. | Claude | 🟠 |
+| B1 | **Friday/Wednesday sends move to pg_cron** (Supabase `xp_schedule` rows; GitHub crons demoted to cursor-guarded backup). GitHub *skipped all three* Friday crons on 28 Aug — the send only happened because Rich pressed the button. Also fixes the 4 Oct DST hour-shift before it hits parent sends. **APPROVED 29 Aug ("lets do B1"); no Supabase changes made yet.** Mapped and ready: rows follow the `(job, workflow, local_time, days int[])` convention, ISO dow, one row per slot with distinct job names — wed-checkin Wed 18:25 + 20:25 `{3}`; friday-report Fri 20:35/21:05/21:45 `{5}` + Sat 07:30 `{6}`; verify end-to-end with a temporary test row (cursor makes a same-week dispatch a safe no-op), then delete it. | Claude | 🟠 approved |
+| B2 | **Kid wrap chain** — **BRIEFED: `KID-WRAP-BRIEF.md` is the bootstrap for a fresh session.** Dark repaint + cabinet reconcile (drop Boss Slayer; add Full Claim, Personal Best) + build stamp + wire deploy in `friday_report_run` (today `kid_wrap_url=None` at line 215 — kids' earned badges have NO weekly surface; transparency-law breach in practice). Ships to all seats via `redeploy=true` after merge, no waiting for Friday. | Claude | 🟠 next session |
 | B3 | **Watchdog rung for pages:** after each scheduled publish, watchdog asserts the live page's build stamp — publish-layer failures alert instead of waiting for a parent to notice. | Claude | 🟠 (after A10) |
 | B4 | **Slug rotation:** the current report slugs leaked into public Actions logs (pre-A4 runs), so they're burned. Rotate in private `report_slugs.json` (new slugs auto-generate lowercase `token_hex`, permanently immune to A11's collision) + redeploy + re-send links. Sequence BEFORE any "bookmark this" text. | Claude (needs private repo access) | 🟠 |
 | B5 | **"Bookmark this" text to each family** — delivers "always available" for zero build. Only after B4. | Claude drafts, **Rich approves copy** | ⏳ B4 |
