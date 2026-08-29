@@ -95,9 +95,11 @@ def newest_targets(private_dir):
 def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
     """Everything one kid's Friday needs: fact card, stories, quote, accuracy."""
     topics = state["students"][code]["topics"]
-    tmap, _ = load_targets_for(code, targets)
+    tmap, subjects_block = load_targets_for(code, targets)
+    plans = plans_for(private_dir, code)
     days, _ = fr.week_days(asof)
     baseline = not prev_snapshot
+    prev_states = (prev_snapshot or {}).get(code, {})
 
     earned = load_json(os.path.join(private_dir, "work", "achievements_earned.json"), {}) or {}
     mine = (earned.get(code) or {}).get("earned", [])
@@ -110,12 +112,17 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
                 or load_json(os.path.join(private_dir, "work", "schedule.json")))
 
     card = fr.build_card(code, runs, topics, tmap, asof,
-                         prev_states=(prev_snapshot or {}).get(code, {}),
+                         prev_states=prev_states,
                          earned_this_week=this_week, baseline=baseline,
                          schedule=schedule)
-    stories = rst.build_stories(private_dir, runs, plans_for(private_dir, code),
-                                code, days, topics,
+    stories = rst.build_stories(private_dir, runs, plans, code, days, topics,
                                 depth_before=(prev_snapshot or {}).get(code + "_depth", {}))
+    # The subject spine (V2 §3): reorganises the same facts by subject. traces =
+    # what his sets actually worked this week (never intent); fluency = the
+    # held-promotion safeguard, narrated when it fired.
+    traces = rst.topic_traces(runs, plans, code, days)
+    subjects = rst.subject_blocks(topics, subjects_block, stories, traces, prev_states)
+    fluency = rst.fluency_catch(runs, plans, code, days)
     quote = rst.pick_quote(runs, code, days)
     acc = rst.subject_accuracy(runs, code, days)
     _, prev_days = fr.week_days(asof)
@@ -132,7 +139,7 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
         notes.append("One written answer this week was left out of the figures: it "
                      "didn't read as this student's own writing, so it isn't counted "
                      "or quoted here.")
-    return card, stories, quote, acc, notes, speed, wow
+    return card, stories, quote, acc, notes, speed, wow, subjects, fluency
 
 
 def build_wrap(code, card, stories, quote, acc, asof, priv, runs, state, api_key):
@@ -228,7 +235,7 @@ def main():
             print(f"[{code}] no ledger — skipped.")
             continue
 
-        card, stories, quote, acc, notes, speed, wow = build_for(
+        card, stories, quote, acc, notes, speed, wow, subjects, fluency = build_for(
             code, asof, priv, runs, state, targets, prev_snapshot)
         # PUBLIC LOG: codes only. This repo is public, so Actions logs are too —
         # first names and per-kid report URLs are PII/access and never print here
@@ -250,7 +257,8 @@ def main():
                 open(wp, "w").write(wrap_html)
                 print(f"  DRY-RUN wrap -> {wp}")
             html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
-                                kid_wrap_url=None, extra_notes=notes, speed=speed, wow=wow)
+                                kid_wrap_url=None, extra_notes=notes, speed=speed,
+                                wow=wow, subjects=subjects, fluency=fluency)
             out = os.path.join(priv, "work", f"preview_report_{code}.html")
             open(out, "w").write(html)
             body, src = fsms.render_body(card, report_url, api_key=api_key,
@@ -275,7 +283,7 @@ def main():
                 print("  wrap deploy FAILED — report sends without the wrap link.")
         html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
                             kid_wrap_url=kid_wrap_url, extra_notes=notes,
-                            speed=speed, wow=wow)
+                            speed=speed, wow=wow, subjects=subjects, fluency=fluency)
         live = deploy.publish(slugs[code]["report"], html, kind="r")
         if live:
             print("  page LIVE ✓ (per-kid URL withheld from public log)")

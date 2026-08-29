@@ -181,4 +181,96 @@ t("page embeds an xpdaily-build meta stamp", 'name="xpdaily-build"' in _html_min
 t("the stamp sits inside verify()'s 4KB window",
   _html_min.index("xpdaily-build") < 3500)
 
+print("\nsubject spine (V2 \u00a73) \u2014 the page reorganised subject-first:")
+_topics = [
+    {"topic": "Causes of the First Crusade", "subject": "History",
+     "state": "developing", "depth": "connects", "times_seen": 3},
+    {"topic": "Key figures", "subject": "History", "state": "shaky",
+     "depth": None, "times_seen": 2},
+    {"topic": "Primary sources", "subject": "History", "state": "untested",
+     "depth": None, "times_seen": 1},
+    {"topic": "Linear equations", "subject": "Maths", "state": "shaky",
+     "depth": None, "times_seen": 4},
+]
+_traces = {
+    "Causes of the First Crusade": [{"subject": "History", "day": "Mon",
+        "date": "2026-08-10", "ok": True, "phase": "steady", "id": "S1"}],
+    "Key figures": [{"subject": "History", "day": "Tue", "date": "2026-08-11",
+        "ok": False, "phase": "steady", "id": "S2"}],
+    "Primary sources": [{"subject": "History", "day": "Wed", "date": "2026-08-12",
+        "ok": True, "phase": "speed", "id": "S3"}],
+    "Linear equations": [{"subject": "Maths", "day": "Mon", "date": "2026-08-10",
+        "ok": False, "phase": "steady", "id": "S4"}],
+}
+_sblock = {"History": {"unit": "The Crusades",
+                       "topics": [{"topic": "Causes of the First Crusade", "status": "live"}]},
+           "Maths": {"topics": [{"topic": "Linear equations", "status": "live"}]}}
+_stories_ss = [
+    {"status": "TO CLOSE", "topic": "Linear equations", "subject": "Maths",
+     "state": "shaky", "misconception": {"picked": "x = 5", "correct": "x = 3",
+     "why": "he subtracted before dividing through the bracket"}, "next": "re-tested"},
+    {"status": "WATCHING", "topic": None, "subject": None, "count": 2, "of": 5},
+]
+_prev = {"Causes of the First Crusade": "shaky"}   # advanced shaky -> developing
+_blocks = rst.subject_blocks(_topics, _sblock, _stories_ss, _traces, _prev)
+_by_subj = {b["subject"]: b for b in _blocks}
+t("one block per subject that practised", set(_by_subj) == {"History", "Maths"})
+t("block carries the school unit when the targets do", _by_subj["History"]["unit"] == "The Crusades")
+t("worked list = topics actually practised (never intent)",
+  _by_subj["History"]["worked"] == ["Causes of the First Crusade", "Key figures", "Primary sources"])
+_causes = next(r for r in _by_subj["History"]["topics"] if r["topic"].startswith("Causes"))
+t("a topic that advanced a rung is flagged moved-up", _causes["moved"] == "up")
+_keyfig = next(r for r in _by_subj["History"]["topics"] if r["topic"] == "Key figures")
+t("a topic with no prior is flagged new", _keyfig["moved"] == "new")
+t("the misconception detail attaches to its subject",
+  _by_subj["Maths"]["detail"]["why"].startswith("he subtracted"))
+t("next-week line names the closing topic", "Linear equations" in (_by_subj["Maths"]["next"] or ""))
+
+_ss_card = dict(minimal)
+_ss_card["snapshot"] = {"rows": [{"subject": "History", "landed": 4, "building": 2},
+                                 {"subject": "Maths", "landed": 3, "building": 3}],
+                        "strongest": "Crusades"}
+_page_ss = rpage.render(_ss_card, stories=_stories_ss, subjects=_blocks,
+                        fluency="Fractions", portal_url="https://x.example/p/abc/")
+t("the subject spine renders", "BY SUBJECT" in _page_ss and "The Crusades" in _page_ss)
+t("evidenced depth renders its rung", "Can connect it" in _page_ss)
+t("unevidenced depth renders a dash, never an inflated claim",
+  "<span class='dep none'>&mdash;</span>" in _page_ss)
+t("moved-up is shown on the page", "moved up this week" in _page_ss)
+t("the fluency-illusion safeguard is narrated", "Fractions" in _page_ss
+  and "held the deeper level" in _page_ss)
+t("with a spine, per-topic stories aren't duplicated as WHAT HAPPENED cards",
+  "WHAT HAPPENED" not in _page_ss and "WORTH A WATCH" in _page_ss)
+t("the cumulative footer renders landed-of-total per subject and links the portal",
+  "History 4 of 6 topics landed" in _page_ss and "https://x.example/p/abc/" in _page_ss)
+t("no per-subject TREND words leak into a block (positions weekly, trends monthly)",
+  not any(w in _page_ss for w in ("improving", "slipping", "trending up", "trending down")))
+
+print("\nfluency-illusion catch \u2014 a right MCQ held back by a not-yet explanation:")
+_plans_fc = {"2026-08-10": {"slots": [{"slot": "S1", "topic": "Fractions", "subject": "Maths"},
+                                      {"slot": "TB1", "topic": "Fractions", "subject": "Maths"}]}}
+_run_fc = run("y8", "2026-08-10", [
+    {"id": "S1", "phase": "steady", "subject": "Maths", "ok": True},
+    {"id": "TB1", "phase": "teach", "subject": "Maths", "text": "x" * 90,
+     "tb_grade": {"verdict": "partial"}, "tb_integrity": {"verdict": "ok"}}])
+t("fires when a correct MCQ meets a below-solid teach-back on the same topic",
+  rst.fluency_catch([_run_fc], _plans_fc, "y8", ["2026-08-10"]) == "Fractions")
+_run_solid = run("y8", "2026-08-10", [
+    {"id": "S1", "phase": "steady", "subject": "Maths", "ok": True},
+    {"id": "TB1", "phase": "teach", "subject": "Maths",
+     "tb_grade": {"verdict": "solid"}, "tb_integrity": {"verdict": "ok"}}])
+t("silent when the teach-back reached solid",
+  rst.fluency_catch([_run_solid], _plans_fc, "y8", ["2026-08-10"]) is None)
+_run_quar = run("y8", "2026-08-10", [
+    {"id": "S1", "phase": "steady", "subject": "Maths", "ok": True},
+    {"id": "TB1", "phase": "teach", "subject": "Maths",
+     "tb_grade": {"verdict": "partial"}, "tb_integrity": {"verdict": "quarantine"}}])
+t("never triggers off a quarantined teach-back",
+  rst.fluency_catch([_run_quar], _plans_fc, "y8", ["2026-08-10"]) is None)
+
+t("legacy render (no subjects) still shows WHAT HAPPENED",
+  "WHAT HAPPENED" in rpage.render(minimal, stories=[
+      {"status": "TO CLOSE", "topic": "Angles", "subject": "Maths", "state": "shaky",
+       "next": "re-tested"}]))
+
 print("\n\u2713 all friday-report tests green")

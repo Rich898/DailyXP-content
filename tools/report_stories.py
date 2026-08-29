@@ -39,10 +39,19 @@ story. We do not put words in a child's mouth that we cannot attribute to them.
 """
 import json
 import os
+import sys
 from datetime import date
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wed_checkin import display_topic          # law-legal topic names  # noqa: E402
 
 # status tags, in ranked order — earlier is a stronger story
 STATUS_ORDER = ["RESOLVED", "DEEPENED", "TRENDING WELL", "WATCHING", "TO CLOSE"]
+
+# depth ladder rank (also in achievements/friday_report) — for the ceiling law
+_DEPTH_LADDER = ["not_yet", "knows", "lists", "connects", "applies"]
+# state -> ordinal, for "moved up this week" (matches friday_report.movement)
+_STATE_RANK = {"untested": 0, "REPAIR": 0, "shaky": 1, "developing": 2, "solid": 3}
 
 
 # --------------------------------------------------------------------------- #
@@ -425,3 +434,130 @@ def build_stories(private_dir, runs, plans_by_date, student, week_days,
 
     stories.sort(key=lambda s: -s.get("weight", 0))
     return stories[:max_stories]
+
+
+# --------------------------------------------------------------------------- #
+# SUBJECT SPINE (PARENT-COMMS-V2 §3) — the Friday page reorganised subject-first.
+# Pure assembly of facts already computed elsewhere: the ledger topics (state +
+# depth), the week's traces (what his sets actually worked), the ranked stories
+# (misconception detail), and the targets block (what class is on). No AI, no new
+# measurement. Positions are weekly and per-topic; per-subject TREND language is
+# deliberately absent (that waits for the monthly window — the small-sample law).
+
+def _subject_next(subject, stories):
+    """One forward-looking line for a subject, from its own story statuses:
+    TO CLOSE topics come back; RESOLVED/TRENDING ease to maintenance. Returns a
+    phrase or None. Never a verdict — the plan, not a grade."""
+    mine = [s for s in stories if s.get("subject") == subject and s.get("topic")]
+    closing = [s["topic"] for s in mine if s.get("status") == "TO CLOSE"]
+    easing = [s["topic"] for s in mine
+              if s.get("status") in ("RESOLVED", "TRENDING WELL")]
+    parts = []
+    if closing:
+        parts.append(f"{', '.join(closing[:2])} back for another look")
+    if easing:
+        parts.append(f"{', '.join(easing[:2])} eases to light maintenance")
+    return "; ".join(parts) if parts else None
+
+
+def subject_blocks(topics, subjects_block, stories, traces, prev_states=None):
+    """Per-subject blocks for the Friday page's subject spine (V2 §3).
+
+    Each block closes Monday's loop for one subject:
+      what class is on (targets) -> what his sets worked this week (traces) ->
+      where each practised topic stands (band from state + depth WHERE EVIDENCED)
+      -> at most one misconception detail (from the ranked stories) -> next week.
+
+    Rows are the topics actually practised this week (from `traces`) — never
+    intent. `moved` is "up" (advanced a state rung vs last week) or "new" (no
+    prior). Depth travels raw; the renderer applies the ceiling (an unevidenced
+    rung shows as "—", never an inflated claim). Returns [] when nothing was
+    practised.
+    """
+    prev_states = prev_states or {}
+    subjects_block = subjects_block or {}
+    state_by_topic = {t.get("topic"): t for t in topics}
+
+    # topics practised this week, grouped by subject (from the week's traces)
+    practised = {}
+    for topic, tr in traces.items():
+        subj = tr[0].get("subject") if tr else None
+        if subj:
+            practised.setdefault(subj, [])
+            if topic not in practised[subj]:
+                practised[subj].append(topic)
+
+    # one misconception detail per subject, from the ranked stories
+    misc_by_subject = {}
+    for s in stories:
+        m = s.get("misconception")
+        if m and m.get("why") and s.get("subject") and s["subject"] not in misc_by_subject:
+            misc_by_subject[s["subject"]] = m
+
+    blocks = []
+    for subj in sorted(practised):
+        block = subjects_block.get(subj, {}) or {}
+        rows = []
+        for topic in practised[subj]:
+            tp = state_by_topic.get(topic) or {}
+            state = tp.get("state")
+            moved = None
+            if topic in prev_states:
+                if _STATE_RANK.get(state, 0) > _STATE_RANK.get(prev_states[topic], 0):
+                    moved = "up"
+            elif state is not None:
+                moved = "new"
+            rows.append({"topic": display_topic(topic, subj), "state": state,
+                         "depth": tp.get("depth"), "moved": moved})
+        if not rows:
+            continue
+        blocks.append({
+            "subject": subj,
+            # "what class is on" — an explicit unit label if the targets carry
+            # one, else omitted (never fabricated from topic names).
+            "unit": block.get("unit") or block.get("module") or block.get("current_unit"),
+            "worked": [display_topic(t, subj) for t in practised[subj]],
+            "topics": rows,
+            "detail": misc_by_subject.get(subj),
+            "next": _subject_next(subj, stories),
+        })
+    return blocks
+
+
+def fluency_catch(runs, plans_by_date, student, week_days):
+    """The fluency-illusion safeguard, made visible (V2 §3).
+
+    Returns a display topic where, THIS week, a multiple-choice answer was
+    correct but the teach-back on the same topic did NOT reach solid — so the
+    depth promotion was held (a failed explanation outranks a right tick,
+    UNDERSTANDING.md). One sentence turns an invisible safeguard into the visible
+    rigour a paying parent is buying. Integrity-quarantined teach-backs are never
+    the trigger. None when it didn't fire.
+    """
+    held_below = {"partial", "developing", "weak", "attempted", "none"}
+    correct_mcq = set()
+    held = []
+    for r in runs:
+        if r.get("student") != student or r.get("run_date") not in week_days:
+            continue
+        plan = plans_by_date.get(r.get("set_date") or r.get("run_date")) or {}
+        slots = {sl.get("slot"): sl for sl in (plan.get("slots") or [])}
+        for q in r.get("questions", []):
+            slot = slots.get(q.get("id")) or {}
+            topic = slot.get("topic")
+            if not topic:
+                continue
+            subj = q.get("subject") or slot.get("subject") or ""
+            if q.get("phase") != "teach" and q.get("ok") is True:
+                correct_mcq.add(topic)
+            elif q.get("phase") == "teach":
+                g = q.get("tb_grade") or {}
+                integ = q.get("tb_integrity") or {}
+                if (integ.get("verdict") != "quarantine"
+                        and not g.get("integrity_hold")
+                        and (g.get("verdict") or "").lower() in held_below):
+                    held.append((topic, subj))
+    for topic, subj in held:
+        if topic in correct_mcq:
+            return display_topic(topic, subj)
+    return None

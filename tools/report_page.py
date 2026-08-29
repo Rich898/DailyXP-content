@@ -5,17 +5,21 @@ report_page.py — the hosted weekly PARENT report (REPORTING.md surface A).
 A NARRATIVE, not a dashboard. The SMS is the tier-1 report; this is the deep
 dive it links to — "this week, bounded", one kid, one week.
 
-STRUCTURE (in order, as ratified):
+STRUCTURE (subject-first, PARENT-COMMS-V2 §3 — supersedes the insight-type order):
   1. verdict          the week-word + hero line — readable in ten seconds
-  2. depth movement   the ledger made visible (UNDERSTANDING.md) — the claim
-                      only this product can make
-  3. what's coming    assessment readiness — the most actionable thing a parent
-                      can be told, so it sits high
-  4. story cards      what actually HAPPENED, each with its ✓/✗ week strip, a
-                      misconception-level diagnosis, and what happens next
-  5. in his own words an authentic teach-back quote (integrity-gated)
-  6. say / do         two scripts, process-level not person-level
-  7. reading notes    the honest caveats that make everything above trustworthy
+  2. the week strip    nights · topics practised · events, in one line
+  3. BY SUBJECT        the spine: one block per subject that closes Monday's loop
+                      — what class is on → what his sets worked → where each
+                      topic stands (band + depth where evidenced) → one
+                      misconception detail → next week. The fluency-illusion
+                      catch (a right MCQ held back by a not-yet explanation) is
+                      narrated here. Falls back to legacy story cards when no
+                      subject blocks are supplied.
+  4. cross-cutting     demoted below the subjects: what's coming (assessment),
+                      in his own words (integrity-gated quote), say/do, depth
+                      movement, worth-a-watch, week-on-week (aggregate), speed.
+  5. where it adds up  the cumulative-by-subject strip → the portal.
+  6. reading notes     the honest caveats that make everything above trustworthy
 
 PRIVACY: fully self-contained. Every fact is baked in at build time — ZERO fetch
 calls, no endpoint, no report.json on any server. The ledger never leaves the
@@ -144,6 +148,38 @@ summary{cursor:pointer;font-size:12px;color:var(--reef);letter-spacing:.04em}
 .notes{font-size:12.5px;color:var(--haze);line-height:1.6;margin-top:10px}
 .foot{margin-top:22px;font-size:12.5px;color:var(--haze);line-height:1.55}
 .foot a{color:var(--reef)}
+/* activity strip (V2 §3.2) — the week in one line */
+.strip{display:flex;flex-wrap:wrap;gap:8px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:6px 0 4px}
+.strip .cell{font-size:14px;color:var(--haze)}
+.strip .cell b{color:var(--ink);font-weight:700;font-family:'Space Mono',monospace}
+/* SUBJECT SPINE (V2 §3.3) — one block per subject, Monday's loop closed */
+.subj{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:12px}
+.subj-head{font-size:17px;line-height:1.25;margin:0 0 7px}
+.subj-head .sh-subj{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:.03em;text-transform:uppercase;font-size:13px;color:var(--reef)}
+.subj-head .sh-unit{font-weight:700}
+.subj-worked{font-size:13.5px;color:var(--haze);line-height:1.45;margin:0 0 10px}
+.subj-worked b{color:var(--ink);font-weight:600}
+.subj-table{width:100%;border-collapse:collapse;font-size:14px}
+.subj-table th{text-align:left;font-size:10px;letter-spacing:.1em;color:var(--haze);font-weight:700;padding:0 6px 5px 0;text-transform:uppercase}
+.subj-table td{padding:7px 6px 7px 0;border-top:1px solid var(--line);vertical-align:top;line-height:1.35}
+.subj-table td.pos{white-space:nowrap}
+.subj-table .dot{font-size:12px;margin-right:5px;vertical-align:baseline}
+.dot.d0{color:#F0703F}.dot.d1{color:#E8963C}.dot.d2{color:#8FBE45}.dot.d3{color:var(--kelp)}
+.subj-table .dep{color:var(--ink)}
+.subj-table .dep.none{color:var(--haze)}
+.subj-table .moved{font-style:normal;color:var(--kelp);font-size:12px}
+.subj-table .moved.new{color:var(--reef)}
+.subj-detail{background:#0D1A2C;border-left:3px solid var(--line);padding:9px 12px;margin:11px 0 0;font-size:13.5px;line-height:1.45}
+.subj-detail b{color:var(--ink)}
+.subj-detail .pick{color:var(--flare)}
+.subj-next{font-size:13.5px;color:var(--haze);line-height:1.45;margin:9px 0 0}
+.subj-next b{color:var(--ink);font-weight:600}
+.fluency{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--reef);border-radius:12px;padding:13px 16px;margin-bottom:12px;font-size:14.5px;line-height:1.5}
+.fluency b{color:var(--reef)}
+/* cumulative footer strip (V2 §3.5) */
+.cumf{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:14px;line-height:1.6;color:var(--ink)}
+.cumf a{color:var(--reef);white-space:nowrap}
+.cumf .sep{color:var(--haze)}
 """
 
 RUNGS = [("not_yet", "not yet"), ("knows", "knows it"), ("lists", "can list it"),
@@ -451,16 +487,115 @@ def _speed(sp, name):
     return f"<div class='section'>SPEED</div><div class='depth'><p class='move'>{line}</p></div>"
 
 
+def _activity_strip(card):
+    """The week in one line (V2 §3.2): nights · topics practised · events.
+    Uses the excused-aware denominator already in the card (activity.possible)."""
+    a = card.get("activity") or {}
+    dd, poss = a.get("days_done", 0), a.get("possible", 0)
+    cells = [f"<span class='cell'><b>{dd} of {poss}</b> nights run</span>",
+             f"<span class='cell'><b>{a.get('topics_practised', 0)}</b> topics practised</span>"]
+    ev = a.get("events", 0)
+    if ev:
+        cells.append(f"<span class='cell'><b>{ev}</b> event{'s' if ev != 1 else ''} cleared</span>")
+    return f"<div class='strip'>{''.join(cells)}</div>"
+
+
+def _subject_block(b, name):
+    """One subject block: what class is on -> what his sets worked -> where each
+    topic stands (band + depth WHERE EVIDENCED) -> one detail -> next week."""
+    unit = f" <span class='sh-unit'>&mdash; {_e(b['unit'])}</span>" if b.get("unit") else ""
+    worked = " &middot; ".join(f"<b>{_e(w)}</b>" for w in b.get("worked", []))
+    worked_html = (f"<div class='subj-worked'>This week his sets worked: {worked}</div>"
+                   if worked else "")
+    rows = []
+    for t in b.get("topics", []):
+        band = STATE_BAND.get(t.get("state"), 1)
+        label, colour = BANDS[band][0], BANDS[band][1]
+        dep = t.get("depth")
+        if dep in RUNG_LABEL:
+            dep_html = f"<span class='dep'>{_e(RUNG_LABEL[dep].capitalize())}</span>"
+        else:
+            dep_html = "<span class='dep none'>&mdash;</span>"
+        moved = t.get("moved")
+        if moved == "up":
+            dep_html += " <em class='moved'>&middot; moved up this week</em>"
+        elif moved == "new":
+            dep_html += " <em class='moved new'>&middot; new this week</em>"
+        rows.append(
+            f"<tr><td>{_e(t.get('topic'))}</td>"
+            f"<td class='pos'><span class='dot d{colour}'>&#9679;</span>{_e(label)}</td>"
+            f"<td>{dep_html}</td></tr>")
+    table = ("<table class='subj-table'><tr><th>Topic</th><th>Where he is</th>"
+             f"<th>Depth</th></tr>{''.join(rows)}</table>")
+    detail = ""
+    m = b.get("detail")
+    if m and m.get("why"):
+        detail = (f"<div class='subj-detail'><b>The detail worth knowing:</b> "
+                  f"he chose <span class='pick'>{_e(m['picked'])}</span>; the answer was "
+                  f"<b>{_e(m['correct'])}</b>. {_e(m['why'])}</div>")
+    nxt = (f"<div class='subj-next'><b>Next week:</b> {_e(b['next'])}.</div>"
+           if b.get("next") else "")
+    return (f"<div class='subj'><div class='subj-head'>"
+            f"<span class='sh-subj'>{_e(b['subject'])}</span>{unit}</div>"
+            f"{worked_html}{table}{detail}{nxt}</div>")
+
+
+def _subject_blocks(blocks, fluency, name):
+    """The subject spine — the redesign's core (V2 §3). Empty string when there
+    are no blocks (the page falls back to the legacy story cards)."""
+    if not blocks:
+        return ""
+    flu = ""
+    if fluency:
+        flu = ("<div class='fluency'>On <b>" + _e(fluency) + "</b>, " + _e(name)
+               + " could pick the right answer but not yet put the why in his own "
+               "words &mdash; so the system held the deeper level until the "
+               "explanation catches up. That safeguard is the rigour behind every "
+               "&ldquo;solid&rdquo; here.</div>")
+    body = "".join(_subject_block(b, name) for b in blocks)
+    return f"<div class='section'>BY SUBJECT &mdash; THIS WEEK</div>{flu}{body}"
+
+
+def _cumulative_footer(card, portal_url):
+    """The cumulative-by-subject strip (V2 §3.5) — landed of total per subject,
+    linking the portal. Already computed (card.snapshot), never rendered before."""
+    rows = (card.get("snapshot") or {}).get("rows") or []
+    parts = []
+    for r in rows:
+        total = (r.get("landed", 0) or 0) + (r.get("building", 0) or 0)
+        if total:
+            parts.append(f"{_e(r['subject'])} {r['landed']} of {total} topics landed")
+    if not parts:
+        return ""
+    strip = "<span class='sep'> &middot; </span>".join(parts)
+    link = (f"<span class='sep'> &middot; </span><a href='{_e(portal_url)}'>full picture &rarr;</a>"
+            if portal_url else "")
+    return (f"<div class='section'>WHERE IT ADDS UP</div>"
+            f"<div class='cumf'>{strip}{link}</div>")
+
+
 def render(card, stories=None, quote=None, accuracy=None, kid_wrap_url=None,
-           extra_notes=None, speed=None, wow=None):
+           extra_notes=None, speed=None, wow=None, subjects=None, fluency=None,
+           portal_url=None):
     """Full self-contained HTML for one kid-week parent report."""
     stories = stories or []
+    subjects = subjects or []
     name = card["name"].split()[0]
     word = card["week_word"]["word"]
-    # DEEPENED is already told in the depth block — don't tell it twice
-    cards = [s for s in stories if s.get("status") != "DEEPENED"]
-    story_html = "".join(_story_card(s, name) for s in cards)
-    stories_section = (f"<div class='section'>WHAT HAPPENED</div>{story_html}"
+    subj_spine = _subject_blocks(subjects, fluency, name)
+    # With the subject spine live, per-topic RESOLVED/TRENDING/TO CLOSE stories
+    # are told inside their subject block — only the topic-less WATCHING tendency
+    # remains as a cross-cutting card. Without a spine (minimal/legacy render) the
+    # full WHAT HAPPENED section is the fallback. DEEPENED is always the depth
+    # block's job, never a duplicate card.
+    if subj_spine:
+        residual = [s for s in stories if s.get("status") == "WATCHING"]
+        residual_label = "WORTH A WATCH"
+    else:
+        residual = [s for s in stories if s.get("status") != "DEEPENED"]
+        residual_label = "WHAT HAPPENED"
+    story_html = "".join(_story_card(s, name) for s in residual)
+    stories_section = (f"<div class='section'>{residual_label}</div>{story_html}"
                        if story_html else "")
     wrap_link = (f" &nbsp;·&nbsp; <a href='{_e(kid_wrap_url)}'>{_e(name)}'s player card</a>"
                  if kid_wrap_url else "")
@@ -482,15 +617,18 @@ def render(card, stories=None, quote=None, accuracy=None, kid_wrap_url=None,
   <div class="hero">{_e(_hero(card))}</div>
   <h1 class="word display {word}">{WORD_CAP.get(word, word)}</h1>
   <p class="sub">{_e(WORD_SUB.get(word,''))}</p>
-  {_wow(wow, card)}
-  {_depth_block(card, stories)}
+  {_activity_strip(card)}
+  {subj_spine}
   {_assess_block(card)}
-  {stories_section}
   {_quote_block(quote, name)}
-  {_accuracy(accuracy)}
-  {_speed(speed, name)}
   {_say_do(card, stories, quote)}
+  {_depth_block(card, stories)}
+  {stories_section}
+  {_wow(wow, card)}
+  {_speed(speed, name)}
+  {_accuracy(accuracy)}
   {_next_week(card, stories)}
+  {_cumulative_footer(card, portal_url)}
   <div class="xp"><span class="lbl">SEASON TOTAL</span><span class="v num">{card['xp_total']:,} XP</span></div>
   {_notes(card, extra_notes)}
   <p class="foot">This is {_e(name)}'s week, bounded — nothing here needs a reply.{wrap_link}</p>
