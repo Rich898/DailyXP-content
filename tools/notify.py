@@ -58,13 +58,17 @@ def _recipients(target):
     Targets:
       "<code>"          the kid's own seat        -> MOBILE_MESSAGE_TO_<CODE>
       "parents:<code>"  that kid's parent seat    -> MOBILE_MESSAGE_PARENTS_<CODE>
-                        (falls back to legacy MOBILE_MESSAGE_TO_PARENTS if unset)
+                        NO fallback — a per-kid parent seat resolves to its own
+                        secret or to nobody. The old silent fallback to the
+                        shared legacy list meant a mistyped secret for a NEW
+                        family would text that child's report to the WRONG
+                        household, while looking "resolved" to every caller's
+                        hard-abort check. Fail empty; senders abort loudly.
       "parents"         legacy shared group       -> MOBILE_MESSAGE_TO_PARENTS
     """
     if target.startswith("parents:"):
         code = target.split(":", 1)[1].strip()
-        per = _split(_env(f"MOBILE_MESSAGE_PARENTS_{code.upper()}"))
-        return per or _split(_env("MOBILE_MESSAGE_TO_PARENTS"))
+        return _split(_env(f"MOBILE_MESSAGE_PARENTS_{code.upper()}"))
     if target == "parents":
         return _split(_env("MOBILE_MESSAGE_TO_PARENTS"))
     return _split(_env(f"MOBILE_MESSAGE_TO_{target.upper()}"))

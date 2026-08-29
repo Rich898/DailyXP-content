@@ -31,6 +31,10 @@ on:
         description: "deploy the page but don't text"
         type: boolean
         default: false
+      redeploy:
+        description: "re-render + re-deploy pages for an already-sent week (no SMS, no cursor/snapshot writes) — the stale-page recovery button"
+        type: boolean
+        default: false
 
 concurrency:
   group: friday-report
@@ -93,8 +97,22 @@ jobs:
           [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
           [ "${{ github.event.inputs.no_sms }}" = "true" ] && ARGS="$ARGS --no-sms"
+          [ "${{ github.event.inputs.redeploy }}" = "true" ] && ARGS="$ARGS --redeploy"
           echo "friday_report_run $ARGS"
           python tools/friday_report_run.py $ARGS
+
+      # Dry-run previews (page HTML + SMS body) carry names and per-kid URLs,
+      # so they ship as a private artifact for the operator's eyes — NEVER
+      # printed into this public repo's logs. This is the pre-send review
+      # window for any new/changed report format.
+      - name: Upload dry-run previews (operator review)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-previews
+          path: private/work/preview_report_*
+          retention-days: 7
+          if-no-files-found: warn
 
       - name: Commit private state (cursor + weekly snapshot + slugs)
         if: ${{ github.event.inputs.dry_run != 'true' }}

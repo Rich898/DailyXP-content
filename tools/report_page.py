@@ -34,7 +34,23 @@ DOCTRINE:
     is the weakest form of feedback.
   * UNDER-CLAIM. Week 1 has no prior; thin evidence says so out loud.
 """
+import datetime as _dt
 import html
+import os as _os
+
+
+def build_stamp():
+    """Commit + render-time stamp baked into every page (<meta xpdaily-build>).
+
+    Two jobs: (a) a human can View Source and know exactly which build they are
+    looking at — the 28 Aug incident (stale pages serving under a green
+    pipeline) was only diagnosable by eyeballing colours; (b) netlify_deploy's
+    verify() asserts THIS stamp in the fetched page, so "deploy ready" can
+    never again pass on last week's content. The timestamp makes every render
+    unique; GITHUB_SHA is present in every Actions run ("local" elsewhere).
+    """
+    sha = (_os.environ.get("GITHUB_SHA") or "local")[:9]
+    return f"{sha} {_dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')}"
 
 _CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap');
@@ -448,10 +464,12 @@ def render(card, stories=None, quote=None, accuracy=None, kid_wrap_url=None,
                        if story_html else "")
     wrap_link = (f" &nbsp;·&nbsp; <a href='{_e(kid_wrap_url)}'>{_e(name)}'s player card</a>"
                  if kid_wrap_url else "")
+    stamp = build_stamp()
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="xpdaily-build" content="{_e(stamp)}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="theme-color" content="#0B1220" />
@@ -476,6 +494,7 @@ def render(card, stories=None, quote=None, accuracy=None, kid_wrap_url=None,
   <div class="xp"><span class="lbl">SEASON TOTAL</span><span class="v num">{card['xp_total']:,} XP</span></div>
   {_notes(card, extra_notes)}
   <p class="foot">This is {_e(name)}'s week, bounded — nothing here needs a reply.{wrap_link}</p>
+  <p class="foot">build {_e(stamp)}</p>
 </div>
 </body>
 </html>"""

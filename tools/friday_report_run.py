@@ -57,14 +57,19 @@ def week_of(d):
 
 def slugs_for(private_dir, codes):
     """Stable per-kid unguessable path segments. Generated once, then reused so
-    a parent's bookmark keeps working; stored private, never in the public repo."""
+    a parent's bookmark keeps working; stored private, never in the public repo.
+
+    New slugs are token_hex — naturally lowercase (72 bits) — because Netlify's
+    paths are case-normalised and mixed-case slugs caused the 28 Aug stale-page
+    collision (see netlify_deploy.url_for). Existing mixed-case slugs keep
+    working: every layer lowercases them at use, and mixed-case links 301."""
     import secrets
     p = os.path.join(private_dir, SLUGS)
     data = load_json(p, {}) or {}
     changed = False
     for c in codes:
         if c not in data:
-            data[c] = {"report": secrets.token_urlsafe(9), "wrap": secrets.token_urlsafe(9)}
+            data[c] = {"report": secrets.token_hex(9), "wrap": secrets.token_hex(9)}
             changed = True
     if changed:
         os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -97,9 +102,16 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
     mine = (earned.get(code) or {}).get("earned", [])
     this_week = [b for b in mine if (b.get("date") or "") in days]
 
+    # Completion record: lets the activity row and week-word excuse days the
+    # pipeline didn't publish or the seat was recorded absent (either location;
+    # absent file = excuse nothing, the pre-fix behaviour).
+    schedule = (load_json(os.path.join(private_dir, "schedule.json"))
+                or load_json(os.path.join(private_dir, "work", "schedule.json")))
+
     card = fr.build_card(code, runs, topics, tmap, asof,
                          prev_states=(prev_snapshot or {}).get(code, {}),
-                         earned_this_week=this_week, baseline=baseline)
+                         earned_this_week=this_week, baseline=baseline,
+                         schedule=schedule)
     stories = rst.build_stories(private_dir, runs, plans_for(private_dir, code),
                                 code, days, topics,
                                 depth_before=(prev_snapshot or {}).get(code + "_depth", {}))
@@ -151,7 +163,14 @@ def main():
     ap.add_argument("--student", help="one player (default: all active)")
     ap.add_argument("--dry-run", action="store_true", help="build + render, no deploy, no SMS")
     ap.add_argument("--no-sms", action="store_true", help="deploy but don't text")
+    ap.add_argument("--redeploy", action="store_true",
+                    help="re-render + re-deploy the pages for an ALREADY-SENT week: "
+                         "ignores the sent-cursor no-op, forces --no-sms, and touches "
+                         "no private state (no cursor, no snapshot). The recovery "
+                         "button for a bad/stale live page after the texts went out.")
     a = ap.parse_args()
+    if a.redeploy:
+        a.no_sms = True
 
     asof = dt.date.fromisoformat(a.date)
     priv = a.private_dir
@@ -174,7 +193,7 @@ def main():
 
     sent, skipped = [], []
     for code in codes:
-        if cursor.get(code) == wk:
+        if cursor.get(code) == wk and not a.redeploy:
             print(f"[{code}] already sent for week {wk} — no-op.")
             skipped.append(code)
             continue
@@ -184,7 +203,10 @@ def main():
 
         card, stories, quote, acc, notes, speed, wow = build_for(
             code, asof, priv, runs, state, targets, prev_snapshot)
-        print(f"[{code}] {card['name']}: week-word={card['week_word']['word']} "
+        # PUBLIC LOG: codes only. This repo is public, so Actions logs are too —
+        # first names and per-kid report URLs are PII/access and never print here
+        # (the pre-29-Aug format leaked both; those slugs rotate as follow-up).
+        print(f"[{code}] week-word={card['week_word']['word']} "
               f"stories={len(stories)} quote={'y' if quote else 'n'} "
               f"baseline={card['baseline']}")
 
@@ -198,13 +220,17 @@ def main():
             open(out, "w").write(html)
             body, src = fsms.render_body(card, report_url, api_key=api_key,
                                          use_ai=bool(api_key))
+            # Body carries the kid's name + report URL — it goes to a preview
+            # file (collected by the workflow's dry-run artifact), never the log.
+            out_sms = os.path.join(priv, "work", f"preview_report_{code}.sms.txt")
+            open(out_sms, "w").write(body)
             print(f"  DRY-RUN page -> {out}")
-            print(f"  DRY-RUN sms  [{src}] {len(body)} chars:\n    {body}\n")
+            print(f"  DRY-RUN sms  [{src}] {len(body)} chars -> {out_sms}")
             continue
 
         live = deploy.publish(slugs[code]["report"], html, kind="r")
         if live:
-            print(f"  page LIVE: {report_url}")
+            print("  page LIVE ✓ (per-kid URL withheld from public log)")
         else:
             print("  page deploy FAILED — sending SMS without the link "
                   "(the SMS is the tier-1 report).")
@@ -231,7 +257,7 @@ def main():
             continue
         _send_and_mark(code, body, cursor, wk, sent, skipped)
 
-    if not a.dry_run:
+    if not a.dry_run and not a.redeploy:
         cp = os.path.join(priv, CURSOR)
         os.makedirs(os.path.dirname(cp), exist_ok=True)
         json.dump(cursor, open(cp, "w"), indent=2)

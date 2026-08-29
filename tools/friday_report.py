@@ -274,9 +274,55 @@ def pick_focus(topics, radar, stand):
 # --------------------------------------------------------------------------- #
 # Week activity facts (the safe "this week" row) + best day.
 
-def week_activity(runs, student, this_days):
+_EXCUSED_STATUSES = ("NOT-PUBLISHED", "NOT_PUBLISHED", "ABSENT")
+
+
+def excused_days(schedule, student, day_isos):
+    """Dates in the window this kid could NOT have played: the pipeline didn't
+    publish (our gap) or the seat was recorded absent. Read from the private
+    completion record (schedule.json, SYSTEM-MAP vocabulary: DONE / DONE-LATE+n
+    / MISSED / NOT-PUBLISHED / ABSENT).
+
+    Tolerant of the record's shape ({student:{date:status}}, {date:{student:
+    status}}, or a row list under "days"/top-level) and of a missing file —
+    anything unreadable excuses nothing, which is exactly the pre-fix
+    behaviour. LAW this serves: our gaps are never reported as the kid's.
+    """
+    def _is_excused(status):
+        s = str(status or "").strip().upper().replace(" ", "-")
+        return any(s.startswith(x) for x in _EXCUSED_STATUSES)
+
+    out = set()
+    if not schedule:
+        return out
+    rows = schedule.get("days") if isinstance(schedule, dict) else schedule
+    if isinstance(rows, list):
+        for row in rows:
+            if (isinstance(row, dict) and row.get("student") == student
+                    and row.get("date") in day_isos and _is_excused(row.get("status"))):
+                out.add(row["date"])
+        return out
+    if isinstance(schedule, dict):
+        per_student = schedule.get(student)
+        if isinstance(per_student, dict):                 # {student: {date: status}}
+            for d, st in per_student.items():
+                if d in day_isos and _is_excused(st):
+                    out.add(d)
+            return out
+        for d in day_isos:                                # {date: {student: status}}
+            day = schedule.get(d)
+            if isinstance(day, dict) and _is_excused(day.get(student)):
+                out.add(d)
+    return out
+
+
+def week_activity(runs, student, this_days, excused=None):
     """days done, events cleared (Battleground tags), and the best single run —
     all SAFE facts (no misses, no subjects). best_day carries a legal Friday XP.
+
+    `excused` days (pipeline HOLD, recorded absence) leave the denominator:
+    a 3-of-3 week must never render as "3 of 5". A kid who played on a day
+    recorded as excused still counts — possible never drops below days_done.
     """
     mine = [r for r in runs if r.get("student") == student and r.get("run_date") in this_days]
     best_by_day = {}
@@ -292,7 +338,9 @@ def week_activity(runs, student, this_days):
             events += 1
     best_day = max(best_by_day.values(), key=lambda x: x["pts"]) if best_by_day else None
     topics_practised = len({q for r in mine for q in _topics_in_run(r)})
-    return {"days_done": len(best_by_day), "possible": len(this_days),
+    days_done = len(best_by_day)
+    possible = max(days_done, len(this_days) - len(excused or set()))
+    return {"days_done": days_done, "possible": possible,
             "events": events, "best_day": best_day, "topics_practised": topics_practised}
 
 
@@ -355,7 +403,7 @@ def name_for(runs, student):
 
 
 def build_card(student, runs, topics, tmap, asof, prev_states, earned_this_week,
-               seed=0, baseline=False):
+               seed=0, baseline=False, schedule=None):
     """The complete deterministic fact card for one kid's Friday report."""
     this_d, prev_d = week_days(asof)
     now = window_stats(runs, student, this_d)
@@ -369,7 +417,17 @@ def build_card(student, runs, topics, tmap, asof, prev_states, earned_this_week,
         if word in ("strong", "slower"):
             word = "solid" if now["days_done"] > 0 else "quiet"
 
-    act = week_activity(runs, student, this_d)
+    exc = excused_days(schedule, student, this_d)
+    act = week_activity(runs, student, this_d, excused=exc)
+    # A shortfall that is ENTIRELY excused (pipeline HOLD, recorded absence) is
+    # not an engagement dip: he played every night that existed for him.
+    # "Quiet — nudge the habit" there would report our gap (or a sick bed) as
+    # his slump — the exact violation of "our gaps are never reported as the
+    # kid's". Partial shortfalls keep their honest quiet.
+    if word == "quiet" and act["days_done"] > 0 and act["days_done"] >= act["possible"]:
+        word = "solid"
+        if direction == "down":
+            direction = "flat"
     stand = standing(topics, tmap)
     stand_sum = standing_summary(stand)
     radar = assessment_radar(topics, tmap, asof)
@@ -387,6 +445,7 @@ def build_card(student, runs, topics, tmap, asof, prev_states, earned_this_week,
         "baseline": baseline,
         "week_word": {"word": word, "direction": direction},
         "activity": {"days_done": act["days_done"], "possible": act["possible"],
+                     "excused": len(exc),
                      "events": act["events"], "topics_practised": act["topics_practised"],
                      "best_day": act["best_day"]},
         "standing": stand_sum,              # overall + named exceptions
