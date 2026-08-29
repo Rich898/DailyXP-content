@@ -132,4 +132,53 @@ t("is self-contained — no fetch", "fetch(" not in html and "XMLHttpRequest" no
 t("is noindex", "noindex" in html)
 t("week 1 shows the empty trend state, not a blank", "week one" in html.lower())
 
+print("\nexcused days \u2014 our gaps are never reported as the kid's:")
+_wk = ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28"]
+_sched_by_student = {"t9": {"2026-08-27": "NOT-PUBLISHED", "2026-08-28": "ABSENT"}}
+_sched_by_date = {"2026-08-27": {"t9": "not_published"}, "2026-08-28": {"t9": "Absent"}}
+_sched_rows = {"days": [{"date": "2026-08-27", "student": "t9", "status": "NOT-PUBLISHED"},
+                        {"date": "2026-08-28", "student": "t9", "status": "ABSENT"},
+                        {"date": "2026-08-26", "student": "t9", "status": "DONE"}]}
+for label, sched in (("student-keyed", _sched_by_student),
+                     ("date-keyed", _sched_by_date), ("row-list", _sched_rows)):
+    t(f"excused_days reads the {label} shape",
+      fr.excused_days(sched, "t9", _wk) == {"2026-08-27", "2026-08-28"})
+t("missing/None schedule excuses nothing", fr.excused_days(None, "t9", _wk) == set())
+t("DONE-LATE+1 and MISSED are never excused",
+  fr.excused_days({"t9": {"2026-08-26": "DONE-LATE+1", "2026-08-27": "MISSED"}},
+                  "t9", _wk) == set())
+
+_runs3 = [run("t9", d, [q()]) for d in _wk[:3]]
+_act = fr.week_activity(_runs3, "t9", _wk, excused={"2026-08-27", "2026-08-28"})
+t("a 3-of-3 week renders 3 of 3, not 3 of 5",
+  _act["days_done"] == 3 and _act["possible"] == 3)
+t("without the record the denominator stays honest at 5",
+  fr.week_activity(_runs3, "t9", _wk)["possible"] == 5)
+_played_excused = fr.week_activity([run("t9", d, [q()]) for d in _wk], "t9", _wk,
+                                   excused={"2026-08-28"})
+t("a kid who played an excused day still counts it \u2014 possible never drops below days_done",
+  _played_excused["days_done"] == 5 and _played_excused["possible"] == 5)
+
+_prev_wk = ["2026-08-17", "2026-08-18", "2026-08-19", "2026-08-20", "2026-08-21"]
+_runs_q = ([run("t9", d, [q()]) for d in _prev_wk]          # full prior week
+           + [run("t9", d, [q()]) for d in _wk[:3]])        # 3 days this week
+_card_no_sched = fr.build_card("t9", _runs_q, [], {}, date(2026, 8, 28),
+                               prev_states={}, earned_this_week=[])
+t("fewer raw days than prior still reads quiet when nothing is excused",
+  _card_no_sched["week_word"]["word"] == "quiet")
+_card_excused = fr.build_card("t9", _runs_q, [], {}, date(2026, 8, 28),
+                              prev_states={}, earned_this_week=[],
+                              schedule=_sched_by_student)
+t("a fully-excused shortfall upgrades quiet to solid (no 'nudge the habit' for OUR hold)",
+  _card_excused["week_word"]["word"] == "solid"
+  and _card_excused["week_word"]["direction"] == "flat"
+  and _card_excused["activity"]["possible"] == 3
+  and _card_excused["activity"]["excused"] == 2)
+
+print("\nbuild stamp \u2014 every page says which render it is:")
+_html_min = rpage.render(minimal)
+t("page embeds an xpdaily-build meta stamp", 'name="xpdaily-build"' in _html_min)
+t("the stamp sits inside verify()'s 4KB window",
+  _html_min.index("xpdaily-build") < 3500)
+
 print("\n\u2713 all friday-report tests green")

@@ -29,6 +29,7 @@ link. Failure to deploy must never block the text.
 import hashlib
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -76,6 +77,17 @@ def _live_manifest(site, token):
         if p and sha:
             out["/" + str(p).lstrip("/")] = sha
     return out
+def _stamp_of(html):
+    """The page's own xpdaily-build stamp (report_page.build_stamp), or None.
+
+    Extracted from the payload we are about to upload so verify() can demand
+    THIS exact render back from the live URL. Pages without a stamp (older
+    renderers) fall back to the brand check — weaker, but never blocking.
+    """
+    m = re.search(r'name="xpdaily-build"\s+content="([^"]+)"', html)
+    return m.group(1) if m else None
+
+
 def publish(slug, html, kind="r", timeout=120):
     """Deploy one page, keeping every already-live page live. True only when VERIFIED."""
     token = os.environ.get("NETLIFY_AUTH_TOKEN")
@@ -110,14 +122,26 @@ def publish(slug, html, kind="r", timeout=120):
                   f"store and cannot be re-uploaded — deploy abandoned, site unchanged.")
             return False
         # wait for it to go ready
+        stamp = _stamp_of(html)
         deadline = time.time() + timeout
         while time.time() < deadline:
             d = _req("GET", f"/deploys/{dep['id']}", token)
             if d.get("state") == "ready":
-                if verify(url_for(slug, kind)):
-                    _session[path] = sha
-                    print(f"  netlify: deploy ready ({carried} existing page(s) carried forward)")
-                    return True
+                # "ready" is Netlify's word, not ours: a locked site / stopped
+                # auto-publishing leaves the OLD content live while every new
+                # deploy goes "ready" (the 28 Aug light-theme incident). So
+                # demand this render's own build stamp back from the live URL,
+                # retrying briefly for CDN propagation before calling it stale.
+                for attempt in range(4):
+                    if verify(url_for(slug, kind), expect=stamp):
+                        _session[path] = sha
+                        print(f"  netlify: deploy ready ({carried} existing page(s) carried forward)")
+                        return True
+                    if attempt < 3:
+                        time.sleep(4)
+                print("  netlify: deploy went ready but the LIVE page is not this "
+                      "render (stale content — check the site's published/locked "
+                      "deploy in the Netlify dashboard).")
                 return False
             if d.get("state") in ("error", "rejected"):
                 print(f"  netlify: deploy {d.get('state')}")
@@ -128,15 +152,27 @@ def publish(slug, html, kind="r", timeout=120):
     except (urllib.error.URLError, OSError, ValueError, KeyError) as e:
         print(f"  netlify: deploy failed ({type(e).__name__})")
         return False
-def verify(url):
-    """A green deploy is not a live page — fetch it and check (first-run law)."""
+def verify(url, expect=None):
+    """A green deploy is not a live page — fetch it and check (first-run law).
+
+    With `expect` (the page's own build stamp) this asserts the live URL serves
+    THE RENDER WE JUST UPLOADED, not merely "a page with our brand on it" —
+    the old check passed happily on a week-old stale page. The stamp meta sits
+    at the top of <head>, safely inside the 4KB window.
+    """
     try:
         req = urllib.request.Request(url, method="GET")
         with urllib.request.urlopen(req, timeout=30) as r:
-            ok = r.status == 200 and b"XPDAILY" in r.read(4000).upper()
-        if not ok:
-            print(f"  netlify: {url} did not verify")
+            head = r.read(4000)
+        if expect:
+            ok = r.status == 200 and expect.encode("utf-8") in head
+            if not ok:
+                print(f"  netlify: page did not verify (build stamp absent — stale or unpublished)")
+        else:
+            ok = r.status == 200 and b"XPDAILY" in head.upper()
+            if not ok:
+                print(f"  netlify: page did not verify")
         return ok
     except (urllib.error.URLError, OSError):
-        print(f"  netlify: {url} not reachable")
+        print(f"  netlify: page not reachable")
         return False

@@ -97,9 +97,16 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
     mine = (earned.get(code) or {}).get("earned", [])
     this_week = [b for b in mine if (b.get("date") or "") in days]
 
+    # Completion record: lets the activity row and week-word excuse days the
+    # pipeline didn't publish or the seat was recorded absent (either location;
+    # absent file = excuse nothing, the pre-fix behaviour).
+    schedule = (load_json(os.path.join(private_dir, "schedule.json"))
+                or load_json(os.path.join(private_dir, "work", "schedule.json")))
+
     card = fr.build_card(code, runs, topics, tmap, asof,
                          prev_states=(prev_snapshot or {}).get(code, {}),
-                         earned_this_week=this_week, baseline=baseline)
+                         earned_this_week=this_week, baseline=baseline,
+                         schedule=schedule)
     stories = rst.build_stories(private_dir, runs, plans_for(private_dir, code),
                                 code, days, topics,
                                 depth_before=(prev_snapshot or {}).get(code + "_depth", {}))
@@ -184,7 +191,10 @@ def main():
 
         card, stories, quote, acc, notes, speed, wow = build_for(
             code, asof, priv, runs, state, targets, prev_snapshot)
-        print(f"[{code}] {card['name']}: week-word={card['week_word']['word']} "
+        # PUBLIC LOG: codes only. This repo is public, so Actions logs are too —
+        # first names and per-kid report URLs are PII/access and never print here
+        # (the pre-29-Aug format leaked both; those slugs rotate as follow-up).
+        print(f"[{code}] week-word={card['week_word']['word']} "
               f"stories={len(stories)} quote={'y' if quote else 'n'} "
               f"baseline={card['baseline']}")
 
@@ -198,13 +208,17 @@ def main():
             open(out, "w").write(html)
             body, src = fsms.render_body(card, report_url, api_key=api_key,
                                          use_ai=bool(api_key))
+            # Body carries the kid's name + report URL — it goes to a preview
+            # file (collected by the workflow's dry-run artifact), never the log.
+            out_sms = os.path.join(priv, "work", f"preview_report_{code}.sms.txt")
+            open(out_sms, "w").write(body)
             print(f"  DRY-RUN page -> {out}")
-            print(f"  DRY-RUN sms  [{src}] {len(body)} chars:\n    {body}\n")
+            print(f"  DRY-RUN sms  [{src}] {len(body)} chars -> {out_sms}")
             continue
 
         live = deploy.publish(slugs[code]["report"], html, kind="r")
         if live:
-            print(f"  page LIVE: {report_url}")
+            print("  page LIVE ✓ (per-kid URL withheld from public log)")
         else:
             print("  page deploy FAILED — sending SMS without the link "
                   "(the SMS is the tier-1 report).")

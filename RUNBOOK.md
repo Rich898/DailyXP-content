@@ -157,6 +157,25 @@ returns names only) and diffing against the workflow.
    `friday_report_run.py` now hard-aborts if the parent seat is unresolved rather
    than letting `notify` fall through to any other recipient.
 
+### Gotcha #10 — `--no-sms` still DEPLOYS to the live per-kid URLs (28 Aug 2026)
+
+A supervised `--no-sms` Friday dispatch is not a rehearsal: it renders AND
+publishes real pages at the real per-kid slugs. On 27 Aug one was run from a
+branch that predated the dark repaint, putting light pages live at the
+canonical URLs the night before the real send. Rules:
+
+1. **Inspection = `--dry-run`** (renders to `private/work/preview_report_*`,
+   collected by the workflow's dry-run artifact; deploys nothing, texts
+   nothing). Use `--no-sms` only when the deploy itself is the thing under
+   test — and then only from `main`.
+2. Never run any deploying dispatch from a branch that predates a pending
+   family-facing visual change.
+3. Every page now bakes in a `xpdaily-build` stamp (commit + render time) and
+   `netlify_deploy.verify()` requires that exact stamp back from the live URL
+   — so a stale page can no longer pass as a green deploy (the 28 Aug
+   Netlify-side publish failure rode exactly that blindness). View Source →
+   `xpdaily-build` answers "which build am I looking at" in one look.
+
 ---
 
 ## Supabase scheduler + results DB (live 17 Aug 2026)

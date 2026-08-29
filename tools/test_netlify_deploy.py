@@ -143,5 +143,48 @@ class SessionCacheTests(unittest.TestCase):
         self.assertEqual(captured["manifest"]["/r/newkid/index.html"], new_sha)
 
 
+class BuildStampVerifyTests(unittest.TestCase):
+    """28 Aug 2026 regression: deploys went 'ready' while the site served a
+    stale locked deploy, and verify() — checking only 200 + the brand string —
+    waved the stale page through. verify(expect=<stamp>) closes that hole."""
+
+    STAMPED = ('<html><head><meta charset="UTF-8" />\n'
+               '<meta name="xpdaily-build" content="abc123def 2026-08-29T01:00:00Z" />'
+               '</head><body>XPDAILY</body></html>')
+
+    def test_stamp_extracted_from_payload(self):
+        self.assertEqual(nd._stamp_of(self.STAMPED),
+                         "abc123def 2026-08-29T01:00:00Z")
+
+    def test_no_stamp_is_none(self):
+        self.assertIsNone(nd._stamp_of("<html>XPDAILY</html>"))
+
+    def _fetched(self, body):
+        resp = mock.MagicMock()
+        resp.status = 200
+        resp.read.return_value = body.encode()
+        resp.__enter__ = lambda s: resp
+        resp.__exit__ = lambda s, *a: False
+        return resp
+
+    def test_verify_demands_the_exact_stamp(self):
+        stale = "<html><body>XPDAILY (last week's page)</body></html>"
+        with mock.patch.object(nd.urllib.request, "urlopen",
+                               return_value=self._fetched(stale)):
+            self.assertFalse(nd.verify("https://x/r/a/",
+                                       expect="abc123def 2026-08-29T01:00:00Z"))
+
+    def test_verify_passes_on_the_fresh_render(self):
+        with mock.patch.object(nd.urllib.request, "urlopen",
+                               return_value=self._fetched(self.STAMPED)):
+            self.assertTrue(nd.verify("https://x/r/a/",
+                                      expect="abc123def 2026-08-29T01:00:00Z"))
+
+    def test_verify_without_stamp_keeps_brand_check(self):
+        with mock.patch.object(nd.urllib.request, "urlopen",
+                               return_value=self._fetched("<html>XPDAILY</html>")):
+            self.assertTrue(nd.verify("https://x/r/a/"))
+
+
 if __name__ == "__main__":
     unittest.main()

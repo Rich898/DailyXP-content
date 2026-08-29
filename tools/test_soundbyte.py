@@ -12,7 +12,9 @@ FAILS = []
 
 
 def check(name, cond, note=""):
-    print(f"  {'\u2713' if cond else '\u2717 FAIL'} {name}" + (f" \u2014 {note}" if note and not cond else ""))
+    tick = "\u2713" if cond else "\u2717 FAIL"
+    suffix = f" \u2014 {note}" if note and not cond else ""
+    print(f"  {tick} {name}{suffix}")
     if not cond:
         FAILS.append(name)
 
