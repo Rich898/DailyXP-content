@@ -257,7 +257,9 @@ g3 = kw.game_facts(runs, "y8", days, [{"badge": "Clean Run", "date": "2026-08-10
                    topics=[{"topic": "Linear equations", "state": "developing",
                             "times_seen": 4},
                            {"topic": "Crusades", "state": "solid", "times_seen": 6}])
-t("cabinet has all eleven slots (Blitz Master retired)", len(g3["cabinet"]) == 11)
+t("cabinet mirrors achievements.py's twelve live badges "
+  "(Boss Slayer retired; Full Claim + Personal Best added)",
+  len(g3["cabinet"]) == 12)
 t("earned slots light up (Streak tiers count as the family)", g3["collected"] == 3)
 t("rank derives from level", g3["rank"]["name"] == kw.rank_for(g3["level"]["n"])[0])
 t("streak hint counts nights to the next tier",
@@ -266,7 +268,7 @@ t("streak hint counts nights to the next tier",
 t("locked-it hint names the topic at the door of solid",
   any("Linear equations" in h["line"] for h in g3["hints"]))
 page4 = kw.render(CARD, stories=STORIES, quote=QUOTE, game=g3, coaching=coach_fix)
-t("cabinet renders with the count", "COLLECTED 3 / 11" in page4)
+t("cabinet renders with the count", "COLLECTED 3 / 12" in page4)
 t("this week's unlock is stamped NEW", ">NEW<" in page4)
 
 print("\nall kid-wrap laws hold.")

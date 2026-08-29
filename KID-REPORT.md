@@ -1,6 +1,12 @@
 # KID-REPORT.md — the kid's weekly wrap
 
-**Status: brief, ratified 11 Aug 2026. Not yet built.**
+**Status: ratified 11 Aug 2026; BUILT + wired 29 Aug (W2).** `tools/kid_wrap.py`
+renders on the shell's dark design system, its cabinet reconciled to the twelve
+badges `achievements.py` actually awards (Boss Slayer retired; Full Claim +
+Personal Best added), carries the `report_page.build_stamp()` meta, and is
+deployed by `friday_report_run.py` to `/w/<slug>/` BEFORE the parent report —
+linked from the report only when the wrap verified live. Shadow on branch
+`claude/dailyxp-parent-comms-gjjo2e`; live on Rich's merge + `redeploy=true`.
 
 The third Friday surface (`REPORTING.md` surface C). The parent report judges the
 week; **this celebrates and re-arms the player.** It is the kid's own page,

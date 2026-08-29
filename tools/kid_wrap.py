@@ -52,6 +52,9 @@ import json
 import re
 from datetime import date
 
+import report_page  # noqa: E402  — build_stamp() single source of truth (the
+# stamp netlify_deploy.verify() asserts; the wrap reuses the parent page's).
+
 # --------------------------------------------------------------------------- #
 # The level curve + the rank ladder — the long arc behind the season total.
 # Deterministic, front-loaded (early levels land fast), retunable here and
@@ -135,18 +138,26 @@ def violations(text):
 # Game facts — the ADDITIVE layer (allowed here, deliberately not on the
 # parent page: motivating to a player, misleading to a parent).
 
-CABINET = ["First Blood", "Clean Run", "Locked It", "Comeback", "Full Clear",
-           "Untouchable", "Streak", "Perfect Week", "Calm Hands", "Sure Shot",
-           "Boss Slayer"]
+# THE CABINET must mirror the badges the runtime actually awards
+# (tools/achievements.py — the source of truth). Order follows that file's own
+# grouping: run-shaped, then transition, then snapshot. "Boss Slayer" retired
+# with the Blitz/boss event; "Full Claim" + "Personal Best" are the live
+# run-shaped badges it was missing. Every CABINET name needs a BADGE_ICON
+# entry (looked up strictly at render).
+CABINET = ["First Blood", "Clean Run", "Full Claim", "Personal Best",
+           "Perfect Week", "Streak", "Locked It", "Comeback", "Untouchable",
+           "Calm Hands", "Sure Shot", "Full Clear"]
 BADGE_ICON = {"First Blood": "\U0001fa78", "Clean Run": "\U0001f9ca",
+              "Full Claim": "\U0001f6a9", "Personal Best": "\U0001f4c8",
               "Locked It": "\U0001f512", "Full Clear": "\U0001f4a0",
               "Comeback": "\U0001f501", "Untouchable": "\U0001f6e1",
               "Streak": "\U0001f525", "Perfect Week": "\U0001f4c5",
-              "Calm Hands": "\U0001f9d8", "Sure Shot": "\U0001f3af",
-              "Boss Slayer": "\U0001f409"}
+              "Calm Hands": "\U0001f9d8", "Sure Shot": "\U0001f3af"}
 BADGE_ACT = {
     "First Blood": "first run ever on the board",
     "Clean Run": "a whole run — zero lucky guesses, zero confident-wrongs",
+    "Full Claim": "claimed every zone in Friday's Battleground",
+    "Personal Best": "beat your own best XP in a night",
     "Locked It": "took a topic all the way to solid",
     "Full Clear": "every live topic in a subject, solid",
     "Comeback": "pulled a topic out of REPAIR",
@@ -155,7 +166,6 @@ BADGE_ACT = {
     "Perfect Week": "all five school nights, played",
     "Calm Hands": "slowed down and landed one that used to get rushed",
     "Sure Shot": "called Sure on a repair topic — and it was",
-    "Boss Slayer": "cleared Friday's event, every slot",
 }
 STREAK_TIERS = [(3, "Bronze"), (7, "Silver"), (14, "Gold")]
 
@@ -399,10 +409,14 @@ def compose_coaching(targets, api_key=None, model=None, student_year=""):
 
 _CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap');
-:root{--paper:#F7F8F4;--ink:#101B2D;--flare:#FF4D29;--reef:#0E6BA8;--kelp:#0E8A5F;
---haze:#7A8496;--line:#D9DDD3;--bolt:#FFB800;--boltdeep:#8A5A00;--plate:#0E1B2D}
+/* Dark design system — the shell's #0B1220 radial ground + light ink, matching
+   report_page.py (commit 728ab0d). Colours only. --paper/--ink are both LIGHT
+   now (text on the dark ground and on plates); --plate/--card are the dark
+   surfaces; the gold/flare/reef/kelp accents are the shell's brightened set. */
+:root{--paper:#EAF0F7;--ink:#EAF0F7;--flare:#FF6A47;--reef:#5AA9E6;--kelp:#4FD6A0;
+--haze:#8B97AC;--line:#243247;--bolt:#FFB800;--boltdeep:#FFCF66;--plate:#0E1B2D;--card:#101F35}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:#0B1220;background-image:radial-gradient(120% 90% at 50% 2%,#16273f 0%,#0B1220 55%,#070c15 100%);background-attachment:fixed;color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-text-size-adjust:100%}
 .wrap{max-width:640px;margin:0 auto;padding:20px 16px 56px}
 .display{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em}
 .num{font-family:'Space Mono',ui-monospace,monospace;font-weight:700}
@@ -410,7 +424,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:'Space Grotes
 .top .brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
 .top .week{font-size:11px;color:var(--haze)}
 .kick{margin:22px 0 2px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.14em;color:var(--haze)}
-.kick b{color:var(--boltdeep);background:#FFF3D6;border:1.5px solid var(--bolt);border-radius:6px;padding:1px 7px;margin-right:6px}
+.kick b{color:var(--boltdeep);background:rgba(255,184,0,.14);border:1.5px solid var(--bolt);border-radius:6px;padding:1px 7px;margin-right:6px}
 h1.word{font-size:54px;line-height:1;margin:2px 0 8px;animation:heroPop .55s cubic-bezier(.2,1.3,.4,1) both}
 .strong{color:var(--kelp)}.solid{color:var(--reef)}.quiet{color:var(--haze)}.slower{color:var(--flare)}
 .sub{font-size:17px;line-height:1.45;margin:4px 0 22px;max-width:52ch}
@@ -445,61 +459,61 @@ h1.word{font-size:54px;line-height:1;margin:2px 0 8px;animation:heroPop .55s cub
 .runline{font-size:13.5px;color:#B8C0CF;margin:14px 0 0;line-height:1.5}
 /* UNLOCKS */
 .badges{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
-.badge{display:flex;align-items:center;gap:12px;border:2px solid var(--bolt);background:linear-gradient(135deg,#FFF9EB,#FFF3D6);border-radius:12px;padding:10px 13px;animation:badgePop .5s cubic-bezier(.2,1.25,.4,1) both}
+.badge{display:flex;align-items:center;gap:12px;border:2px solid var(--bolt);background:linear-gradient(135deg,rgba(255,184,0,.16),rgba(255,184,0,.07));border-radius:12px;padding:10px 13px;animation:badgePop .5s cubic-bezier(.2,1.25,.4,1) both}
 .badge .bic{font-size:24px;line-height:1}
 .badge .bnm{font-family:'Archivo Black','Arial Black',sans-serif;font-size:14px;color:var(--boltdeep)}
 .badge .bds{font-size:12.5px;color:var(--haze);margin-top:1px}
-.badge .new{margin-left:auto;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.12em;color:var(--boltdeep);background:#FFE9AE;border-radius:6px;padding:2px 7px;animation:chipPulse 2.2s ease-in-out infinite}
+.badge .new{margin-left:auto;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.12em;color:var(--boltdeep);background:rgba(255,184,0,.20);border-radius:6px;padding:2px 7px;animation:chipPulse 2.2s ease-in-out infinite}
 @keyframes badgePop{0%{opacity:0;transform:translateY(8px) scale(.94)}60%{opacity:1;transform:translateY(0) scale(1.02)}100%{transform:scale(1)}}
 @keyframes chipPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,0,.45)}50%{box-shadow:0 0 0 6px rgba(255,184,0,0)}}
-.cab{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.cab{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
 .cab .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
 .cab .hd .t{font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--haze)}
 .cab .hd .c{font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:var(--boltdeep)}
 .slots{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-.slot{text-align:center;border:1.5px solid var(--line);border-radius:10px;padding:7px 2px 5px;background:#FAFBF8}
-.slot.got{border-color:var(--bolt);background:linear-gradient(135deg,#FFF9EB,#FFF3D6)}
+.slot{text-align:center;border:1.5px solid var(--line);border-radius:10px;padding:7px 2px 5px;background:#0C1728}
+.slot.got{border-color:var(--bolt);background:linear-gradient(135deg,rgba(255,184,0,.16),rgba(255,184,0,.07))}
 .slot .i{font-size:18px;line-height:1;filter:grayscale(1);opacity:.35}
 .slot.got .i{filter:none;opacity:1}
 .slot .n{font-size:8px;letter-spacing:.02em;color:var(--haze);margin-top:3px;line-height:1.15}
 .slot.got .n{color:var(--boltdeep);font-weight:700}
 .hints{display:grid;gap:8px;margin-top:10px}
-.hint{display:flex;align-items:center;gap:10px;border:1.5px dashed var(--line);border-radius:10px;padding:8px 11px;background:#FAFBF8}
+.hint{display:flex;align-items:center;gap:10px;border:1.5px dashed var(--line);border-radius:10px;padding:8px 11px;background:#0C1728}
 .hint .i{font-size:18px}
 .hint .b{font-family:'Space Mono',monospace;font-weight:700;font-size:11px;color:var(--ink)}
 .hint .l{font-size:12px;color:var(--haze)}
-.hint .bar{margin-left:auto;flex:0 0 64px;height:6px;border-radius:99px;background:#E4E7DF;overflow:hidden}
+.hint .bar{margin-left:auto;flex:0 0 64px;height:6px;border-radius:99px;background:#26344F;overflow:hidden}
 .hint .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--bolt),var(--flare));border-radius:99px}
 /* WHAT YOU BEAT */
-.beat{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
-.tagchip{display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.1em;padding:3px 8px;border-radius:6px;margin-bottom:8px;background:#E8F4EE;color:var(--kelp)}
-.tagchip.rank{background:#FFF3D6;color:var(--boltdeep);border:1.5px solid var(--bolt)}
+.beat{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.tagchip{display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.1em;padding:3px 8px;border-radius:6px;margin-bottom:8px;background:rgba(79,214,160,.14);color:var(--kelp)}
+.tagchip.rank{background:rgba(255,184,0,.14);color:var(--boltdeep);border:1.5px solid var(--bolt)}
 .beat h3{margin:0 0 4px;font-size:17px;line-height:1.3}
-.beat p{margin:6px 0 0;font-size:14.5px;line-height:1.5;color:#3A4356}
+.beat p{margin:6px 0 0;font-size:14.5px;line-height:1.5;color:#C7D0DE}
 .stars{font-size:15px;letter-spacing:.14em;color:var(--bolt);margin-top:6px}
-.stars i{font-style:normal;color:#D9DDD3}
+.stars i{font-style:normal;color:#33415C}
 .dots{display:flex;gap:4px;margin-top:8px;align-items:center}
 .dots u{text-decoration:none;font-size:10px;color:var(--haze);margin-right:3px;letter-spacing:.08em}
-.dots i{font-style:normal;width:8px;height:8px;border-radius:99px;background:#D6D9D1;display:inline-block}
+.dots i{font-style:normal;width:8px;height:8px;border-radius:99px;background:#33415C;display:inline-block}
 .dots i.y{background:var(--kelp)} .dots i.n{background:#E8963C}
 .ladder{display:flex;gap:4px;margin-top:10px;font-size:10px;color:var(--haze);flex-wrap:wrap}
-.ladder span{padding:3px 7px;border-radius:6px;background:#EEF1EA}
+.ladder span{padding:3px 7px;border-radius:6px;background:#1C2B42}
 .ladder span.on{background:var(--kelp);color:#fff;font-weight:700}
 /* FINISHING MOVE */
-.quote{background:#fff;border:2px solid var(--line);border-left:5px solid var(--kelp);border-radius:12px;padding:15px 17px;font-size:16px;line-height:1.55;position:relative}
+.quote{background:var(--card);border:2px solid var(--line);border-left:5px solid var(--kelp);border-radius:12px;padding:15px 17px;font-size:16px;line-height:1.55;position:relative}
 .quote .attr{display:block;margin-top:9px;font-size:12px;color:var(--haze)}
-.quote .why{display:block;margin-top:8px;font-size:13.5px;color:#3A4356;line-height:1.5}
+.quote .why{display:block;margin-top:8px;font-size:13.5px;color:#C7D0DE;line-height:1.5}
 .quote .stamp{position:absolute;top:-10px;right:12px;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.1em;color:#fff;background:var(--kelp);border-radius:6px;padding:3px 8px;transform:rotate(2deg)}
 /* THE HIT LIST */
 .stalkintro{font-size:13.5px;color:var(--haze);margin:-2px 0 10px;line-height:1.5}
-.stalk{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.stalk{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
 .stalk h3{margin:0 0 4px;font-size:17px;line-height:1.3}
 .stalk .eyebrow{font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.12em;color:var(--flare)}
-.stalk p{margin:7px 0 0;font-size:14.5px;line-height:1.5;color:#3A4356}
+.stalk p{margin:7px 0 0;font-size:14.5px;line-height:1.5;color:#C7D0DE}
 .sits{margin:9px 0 0;display:flex;align-items:center;gap:9px}
 .sits .lab{font-size:11.5px;color:var(--haze)}
 .sits .lab b{color:var(--ink)}
-.trap{background:#FAFBF8;border-left:3px solid #E8963C;padding:8px 12px;margin-top:9px;font-size:13.5px;line-height:1.5}
+.trap{background:#0C1728;border-left:3px solid #E8963C;padding:8px 12px;margin-top:9px;font-size:13.5px;line-height:1.5}
 .trap b{color:var(--flare)}
 .coach{background:var(--plate);color:#E9EBE4;border-radius:10px;padding:10px 13px;margin-top:9px;font-size:14px;line-height:1.5}
 .coach .cl{font-family:'Space Mono',monospace;font-weight:700;font-size:9.5px;letter-spacing:.14em;color:var(--bolt);display:block;margin-bottom:4px}
@@ -512,15 +526,15 @@ h1.word{font-size:54px;line-height:1;margin:2px 0 8px;animation:heroPop .55s cub
 .boss p{color:#D9DEE9}
 .sure .eyebrow{color:var(--reef)}
 /* THE ONE MOVE */
-.move{background:var(--ink);color:var(--paper);border-radius:16px;padding:17px 18px;position:relative;overflow:hidden}
+.move{background:var(--plate);color:var(--paper);border-radius:16px;padding:17px 18px;position:relative;overflow:hidden}
 .move:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--bolt),#FFE08A,var(--bolt));background-size:200% 100%}
 .move .eyebrow{font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.14em;color:var(--bolt)}
 .move p{margin:8px 0 0;font-size:17px;line-height:1.5}
 .move b{color:var(--bolt)}
 /* LADDER EXPLAINER */
-.how{background:#fff;border:2px dashed var(--line);border-radius:14px;padding:12px 16px}
+.how{background:var(--card);border:2px dashed var(--line);border-radius:14px;padding:12px 16px}
 .how summary{cursor:pointer;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--reef)}
-.how p{margin:10px 0 0;font-size:13.5px;line-height:1.55;color:#3A4356}
+.how p{margin:10px 0 0;font-size:13.5px;line-height:1.55;color:#C7D0DE}
 .foot{margin-top:26px;font-size:12.5px;color:var(--haze);line-height:1.6;border-top:2px solid var(--line);padding-top:14px}
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
 .rv.in{opacity:1;transform:none}
@@ -961,14 +975,16 @@ def render(card, stories=None, quote=None, game=None, coaching=None):
     game = game or {}
     name = card["name"].split()[0]
     week = card.get("week_of", "")
+    stamp = report_page.build_stamp()
 
     page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="xpdaily-build" content="{_e(stamp)}" />
 <meta name="robots" content="noindex, nofollow" />
-<meta name="theme-color" content="#F7F8F4" />
+<meta name="theme-color" content="#0B1220" />
 <title>XPDaily — {_e(name)}'s wrap</title>
 <style>{_CSS}</style>
 </head>

@@ -110,7 +110,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: report-previews
-          path: private/work/preview_report_*
+          path: private/work/preview_*
           retention-days: 7
           if-no-files-found: warn
 
