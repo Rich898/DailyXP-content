@@ -237,7 +237,7 @@ navy `#101B2D`, Space Grotesk body, Space Mono data labels, Archivo Black week-w
 | **Per-run plans** | `plans/<seat>/<date>.json`, **private repo** | The planner's persisted question→topic join for each run — how the state writer knows which topic each answer belongs to. |
 | **Live quiz sets** | `y8.json` / `y9.json` / `t1.json`, **public repo** | Tonight's actual quizzes, fetched by the shells. |
 | **The shells / hosted pages** | Netlify (3 quiz sites + report + wrap pages) | What the family actually touches. |
-| **Schedule + dispatch log** | Supabase `xp_schedule` (11 slots **[VERIFY current inventory]**), `xp_dispatch_log` | The clock and its receipt trail. |
+| **Schedule + dispatch log** | Supabase `xp_schedule` (14 slots: `daily-quiz`, `kid-nudge`, `soundbyte-1/2/3`, `wed-checkin-early/-cutoff`, `friday-report-2035/-2105/-2145/-0730-sat`, `watchdog-early/-late/-friday`), `xp_dispatch_log` | The clock and its receipt trail. |
 | **Doctrine & specs** | **public repo**: `SEASONS.md`, `REPORTING.md`, `UNDERSTANDING.md`, `CONTENT-MODEL.md`, `EXAM-MODE.md`, `QUIZ-GENERATION.md`, `DAILY-PUBLISHING.md`, `SWEEP.md`, `ROADMAP.md`, `LEDGER-RULES.md`, `ONBOARDING.md`, `RUNBOOK.md` | The written law. The QA skill should treat these as the spec of record. |
 | **Secrets** | GitHub Actions secrets (content repo) + Supabase keys | Anthropic key, `DAILYXP_TOKEN` (fine-grained PAT scoped to both repos), Netlify secrets, Supabase `sb_publishable` / `sb_secret` (apikey header, not Bearer). Never in code; the public repo is grep-guarded for names/scores/secrets before pushes. |
 | **What holds no state** | The LLMs | By law. If it matters tomorrow, it's in git or Supabase tonight. |
@@ -251,10 +251,10 @@ navy `#101B2D`, Space Grotesk body, Space Mono data labels, Archivo Black week-w
 | Weekly (weekend, manual) | Rich kicks off a Claude session | Canvas sweep → new targets file → topic seeding |
 | School days ~2:00 PM | pg_cron → `workflow_dispatch` | The 7-step build: ingest → state → depth → plan → compose → review → validate/publish |
 | School days ~4:00 PM | pg_cron → `workflow_dispatch` | Kid nudge SMS (suppressed for placeholder seats) + operator confirmation |
-| Evenings (polling slots + cursor) | GitHub schedule + dispatch | Parent daily soundbyte — each completion texted once |
-| Wed 18:25 AEST | GitHub cron | Wednesday check-in SMS |
-| Fri 20:35 AEST (21:05 catch-up) | GitHub cron, polled + cursor-deduped → `friday-report.yml` | Kid wrap deploy → parent report page deploy → Friday parent SMS |
-| 17:35 + 21:50 school days, 22:05 Fri | GitHub cron (`watchdog.yml`) | Watchdog — verifies each comms rung actually fired |
+| Evenings 18:30 / 20:00 / 21:30 (cursor) | pg_cron → `workflow_dispatch` (GitHub cron backup) | Parent daily soundbyte — each completion texted once |
+| Wed 18:25 + 20:25 AEST | pg_cron → `workflow_dispatch` (GitHub cron backup) | Wednesday check-in SMS (18:25 poll + 20:25 cutoff) |
+| Fri 20:35 / 21:05 / 21:45 + Sat 07:30 AEST | pg_cron → `friday-report.yml` (GitHub cron backup), cursor-deduped | Kid wrap deploy → parent report page deploy → Friday parent SMS; the four-rung ladder retries a dropped or 401'd first fire |
+| 17:35 + 21:50 school days, 22:05 Fri | pg_cron → `watchdog.yml` (GitHub cron backup) | Watchdog — verifies each comms rung actually fired |
 | Weekly, incl. holidays (two cron slots + manual dispatch) | GitHub's own cron (`heartbeat.yml`) | Supabase keep-alive poke — confirmed present and armed; Pro tier makes it belt-and-braces |
 | Backup — 04:00 UTC daily | GitHub Actions cron with `--skip-if-published` | Re-runs the daily build; no-op if the primary published, real retry on failure or HOLD |
 
@@ -370,8 +370,10 @@ Five items were closed against the live repo on 24 Aug (soundbyte trigger, heart
 completion-record path, routing/config location, backup-cron status). Still open — each is one
 grep or one SQL query in a hands-on session:
 
-1. Exact current `xp_schedule` slot inventory in Supabase (2 pm and 4 pm confirmed; which
-   job holds the remaining slot or slots).
+1. ~~Exact current `xp_schedule` slot inventory in Supabase.~~ **RESOLVED 29 Aug** (W1):
+   14 slots — `daily-quiz` 14:00, `kid-nudge` 16:00, `soundbyte-1/2/3` 18:30/20:00/21:30,
+   `wed-checkin-early/-cutoff` 18:25/20:25, `friday-report-2035/-2105/-2145` 20:35/21:05/21:45
+   + `friday-report-0730-sat` Sat 07:30, `watchdog-early/-late/-friday` 17:35/21:50/22:05.
 2. Whether the Google Sheets exit fully completed (Sheet, Apps Script deployments, and the
    two Google secrets deleted from Actions).
 3. Where achievement/badge state is persisted (ledger vs. run record vs. elsewhere).
