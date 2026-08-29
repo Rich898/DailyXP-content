@@ -31,6 +31,10 @@ on:
         description: "deploy the page but don't text"
         type: boolean
         default: false
+      redeploy:
+        description: "re-render + re-deploy pages for an already-sent week (no SMS, no cursor/snapshot writes) — the stale-page recovery button"
+        type: boolean
+        default: false
 
 concurrency:
   group: friday-report
@@ -93,6 +97,7 @@ jobs:
           [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
           [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
           [ "${{ github.event.inputs.no_sms }}" = "true" ] && ARGS="$ARGS --no-sms"
+          [ "${{ github.event.inputs.redeploy }}" = "true" ] && ARGS="$ARGS --redeploy"
           echo "friday_report_run $ARGS"
           python tools/friday_report_run.py $ARGS
 

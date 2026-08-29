@@ -176,6 +176,30 @@ canonical URLs the night before the real send. Rules:
    Netlify-side publish failure rode exactly that blindness). View Source →
    `xpdaily-build` answers "which build am I looking at" in one look.
 
+### Gotcha #11 — Netlify lowercases paths; mixed-case slugs can never replace themselves (29 Aug 2026)
+
+The 28 Aug light-theme incident's true root cause (Netlify itself was healthy —
+auto-publish on, nothing locked). Netlify normalises every URL path to
+lowercase and its files API lists live pages under lowercase paths; our report
+slugs were mixed-case `token_urlsafe`. So from the moment carry-forward
+deploys began re-listing live pages (the 21 Aug fix), every manifest contained
+the OLD page at its lowercase path AND the new render at a mixed-case path —
+one normalised path, two entries, and the stale one won. Consequence: **a page
+only ever landed when it was NEW to the site.** Thursday's run *added* y8/y9
+(wiped in the 21 Aug incident) — light builds that then looked "fresh" — while
+t1 served its 21 Aug survivor through every green deploy since; verify()'s
+brand-string check waved all of it through.
+
+Fixes (all in `netlify_deploy.py` + `friday_report_run.py`): every path and
+URL is lowercased at use; the live-manifest read-back lowercases its keys; new
+slugs generate as `token_hex` (naturally lowercase); the build-stamp verify
+(Gotcha #10) would now fail such a deploy loudly at send time. Recovery
+button: dispatch **Friday report** with `redeploy=true` — re-renders and
+re-deploys the already-sent week's pages with no SMS and no private-state
+writes. The 21-Aug lesson generalised: the carry-forward fix INTRODUCED this
+bug — any fix that re-lists live state must speak the platform's canonical
+form.
+
 ---
 
 ## Supabase scheduler + results DB (live 17 Aug 2026)

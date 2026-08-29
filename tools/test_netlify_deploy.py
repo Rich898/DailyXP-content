@@ -54,6 +54,9 @@ class PublishGuardTests(unittest.TestCase):
 class ManifestCarryForwardTests(unittest.TestCase):
     """The regression test for the outage."""
 
+    def setUp(self):
+        nd._session.clear()   # module-level cache — isolate tests from each other
+
     def _run_publish(self, live_files, extra_env=None, verify_ok=True):
         html = "<html>XPDAILY page</html>"
         new_sha = _sha1(html)
@@ -141,6 +144,67 @@ class SessionCacheTests(unittest.TestCase):
             self.assertTrue(nd.publish("newkid", html))
         self.assertEqual(captured["manifest"]["/r/earlier/index.html"], "eee")
         self.assertEqual(captured["manifest"]["/r/newkid/index.html"], new_sha)
+
+
+class CaseNormalisationTests(unittest.TestCase):
+    """28 Aug 2026 root cause: Netlify lowercases paths, our slugs were
+    mixed-case. The carry-forward manifest re-listed the live page under its
+    lowercase path while publish() added the replacement under a MIXED-case
+    path — two entries, one normalised path, and the stale one won. Pages
+    only ever landed when NEW to the site."""
+
+    def setUp(self):
+        nd._session.clear()   # module-level cache — isolate tests from each other
+
+    def _capture_publish(self, slug, live_files):
+        html = "<html>XPDAILY page</html>"
+        new_sha = _sha1(html)
+        captured = {}
+
+        def fake_req(method, path, token, data=None, ctype="application/json", raw=False):
+            if method == "GET" and path.endswith("/files"):
+                return live_files
+            if method == "POST" and path.endswith("/deploys"):
+                captured["manifest"] = dict(data["files"])
+                return {"id": "dep1", "required": [new_sha]}
+            if method == "PUT":
+                captured["put"] = path
+                return None
+            if method == "GET" and "/deploys/" in path:
+                return {"state": "ready"}
+            raise AssertionError(f"unexpected request {method} {path}")
+
+        env = {"NETLIFY_AUTH_TOKEN": "t", "NETLIFY_SITE_ID": "s"}
+        with mock.patch.dict(os.environ, env, clear=True), \
+             mock.patch.object(nd, "_req", side_effect=fake_req), \
+             mock.patch.object(nd, "verify", return_value=True), \
+             mock.patch.object(nd.time, "sleep", return_value=None):
+            result = nd.publish(slug, html, kind="r")
+        return result, captured, new_sha
+
+    def test_mixed_case_slug_replaces_its_live_lowercase_page(self):
+        # The exact Friday shape: t1's live page listed lowercase, publish
+        # called with the mixed-case slug. The manifest must contain exactly
+        # ONE entry for that page — lowercase, carrying the NEW sha.
+        live = [{"path": "/r/akqqibfftbrt/index.html", "sha": "old_light_sha"}]
+        result, captured, new_sha = self._capture_publish("AKqqiBFftBrt", live)
+        self.assertTrue(result)
+        manifest = captured["manifest"]
+        self.assertEqual(manifest["/r/akqqibfftbrt/index.html"], new_sha)
+        self.assertNotIn("/r/AKqqiBFftBrt/index.html", manifest)
+        self.assertEqual(len(manifest), 1)
+
+    def test_live_manifest_keys_are_lowercased(self):
+        with mock.patch.dict(os.environ, {}, clear=True), \
+             mock.patch.object(nd, "_req", return_value=[
+                 {"path": "/r/MiXeD/index.html", "sha": "abc"}]):
+            self.assertEqual(nd._live_manifest("s", "t"),
+                             {"/r/mixed/index.html": "abc"})
+
+    def test_url_for_is_lowercase(self):
+        with mock.patch.dict(os.environ, {"DAILYXP_REPORTS_BASE": "https://x.example"}, clear=True):
+            self.assertEqual(nd.url_for("AKqqiBFftBrt", "r"),
+                             "https://x.example/r/akqqibfftbrt/")
 
 
 class BuildStampVerifyTests(unittest.TestCase):

@@ -19,26 +19,31 @@ sent. Thursday's supervised `--no-sms` run (33062022680, from the pre-repaint
 branch) had deployed **light** pages to the **same three stable URLs** 24 hours
 earlier.
 
-**But the site never served Friday's pages.** Rich checked all three URLs after a
-hard refresh: still light. And the deploy logs corroborate it: Friday's read-back
-of the live file list was *smaller* than what Thursday's deploys should have left
-— the published deploy is not following new "ready" deploys. That is
-Netlify-side publish behaviour (a locked/pinned deploy or stopped
-auto-publishing), not our render or send code.
+**But the site never served Friday's pages — and the cause was OURS, not
+Netlify's** *(root cause corrected 29 Aug after a read-only dashboard + live-page
+inspection: auto-publishing on, nothing locked, the newest deploy Published).*
+Netlify lowercases every URL path, and its files API lists live pages under
+lowercase paths; our slugs were mixed-case. So every carry-forward deploy
+since the 21 Aug fix listed the OLD page at its lowercase path *and* the new
+render at a mixed-case path — one normalised path, two entries, stale wins.
+**A page only ever landed when it was NEW to the site.** Thursday's run *added*
+y8/y9 (wiped on 21 Aug) as light builds; t1 kept serving its 21 Aug survivor
+through every green deploy since. No dark render was ever served, which from
+the outside looks exactly like "the repaint never shipped".
 
 **Why the pipeline couldn't see it:** `netlify_deploy.verify()` checks only
-HTTP 200 + the string "XPDAILY" in the first 4KB. The stale light page passes
-both. A green tick that cannot distinguish the page it just uploaded from last
-week's page is the same "green tick lies" class as the 26 Aug dispatch outage —
-this is the fourth instance of that class.
+HTTP 200 + the string "XPDAILY" in the first 4KB. The stale light page
+passes both. A green tick that cannot distinguish the page it just uploaded
+from last week's page is the same "green tick lies" class as the 26 Aug
+dispatch outage — the fourth instance of that class.
 
 ### Fixes (first items of the build order, §10)
 
-1. **Owner, 60 seconds, dashboard:** Netlify → xpdaily-reports site → **Deploys**.
-   Look for a "Auto publishing is stopped" banner or a padlock on a specific
-   deploy. If present: unlock / Start auto publishing, then click the newest
-   deploy (28 Aug ~20:36 AEST) → **Publish deploy**. All three pages go dark
-   instantly — the dark deploys are already sitting there.
+1. **Case normalisation (code, DONE):** every deploy path, URL and manifest key
+   is lowercased at use; new slugs generate lowercase (`token_hex`). A
+   redeploy now REPLACES its live page. Recovery button added: dispatch the
+   Friday workflow with `redeploy=true` to re-render + re-deploy an
+   already-sent week (no SMS, no cursor/snapshot writes).
 2. **Build stamp (code):** every family-facing page embeds
    `<meta name="xpdaily-build" content="{GITHUB_SHA} {utc-time}">` plus a tiny
    footer stamp. "Which version am I looking at" is never a mystery again.

@@ -45,8 +45,18 @@ def base_url():
     site = os.environ.get("NETLIFY_SITE_NAME", "xpdaily-reports")
     return f"https://{site}.netlify.app"
 def url_for(slug, kind="r"):
-    """kind: 'r' parent report, 'w' kid wrap."""
-    return f"{base_url()}/{kind}/{slug}/"
+    """kind: 'r' parent report, 'w' kid wrap.
+
+    LOWERCASE IS LAW here. Netlify normalises every URL path to lowercase
+    (mixed-case requests 301 to the lowercase path), and its files API lists
+    live pages under lowercase paths. Our slugs were mixed-case
+    (token_urlsafe), so from 21 Aug (when carry-forward started re-listing
+    live pages) to 28 Aug every redeploy carried the OLD page under its
+    lowercase path while adding the NEW one under a mixed-case path — the two
+    collided at Netlify's normalisation and the old page kept winning: pages
+    only ever landed when NEW to the site. That is the whole light-theme
+    incident. Everything here now speaks lowercase so a redeploy REPLACES."""
+    return f"{base_url()}/{kind}/{slug}/".lower()
 def _req(method, path, token, data=None, ctype="application/json", raw=False):
     url = path if path.startswith("http") else f"{API}{path}"
     body = data if raw else (json.dumps(data).encode() if data is not None else None)
@@ -75,7 +85,10 @@ def _live_manifest(site, token):
         p = f.get("path") or f.get("id") or ""
         sha = f.get("sha")
         if p and sha:
-            out["/" + str(p).lstrip("/")] = sha
+            # lowercase = Netlify's canonical form; see url_for. Without this,
+            # a live page and its own replacement can coexist in one manifest
+            # under two casings — and the stale one wins.
+            out["/" + str(p).lstrip("/").lower()] = sha
     return out
 def _stamp_of(html):
     """The page's own xpdaily-build stamp (report_page.build_stamp), or None.
@@ -97,7 +110,7 @@ def publish(slug, html, kind="r", timeout=120):
         return False
     payload = html.encode("utf-8")
     sha = hashlib.sha1(payload).hexdigest()
-    path = f"/{kind}/{slug}/index.html"
+    path = f"/{kind}/{slug}/index.html".lower()   # lowercase is law — see url_for
     live = _live_manifest(site, token)
     if live is None:
         print("  netlify: refusing to deploy without the live file list — a "

@@ -57,14 +57,19 @@ def week_of(d):
 
 def slugs_for(private_dir, codes):
     """Stable per-kid unguessable path segments. Generated once, then reused so
-    a parent's bookmark keeps working; stored private, never in the public repo."""
+    a parent's bookmark keeps working; stored private, never in the public repo.
+
+    New slugs are token_hex — naturally lowercase (72 bits) — because Netlify's
+    paths are case-normalised and mixed-case slugs caused the 28 Aug stale-page
+    collision (see netlify_deploy.url_for). Existing mixed-case slugs keep
+    working: every layer lowercases them at use, and mixed-case links 301."""
     import secrets
     p = os.path.join(private_dir, SLUGS)
     data = load_json(p, {}) or {}
     changed = False
     for c in codes:
         if c not in data:
-            data[c] = {"report": secrets.token_urlsafe(9), "wrap": secrets.token_urlsafe(9)}
+            data[c] = {"report": secrets.token_hex(9), "wrap": secrets.token_hex(9)}
             changed = True
     if changed:
         os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -158,7 +163,14 @@ def main():
     ap.add_argument("--student", help="one player (default: all active)")
     ap.add_argument("--dry-run", action="store_true", help="build + render, no deploy, no SMS")
     ap.add_argument("--no-sms", action="store_true", help="deploy but don't text")
+    ap.add_argument("--redeploy", action="store_true",
+                    help="re-render + re-deploy the pages for an ALREADY-SENT week: "
+                         "ignores the sent-cursor no-op, forces --no-sms, and touches "
+                         "no private state (no cursor, no snapshot). The recovery "
+                         "button for a bad/stale live page after the texts went out.")
     a = ap.parse_args()
+    if a.redeploy:
+        a.no_sms = True
 
     asof = dt.date.fromisoformat(a.date)
     priv = a.private_dir
@@ -181,7 +193,7 @@ def main():
 
     sent, skipped = [], []
     for code in codes:
-        if cursor.get(code) == wk:
+        if cursor.get(code) == wk and not a.redeploy:
             print(f"[{code}] already sent for week {wk} — no-op.")
             skipped.append(code)
             continue
@@ -245,7 +257,7 @@ def main():
             continue
         _send_and_mark(code, body, cursor, wk, sent, skipped)
 
-    if not a.dry_run:
+    if not a.dry_run and not a.redeploy:
         cp = os.path.join(priv, CURSOR)
         os.makedirs(os.path.dirname(cp), exist_ok=True)
         json.dump(cursor, open(cp, "w"), indent=2)
