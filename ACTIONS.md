@@ -11,9 +11,9 @@ hands or say-so · 🟠 READY — Claude builds it next session on the go-ahead 
 
 **29 Aug 2026 — alignment recorded:** Rich read the proposal (the "Full
 Picture" page) and is aligned on decisions 1–8. Formal doctrine amendments
-land with each build, not before. Next session's workstream:
-**KID-WRAP-BRIEF.md** (B2). B1 is approved and mapped, executes after or
-alongside it.
+land with each build, not before. **The execution plan for the whole program
+is `PARENT-COMMS-BUILD-BRIEF.md`** — fresh sessions boot from it (work items
+W1–W8; each session asks Rich which item today).
 
 ---
 
@@ -39,7 +39,7 @@ alongside it.
 | # | Action | Owner | Status |
 |---|---|---|---|
 | B1 | **Friday/Wednesday sends move to pg_cron** (Supabase `xp_schedule` rows; GitHub crons demoted to cursor-guarded backup). GitHub *skipped all three* Friday crons on 28 Aug — the send only happened because Rich pressed the button. Also fixes the 4 Oct DST hour-shift before it hits parent sends. **APPROVED 29 Aug ("lets do B1"); no Supabase changes made yet.** Mapped and ready: rows follow the `(job, workflow, local_time, days int[])` convention, ISO dow, one row per slot with distinct job names — wed-checkin Wed 18:25 + 20:25 `{3}`; friday-report Fri 20:35/21:05/21:45 `{5}` + Sat 07:30 `{6}`; verify end-to-end with a temporary test row (cursor makes a same-week dispatch a safe no-op), then delete it. | Claude | 🟠 approved |
-| B2 | **Kid wrap chain** — **BRIEFED: `KID-WRAP-BRIEF.md` is the bootstrap for a fresh session.** Dark repaint + cabinet reconcile (drop Boss Slayer; add Full Claim, Personal Best) + build stamp + wire deploy in `friday_report_run` (today `kid_wrap_url=None` at line 215 — kids' earned badges have NO weekly surface; transparency-law breach in practice). Ships to all seats via `redeploy=true` after merge, no waiting for Friday. | Claude | 🟠 next session |
+| B2 | **Kid wrap chain** — work item **W2 in `PARENT-COMMS-BUILD-BRIEF.md`**. Dark repaint + cabinet reconcile (drop Boss Slayer; add Full Claim, Personal Best) + build stamp + wire deploy in `friday_report_run` (today `kid_wrap_url=None` at line 215 — kids' earned badges have NO weekly surface; transparency-law breach in practice). Ships to all seats via `redeploy=true` after merge, no waiting for Friday. | Claude | 🟠 briefed |
 | B3 | **Watchdog rung for pages:** after each scheduled publish, watchdog asserts the live page's build stamp — publish-layer failures alert instead of waiting for a parent to notice. | Claude | 🟠 (after A10) |
 | B4 | **Slug rotation:** the current report slugs leaked into public Actions logs (pre-A4 runs), so they're burned. Rotate in private `report_slugs.json` (new slugs auto-generate lowercase `token_hex`, permanently immune to A11's collision) + redeploy + re-send links. Sequence BEFORE any "bookmark this" text. | Claude (needs private repo access) | 🟠 |
 | B5 | **"Bookmark this" text to each family** — delivers "always available" for zero build. Only after B4. | Claude drafts, **Rich approves copy** | ⏳ B4 |
