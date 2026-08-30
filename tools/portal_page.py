@@ -9,19 +9,21 @@ become pointers; the portal becomes the product. The accumulating history is the
 switching cost: cancelling stops the map of THIS kid's misconceptions,
 calibration and depth from growing.
 
-STRUCTURE (top to bottom = the three questions):
-  1. NOW           per subject: current class focus + the assessment radar.
-  2. THIS WEEK     the sweep diff (NEW OR CHANGED, never the whole file) + what
-                   his sets are doing about it — Monday's content as a PULL.
-  3. SUBJECT CARDS per-topic position AND depth, side by side. This is where the
-                   founding insight finally renders: solid recall x shallow depth
-                   -> "strong recall; hasn't yet shown he can explain it" —
-                   confidently shallow, on a page, per topic.
-  4. TERM TRENDS   from the weekly snapshots — switches on at 4+ weeks, and says
-                   so rather than faking a trend before then.
-  5. ARCHIVE       past Friday reports (dated paths; the bare slug serves latest).
-  6. FOOTER        the verdict-ladder legend, an "updated {date}" stamp, build
-                   stamp.
+STRUCTURE — the THREE parts of the parent report, time-phased, on one page:
+  1. THE WEEK AHEAD      (Monday, forward)  what each subject is covering this
+                         week + one assessment date. From monday_brief.week_ahead.
+                         The Monday SMS is a thin POINTER to this panel.
+  2. THIS WEEK           (Friday, backward) what happened: the subject spine
+                         (report_stories.subject_blocks, rendered by report_page)
+                         — so Monday's plan and Friday's resolution share one
+                         shape. The founding "confidently shallow" cross renders
+                         in the running picture below.
+  3. THE RUNNING PICTURE (Friday, cumulative) where each subject stands
+                         term-to-date, this week folded in: the landed tally, the
+                         per-topic position + depth cards, and term trends
+                         (switch on at 4+ weeks; say so before then).
+  + ARCHIVE  past Friday reports (dated paths; the bare slug serves latest).
+  + FOOTER   the verdict-ladder legend, an "updated {date}" stamp, build stamp.
 
 PORTAL LAWS (PARENT-COMMS-V2 §5, to ratify):
   * FRESHNESS CONTRACT. Judgment-shaped facts (positions, depth, trends)
@@ -58,6 +60,19 @@ _DEEP_DEPTH = {"connects", "applies"}
 _CSS = rp._CSS + """
 /* portal-specific */
 .updated{font-size:11px;color:var(--haze);letter-spacing:.04em}
+.section .when{font-weight:400;letter-spacing:.04em;color:var(--haze);text-transform:none}
+/* component 1 — THE WEEK AHEAD */
+.wa-grid{display:grid;gap:9px}
+.wa-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 15px}
+.wa-row .s{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.03em;color:var(--reef)}
+.wa-row .wa-unit{font-family:'Space Grotesk',sans-serif;text-transform:none;letter-spacing:0;color:var(--haze);font-size:12.5px;font-weight:400}
+.wa-intent{font-size:15px;line-height:1.4;margin-top:4px}
+.wa-chips{margin-top:6px}
+.wa-chips .chip{display:inline-block;font-size:12px;background:#123528;color:var(--kelp);border-radius:99px;padding:2px 9px;margin:4px 6px 0 0}
+.wa-hedge{font-size:12.5px;color:#E7B24A;margin-top:6px;line-height:1.4}
+.wa-assess{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:12px;padding:12px 15px;margin-top:9px;font-size:14.5px;line-height:1.45}
+.wa-assess .k{font-size:10px;letter-spacing:.12em;color:var(--haze);font-weight:700;margin-right:4px}
+.tw-soon,.trend.soon{color:var(--haze);font-size:14px;line-height:1.5;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
 .now-grid{display:grid;gap:9px}
 .now-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 15px}
 .now-row .s{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.03em;color:var(--reef)}
@@ -137,25 +152,6 @@ def subject_cards(topics):
     return cards
 
 
-def now_rows(subjects_block, radar):
-    """Per-subject current class focus (live targets) + the assessment radar (V2
-    §5.1). Focus lists the topics the school currently has live; the radar line
-    attaches to its subject."""
-    rows = []
-    radar_subj = (radar or {}).get("subject")
-    for subj in sorted(subjects_block or {}):
-        block = subjects_block[subj] or {}
-        live = [t.get("topic") for t in block.get("topics", [])
-                if t.get("status") == "live"]
-        unit = block.get("unit") or block.get("module") or block.get("current_unit")
-        assess = None
-        if radar and radar_subj == subj and radar.get("date"):
-            assess = {"task": radar.get("task"), "date": radar.get("date"),
-                      "days": radar.get("days")}
-        if live or unit or assess:
-            rows.append({"subject": subj, "unit": unit, "focus": live[:4],
-                         "assess": assess})
-    return rows
 
 
 def term_trends(snapshots, min_weeks=4):
@@ -196,20 +192,44 @@ def term_trends(snapshots, min_weeks=4):
     return {"weeks": len(series), "rows": rows}
 
 
+def _cumulative(cards):
+    """Per-subject landed-of-total, folding this week in — the running tally the
+    RUNNING PICTURE leads with. `landed` = developing/solid."""
+    _LANDED = {"developing", "solid"}
+    out = []
+    for c in cards:
+        total = len(c["rows"])
+        landed = sum(1 for r in c["rows"] if r.get("state") in _LANDED)
+        out.append({"subject": c["subject"], "landed": landed, "total": total})
+    return out
+
+
 def build_portal(name, week_of, topics, subjects_block, radar,
-                 this_week=None, snapshots=None, archive=None, updated=None):
-    """Assemble the full portal data structure from already-computed facts.
-    `this_week` = {"new_or_changed": [topic...], "intent": str} (Monday's diff,
-    or the honest continuation form). `archive` = [{"week","url"}] newest-first.
+                 week_ahead=None, this_week_blocks=None, this_week_fluency=None,
+                 snapshots=None, archive=None, updated=None):
+    """Assemble the portal — the THREE-part parent report on one always-current
+    page (PARENT-COMMS-V2 §1/§5):
+
+      week_ahead        component 1 (Monday, forward): monday_brief.week_ahead()
+                        output {rows, assessment, subjects}.
+      this_week_blocks  component 2 (Friday, backward): report_stories
+                        .subject_blocks() — what happened, the subject spine.
+      running           component 3 (Friday, cumulative): where each subject
+                        stands term-to-date (subject cards + landed tally +
+                        term trends), this week folded in.
+
+    All three derive from already-computed facts. `archive` = [{"week","url"}]
+    newest-first.
     """
+    cards = subject_cards(topics)
     return {
         "name": name.split()[0] if name else "",
         "week_of": week_of,
         "updated": updated or _dt.date.today().isoformat(),
-        "now": now_rows(subjects_block, radar),
-        "this_week": this_week or {},
-        "subjects": subject_cards(topics),
-        "trends": term_trends(snapshots or []),
+        "week_ahead": week_ahead or {},
+        "this_week": {"blocks": this_week_blocks or [], "fluency": this_week_fluency},
+        "running": {"cards": cards, "cumulative": _cumulative(cards),
+                    "trends": term_trends(snapshots or [])},
         "archive": archive or [],
     }
 
@@ -217,40 +237,64 @@ def build_portal(name, week_of, topics, subjects_block, radar,
 # --------------------------------------------------------------------------- #
 # Rendering
 
-def _now_section(rows):
-    if not rows:
+def _week_ahead_section(wa):
+    """Component 1 — THE WEEK AHEAD (Monday, forward). Per subject: what class is
+    on + what his sets are covering (NEW flagged), plus one assessment line.
+    Refreshed Monday; a stale panel on a pull page is forgivable."""
+    rows = (wa or {}).get("rows") or []
+    assessment = (wa or {}).get("assessment")
+    if not rows and not assessment:
         return ""
     out = []
     for r in rows:
-        unit = f"<div class='f'>{_e(r['unit'])}</div>" if r.get("unit") else ""
-        focus = ""
-        if r.get("focus"):
-            focus = "<div class='a'>Working on: <b>" + _e(" · ".join(r["focus"])) + "</b></div>"
-        assess = ""
-        a = r.get("assess")
-        if a:
-            when = ("this week" if (a.get("days") or 99) <= 7 else
-                    f"in {a['days']} days" if a.get("days") is not None else a.get("date"))
-            assess = (f"<div class='a'>Coming up: <b>{_e(a.get('task'))}</b> — {_e(when)}</div>")
-        out.append(f"<div class='now-row'><div class='s'>{_e(r['subject'])}</div>"
-                   f"{unit}{focus}{assess}</div>")
-    return ("<div class='section'>NOW</div>"
-            f"<div class='now-grid'>{''.join(out)}</div>")
+        unit = f"<span class='wa-unit'>{_e(r['unit'])}</span>" if r.get("unit") else ""
+        newchips = "".join(f"<span class='chip'>new: {_e(t)}</span>" for t in r.get("new", []))
+        intent = f"<div class='wa-intent'>{_e(r.get('intent',''))}</div>" if r.get("intent") else ""
+        hedge = ("<div class='wa-hedge'>Confirming this subject's page for your "
+                 "teacher — treat as a guide this week.</div>" if r.get("hedged") else "")
+        out.append(f"<div class='wa-row'><div class='s'>{_e(r['subject'])} {unit}</div>"
+                   f"{intent}<div class='wa-chips'>{newchips}</div>{hedge}</div>")
+    assess_html = ""
+    if assessment and assessment.get("date"):
+        when = _friendly_date(assessment.get("date"), assessment.get("days"))
+        assess_html = ("<div class='wa-assess'><span class='k'>ONE DATE</span> "
+                       f"<b>{_e(assessment.get('task'))}</b> — {_e(when)}. His sets are "
+                       "already steering practice toward it.</div>")
+    return ("<div class='section'>THE WEEK AHEAD <span class='when'>· updated Monday</span></div>"
+            f"<div class='wa-grid'>{''.join(out)}</div>{assess_html}")
 
 
-def _this_week_section(tw):
-    if not tw:
-        return ""
-    nc = tw.get("new_or_changed") or []
-    intent = tw.get("intent")
-    if not nc and not intent:
-        return ""
-    chips = "".join(f"<span class='chip'>{_e(t)}</span>" for t in nc)
-    nc_html = (f"<div class='nc'><span class='k'>NEW OR CHANGED THIS WEEK</span><br>{chips}</div>"
-               if chips else "")
-    intent_html = f"<div class='intent'>{_e(intent)}</div>" if intent else ""
-    return ("<div class='section'>THIS WEEK</div>"
-            f"<div class='tw'>{nc_html}{intent_html}</div>")
+def _friendly_date(iso, days=None):
+    try:
+        d = _dt.date.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return iso or ""
+    txt = d.strftime("%A %-d %B") if hasattr(d, "strftime") else iso
+    if isinstance(days, int) and 0 <= days <= 7:
+        return f"{txt} (this week)"
+    return txt
+
+
+def _this_week_section(this_week, name):
+    """Component 2 — THIS WEEK, WHAT HAPPENED (Friday, backward). The subject
+    spine, rendered by report_page's per-block renderer so Monday's plan and
+    Friday's resolution share one shape. Placeholder until Friday's run."""
+    blocks = (this_week or {}).get("blocks") or []
+    fluency = (this_week or {}).get("fluency")
+    if not blocks:
+        return ("<div class='section'>THIS WEEK <span class='when'>· updated Friday</span></div>"
+                "<div class='tw-soon'>This week's report lands Friday evening — what "
+                "each subject actually worked, where it landed, and the one thing worth "
+                "knowing.</div>")
+    flu = ""
+    if fluency:
+        flu = ("<div class='fluency'>On <b>" + _e(fluency) + "</b>, " + _e(name)
+               + " could pick the right answer but not yet put the why in his own "
+               "words — so the deeper level was held until the explanation catches "
+               "up. That safeguard is the rigour behind every position here.</div>")
+    body = "".join(rp._subject_block(b, name) for b in blocks)
+    return ("<div class='section'>THIS WEEK <span class='when'>· updated Friday</span></div>"
+            f"{flu}{body}")
 
 
 def _topic_row(r):
@@ -269,15 +313,24 @@ def _topic_row(r):
     return row + "</div>"
 
 
-def _subjects_section(cards):
-    if not cards:
+def _running_section(running):
+    """Component 3 — THE RUNNING PICTURE (Friday, cumulative). Leads with the
+    per-subject landed tally (this week folded in), then the full where-he-stands
+    cards (position + depth, the confidently-shallow cross), then term trends."""
+    cards = (running or {}).get("cards") or []
+    if not cards and not (running or {}).get("trends"):
         return ""
-    out = []
+    cum = (running or {}).get("cumulative") or []
+    tally = "<span class='sep'> · </span>".join(
+        f"{_e(c['subject'])} {c['landed']} of {c['total']} landed"
+        for c in cum if c.get("total"))
+    tally_html = f"<div class='cumf'>{tally}</div>" if tally else ""
+    body = []
     for c in cards:
         rows = "".join(_topic_row(r) for r in c["rows"])
-        out.append(f"<div class='card'><div class='subj'>{_e(c['subject'])}</div>{rows}</div>")
-    return ("<div class='section'>BY SUBJECT — WHERE HE STANDS</div>"
-            f"{''.join(out)}")
+        body.append(f"<div class='card'><div class='subj'>{_e(c['subject'])}</div>{rows}</div>")
+    return ("<div class='section'>THE RUNNING PICTURE <span class='when'>· updated Friday</span></div>"
+            f"{tally_html}{''.join(body)}{_trends_section((running or {}).get('trends'))}")
 
 
 def _trends_section(trends):
@@ -344,11 +397,10 @@ def render(portal, kid_wrap_url=None):
 <body>
 <div class="wrap">
   <div class="top"><span class="brand">XPDAILY · THE FULL PICTURE</span><span class="updated">updated {_e(portal.get('updated',''))}</span></div>
-  <div class="hero">{_e(name)} — always here, always current</div>
-  {_now_section(portal.get('now'))}
-  {_this_week_section(portal.get('this_week'))}
-  {_subjects_section(portal.get('subjects'))}
-  {_trends_section(portal.get('trends'))}
+  <div class="hero">{_e(name)}'s full picture — the week ahead, the week just gone, and how it's adding up</div>
+  {_week_ahead_section(portal.get('week_ahead'))}
+  {_this_week_section(portal.get('this_week'), name)}
+  {_running_section(portal.get('running'))}
   {_archive_section(portal.get('archive'))}
   {_legend()}
   <p class="foot">This is {_e(name)}'s picture, kept current — open it any time.{wrap_link}</p>
