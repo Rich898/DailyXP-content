@@ -190,7 +190,7 @@ def build_portal(name, week_of, topics, subjects_block, radar,
                  week_ahead=None, this_week_blocks=None, this_week_fluency=None,
                  snapshots=None, archive=None, updated=None,
                  week_verdict=None, activity=None, touchpoints=None,
-                 upcoming=None):
+                 upcoming=None, this_week_of=None):
     """Assemble the portal fact set — everything the four pages draw from
     (PARENT-COMMS-V2 §1/§5):
 
@@ -210,6 +210,10 @@ def build_portal(name, week_of, topics, subjects_block, radar,
                         days?}] — tests, study-guide releases, due dates
                         (Rich, 30 Aug: plural, not one). Falls back to the
                         single `radar` when not supplied. Sorted by date.
+      this_week_of      the Monday (ISO) of the week the blocks REPORT — on a
+                        Monday-seed build that is last week, not `week_of`.
+                        The Weekly update page prints its Mon–Fri span so the
+                        reported week is never ambiguous (Rich, 30 Aug).
 
     All facts arrive already computed. `archive` = [{"week","url"}] newest-first.
     """
@@ -225,7 +229,8 @@ def build_portal(name, week_of, topics, subjects_block, radar,
         "week_ahead": week_ahead or {},
         "radar": radar or {},
         "upcoming": upcoming,
-        "this_week": {"blocks": this_week_blocks or [], "fluency": this_week_fluency},
+        "this_week": {"blocks": this_week_blocks or [], "fluency": this_week_fluency,
+                      "week_of": this_week_of},
         "week_verdict": week_verdict or {},
         "activity": activity or {},
         "running": {"cards": cards, "cumulative": _cumulative(cards),
@@ -248,7 +253,7 @@ body{padding-bottom:84px}
 .ptop{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
 .ptop .brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
 .ptop .upd{font-size:11px;color:var(--haze)}
-.peyebrow{margin:26px 0 0;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--acc)}
+.peyebrow{margin:26px 0 0;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--acc);text-transform:uppercase}
 /* headlines are ALWAYS white (Rich, 30 Aug) — the accent lives in the eyebrow,
    chips and nav, never the page title. Includes the verdict word on This Week. */
 .phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--ink)}
@@ -352,7 +357,7 @@ _ICONS = {
               "<svg viewBox='0 0 24 24' aria-hidden='true'>"
               "<rect x='3.5' y='5' width='17' height='15.5' rx='2.5'/>"
               "<path d='M3.5 9.5h17M8 3v4M16 3v4'/></svg>"),
-    "week": ("This week",
+    "week": ("Weekly update",
              "<svg viewBox='0 0 24 24' aria-hidden='true'>"
              "<circle cx='12' cy='12' r='8.5'/>"
              "<path d='M8.4 12.4l2.4 2.4 4.8-5.2'/></svg>"),
@@ -412,6 +417,28 @@ def _week_label(week_of):
     except (TypeError, ValueError):
         return week_of or ""
     return "week of " + d.strftime("%-d %B")
+
+
+def _span_label(monday_iso):
+    """'Mon 24 – Fri 28 Aug' (or 'Mon 31 Aug – Fri 4 Sep' across a month
+    boundary) — the unambiguous name of a reported school week."""
+    try:
+        mon = _dt.date.fromisoformat(monday_iso)
+    except (TypeError, ValueError):
+        return ""
+    fri = mon + _dt.timedelta(days=4)
+    if mon.month == fri.month:
+        return f"{mon.strftime('%a %-d')} – {fri.strftime('%a %-d %b')}"
+    return f"{mon.strftime('%a %-d %b')} – {fri.strftime('%a %-d %b')}"
+
+
+def _subject_key(subject):
+    """ONE canonical subject order for the whole portal (Rich, 30 Aug): the
+    Week Ahead, the Weekly update and the Running Picture all list subjects in
+    the same order, so a parent's eye lands in the same place on every page.
+    monday_brief.week_ahead and subject_cards already sort this way; pages
+    that receive pre-built blocks re-sort with this key."""
+    return (subject or "").lower()
 
 
 def _shell(key, portal, hero_html, body_html, hrefs, title_tail):
@@ -515,7 +542,7 @@ def _doors(portal, hrefs):
     doors = [
         ("ahead", "d-ahead", "The week ahead", _ahead_teaser(portal),
          "Refreshes Monday evening"),
-        ("week", "d-week", "This week", _week_teaser(portal),
+        ("week", "d-week", "The weekly update", _week_teaser(portal),
          "Refreshes Friday evening"),
         ("picture", "d-picture", "The running picture", _picture_teaser(portal),
          "Adds up every Friday"),
@@ -636,7 +663,7 @@ def _ahead_page(portal, hrefs):
                      "</div>")
     parts.append(f"<a class='loop' href='{_e(hrefs['week'])}'>"
                  "<span>How it lands is Friday's story — the plan above gets "
-                 "its answer on <b>This week</b>.</span>"
+                 "its answer in the <b>Weekly update</b>.</span>"
                  "<span class='go'>&#8250;</span></a>")
     return _shell("ahead", portal, hero, "".join(parts), hrefs, " — the week ahead")
 
@@ -646,16 +673,38 @@ def _cap(s):
 
 
 # --------------------------------------------------------------------------- #
-# THIS WEEK — Friday, backward. The deep read: verdict word, activity strip,
-# the fluency-illusion catch, then the subject spine (report_page's renderer,
-# so Friday's two surfaces share one shape).
+# THE WEEKLY UPDATE — Friday, backward. The deep read: verdict word, activity
+# strip, then the subject spine (report_page's renderer, so Friday's two
+# surfaces share one shape). The fluency-illusion catch renders INSIDE its
+# subject's block as the detail worth knowing (Rich, 30 Aug), never as a
+# page-level interruption.
+
+def _fold_fluency(blocks, fluency):
+    """Place the fluency-catch narration into the block that owns its topic —
+    it becomes that subject's detail slot (shallow copies; callers' dicts are
+    never mutated). If no block carries the topic, the note is dropped rather
+    than floated page-level."""
+    if not fluency:
+        return blocks
+    out, placed = [], False
+    for b in blocks:
+        names = set(b.get("worked") or []) | {t.get("topic") for t in b.get("topics") or []}
+        if not placed and fluency in names:
+            b = dict(b, fluency_detail=fluency)
+            placed = True
+        out.append(b)
+    return out
+
 
 def _week_page(portal, hrefs, report_url=None):
     name = portal.get("name", "")
-    blocks = (portal.get("this_week") or {}).get("blocks") or []
-    fluency = (portal.get("this_week") or {}).get("fluency")
+    tw = portal.get("this_week") or {}
+    blocks = sorted(tw.get("blocks") or [], key=lambda b: _subject_key(b.get("subject")))
+    blocks = _fold_fluency(blocks, tw.get("fluency"))
     word = (portal.get("week_verdict") or {}).get("word")
-    eyebrow = "<div class='peyebrow'>FRIDAY · WHAT HAPPENED</div>"
+    span = _span_label(tw.get("week_of") or "")
+    eyebrow_txt = f"Weekly update · {span}" if span else "Weekly update · Friday evening"
+    eyebrow = f"<div class='peyebrow'>{_e(eyebrow_txt)}</div>"
     if word in rp.WORD_CAP:
         # The verdict IS this page's hero — the ten-second read, then the why.
         hero = (eyebrow
@@ -665,7 +714,7 @@ def _week_page(portal, hrefs, report_url=None):
                   "subject read is below — each one closes the loop Monday "
                   "opened.</p>")
     else:
-        hero = (eyebrow + "<h1 class='phero'>This week</h1>"
+        hero = (eyebrow + "<h1 class='phero'>The weekly update</h1>"
                 + f"<p class='psub'>What {_e(name)}'s sets worked, where each "
                   "topic stands, and the one detail worth knowing — subject by "
                   "subject.</p>")
@@ -674,14 +723,13 @@ def _week_page(portal, hrefs, report_url=None):
     if blocks and activity.get("possible"):
         parts.append(rp._activity_strip({"activity": activity}))
     if blocks:
-        if fluency:
-            parts.append(
-                "<div class='fluency'>On <b>" + _e(fluency) + "</b>, " + _e(name)
-                + " could pick the right answer but not yet put the why in his "
-                "own words — so the deeper level was held until the explanation "
-                "catches up. That safeguard is the rigour behind every position "
-                "on these pages.</div>")
         parts.append("".join(rp._subject_block(b, name) for b in blocks))
+        if any(t.get("asked") for b in blocks for t in b.get("topics") or []):
+            parts.append("<p class='notes'>Question counts are small by design "
+                         "— a handful per topic each week — so read them as "
+                         "practice volume, not a score. The coloured position "
+                         "is the considered read; it weighs more evidence than "
+                         "one week.</p>")
         if report_url:
             parts.append(f"<a class='rowlink' href='{_e(report_url)}'>"
                          "<span><b>The full Friday report</b>"
@@ -689,7 +737,7 @@ def _week_page(portal, hrefs, report_url=None):
                          "scripts, week on week — the long form.</span></span>"
                          "<span class='go'>&#8250;</span></a>")
     else:
-        parts.append("<div class='tw-empty'>This week's read lands Friday "
+        parts.append("<div class='tw-empty'>The weekly update lands Friday "
                      "evening — what each subject actually worked, where it "
                      "landed, and the one thing worth knowing. The plan it will "
                      "be answering is on the Week Ahead page.</div>")
@@ -697,7 +745,7 @@ def _week_page(portal, hrefs, report_url=None):
                  "<span>Where it all adds up — every topic's position and "
                  "depth, on <b>The running picture</b>.</span>"
                  "<span class='go'>&#8250;</span></a>")
-    return _shell("week", portal, hero, "".join(parts), hrefs, " — this week")
+    return _shell("week", portal, hero, "".join(parts), hrefs, " — the weekly update")
 
 
 # --------------------------------------------------------------------------- #

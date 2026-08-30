@@ -507,8 +507,13 @@ def subject_blocks(topics, subjects_block, stories, traces, prev_states=None):
                     moved = "up"
             elif state is not None:
                 moved = "new"
+            # this week's practice volume on the topic (Rich, 30 Aug): answered
+            # questions and how many landed right. Skips never count as asked.
+            answered = [e for e in (traces.get(topic) or []) if not e.get("skipped")]
             rows.append({"topic": display_topic(topic, subj), "state": state,
-                         "depth": tp.get("depth"), "moved": moved})
+                         "depth": tp.get("depth"), "moved": moved,
+                         "asked": len(answered),
+                         "right": sum(1 for e in answered if e.get("ok") is True)})
         if not rows:
             continue
         blocks.append({

@@ -87,14 +87,20 @@ TOPICS = [
 
 # --- the Friday just gone: the subject spine (report_stories.subject_blocks
 #     shape, hand-set so the preview reads real without private inputs) ---
+THIS_WEEK_OF = "2026-08-24"     # the Monday of the REPORTED week (Mon 24 – Fri 28)
 THIS_WEEK_BLOCKS = [
     {"subject": "Maths", "unit": "Algebra",
      "worked": ["Linear equations", "Solving equations with brackets",
                 "Angles on parallel lines"],
      "topics": [
-         {"topic": "Linear equations", "state": "solid", "depth": "lists", "moved": "up"},
-         {"topic": "Solving equations with brackets", "state": "shaky", "depth": None, "moved": "new"},
-         {"topic": "Angles on parallel lines", "state": "REPAIR", "depth": None, "moved": None}],
+         {"topic": "Linear equations", "state": "solid", "depth": "lists",
+          "moved": "up", "asked": 4, "right": 3},
+         {"topic": "Solving equations with brackets", "state": "shaky",
+          "depth": None, "moved": "new", "asked": 3, "right": 1},
+         {"topic": "Angles on parallel lines", "state": "REPAIR", "depth": None,
+          "moved": None, "asked": 2, "right": 1}],
+     # the Maths detail slot gets the fluency catch (folded in by the page);
+     # this misconception stays as the fallback the engine would have used.
      "detail": {"picked": "x = 5", "correct": "x = 3",
                 "why": "Expanding 3(x + 2) gives 3x + 6, not 3x + 2 — the bracket "
                        "multiplies both terms, and that one slip moves the whole answer."},
@@ -103,8 +109,10 @@ THIS_WEEK_BLOCKS = [
     {"subject": "Science", "unit": "Body systems",
      "worked": ["The circulatory system", "The respiratory system"],
      "topics": [
-         {"topic": "The circulatory system", "state": "developing", "depth": "knows", "moved": "up"},
-         {"topic": "The respiratory system", "state": "developing", "depth": None, "moved": "new"}],
+         {"topic": "The circulatory system", "state": "developing",
+          "depth": "knows", "moved": "up", "asked": 3, "right": 2},
+         {"topic": "The respiratory system", "state": "developing", "depth": None,
+          "moved": "new", "asked": 2, "right": 2}],
      "detail": {"picked": "The heart oxygenates the blood",
                 "correct": "The lungs oxygenate the blood",
                 "why": "The heart pumps blood; the oxygen itself is loaded in the "
@@ -113,8 +121,10 @@ THIS_WEEK_BLOCKS = [
     {"subject": "History", "unit": "The Crusades",
      "worked": ["Causes of the First Crusade", "Key figures of the Crusades"],
      "topics": [
-         {"topic": "Causes of the First Crusade", "state": "solid", "depth": "connects", "moved": None},
-         {"topic": "Key figures of the Crusades", "state": "developing", "depth": "knows", "moved": "up"}],
+         {"topic": "Causes of the First Crusade", "state": "solid",
+          "depth": "connects", "moved": None, "asked": 2, "right": 2},
+         {"topic": "Key figures of the Crusades", "state": "developing",
+          "depth": "knows", "moved": "up", "asked": 3, "right": 2}],
      "detail": None,
      "next": "Primary sources joins the rotation"},
 ]
@@ -155,6 +165,7 @@ def build():
         week_ahead=brief,
         this_week_blocks=THIS_WEEK_BLOCKS,
         this_week_fluency="Linear equations",
+        this_week_of=THIS_WEEK_OF,
         snapshots=SNAPSHOTS,
         archive=ARCHIVE,
         updated=UPDATED,

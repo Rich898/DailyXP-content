@@ -167,6 +167,8 @@ summary{cursor:pointer;font-size:12px;color:var(--reef);letter-spacing:.04em}
 .dot.d0{color:#F0703F}.dot.d1{color:#E8963C}.dot.d2{color:#8FBE45}.dot.d3{color:var(--kelp)}
 .subj-table .dep{color:var(--ink)}
 .subj-table .dep.none{color:var(--haze)}
+.subj-table .tq{font-size:11.5px;color:var(--haze);margin-top:3px;white-space:nowrap}
+.subj-table .tq b{font-family:'Space Mono',ui-monospace,monospace;color:var(--haze);font-weight:700}
 .subj-table .moved{font-style:normal;color:var(--kelp);font-size:12px}
 .subj-table .moved.new{color:var(--reef)}
 .subj-detail{background:#0D1A2C;border-left:3px solid var(--line);padding:9px 12px;margin:11px 0 0;font-size:13.5px;line-height:1.45}
@@ -502,7 +504,14 @@ def _activity_strip(card):
 
 def _subject_block(b, name):
     """One subject block: what class is on -> what his sets worked -> where each
-    topic stands (band + depth WHERE EVIDENCED) -> one detail -> next week."""
+    topic stands (band + depth WHERE EVIDENCED, plus the week's practice
+    volume) -> one detail -> next week.
+
+    The detail slot holds ONE thing per subject, best first: the fluency-catch
+    narration when it fired on this subject's topic (`fluency_detail`, set by
+    the portal's Weekly-update page — Rich, 30 Aug: that safeguard IS the
+    detail worth knowing), else the misconception from the ranked stories.
+    """
     unit = f" <span class='sh-unit'>&mdash; {_e(b['unit'])}</span>" if b.get("unit") else ""
     worked = " &middot; ".join(f"<b>{_e(w)}</b>" for w in b.get("worked", []))
     worked_html = (f"<div class='subj-worked'>This week his sets worked: {worked}</div>"
@@ -521,18 +530,36 @@ def _subject_block(b, name):
             dep_html += " <em class='moved'>&middot; moved up this week</em>"
         elif moved == "new":
             dep_html += " <em class='moved new'>&middot; new this week</em>"
+        # practice volume: always the asked count; the right count only once
+        # there are 2+ answers — a single question's accuracy is pure noise.
+        asked = t.get("asked")
+        if asked:
+            tq = f"<b>{asked}</b> asked"
+            if asked >= 2 and t.get("right") is not None:
+                tq += f" &middot; <b>{t['right']}</b> right"
+            tq_html = f"<div class='tq'>{tq}</div>"
+        else:
+            tq_html = ""
         rows.append(
-            f"<tr><td>{_e(t.get('topic'))}</td>"
+            f"<tr><td>{_e(t.get('topic'))}{tq_html}</td>"
             f"<td class='pos'><span class='dot d{colour}'>&#9679;</span>{_e(label)}</td>"
             f"<td>{dep_html}</td></tr>")
     table = ("<table class='subj-table'><tr><th>Topic</th><th>Where he is</th>"
              f"<th>Depth</th></tr>{''.join(rows)}</table>")
     detail = ""
-    m = b.get("detail")
-    if m and m.get("why"):
+    if b.get("fluency_detail"):
         detail = (f"<div class='subj-detail'><b>The detail worth knowing:</b> "
-                  f"he chose <span class='pick'>{_e(m['picked'])}</span>; the answer was "
-                  f"<b>{_e(m['correct'])}</b>. {_e(m['why'])}</div>")
+                  f"on <b>{_e(b['fluency_detail'])}</b> {_e(name)} could pick the "
+                  "right answer but couldn't yet put the why in his own words "
+                  "&mdash; so the deeper level was held until the explanation "
+                  "catches up. That safeguard sits behind every position here."
+                  "</div>")
+    else:
+        m = b.get("detail")
+        if m and m.get("why"):
+            detail = (f"<div class='subj-detail'><b>The detail worth knowing:</b> "
+                      f"he chose <span class='pick'>{_e(m['picked'])}</span>; the answer was "
+                      f"<b>{_e(m['correct'])}</b>. {_e(m['why'])}</div>")
     nxt = (f"<div class='subj-next'><b>Next week:</b> {_e(b['next'])}.</div>"
            if b.get("next") else "")
     return (f"<div class='subj'><div class='subj-head'>"

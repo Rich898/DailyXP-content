@@ -229,3 +229,21 @@ the unit, never fabricated; focus = the forward clause) with the copy
 vocabulary fixed at exactly two verbs — **"continues" / "moves into" / or
 both** (`monday_brief._intent`; "starts" removed). New-topic chips dropped —
 "moves into" now carries that information in the sentence.
+
+**Round 2 — 30 Aug, THE WEEKLY UPDATE** (was "This week"; Week Ahead approved
+as-is for now, home deferred): renamed **Weekly update** everywhere (page, nav,
+home doorway, ahead's loop link); the eyebrow now names the REPORTED week's
+span — "WEEKLY UPDATE · MON 24 – FRI 28 AUG" (`build_portal(this_week_of=...)`,
+`_span_label`) — so which week is being reported is never ambiguous; **one
+canonical subject order** on every page (`_subject_key`, alphabetical — the
+Week Ahead's order; the update and the picture re-sort to match); **per-topic
+practice volume** in the spine — "n asked · m right" under each topic
+(`subject_blocks` now emits asked/right from the traces; skips never count) —
+with the accuracy half **suppressed below 2 answers** (a single question's
+accuracy is noise) and a small-sample caveat line under the blocks ("read them
+as practice volume, not a score; the coloured position weighs more evidence");
+the **fluency-illusion catch moved INSIDE its subject's block** as "the detail
+worth knowing" (`_fold_fluency` + `report_page._subject_block
+fluency_detail`), replacing that subject's misconception detail when both
+fire — other subjects keep their misconception details; the page-level
+callout is gone.

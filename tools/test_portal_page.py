@@ -100,12 +100,14 @@ blocks = rst.subject_blocks(
     [{"status": "TO CLOSE", "topic": "Solving equations with brackets", "subject": "Maths",
       "state": "shaky", "misconception": {"picked": "x=5", "correct": "x=3",
       "why": "expanded the bracket wrong"}, "next": "re-tested"}],
-    {"Solving equations with brackets": [{"subject": "Maths", "date": "2026-08-10",
-                                          "ok": False, "phase": "steady", "id": "S1"}]},
+    {"Solving equations with brackets": [
+        {"subject": "Maths", "date": "2026-08-10", "ok": False, "phase": "steady", "id": "S1"},
+        {"subject": "Maths", "date": "2026-08-12", "ok": True, "phase": "steady", "id": "T2"}]},
     {})
 portal = pp.build_portal("Harrison", "2026-08-10", TOPICS, SUBJECTS_BLOCK, RADAR,
                          week_ahead=brief, this_week_blocks=blocks,
-                         this_week_fluency="Fractions", snapshots=few,
+                         this_week_fluency="Solving equations with brackets",
+                         this_week_of="2026-08-10", snapshots=few,
                          archive=[{"week": "2026-08-10",
                                    "url": "https://x.example/r/abc/2026-08-10/"}],
                          updated="2026-08-31",
@@ -134,8 +136,8 @@ t("the topic map lives on THE RUNNING PICTURE only",
 
 print("\nhome — the front door:")
 t("all three doorways with live teasers",
-  "The week ahead" in home and "This week" in home and "The running picture" in home
-  and "one date on the radar" in home)
+  "The week ahead" in home and "The weekly update" in home
+  and "The running picture" in home and "one date on the radar" in home)
 t("the radar strip leads", "ON THE RADAR" in home and "Science test" in home)
 t("the account surface stub is designed in",
   "YOUR ACCOUNT" in home and "switched off" in home and "text to Rich" in home)
@@ -172,13 +174,37 @@ t("many dates render, nearest first — tests and study guides alike",
 t("home's radar strip carries the nearest date",
   "Science test" in mpages[""] and "ON THE RADAR" in mpages[""])
 
-print("\nthis week — Friday, backward:")
+print("\nthe weekly update — Friday, backward (round-2 feedback locked):")
+t("the page is the Weekly update, and names the reported week's span",
+  "Weekly update" in week and "Mon 10 – Fri 14 Aug" in week)
 t("the verdict word is the hero", ">Solid</h1>" in week)
 t("the excused-aware activity strip renders", "4 of 5" in week)
-t("the fluency-illusion catch is narrated",
-  "Fractions" in week and "could pick the right answer" in week)
-t("the misconception detail renders in the spine", "The detail worth knowing" in week)
+t("the fluency catch lives INSIDE its subject block as the detail worth "
+  "knowing — no page-level interruption",
+  "class='fluency'" not in week
+  and "The detail worth knowing:</b> on <b>Solving equations with brackets</b>"
+  in week)
+t("the fluency detail REPLACES the misconception in that block",
+  "x=5" not in week)
+t("per-topic practice volume renders — asked and right",
+  "<b>2</b> asked" in week and "<b>1</b> right" in week)
+t("the counts carry their small-sample caveat",
+  "practice volume, not a score" in week)
 t("the full Friday report is linked", "https://x.example/r/abc/2026-08-10/" in week)
+oo_blocks = [
+    {"subject": "Science", "unit": "U", "worked": ["W"],
+     "topics": [{"topic": "W", "state": "solid", "depth": None, "asked": 1, "right": 1}]},
+    {"subject": "Maths", "unit": "U", "worked": ["V"],
+     "topics": [{"topic": "V", "state": "solid", "depth": None, "asked": 1, "right": 0}]},
+]
+oo = pp.render_pages(pp.build_portal("Harrison", "2026-08-10", TOPICS,
+                                     SUBJECTS_BLOCK, None,
+                                     this_week_blocks=oo_blocks))["week"]
+t("subjects render in the one canonical order, whatever order blocks arrive",
+  oo.index(">MATHS<") < oo.index(">SCIENCE<")
+  if ">MATHS<" in oo else oo.index("Maths") < oo.index("Science"))
+t("a single question's accuracy is suppressed — volume only",
+  "<b>1</b> asked" in oo and "<b>1</b> right" not in oo and "<b>0</b> right" not in oo)
 
 print("\nthe running picture — Friday, cumulative:")
 t("the landed tally leads", "of " in picture and "tally" in picture)
