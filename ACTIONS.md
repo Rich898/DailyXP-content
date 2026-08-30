@@ -15,6 +15,18 @@ land with each build, not before. **The execution plan for the whole program
 is `PARENT-COMMS-BUILD-BRIEF.md`** — fresh sessions boot from it (work items
 W1–W8; each session asks Rich which item today).
 
+**30 Aug 2026 — COURSE CHANGE (parent portal):** Rich aligned that the parent
+report is a **three-pronged** approach — Week Ahead (Mon) / This Week (Fri) /
+Running Picture (Fri) — living in a real **Parent Portal** (also the future
+account-management surface), as **three DESIGNED pages, not one scroll**. The
+29–30 Aug single-page `portal_page.render()` was rejected as under-designed.
+The deterministic FACTS engines built this session are kept and reused
+(`monday_brief.py` — Week Ahead + Monday-law + pointer SMS; `subject_blocks`/
+`fluency_catch`; portal facts helpers `subject_cards`/`term_trends`/
+`_confidently_shallow`). **Fresh sessions now boot from `PARENT-PORTAL-BRIEF.md`**
+to rebuild the presentation to an excellent standard. W1 (scheduler) is live;
+W2/W3 remain shadow on the branch and are unaffected.
+
 ---
 
 ## A. Now (this weekend)
