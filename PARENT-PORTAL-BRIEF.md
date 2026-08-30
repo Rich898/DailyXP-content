@@ -153,3 +153,66 @@ three designed pages, excellent standard, reusing the built facts engines.
 Branch: keep developing on `claude/dailyxp-parent-comms-gjjo2e` (the built facts
 engines — `monday_brief.py`, `subject_blocks`, the portal facts helpers — are
 already there). The single-page `portal_page.render()` is the thing to replace.
+
+---
+
+## BUILT 30 Aug 2026 — the rebuild, and the decisions it took
+
+*(Session record: built on `claude/parent-portal-build-0vae4u`, which carries
+this branch's engines forward. Rich ratifies by merging.)*
+
+**What shipped (shadow, not wired):** `portal_page.py` rebuilt around
+`render_pages()` — FOUR real pages under one slug, replacing the single-scroll
+`render()`:
+
+| Path | Page | Refreshes |
+|---|---|---|
+| `/p/<slug>/` | **Home** — the front door: radar strip, three doorway cards with live one-line teasers, the account surface (v1 stub), the kid's player-card link | each publish |
+| `/p/<slug>/ahead/` | **The week ahead** — ONE DATE card + per-subject forward rows (unit, intent clause, NEW chips, per-teacher hedge) | Monday evening |
+| `/p/<slug>/week/` | **This week** — the verdict word as hero, excused-aware activity strip, fluency-illusion narration, the subject spine (drawn by `report_page._subject_block`, so Friday's two surfaces share one shape) | Friday evening |
+| `/p/<slug>/picture/` | **The running picture** — per-subject landed tally with bars, every topic's position + depth (confidently-shallow cross inline), term trends (4-week gate), the archive, the legend | Friday evening |
+
+All facts helpers kept byte-identical (`subject_cards`, `_confidently_shallow`,
+`term_trends`, `_cumulative`); `build_portal()` gained optional `week_verdict` /
+`activity` / `touchpoints`. `test_portal_page.py`: 79 assertions green on 3.11,
+including the course-correction itself (each component renders on ITS page and
+never stacks back into one scroll). `tools/portal_preview.py` renders the whole
+portal with invented sample data ("Sam"; codes-only law respected) into
+`preview/portal/` — committed, walkable off a checkout.
+
+**Design decisions taken (defaults, Rich can overrule any):**
+
+1. **Real pages, not client-side tabs.** Each page gets its own layout and hero;
+   the Monday/Friday SMS pointers deep-link cleanly; every page is small and
+   individually stamp-verified by the existing one-page-per-path deploy
+   machinery (publish slug `abc/ahead` → `/p/abc/ahead/`). Navigation is a
+   fixed bottom app bar (thumb reach) + doorway cards on home.
+2. **Names** (open decision 1): on-page titles "The week ahead" / "This week" /
+   "The running picture"; nav labels Home · Week ahead · This week · Picture.
+   The portal masthead adopts the working vocabulary: **XP DAILY · THE FULL
+   PICTURE** (open decision 6 — vocabulary only, no rename).
+3. **One accent per time-frame:** ahead = reef (forward horizon), week = flare
+   (the live week), picture = kelp (what has grown) — carried through each
+   page's hero, chips, and active nav state. Everything else is report_page's
+   ratified dark system untouched.
+4. **The confidently-shallow sentence** (open decision 2) kept as built:
+   "Strong recall — he can pick this confidently, but hasn't yet shown he can
+   explain it. His next written question targets exactly that."
+5. **The Friday report page survives** (open decision 3) as the dated archive
+   snapshot and long form; the portal's This Week page is the live deep read
+   and links it ("The full Friday report →"). Nothing is rendered twice from
+   two code paths — the spine blocks are drawn by the same renderer.
+6. **Account surface v1** (open decision 5): an honest stub — the four
+   touchpoints with cadence, all ON, plus the documented change/opt-out path
+   ("a text to Rich"). Per-touchpoint config (C6) and magic-link sign-in land
+   in this exact space later; the shell doesn't change.
+7. **Friday SMS doctrine** (open decision 4): untouched — still Rich's call.
+
+**Freshness contract on every page** (to ratify with V2 §11.3): top bar shows
+"updated {date}"; each page names its own cadence; the footer states the
+weekly-read-on-purpose line. Build stamp meta + visible footer stamp on all four
+pages, inside `verify()`'s 4KB window.
+
+**Not done here (deliberately, per this brief):** no wiring — no `p` slug kind,
+no runner, no schedule slots, no dated `/r/<slug>/<week>/` paths. That work
+starts only after Rich eyeballs the preview and locks the design.

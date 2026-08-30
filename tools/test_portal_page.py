@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""test_portal_page.py — the portal's load-bearing guarantees (PARENT-COMMS-V2).
+"""test_portal_page.py — the portal's load-bearing guarantees (PARENT-PORTAL-BRIEF).
 
-The portal is the THREE-part parent report on one page: THE WEEK AHEAD (Monday,
-forward), THIS WEEK (Friday, what happened), THE RUNNING PICTURE (Friday,
-cumulative). This locks: the Monday law (monday_brief), the confidently-shallow
-cross, the depth ceiling, the 4-week trend gate, the freshness stamps, and the
-self-contained privacy model.
+The portal is the parent's product home: a home page plus THREE designed pages —
+THE WEEK AHEAD (Monday, forward), THIS WEEK (Friday, what happened), THE RUNNING
+PICTURE (Friday, cumulative) — cross-linked by an app nav. This locks: the
+Monday law (monday_brief), the confidently-shallow cross, the depth ceiling, the
+4-week trend gate, the freshness stamps, the self-contained privacy model, AND
+the course-correction itself: each component lives on ITS OWN page, never
+stacked back into one scroll.
 """
 import os
 import sys
@@ -84,7 +86,7 @@ four = [{"week_of": f"w{i}",
 tr = pp.term_trends(four)
 t("at four weeks the trend switches on", tr is not None and tr["weeks"] == 4)
 
-print("\nthe page renders all three components, honestly and privately:")
+print("\nthe portal renders as FOUR pages — home + one per component:")
 blocks = rst.subject_blocks(
     [{"topic": "Solving equations with brackets", "subject": "Maths", "state": "shaky", "depth": None}],
     SUBJECTS_BLOCK,
@@ -99,30 +101,105 @@ portal = pp.build_portal("Harrison", "2026-08-10", TOPICS, SUBJECTS_BLOCK, RADAR
                          this_week_fluency="Fractions", snapshots=few,
                          archive=[{"week": "2026-08-10",
                                    "url": "https://x.example/r/abc/2026-08-10/"}],
-                         updated="2026-08-31")
-html = pp.render(portal, kid_wrap_url="https://x.example/w/abc/")
-t("all three components render",
-  all(s in html for s in ("THE WEEK AHEAD", "THIS WEEK", "THE RUNNING PICTURE")))
-t("each component shows when it refreshes",
-  "updated Monday" in html and "updated Friday" in html)
-t("the week-ahead names what's new, not how he did",
-  "Solving equations with brackets" in html and "solid this week" not in html)
-t("the this-week subject spine renders (what happened)",
-  "The detail worth knowing" in html)
-t("the running picture leads with a landed tally", "landed" in html)
-t("the confidently-shallow note reaches the page", "Strong recall" in html)
-t("evidenced depth renders its rung", "Can connect it" in html)
+                         updated="2026-08-31",
+                         week_verdict={"word": "solid"},
+                         activity={"days_done": 4, "possible": 5,
+                                   "topics_practised": 7, "events": 1})
+pages = pp.render_pages(portal, kid_wrap_url="https://x.example/w/abc/",
+                        report_url="https://x.example/r/abc/2026-08-10/")
+t("exactly the four pages render", set(pages) == {"", "ahead", "week", "picture"})
+home, ahead, week, picture = pages[""], pages["ahead"], pages["week"], pages["picture"]
+
+print("\nthe course-correction holds — one component per page, never one scroll:")
+t("home is the front door, not the report",
+  "class='subj-table'" not in home and "Where it sits" not in home
+  and "class='trow'" not in home)
+t("the week ahead page carries no positions or verdicts",
+  all(s not in ahead for s in ("Where it sits", "Strong recall", "Nearly there",
+                               "landed", "class='subj-table'", "class='dot")))
+t("the subject spine (worked → detail → next week) lives on THIS WEEK only",
+  "class='subj'" in week and "The detail worth knowing" in week
+  and "class='subj'" not in picture and "The detail worth knowing" not in picture
+  and "class='subj'" not in ahead)
+t("the topic map lives on THE RUNNING PICTURE only",
+  "class='cshallow'" in picture and "class='cshallow'" not in week
+  and "class='cshallow'" not in home)
+
+print("\nhome — the front door:")
+t("all three doorways with live teasers",
+  "The week ahead" in home and "This week" in home and "The running picture" in home
+  and "one date on the radar" in home)
+t("the radar strip leads", "ON THE RADAR" in home and "Science test" in home)
+t("the account surface stub is designed in",
+  "YOUR ACCOUNT" in home and "switched off" in home and "text to Rich" in home)
+t("the kid's player card is linked", "https://x.example/w/abc/" in home)
+
+print("\nthe week ahead — Monday, forward:")
+t("the ONE DATE assessment card renders",
+  "ONE DATE" in ahead and "Science test" in ahead)
+t("what school posted, new topics flagged",
+  "Solving equations with brackets" in ahead and "new:" in ahead)
+t("the loop points at Friday", "Friday" in ahead)
+
+print("\nthis week — Friday, backward:")
+t("the verdict word is the hero", ">Solid</h1>" in week)
+t("the excused-aware activity strip renders", "4 of 5" in week)
+t("the fluency-illusion catch is narrated",
+  "Fractions" in week and "could pick the right answer" in week)
+t("the misconception detail renders in the spine", "The detail worth knowing" in week)
+t("the full Friday report is linked", "https://x.example/r/abc/2026-08-10/" in week)
+
+print("\nthe running picture — Friday, cumulative:")
+t("the landed tally leads", "of " in picture and "tally" in picture)
+t("the confidently-shallow note reaches the page", "Strong recall" in picture)
+t("evidenced depth renders its rung", "Can connect it" in picture)
 t("unevidenced depth renders a dash, never an inflated claim",
-  "<span class='dep none'>&mdash;</span>" in html)
+  "<span class='dep none'>&mdash;</span>" in picture)
 t("under four weeks the page SAYS trends fill in later, not fakes it",
-  "four weeks of history" in html or "four weeks" in html)
-t("a visible freshness stamp (updated date) is present", "updated 2026-08-31" in html)
+  "four weeks" in picture)
 t("the archive links the dated report path",
-  "https://x.example/r/abc/2026-08-10/" in html)
-t("self-contained — zero fetch", "fetch(" not in html and "XMLHttpRequest" not in html)
-t("noindex", "noindex" in html)
-t("build stamp inside verify()'s 4KB window",
-  'name="xpdaily-build"' in html and html.index("xpdaily-build") < 3500)
-t("no same-night results leak", "tonight" not in html.lower())
+  "https://x.example/r/abc/2026-08-10/" in picture)
+t("the legend is the verdict ladder's home", "HOW TO READ THIS" in picture)
+
+print("\nnavigation — four pages, one product:")
+for key, html in pages.items():
+    t(f"page '{key or 'home'}' carries the app nav",
+      "pnav" in html and "aria-current='page'" in html)
+t("home links the three pages relatively",
+  "href='ahead/'" in home and "href='week/'" in home and "href='picture/'" in home)
+t("subpages link home and each other",
+  "href='../'" in ahead and "href='../picture/'" in week and "href='../week/'" in picture)
+navved = pp.render_pages(portal, nav={"": "https://a/", "ahead": "https://b/",
+                                      "week": "https://c/", "picture": "https://d/"})
+t("explicit nav URLs override on every page",
+  all("https://c/" in h for h in navved.values()))
+
+print("\nevery page: honest, private, stamped:")
+for key, html in pages.items():
+    label = key or "home"
+    t(f"'{label}' is self-contained — zero fetch",
+      "fetch(" not in html and "XMLHttpRequest" not in html)
+    t(f"'{label}' is noindex", "noindex" in html)
+    t(f"'{label}' build stamp inside verify()'s 4KB window",
+      'name="xpdaily-build"' in html and html.index("xpdaily-build") < 3500)
+    t(f"'{label}' shows the freshness date, in human form",
+      "updated Mon 31 Aug" in html)
+    t(f"'{label}' names the freshness contract on the page",
+      "refresh Friday evening" in html and "refreshes Monday" in html)
+    t(f"'{label}' carries the visible build stamp", "build " in html.split("pfoot")[-1])
+    t(f"'{label}' leaks no same-night results", "tonight" not in html.lower())
+
+print("\nempty states are honest (a Monday-only build, pre-Friday):")
+bare = pp.build_portal("Harrison", "2026-08-10", TOPICS, SUBJECTS_BLOCK, RADAR,
+                       week_ahead=brief, updated="2026-08-31")
+bare_pages = pp.render_pages(bare)
+t("this week says it lands Friday evening",
+  "lands Friday evening" in bare_pages["week"])
+t("no verdict word is faked pre-Friday", ">Solid</h1>" not in bare_pages["week"])
+t("home teases the week page honestly",
+  "lands Friday evening" in bare_pages[""])
+no_wa = pp.build_portal("Harrison", "2026-08-10", TOPICS, SUBJECTS_BLOCK, None)
+t("a missing week-ahead gets the honest continuation form",
+  "keep working the current topics" in pp.render_pages(no_wa)["ahead"])
 
 print("\n✓ all portal tests green")

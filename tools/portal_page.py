@@ -1,50 +1,69 @@
 #!/usr/bin/env python3
 """
-portal_page.py — the always-available parent PORTAL (PARENT-COMMS-V2 §5).
+portal_page.py — the PARENT PORTAL: the parent's product home (PARENT-PORTAL-BRIEF).
 
-The Friday report answers "how did THIS WEEK go"; the portal answers the other
-two questions a paying parent has — "what is he working on right now" and "how
-is he doing OVERALL, by subject" — on a page they can open any time. Messages
-become pointers; the portal becomes the product. The accumulating history is the
-switching cost: cancelling stops the map of THIS kid's misconceptions,
-calibration and depth from growing.
+Not a report page — a small product. The parent report is THREE distinct,
+designed pages, reached from a home screen by an app-style nav, each laid out
+on its own terms:
 
-STRUCTURE — the THREE parts of the parent report, time-phased, on one page:
-  1. THE WEEK AHEAD      (Monday, forward)  what each subject is covering this
-                         week + one assessment date. From monday_brief.week_ahead.
-                         The Monday SMS is a thin POINTER to this panel.
-  2. THIS WEEK           (Friday, backward) what happened: the subject spine
-                         (report_stories.subject_blocks, rendered by report_page)
-                         — so Monday's plan and Friday's resolution share one
-                         shape. The founding "confidently shallow" cross renders
-                         in the running picture below.
-  3. THE RUNNING PICTURE (Friday, cumulative) where each subject stands
-                         term-to-date, this week folded in: the landed tally, the
-                         per-topic position + depth cards, and term trends
-                         (switch on at 4+ weeks; say so before then).
-  + ARCHIVE  past Friday reports (dated paths; the bare slug serves latest).
-  + FOOTER   the verdict-ladder legend, an "updated {date}" stamp, build stamp.
+  /p/<slug>/            HOME — the front door. Who this is, what's on the radar,
+                        three doorways (each with a live one-line teaser), the
+                        account surface (v1: honest stub), the kid's player card.
+  /p/<slug>/ahead/      THE WEEK AHEAD (Monday, forward) — the light glance:
+                        per subject, what school is covering this week and what
+                        his sets will do about it; ONE assessment date. From
+                        monday_brief.week_ahead(). The Monday SMS points here.
+  /p/<slug>/week/       THIS WEEK (Friday, backward) — the deep read: the
+                        verdict word, then the subject spine (what school set →
+                        what his sets worked → where each topic stands → the one
+                        misconception detail → next week), with the
+                        fluency-illusion catch narrated. Blocks come from
+                        report_stories.subject_blocks, drawn by report_page's
+                        own block renderer so Friday's two surfaces share one
+                        shape. The Friday SMS points here.
+  /p/<slug>/picture/    THE RUNNING PICTURE (Friday, cumulative) — the map:
+                        the per-subject landed tally, position + depth on every
+                        active topic (the confidently-shallow cross rendered
+                        where it fires), term trends (4-week gate), the archive
+                        of past Friday reports, and the legend.
+
+WHY REAL PAGES, not client-side tabs: each page gets its own layout and its own
+hero (the anti-long-scroll mandate); the Monday/Friday SMS pointers deep-link
+cleanly; every page is small, self-contained and individually stamp-verified by
+the existing one-page-per-path deploy machinery (publish slug "abc/ahead" lands
+at /p/abc/ahead/). Navigation is a fixed bottom app bar — thumb reach on the
+phone where parents open this — plus doorway cards on home.
+
+PAGE ACCENTS (one system, three time-frames): the WEEK AHEAD is reef (the blue
+horizon, forward), THIS WEEK is flare (the live heat of the week), the RUNNING
+PICTURE is kelp (what has grown). Home is ink. Everything else reuses
+report_page's ratified dark system — tokens, bands, depth ceiling, fonts.
 
 PORTAL LAWS (PARENT-COMMS-V2 §5, to ratify):
   * FRESHNESS CONTRACT. Judgment-shaped facts (positions, depth, trends)
-    recompute FRIDAY only; the This-Week panel refreshes Monday; the page shows
-    a visible "updated {date}". NO same-night results, ever — an always-on
-    surface must not become a Tuesday-8pm interrogation feed.
+    recompute FRIDAY only; the Week-Ahead page refreshes Monday; every page
+    carries a visible "updated {date}" and names its own cadence. NO same-night
+    results, ever — an always-on surface must not become an interrogation feed.
+  * FORWARD-ONLY AHEAD. The Week-Ahead page renders only monday_brief facts —
+    no ledger state can reach it by construction.
   * DEPTH CEILING. A rung renders only where evidenced ("—" otherwise); an
     MCQ-only topic never implies more than "can list it".
   * POSITIONS WEEKLY, TRENDS MONTHLY. Per-topic position shows any week;
-    per-subject trend waits for the monthly (4+ week) window.
-  * DIGNITY / AGING. Repaired topics and resolved confident-wrongs collapse into
-    "fixed it" wins rather than accumulating as a rap sheet. (The teach-back
-    quote ARCHIVE waits on the outstanding APP 8 privacy advice — not built here.)
+    per-subject trend waits for the 4+ week window, and the page says so.
+  * DIGNITY / AGING. Repaired topics collapse into wins, not a rap sheet. (The
+    teach-back quote archive waits on the APP 8 privacy advice — not built.)
+
+ACCOUNT SURFACE (v1 stub, designed-in): home carries YOUR ACCOUNT — the four
+touchpoints with their cadence and an honest "text Rich to change anything"
+line (the documented opt-out path). When per-touchpoint config (C6) and the
+magic-link door (family #2) arrive, they land in this space; the shell doesn't
+change, what fills it does.
 
 PRIVACY: same model as report_page — fully self-contained, ZERO fetch, noindex,
-unguessable slug. When family #2 arrives the same renderer moves behind the
-Supabase magic-link door; the renderer doesn't change, only what guards it does.
+unguessable lowercase slug, build-stamped for netlify_deploy.verify().
 
-CODE DECIDES, LANGUAGE DRESSES: build_portal() reads only already-computed facts
-(the ledger topics, the targets block, the assessment radar, the week's targets
-diff, the banked snapshots). No AI.
+CODE DECIDES, LANGUAGE DRESSES: build_portal() reads only already-computed
+facts. Every sentence here is fixed copy around code-picked facts. No AI.
 """
 import datetime as _dt
 
@@ -57,57 +76,6 @@ _e = rp._e
 _SHALLOW_DEPTH = {"not_yet", "knows", "lists"}
 _DEEP_DEPTH = {"connects", "applies"}
 
-_CSS = rp._CSS + """
-/* portal-specific */
-.updated{font-size:11px;color:var(--haze);letter-spacing:.04em}
-.section .when{font-weight:400;letter-spacing:.04em;color:var(--haze);text-transform:none}
-/* component 1 — THE WEEK AHEAD */
-.wa-grid{display:grid;gap:9px}
-.wa-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 15px}
-.wa-row .s{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.03em;color:var(--reef)}
-.wa-row .wa-unit{font-family:'Space Grotesk',sans-serif;text-transform:none;letter-spacing:0;color:var(--haze);font-size:12.5px;font-weight:400}
-.wa-intent{font-size:15px;line-height:1.4;margin-top:4px}
-.wa-chips{margin-top:6px}
-.wa-chips .chip{display:inline-block;font-size:12px;background:#123528;color:var(--kelp);border-radius:99px;padding:2px 9px;margin:4px 6px 0 0}
-.wa-hedge{font-size:12.5px;color:#E7B24A;margin-top:6px;line-height:1.4}
-.wa-assess{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:12px;padding:12px 15px;margin-top:9px;font-size:14.5px;line-height:1.45}
-.wa-assess .k{font-size:10px;letter-spacing:.12em;color:var(--haze);font-weight:700;margin-right:4px}
-.tw-soon,.trend.soon{color:var(--haze);font-size:14px;line-height:1.5;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
-.now-grid{display:grid;gap:9px}
-.now-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 15px}
-.now-row .s{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.03em;color:var(--reef)}
-.now-row .f{font-size:15px;margin-top:3px;line-height:1.4}
-.now-row .a{font-size:12.5px;color:var(--haze);margin-top:4px}
-.now-row .a b{color:var(--ink)}
-.tw{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
-.tw .nc{margin:0 0 8px}
-.tw .nc .k{font-size:10px;letter-spacing:.12em;color:var(--haze);font-weight:700}
-.tw .chip{display:inline-block;font-size:13px;background:#122C42;color:var(--reef);border-radius:99px;padding:3px 10px;margin:5px 6px 0 0}
-.tw .intent{font-size:14.5px;line-height:1.5;margin:10px 0 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:11px}
-.card .subj{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.03em;color:var(--reef);margin-bottom:9px}
-.trow{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
-.trow:first-of-type{border-top:none}
-.trow .tn{font-size:14.5px;line-height:1.3}
-.trow .pos,.trow .dep{font-size:12.5px;white-space:nowrap;text-align:right}
-.trow .dot{font-size:12px;margin-right:5px}
-.dot.d0{color:#F0703F}.dot.d1{color:#E8963C}.dot.d2{color:#8FBE45}.dot.d3{color:var(--kelp)}
-.trow .dep{color:var(--ink)}.trow .dep.none{color:var(--haze)}
-.cshallow{grid-column:1 / -1;background:#0D1A2C;border-left:3px solid var(--reef);border-radius:0 8px 8px 0;padding:8px 12px;margin-top:4px;font-size:13px;line-height:1.45;color:var(--ink)}
-.cshallow b{color:var(--reef)}
-.trend{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-.trend.soon{color:var(--haze);font-size:14px;line-height:1.5}
-.trow.trend-row{grid-template-columns:1fr auto}
-.arch{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 6px}
-.arch a{display:flex;justify-content:space-between;text-decoration:none;color:var(--ink);padding:11px 12px;border-top:1px solid var(--line);font-size:14.5px}
-.arch a:first-child{border-top:none}
-.arch a .wk{color:var(--haze);font-size:13px;font-family:'Space Mono',monospace}
-.legend{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px;font-size:13px;line-height:1.6;color:var(--haze)}
-.legend b{color:var(--ink)}
-.legend .lr{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.legend .lr span{background:#1C2B42;border-radius:6px;padding:3px 8px;font-size:11.5px}
-"""
-
 # Position bands reuse report_page's ratified scale (state -> band -> label/colour).
 _BANDS = rp.BANDS
 _STATE_BAND = rp.STATE_BAND
@@ -116,6 +84,7 @@ _RUNG_LABEL = rp.RUNG_LABEL
 
 # --------------------------------------------------------------------------- #
 # Facts assembly — deterministic, from already-computed data only.
+# (Kept intact from the first build; the presentation below is what was redone.)
 
 def _confidently_shallow(state, depth):
     """The founding cross: strong recall (solid) over a shallow/unevidenced rung.
@@ -150,8 +119,6 @@ def subject_cards(topics):
         if rows:
             cards.append({"subject": subj, "rows": rows})
     return cards
-
-
 
 
 def term_trends(snapshots, min_weeks=4):
@@ -204,22 +171,42 @@ def _cumulative(cards):
     return out
 
 
+# The four scheduled parent touchpoints — the account surface's v1 truth.
+# Static because it IS the current truth: everything sends, and the only
+# off-switch is a text to Rich. Wiring (C6) replaces this with real config.
+DEFAULT_TOUCHPOINTS = [
+    {"when": "Monday evening", "what": "The week-ahead pointer",
+     "why": "A short text when the Week Ahead page refreshes"},
+    {"when": "Wednesday evening", "what": "The check-in",
+     "why": "One praise line and one five-minute help action"},
+    {"when": "Friday evening", "what": "The report",
+     "why": "The week's read, and this page brought up to date"},
+    {"when": "School nights", "what": "The soundbyte",
+     "why": "Done-it reassurance once the run is in"},
+]
+
+
 def build_portal(name, week_of, topics, subjects_block, radar,
                  week_ahead=None, this_week_blocks=None, this_week_fluency=None,
-                 snapshots=None, archive=None, updated=None):
-    """Assemble the portal — the THREE-part parent report on one always-current
-    page (PARENT-COMMS-V2 §1/§5):
+                 snapshots=None, archive=None, updated=None,
+                 week_verdict=None, activity=None, touchpoints=None):
+    """Assemble the portal fact set — everything the four pages draw from
+    (PARENT-COMMS-V2 §1/§5):
 
-      week_ahead        component 1 (Monday, forward): monday_brief.week_ahead()
-                        output {rows, assessment, subjects}.
-      this_week_blocks  component 2 (Friday, backward): report_stories
+      week_ahead        THE WEEK AHEAD (Monday, forward): monday_brief
+                        .week_ahead() output {rows, assessment, subjects}.
+      this_week_blocks  THIS WEEK (Friday, backward): report_stories
                         .subject_blocks() — what happened, the subject spine.
-      running           component 3 (Friday, cumulative): where each subject
-                        stands term-to-date (subject cards + landed tally +
-                        term trends), this week folded in.
+      week_verdict      optional {"word": strong|solid|quiet|slower} from the
+                        Friday card — the This-Week page's hero when present.
+      activity          optional {"days_done","possible","topics_practised",
+                        "events"} from the Friday card (excused-aware).
+      running           THE RUNNING PICTURE (Friday, cumulative): subject cards
+                        + landed tally + term trends, this week folded in.
+      touchpoints       account-surface rows; DEFAULT_TOUCHPOINTS until real
+                        per-family config exists (C6).
 
-    All three derive from already-computed facts. `archive` = [{"week","url"}]
-    newest-first.
+    All facts arrive already computed. `archive` = [{"week","url"}] newest-first.
     """
     cards = subject_cards(topics)
     return {
@@ -227,41 +214,160 @@ def build_portal(name, week_of, topics, subjects_block, radar,
         "week_of": week_of,
         "updated": updated or _dt.date.today().isoformat(),
         "week_ahead": week_ahead or {},
+        "radar": radar or {},
         "this_week": {"blocks": this_week_blocks or [], "fluency": this_week_fluency},
+        "week_verdict": week_verdict or {},
+        "activity": activity or {},
         "running": {"cards": cards, "cumulative": _cumulative(cards),
                     "trends": term_trends(snapshots or [])},
         "archive": archive or [],
+        "touchpoints": touchpoints if touchpoints is not None else DEFAULT_TOUCHPOINTS,
     }
 
 
 # --------------------------------------------------------------------------- #
-# Rendering
+# The portal shell — shared chrome: top bar, bottom app nav, footer.
 
-def _week_ahead_section(wa):
-    """Component 1 — THE WEEK AHEAD (Monday, forward). Per subject: what class is
-    on + what his sets are covering (NEW flagged), plus one assessment line.
-    Refreshed Monday; a stale panel on a pull page is forgivable."""
-    rows = (wa or {}).get("rows") or []
-    assessment = (wa or {}).get("assessment")
-    if not rows and not assessment:
-        return ""
-    out = []
-    for r in rows:
-        unit = f"<span class='wa-unit'>{_e(r['unit'])}</span>" if r.get("unit") else ""
-        newchips = "".join(f"<span class='chip'>new: {_e(t)}</span>" for t in r.get("new", []))
-        intent = f"<div class='wa-intent'>{_e(r.get('intent',''))}</div>" if r.get("intent") else ""
-        hedge = ("<div class='wa-hedge'>Confirming this subject's page for your "
-                 "teacher — treat as a guide this week.</div>" if r.get("hedged") else "")
-        out.append(f"<div class='wa-row'><div class='s'>{_e(r['subject'])} {unit}</div>"
-                   f"{intent}<div class='wa-chips'>{newchips}</div>{hedge}</div>")
-    assess_html = ""
-    if assessment and assessment.get("date"):
-        when = _friendly_date(assessment.get("date"), assessment.get("days"))
-        assess_html = ("<div class='wa-assess'><span class='k'>ONE DATE</span> "
-                       f"<b>{_e(assessment.get('task'))}</b> — {_e(when)}. His sets are "
-                       "already steering practice toward it.</div>")
-    return ("<div class='section'>THE WEEK AHEAD <span class='when'>· updated Monday</span></div>"
-            f"<div class='wa-grid'>{''.join(out)}</div>{assess_html}")
+_CSS = rp._CSS + """
+/* ------------------------------------------------ portal shell */
+:root{--acc:var(--ink)}
+body.pg-ahead{--acc:var(--reef)}
+body.pg-week{--acc:var(--flare)}
+body.pg-picture{--acc:var(--kelp)}
+body{padding-bottom:84px}
+.ptop{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.ptop .brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
+.ptop .upd{font-size:11px;color:var(--haze)}
+.peyebrow{margin:26px 0 0;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--acc)}
+.phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--acc)}
+.phero.name{font-size:38px;color:var(--ink)}
+.psub{font-size:15px;line-height:1.5;color:var(--haze);margin:10px 0 22px;max-width:52ch}
+.psub b{color:var(--ink);font-weight:600}
+.pwhen{display:inline-block;font-size:10.5px;letter-spacing:.1em;font-weight:700;color:var(--haze);border:1px solid var(--line);border-radius:99px;padding:4px 11px;margin:2px 0 20px}
+.pwhen b{color:var(--acc)}
+.pnav{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(9,14,24,.93);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.pnav .in{max-width:640px;margin:0 auto;display:flex}
+.pnav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0 calc(9px + env(safe-area-inset-bottom,0px));text-decoration:none;color:var(--haze);font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;position:relative}
+.pnav a svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pnav a.on{color:var(--ink)}
+.pnav a.on svg{stroke:var(--acc)}
+.pnav a.on::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:26px;height:3px;border-radius:0 0 3px 3px;background:var(--acc)}
+.pfoot{margin-top:30px;border-top:1px solid var(--line);padding-top:16px}
+.pfoot p{margin:0 0 8px;font-size:12.5px;color:var(--haze);line-height:1.55}
+.pfoot a{color:var(--reef)}
+/* ------------------------------------------------ home */
+.radar{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:12px;padding:12px 15px;margin:0 0 20px;font-size:14.5px;line-height:1.45}
+.radar .k{font-size:10px;letter-spacing:.12em;color:var(--haze);font-weight:700;margin-right:5px}
+.doors{display:grid;gap:11px;margin-bottom:8px}
+.door{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 14px 15px 15px;text-decoration:none;color:var(--ink)}
+.door:active{transform:scale(.99)}
+.door .ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.door .ic svg{width:22px;height:22px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.door.d-ahead .ic{background:#122C42}.door.d-ahead .ic svg{stroke:var(--reef)}.door.d-ahead .h{color:var(--reef)}
+.door.d-week .ic{background:#2E1813}.door.d-week .ic svg{stroke:var(--flare)}.door.d-week .h{color:var(--flare)}
+.door.d-picture .ic{background:#123528}.door.d-picture .ic svg{stroke:var(--kelp)}.door.d-picture .h{color:var(--kelp)}
+.door .h{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.04em}
+.door .d{font-size:13.5px;color:var(--ink);line-height:1.45;margin-top:3px}
+.door .m{font-size:10.5px;letter-spacing:.08em;color:var(--haze);text-transform:uppercase;margin-top:6px}
+.door .go{color:var(--haze);font-size:22px;line-height:1}
+.rowlink{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 16px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.4;margin-top:10px}
+.rowlink .go{color:var(--haze);font-size:20px;line-height:1}
+.rowlink .sub{display:block;font-size:12px;line-height:1.45;color:var(--haze);margin:2px 0 0;max-width:none}
+.acct{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.acct .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line)}
+.acct .row:first-child{border-top:none}
+.acct .when{font-size:10.5px;letter-spacing:.09em;color:var(--haze);font-weight:700;text-transform:uppercase}
+.acct .what{font-size:14.5px;margin-top:2px}
+.acct .why{font-size:12.5px;color:var(--haze);margin-top:2px;line-height:1.4}
+.acct .on-pill{flex:none;font-size:10px;font-weight:700;letter-spacing:.06em;background:#123528;color:var(--kelp);border-radius:99px;padding:3px 10px}
+.acct-note{font-size:12.5px;color:var(--haze);line-height:1.55;margin-top:10px}
+.acct-note b{color:var(--ink);font-weight:600}
+/* ------------------------------------------------ the week ahead */
+.wa-grid{display:grid;gap:10px}
+.wa-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.wa-row .s{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.wa-row .s .nm{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.03em;color:var(--reef)}
+.wa-row .s .wa-unit{font-size:12px;color:var(--haze);text-align:right}
+.wa-intent{font-size:15.5px;line-height:1.45;margin-top:6px}
+.wa-chips{margin-top:2px}
+.wa-chips .chip{display:inline-block;font-size:12px;background:#123528;color:var(--kelp);border-radius:99px;padding:2px 9px;margin:6px 6px 0 0}
+.wa-hedge{font-size:12.5px;color:#E7B24A;margin-top:7px;line-height:1.4}
+.wa-assess{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:14px;padding:14px 16px;margin:0 0 14px;font-size:15px;line-height:1.5}
+.wa-assess .k{display:block;font-size:10px;letter-spacing:.14em;color:var(--flare);font-weight:700;margin-bottom:4px}
+.wa-empty,.tw-empty,.map-empty{color:var(--haze);font-size:14.5px;line-height:1.55;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
+.loop{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0D1A2C;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:18px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.45}
+.loop .go{color:var(--haze);font-size:20px;line-height:1}
+.loop b{color:var(--acc)}
+/* ------------------------------------------------ the running picture */
+.tally{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 17px;margin-bottom:14px}
+.tally .tr{display:grid;grid-template-columns:minmax(72px,auto) 1fr auto;gap:12px;align-items:center;padding:6px 0}
+.tally .s{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.tally .bar{height:9px;border-radius:99px;background:#1C2B42;overflow:hidden}
+.tally .bar i{display:block;height:100%;background:var(--kelp);border-radius:99px}
+.tally .n{font-size:12px;color:var(--haze);font-family:'Space Mono',ui-monospace,monospace;white-space:nowrap}
+.tally-note{font-size:12px;color:var(--haze);line-height:1.5;margin:-4px 0 22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px}
+.map-subj{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.03em;color:var(--kelp);margin-bottom:9px}
+.trow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.trow:first-of-type{border-top:none}
+.trow .tn{font-size:14.5px;line-height:1.3}
+.trow .pos{font-size:12.5px;white-space:nowrap;text-align:right}
+.cshallow{background:#0D1A2C;border-left:3px solid var(--reef);border-radius:0 8px 8px 0;padding:8px 12px;margin:2px 0 6px;font-size:13px;line-height:1.45;color:var(--ink)}
+.cshallow b{color:var(--reef)}
+.trend{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
+.trend.soon{color:var(--haze);font-size:14px;line-height:1.55}
+.trow.trend-row{grid-template-columns:1fr auto}
+.arch{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:5px 6px}
+.arch a{display:flex;justify-content:space-between;text-decoration:none;color:var(--ink);padding:11px 12px;border-top:1px solid var(--line);font-size:14.5px}
+.arch a:first-child{border-top:none}
+.arch a .wk{color:var(--haze);font-size:13px;font-family:'Space Mono',ui-monospace,monospace}
+.legend{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px;font-size:13px;line-height:1.6;color:var(--haze)}
+.legend b{color:var(--ink)}
+.legend .lr{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.legend .lr span{background:#1C2B42;border-radius:6px;padding:3px 8px;font-size:11.5px}
+"""
+
+# Bottom-nav glyphs — inline, stroke-only, inherit colour from the nav state.
+_ICONS = {
+    "": ("Home",
+         "<svg viewBox='0 0 24 24' aria-hidden='true'>"
+         "<path d='M3.5 11 12 4l8.5 7'/><path d='M6 10.2V20h12v-9.8'/></svg>"),
+    "ahead": ("Week ahead",
+              "<svg viewBox='0 0 24 24' aria-hidden='true'>"
+              "<rect x='3.5' y='5' width='17' height='15.5' rx='2.5'/>"
+              "<path d='M3.5 9.5h17M8 3v4M16 3v4'/></svg>"),
+    "week": ("This week",
+             "<svg viewBox='0 0 24 24' aria-hidden='true'>"
+             "<circle cx='12' cy='12' r='8.5'/>"
+             "<path d='M8.4 12.4l2.4 2.4 4.8-5.2'/></svg>"),
+    "picture": ("Picture",
+                "<svg viewBox='0 0 24 24' aria-hidden='true'>"
+                "<path d='M5 20v-6M12 20V9.5M19 20V4.5'/><path d='M3 20h18'/></svg>"),
+}
+PAGE_KEYS = ("", "ahead", "week", "picture")
+_BODY_CLASS = {"": "pg-home", "ahead": "pg-ahead", "week": "pg-week",
+               "picture": "pg-picture"}
+
+
+def _hrefs(current, nav=None):
+    """Nav targets for one page. Relative by default so the four published pages
+    link each other with zero configuration (and the committed preview works
+    straight off the filesystem); `nav` overrides with explicit URLs."""
+    if nav:
+        return nav
+    if current == "":
+        return {"": "./", "ahead": "ahead/", "week": "week/", "picture": "picture/"}
+    return {"": "../", "ahead": "../ahead/", "week": "../week/",
+            "picture": "../picture/"}
+
+
+def _nav_bar(current, hrefs):
+    tabs = []
+    for key in PAGE_KEYS:
+        label, icon = _ICONS[key]
+        on = " class='on' aria-current='page'" if key == current else ""
+        tabs.append(f"<a{on} href='{_e(hrefs[key])}'>{icon}<span>{_e(label)}</span></a>")
+    return f"<nav class='pnav'><div class='in'>{''.join(tabs)}</div></nav>"
 
 
 def _friendly_date(iso, days=None):
@@ -269,77 +375,342 @@ def _friendly_date(iso, days=None):
         d = _dt.date.fromisoformat(iso)
     except (TypeError, ValueError):
         return iso or ""
-    txt = d.strftime("%A %-d %B") if hasattr(d, "strftime") else iso
+    txt = d.strftime("%A %-d %B")
     if isinstance(days, int) and 0 <= days <= 7:
         return f"{txt} (this week)"
     return txt
 
 
-def _this_week_section(this_week, name):
-    """Component 2 — THIS WEEK, WHAT HAPPENED (Friday, backward). The subject
-    spine, rendered by report_page's per-block renderer so Monday's plan and
-    Friday's resolution share one shape. Placeholder until Friday's run."""
-    blocks = (this_week or {}).get("blocks") or []
-    fluency = (this_week or {}).get("fluency")
-    if not blocks:
-        return ("<div class='section'>THIS WEEK <span class='when'>· updated Friday</span></div>"
-                "<div class='tw-soon'>This week's report lands Friday evening — what "
-                "each subject actually worked, where it landed, and the one thing worth "
-                "knowing.</div>")
-    flu = ""
-    if fluency:
-        flu = ("<div class='fluency'>On <b>" + _e(fluency) + "</b>, " + _e(name)
-               + " could pick the right answer but not yet put the why in his own "
-               "words — so the deeper level was held until the explanation catches "
-               "up. That safeguard is the rigour behind every position here.</div>")
-    body = "".join(rp._subject_block(b, name) for b in blocks)
-    return ("<div class='section'>THIS WEEK <span class='when'>· updated Friday</span></div>"
-            f"{flu}{body}")
+def _short_date(iso):
+    """'Mon 31 Aug' — the human form for the freshness stamp and archive rows."""
+    try:
+        d = _dt.date.fromisoformat(iso)
+    except (TypeError, ValueError):
+        return iso or ""
+    return d.strftime("%a %-d %b")
 
 
-def _topic_row(r):
+def _week_label(week_of):
+    try:
+        d = _dt.date.fromisoformat(week_of)
+    except (TypeError, ValueError):
+        return week_of or ""
+    return "week of " + d.strftime("%-d %B")
+
+
+def _shell(key, portal, hero_html, body_html, hrefs, title_tail):
+    """One finished page: head (stamp early, inside verify()'s 4KB window),
+    top bar, page hero, body, footer, bottom nav."""
+    name = portal.get("name", "")
+    stamp = rp.build_stamp()
+    foot = ("<div class='pfoot'>"
+            f"<p>This is {_e(name)}'s picture, kept current — open it any time. "
+            "Nothing here needs a reply; questions go to Rich by text.</p>"
+            "<p>Positions and depth refresh Friday evening; the week ahead "
+            "refreshes Monday. Nothing updates mid-week — the read stays "
+            "weekly on purpose.</p>"
+            f"<p>build {_e(stamp)}</p></div>")
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="xpdaily-build" content="{_e(stamp)}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0B1220" />
+<title>XPDaily — {_e(name)}{_e(title_tail)}</title>
+<style>{_CSS}</style>
+</head>
+<body class="{_BODY_CLASS[key]}">
+<div class="wrap">
+  <div class="ptop"><span class="brand">XP DAILY · THE FULL PICTURE</span><span class="upd">updated {_e(_short_date(portal.get('updated','')))}</span></div>
+  {hero_html}
+  {body_html}
+  {foot}
+</div>
+{_nav_bar(key, hrefs)}
+</body>
+</html>"""
+
+
+# --------------------------------------------------------------------------- #
+# HOME — the front door: radar, three doorways with live teasers, the account
+# surface (v1 stub), the kid's player card.
+
+def _join_names(items, cap=3):
+    items = list(items)[:cap]
+    if not items:
+        return ""
+    if len(items) == 1:
+        return items[0]
+    return ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def _ahead_teaser(portal):
+    rows = (portal.get("week_ahead") or {}).get("rows") or []
+    if not rows:
+        return "What school is covering this week, and what his sets will do about it."
+    subs = _join_names([r["subject"] for r in rows])
+    if (portal.get("week_ahead") or {}).get("assessment"):
+        return f"{subs} — plus one date on the radar."
+    return f"{subs} — what school posted, and what his sets will do about it."
+
+
+def _week_teaser(portal):
+    word = (portal.get("week_verdict") or {}).get("word")
+    blocks = (portal.get("this_week") or {}).get("blocks") or []
+    if word in rp.WORD_CAP:
+        return f"{rp.WORD_CAP[word]} — {rp.WORD_SUB[word][:1].lower()}{rp.WORD_SUB[word][1:]}"
+    if blocks:
+        subs = _join_names([b["subject"] for b in blocks])
+        return f"What {subs} worked, where each topic stands, and the one detail worth knowing."
+    return "How the week actually went, subject by subject — lands Friday evening."
+
+
+def _picture_teaser(portal):
+    cum = [c for c in (portal.get("running") or {}).get("cumulative") or []
+           if c.get("total")]
+    if not cum:
+        return "Position and depth on every topic, adding up week by week."
+    strip = " · ".join(f"{c['subject']} {c['landed']} of {c['total']} landed"
+                       for c in cum[:2])
+    return strip + (" · the whole map." if len(cum) > 2 else ".")
+
+
+def _radar_strip(portal):
+    """The single most actionable fact a parent can be handed, on the front
+    door: the one assessment on the radar. Practice-coverage hedge, never an
+    outcome prediction."""
+    a = (portal.get("week_ahead") or {}).get("assessment") or portal.get("radar") or {}
+    if not a.get("date") or not a.get("task"):
+        return ""
+    when = _friendly_date(a.get("date"), a.get("days"))
+    return ("<div class='radar'><span class='k'>ON THE RADAR</span>"
+            f"<b>{_e(a['task'])}</b> — {_e(when)}. His sets are already steering "
+            "practice toward it.</div>")
+
+
+def _doors(portal, hrefs):
+    doors = [
+        ("ahead", "d-ahead", "The week ahead", _ahead_teaser(portal),
+         "Refreshes Monday evening"),
+        ("week", "d-week", "This week", _week_teaser(portal),
+         "Refreshes Friday evening"),
+        ("picture", "d-picture", "The running picture", _picture_teaser(portal),
+         "Adds up every Friday"),
+    ]
+    out = []
+    for key, cls, title, teaser, meta in doors:
+        icon = _ICONS[key][1]
+        out.append(
+            f"<a class='door {cls}' href='{_e(hrefs[key])}'>"
+            f"<span class='ic'>{icon}</span>"
+            f"<span><span class='h'>{_e(title)}</span>"
+            f"<span class='d' style='display:block'>{_e(teaser)}</span>"
+            f"<span class='m' style='display:block'>{_e(meta)}</span></span>"
+            f"<span class='go'>&#8250;</span></a>")
+    return f"<div class='doors'>{''.join(out)}</div>"
+
+
+def _account_section(portal):
+    """YOUR ACCOUNT — v1 is an honest stub: the four touchpoints and their
+    cadence, all currently on, and the documented way to change anything (a
+    text to Rich — the opt-out path, D5). Per-touchpoint switches and sign-in
+    land in this exact space when they exist; the shell is already theirs."""
+    rows = []
+    for tp in portal.get("touchpoints") or []:
+        rows.append(
+            "<div class='row'><div>"
+            f"<div class='when'>{_e(tp['when'])}</div>"
+            f"<div class='what'>{_e(tp['what'])}</div>"
+            f"<div class='why'>{_e(tp['why'])}</div></div>"
+            "<span class='on-pill'>ON</span></div>")
+    if not rows:
+        return ""
+    return ("<div class='section'>YOUR ACCOUNT</div>"
+            f"<div class='acct'>{''.join(rows)}</div>"
+            "<p class='acct-note'><b>Want anything changed?</b> Any of these can "
+            "be switched off, or contact details updated, with a text to Rich — "
+            "done the same day, no forms. Self-serve controls will live right "
+            "here once sign-in arrives.</p>")
+
+
+def _home_page(portal, hrefs, kid_wrap_url=None):
+    name = portal.get("name", "")
+    hero = (f"<h1 class='phero name'>{_e(name)}</h1>"
+            "<p class='psub'>The full picture — what's coming, how the week "
+            "went, and how it's all adding up. Three pages, kept current, "
+            "always here.</p>")
+    wrap_link = ""
+    if kid_wrap_url:
+        wrap_link = (f"<a class='rowlink' href='{_e(kid_wrap_url)}'>"
+                     f"<span><b>{_e(name)}'s player card</b>"
+                     "<span class='sub'>The same week, the way he sees it — "
+                     "XP, streaks and badges.</span></span>"
+                     "<span class='go'>&#8250;</span></a>")
+    body = (_radar_strip(portal)
+            + _doors(portal, hrefs)
+            + wrap_link
+            + _account_section(portal))
+    return _shell("", portal, hero, body, hrefs, "'s full picture")
+
+
+# --------------------------------------------------------------------------- #
+# THE WEEK AHEAD — Monday, forward. The light glance. Forward facts only, by
+# construction: everything on this page comes from monday_brief.week_ahead().
+
+def _ahead_page(portal, hrefs):
+    name = portal.get("name", "")
+    wa = portal.get("week_ahead") or {}
+    rows = wa.get("rows") or []
+    assessment = wa.get("assessment")
+    hero = ("<div class='peyebrow'>MONDAY · FORWARD</div>"
+            "<h1 class='phero'>The week ahead</h1>"
+            f"<p class='psub'>The {_e(_week_label(portal.get('week_of')))} — what "
+            f"school is covering, and what {_e(name)}'s sets will do about it. "
+            "A plan, not a verdict.</p>")
+    parts = []
+    if assessment and assessment.get("date"):
+        when = _friendly_date(assessment.get("date"), assessment.get("days"))
+        parts.append("<div class='wa-assess'><span class='k'>ONE DATE</span>"
+                     f"<b>{_e(assessment.get('task'))}</b> — {_e(when)}. His sets "
+                     "are already steering practice toward it.</div>")
+    if rows:
+        row_html = []
+        for r in rows:
+            unit = (f"<span class='wa-unit'>{_e(r['unit'])}</span>"
+                    if r.get("unit") else "")
+            intent = (f"<div class='wa-intent'>{_e(_cap(r.get('intent', '')))}"
+                      "</div>" if r.get("intent") else "")
+            chips = "".join(f"<span class='chip'>new: {_e(t)}</span>"
+                            for t in r.get("new", []))
+            chips = f"<div class='wa-chips'>{chips}</div>" if chips else ""
+            hedge = ("<div class='wa-hedge'>Confirming this subject's page for "
+                     "your teacher — treat as a guide this week.</div>"
+                     if r.get("hedged") else "")
+            row_html.append(
+                f"<div class='wa-row'><div class='s'><span class='nm'>"
+                f"{_e(r['subject'])}</span>{unit}</div>{intent}{chips}{hedge}</div>")
+        parts.append(f"<div class='wa-grid'>{''.join(row_html)}</div>")
+    else:
+        parts.append("<div class='wa-empty'>This week's plan syncs in on Monday. "
+                     f"Until then {_e(name)}'s sets keep working the current "
+                     "topics — the nightly run doesn't wait for the paperwork."
+                     "</div>")
+    parts.append(f"<a class='loop' href='{_e(hrefs['week'])}'>"
+                 "<span>How it lands is Friday's story — the plan above gets "
+                 "its answer on <b>This week</b>.</span>"
+                 "<span class='go'>&#8250;</span></a>")
+    return _shell("ahead", portal, hero, "".join(parts), hrefs, " — the week ahead")
+
+
+def _cap(s):
+    return s[:1].upper() + s[1:] if s else s
+
+
+# --------------------------------------------------------------------------- #
+# THIS WEEK — Friday, backward. The deep read: verdict word, activity strip,
+# the fluency-illusion catch, then the subject spine (report_page's renderer,
+# so Friday's two surfaces share one shape).
+
+def _week_page(portal, hrefs, report_url=None):
+    name = portal.get("name", "")
+    blocks = (portal.get("this_week") or {}).get("blocks") or []
+    fluency = (portal.get("this_week") or {}).get("fluency")
+    word = (portal.get("week_verdict") or {}).get("word")
+    eyebrow = "<div class='peyebrow'>FRIDAY · WHAT HAPPENED</div>"
+    if word in rp.WORD_CAP:
+        # The verdict IS this page's hero — the ten-second read, then the why.
+        hero = (eyebrow
+                + f"<h1 class='word display {_e(word)}' style='margin-top:6px'>"
+                + f"{_e(rp.WORD_CAP[word])}</h1>"
+                + f"<p class='psub'>{_e(rp.WORD_SUB[word])} The subject-by-"
+                  "subject read is below — each one closes the loop Monday "
+                  "opened.</p>")
+    else:
+        hero = (eyebrow + "<h1 class='phero'>This week</h1>"
+                + f"<p class='psub'>What {_e(name)}'s sets worked, where each "
+                  "topic stands, and the one detail worth knowing — subject by "
+                  "subject.</p>")
+    parts = []
+    activity = portal.get("activity") or {}
+    if blocks and activity.get("possible"):
+        parts.append(rp._activity_strip({"activity": activity}))
+    if blocks:
+        if fluency:
+            parts.append(
+                "<div class='fluency'>On <b>" + _e(fluency) + "</b>, " + _e(name)
+                + " could pick the right answer but not yet put the why in his "
+                "own words — so the deeper level was held until the explanation "
+                "catches up. That safeguard is the rigour behind every position "
+                "on these pages.</div>")
+        parts.append("".join(rp._subject_block(b, name) for b in blocks))
+        if report_url:
+            parts.append(f"<a class='rowlink' href='{_e(report_url)}'>"
+                         "<span><b>The full Friday report</b>"
+                         "<span class='sub'>The quote, the say-one-thing "
+                         "scripts, week on week — the long form.</span></span>"
+                         "<span class='go'>&#8250;</span></a>")
+    else:
+        parts.append("<div class='tw-empty'>This week's read lands Friday "
+                     "evening — what each subject actually worked, where it "
+                     "landed, and the one thing worth knowing. The plan it will "
+                     "be answering is on the Week Ahead page.</div>")
+    parts.append(f"<a class='loop' href='{_e(hrefs['picture'])}'>"
+                 "<span>Where it all adds up — every topic's position and "
+                 "depth, on <b>The running picture</b>.</span>"
+                 "<span class='go'>&#8250;</span></a>")
+    return _shell("week", portal, hero, "".join(parts), hrefs, " — this week")
+
+
+# --------------------------------------------------------------------------- #
+# THE RUNNING PICTURE — Friday, cumulative. The map: tally, position + depth on
+# every active topic (the confidently-shallow cross), trends, archive, legend.
+
+def _topic_tr(r):
+    """One topic on the map: position + depth side by side, on the SAME table
+    vocabulary the This-Week spine uses, so the two Friday surfaces read as one
+    product. The confidently-shallow cross renders as a full-width callout
+    directly under its topic."""
     band = _STATE_BAND.get(r.get("state"), 1)
     label, colour = _BANDS[band][0], _BANDS[band][1]
     dep = r.get("depth")
     dep_html = (f"<span class='dep'>{_e(_RUNG_LABEL[dep].capitalize())}</span>"
                 if dep in _RUNG_LABEL else "<span class='dep none'>&mdash;</span>")
-    row = (f"<div class='trow'><span class='tn'>{_e(r.get('topic'))}</span>"
-           f"<span class='pos'><span class='dot d{colour}'>&#9679;</span>{_e(label)}</span>"
-           f"<span class='dep-wrap'>{dep_html}</span>")
+    rows = (f"<tr><td>{_e(r.get('topic'))}</td>"
+            f"<td class='pos'><span class='dot d{colour}'>&#9679;</span>{_e(label)}</td>"
+            f"<td>{dep_html}</td></tr>")
     if r.get("confidently_shallow"):
-        row += ("<div class='cshallow'><b>Strong recall</b> — he can pick this "
-                "confidently, but hasn't yet shown he can explain it. His next "
-                "written question targets exactly that.</div>")
-    return row + "</div>"
+        rows += ("<tr><td colspan='3'><div class='cshallow'><b>Strong recall</b> "
+                 "— he can pick this confidently, but hasn't yet shown he can "
+                 "explain it. His next written question targets exactly that."
+                 "</div></td></tr>")
+    return rows
 
 
-def _running_section(running):
-    """Component 3 — THE RUNNING PICTURE (Friday, cumulative). Leads with the
-    per-subject landed tally (this week folded in), then the full where-he-stands
-    cards (position + depth, the confidently-shallow cross), then term trends."""
-    cards = (running or {}).get("cards") or []
-    if not cards and not (running or {}).get("trends"):
+def _tally(running):
+    cum = [c for c in (running or {}).get("cumulative") or [] if c.get("total")]
+    if not cum:
         return ""
-    cum = (running or {}).get("cumulative") or []
-    tally = "<span class='sep'> · </span>".join(
-        f"{_e(c['subject'])} {c['landed']} of {c['total']} landed"
-        for c in cum if c.get("total"))
-    tally_html = f"<div class='cumf'>{tally}</div>" if tally else ""
-    body = []
-    for c in cards:
-        rows = "".join(_topic_row(r) for r in c["rows"])
-        body.append(f"<div class='card'><div class='subj'>{_e(c['subject'])}</div>{rows}</div>")
-    return ("<div class='section'>THE RUNNING PICTURE <span class='when'>· updated Friday</span></div>"
-            f"{tally_html}{''.join(body)}{_trends_section((running or {}).get('trends'))}")
+    rows = []
+    for c in cum:
+        pct = round(100 * c["landed"] / c["total"]) if c["total"] else 0
+        rows.append(f"<div class='tr'><span class='s'>{_e(c['subject'])}</span>"
+                    f"<span class='bar'><i style='width:{pct}%'></i></span>"
+                    f"<span class='n'>{c['landed']} of {c['total']}</span></div>")
+    return (f"<div class='tally'>{''.join(rows)}</div>"
+            "<p class='tally-note'>Topics count as landed once they reach "
+            "&ldquo;Nearly there&rdquo; — steady under questioning, most of the "
+            "way in.</p>")
 
 
 def _trends_section(trends):
     if not trends:
         return ("<div class='section'>TERM TRENDS</div>"
-                "<div class='trend soon'>The term trend fills in here once there are "
-                "four weeks of history to compare — before then a &ldquo;trend&rdquo; "
-                "would be noise, so we don't fake one. Weekly snapshots are banking "
-                "now.</div>")
+                "<div class='trend soon'>The term trend fills in here once there "
+                "are four weeks of history to compare — before then a "
+                "&ldquo;trend&rdquo; would be noise, so we don't fake one. "
+                "Weekly snapshots are banking now.</div>")
     rows = []
     for r in trends["rows"]:
         gained = r["gained"]
@@ -357,9 +728,9 @@ def _archive_section(archive):
     if not archive:
         return ""
     links = "".join(
-        f"<a href='{_e(a['url'])}'><span>Week report</span>"
-        f"<span class='wk'>{_e(a['week'])}</span></a>" for a in archive)
-    return ("<div class='section'>ARCHIVE</div>"
+        f"<a href='{_e(a['url'])}'><span>Friday report</span>"
+        f"<span class='wk'>{_e(_short_date(a['week']))}</span></a>" for a in archive)
+    return ("<div class='section'>THE ARCHIVE</div>"
             f"<div class='arch'>{links}</div>")
 
 
@@ -373,38 +744,60 @@ def _legend():
             "understands it (the SOLO taxonomy, in plain words). A rung shows only "
             "once he's evidenced it:"
             f"<div class='lr'>{rungs}</div>"
-            "<p style='margin:10px 0 0'>Positions update every Friday; this week's "
-            "class focus updates Monday. Questions? Text Rich.</p></div>")
+            "<p style='margin:10px 0 0'>Positions update every Friday; the week "
+            "ahead updates Monday. Questions? Text Rich.</p></div>")
 
 
-def render(portal, kid_wrap_url=None):
-    """Full self-contained HTML for one kid's portal page."""
+def _picture_page(portal, hrefs):
     name = portal.get("name", "")
-    stamp = rp.build_stamp()
-    wrap_link = (f" &nbsp;·&nbsp; <a href='{_e(kid_wrap_url)}'>{_e(name)}'s player card</a>"
-                 if kid_wrap_url else "")
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="xpdaily-build" content="{_e(stamp)}" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex, nofollow" />
-<meta name="theme-color" content="#0B1220" />
-<title>XPDaily — {_e(name)}'s picture</title>
-<style>{_CSS}</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="top"><span class="brand">XPDAILY · THE FULL PICTURE</span><span class="updated">updated {_e(portal.get('updated',''))}</span></div>
-  <div class="hero">{_e(name)}'s full picture — the week ahead, the week just gone, and how it's adding up</div>
-  {_week_ahead_section(portal.get('week_ahead'))}
-  {_this_week_section(portal.get('this_week'), name)}
-  {_running_section(portal.get('running'))}
-  {_archive_section(portal.get('archive'))}
-  {_legend()}
-  <p class="foot">This is {_e(name)}'s picture, kept current — open it any time.{wrap_link}</p>
-  <p class="foot">build {_e(stamp)}</p>
-</div>
-</body>
-</html>"""
+    running = portal.get("running") or {}
+    cards = running.get("cards") or []
+    hero = ("<div class='peyebrow'>TERM TO DATE · CUMULATIVE</div>"
+            "<h1 class='phero'>The running picture</h1>"
+            f"<p class='psub'>Where every topic stands and how deeply {_e(name)} "
+            "understands it — the map his weeks are drawing. This is the page "
+            "that grows.</p>")
+    parts = []
+    if cards:
+        parts.append(_tally(running))
+        parts.append("<div class='section'>EVERY TOPIC &mdash; POSITION AND DEPTH</div>")
+        for c in cards:
+            rows = "".join(_topic_tr(r) for r in c["rows"])
+            parts.append(
+                f"<div class='card'><div class='map-subj'>{_e(c['subject'])}</div>"
+                "<table class='subj-table'><tr><th>Topic</th><th>Where he is</th>"
+                f"<th>Depth</th></tr>{rows}</table></div>")
+    else:
+        parts.append("<div class='map-empty'>The map draws itself in as Fridays "
+                     "bank — each week adds every topic's position and depth "
+                     "here.</div>")
+    parts.append(_trends_section(running.get("trends")))
+    parts.append(_archive_section(portal.get("archive")))
+    parts.append(_legend())
+    return _shell("picture", portal, hero, "".join(parts), hrefs,
+                  " — the running picture")
+
+
+# --------------------------------------------------------------------------- #
+# Entry point
+
+def render_pages(portal, kid_wrap_url=None, report_url=None, nav=None):
+    """The four portal pages, as {relative path: html}:
+
+        ""         home (publish at  p/<slug>)
+        "ahead"    the week ahead    (p/<slug>/ahead)
+        "week"     this week         (p/<slug>/week)
+        "picture"  the running picture (p/<slug>/picture)
+
+    Pages cross-link relatively by default (they live under one slug), so no
+    base URL is needed at render time; `nav` = {key: href} overrides every
+    page's nav targets (used by the artifact preview, where the four pages live
+    at four absolute URLs). `report_url` links This Week to the full dated
+    Friday page when one exists; `kid_wrap_url` links home to the player card.
+    """
+    return {
+        "": _home_page(portal, _hrefs("", nav), kid_wrap_url=kid_wrap_url),
+        "ahead": _ahead_page(portal, _hrefs("ahead", nav)),
+        "week": _week_page(portal, _hrefs("week", nav), report_url=report_url),
+        "picture": _picture_page(portal, _hrefs("picture", nav)),
+    }
