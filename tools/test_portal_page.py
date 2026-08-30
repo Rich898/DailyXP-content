@@ -48,6 +48,13 @@ t("new-this-week topics are flagged vs last week's targets",
   "Solving equations with brackets" in maths["new"] and "Linear equations" not in maths["new"])
 t("the intent clause is a forward verb, no state word",
   maths["intent"].startswith("moves into") and "solid" not in maths["intent"])
+t("the focus vocabulary is exactly two verbs — an all-new subject says "
+  "'moves into', never 'starts'",
+  next(r for r in brief["rows"] if r["subject"] == "History")
+  ["intent"].startswith("moves into"))
+t("a mixed subject says both — moves into AND continues",
+  maths["intent"] == "moves into Solving equations with brackets "
+                     "and continues Linear equations")
 t("the assessment rides through", brief["assessment"]["date"] == "2026-09-10")
 
 print("\nthe Monday POINTER SMS — carries no sweep-derived claim:")
@@ -134,12 +141,36 @@ t("the account surface stub is designed in",
   "YOUR ACCOUNT" in home and "switched off" in home and "text to Rich" in home)
 t("the kid's player card is linked", "https://x.example/w/abc/" in home)
 
-print("\nthe week ahead — Monday, forward:")
-t("the ONE DATE assessment card renders",
-  "ONE DATE" in ahead and "Science test" in ahead)
-t("what school posted, new topics flagged",
-  "Solving equations with brackets" in ahead and "new:" in ahead)
+print("\nthe week ahead — Monday, forward (round-1 feedback locked):")
+t("UPCOMING DATES renders (plural card; the single radar still feeds it)",
+  "UPCOMING DATES" in ahead and "Science test" in ahead
+  and "ONE DATE" not in ahead)
+t("subject rows carry the three classifications — TOPIC and FOCUS labelled",
+  ">Topic</span>" in ahead and ">Focus</span>" in ahead and "Algebra" in ahead)
+t("the focus line uses the two-verb vocabulary on the page",
+  "Moves into Solving equations with brackets and continues Linear equations"
+  in ahead and "starts" not in ahead.lower())
+t("the subheader carries no 'a plan, not a verdict' line",
+  "not a verdict" not in ahead)
+_phero_rule = ahead.split(".phero{")[1].split("}")[0]
+t("headlines are white — the accent never colours the page title",
+  _phero_rule.endswith("color:var(--ink)")
+  and "body.pg-week h1.word{color:var(--ink)}" in week)
 t("the loop points at Friday", "Friday" in ahead)
+
+multi = pp.build_portal(
+    "Harrison", "2026-08-10", TOPICS, SUBJECTS_BLOCK, RADAR, week_ahead=brief,
+    upcoming=[{"task": "Maths study guide released", "date": "2026-09-14",
+               "subject": "Maths"},
+              {"task": "Science test", "date": "2026-09-10", "days": 12,
+               "subject": "Science"}])
+mpages = pp.render_pages(multi)
+t("many dates render, nearest first — tests and study guides alike",
+  "Maths study guide released" in mpages["ahead"]
+  and mpages["ahead"].index("Science test")
+  < mpages["ahead"].index("Maths study guide released"))
+t("home's radar strip carries the nearest date",
+  "Science test" in mpages[""] and "ON THE RADAR" in mpages[""])
 
 print("\nthis week — Friday, backward:")
 t("the verdict word is the hero", ">Solid</h1>" in week)

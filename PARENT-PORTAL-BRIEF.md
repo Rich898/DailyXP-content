@@ -216,3 +216,16 @@ pages, inside `verify()`'s 4KB window.
 **Not done here (deliberately, per this brief):** no wiring — no `p` slug kind,
 no runner, no schedule slots, no dated `/r/<slug>/<week>/` paths. That work
 starts only after Rich eyeballs the preview and locks the design.
+
+### Feedback rounds (Rich, page by page)
+
+**Round 1 — 30 Aug, THE WEEK AHEAD** (home deferred to later): headlines are
+ALWAYS white, all pages (accent stays in eyebrow/chips/nav; includes the
+verdict word on This Week); subheader drops "a plan, not a verdict"; **ONE DATE
+→ UPCOMING DATES** — a list of every dated thing (tests, study-guide releases,
+due dates; `build_portal(upcoming=[...])`, nearest first, single radar as
+fallback); subject rows restructured as **SUBJECT / TOPIC / FOCUS** (topic =
+the unit, never fabricated; focus = the forward clause) with the copy
+vocabulary fixed at exactly two verbs — **"continues" / "moves into" / or
+both** (`monday_brief._intent`; "starts" removed). New-topic chips dropped —
+"moves into" now carries that information in the sentence.

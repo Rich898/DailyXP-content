@@ -93,12 +93,14 @@ def week_ahead(name, subjects_block, prev_subjects_block=None, radar=None,
 
 
 def _intent(covering, new):
-    """A forward clause for a subject — 'moves into X', 'starts Y', 'continues
-    Z'. Deterministic, verbs only; no verdicts, no state."""
+    """A forward clause for a subject. The vocabulary is exactly two verbs
+    (Rich, 30 Aug): 'continues', 'moves into', or both — new topics always
+    arrive under 'moves into', carried-forward ones under 'continues'.
+    Deterministic; no verdicts, no state."""
     if new and len(new) == len(covering):
-        return "starts " + _join(new)
+        return "moves into " + _join(new)
     if new:
-        return "moves into " + _join(new) + ", continuing " + _join(
+        return "moves into " + _join(new) + " and continues " + _join(
             [c for c in covering if c not in new])
     return "continues " + _join(covering)
 

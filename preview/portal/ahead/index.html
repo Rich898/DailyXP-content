@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="xpdaily-build" content="local 2026-08-30T23:07:54Z" />
+<meta name="xpdaily-build" content="local 2026-08-30T23:38:26Z" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="theme-color" content="#0B1220" />
@@ -142,8 +142,11 @@ body{padding-bottom:84px}
 .ptop .brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
 .ptop .upd{font-size:11px;color:var(--haze)}
 .peyebrow{margin:26px 0 0;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--acc)}
-.phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--acc)}
-.phero.name{font-size:38px;color:var(--ink)}
+/* headlines are ALWAYS white (Rich, 30 Aug) — the accent lives in the eyebrow,
+   chips and nav, never the page title. Includes the verdict word on This Week. */
+.phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--ink)}
+.phero.name{font-size:38px}
+body.pg-week h1.word{color:var(--ink)}
 .psub{font-size:15px;line-height:1.5;color:var(--haze);margin:10px 0 22px;max-width:52ch}
 .psub b{color:var(--ink);font-weight:600}
 .pwhen{display:inline-block;font-size:10.5px;letter-spacing:.1em;font-weight:700;color:var(--haze);border:1px solid var(--line);border-radius:99px;padding:4px 11px;margin:2px 0 20px}
@@ -188,15 +191,18 @@ body{padding-bottom:84px}
 /* ------------------------------------------------ the week ahead */
 .wa-grid{display:grid;gap:10px}
 .wa-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.wa-row .s{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.wa-row .s .nm{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.03em;color:var(--reef)}
-.wa-row .s .wa-unit{font-size:12px;color:var(--haze);text-align:right}
-.wa-intent{font-size:15.5px;line-height:1.45;margin-top:6px}
-.wa-chips{margin-top:2px}
-.wa-chips .chip{display:inline-block;font-size:12px;background:#123528;color:var(--kelp);border-radius:99px;padding:2px 9px;margin:6px 6px 0 0}
+.wa-row .nm{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.03em;color:var(--reef);margin-bottom:8px}
+.wa-line{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:baseline;padding:3px 0}
+.wa-line .wa-k{font-size:10px;letter-spacing:.12em;color:var(--haze);font-weight:700;text-transform:uppercase}
+.wa-line .wa-v{font-size:15px;line-height:1.45}
+.wa-line.topic .wa-v{font-weight:600;font-size:15.5px}
 .wa-hedge{font-size:12.5px;color:#E7B24A;margin-top:7px;line-height:1.4}
-.wa-assess{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:14px;padding:14px 16px;margin:0 0 14px;font-size:15px;line-height:1.5}
-.wa-assess .k{display:block;font-size:10px;letter-spacing:.14em;color:var(--flare);font-weight:700;margin-bottom:4px}
+.wa-dates{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:14px;padding:13px 16px;margin:0 0 14px}
+.wa-dates .k{display:block;font-size:10px;letter-spacing:.14em;color:var(--flare);font-weight:700;margin-bottom:3px}
+.wa-dates .dr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.4}
+.wa-dates .dr.first{border-top:none}
+.wa-dates .dr .dw{color:var(--haze);font-size:13px;white-space:nowrap}
+.wa-dates .steer{font-size:12.5px;color:var(--haze);margin-top:6px;line-height:1.45}
 .wa-empty,.tw-empty,.map-empty{color:var(--haze);font-size:14.5px;line-height:1.55;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
 .loop{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0D1A2C;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:18px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.45}
 .loop .go{color:var(--haze);font-size:20px;line-height:1}
@@ -233,9 +239,9 @@ body{padding-bottom:84px}
 <body class="pg-ahead">
 <div class="wrap">
   <div class="ptop"><span class="brand">XP DAILY · THE FULL PICTURE</span><span class="upd">updated Mon 31 Aug</span></div>
-  <div class='peyebrow'>MONDAY · FORWARD</div><h1 class='phero'>The week ahead</h1><p class='psub'>The week of 31 August — what school is covering, and what Sam's sets will do about it. A plan, not a verdict.</p>
-  <div class='wa-assess'><span class='k'>ONE DATE</span><b>Science topic test</b> — Thursday 10 September. His sets are already steering practice toward it.</div><div class='wa-grid'><div class='wa-row'><div class='s'><span class='nm'>English</span><span class='wa-unit'>Persuasive writing</span></div><div class='wa-intent'>Continues Persuasive techniques and Structuring an argument</div><div class='wa-hedge'>Confirming this subject's page for your teacher — treat as a guide this week.</div></div><div class='wa-row'><div class='s'><span class='nm'>History</span><span class='wa-unit'>The Crusades</span></div><div class='wa-intent'>Moves into Primary sources, continuing Causes of the First Crusade</div><div class='wa-chips'><span class='chip'>new: Primary sources</span></div></div><div class='wa-row'><div class='s'><span class='nm'>Maths</span><span class='wa-unit'>Algebra</span></div><div class='wa-intent'>Moves into Solving equations with brackets, continuing Linear equations</div><div class='wa-chips'><span class='chip'>new: Solving equations with brackets</span></div></div><div class='wa-row'><div class='s'><span class='nm'>Science</span><span class='wa-unit'>Body systems</span></div><div class='wa-intent'>Starts How body systems work together</div><div class='wa-chips'><span class='chip'>new: How body systems work together</span></div></div></div><a class='loop' href='../week/'><span>How it lands is Friday's story — the plan above gets its answer on <b>This week</b>.</span><span class='go'>&#8250;</span></a>
-  <div class='pfoot'><p>This is Sam's picture, kept current — open it any time. Nothing here needs a reply; questions go to Rich by text.</p><p>Positions and depth refresh Friday evening; the week ahead refreshes Monday. Nothing updates mid-week — the read stays weekly on purpose.</p><p>build local 2026-08-30T23:07:54Z</p></div>
+  <div class='peyebrow'>MONDAY · FORWARD</div><h1 class='phero'>The week ahead</h1><p class='psub'>The week of 31 August — what school is covering, and what Sam's sets will do about it.</p>
+  <div class='wa-dates'><span class='k'>UPCOMING DATES</span><div class='dr first'><span><b>Science topic test</b></span><span class='dw'>Thu 10 Sep</span></div><div class='dr'><span><b>Maths study guide released</b></span><span class='dw'>Mon 14 Sep</span></div><div class='dr'><span><b>English persuasive speech due</b></span><span class='dw'>Fri 18 Sep</span></div><div class='steer'>His nightly sets steer practice toward these as they approach.</div></div><div class='wa-grid'><div class='wa-row'><div class='nm'>English</div><div class='wa-line topic'><span class='wa-k'>Topic</span><span class='wa-v'>Persuasive writing</span></div><div class='wa-line'><span class='wa-k'>Focus</span><span class='wa-v'>Continues Persuasive techniques and Structuring an argument</span></div><div class='wa-hedge'>Confirming this subject's page for your teacher — treat as a guide this week.</div></div><div class='wa-row'><div class='nm'>History</div><div class='wa-line topic'><span class='wa-k'>Topic</span><span class='wa-v'>The Crusades</span></div><div class='wa-line'><span class='wa-k'>Focus</span><span class='wa-v'>Moves into Primary sources and continues Causes of the First Crusade</span></div></div><div class='wa-row'><div class='nm'>Maths</div><div class='wa-line topic'><span class='wa-k'>Topic</span><span class='wa-v'>Algebra</span></div><div class='wa-line'><span class='wa-k'>Focus</span><span class='wa-v'>Moves into Solving equations with brackets and continues Linear equations</span></div></div><div class='wa-row'><div class='nm'>Science</div><div class='wa-line topic'><span class='wa-k'>Topic</span><span class='wa-v'>Body systems</span></div><div class='wa-line'><span class='wa-k'>Focus</span><span class='wa-v'>Moves into How body systems work together</span></div></div></div><a class='loop' href='../week/'><span>How it lands is Friday's story — the plan above gets its answer on <b>This week</b>.</span><span class='go'>&#8250;</span></a>
+  <div class='pfoot'><p>This is Sam's picture, kept current — open it any time. Nothing here needs a reply; questions go to Rich by text.</p><p>Positions and depth refresh Friday evening; the week ahead refreshes Monday. Nothing updates mid-week — the read stays weekly on purpose.</p><p>build local 2026-08-30T23:38:26Z</p></div>
 </div>
 <nav class='pnav'><div class='in'><a href='../'><svg viewBox='0 0 24 24' aria-hidden='true'><path d='M3.5 11 12 4l8.5 7'/><path d='M6 10.2V20h12v-9.8'/></svg><span>Home</span></a><a class='on' aria-current='page' href='../ahead/'><svg viewBox='0 0 24 24' aria-hidden='true'><rect x='3.5' y='5' width='17' height='15.5' rx='2.5'/><path d='M3.5 9.5h17M8 3v4M16 3v4'/></svg><span>Week ahead</span></a><a href='../week/'><svg viewBox='0 0 24 24' aria-hidden='true'><circle cx='12' cy='12' r='8.5'/><path d='M8.4 12.4l2.4 2.4 4.8-5.2'/></svg><span>This week</span></a><a href='../picture/'><svg viewBox='0 0 24 24' aria-hidden='true'><path d='M5 20v-6M12 20V9.5M19 20V4.5'/><path d='M3 20h18'/></svg><span>Picture</span></a></div></nav>
 </body>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="xpdaily-build" content="local 2026-08-30T23:07:54Z" />
+<meta name="xpdaily-build" content="local 2026-08-30T23:38:26Z" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="theme-color" content="#0B1220" />
@@ -142,8 +142,11 @@ body{padding-bottom:84px}
 .ptop .brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
 .ptop .upd{font-size:11px;color:var(--haze)}
 .peyebrow{margin:26px 0 0;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--acc)}
-.phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--acc)}
-.phero.name{font-size:38px;color:var(--ink)}
+/* headlines are ALWAYS white (Rich, 30 Aug) — the accent lives in the eyebrow,
+   chips and nav, never the page title. Includes the verdict word on This Week. */
+.phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--ink)}
+.phero.name{font-size:38px}
+body.pg-week h1.word{color:var(--ink)}
 .psub{font-size:15px;line-height:1.5;color:var(--haze);margin:10px 0 22px;max-width:52ch}
 .psub b{color:var(--ink);font-weight:600}
 .pwhen{display:inline-block;font-size:10.5px;letter-spacing:.1em;font-weight:700;color:var(--haze);border:1px solid var(--line);border-radius:99px;padding:4px 11px;margin:2px 0 20px}
@@ -188,15 +191,18 @@ body{padding-bottom:84px}
 /* ------------------------------------------------ the week ahead */
 .wa-grid{display:grid;gap:10px}
 .wa-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.wa-row .s{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.wa-row .s .nm{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.03em;color:var(--reef)}
-.wa-row .s .wa-unit{font-size:12px;color:var(--haze);text-align:right}
-.wa-intent{font-size:15.5px;line-height:1.45;margin-top:6px}
-.wa-chips{margin-top:2px}
-.wa-chips .chip{display:inline-block;font-size:12px;background:#123528;color:var(--kelp);border-radius:99px;padding:2px 9px;margin:6px 6px 0 0}
+.wa-row .nm{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.03em;color:var(--reef);margin-bottom:8px}
+.wa-line{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:baseline;padding:3px 0}
+.wa-line .wa-k{font-size:10px;letter-spacing:.12em;color:var(--haze);font-weight:700;text-transform:uppercase}
+.wa-line .wa-v{font-size:15px;line-height:1.45}
+.wa-line.topic .wa-v{font-weight:600;font-size:15.5px}
 .wa-hedge{font-size:12.5px;color:#E7B24A;margin-top:7px;line-height:1.4}
-.wa-assess{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:14px;padding:14px 16px;margin:0 0 14px;font-size:15px;line-height:1.5}
-.wa-assess .k{display:block;font-size:10px;letter-spacing:.14em;color:var(--flare);font-weight:700;margin-bottom:4px}
+.wa-dates{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:14px;padding:13px 16px;margin:0 0 14px}
+.wa-dates .k{display:block;font-size:10px;letter-spacing:.14em;color:var(--flare);font-weight:700;margin-bottom:3px}
+.wa-dates .dr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.4}
+.wa-dates .dr.first{border-top:none}
+.wa-dates .dr .dw{color:var(--haze);font-size:13px;white-space:nowrap}
+.wa-dates .steer{font-size:12.5px;color:var(--haze);margin-top:6px;line-height:1.45}
 .wa-empty,.tw-empty,.map-empty{color:var(--haze);font-size:14.5px;line-height:1.55;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
 .loop{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0D1A2C;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:18px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.45}
 .loop .go{color:var(--haze);font-size:20px;line-height:1}
@@ -235,7 +241,7 @@ body{padding-bottom:84px}
   <div class="ptop"><span class="brand">XP DAILY · THE FULL PICTURE</span><span class="upd">updated Mon 31 Aug</span></div>
   <div class='peyebrow'>TERM TO DATE · CUMULATIVE</div><h1 class='phero'>The running picture</h1><p class='psub'>Where every topic stands and how deeply Sam understands it — the map his weeks are drawing. This is the page that grows.</p>
   <div class='tally'><div class='tr'><span class='s'>English</span><span class='bar'><i style='width:50%'></i></span><span class='n'>1 of 2</span></div><div class='tr'><span class='s'>History</span><span class='bar'><i style='width:67%'></i></span><span class='n'>2 of 3</span></div><div class='tr'><span class='s'>Maths</span><span class='bar'><i style='width:50%'></i></span><span class='n'>2 of 4</span></div><div class='tr'><span class='s'>Science</span><span class='bar'><i style='width:100%'></i></span><span class='n'>3 of 3</span></div></div><p class='tally-note'>Topics count as landed once they reach &ldquo;Nearly there&rdquo; — steady under questioning, most of the way in.</p><div class='section'>EVERY TOPIC &mdash; POSITION AND DEPTH</div><div class='card'><div class='map-subj'>English</div><table class='subj-table'><tr><th>Topic</th><th>Where he is</th><th>Depth</th></tr><tr><td>Language devices</td><td class='pos'><span class='dot d0'>&#9679;</span>Getting started</td><td><span class='dep none'>&mdash;</span></td></tr><tr><td>Persuasive techniques</td><td class='pos'><span class='dot d2'>&#9679;</span>Nearly there</td><td><span class='dep'>Knows it</span></td></tr></table></div><div class='card'><div class='map-subj'>History</div><table class='subj-table'><tr><th>Topic</th><th>Where he is</th><th>Depth</th></tr><tr><td>The People&#x27;s Crusade</td><td class='pos'><span class='dot d0'>&#9679;</span>Getting started</td><td><span class='dep none'>&mdash;</span></td></tr><tr><td>Key figures of the Crusades</td><td class='pos'><span class='dot d2'>&#9679;</span>Nearly there</td><td><span class='dep'>Knows it</span></td></tr><tr><td>Causes of the First Crusade</td><td class='pos'><span class='dot d3'>&#9679;</span>Solid</td><td><span class='dep'>Can connect it</span></td></tr></table></div><div class='card'><div class='map-subj'>Maths</div><table class='subj-table'><tr><th>Topic</th><th>Where he is</th><th>Depth</th></tr><tr><td>Angles on parallel lines</td><td class='pos'><span class='dot d0'>&#9679;</span>Getting started</td><td><span class='dep none'>&mdash;</span></td></tr><tr><td>Solving equations with brackets</td><td class='pos'><span class='dot d1'>&#9679;</span>Building</td><td><span class='dep none'>&mdash;</span></td></tr><tr><td>Linear equations</td><td class='pos'><span class='dot d3'>&#9679;</span>Solid</td><td><span class='dep'>Can list it</span></td></tr><tr><td colspan='3'><div class='cshallow'><b>Strong recall</b> — he can pick this confidently, but hasn't yet shown he can explain it. His next written question targets exactly that.</div></td></tr><tr><td>Fractions of amounts</td><td class='pos'><span class='dot d3'>&#9679;</span>Solid</td><td><span class='dep'>Can connect it</span></td></tr></table></div><div class='card'><div class='map-subj'>Science</div><table class='subj-table'><tr><th>Topic</th><th>Where he is</th><th>Depth</th></tr><tr><td>The circulatory system</td><td class='pos'><span class='dot d2'>&#9679;</span>Nearly there</td><td><span class='dep'>Knows it</span></td></tr><tr><td>The respiratory system</td><td class='pos'><span class='dot d2'>&#9679;</span>Nearly there</td><td><span class='dep none'>&mdash;</span></td></tr><tr><td>States of matter</td><td class='pos'><span class='dot d3'>&#9679;</span>Solid</td><td><span class='dep'>Can connect it</span></td></tr></table></div><div class='section'>TERM TRENDS</div><div class='trend soon'>The term trend fills in here once there are four weeks of history to compare — before then a &ldquo;trend&rdquo; would be noise, so we don't fake one. Weekly snapshots are banking now.</div><div class='section'>THE ARCHIVE</div><div class='arch'><a href='#'><span>Friday report</span><span class='wk'>Fri 28 Aug</span></a><a href='#'><span>Friday report</span><span class='wk'>Fri 21 Aug</span></a><a href='#'><span>Friday report</span><span class='wk'>Fri 14 Aug</span></a></div><div class='section'>HOW TO READ THIS</div><div class='legend'><b>Where it sits</b> — the confidence scale, red &rarr; green:<div class='lr'><span>Getting started</span><span>Building</span><span>Nearly there</span><span>Solid</span></div><b style='display:block;margin-top:10px'>Depth</b> — how deeply he understands it (the SOLO taxonomy, in plain words). A rung shows only once he's evidenced it:<div class='lr'><span>not yet</span><span>knows it</span><span>can list it</span><span>can connect it</span><span>can apply it elsewhere</span></div><p style='margin:10px 0 0'>Positions update every Friday; the week ahead updates Monday. Questions? Text Rich.</p></div>
-  <div class='pfoot'><p>This is Sam's picture, kept current — open it any time. Nothing here needs a reply; questions go to Rich by text.</p><p>Positions and depth refresh Friday evening; the week ahead refreshes Monday. Nothing updates mid-week — the read stays weekly on purpose.</p><p>build local 2026-08-30T23:07:54Z</p></div>
+  <div class='pfoot'><p>This is Sam's picture, kept current — open it any time. Nothing here needs a reply; questions go to Rich by text.</p><p>Positions and depth refresh Friday evening; the week ahead refreshes Monday. Nothing updates mid-week — the read stays weekly on purpose.</p><p>build local 2026-08-30T23:38:26Z</p></div>
 </div>
 <nav class='pnav'><div class='in'><a href='../'><svg viewBox='0 0 24 24' aria-hidden='true'><path d='M3.5 11 12 4l8.5 7'/><path d='M6 10.2V20h12v-9.8'/></svg><span>Home</span></a><a href='../ahead/'><svg viewBox='0 0 24 24' aria-hidden='true'><rect x='3.5' y='5' width='17' height='15.5' rx='2.5'/><path d='M3.5 9.5h17M8 3v4M16 3v4'/></svg><span>Week ahead</span></a><a href='../week/'><svg viewBox='0 0 24 24' aria-hidden='true'><circle cx='12' cy='12' r='8.5'/><path d='M8.4 12.4l2.4 2.4 4.8-5.2'/></svg><span>This week</span></a><a class='on' aria-current='page' href='../picture/'><svg viewBox='0 0 24 24' aria-hidden='true'><path d='M5 20v-6M12 20V9.5M19 20V4.5'/><path d='M3 20h18'/></svg><span>Picture</span></a></div></nav>
 </body>

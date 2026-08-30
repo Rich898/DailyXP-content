@@ -189,7 +189,8 @@ DEFAULT_TOUCHPOINTS = [
 def build_portal(name, week_of, topics, subjects_block, radar,
                  week_ahead=None, this_week_blocks=None, this_week_fluency=None,
                  snapshots=None, archive=None, updated=None,
-                 week_verdict=None, activity=None, touchpoints=None):
+                 week_verdict=None, activity=None, touchpoints=None,
+                 upcoming=None):
     """Assemble the portal fact set — everything the four pages draw from
     (PARENT-COMMS-V2 §1/§5):
 
@@ -205,16 +206,25 @@ def build_portal(name, week_of, topics, subjects_block, radar,
                         + landed tally + term trends, this week folded in.
       touchpoints       account-surface rows; DEFAULT_TOUCHPOINTS until real
                         per-family config exists (C6).
+      upcoming          every dated thing on the radar, [{task, date, subject?,
+                        days?}] — tests, study-guide releases, due dates
+                        (Rich, 30 Aug: plural, not one). Falls back to the
+                        single `radar` when not supplied. Sorted by date.
 
     All facts arrive already computed. `archive` = [{"week","url"}] newest-first.
     """
     cards = subject_cards(topics)
+    if not upcoming:
+        upcoming = [dict(radar)] if radar and radar.get("date") else []
+    upcoming = sorted((u for u in upcoming if u.get("date") and u.get("task")),
+                      key=lambda u: u["date"])
     return {
         "name": name.split()[0] if name else "",
         "week_of": week_of,
         "updated": updated or _dt.date.today().isoformat(),
         "week_ahead": week_ahead or {},
         "radar": radar or {},
+        "upcoming": upcoming,
         "this_week": {"blocks": this_week_blocks or [], "fluency": this_week_fluency},
         "week_verdict": week_verdict or {},
         "activity": activity or {},
@@ -239,8 +249,11 @@ body{padding-bottom:84px}
 .ptop .brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
 .ptop .upd{font-size:11px;color:var(--haze)}
 .peyebrow{margin:26px 0 0;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--acc)}
-.phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--acc)}
-.phero.name{font-size:38px;color:var(--ink)}
+/* headlines are ALWAYS white (Rich, 30 Aug) — the accent lives in the eyebrow,
+   chips and nav, never the page title. Includes the verdict word on This Week. */
+.phero{margin:6px 0 0;font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em;line-height:1.04;font-size:31px;color:var(--ink)}
+.phero.name{font-size:38px}
+body.pg-week h1.word{color:var(--ink)}
 .psub{font-size:15px;line-height:1.5;color:var(--haze);margin:10px 0 22px;max-width:52ch}
 .psub b{color:var(--ink);font-weight:600}
 .pwhen{display:inline-block;font-size:10.5px;letter-spacing:.1em;font-weight:700;color:var(--haze);border:1px solid var(--line);border-radius:99px;padding:4px 11px;margin:2px 0 20px}
@@ -285,15 +298,18 @@ body{padding-bottom:84px}
 /* ------------------------------------------------ the week ahead */
 .wa-grid{display:grid;gap:10px}
 .wa-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.wa-row .s{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.wa-row .s .nm{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.03em;color:var(--reef)}
-.wa-row .s .wa-unit{font-size:12px;color:var(--haze);text-align:right}
-.wa-intent{font-size:15.5px;line-height:1.45;margin-top:6px}
-.wa-chips{margin-top:2px}
-.wa-chips .chip{display:inline-block;font-size:12px;background:#123528;color:var(--kelp);border-radius:99px;padding:2px 9px;margin:6px 6px 0 0}
+.wa-row .nm{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:12.5px;letter-spacing:.03em;color:var(--reef);margin-bottom:8px}
+.wa-line{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:baseline;padding:3px 0}
+.wa-line .wa-k{font-size:10px;letter-spacing:.12em;color:var(--haze);font-weight:700;text-transform:uppercase}
+.wa-line .wa-v{font-size:15px;line-height:1.45}
+.wa-line.topic .wa-v{font-weight:600;font-size:15.5px}
 .wa-hedge{font-size:12.5px;color:#E7B24A;margin-top:7px;line-height:1.4}
-.wa-assess{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:14px;padding:14px 16px;margin:0 0 14px;font-size:15px;line-height:1.5}
-.wa-assess .k{display:block;font-size:10px;letter-spacing:.14em;color:var(--flare);font-weight:700;margin-bottom:4px}
+.wa-dates{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--flare);border-radius:14px;padding:13px 16px;margin:0 0 14px}
+.wa-dates .k{display:block;font-size:10px;letter-spacing:.14em;color:var(--flare);font-weight:700;margin-bottom:3px}
+.wa-dates .dr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.4}
+.wa-dates .dr.first{border-top:none}
+.wa-dates .dr .dw{color:var(--haze);font-size:13px;white-space:nowrap}
+.wa-dates .steer{font-size:12.5px;color:var(--haze);margin-top:6px;line-height:1.45}
 .wa-empty,.tw-empty,.map-empty{color:var(--haze);font-size:14.5px;line-height:1.55;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
 .loop{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0D1A2C;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:18px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.45}
 .loop .go{color:var(--haze);font-size:20px;line-height:1}
@@ -448,11 +464,15 @@ def _join_names(items, cap=3):
 
 def _ahead_teaser(portal):
     rows = (portal.get("week_ahead") or {}).get("rows") or []
+    n = len(portal.get("upcoming") or [])
     if not rows:
         return "What school is covering this week, and what his sets will do about it."
     subs = _join_names([r["subject"] for r in rows])
-    if (portal.get("week_ahead") or {}).get("assessment"):
+    if n == 1:
         return f"{subs} — plus one date on the radar."
+    if n > 1:
+        count = {2: "two", 3: "three", 4: "four"}.get(n, "the")
+        return f"{subs} — plus {count} dates on the radar."
     return f"{subs} — what school posted, and what his sets will do about it."
 
 
@@ -478,12 +498,13 @@ def _picture_teaser(portal):
 
 
 def _radar_strip(portal):
-    """The single most actionable fact a parent can be handed, on the front
-    door: the one assessment on the radar. Practice-coverage hedge, never an
-    outcome prediction."""
-    a = (portal.get("week_ahead") or {}).get("assessment") or portal.get("radar") or {}
-    if not a.get("date") or not a.get("task"):
+    """The most actionable fact a parent can be handed, on the front door: the
+    NEAREST upcoming date. Practice-coverage hedge, never an outcome
+    prediction. The full list lives on the Week Ahead page."""
+    up = portal.get("upcoming") or []
+    if not up:
         return ""
+    a = up[0]
     when = _friendly_date(a.get("date"), a.get("days"))
     return ("<div class='radar'><span class='k'>ON THE RADAR</span>"
             f"<b>{_e(a['task'])}</b> — {_e(when)}. His sets are already steering "
@@ -559,39 +580,55 @@ def _home_page(portal, hrefs, kid_wrap_url=None):
 # THE WEEK AHEAD — Monday, forward. The light glance. Forward facts only, by
 # construction: everything on this page comes from monday_brief.week_ahead().
 
+def _upcoming_dates(upcoming):
+    """UPCOMING DATES — every dated thing on the radar (tests, study-guide
+    releases, due dates), nearest first. The steering line renders once,
+    hedged as practice-coverage, never an outcome prediction."""
+    if not upcoming:
+        return ""
+    rows = []
+    for i, u in enumerate(upcoming):
+        first = " first" if i == 0 else ""
+        subj = ""
+        if u.get("subject") and u["subject"].lower() not in (u.get("task") or "").lower():
+            subj = f" <span class='dw'>· {_e(u['subject'])}</span>"
+        rows.append(f"<div class='dr{first}'><span><b>{_e(u['task'])}</b>{subj}</span>"
+                    f"<span class='dw'>{_e(_short_date(u['date']))}</span></div>")
+    return ("<div class='wa-dates'><span class='k'>UPCOMING DATES</span>"
+            f"{''.join(rows)}"
+            "<div class='steer'>His nightly sets steer practice toward these as "
+            "they approach.</div></div>")
+
+
+def _ahead_row(r):
+    """One subject, three classifications (Rich, 30 Aug): SUBJECT — the header;
+    TOPIC — what class is on (the unit; never fabricated, so the line is
+    omitted when the targets carry none); FOCUS — the forward clause, always
+    'continues' / 'moves into' / or both (monday_brief._intent)."""
+    topic = (f"<div class='wa-line topic'><span class='wa-k'>Topic</span>"
+             f"<span class='wa-v'>{_e(r['unit'])}</span></div>"
+             if r.get("unit") else "")
+    focus = (f"<div class='wa-line'><span class='wa-k'>Focus</span>"
+             f"<span class='wa-v'>{_e(_cap(r.get('intent', '')))}</span></div>"
+             if r.get("intent") else "")
+    hedge = ("<div class='wa-hedge'>Confirming this subject's page for "
+             "your teacher — treat as a guide this week.</div>"
+             if r.get("hedged") else "")
+    return (f"<div class='wa-row'><div class='nm'>{_e(r['subject'])}</div>"
+            f"{topic}{focus}{hedge}</div>")
+
+
 def _ahead_page(portal, hrefs):
     name = portal.get("name", "")
     wa = portal.get("week_ahead") or {}
     rows = wa.get("rows") or []
-    assessment = wa.get("assessment")
     hero = ("<div class='peyebrow'>MONDAY · FORWARD</div>"
             "<h1 class='phero'>The week ahead</h1>"
             f"<p class='psub'>The {_e(_week_label(portal.get('week_of')))} — what "
-            f"school is covering, and what {_e(name)}'s sets will do about it. "
-            "A plan, not a verdict.</p>")
-    parts = []
-    if assessment and assessment.get("date"):
-        when = _friendly_date(assessment.get("date"), assessment.get("days"))
-        parts.append("<div class='wa-assess'><span class='k'>ONE DATE</span>"
-                     f"<b>{_e(assessment.get('task'))}</b> — {_e(when)}. His sets "
-                     "are already steering practice toward it.</div>")
+            f"school is covering, and what {_e(name)}'s sets will do about it.</p>")
+    parts = [_upcoming_dates(portal.get("upcoming"))]
     if rows:
-        row_html = []
-        for r in rows:
-            unit = (f"<span class='wa-unit'>{_e(r['unit'])}</span>"
-                    if r.get("unit") else "")
-            intent = (f"<div class='wa-intent'>{_e(_cap(r.get('intent', '')))}"
-                      "</div>" if r.get("intent") else "")
-            chips = "".join(f"<span class='chip'>new: {_e(t)}</span>"
-                            for t in r.get("new", []))
-            chips = f"<div class='wa-chips'>{chips}</div>" if chips else ""
-            hedge = ("<div class='wa-hedge'>Confirming this subject's page for "
-                     "your teacher — treat as a guide this week.</div>"
-                     if r.get("hedged") else "")
-            row_html.append(
-                f"<div class='wa-row'><div class='s'><span class='nm'>"
-                f"{_e(r['subject'])}</span>{unit}</div>{intent}{chips}{hedge}</div>")
-        parts.append(f"<div class='wa-grid'>{''.join(row_html)}</div>")
+        parts.append(f"<div class='wa-grid'>{''.join(_ahead_row(r) for r in rows)}</div>")
     else:
         parts.append("<div class='wa-empty'>This week's plan syncs in on Monday. "
                      f"Until then {_e(name)}'s sets keep working the current "

@@ -59,6 +59,15 @@ PREV_BLOCK = {
 }
 RADAR = {"task": "Science topic test", "date": "2026-09-10", "days": 10,
          "subject": "Science"}
+# every dated thing on the radar — tests, study-guide releases, due dates
+UPCOMING = [
+    {"task": "Science topic test", "date": "2026-09-10", "days": 10,
+     "subject": "Science"},
+    {"task": "Maths study guide released", "date": "2026-09-14",
+     "subject": "Maths"},
+    {"task": "English persuasive speech due", "date": "2026-09-18",
+     "subject": "English"},
+]
 
 # --- the ledger's active topics (the Running Picture's rows) ---
 TOPICS = [
@@ -152,6 +161,7 @@ def build():
         week_verdict={"word": "solid"},
         activity={"days_done": 4, "possible": 5, "topics_practised": 7,
                   "events": 1},
+        upcoming=UPCOMING,
     )
     return pp.render_pages(portal, kid_wrap_url="#", report_url="#")
 
