@@ -1,7 +1,7 @@
 # SCRUB-WIDGET-BRIEF.md
 
 **Mechanic:** Scrub It — a new delivery mode for the existing multiple-choice question type
-**Status:** APPROVED 25 Aug 2026 — widget stage complete. Break style, tunables, and block identity all ratified. Next: pipeline integration (widget → shell → composer → planner → validator → state-writer), t1-gated as always.
+**Status:** LIVE IN THE SHELL TEMPLATE 31 Aug 2026. Pipeline integration (planner → composer → validator → state-writer) had shipped 27 Aug and the published sets carried `mode:"scrub"` for all seats — but the widget + wiring had only ever been merged into `integration/shell-staging.html`, never into `shell/template_v3.html`, so every deployed shell fell back to plain tap MC (caught live-fire by Rich on t1, T6.1). The merge is now in the template, locked by `shell/test_scrub.js` (stub-DOM contract) and `shell/browser_proof_scrub.js` (real-Chromium play-through), both reading the TEMPLATE. ⚠ A template fix reaches a kid only when their Netlify site is re-deployed — `python3 tools/stamp_shell.py` builds the three drag-deploy zips.
 **Process law:** isolated widget → approval → pipeline integration (widget → shell → composer → planner → validator → state-writer). One mechanic at a time. Verify against a real browser run — never a mental audit.
 
 ---

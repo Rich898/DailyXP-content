@@ -128,6 +128,19 @@ def _check_ss_answer(q, qid, errors, warns):
         ans = q.get("answer")
         if isinstance(ans, bool) or not isinstance(ans, (int, float)):
             errors.append(f"[{qid}] numeric answer must be a number, got {ans!r}")
+        # optional 'frac': the canonical fraction DISPLAY form (e.g. "2/5"), shown on the
+        # reveal. Deterministically checked for equivalence — review can't see non-MC
+        # answers (QUIZ-GENERATION §C7), so a wrong fraction must be caught here.
+        frac = q.get("frac")
+        if frac is not None:
+            m = re.match(r"^\s*(-?\d+(?:\.\d+)?)\s*/\s*(-?\d+(?:\.\d+)?)\s*$", str(frac))
+            if not m:
+                errors.append(f"[{qid}] numeric 'frac' must look like 'a/b', got {frac!r}")
+            elif float(m.group(2)) == 0:
+                errors.append(f"[{qid}] numeric 'frac' has a zero denominator: {frac!r}")
+            elif isinstance(ans, (int, float)) and not isinstance(ans, bool) \
+                    and abs(float(m.group(1)) / float(m.group(2)) - ans) > 0.01:
+                errors.append(f"[{qid}] numeric 'frac' {frac!r} != answer {ans!r} — the fraction shown on the reveal must equal the keyed value")
         if not isinstance(q.get("calc"), bool):
             errors.append(f"[{qid}] numeric must carry a boolean 'calc' (method vs mental)")
         if not q.get("why"):

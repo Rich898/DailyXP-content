@@ -273,7 +273,13 @@ lifted, commit `c50e296`).
 
 **Standard day:**
 - Speed: a **Swipe** block of `min(4, speed)` slots at the front (`type:"swipe"` — a
-  two-way sort, never reversed), then **Quick Recall** (plain 4-option MC) for the rest.
+  two-way sort, never reversed), then **Quick Recall** (plain 4-option MC), then a
+  **Scrub It** tail block of `min(3, remainder)` slots (27 Aug 2026, all seats): plain MC
+  dealt through the erase delivery mode — the slot gets `mode:"scrub"` from the PLAN (never
+  the model); `type` stays MC so the ledger never learns the mode. ⚠ The shell side of scrub
+  was only merged into `shell/template_v3.html` on **31 Aug 2026** — before that the deployed
+  shells silently fell back to tap MC (the t1 live-fire catch). A template change reaches a
+  kid only when their Netlify shell is re-deployed (`tools/stamp_shell.py` builds the zips).
 - Steady, by subject: **Maths → Numeric** (typed number, calculator on `calc:true` method
   questions, number pad on mental), **History → Drag It** (`order` — drag tiles into an
   unambiguous sequence), **Science → Short Answer** (`text` — typed word-or-two with a
@@ -301,7 +307,13 @@ mapping). ⚠️ The brief says "the four zones"; the boss shape gives **seven**
 `validate._check_ss_answer`):
 - MC: `{prompt, options[≥2], answer∈options, why, fresh:bool}`
 - swipe: `{type, prompt, left, right, answer∈{left,right}, why, fresh}`
-- numeric: `{type, prompt, answer:NUMBER, calc:bool, pre, post, why, fresh}`
+- numeric: `{type, prompt, answer:NUMBER, calc:bool, pre, post, why, fresh}` + optional
+  `frac:"a/b"` — the canonical fraction display form, deterministically checked for
+  equivalence with `answer` by the validator (31 Aug 2026; review can't see numeric
+  answers — §C7 — so the validator owns this). The shell accepts any equivalent typed
+  form (`0.4` == `2/5` == `4/10`): both pads carry a decimal point and an a/b fraction
+  key since 31 Aug 2026 (before that the MENTAL pad had digits only — a decimal answer
+  on a mental slot was unanswerable, the second t1 live-fire catch).
 - order: `{type, prompt, sequence[≥2, unique], top, bot, why, fresh}`
 - text: `{type, prompt, accept[≥1 strings, accept[0]=canonical], why, fresh}`
 - teach: `{prompt}` only.

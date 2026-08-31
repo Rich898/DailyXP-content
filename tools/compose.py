@@ -71,7 +71,8 @@ Output ONLY a JSON object, no prose, no markdown fences:
   * answer copied verbatim from left or right. Across a swipe block VARY which side is correct — never all one bucket.
 - numeric slot (ONLY when the slot's "type" is "numeric"): a typed-answer maths question, NO options.
   { "type":"numeric", "prompt":"<a clear maths question>", "answer":<the numeric answer as a NUMBER, not a string>, "calc":<true|false>, "pre":"<prefix e.g. $ or empty>", "post":"<unit e.g. ' cm' or empty>", "why":"..." }
-  * answer is a plain number (56, 105, 52.5) — the exact value only; units go in pre/post, never in answer.
+  * answer is a plain number (56, 105, 52.5, 0.4) — the exact value only; units go in pre/post, never in answer.
+  * Decimal and fraction answers are fine: the pad has a decimal point and an a/b fraction key, and any equivalent typed form earns credit (0.4 == 2/5 == 4/10). When the NATURAL form of the answer is a fraction (e.g. a probability asked "as a fraction"), still put the decimal value in answer and ALSO add "frac":"<canonical fraction, e.g. 2/5>" so the reveal shows the fraction. Omit frac everywhere else. NEVER demand one specific written form in the prompt ("as a decimal", "in lowest terms") — any equivalent form is marked correct.
   * calc:true = a METHOD question (word problem / multi-step / needs a calculator for the arithmetic — knowing the method is the skill). calc:false = MENTAL (a times-table fact or simple operation — doing it in the head IS the skill; keep numbers small enough to do mentally).
   * pre = prefix before the answer (e.g. "$"); post = unit after (e.g. " cm\u00b2", " km/h"). Empty string if none.
   * why re-teaches the method or fact in one line.
@@ -157,6 +158,8 @@ def _build_q(s, filled):
         q["type"] = "numeric"
         q["answer"] = f.get("answer")
         q["calc"] = bool(f.get("calc"))
+        if f.get("frac") is not None:
+            q["frac"] = f.get("frac")      # canonical fraction display form (validated for equivalence)
         q["pre"] = f.get("pre", "")
         q["post"] = f.get("post", "")
         q["why"] = f.get("why", "")
