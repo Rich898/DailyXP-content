@@ -74,6 +74,17 @@ t("a topic that contains a standing word does NOT false-trip", mb.validate(
     "Harrison starts Building structures this week. https://x.example/p/",
     "Harrison", topics=["Building structures"])[0] is True)
 
+print("\nthe pointer's play link (31 Aug — the parent hands tonight's set over):")
+sms2 = mb.pointer_sms(brief, "https://x.example/p/abc/",
+                      play_url="https://kid.example.app/")
+t("play link rides on its own line", "\nTonight's set is ready to play: "
+  "https://kid.example.app/" in sms2)
+t("portal link still present beside it", "https://x.example/p/abc/" in sms2)
+ok2, why2 = mb.validate(sms2, "Harrison", subjects=brief["subjects"])
+t(f"two-link pointer still passes the Monday law ({why2})", ok2)
+t("no play_url -> unchanged single-link pointer", mb.pointer_sms(
+    brief, "https://x.example/p/abc/") == sms)
+
 print("\ncomponent 3 — the confidently-shallow cross + depth ceiling:")
 t("solid x shallow fires", pp._confidently_shallow("solid", "lists"))
 t("solid x no-teachback-yet fires", pp._confidently_shallow("solid", None))

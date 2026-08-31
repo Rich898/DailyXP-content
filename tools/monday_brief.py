@@ -142,11 +142,17 @@ def _date_phrase(iso):
     return d.strftime("%A %-d %B") if hasattr(d, "strftime") else iso
 
 
-def pointer_sms(brief, portal_url, subjects_named=True):
+def pointer_sms(brief, portal_url, subjects_named=True, play_url=None):
     """The Monday SMS: a POINTER to the portal's Week-Ahead panel, not the
     content. Names the subjects at most (stable, not sweep-fragile) and points
     at the link. No per-topic claims, no dates asserted, no verdicts — safe to
-    send before the sweep-trust gate. Deterministic; always passes validate()."""
+    send before the sweep-trust gate. Deterministic; always passes validate().
+
+    play_url (31 Aug 2026, Rich's ask on the first live Monday pointer): the
+    kid's quiz link rides along so the parent can hand tonight's set straight
+    over — load-bearing for a kid seat with no phone of its own (y9), where the
+    parent message is the only SMS channel that exists. A link is legal under
+    the Monday law (URLs are masked before every check)."""
     name = brief["name"]
     subs = brief.get("subjects") or []
     if subjects_named and subs:
@@ -154,7 +160,10 @@ def pointer_sms(brief, portal_url, subjects_named=True):
                 f"are covering, and what to look out for.")
     else:
         lead = f"{name}'s learning plan for the week is up."
-    return (f"XP Daily — {lead} Have a look here: {portal_url}")
+    body = f"XP Daily — {lead} Have a look here: {portal_url}"
+    if play_url:
+        body += f"\nTonight's set is ready to play: {play_url}"
+    return body
 
 
 # --------------------------------------------------------------------------- #
