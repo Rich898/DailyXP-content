@@ -1,0 +1,97 @@
+# DailyXP — THE BOARD: the kid's Monday week-ahead (KID-WEEKLY-FRAMEWORK.md §4)
+#
+# Publishes /w/<slug>/board/ for each active seat from the Monday targets +
+# ledger, stamp-verified, and registers the per-kid board URL in the private
+# repo (work/board_urls.json) so the 4pm kid nudge can append the link — the
+# nudge itself re-verifies the LIVE page carries this week's meta before
+# texting (verify-before-text, both ends).
+#
+# Clock doctrine: board pages must be LIVE before the 16:00 nudge (the
+# reveal-order law is enforced by clocks — the kid sees his week first; the
+# parent portal's Monday slot fires 18:45). Crons below are the GitHub
+# best-effort pair; a pg_cron xp_schedule slot follows once live (B1 pattern).
+# AEST = UTC+10 (DST from Oct: the pg_cron migration owns that, as everywhere).
+#
+# This job never texts anyone — no SMS secrets here.
+
+name: kid-board
+
+on:
+  workflow_dispatch:
+    inputs:
+      student:
+        description: "Which player (roster code, or all)"
+        required: false
+        default: "all"
+      dry_run:
+        description: "Render previews only — no deploy, no URL registry"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    - cron: "40 4 * * 1"   # 14:40 AEST Mon — after the 2pm publish
+    - cron: "10 5 * * 1"   # 15:10 AEST Mon — catch-up (publish is idempotent)
+
+concurrency:
+  group: kid-board
+  cancel-in-progress: false
+
+jobs:
+  board:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout content (public)
+        uses: actions/checkout@v4
+
+      - name: Checkout private (ledger, targets, slugs, board registry)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          persist-credentials: false
+          path: private
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build + publish the boards
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          DAILYXP_REPORTS_BASE: https://xpdaily-reports.netlify.app
+        run: |
+          ARGS="--private-dir private"
+          [ "${{ github.event.inputs.student }}" != "all" ] && [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          echo "kid_board $ARGS"
+          python tools/kid_board.py $ARGS
+
+      # Dry-run previews carry names and per-kid URLs — private artifact only.
+      - name: Upload dry-run previews (operator review)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: kid-board-previews
+          path: private/work/preview_board_*
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Commit private state (board URL registry, any new slugs)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "kid board: url registry ($(date -u +%F))"
+            git pull --rebase --autostash \
+              "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" main || true
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+            echo "private state committed."
+          else
+            echo "no private changes."
+          fi
