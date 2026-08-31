@@ -6,10 +6,11 @@
 # sends, writes nothing. Flavoured by the weekly skeleton (Wed blitz, Fri boss).
 # See tools/kid_nudge.py.
 #
-# SECRETS used: MOBILE_MESSAGE_API_KEY / _API_SECRET / _SENDER / _TO_<CODE> —
-# plus SECRETS_CONTEXT (the whole secrets blob) so notify._env can resolve any
-# seat, incl. the kid_comms_via redirect to a PARENTS_<CODE> number (the y9
-# US-phone gap: his nudge rides the parent seat, 31 Aug 2026).
+# SECRETS used: MOBILE_MESSAGE_API_KEY / _API_SECRET / _SENDER / _TO_<CODE> /
+# _PARENTS_<CODE> (the kid_comms_via redirect can resolve a parent number for
+# a kid seat with no phone — the y9 US-phone gap, 31 Aug 2026). Secrets are
+# passed EXPLICITLY: a toJson(secrets) blob trips GitHub's approval gate on
+# dispatch (proven 31 Aug — run went action_required with zero jobs).
 
 name: kid-nudge
 
@@ -73,9 +74,11 @@ jobs:
           MOBILE_MESSAGE_TO_Y8: ${{ secrets.MOBILE_MESSAGE_TO_Y8 }}
           MOBILE_MESSAGE_TO_Y9: ${{ secrets.MOBILE_MESSAGE_TO_Y9 }}
           MOBILE_MESSAGE_TO_T1: ${{ secrets.MOBILE_MESSAGE_TO_T1 }}
-          # the full blob: lets notify._env resolve PARENTS_<CODE> for the
-          # kid_comms_via redirect (and future seats) without env-block edits
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          # parent seats: the kid_comms_via redirect resolves these for a kid
+          # seat with no number of its own (roster.json flag; notify.py)
+          MOBILE_MESSAGE_PARENTS_Y8: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y8 }}
+          MOBILE_MESSAGE_PARENTS_Y9: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y9 }}
+          MOBILE_MESSAGE_PARENTS_T1: ${{ secrets.MOBILE_MESSAGE_PARENTS_T1 }}
         run: |
           ARGS=""
           [ "${{ github.event.inputs.student }}" != "all" ] && [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
