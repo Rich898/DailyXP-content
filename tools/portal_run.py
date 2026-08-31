@@ -275,7 +275,7 @@ def main():
                                ("week", "week"), ("picture", "picture")):
                 out = os.path.join(priv, "work", f"preview_portal_{code}_{label}.html")
                 open(out, "w").write(pages[key])
-            body = mb.pointer_sms(brief, ahead_url)
+            body = mb.pointer_sms(brief, ahead_url, play_url=roster.play_url(code))
             open(os.path.join(priv, "work",
                               f"preview_portal_{code}.sms.txt"), "w").write(body)
             print(f"  DRY-RUN -> work/preview_portal_{code}_*.html + .sms.txt")
@@ -299,7 +299,7 @@ def main():
         if not live.get("ahead") or not live.get(""):
             print("  pointer NOT sent — portal pages didn't all verify live.")
             continue
-        body = mb.pointer_sms(brief, ahead_url)
+        body = mb.pointer_sms(brief, ahead_url, play_url=roster.play_url(code))
         ok, why = mb.validate(body, portal["name"],
                               subjects=brief.get("subjects", ()))
         if not ok:
