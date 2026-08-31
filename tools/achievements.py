@@ -30,6 +30,11 @@ STREAK_TIERS = [(14, "gold"), (7, "silver"), (3, "bronze")]
 # Personal Best introduced 2026-08-20 (Blitz Master retired with the Blitz event).
 # Runs before this date only seed the baseline — no backdated PB flood on first nightly run.
 PB_FROM = "2026-08-20"
+# On the Board introduced 2026-08-31 (Rich: ONE weekly showing-up achievement —
+# 4 of the 5 nightly runs; a sick Tuesday can't kill the week by Wednesday, and
+# Perfect Week stays the 5/5 trophy on top). Same no-backfill doctrine as PB:
+# earlier weeks are history, not a first-night badge flood.
+OTB_FROM_WEEK = "2026-W36"
 ACTIVE_STATES = {"shaky", "developing", "solid", "REPAIR"}
 
 
@@ -132,9 +137,14 @@ def run_badges(runs):
                 weekday_by_week.setdefault(_iso_week(sd), set()).add(wd)
 
     # Perfect Week — all five school-days present in one ISO week
+    # On the Board — 4 of the 5 (the weekly showing-up achievement; fires the
+    # moment the fourth distinct school-day lands, usually Thursday night)
     for wk, wds in weekday_by_week.items():
         if len(wds) == 5:
             out.append(("Perfect Week", f"Perfect Week|{wk}", None, "Completed all five school days."))
+        if len(wds) >= 4 and wk >= OTB_FROM_WEEK:
+            out.append(("On the Board", f"On the Board|{wk}", None,
+                        "Four of the five runs — the week's on the board."))
 
     # Streak — longest consecutive school-day run, tiered
     longest = _longest_school_streak(present)
