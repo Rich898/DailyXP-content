@@ -196,33 +196,49 @@ def deploy(domain, page_bytes, token):
     return dep_id
 
 
-def verify(domain, code, want_version, want_stamp):
-    """The live page must be THIS EXACT build (its own stamp back — the
-    netlify_deploy.py first-run law) AND be served as renderable HTML.
-    The content-type assertion exists because the zip-deploy incident passed a
-    body-only check while every browser showed raw source. A "ready" deploy can
-    lag a few seconds at the CDN edge (netlify_deploy.py's propagation lesson —
-    round 3 of this incident failed on exactly that), so retry briefly before
-    calling the deploy stale."""
+def _check(url, code, want_version, want_stamp):
+    """One fetch + assertions. Returns (ok, ctype, detail)."""
+    body, hdrs = http(url, timeout=30)
+    html = body.decode("utf-8", "replace")
+    ctype = (hdrs.get("Content-Type") or "").lower()
+    v = RE_VERSION.search(html)
+    s = RE_STUDENT.search(html)
+    ok = (v and v.group(1) == want_version and s and s.group(1) == code
+          and (want_stamp is None or want_stamp in html)
+          and "/*SCRUB-WIDGET-START*/" in html and "/*NUMERIC-WIDGET-START*/" in html
+          and "text/html" in ctype)
+    cache = ", ".join(f"{h}={hdrs.get(h)}" for h in ("Etag", "Age", "Cache-Control") if hdrs.get(h))
+    detail = (f"version {v.group(1) if v else '?'}, student {s.group(1) if s else '?'}, "
+              + (f"stamp {'present' if want_stamp in html else 'MISSING'}, " if want_stamp is not None else "")
+              + f"content-type {ctype or '?'}" + (f" [{cache}]" if cache else ""))
+    return ok, ctype, detail
+
+
+def verify(domain, dep_id, code, want_version, want_stamp):
+    """Two-layer verification (rounds 3-6 of the 31 Aug incident taught each layer):
+    1. THE DEPLOY PERMALINK ({dep_id}--{site}) must serve THIS EXACT build, stamp
+       included — a per-deploy host the CDN cannot have stale. Proves the bytes.
+    2. THE MAIN URL must serve a fixed-shell page as text/html — WITHOUT demanding
+       the stamp: Netlify's edge ignores query strings for static caching and can
+       serve a seconds-old cached copy to one POP (the runner saw Age=20 while a
+       browser got the new page). Which build is published is already asserted
+       from the API (published_deploy == ours) in deploy(); demanding the stamp
+       from one laggy edge only manufactures false alarms."""
+    site = domain.split(".netlify.app")[0]
+    permalink = f"https://{dep_id}--{site}.netlify.app/?cb={int(time.time())}"
     last = ""
     for attempt in range(6):
         if attempt:
             time.sleep(4)
-        body, hdrs = http(f"https://{domain}/?cb={int(time.time())}", timeout=30)
-        html = body.decode("utf-8", "replace")
-        ctype = (hdrs.get("Content-Type") or "").lower()
-        v = RE_VERSION.search(html)
-        s = RE_STUDENT.search(html)
-        if (v and v.group(1) == want_version and s and s.group(1) == code
-                and want_stamp in html
-                and "/*SCRUB-WIDGET-START*/" in html and "/*NUMERIC-WIDGET-START*/" in html
-                and "text/html" in ctype):
+        ok, _, detail = _check(permalink, code, want_version, want_stamp)
+        if not ok:
+            last = "permalink: " + detail
+            continue
+        ok2, ctype, detail2 = _check(f"https://{domain}/?cb={int(time.time())}", code, want_version, None)
+        if ok2:
             return ctype
-        cache = ", ".join(f"{h}={hdrs.get(h)}" for h in ("Etag", "Age", "Cache-Control") if hdrs.get(h))
-        last = (f"version {v.group(1) if v else '?'}, student {s.group(1) if s else '?'}, "
-                f"stamp {'present' if want_stamp in html else 'MISSING'}, content-type {ctype or '?'}"
-                + (f" [{cache}]" if cache else ""))
-    raise SystemExit(f"{domain}: VERIFY FAILED after {attempt + 1} tries — live page is not the expected build ({last})")
+        last = "main url: " + detail2
+    raise SystemExit(f"{domain}: VERIFY FAILED after {attempt + 1} tries — {last}")
 
 
 def main():
@@ -251,7 +267,7 @@ def main():
                 print(f"  {code} @ {domain}: shell v{old_v} live, v{new_v} built ({len(page)//1024} KB) — dry run, not deployed")
                 continue
             dep_id = deploy(domain, page, token)
-            ctype = verify(domain, code, new_v, stamp)
+            ctype = verify(domain, dep_id, code, new_v, stamp)
             print(f"  {code} @ {domain}: shell v{old_v} -> v{new_v}  deploy {dep_id}  served {ctype}  VERIFIED LIVE ✓")
         except SystemExit as e:                # per-seat isolation: one bad seat never blocks the rest
             print(f"  ✗ {e}")
