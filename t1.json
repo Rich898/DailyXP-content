@@ -1,34 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-08-28",
-  "day": "FRI",
-  "tag": "T5.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-28",
+  "date": "2026-08-31",
+  "day": "MON",
+  "tag": "T6.1",
+  "title": "DailyXP · MON 2026-08-31",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Pyroclastic flows can occur without any volcanic eruption",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "False — pyroclastic flows are made of hot gas and volcanic debris, so they only happen as a result of a volcanic eruption.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, the F chord is the 'IV'",
+      "subject": "Maths",
+      "prompt": "The chance of rain today is 0.3, so the chance of no rain is 0.7",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,266 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — F is the fourth note of the C major scale, so it's the IV chord in the progression.",
+      "why": "Complementary events add to 1, so if rain is 0.3, no rain must be 1 − 0.3 = 0.7.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "A thick fur coat helps an arctic fox survive cold winters",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "Adaptation",
+      "right": "Not adaptation",
+      "answer": "Adaptation",
+      "why": "Thick fur is a physical adaptation that reduces heat loss, helping the fox survive its cold habitat.",
+      "fresh": true
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Every historical event has only one single cause",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Historians look for multiple causes working together, not one single trigger for an event.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Gohan' means rice",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Gohan' (ご飯) means cooked rice, and is also used generally to mean 'meal'.",
+      "fresh": true
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Which habit shows someone managing stress in a healthy way?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Talking to a trusted friend",
+      "why": "Talking to someone you trust helps process stress in a healthy way, while ignoring problems, lashing out, or losing sleep only makes stress worse.",
+      "options": [
+        "Talking to a trusted friend",
+        "Ignoring the problem completely",
+        "Snapping at family members",
+        "Avoiding sleep to keep busy"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Who kills Mercutio in the play?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Tybalt",
+      "why": "Tybalt stabs Mercutio in Act 3, which drives Romeo to avenge his friend.",
+      "options": [
+        "Tybalt",
+        "Romeo",
+        "Paris",
+        "Benvolio"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, who tries to stop the servants' brawl?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to part the fighting servants, showing his peacemaking role.",
+      "options": [
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "Friar Laurence"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "What's a common myth about people with mental illness?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "That they are dangerous",
+      "why": "A harmful myth is that mental illness makes someone dangerous, but most people with mental illness are never violent.",
+      "options": [
+        "That they are dangerous",
+        "That they can recover with support",
+        "That it affects many people",
+        "That treatment can help"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In film music, a low sustained drone note usually creates what mood?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Tension or unease",
+      "why": "A low sustained drone builds a sense of tension or unease, which is why film composers use it in suspenseful scenes.",
+      "options": [
+        "Tension or unease",
+        "A cheerful bounce",
+        "A faster tempo",
+        "A brighter tone colour"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Why did Japan's mountains encourage local, region-based rule?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "They isolated regions from each other",
+      "why": "Japan's mountainous terrain cut regions off from one another, making it hard for a central government to control the whole country, so local lords ruled their own areas instead.",
+      "options": [
+        "They isolated regions from each other",
+        "They joined regions by trade routes",
+        "They gave every region rich farmland",
+        "They removed the need for defence"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what did artmaking activities mainly focus on?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Expressive animal marks",
+      "why": "The activities focused on loose, expressive mark-making to capture the energy and character of animals, not precise tracing.",
+      "options": [
+        "Expressive animal marks",
+        "Precise ruler outlines",
+        "Photocopied templates",
+        "Digital animal photos"
+      ],
+      "mode": "scrub",
+      "fresh": true
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What was a shogun's main role in Japan's political system?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Military ruler in charge",
+      "why": "The shogun was the top military commander who actually held political power, while the emperor remained a symbolic figurehead.",
+      "options": [
+        "Military ruler in charge",
+        "Religious temple priest",
+        "Elected town mayor",
+        "Trade route merchant"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
+      "subject": "English",
+      "prompt": "Which quote from Romeo and Juliet shows hate turning violent, not just love?",
+      "answer": "Tybalt draws his sword on Romeo",
+      "why": "Tybalt's aggression shows the hate theme through actual violence, not just words or romantic feeling.",
+      "options": [
+        "Tybalt draws his sword on Romeo",
+        "Romeo calls Juliet the sun",
+        "Juliet waits at her balcony",
+        "Romeo sighs over Rosaline"
+      ],
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T2",
+      "phase": "steady",
       "subject": "Maths",
-      "prompt": "The probability of picking a vowel from a bag of letter tiles is 0.3. What is the probability of NOT picking a vowel?",
+      "prompt": "The probability of picking a green marble is 0.6. What is the probability of not picking green?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,45 +289,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.7,
+      "answer": 0.4,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Complementary events always add to 1, so 1 − 0.3 = 0.7.",
-      "fresh": true
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is the name for the boundary where two tectonic plates move apart from each other?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "divergent boundary",
-        "divergent"
-      ],
-      "why": "A divergent boundary is where plates move apart, often creating new crust as magma rises between them.",
+      "why": "Complementary probabilities add to 1, so 1 − 0.6 = 0.4.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the 'V'?",
-      "answer": "G, the fifth chord",
-      "why": "G is the fifth note of the C major scale, making it the 'V' chord. Am is 'vi', F is 'IV', and C is 'I' — the roman numeral just marks the chord's position in the scale.",
+      "prompt": "In C–Am–F–G, which chord is the 'IV'?",
+      "answer": "F",
+      "why": "In the key of C major, F is built on the fourth note of the scale, making it the 'IV' chord.",
       "options": [
-        "G, the fifth chord",
-        "Am, the sixth chord",
-        "F, the fourth chord",
-        "C, the first chord"
+        "F",
+        "C",
+        "Am",
+        "G"
       ],
       "fresh": false
     },
@@ -102,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What does 'oishii' mean in Japanese?",
-      "answer": "Delicious",
-      "why": "'Oishii' means delicious — a key word for reacting to food, easily confused with polite phrases like 'thank you' since both come up at meals.",
+      "prompt": "How do you say 'delicious' when eating in Japanese?",
+      "answer": "Oishii desu",
+      "why": "'Oishii desu' means 'it's delicious', a common phrase to compliment food while eating.",
       "options": [
-        "Delicious",
-        "Thank you",
-        "Please",
-        "Water"
+        "Oishii desu",
+        "Gochisousama",
+        "Itadakimasu",
+        "Sumimasen"
       ],
       "fresh": true
     },
@@ -117,14 +330,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "What's a healthy way to handle stress?",
-      "answer": "Talk to someone about it",
-      "why": "Talking to someone you trust is a healthy coping strategy — bottling up or ignoring stress doesn't resolve it and can make things worse over time.",
+      "prompt": "Which habit best supports long-term mental health?",
+      "answer": "Regular sleep and exercise",
+      "why": "Regular sleep and exercise help regulate mood and stress over time, unlike avoidance or ignoring feelings, which let problems build up.",
       "options": [
-        "Talk to someone about it",
-        "Ignore it completely",
-        "Pretend it isn't happening",
-        "Bottle it up"
+        "Regular sleep and exercise",
+        "Avoiding all social contact",
+        "Ignoring feelings until they pass",
+        "Working without any breaks"
       ],
       "fresh": false
     },
@@ -132,7 +345,7 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A spinner has 8 equal sections. What is the probability of landing on section 5, as a fraction out of 8?",
+      "prompt": "A bag has 4 yellow and 6 green counters. What is the probability of drawing yellow, as a fraction out of 10?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -141,42 +354,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.125,
-      "calc": false,
+      "answer": 0.4,
+      "calc": true,
       "pre": "",
       "post": "",
-      "why": "Each section is equally likely, so the chance of any one section is 1 out of 8, which equals 0.125.",
-      "fresh": true
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps of analysing cause and consequence in history",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Identify the event",
-        "Find the causes",
-        "Trace the consequences",
-        "Judge long-term significance"
-      ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Good historical analysis starts with identifying the event, then works outward to causes, then consequences, and finally judges lasting significance.",
+      "why": "There are 4 yellow counters out of 10 total, so the probability is 4/10, which equals 0.4.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Maths",
-      "prompt": "A student says 'the probability of NOT rolling a 6 on a die is also 1/6, since there's only one way to fail.' Explain what's wrong with this reasoning about complementary events."
+      "subject": "Music",
+      "prompt": "Explain why swapping the order to Am–F–C–G still uses the same four chords but can change how the song feels."
     }
   ]
 }
