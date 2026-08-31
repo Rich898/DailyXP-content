@@ -1,31 +1,43 @@
-# sweep-shadow.yml — SHADOW-ONLY automated Canvas sweep (trust-ladder stage).
+# sweep-shadow.yml — the automated weekly Canvas sweep, PROMOTED (B6 GO,
+# 31 Aug 2026). Filename kept for dispatch + run-history continuity; the
+# shadow-era head-to-head evidence lives in ACTIONS.md B6 and
+# shadow/sweeps/2026-08-31/DIFF-vs-final-manual.md (102/106 raw, 106/106
+# adjudicated vs the final manual sweep).
 #
-# What this is: a raw pull of each seat's Canvas via that student's own API
-# token, written to the PRIVATE repo under shadow/sweeps/<sydney-date>/. That
-# path is physically outside targets/, which the live pipeline auto-picks —
-# so nothing this workflow does can reach a real quiz.
-# Triggers: a Monday-morning timer (21:07 UTC Sunday = 07:07 Sydney, 08:07
-# during AEDT) plus the on-demand button. The timer only ever feeds shadow/;
-# promotion is a separate, later change: after the shadow sweep matches or
-# beats the manual sweep, the output destination moves to targets/ behind the
-# validator gate. Until then this stays observation-only.
+# What it does now: raw pull of each seat's Canvas via that student's own
+# API token -> summarise (code owns structure, LLM writes language only,
+# carry-forward law) -> docx alert (flags assessment paperwork it cannot
+# read) -> schedule-pass (noticeboard assessment PDFs) -> rotation
+# overrides (private overrides/rotations.json — membership is
+# submission-visible only, so it stays a human fact) -> VALIDATE, the gate
+# -> PROMOTE the validated summary to private targets/<monday>.json, the
+# file the live pipeline auto-picks -> diff vs the previous targets file
+# (the weekly-delta record) -> commit shadow evidence + targets.
 #
-# The SCHEDULE-PASS (limb #1d) runs after summarise: it reads the assessment-
-# schedule PDF from each seat's year-group noticeboard (files on that ONE
-# course only — see tools/sweep_schedule.py's declared scope) and fills/stamps
-# assessment dates into the shadow targets before the validator gate. A failed
-# schedule-pass turns the run red but never blocks validate/diff/commit.
+# FAIL = HOLD: a validator FAIL turns the run red, nothing is promoted,
+# and the pipeline falls back to the newest existing targets file with its
+# loud staleness warning. LAW: Monday's quiz never depends on the sweep.
 #
-# Secrets required (repo → Settings → Secrets and variables → Actions):
+# Timers: PRIMARY is Supabase pg_cron 07:07 Monday Sydney (xp_schedule row
+# sweep-0707-mon, supabase/007_sweep_slot.sql — TZ-aware, DST-proof),
+# firing workflow_dispatch. The GitHub cron below is the DEMOTED backup
+# (Sun 22:07 UTC = Mon 08:07 AEST, 09:07 during AEDT) and is guarded: a
+# schedule-event run skips itself when this week's targets file already
+# exists, so scheduler double-fire is a designed no-op. A promote of an
+# EXISTING targets file only happens via the explicit overwrite_targets
+# dispatch input (recovery button).
+#
+# Secrets required (repo -> Settings -> Secrets and variables -> Actions):
 #   CANVAS_BASE_URL   the school Canvas address, e.g. https://xxx.instructure.com
 #   CANVAS_TOKEN_Y8   student token for seat y8 (minted by the student,
-#   CANVAS_TOKEN_Y9    Settings → Approved Integrations → New Access Token)
+#   CANVAS_TOKEN_Y9    Settings -> Approved Integrations -> New Access Token)
 #   DAILYXP_TOKEN     existing fine-grained PAT, both repos
+#   ANTHROPIC_API_KEY summariser + schedule-pass language layer
 name: sweep-shadow
 
 on:
   schedule:
-    - cron: "7 21 * * 0"   # Sun 21:07 UTC = Mon 07:07 Sydney (AEST)
+    - cron: "7 22 * * 0"   # BACKUP ONLY: Sun 22:07 UTC = Mon 08:07 Sydney (AEST); pg_cron 07:07 is primary
   workflow_dispatch:
     inputs:
       seat:
@@ -33,9 +45,13 @@ on:
         required: false
         default: "all"
       mode:
-        description: "full = fetch+summarise+schedule | fetch = raw pull only | summarise = reuse today's dump | schedule = schedule-pass only, newest dump | schedule-list = probe: list noticeboard files, change nothing"
+        description: "full = fetch+summarise+schedule+promote | fetch = raw pull only | summarise = reuse today's dump | schedule = schedule-pass only, newest dump | schedule-list = probe: list noticeboard files, change nothing"
         required: false
         default: "full"
+      overwrite_targets:
+        description: "true = allow promote to REPLACE an existing targets/<monday>.json (recovery only; default never overwrites)"
+        required: false
+        default: "false"
 
 jobs:
   shadow:
@@ -46,7 +62,7 @@ jobs:
         with:
           token: ${{ secrets.DAILYXP_TOKEN }}
 
-      - name: Checkout private repo (shadow destination)
+      - name: Checkout private repo (targets + shadow destination)
         uses: actions/checkout@v4
         with:
           repository: Rich898/DailyXP-private
@@ -61,7 +77,7 @@ jobs:
       - name: Install deps
         run: pip install --quiet requests
 
-      - name: Compute mode, stamp, seat filter, dump dir, base and manual targets
+      - name: Compute mode, stamp, seat filter, dump dir, base and diff targets
         id: setup
         run: |
           MODE="${{ github.event.inputs.mode }}"
@@ -69,6 +85,14 @@ jobs:
           echo "mode=${MODE}" >> "$GITHUB_OUTPUT"
           STAMP=$(TZ=Australia/Sydney date +%F)
           echo "STAMP=${STAMP}" >> "$GITHUB_ENV"
+          WEEK_MON=$(TZ=Australia/Sydney date -d "-$(( $(TZ=Australia/Sydney date +%u) - 1 )) days" +%F)
+          echo "WEEK_MON=${WEEK_MON}" >> "$GITHUB_ENV"
+          SKIP=false
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f "private/targets/${WEEK_MON}.json" ]; then
+            SKIP=true
+            echo "backup timer: targets/${WEEK_MON}.json already exists — the primary (pg_cron) already ran this week; skipping" | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "skip=${SKIP}" >> "$GITHUB_OUTPUT"
           SEAT_ARG=""
           if [ -n "${{ github.event.inputs.seat }}" ] && [ "${{ github.event.inputs.seat }}" != "all" ]; then
             SEAT_ARG="--seat ${{ github.event.inputs.seat }}"
@@ -81,23 +105,25 @@ jobs:
             DUMP_DIR="${DUMP_DIR%/}"
           fi
           echo "DUMP_DIR=${DUMP_DIR}" >> "$GITHUB_ENV"
+          PREV_DUMP=$(ls -d private/shadow/sweeps/*/ 2>/dev/null | grep -v "${STAMP}" | sort | tail -1 || true)
+          PREV_DUMP="${PREV_DUMP%/}"
+          echo "PREV_DUMP=${PREV_DUMP}" >> "$GITHUB_ENV"
           MANUAL=$(ls private/targets/*.json | sort | tail -1)
-          WEEK_MON=$(TZ=Australia/Sydney date -d "-$(( $(TZ=Australia/Sydney date +%u) - 1 )) days" +%F)
           MANUAL_DATE=$(basename "$MANUAL" .json)
           if [ "$MANUAL_DATE" \< "$WEEK_MON" ]; then
-            # this week's manual isn't in yet — the sweep UPDATES last week's file
+            # this week's targets aren't in yet — the sweep UPDATES last week's file
             BASE="$MANUAL"
           else
-            # this week's manual exists — replay mode: build on the week before, compare to it
+            # this week's file exists — replay mode: build on the week before, compare to it
             BASE=$(ls private/targets/*.json | sort | tail -2 | head -1)
             if [ "$BASE" = "$MANUAL" ]; then BASE=""; fi
           fi
           echo "MANUAL=${MANUAL}" >> "$GITHUB_ENV"
           echo "BASE=${BASE}" >> "$GITHUB_ENV"
-          echo "mode: ${MODE} | dump dir: ${DUMP_DIR} | carry-forward base: ${BASE:-none (first sweep)} | diff target: ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "mode: ${MODE} | skip: ${SKIP} | dump dir: ${DUMP_DIR} | week: ${WEEK_MON} | carry-forward base: ${BASE:-none (first sweep)} | diff target: ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Run shadow fetch
-        if: ${{ steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'fetch' }}
+      - name: Run fetch (per-student tokens, six content surfaces)
+        if: ${{ steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'fetch') }}
         env:
           CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
           CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
@@ -107,7 +133,7 @@ jobs:
           python3 tools/sweep_fetch.py --out "private/shadow/sweeps/${STAMP}" ${SEAT_ARG} | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Summarise into targets format (LLM language layer)
-        if: ${{ steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' }}
+        if: ${{ steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise') }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -118,8 +144,15 @@ jobs:
             --manual-dir private/targets ${BASE:+--base "$BASE"} ${SEAT_ARG} 2>&1 \
             | tee "${DUMP_DIR}/summarise.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
+      - name: Docx alert (assessment paperwork the sweep cannot read)
+        if: ${{ steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'fetch' || steps.setup.outputs.mode == 'summarise') }}
+        run: |
+          set -o pipefail
+          python3 tools/sweep_docx_alert.py --dump "${DUMP_DIR}" \
+            --prev-dump "${PREV_DUMP}" 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Schedule-pass probe (list noticeboard files, change nothing)
-        if: ${{ steps.setup.outputs.mode == 'schedule-list' }}
+        if: ${{ steps.setup.outputs.skip != 'true' && steps.setup.outputs.mode == 'schedule-list' }}
         env:
           CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
           CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
@@ -129,8 +162,8 @@ jobs:
           python3 tools/sweep_schedule.py --dump "${DUMP_DIR}" --list ${SEAT_ARG} 2>&1 \
             | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Schedule-pass (assessment PDF dates -> shadow targets)
-        if: ${{ steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'schedule' }}
+      - name: Schedule-pass (assessment PDF dates -> targets)
+        if: ${{ steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'schedule') }}
         env:
           CANVAS_BASE_URL: ${{ secrets.CANVAS_BASE_URL }}
           CANVAS_TOKEN_Y8: ${{ secrets.CANVAS_TOKEN_Y8 }}
@@ -143,8 +176,17 @@ jobs:
             --targets "${DUMP_DIR}/targets-shadow.json" ${SEAT_ARG} 2>&1 \
             | tee "${DUMP_DIR}/schedule.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Validate (deterministic gate)
-        if: ${{ !cancelled() && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
+      - name: Rotation overrides (per-seat live strand, private overrides file)
+        if: ${{ steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
+        run: |
+          set -o pipefail
+          python3 tools/sweep_overrides.py \
+            --targets "${DUMP_DIR}/targets-shadow.json" \
+            --overrides private/overrides/rotations.json 2>&1 \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate (deterministic gate — FAIL here means nothing promotes)
+        if: ${{ !cancelled() && steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
         run: |
           set -o pipefail
           python3 tools/sweep_validate.py \
@@ -153,8 +195,19 @@ jobs:
             --manual-dir private/targets ${BASE:+--base "$BASE"} 2>&1 \
             | tee "${DUMP_DIR}/validate.log" | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Diff against newest manual sweep
-        if: ${{ !cancelled() && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
+      - name: PROMOTE — validated summary becomes this week's targets file
+        if: ${{ steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
+        run: |
+          set -o pipefail
+          FORCE=""
+          if [ "${{ github.event.inputs.overwrite_targets }}" = "true" ]; then FORCE="--force"; fi
+          python3 tools/sweep_promote.py \
+            --shadow "${DUMP_DIR}/targets-shadow.json" \
+            --targets-dir private/targets \
+            --week "${WEEK_MON}" ${FORCE} 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Diff against the previous targets file (weekly-delta record)
+        if: ${{ !cancelled() && steps.setup.outputs.skip != 'true' && (steps.setup.outputs.mode == 'full' || steps.setup.outputs.mode == 'summarise' || steps.setup.outputs.mode == 'schedule') }}
         run: |
           echo "diffing against ${MANUAL}" | tee -a "$GITHUB_STEP_SUMMARY"
           set -o pipefail
@@ -163,17 +216,17 @@ jobs:
             --manual "${MANUAL}" \
             --out "${DUMP_DIR}/DIFF.md" 2>&1 | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Commit shadow dump to private repo
-        if: always()
+      - name: Commit targets + shadow evidence to private repo
+        if: ${{ always() && steps.setup.outputs.skip != 'true' }}
         working-directory: private
         run: |
           git config user.name "DailyXP"
           git config user.email "richdrw@gmail.com"
-          git add shadow/sweeps
+          git add shadow/sweeps targets
           if git diff --cached --quiet; then
             echo "nothing new to commit"
           else
-            git commit -m "shadow sweep ${STAMP} (raw pull)"
+            git commit -m "weekly sweep ${STAMP} (auto: shadow evidence + promoted targets)"
             git pull --rebase origin main
             git push origin main
           fi
