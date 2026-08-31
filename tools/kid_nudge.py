@@ -51,9 +51,16 @@ RAW = "https://raw.githubusercontent.com/Rich898/DailyXP-content/main/{student}.
 # WEEKDAY_DIRECTIVE in scripts/run_daily.py — if the skeleton ever changes,
 # change BOTH (they encode the same doctrine).
 WEEKDAY_DIRECTIVE = {0: "standard", 1: "standard", 2: "standard", 3: "standard", 4: "boss"}
+# One voice per school day (Rich's copy, approved 31 Aug 2026): a light arc
+# across the week \u2014 never celebration, never scores (those live in-quiz).
+# Friday keeps the Battleground call. Keyed by WEEKDAY, not directive, so the
+# copy can vary day to day while the skeleton above stays the doctrine.
 NUDGE = {
-    "standard": "XPDaily is up \U0001f44a",
-    "boss": "\u2694 BATTLEGROUND \u2014 win the week. XPDaily is up \U0001f44a",
+    0: "New week on the board. XPDaily is up \U0001f44a",
+    1: "Day two \u2014 keep the chain going. XPDaily is up \U0001f44a",
+    2: "Halfway. XPDaily is up \U0001f44a",
+    3: "Last run before the Battleground. XPDaily is up \U0001f44a",
+    4: "\u2694 BATTLEGROUND \u2014 win the week. XPDaily is up \U0001f44a",
 }
 
 
@@ -77,7 +84,7 @@ def decide(live_set, today, play_url=None):
     directive = WEEKDAY_DIRECTIVE.get(today.weekday())
     if directive is None:
         return False, "weekend \u2014 no nudge", None
-    text = NUDGE[directive]
+    text = NUDGE[today.weekday()]
     if play_url:
         text = f"{text}\n{play_url}"
     return True, f"live set verified for today ({directive})", text
@@ -156,7 +163,11 @@ def main():
             # not an error — the icon is his channel until the fallback lands.
             print(f"[{s}] no number configured \u2014 skipped (icon is his channel).")
             continue
-        print(f"[{s}] nudge {'sent \u2713' if ok else 'FAILED \u2717'}")
+        # mark hoisted out of the f-string: a \uXXXX escape inside the
+        # expression part is a SyntaxError on Python 3.11 (the B7 fix \u2014 the
+        # same class A8 fixed in two test files).
+        mark = "sent \u2713" if ok else "FAILED \u2717"
+        print(f"[{s}] nudge {mark}")
         if ok:
             cursor[s] = today.isoformat()
             save_cursor(a.private_dir, cursor)
