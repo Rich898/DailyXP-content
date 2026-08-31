@@ -277,3 +277,19 @@ chart needs two subjects to render. Fed by `build_portal(accuracy=...)`
 (`report_stories.subject_accuracy` shape — it may legitimately cover subjects
 the spine doesn't, e.g. event questions); tiles, bars and tables share one
 totals source (`_week_totals`) so the page can never disagree with itself.
+
+**Round 5 — 31 Aug, HOME + NAMING:** home gains **HOW TO READ THE REPORT**
+(between the nav cluster and YOUR ACCOUNT): the mission (comprehension mapped
+on the **SOLO taxonomy, in plain words**), the two axes with their real visual
+vocabulary — WHERE HE IS as the coloured-dot bands, DEPTH as the rung chips
+with the evidence gate ("a dash means not shown yet, never a fail") — then
+"why both matter" (the confidently-shallow cross) and "what it means for you"
+(nothing to fix at home; ask him to explain a topic out loud — explaining is
+the move that climbs the depth ladder). The Running Picture keeps its short
+at-point-of-use legend; both draw from the same BANDS/RUNGS constants.
+**Naming law** (Rich: "let's not get confused about what we call the pages"):
+every page's `<title>` is the PAGE's own name ("The weekly update — {name} ·
+XP Daily"); the masthead is **XP DAILY** only, never a page label; "the full
+picture" survives only as home's descriptive phrase until the D6 name
+decision. Preview-artifact gallery titles renamed to match (Portal · Home /
+Week Ahead / Weekly Update / Running Picture).

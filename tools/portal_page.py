@@ -307,6 +307,18 @@ body.pg-week h1.word{color:var(--ink)}
 .acct .on-pill{flex:none;font-size:10px;font-weight:700;letter-spacing:.06em;background:#123528;color:var(--kelp);border-radius:99px;padding:3px 10px}
 .acct-note{font-size:12.5px;color:var(--haze);line-height:1.55;margin-top:10px}
 .acct-note b{color:var(--ink);font-weight:600}
+.howto{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 17px}
+.howto .lead{font-size:14px;line-height:1.55;margin:0}
+.howto .lead b{color:var(--ink)}
+.howto .ax{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.howto .axk{font-size:10.5px;letter-spacing:.11em;color:var(--ink);font-weight:700;text-transform:uppercase}
+.howto .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+.howto .chips span{background:#1C2B42;border-radius:6px;padding:3px 8px;font-size:11.5px;white-space:nowrap;color:var(--ink)}
+.howto .chips .dot{font-size:9px;margin-right:4px;vertical-align:1px}
+.howto .axsub{font-size:12.5px;color:var(--haze);line-height:1.5;margin-top:7px}
+.howto .why{font-size:13px;line-height:1.55;margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line);color:var(--haze)}
+.howto .why b{color:var(--ink)}
+.howto .why .cs{color:var(--reef)}
 /* ------------------------------------------------ the week ahead */
 .wa-grid{display:grid;gap:10px}
 .wa-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
@@ -465,9 +477,14 @@ def _subject_key(subject):
     return (subject or "").lower()
 
 
-def _shell(key, portal, hero_html, body_html, hrefs, title_tail):
+def _shell(key, portal, hero_html, body_html, hrefs, title):
     """One finished page: head (stamp early, inside verify()'s 4KB window),
-    top bar, page hero, body, footer, bottom nav."""
+    top bar, page hero, body, footer, bottom nav.
+
+    NAMING (Rich, 30 Aug — "let's not get confused about what we call the
+    pages"): the <title> is the PAGE's own name; the masthead is the product
+    (XP DAILY), never a page label; "the full picture" survives only as
+    home's descriptive phrase until the D6 name decision."""
     name = portal.get("name", "")
     stamp = rp.build_stamp()
     foot = ("<div class='pfoot'>"
@@ -485,12 +502,12 @@ def _shell(key, portal, hero_html, body_html, hrefs, title_tail):
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="theme-color" content="#0B1220" />
-<title>XPDaily — {_e(name)}{_e(title_tail)}</title>
+<title>{_e(title)}</title>
 <style>{_CSS}</style>
 </head>
 <body class="{_BODY_CLASS[key]}">
 <div class="wrap">
-  <div class="ptop"><span class="brand">XP DAILY · THE FULL PICTURE</span><span class="upd">updated {_e(_short_date(portal.get('updated','')))}</span></div>
+  <div class="ptop"><span class="brand">XP DAILY</span><span class="upd">updated {_e(_short_date(portal.get('updated','')))}</span></div>
   {hero_html}
   {body_html}
   {foot}
@@ -607,6 +624,50 @@ def _account_section(portal):
             "here once sign-in arrives.</p>")
 
 
+def _how_to_read(name):
+    """HOW TO READ THE REPORT — the front door teaches the reading model once
+    (Rich, 30 Aug): the mission (comprehension mapped on the SOLO taxonomy,
+    in plain words), the two axes with their real visual vocabulary (the
+    coloured position dots, the depth rungs, the evidence gate), and what it
+    means for a parent. The Running Picture keeps its short at-point-of-use
+    legend; both draw chips from the same constants so they cannot drift."""
+    bands = "".join(
+        f"<span><span class='dot d{colour}'>&#9679;</span>{_e(label)}</span>"
+        for label, colour in rp.BANDS[1:])
+    rungs = "".join(f"<span>{_e(v)}</span>" for _, v in rp.RUNGS)
+    return (
+        "<div class='section'>HOW TO READ THE REPORT</div>"
+        "<div class='howto'>"
+        f"<p class='lead'>These pages map <b>how well {_e(name)} actually "
+        "understands</b> what school is teaching — not just whether answers "
+        "come out right. The depth side follows the <b>SOLO taxonomy</b>, a "
+        "standard framework for measuring depth of understanding, written "
+        "here in plain words. Every topic is read on two axes:</p>"
+        "<div class='ax'><div class='axk'>1 · Where he is</div>"
+        f"<div class='chips'>{bands}</div>"
+        "<div class='axsub'>How reliably the topic comes out right under "
+        "questioning — a position on a journey, red to green. Early is not "
+        "failing; it's early.</div></div>"
+        "<div class='ax'><div class='axk'>2 · Depth</div>"
+        f"<div class='chips'>{rungs}</div>"
+        "<div class='axsub'>How deeply he can explain it. Quick questions can "
+        "only prove the first rungs — climbing further takes a written "
+        "explanation in his own words, so depth moves over weeks, not days. "
+        "A rung shows only once he's evidenced it; a dash means not shown "
+        "yet, never a fail.</div></div>"
+        "<p class='why'><b>Why both matter:</b> a topic can be "
+        "<span class='cs'>Solid on recall while the explanation hasn't caught "
+        "up</span> — strong memory, shallow roots. Marks alone would call that "
+        "finished; these pages flag it, and his next written questions target "
+        "it automatically.</p>"
+        f"<p class='why'><b>What it means for you:</b> nothing here needs "
+        f"fixing at home — the sets adjust themselves every night. The one "
+        f"thing that genuinely helps is conversation: ask {_e(name)} to "
+        "explain a topic out loud. Explaining is exactly the move that climbs "
+        "the depth ladder.</p>"
+        "</div>")
+
+
 def _home_page(portal, hrefs, kid_wrap_url=None):
     name = portal.get("name", "")
     hero = (f"<h1 class='phero name'>{_e(name)}</h1>"
@@ -623,8 +684,9 @@ def _home_page(portal, hrefs, kid_wrap_url=None):
     body = (_radar_strip(portal)
             + _doors(portal, hrefs)
             + wrap_link
+            + _how_to_read(name)
             + _account_section(portal))
-    return _shell("", portal, hero, body, hrefs, "'s full picture")
+    return _shell("", portal, hero, body, hrefs, f"{name} — XP Daily")
 
 
 # --------------------------------------------------------------------------- #
@@ -689,7 +751,8 @@ def _ahead_page(portal, hrefs):
                  "<span>How it lands is Friday's story — the plan above gets "
                  "its answer in the <b>Weekly update</b>.</span>"
                  "<span class='go'>&#8250;</span></a>")
-    return _shell("ahead", portal, hero, "".join(parts), hrefs, " — the week ahead")
+    return _shell("ahead", portal, hero, "".join(parts), hrefs,
+                  f"The week ahead — {name} · XP Daily")
 
 
 def _cap(s):
@@ -854,7 +917,8 @@ def _week_page(portal, hrefs):
                  "<span>Where it all adds up — every topic's position and "
                  "depth, on <b>The running picture</b>.</span>"
                  "<span class='go'>&#8250;</span></a>")
-    return _shell("week", portal, hero, "".join(parts), hrefs, " — the weekly update")
+    return _shell("week", portal, hero, "".join(parts), hrefs,
+                  f"The weekly update — {name} · XP Daily")
 
 
 # --------------------------------------------------------------------------- #
@@ -969,7 +1033,7 @@ def _picture_page(portal, hrefs):
     parts.append(_archive_section(portal.get("archive")))
     parts.append(_legend())
     return _shell("picture", portal, hero, "".join(parts), hrefs,
-                  " — the running picture")
+                  f"The running picture — {name} · XP Daily")
 
 
 # --------------------------------------------------------------------------- #

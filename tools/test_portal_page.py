@@ -141,6 +141,17 @@ print("\nhome — the front door:")
 t("all three doorways with live teasers",
   "The week ahead" in home and "The weekly update" in home
   and "The running picture" in home and "one date on the radar" in home)
+t("HOW TO READ THE REPORT teaches the model — SOLO in plain words, both axes",
+  "HOW TO READ THE REPORT" in home and "SOLO taxonomy" in home
+  and "Where he is" in home and "Depth" in home
+  and "never a fail" in home and "explain a topic out loud" in home)
+t("the reading guide sits before the account admin",
+  home.index("HOW TO READ THE REPORT") < home.index("YOUR ACCOUNT"))
+t("pages are titled by their own names; the masthead is the product only",
+  "<title>The weekly update — Harrison · XP Daily</title>" in week
+  and "<title>Harrison — XP Daily</title>" in home
+  and "THE FULL PICTURE" not in week
+  and ">XP DAILY<" in week)
 t("the radar strip leads", "ON THE RADAR" in home and "Science test" in home)
 t("the account surface stub is designed in",
   "YOUR ACCOUNT" in home and "switched off" in home and "text to Rich" in home)
