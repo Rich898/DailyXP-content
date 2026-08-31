@@ -97,11 +97,27 @@ def live_config(domain):
 
 
 def build_page(code, name):
+    """Stamp the template, and make every build BYTE-UNIQUE via a trailing build
+    stamp. The uniqueness is load-bearing, not cosmetic: Netlify stores blobs by
+    sha1 WITH the content-type recorded at first ingestion. The 31 Aug zip deploy
+    ingested this page's exact bytes as text/plain, and the digest re-deploy of
+    the same sha was answered "already have it" — the mistyped blob just got
+    republished. A fresh sha forces a fresh PUT, which types .html correctly."""
     src = open(TEMPLATE, encoding="utf-8").read()
     built = src.replace("__STUDENT__", code).replace("__NAME__", name)
     if "__STUDENT__" in built or "__NAME__" in built:
         raise SystemExit("stamp failed: placeholders left in the build")
-    return built.encode("utf-8"), RE_VERSION.search(built).group(1)
+    stamp = f"xpdaily-shell-build {code} {time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())} {time.time_ns() % 10**9}"
+    built += f"\n<!-- {stamp} -->\n"
+    return built.encode("utf-8"), RE_VERSION.search(built).group(1), stamp
+
+
+# Scoped header overrides, deployed beside the page: even a correctly-typed blob
+# is one ingestion quirk away from text/plain (31 Aug incident), and _headers is
+# Netlify's definitive say on what the browser receives. Single-page sites, so
+# only the two paths that exist are pinned.
+HEADERS_FILE = ("/\n  Content-Type: text/html; charset=utf-8\n"
+                "/index.html\n  Content-Type: text/html; charset=utf-8\n").encode("utf-8")
 
 
 def live_manifest(domain, token):
@@ -124,19 +140,23 @@ def live_manifest(domain, token):
 
 def deploy(domain, page_bytes, token):
     """Digest deploy: manifest first, then upload what Netlify asks for."""
-    sha = hashlib.sha1(page_bytes).hexdigest()
+    uploads = {"/index.html": page_bytes, "/_headers": HEADERS_FILE}
     live = live_manifest(domain, token)
     if live is None:
         raise SystemExit(f"{domain}: could not read the live file list — refusing to deploy a partial site")
     manifest = dict(live)
-    manifest["/index.html"] = sha
+    shas = {}
+    for path, blob in uploads.items():
+        shas[path] = hashlib.sha1(blob).hexdigest()
+        manifest[path] = shas[path]
     dep = api(f"/sites/{domain}/deploys", token, data={"files": manifest})
     dep_id = dep["id"]
     need = set(dep.get("required") or [])
-    if sha in need:
-        api(f"/deploys/{dep_id}/files/index.html", token,
-            data=page_bytes, ctype="application/octet-stream", method="PUT")
-        need.discard(sha)
+    for path, blob in uploads.items():
+        if shas[path] in need:
+            api(f"/deploys/{dep_id}/files{path}", token,
+                data=blob, ctype="application/octet-stream", method="PUT")
+            need.discard(shas[path])
     if need:
         raise SystemExit(f"{domain}: deploy {dep_id} wants {len(need)} file(s) this run does not hold — "
                          "abandoned, site unchanged")
@@ -151,8 +171,9 @@ def deploy(domain, page_bytes, token):
     raise SystemExit(f"{domain}: deploy {dep_id} not ready after 2 min (state {dep.get('state')!r}) — check Netlify")
 
 
-def verify(domain, code, want_version):
-    """The live page must be THIS build AND be served as renderable HTML.
+def verify(domain, code, want_version, want_stamp):
+    """The live page must be THIS EXACT build (its own stamp back — the
+    netlify_deploy.py first-run law) AND be served as renderable HTML.
     The content-type assertion exists because the zip-deploy incident passed a
     body-only check while every browser showed raw source."""
     body, hdrs = http(f"https://{domain}/?cb={int(time.time())}", timeout=30)
@@ -161,11 +182,13 @@ def verify(domain, code, want_version):
     v = RE_VERSION.search(html)
     s = RE_STUDENT.search(html)
     ok = (v and v.group(1) == want_version and s and s.group(1) == code
+          and want_stamp in html
           and "/*SCRUB-WIDGET-START*/" in html and "/*NUMERIC-WIDGET-START*/" in html
           and "text/html" in ctype)
     if not ok:
         raise SystemExit(f"{domain}: VERIFY FAILED — live page is not the expected build "
                          f"(version {v.group(1) if v else '?'}, student {s.group(1) if s else '?'}, "
+                         f"stamp {'present' if want_stamp in html else 'MISSING'}, "
                          f"content-type {ctype or '?'})")
     return ctype
 
@@ -191,12 +214,12 @@ def main():
             if live_student != code:
                 raise SystemExit(f"{domain}: live page is stamped for {live_student!r}, roster says {code!r} — "
                                  "site/seat mismatch, refusing to deploy")
-            page, new_v = build_page(code, name)
+            page, new_v, stamp = build_page(code, name)
             if a.dry_run:
                 print(f"  {code} @ {domain}: shell v{old_v} live, v{new_v} built ({len(page)//1024} KB) — dry run, not deployed")
                 continue
             dep_id = deploy(domain, page, token)
-            ctype = verify(domain, code, new_v)
+            ctype = verify(domain, code, new_v, stamp)
             print(f"  {code} @ {domain}: shell v{old_v} -> v{new_v}  deploy {dep_id}  served {ctype}  VERIFIED LIVE ✓")
         except SystemExit as e:                # per-seat isolation: one bad seat never blocks the rest
             print(f"  ✗ {e}")
