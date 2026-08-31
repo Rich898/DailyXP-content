@@ -152,6 +152,39 @@ EMPTY = dict(FACTS)
 EMPTY["brief"] = {"rows": [], "subjects": [], "name": "Sam", "assessment": None}
 assert "sync with what school posts" in kb.render(EMPTY)
 
+# --- the RUNNER end-to-end (dry-run on a fixture private dir) ---------------
+# The 31 Aug redeploy failure was a stale key in main()'s log line that no
+# test exercised. The runner itself now runs in every suite pass.
+import json as _json          # noqa: E402
+import subprocess              # noqa: E402
+import tempfile                # noqa: E402
+
+with tempfile.TemporaryDirectory() as _priv:
+    os.makedirs(os.path.join(_priv, "work"))
+    os.makedirs(os.path.join(_priv, "targets"))
+    _json.dump({"runs": [
+        {"student": "t1", "name": "Sam T", "run_date": "2026-08-28",
+         "set_date": "2026-08-28", "score": 500, "canonical": True,
+         "speed": {"of": 5, "right": 4}, "steady": {"of": 5, "right": 4},
+         "shell_flags": {}}]},
+        open(os.path.join(_priv, "work", "runs.json"), "w"))
+    _json.dump({"students": {"t1": {"topics": TOPICS}}},
+               open(os.path.join(_priv, "work", "state.json"), "w"))
+    _json.dump({"students": {"t1": {"subjects": {
+        "Maths": {"topics": [
+            {"topic": "Solving equations with brackets", "status": "live"},
+            {"topic": "Linear equations", "status": "live"}]}}}}},
+        open(os.path.join(_priv, "targets", "2026-08-31.json"), "w"))
+    _r = subprocess.run(
+        [sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                      "kid_board.py"),
+         "--private-dir", _priv, "--student", "t1",
+         "--date", "2026-08-31", "--dry-run"],
+        capture_output=True, text=True)
+    assert _r.returncode == 0, f"runner dry-run failed:\n{_r.stdout}\n{_r.stderr}"
+    assert "up-for-grabs=" in _r.stdout
+    assert os.path.exists(os.path.join(_priv, "work", "preview_board_t1.html"))
+
 # --- the nudge: board link only when handed one, copy untouched otherwise ---
 MON = date(2026, 8, 31)
 LIVE = {"date": "2026-08-31", "status": "ok"}
