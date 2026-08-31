@@ -65,6 +65,13 @@ CURSOR = os.path.join("work", "portal_monday_cursor.json")
 UNVERIFIED = {"y8": ("English",), "t1": ("English",),
               "y9": ("Science", "English")}
 
+# Seats whose Monday pointer sends AUTOMATICALLY on a scheduled (input-less)
+# Monday run. The pg_cron dispatcher fires workflows with NO inputs, so
+# promotion lives here, in reviewed code: Rich promotes a seat by adding its
+# code via PR — the merge IS the ratification. --monday-sms remains the
+# manual override for any seat a dispatch targets.
+POINTER_LIVE = ("t1",)
+
 PAGE_ORDER = ("ahead", "week", "picture", "")   # home LAST — it links the rest
 
 
@@ -197,19 +204,27 @@ def publish_pages(slug, pages):
     return live
 
 
+def _sydney_today():
+    from zoneinfo import ZoneInfo
+    return dt.datetime.now(ZoneInfo("Australia/Sydney")).date()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--private-dir", required=True)
-    ap.add_argument("--date", default=dt.date.today().isoformat())
+    ap.add_argument("--date", default=None,
+                    help="ISO date (default: today in Australia/Sydney — the "
+                         "runner's clock is the family's, not the CI box's)")
     ap.add_argument("--student", help="one player (default: all active)")
     ap.add_argument("--dry-run", action="store_true",
                     help="build + render to preview files; no deploy, no SMS")
     ap.add_argument("--monday-sms", action="store_true",
-                    help="after the pages verify live, send the Monday pointer "
-                         "SMS (weekly cursor; re-runs never double-text)")
+                    help="manual override: send the Monday pointer for every "
+                         "seat this run targets, whatever the day (weekly "
+                         "cursor; re-runs never double-text)")
     a = ap.parse_args()
 
-    asof = dt.date.fromisoformat(a.date)
+    asof = dt.date.fromisoformat(a.date) if a.date else _sydney_today()
     priv = a.private_dir
     codes = [a.student] if a.student else roster.active()
     wk = frun.week_of(asof)
@@ -267,7 +282,13 @@ def main():
         if all(live.values()):
             published.append(code)
 
-        if not a.monday_sms:
+        # THE POINTER. A scheduled (input-less) dispatch sends it only on a
+        # Monday and only for POINTER_LIVE seats; --monday-sms is the manual
+        # override for whatever this run targets. Everything below the gate is
+        # identical either way: cursor, live-pages check, the Monday law, the
+        # parent-seat guard.
+        want_pointer = a.monday_sms or (asof.weekday() == 0 and code in POINTER_LIVE)
+        if not want_pointer:
             continue
         if cursor.get(code) == wk:
             print(f"  pointer already sent for week {wk} — no-op.")

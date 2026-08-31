@@ -3,19 +3,22 @@ name: Parent portal
 # Publishes the four portal pages (/p/<slug>/ home + ahead + week + picture)
 # and, ONLY when monday_sms is ticked, sends the Monday pointer SMS.
 #
-# Cadence (manual dispatch for now; a pg_cron slot lands here once Rich
-# promotes the portal live):
-#   * Monday, after the sweep lands the new targets: run as-is (pages refresh;
-#     tick monday_sms to send the pointer — the weekly cursor makes re-runs
-#     safe, one pointer per kid per week).
-#   * Friday, after the Friday report job: run as-is so the weekly update and
-#     the overall picture catch the fresh week.
+# Cadence — pg_cron primary (supabase/006_portal_slots.sql: Mon 18:45 +
+# Fri 21:15 + Sat 08:00 heal, Sydney local), these GitHub crons the demoted
+# backup. The dispatcher fires with NO inputs, so a scheduled run means:
+# publish every active seat's four pages; on a MONDAY also send the pointer,
+# but only for seats in portal_run.POINTER_LIVE (t1 today — Rich promotes
+# y8/y9 by PR-ing that tuple; the merge is the ratification). Publishing is
+# idempotent and the pointer is week-cursor-guarded, so pg_cron + backup
+# double-fires are no-ops.
 #
-# The pages ship dark by default: a fresh unguessable /p/ slug that nobody has
-# been sent. Publishing is the shadow; the pointer SMS is the promotion, and
-# it only fires when the box is ticked.
+# Manual dispatch: tick monday_sms to force the pointer for whatever seats
+# the run targets, any day; dry_run for the operator preview artifact.
 
 on:
+  schedule:
+    - cron: "5 9 * * 1"      # 19:05 AEST Mon (backup; pg_cron 18:45 is primary)
+    - cron: "35 11 * * 5"    # 21:35 AEST Fri (backup; pg_cron 21:15 is primary)
   workflow_dispatch:
     inputs:
       student:
