@@ -156,7 +156,11 @@ def pointer_sms(brief, portal_url, subjects_named=True, play_url=None):
     name = brief["name"]
     subs = brief.get("subjects") or []
     if subjects_named and subs:
-        lead = (f"{name}'s plan for the week is up — what {_join(subs, cap=4)} "
+        # Name at most four subjects, but never SILENTLY: a capped list with no
+        # overflow marker read as "only these are covered" (Rich, 31 Aug, the
+        # first live Monday). The full subject list lives on the linked page.
+        named = (", ".join(subs[:4]) + " and more") if len(subs) > 4 else _join(subs, cap=4)
+        lead = (f"{name}'s plan for the week is up — what {named} "
                 f"are covering, and what to look out for.")
     else:
         lead = f"{name}'s learning plan for the week is up."

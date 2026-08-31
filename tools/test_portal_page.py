@@ -85,6 +85,16 @@ t(f"two-link pointer still passes the Monday law ({why2})", ok2)
 t("no play_url -> unchanged single-link pointer", mb.pointer_sms(
     brief, "https://x.example/p/abc/") == sms)
 
+print("\nthe subject cap is never silent (31 Aug — 'why only these three?'):")
+wide = {"name": "R", "subjects": ["Commerce", "English", "History", "Maths",
+                                  "PDHPE", "Science"]}
+sms3 = mb.pointer_sms(wide, "https://x.example/p/abc/")
+t("five-plus live subjects -> first four named + 'and more'",
+  "what Commerce, English, History, Maths and more are covering" in sms3)
+t("overflow pointer still passes the Monday law",
+  mb.validate(sms3, "R", subjects=wide["subjects"])[0])
+t("four or fewer subjects -> no overflow marker", "and more" not in sms)
+
 print("\ncomponent 3 — the confidently-shallow cross + depth ceiling:")
 t("solid x shallow fires", pp._confidently_shallow("solid", "lists"))
 t("solid x no-teachback-yet fires", pp._confidently_shallow("solid", None))
