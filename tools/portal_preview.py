@@ -156,6 +156,16 @@ ARCHIVE = [{"week": "2026-08-28", "url": "#"},
            {"week": "2026-08-21", "url": "#"},
            {"week": "2026-08-14", "url": "#"}]
 
+# whole-week accuracy by subject (subject_accuracy shape). Geography has no
+# spine block — its questions came from event rounds, which is exactly why the
+# runner-computed dict can cover more subjects than the tables below it.
+ACCURACY = {
+    "Geography": {"asked": 4, "right": 4},
+    "History": {"asked": 5, "right": 4},
+    "Science": {"asked": 5, "right": 4},
+    "Maths": {"asked": 9, "right": 5},
+}
+
 
 def build():
     brief = mb.week_ahead(NAME, SUBJECTS_BLOCK, PREV_BLOCK, RADAR,
@@ -173,6 +183,7 @@ def build():
         activity={"days_done": 4, "possible": 5, "topics_practised": 7,
                   "events": 1},
         upcoming=UPCOMING,
+        accuracy=ACCURACY,
     )
     return pp.render_pages(portal, kid_wrap_url="#")
 

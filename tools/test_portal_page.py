@@ -114,7 +114,10 @@ portal = pp.build_portal("Harrison", "2026-08-10", TOPICS, SUBJECTS_BLOCK, RADAR
                          week_verdict={"word": "solid"},
                          activity={"days_done": 4, "possible": 5,
                                    "topics_practised": 7, "events": 1,
-                                   "questions": 41, "right": 34})
+                                   "questions": 41, "right": 34},
+                         accuracy={"Maths": {"asked": 16, "right": 14},
+                                   "Science": {"asked": 4, "right": 3},
+                                   "English": {"asked": 1, "right": 1}})
 pages = pp.render_pages(portal, kid_wrap_url="https://x.example/w/abc/")
 t("exactly the four pages render", set(pages) == {"", "ahead", "week", "picture"})
 home, ahead, week, picture = pages[""], pages["ahead"], pages["week"], pages["picture"]
@@ -185,6 +188,15 @@ t("the tiles carry nights (excused-aware), questions and overall accuracy",
   "Nights run" in week and "of 5" in week
   and "Questions answered" in week and ">41<" in week
   and "Overall accuracy" in week and "34 of 41 right" in week)
+t("no game-layer tallies on the parent report — events and achievement "
+  "counts stay kid-side",
+  "Events cleared" not in week and "chievement" not in week)
+t("accuracy by subject renders as sorted single-hue bars, n always visible",
+  "Accuracy by subject" in week and "n = questions asked" in week
+  and "88% <span class='n'>&middot; n16" in week
+  and "75% <span class='n'>&middot; n4" in week
+  and week.index(">Maths<") < week.index(">Science<"))
+t("a subject below two answers stays out of the chart", "n1<" not in week)
 t("the intro line is gone — the table IS the organisation",
   "This week his sets worked" not in week)
 t("the fluency catch lives INSIDE its subject block as the detail worth "
@@ -217,6 +229,8 @@ t("a single question's accuracy is suppressed — volume only",
 t("with no runner totals the tiles sum the table; under 10 answered, "
   "overall accuracy is suppressed too",
   "Questions answered" in oo and ">2<" in oo and "Overall accuracy" not in oo)
+t("no chart from single-question subjects — two real rows or nothing",
+  "Accuracy by subject" not in oo)
 
 print("\nthe running picture — Friday, cumulative:")
 t("the landed tally leads", "of " in picture and "tally" in picture)

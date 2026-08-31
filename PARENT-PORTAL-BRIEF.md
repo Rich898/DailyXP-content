@@ -263,3 +263,17 @@ the archive lists; its extras (the teach-back quote, say-one-thing / do-one-
 thing, depth-movement, week-on-week tiles, speed, next-week plan, XP total,
 reading notes) migrate into the Weekly update or are culled — per piece, on
 Rich's pick, next rounds.
+
+**Round 4 — 30 Aug, BY THE NUMBERS:** the **events tile is removed and no
+achievements tile replaces it** — "events" were the sets' special game rounds
+(boss battles / battlegrounds), and both events and achievement counts are
+game-layer tallies that V2 §7 already bans from parent surfaces (parents hear
+stories, never tallies; the kid's player card carries the game). A specific
+achievement can still reach a parent later as a narrated win via the weekly
+board (D2). **Accuracy by subject restored** (the prior-prototype section,
+per Rich's mock): single-hue bars sorted best-first, every row labelled
+"pct% · n" with a small-sample note; a subject enters at 2+ answered and the
+chart needs two subjects to render. Fed by `build_portal(accuracy=...)`
+(`report_stories.subject_accuracy` shape — it may legitimately cover subjects
+the spine doesn't, e.g. event questions); tiles, bars and tables share one
+totals source (`_week_totals`) so the page can never disagree with itself.

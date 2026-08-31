@@ -190,7 +190,7 @@ def build_portal(name, week_of, topics, subjects_block, radar,
                  week_ahead=None, this_week_blocks=None, this_week_fluency=None,
                  snapshots=None, archive=None, updated=None,
                  week_verdict=None, activity=None, touchpoints=None,
-                 upcoming=None, this_week_of=None):
+                 upcoming=None, this_week_of=None, accuracy=None):
     """Assemble the portal fact set — everything the four pages draw from
     (PARENT-COMMS-V2 §1/§5):
 
@@ -214,6 +214,12 @@ def build_portal(name, week_of, topics, subjects_block, radar,
                         Monday-seed build that is last week, not `week_of`.
                         The Weekly update page prints its Mon–Fri span so the
                         reported week is never ambiguous (Rich, 30 Aug).
+      accuracy          {subject: {"asked", "right"}} for the whole week
+                        (report_stories.subject_accuracy shape) — feeds the
+                        accuracy-by-subject bars and the question totals. It
+                        may legitimately cover subjects the spine doesn't
+                        (warm-ups, event questions); without it the page sums
+                        the per-topic counts instead.
 
     All facts arrive already computed. `archive` = [{"week","url"}] newest-first.
     """
@@ -231,6 +237,7 @@ def build_portal(name, week_of, topics, subjects_block, radar,
         "upcoming": upcoming,
         "this_week": {"blocks": this_week_blocks or [], "fluency": this_week_fluency,
                       "week_of": this_week_of},
+        "accuracy": accuracy or {},
         "week_verdict": week_verdict or {},
         "activity": activity or {},
         "running": {"cards": cards, "cumulative": _cumulative(cards),
@@ -323,6 +330,16 @@ body.pg-week h1.word{color:var(--ink)}
 .byn .v{font-size:24px;font-weight:700;font-family:'Space Mono',ui-monospace,monospace;margin-top:4px;line-height:1.1}
 .byn .v .u{font-size:13px;color:var(--haze);font-weight:400;font-family:'Space Grotesk',system-ui,sans-serif}
 .byn .sub{font-size:11.5px;color:var(--haze);margin-top:3px;line-height:1.35}
+.accs{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-top:9px}
+.accs .h{font-size:13.5px;font-weight:700}
+.accs .hsub{font-size:11.5px;color:var(--haze);margin:2px 0 7px}
+.accs .ar{display:grid;grid-template-columns:minmax(72px,auto) 1fr auto;gap:12px;align-items:center;padding:6px 0}
+.accs .s{font-size:13px}
+.accs .bar{height:9px;border-radius:99px;background:#1C2B42;overflow:hidden}
+.accs .bar i{display:block;height:100%;background:var(--kelp);border-radius:99px}
+.accs .v{font-size:12.5px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;white-space:nowrap;text-align:right}
+.accs .v .n{color:var(--haze);font-weight:400;font-family:'Space Grotesk',system-ui,sans-serif}
+.accs .note{font-size:11.5px;color:var(--haze);margin-top:7px;line-height:1.4}
 .loop{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0D1A2C;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:18px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.45}
 .loop .go{color:var(--haze);font-size:20px;line-height:1}
 .loop b{color:var(--acc)}
@@ -703,22 +720,33 @@ def _fold_fluency(blocks, fluency):
     return out
 
 
-def _by_the_numbers(activity, blocks):
+def _week_totals(activity, accuracy, blocks):
+    """(asked, right) for the week, best source first: explicit runner totals,
+    else the accuracy-by-subject sums, else the per-topic counts — so the
+    tiles, the bars and the tables always agree with each other."""
+    activity = activity or {}
+    if activity.get("questions") is not None:
+        return activity["questions"], activity.get("right")
+    if accuracy:
+        return (sum(v.get("asked") or 0 for v in accuracy.values()),
+                sum(v.get("right") or 0 for v in accuracy.values()))
+    return (sum(t.get("asked") or 0 for b in blocks for t in b.get("topics") or []),
+            sum(t.get("right") or 0 for b in blocks for t in b.get("topics") or []))
+
+
+def _by_the_numbers(activity, blocks, accuracy=None):
     """BY THE NUMBERS — the week's totals as a deliberate tile section (Rich,
     30 Aug): nights run (excused-aware denominator), questions answered,
-    overall accuracy, topics practised, events. Question totals come from the
-    activity dict when the runner supplies them, else they are the sum of the
-    per-topic counts below — the tiles always agree with the table.
+    overall accuracy, topics practised.
 
     Overall accuracy renders only at 10+ answered (the small-sample law —
     below that a percentage is noise, and the per-topic counts already tell
-    the story)."""
+    the story). No game-layer tallies here: events and achievement counts
+    belong to the kid's surfaces (V2 §7 — parents hear stories, never
+    tallies), so there is no "events cleared" or "achievements unlocked"
+    tile (Rich, 30 Aug)."""
     activity = activity or {}
-    asked = activity.get("questions")
-    right = activity.get("right")
-    if asked is None:
-        asked = sum(t.get("asked") or 0 for b in blocks for t in b.get("topics") or [])
-        right = sum(t.get("right") or 0 for b in blocks for t in b.get("topics") or [])
+    asked, right = _week_totals(activity, accuracy, blocks)
     cells = []
     if activity.get("possible"):
         cells.append(("Nights run",
@@ -732,9 +760,6 @@ def _by_the_numbers(activity, blocks):
                           f"{right} of {asked} right"))
     if activity.get("topics_practised"):
         cells.append(("Topics practised", f"{activity['topics_practised']}", ""))
-    ev = activity.get("events", 0)
-    if ev:
-        cells.append(("Events cleared", f"{ev}", ""))
     if not cells:
         return ""
     tiles = "".join(
@@ -743,6 +768,42 @@ def _by_the_numbers(activity, blocks):
         for k, v, sub in cells)
     return ("<div class='section'>BY THE NUMBERS</div>"
             f"<div class='byn'>{tiles}</div>")
+
+
+def _accuracy_chart(accuracy, blocks):
+    """Accuracy by subject, whole week — single-hue bars sorted best-first,
+    every row direct-labelled "pct% · n" so the sample size is never hidden
+    (Rich, 30 Aug — the prior-prototype section, restored). A subject enters
+    at 2+ answered; the chart renders only when there are two subjects to
+    compare. Length is the only encoding — accuracy is one measure, so the
+    bars share one hue and never take the verdict colours."""
+    data = accuracy
+    if not data:
+        data = {}
+        for b in blocks:
+            for t in b.get("topics") or []:
+                if t.get("asked"):
+                    d = data.setdefault(b.get("subject") or "Other",
+                                        {"asked": 0, "right": 0})
+                    d["asked"] += t["asked"]
+                    d["right"] += t.get("right") or 0
+    rows = [(s, v["asked"], v.get("right") or 0)
+            for s, v in (data or {}).items() if (v.get("asked") or 0) >= 2]
+    if len(rows) < 2:
+        return ""
+    rows.sort(key=lambda r: (-(r[2] / r[1]), -r[1], _subject_key(r[0])))
+    bars = []
+    for subj, asked, right in rows:
+        pct = round(100 * right / asked)
+        bars.append(f"<div class='ar'><span class='s'>{_e(subj)}</span>"
+                    f"<span class='bar'><i style='width:{pct}%'></i></span>"
+                    f"<span class='v'>{pct}% <span class='n'>&middot; n{asked}"
+                    "</span></span></div>")
+    return ("<div class='accs'><div class='h'>Accuracy by subject</div>"
+            "<div class='hsub'>Whole week &middot; n = questions asked</div>"
+            f"{''.join(bars)}"
+            "<div class='note'>Small counts per subject — read these as a "
+            "rough shape, not a measurement.</div></div>")
 
 
 def _week_page(portal, hrefs):
@@ -773,7 +834,9 @@ def _week_page(portal, hrefs):
                   "subject.</p>")
     parts = []
     if blocks:
-        parts.append(_by_the_numbers(portal.get("activity"), blocks))
+        parts.append(_by_the_numbers(portal.get("activity"), blocks,
+                                     accuracy=portal.get("accuracy")))
+        parts.append(_accuracy_chart(portal.get("accuracy"), blocks))
         parts.append("<div class='section'>BY SUBJECT</div>")
         parts.append("".join(rp._subject_block(b, name) for b in blocks))
         if any(t.get("asked") for b in blocks for t in b.get("topics") or []):
