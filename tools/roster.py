@@ -47,6 +47,22 @@ def targets_alias(code, path=None):
     return (e or {}).get("targets_alias") or code
 
 
+def alias_targets(targets, codes, path=None):
+    """Inject each aliased player's curriculum block under their own code, so
+    downstream readers (planner.load_targets_for and everything built on it)
+    need no knowledge of aliasing — the scripts/run_daily.py pattern. The
+    sweep SKIPS aliased seats (sweep_fetch writes them no block), so an
+    aliased seat must borrow its alias's block at read time; missing this
+    call is why t1's first Week Ahead page shipped empty (31 Aug 2026).
+    Mutates and returns targets; {} and blockless files pass through."""
+    st = (targets or {}).get("students") or {}
+    for c in codes:
+        al = targets_alias(c, path)
+        if al != c and c not in st and al in st:
+            st[c] = st[al]
+    return targets
+
+
 def play_url(code, path=None):
     """The kid's permanent Netlify quiz link (public). Empty string if not set."""
     e = entry(code, path)

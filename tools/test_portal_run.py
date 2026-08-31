@@ -6,6 +6,12 @@ dir: four pages render, the ahead page carries the new week's targets and
 UPCOMING DATES, the fail-soft weekly update never blocks the portal, the
 pointer SMS passes the Monday law, and the portal slug lands in
 report_slugs.json without touching the report/wrap slugs.
+
+THE FIXTURE KEYS ITS TARGETS UNDER t1's CURRICULUM ALIAS (the real roster:
+t1 quizzes y8's curriculum, and the sweep writes aliased seats no block of
+their own) — so a green run proves roster.alias_targets is wired into the
+runner. On 31 Aug 2026 it wasn't, and t1's first Week Ahead shipped empty;
+this fixture would have caught it.
 """
 import json
 import os
@@ -16,6 +22,9 @@ import tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import monday_brief as mb       # noqa: E402
+import roster                   # noqa: E402
+
+ALIAS = roster.targets_alias("t1")   # y8 today; the fixture follows the roster
 
 
 def t(name, cond):
@@ -40,7 +49,8 @@ def fixture(priv):
               open(os.path.join(priv, "work", "runs.json"), "w"))
 
     def tblock(extra_maths):
-        return {"students": {"t1": {"subjects": {
+        # keyed under the ALIAS, not t1 — exactly how the sweep writes them
+        return {"students": {ALIAS: {"subjects": {
             "Maths": {"unit": "Algebra", "topics":
                       [{"topic": "Linear equations", "status": "live"}] + extra_maths},
             "Science": {"unit": "Body systems", "topics": [
@@ -76,9 +86,11 @@ with tempfile.TemporaryDirectory() as priv:
         t(f"preview page written: {label}", os.path.exists(p))
         pages[label] = open(p).read()
 
-    t("the ahead page carries the NEW week's targets — brackets is new",
+    t("the ahead page carries the NEW week's targets via the curriculum alias",
       "Solving equations with brackets" in pages["ahead"]
       and "Moves into" in pages["ahead"])
+    t("last week's targets aliased too — continuing topics say continues",
+      "continues" in pages["ahead"])
     t("UPCOMING DATES renders from the targets' dated assessment",
       "UPCOMING DATES" in pages["ahead"] and "Science topic test" in pages["ahead"])
     t("the per-teacher hedge rides through for English",
