@@ -520,3 +520,47 @@ board before term break carries the finale framing instead of contracts.
    board + season sections; REPORTING.md's rhythm table gains the kid rows.
 
 Until each is ratified, current law stands. Mockups: `preview/kid/`.
+
+---
+
+## Round 1 — 31 Aug 2026, THE BOARD (Rich; taken to live same day)
+
+Rich ratified the overall shape ("overall I like it"), deferred the wrap +
+season builds to tomorrow, and directed the Board live for TODAY's 4pm nudge.
+Design feedback, all applied and locked by `test_kid_board.py`:
+
+- **Headlines are always white** — the portal law extends to kid pages;
+  accents live in eyebrows/chips/nav.
+- **The sub keeps the sentence** "The week of Monday {date} is live".
+- **The daily unit is a RUN, never a "contract"** — five runs a week, "get
+  them on the board". §4's five-slot contract system is **superseded for v1**:
+  the board instead shows **badge-backed availability** — every run tile
+  carries the badges genuinely available on it (Clean Run + Personal Best on
+  any run; the streak tier on its computable landing night; Full Claim +
+  Perfect Week on Friday), plus BADGES ON NAMED GROUND (Locked It / Comeback /
+  Full Clear on ledger-picked topics). Every badge named is one
+  `achievements.py` already awards — the board is a forward READ of the
+  existing reward engine, never a second system. That is what makes the loop
+  work end-to-end from day one: **available (board, Monday) → earned (the
+  nightly achievements pass → the quiz end screen, already live) → settled
+  (the wrap's UNLOCKS, already live) → banked (the Season, next build).**
+  A weekly-contract layer (On the Board 4/5, Clean Hands Week, In Your Own
+  Words) can return later as declared *quests* on top — only with Rich's
+  fresh ratification and only once a resolver exists.
+- **No rank names and no XP promises on the board** ("they earn it") — the
+  TONIGHT rank-up stake is cut; ranks stay a wrap/season conversation.
+- **"Up for grabs" appears exactly once** — the repetition is gone, along
+  with the TONIGHT plate (its Monday hook folded into the run strip's
+  streak-night line).
+- **The useful-tool order:** 1. THIS WEEK'S GROUND → 2. THE WEEK'S RUNS &
+  their badges → 3. BOSS RADAR (tests and dates). Closing play CTA stays.
+
+**Shipped for it (same day):** `tools/kid_board.py` (facts + render + runner,
+law-refusing render), `.github/workflows/kid-board.yml` (Monday publish before
+the 4pm nudge, stamp-verified, private URL registry), and the Monday nudge
+gains the board link — appended ONLY after `kid_nudge.board_link()` verifies
+the live page carries this week's `xpdaily-week` meta (verify-before-text at
+both ends; a stale or unpublished board can never be texted, and the nudge
+without a link is byte-identical to today's). `preview/kid/board/` is now
+rendered BY `kid_board.render()` from fixture facts, so the committed preview
+can never drift from the code.

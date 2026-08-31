@@ -71,9 +71,12 @@ def sydney_today():
     return datetime.now(ZoneInfo("Australia/Sydney")).date()
 
 
-def decide(live_set, today, play_url=None):
+def decide(live_set, today, play_url=None, board_url=None):
     """Pure decision: (send?, reason, text). Testable without network.
-    When play_url is set, the kid's permanent quiz link is appended so the Daily is one tap away."""
+    When play_url is set, the kid's permanent quiz link is appended so the Daily
+    is one tap away. board_url (Mondays, KID-WEEKLY-FRAMEWORK.md) is appended
+    ONLY when the caller has already verified the live board page carries THIS
+    week's stamp \u2014 same verify-before-text doctrine as the quiz link above."""
     if not isinstance(live_set, dict):
         return False, "live set unreadable", None
     if live_set.get("status") == "placeholder":
@@ -87,7 +90,32 @@ def decide(live_set, today, play_url=None):
     text = NUDGE[today.weekday()]
     if play_url:
         text = f"{text}\n{play_url}"
+    if board_url:
+        text = f"{text}\nThe week's board: {board_url}"
     return True, f"live set verified for today ({directive})", text
+
+
+def board_link(private_dir, code, today):
+    """The kid's board URL \u2014 Mondays only, and only if the LIVE page carries
+    THIS week's <meta name="xpdaily-week"> (kid_board writes it; a stale or
+    unpublished board must never be texted \u2014 the promise-not-kept law).
+    Returns None on any doubt; the nudge then sends exactly as before."""
+    if today.weekday() != 0 or not private_dir:
+        return None
+    monday = today.isoformat()
+    try:
+        reg = json.load(open(os.path.join(private_dir, "work", "board_urls.json")))
+        entry = reg.get(code) or {}
+        url = entry.get("url")
+        if not url or entry.get("week_of") != monday:
+            return None
+        page = urllib.request.urlopen(f"{url}?cb={int(time.time())}",
+                                      timeout=15).read(8192).decode("utf-8", "replace")
+        if f'name="xpdaily-week" content="{monday}"' in page:
+            return url
+    except Exception:
+        return None
+    return None
 
 
 def fetch_live(student):
@@ -146,8 +174,11 @@ def main():
             print(f"[{s}] \u26a0 could not read live URL ({type(e).__name__}) \u2014 no nudge.")
             any_fail = True
             continue
-        send, reason, text = decide(live, today, roster.play_url(s))
-        print(f"[{s}] {reason}")
+        burl = board_link(a.private_dir, s, today)
+        send, reason, text = decide(live, today, roster.play_url(s), burl)
+        print(f"[{s}] {reason}"
+              + (" · board link IN" if burl else
+                 (" · no verified board — link left out" if today.weekday() == 0 else "")))
         if not send:
             continue
         if not a.force and cursor.get(s) == today.isoformat():
