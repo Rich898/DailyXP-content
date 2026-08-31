@@ -158,23 +158,42 @@ def deploy(domain, page_bytes, token):
     dep = api(f"/sites/{domain}/deploys", token, data={"files": manifest})
     dep_id = dep["id"]
     need = set(dep.get("required") or [])
+    uploaded = 0
     for path, blob in uploads.items():
         if shas[path] in need:
             api(f"/deploys/{dep_id}/files{path}", token,
                 data=blob, ctype="application/octet-stream", method="PUT")
             need.discard(shas[path])
+            uploaded += 1
+    print(f"  {domain}: deploy {dep_id} — Netlify required {uploaded} of {len(uploads)} upload(s)")
     if need:
         raise SystemExit(f"{domain}: deploy {dep_id} wants {len(need)} file(s) this run does not hold — "
                          "abandoned, site unchanged")
     for _ in range(40):                      # ~2 min budget
         state = dep.get("state")
         if state == "ready":
-            return dep_id
+            break
         if state in ("error", "rejected"):
             raise SystemExit(f"{domain}: deploy {dep_id} {state} on Netlify — old page stays live")
         time.sleep(3)
         dep = api(f"/deploys/{dep_id}", token, timeout=30)
-    raise SystemExit(f"{domain}: deploy {dep_id} not ready after 2 min (state {dep.get('state')!r}) — check Netlify")
+    else:
+        raise SystemExit(f"{domain}: deploy {dep_id} not ready after 2 min (state {dep.get('state')!r}) — check Netlify")
+    # "ready" is Netlify's word for BUILT, not necessarily PUBLISHED (the 28 Aug
+    # light-theme lesson: a pinned/locked published deploy leaves old content live
+    # while every new deploy goes ready). Check what the site actually publishes,
+    # and publish ours explicitly if it is not the one.
+    site = api(f"/sites/{domain}", token, timeout=30)
+    pub = ((site or {}).get("published_deploy") or {}).get("id")
+    if pub != dep_id:
+        print(f"  {domain}: published deploy is {pub}, not ours — restoring {dep_id} to publish it")
+        api(f"/sites/{domain}/deploys/{dep_id}/restore", token, data={}, method="POST", timeout=60)
+        site = api(f"/sites/{domain}", token, timeout=30)
+        pub = ((site or {}).get("published_deploy") or {}).get("id")
+        if pub != dep_id:
+            raise SystemExit(f"{domain}: could not publish deploy {dep_id} (site still publishes {pub}) — "
+                             "check the site's published/locked deploy in the Netlify dashboard")
+    return dep_id
 
 
 def verify(domain, code, want_version, want_stamp):
@@ -199,8 +218,10 @@ def verify(domain, code, want_version, want_stamp):
                 and "/*SCRUB-WIDGET-START*/" in html and "/*NUMERIC-WIDGET-START*/" in html
                 and "text/html" in ctype):
             return ctype
+        cache = ", ".join(f"{h}={hdrs.get(h)}" for h in ("Etag", "Age", "Cache-Control") if hdrs.get(h))
         last = (f"version {v.group(1) if v else '?'}, student {s.group(1) if s else '?'}, "
-                f"stamp {'present' if want_stamp in html else 'MISSING'}, content-type {ctype or '?'}")
+                f"stamp {'present' if want_stamp in html else 'MISSING'}, content-type {ctype or '?'}"
+                + (f" [{cache}]" if cache else ""))
     raise SystemExit(f"{domain}: VERIFY FAILED after {attempt + 1} tries — live page is not the expected build ({last})")
 
 
