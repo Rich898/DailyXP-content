@@ -145,16 +145,18 @@ def violations(text):
 # run-shaped badges it was missing. Every CABINET name needs a BADGE_ICON
 # entry (looked up strictly at render).
 CABINET = ["First Blood", "Clean Run", "Full Claim", "Personal Best",
-           "Perfect Week", "Streak", "Locked It", "Comeback", "Untouchable",
-           "Calm Hands", "Sure Shot", "Full Clear"]
+           "On the Board", "Perfect Week", "Streak", "Locked It", "Comeback",
+           "Untouchable", "Calm Hands", "Sure Shot", "Full Clear"]
 BADGE_ICON = {"First Blood": "\U0001fa78", "Clean Run": "\U0001f9ca",
               "Full Claim": "\U0001f6a9", "Personal Best": "\U0001f4c8",
+              "On the Board": "\U0001f3c1",
               "Locked It": "\U0001f512", "Full Clear": "\U0001f4a0",
               "Comeback": "\U0001f501", "Untouchable": "\U0001f6e1",
               "Streak": "\U0001f525", "Perfect Week": "\U0001f4c5",
               "Calm Hands": "\U0001f9d8", "Sure Shot": "\U0001f3af"}
 BADGE_ACT = {
     "First Blood": "first run ever on the board",
+    "On the Board": "four of the five nightly runs, played",
     "Clean Run": "a whole run — zero lucky guesses, zero confident-wrongs",
     "Full Claim": "claimed every zone in Friday's Battleground",
     "Personal Best": "beat your own best XP in a night",

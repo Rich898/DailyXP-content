@@ -3,27 +3,33 @@
 kid_board.py — THE BOARD: the kid's Monday week-ahead (KID-WEEKLY-FRAMEWORK.md
 §4, as revised by Rich's round-1 feedback, 31 Aug). Deterministic facts, no AI.
 
-A USEFUL TOOL FOR THE BOYS, in Rich's ratified order:
-  1. THIS WEEK'S GROUND  — what school is covering (the parents' Week Ahead
-     facts, same engine, kid-dressed; he sees them FIRST — reveal-order law).
-  2. THE WEEK'S RUNS     — each school day is a RUN; five runs a week. Every
-     run shows the badges genuinely available on it, and the week's named
-     badge chances sit under the strip. EVERY badge here is one the nightly
-     achievements engine (tools/achievements.py) actually awards — the board
-     is a forward READ of that engine, never a new reward system. That is
-     what makes the loop work end-to-end today: available (board, Monday) →
-     earned (nightly pass → the quiz end screen) → settled (Friday wrap's
-     UNLOCKS) → banked (the Season page, next build).
-  3. BOSS RADAR          — tests and dates, as countdowns.
+A USEFUL TOOL FOR THE BOYS, in Rich's ratified order (rounds 1–2, 31 Aug):
+  1. THIS WEEK'S GROUND      — what school is covering (the parents' Week
+     Ahead facts, same engine, kid-dressed; he sees them FIRST — the
+     reveal-order law).
+  2. UP FOR GRABS THIS WEEK  — the week's achievements as cards, each
+     carrying its BADGE. A "run" is simply the day's quiz (tonight's run,
+     tomorrow's run) — never a thing drawn on the board (round 2: the tile
+     strip was confusing, removed). ONE weekly showing-up achievement leads:
+     ON THE BOARD, 4 of the 5 nightly runs (a real badge, awarded by
+     achievements.py from this week). EVERY card is a badge the nightly
+     achievements engine actually awards — the board is a forward READ of
+     that engine, never a new reward system. That is what makes the loop
+     work end-to-end today: available (board, Monday) → earned (nightly
+     pass → the quiz end screen) → settled (Friday wrap's UNLOCKS) →
+     banked (the Season page, next build).
+  3. BOSS RADAR              — tests and dates, as countdowns.
 
-ROUND-1 LAWS (Rich, 31 Aug — locked by tests):
+ROUND-1/2 LAWS (Rich, 31 Aug — locked by tests):
   * Headlines are ALWAYS white (accent lives in eyebrows/chips/nav).
   * The sub keeps the sentence "The week of Monday {date} is live".
-  * The daily unit is a RUN, never a "contract"; "up for grabs" appears ONCE.
+  * "Contract" never renders; "up for grabs" appears ONCE (the section head).
   * No rank names and no XP promises on the board — XP is earned, never
     dangled ("50 XP from X" reads as a gift).
   * Rolls-on framing only: "failed"/"missed" can never render here.
   * kid_wrap.violations() runs over the FULL page; render() refuses a breach.
+  * NOTHING ships unseen: every design change is previewed to Rich BEFORE
+    merge or deploy — no exceptions, deadline or not (the 31 Aug lesson).
 
 Published to /w/<slug>/board/ (the existing wrap slug — no new slug kind) by
 Monday's run, BEFORE the 4pm nudge; kid_nudge appends the link only after
@@ -49,7 +55,6 @@ import soundbyte as sb               # noqa: E402
 from planner import load_targets_for  # noqa: E402
 
 BOARD_URLS = os.path.join("work", "board_urls.json")
-DAY_NAMES = ("MON", "TUE", "WED", "THU", "FRI")
 
 
 def _e(s):
@@ -108,48 +113,58 @@ def streak_night(streak, earned_raw):
     return None
 
 
-def week_badges(topics, streak, earned_raw):
-    """The named badge chances for THIS week, capped at three — each row a
-    real achievements.py badge on named ground."""
-    rows = []
+def week_up_for_grabs(topics, streak, earned_raw):
+    """The week's achievements, as cards (Rich round 2: the prior card format
+    with the badge on each). EVERY card is a real achievements.py badge — the
+    board reads the reward engine, never invents one. Showing up first, then
+    craft, then mastery on named ground. Capped at six."""
+    B = kw.BADGE_ICON
+    cards = [{
+        "icon": B["On the Board"], "fam": "SHOWING UP", "name": "ON THE BOARD",
+        "terms": "Run 4 of the 5 nights this week — one off-night can't kill "
+                 "it. The full five still takes Perfect Week on top."}]
+    sn = streak_night(streak, earned_raw)
+    if sn:
+        phrase = "tonight" if sn["day_idx"] == 0 else \
+            ("Tuesday", "Wednesday", "Thursday", "Friday")[sn["day_idx"] - 1] + " night"
+        cards.append({
+            "icon": B["Streak"], "fam": "SHOWING UP",
+            "name": f"STREAK — {sn['tier'].upper()}",
+            "terms": f"Your streak walks in at {streak}. Night {sn['night']} "
+                     f"of the chain lands {phrase} if the chain holds."})
+    cards.append({
+        "icon": B["Clean Run"], "fam": "CRAFT", "name": "CLEAN RUN",
+        "terms": "Any run: zero lucky guesses, zero sure-but-wrongs. Calm "
+                 "calls, honest calls — the set can be hard and this still "
+                 "lands."})
     lock = pick_lock_it(topics)
     if lock:
-        rows.append({"icon": kw.BADGE_ICON["Locked It"], "name": "LOCKED IT",
-                     "line": f"{lock.get('topic')} is at the door of solid — "
-                             "take it the last step."})
+        cards.append({
+            "icon": B["Locked It"],
+            "fam": f"MASTERY · {(lock.get('subject') or 'THE LEDGER').upper()}",
+            "name": f"LOCK IT: {str(lock.get('topic', '')).upper()}",
+            "terms": "Take it the last step to solid and it goes in the "
+                     "cabinet.",
+            "sits": {"band": kw.STATE_BAND.get(lock.get("state"), 3)}})
     back = pick_comeback(topics)
     if back and back.get("topic") != (lock or {}).get("topic"):
-        rows.append({"icon": kw.BADGE_ICON["Comeback"], "name": "COMEBACK",
-                     "line": f"{back.get('topic')} is queued from tonight — "
-                             "pull it out of repair."})
+        cards.append({
+            "icon": B["Comeback"],
+            "fam": f"MASTERY · {(back.get('subject') or 'THE LEDGER').upper()}",
+            "name": f"BOUNCE BACK: {str(back.get('topic', '')).upper()}",
+            "terms": "The comeback. Pull it out of repair and the badge pays "
+                     "out.",
+            "way_in": True})
     fc = full_clear_watch(topics)
     if fc:
         z = "zone" if fc["left"] == 1 else "zones"
-        rows.append({"icon": kw.BADGE_ICON["Full Clear"], "name": "FULL CLEAR",
-                     "line": f"{fc['subject']} is {fc['left']} {z} from "
-                             "all-solid — the whole subject."})
-    return rows[:3]
-
-
-def run_strip(streak, earned_raw):
-    """Five run tiles, MON–FRI. Every tile carries the badges genuinely
-    available on it: the every-run pair on standard days, the streak tier on
-    its landing night, Full Claim + Perfect Week on Friday."""
-    sn = streak_night(streak, earned_raw)
-    tiles = []
-    for i, d in enumerate(DAY_NAMES):
-        if i == 4:
-            tiles.append({"day": d, "label": "⚔ B'GROUND",
-                          "icons": [kw.BADGE_ICON["Full Claim"],
-                                    kw.BADGE_ICON["Perfect Week"]]})
-        elif sn and sn["day_idx"] == i:
-            tiles.append({"day": d, "label": f"{sn['tier']} Streak",
-                          "icons": [kw.BADGE_ICON["Streak"]]})
-        else:
-            tiles.append({"day": d, "label": "run",
-                          "icons": [kw.BADGE_ICON["Clean Run"],
-                                    kw.BADGE_ICON["Personal Best"]]})
-    return {"tiles": tiles, "streak_night": sn}
+        cards.append({
+            "icon": B["Full Clear"],
+            "fam": f"MASTERY · {fc['subject'].upper()}",
+            "name": f"FULL CLEAR: {fc['subject'].upper()}",
+            "terms": f"{fc['left']} {z} left — every {fc['subject']} topic "
+                     "solid takes the whole subject."})
+    return cards[:6]
 
 
 def board_facts(code, asof, priv, runs, state, targets, prev_targets):
@@ -184,8 +199,7 @@ def board_facts(code, asof, priv, runs, state, targets, prev_targets):
     return {"code": code, "name": name.split()[0], "week_of": frun.week_of(asof),
             "brief": brief, "radar": radar, "upcoming": upcoming,
             "streak": streak,
-            "runs": run_strip(streak, earned_raw),
-            "badges": week_badges(topics, streak, earned_raw)}
+            "grabs": week_up_for_grabs(topics, streak, earned_raw)}
 
 
 # --------------------------------------------------------------------------- #
@@ -216,21 +230,19 @@ h1.word{font-size:54px;line-height:1;margin:2px 0 8px;color:var(--ink);animation
 .ground .row{font-size:14px;line-height:1.5;color:#C7D0DE}
 .ground .row b{color:var(--ink);font-weight:600}
 .chip{display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:9px;letter-spacing:.1em;color:var(--reef);background:rgba(90,169,230,.13);border:1px solid rgba(90,169,230,.5);border-radius:5px;padding:1.5px 6px;margin-right:6px;vertical-align:1px}
-.shape{display:flex;gap:7px}
-.day{flex:1;background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:9px 3px;text-align:center}
-.day .d{font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.1em;color:var(--haze)}
-.day .ic{font-size:15px;margin-top:5px;letter-spacing:.06em}
-.day .w{font-size:10px;margin-top:3px;color:#C7D0DE}
-.day.hot{border-color:var(--bolt);background:linear-gradient(135deg,rgba(255,184,0,.15),rgba(255,184,0,.05))}
-.day.hot .d,.day.hot .w{color:var(--boltdeep)}
-.day.hot .w{font-weight:700}
-.runline{margin:10px 0 0;font-size:13.5px;line-height:1.55;color:#C7D0DE}
-.runline b{color:var(--ink)}
-.runline .bi{color:var(--boltdeep)}
-.badge{display:flex;align-items:center;gap:12px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:8px}
-.badge .i{font-size:22px;line-height:1}
-.badge .b{font-family:'Archivo Black','Arial Black',sans-serif;font-size:13px;color:var(--boltdeep)}
-.badge .l{font-size:13px;color:#C7D0DE;line-height:1.45;margin-top:1px}
+.intro{font-size:13.5px;color:var(--haze);margin:-2px 0 10px;line-height:1.5}
+.ach{display:flex;align-items:flex-start;gap:13px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:10px;position:relative}
+.ach .i{font-size:26px;line-height:1;margin-top:2px}
+.ach .body{flex:1;padding-right:52px}
+.ach .fam{font-family:'Space Mono',monospace;font-weight:700;font-size:9.5px;letter-spacing:.13em;color:var(--reef)}
+.ach .fam.gold{color:var(--boltdeep)}
+.ach h3{margin:3px 0 4px;font-family:'Archivo Black','Arial Black',sans-serif;font-size:15px;letter-spacing:.01em}
+.ach p{margin:4px 0 0;font-size:13.5px;line-height:1.5;color:#C7D0DE}
+.ach .open{position:absolute;top:12px;right:12px;font-family:'Space Mono',monospace;font-weight:700;font-size:9.5px;letter-spacing:.12em;color:var(--boltdeep);background:rgba(255,184,0,.14);border:1.5px dashed var(--bolt);border-radius:6px;padding:3px 8px}
+.ach .sits{margin-top:7px;font-size:11.5px;color:var(--haze)}
+.ach .sits b{color:var(--ink)}
+.ach .sits .stars{display:inline-block;margin-left:6px;font-size:13px;letter-spacing:.12em;color:var(--bolt)}
+.ach .sits .stars i{font-style:normal;color:#33415C}
 .boss{background:var(--plate);color:var(--paper);border-radius:14px;padding:14px 16px;margin-bottom:10px;position:relative;overflow:hidden}
 .boss:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--bolt),#FFE08A,var(--bolt));background-size:200% 100%}
 .boss .eyebrow{font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.12em;color:var(--bolt)}
@@ -308,42 +320,33 @@ def _ground_block(brief):
             f"COVERS</div>{''.join(cards)}")
 
 
-def _runs_block(runs, badges, streak):
-    tiles = "".join(
-        f"<div class='day{' hot' if i == 4 else ''}'>"
-        f"<div class='d'>{t['day']}</div>"
-        f"<div class='ic'>{''.join(t['icons'])}</div>"
-        f"<div class='w'>{_e(t['label'])}</div></div>"
-        for i, t in enumerate(runs["tiles"]))
-    sn = runs.get("streak_night")
-    lines = [f"Five runs this week. Every run, <span class='bi'>"
-             f"{kw.BADGE_ICON['Clean Run']}</span> <b>Clean Run</b> and "
-             f"<span class='bi'>{kw.BADGE_ICON['Personal Best']}</span> "
-             "<b>Personal Best</b> are up for grabs."]
-    if sn:
-        night_word = "tonight" if sn["day_idx"] == 0 else \
-            f"{DAY_NAMES[sn['day_idx']].title()} night"
-        lines.append(f"Your streak walks in at {streak} — night "
-                     f"{sn['night']} {night_word} takes <span class='bi'>"
-                     f"{kw.BADGE_ICON['Streak']}</span> <b>{sn['tier']} "
-                     "Streak</b>.")
-    lines.append("Friday's Battleground: claim every zone for <span class='bi'>"
-                 f"{kw.BADGE_ICON['Full Claim']}</span> <b>Full Claim</b> — "
-                 "and five runs from five takes <span class='bi'>"
-                 f"{kw.BADGE_ICON['Perfect Week']}</span> <b>Perfect Week</b>.")
-    strip = (f"<div class='shape rv'>{tiles}</div>"
-             f"<p class='runline rv'>{' '.join(lines)}</p>")
-    rows = "".join(
-        f"<div class='badge rv'><span class='i'>{b['icon']}</span>"
-        f"<span><div class='b'>{_e(b['name'])}</div>"
-        f"<div class='l'>{_e(b['line'])}</div></span></div>"
-        for b in badges)
-    named = ""
-    if rows:
-        named = ("<div class='section rv'>BADGES ON NAMED GROUND</div>"
-                 + rows)
-    return ("<div class='section'>THE WEEK'S RUNS &mdash; GET THEM ON THE "
-            f"BOARD</div>{strip}{named}")
+def _grabs_block(grabs):
+    if not grabs:
+        return ""
+    cards = []
+    for c in grabs:
+        gold = " gold" if c["fam"].startswith("MASTERY") else ""
+        extra = ""
+        if c.get("sits"):
+            band = c["sits"]["band"]
+            stars = ("<span class='stars'>" + "★" * band
+                     + f"<i>{'★' * (4 - band)}</i></span>")
+            extra = (f"<div class='sits'>Where it sits: "
+                     f"<b>{_e(kw.BANDS[band])}</b>{stars} — the door's "
+                     "open.</div>")
+        elif c.get("way_in"):
+            extra = ("<div class='sits'>The way in: <b>it's queued in this "
+                     "week's rotation from tonight.</b></div>")
+        cards.append(
+            f"<div class='ach rv'><span class='i'>{c['icon']}</span>"
+            f"<span class='body'><span class='fam{gold}'>{_e(c['fam'])}</span>"
+            f"<h3>{_e(c['name'])}</h3><p>{_e(c['terms'])}</p>{extra}</span>"
+            "<span class='open'>OPEN</span></div>")
+    intro = ("<p class='intro rv'>Each one is a badge — it lands in the quiz "
+             "the moment it's earned, and Friday's wrap tallies the week. "
+             "Anything not taken rolls on. No strikes, no debt.</p>")
+    return ("<div class='section rv'>UP FOR GRABS THIS WEEK</div>"
+            f"{intro}{''.join(cards)}")
 
 
 def _radar_block(radar, upcoming):
@@ -380,9 +383,8 @@ def _move_block(play_url):
            "&rarr;</a>" if play_url else "")
     return ("<div class='section rv'>THE WHOLE MOVE</div>"
             "<div class='move rv'><span class='eyebrow'>EVERYTHING ABOVE "
-            "ADVANCES ONE WAY</span><p><b>Play tonight.</b> Five minutes. "
-            "Badges land in the quiz the moment they're earned; Friday's "
-            f"wrap tallies the week.</p>{btn}</div>")
+            "ADVANCES ONE WAY</span><p><b>Play tonight's run.</b> Five "
+            f"minutes — everything above moves when you do.</p>{btn}</div>")
 
 
 def _nav():
@@ -430,9 +432,9 @@ def render(facts, play_url=""):
   <div class="kick"><b>MONDAY</b>THE BOARD GOES UP &middot; SETTLES FRIDAY</div>
   <h1 class="word display">GAME ON.</h1>
   <p class="sub">The week of <b>{_e(week_label)}</b> is live &mdash; the ground
-  school covers, this week's runs and their badges, and what's on the radar.</p>
+  school covers, this week's achievements, and what's on the radar.</p>
   {_ground_block(facts["brief"])}
-  {_runs_block(facts["runs"], facts["badges"], facts["streak"])}
+  {_grabs_block(facts["grabs"])}
   {_radar_block(facts["radar"], facts["upcoming"])}
   {_move_block(play_url)}
   <p class="foot">The ground up top is the same week your parents' page shows
