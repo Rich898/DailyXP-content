@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0B1220" />
+<title>XPDaily — Sam's season</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap" />
+<style>
+/* THE SEASON — evergreen, the kid's big picture. Kid design system
+   (kid_wrap.py dark tokens). Accent logic: bolt gold = identity + trophies,
+   the band scale = territory (the SAME colours as the parents' Overall
+   Picture — transparency at the colour level). */
+:root{--paper:#EAF0F7;--ink:#EAF0F7;--flare:#FF6A47;--reef:#5AA9E6;--kelp:#4FD6A0;
+--haze:#8B97AC;--line:#243247;--bolt:#FFB800;--boltdeep:#FFCF66;--plate:#0E1B2D;--card:#101F35;
+--b0:#F0703F;--b1:#E8963C;--b2:#8FBE45;--b3:#4FD6A0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#0B1220;background-image:radial-gradient(120% 90% at 50% 2%,#16273f 0%,#0B1220 55%,#070c15 100%);background-attachment:fixed;color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding:20px 16px 108px}
+.display{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em}
+.num{font-family:'Space Mono',ui-monospace,monospace;font-weight:700}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.top .brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
+.top .week{font-size:11px;color:var(--haze)}
+.kick{margin:22px 0 2px;font-family:'Space Mono',ui-monospace,monospace;font-weight:700;font-size:11px;letter-spacing:.14em;color:var(--haze)}
+.kick b{color:var(--boltdeep);background:rgba(255,184,0,.14);border:1.5px solid var(--bolt);border-radius:6px;padding:1px 7px;margin-right:6px}
+h1.word{font-size:54px;line-height:1;margin:2px 0 8px;background:linear-gradient(135deg,var(--bolt) 0%,var(--flare) 115%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--bolt);animation:heroPop .55s cubic-bezier(.2,1.3,.4,1) both}
+.sub{font-size:17px;line-height:1.45;margin:4px 0 22px;max-width:52ch}
+.section{margin:30px 0 10px;font-size:11px;letter-spacing:.15em;color:var(--haze);font-weight:700}
+@keyframes heroPop{0%{opacity:0;transform:scale(.86)}60%{opacity:1;transform:scale(1.03)}100%{transform:scale(1)}}
+/* IDENTITY PLATE */
+.run{background:var(--plate);color:var(--paper);border-radius:16px;padding:16px 18px 20px;position:relative;overflow:hidden}
+.run:after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--flare),var(--bolt),var(--flare));background-size:200% 100%}
+.rankrow{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #26344F;padding-bottom:12px;margin-bottom:12px}
+.rankrow .pips{font-family:'Space Mono',monospace;color:var(--bolt);font-size:20px;letter-spacing:.18em;line-height:1}
+.rankrow .rk{font-family:'Archivo Black','Arial Black',sans-serif;font-size:24px;letter-spacing:.02em;background:linear-gradient(135deg,var(--bolt) 0%,var(--flare) 115%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--bolt)}
+.rankrow .lv{text-align:right}
+.rankrow .lv .n{font-family:'Space Mono',monospace;font-size:22px;color:var(--paper)}
+.rankrow .lv .k{font-size:10px;letter-spacing:.14em;color:#8B94A8}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.stat{flex:1 1 44%;background:#16233B;border:1px solid #26344F;border-radius:12px;padding:10px 12px;min-width:130px}
+.stat .k{font-size:10px;letter-spacing:.12em;color:#8B94A8}
+.stat .v{font-size:22px;margin-top:3px;color:var(--paper)}
+.stat .v i{font-style:normal;font-size:13px;color:#8B94A8;margin-left:4px}
+.stat .lv{height:7px;border-radius:99px;background:#26344F;overflow:hidden;margin-top:8px}
+.stat .lv span{display:block;height:100%;background:linear-gradient(90deg,var(--bolt),var(--flare));border-radius:99px;transition:width .9s cubic-bezier(.2,.9,.3,1)}
+.stat .n{font-size:10.5px;color:#8B94A8;margin-top:5px}
+/* THE ARC */
+.arc{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px}
+.bars{display:flex;gap:10px;align-items:flex-end;height:110px;margin:4px 0 4px}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px;height:100%}
+.bar .col{width:100%;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,var(--bolt),var(--flare));min-height:6px;transform-origin:bottom;transition:transform .7s cubic-bezier(.2,.9,.3,1)}
+.bar .v{font-family:'Space Mono',monospace;font-size:10px;color:#B8C0CF;line-height:1}
+.bar .best{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--bolt)}
+.weekrow{display:flex;gap:10px;margin-top:2px}
+.weekrow span{flex:1;text-align:center;font-size:9.5px;letter-spacing:.08em;color:#8B94A8}
+.arcline{font-size:13px;color:var(--haze);margin:12px 0 0;line-height:1.5}
+/* RECORDS */
+.recs{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.rec{background:var(--card);border:2px solid var(--line);border-radius:13px;padding:12px 14px}
+.rec .k{font-size:10px;letter-spacing:.12em;color:var(--haze)}
+.rec .v{font-family:'Space Mono',monospace;font-weight:700;font-size:22px;margin-top:4px;color:var(--boltdeep)}
+.rec .v i{font-style:normal;font-size:12px;color:var(--haze);margin-left:3px}
+.rec .n{font-size:11.5px;color:var(--haze);margin-top:3px}
+/* THE CABINET */
+.cab{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.cab .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.cab .hd .t{font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--haze)}
+.cab .hd .c{font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:var(--boltdeep)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.slot{text-align:center;border:1.5px solid var(--line);border-radius:10px;padding:9px 3px 7px;background:#0C1728}
+.slot.got{border-color:var(--bolt);background:linear-gradient(135deg,rgba(255,184,0,.16),rgba(255,184,0,.07))}
+.slot .i{font-size:20px;line-height:1;filter:grayscale(1);opacity:.35}
+.slot.got .i{filter:none;opacity:1}
+.slot .n{font-size:8.5px;letter-spacing:.02em;color:var(--haze);margin-top:4px;line-height:1.15}
+.slot.got .n{color:var(--boltdeep);font-weight:700}
+.standing{margin-top:12px;border-top:1.5px dashed var(--line);padding-top:11px}
+.standing .t{font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.13em;color:var(--haze);margin-bottom:8px}
+.standrow{display:flex;gap:10px;align-items:baseline;font-size:12.5px;line-height:1.45;margin-bottom:6px}
+.standrow .i{flex:0 0 auto;font-size:15px;filter:grayscale(1);opacity:.5}
+.standrow .b{font-family:'Space Mono',monospace;font-weight:700;font-size:11px;color:var(--ink)}
+.standrow .l{color:var(--haze)}
+.hints{display:grid;gap:8px;margin-top:10px}
+.hint{display:flex;align-items:center;gap:10px;border:1.5px dashed var(--line);border-radius:10px;padding:8px 11px;background:#0C1728}
+.hint .i{font-size:18px}
+.hint .b{font-family:'Space Mono',monospace;font-weight:700;font-size:11px;color:var(--ink)}
+.hint .l{font-size:12px;color:var(--haze)}
+.hint .bar{margin-left:auto;flex:0 0 64px;height:6px;border-radius:99px;background:#26344F;overflow:hidden}
+.hint .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--bolt),var(--flare));border-radius:99px}
+/* THE MAP */
+.mapline{font-size:13.5px;color:var(--haze);margin:-2px 0 10px;line-height:1.5}
+.terr{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:9px}
+.terr .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.terr .nm{font-family:'Archivo Black','Arial Black',sans-serif;font-size:14px;letter-spacing:.03em}
+.terr .ct{font-family:'Space Mono',monospace;font-weight:700;font-size:10.5px;color:var(--haze)}
+.tiles{display:flex;gap:4px;height:16px}
+.tiles b{flex:1;border-radius:5px}
+.t0{background:var(--b0)}.t1{background:var(--b1)}.t2{background:var(--b2)}.t3{background:var(--b3)}
+.terr .end{margin-top:8px;font-size:11.5px;color:var(--boltdeep)}
+/* LADDER TRACK */
+.track{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:13px 15px}
+.trow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.trow .r{flex:0 0 128px;font-size:12.5px;color:#C7D0DE}
+.trow .r b{color:var(--ink)}
+.trow .bar{flex:1;height:12px;border-radius:99px;background:#1C2B42;overflow:hidden}
+.trow .bar span{display:block;height:100%;background:var(--reef);border-radius:99px}
+.trow.hi .bar span{background:var(--kelp)}
+.trow .c{flex:0 0 22px;text-align:right;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;color:var(--ink)}
+.trow.lock .r,.trow.lock .c{color:var(--haze)}
+.trackline{font-size:13px;color:#C7D0DE;margin:11px 0 0;line-height:1.55}
+.trackline b{color:var(--kelp)}
+/* BATTLEGROUND RECORD */
+.bg{display:flex;gap:9px}
+.bg .cell{flex:1;background:var(--card);border:2px solid var(--line);border-radius:13px;padding:11px 8px;text-align:center}
+.bg .v{font-family:'Space Mono',monospace;font-weight:700;font-size:20px;color:var(--paper)}
+.bg .k{font-size:9.5px;letter-spacing:.1em;color:var(--haze);margin-top:3px}
+/* WHAT'S COMING */
+.next{background:var(--plate);color:var(--paper);border-radius:16px;padding:16px 18px;position:relative;overflow:hidden}
+.next:after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--bolt),#FFE08A,var(--bolt));background-size:200% 100%}
+.next .eyebrow{font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.14em;color:var(--bolt)}
+.next p{margin:8px 0 0;font-size:15.5px;line-height:1.5}
+.next b{color:var(--boltdeep)}
+.foot{margin-top:26px;font-size:12.5px;color:var(--haze);line-height:1.6;border-top:2px solid var(--line);padding-top:14px}
+.knav{position:fixed;left:0;right:0;bottom:0;background:rgba(10,17,30,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.knav .in{max-width:640px;margin:0 auto;display:flex}
+.knav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 4px 12px;text-decoration:none;color:var(--haze);font-size:10px;letter-spacing:.08em;font-family:'Space Mono',monospace;font-weight:700}
+.knav a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.knav a.on{color:var(--boltdeep)}
+.knav a:focus-visible{outline:2px solid var(--reef);outline-offset:-2px;border-radius:8px}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: no-preference){
+ .run:after,.next:after{animation:charge 2s linear infinite}
+ @keyframes charge{0%{background-position:0 0}100%{background-position:200% 0}}
+}
+@media (prefers-reduced-motion: reduce){
+ h1.word{animation:none !important}
+ .rv{opacity:1;transform:none;transition:none}
+ .bar .col,.stat .lv span{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span class="brand">XPDAILY &middot; THE SEASON &middot; SAM</span><span class="week">Updated Fri 4 Sep</span></div>
+
+  <div class="kick"><b>TERM 3</b>WEEK 7 &middot; REFRESHES WITH FRIDAY'S WRAP</div>
+  <h1 class="word display">THE SEASON.</h1>
+  <p class="sub">Everything the nightly five minutes has built — the rank, the
+  records, the cabinet, and the ground you hold.</p>
+
+  <div class="section">WHO YOU ARE ON THE BOARD</div>
+  <div class="run">
+    <div class="rankrow"><div>
+      <div class="pips">&#9679;</div>
+      <div class="rk display">LIEUTENANT</div></div>
+      <div class="lv"><div class="n num">LV 6</div>
+      <div class="k">SEASON RANK</div></div></div>
+    <div class="chips">
+      <div class="stat"><div class="k">SEASON</div><div class="v num">14,860<i>XP</i></div></div>
+      <div class="stat"><div class="k">CHAIN</div><div class="v num">&#128293; 11<i>school nights, live</i></div></div>
+      <div class="stat"><div class="k">NEXT RANK-UP</div><div class="v num">3,140<i>XP to LV 7</i></div><div class="lv"><span style="width:21%"></span></div><div class="n">CAPTAIN waits at LV 7</div></div>
+    </div>
+  </div>
+
+  <div class="section rv">THE ARC &mdash; XP BY WEEK</div>
+  <div class="arc rv">
+    <div class="bars">
+      <div class="bar"><div class="col" style="height:42px"></div><span class="v">2,140</span></div>
+      <div class="bar"><div class="col" style="height:71px"></div><span class="v">3,610</span></div>
+      <div class="bar"><div class="col" style="height:77px"></div><span class="v">3,890</span></div>
+      <div class="bar"><span class="best">BEST</span><div class="col" style="height:89px"></div><span class="v">4,510</span></div>
+    </div>
+    <div class="weekrow"><span>10 AUG</span><span>17 AUG</span><span>24 AUG</span><span>31 AUG</span></div>
+    <p class="arcline">Four weeks on the board, each one taller. Points ride on
+    difficulty — the height that matters most is that there's a bar there at all.</p>
+  </div>
+
+  <div class="section rv">RECORDS &mdash; YOURS TO BEAT</div>
+  <div class="recs rv">
+    <div class="rec"><div class="k">BEST NIGHT</div><div class="v">1,240<i>XP</i></div><div class="n">Thu 3 Sep</div></div>
+    <div class="rec"><div class="k">LONGEST CHAIN</div><div class="v">11<i>nights</i></div><div class="n">live right now</div></div>
+    <div class="rec"><div class="k">BATTLEGROUND BEST</div><div class="v">4/4</div><div class="n">Full Claim &middot; 21 Aug</div></div>
+    <div class="rec"><div class="k">PERFECT WEEKS</div><div class="v">2</div><div class="n">this season</div></div>
+  </div>
+
+  <div class="section rv">THE CABINET</div>
+  <div class="cab rv"><div class="hd"><span class="t">TROPHIES</span><span class="c">COLLECTED 8 / 12</span></div>
+    <div class="slots">
+      <div class="slot got"><div class="i">&#129656;</div><div class="n">First Blood</div></div>
+      <div class="slot got"><div class="i">&#129482;</div><div class="n">Clean Run</div></div>
+      <div class="slot"><div class="i">&#128681;</div><div class="n">Full Claim</div></div>
+      <div class="slot got"><div class="i">&#128200;</div><div class="n">Personal Best</div></div>
+      <div class="slot got"><div class="i">&#128197;</div><div class="n">Perfect Week</div></div>
+      <div class="slot got"><div class="i">&#128293;</div><div class="n">Streak &middot; Silver</div></div>
+      <div class="slot got"><div class="i">&#128274;</div><div class="n">Locked It</div></div>
+      <div class="slot got"><div class="i">&#128257;</div><div class="n">Comeback</div></div>
+      <div class="slot"><div class="i">&#128737;</div><div class="n">Untouchable</div></div>
+      <div class="slot"><div class="i">&#129496;</div><div class="n">Calm Hands</div></div>
+      <div class="slot got"><div class="i">&#127919;</div><div class="n">Sure Shot</div></div>
+      <div class="slot"><div class="i">&#128160;</div><div class="n">Full Clear</div></div>
+    </div>
+    <div class="standing">
+      <div class="t">STILL STANDING &mdash; HOW EACH ONE FALLS</div>
+      <div class="standrow"><span class="i">&#128681;</span><span><span class="b">FULL CLAIM</span> <span class="l">— claim every zone in a Friday Battleground</span></span></div>
+      <div class="standrow"><span class="i">&#128737;</span><span><span class="b">UNTOUCHABLE</span> <span class="l">— hold a solid topic through three spaced checks</span></span></div>
+      <div class="standrow"><span class="i">&#129496;</span><span><span class="b">CALM HANDS</span> <span class="l">— slow down and land one that used to get rushed</span></span></div>
+      <div class="standrow"><span class="i">&#128160;</span><span><span class="b">FULL CLEAR</span> <span class="l">— every zone in a subject, solid</span></span></div>
+    </div>
+    <div class="hints">
+      <div class="hint"><span class="i">&#128293;</span><span><div class="b">STREAK GOLD</div><div class="l">3 school nights away</div></span><span class="bar"><span style="width:79%"></span></span></div>
+      <div class="hint"><span class="i">&#128160;</span><span><div class="b">FULL CLEAR: SCIENCE</div><div class="l">2 zones left</div></span><span class="bar"><span style="width:67%"></span></span></div>
+    </div>
+  </div>
+
+  <div class="section rv">THE MAP &mdash; GROUND HELD, GROUND CONTESTED</div>
+  <p class="mapline rv">One tile per topic, contested ground first — the same
+  colours on your parents' page. More green, more held. Red and amber is where
+  the rotation points next.</p>
+  <div class="terr rv"><div class="hd"><span class="nm">MATHS</span><span class="ct">7 zones &middot; 1 contested</span></div>
+    <div class="tiles"><b class="t0"></b><b class="t2"></b><b class="t2"></b><b class="t2"></b><b class="t3"></b><b class="t3"></b><b class="t3"></b></div>
+  </div>
+  <div class="terr rv"><div class="hd"><span class="nm">SCIENCE</span><span class="ct">6 zones &middot; 1 contested</span></div>
+    <div class="tiles"><b class="t1"></b><b class="t2"></b><b class="t3"></b><b class="t3"></b><b class="t3"></b><b class="t3"></b></div>
+    <div class="end">&#9873; 2 zones from FULL CLEAR — the whole subject, solid.</div>
+  </div>
+  <div class="terr rv"><div class="hd"><span class="nm">HISTORY</span><span class="ct">5 zones &middot; 1 contested</span></div>
+    <div class="tiles"><b class="t1"></b><b class="t2"></b><b class="t2"></b><b class="t3"></b><b class="t3"></b></div>
+  </div>
+  <div class="terr rv"><div class="hd"><span class="nm">ENGLISH</span><span class="ct">4 zones &middot; 0 contested</span></div>
+    <div class="tiles"><b class="t2"></b><b class="t2"></b><b class="t3"></b><b class="t3"></b></div>
+  </div>
+
+  <div class="section rv">THE LADDER TRACK &mdash; HOW DEEP THE GROUND GOES</div>
+  <div class="track rv">
+    <div class="trow"><span class="r">not yet</span><span class="bar"><span style="width:14%"></span></span><span class="c">3</span></div>
+    <div class="trow"><span class="r">knows it</span><span class="bar"><span style="width:27%"></span></span><span class="c">6</span></div>
+    <div class="trow"><span class="r">can list it</span><span class="bar"><span style="width:41%"></span></span><span class="c">9</span></div>
+    <div class="trow hi"><span class="r"><b>can connect it</b></span><span class="bar"><span style="width:18%"></span></span><span class="c">4</span></div>
+    <div class="trow lock"><span class="r">can apply it elsewhere</span><span class="bar"></span><span class="c">0</span></div>
+    <p class="trackline">All four at <b>can connect it</b> got there the same way:
+    you explained them. Picking answers can't rank a topic past listing — the
+    teach-back is the only door. <em>Can apply it elsewhere</em> can't be earned
+    yet — a question type that asks you to use a topic somewhere new is coming.</p>
+  </div>
+
+  <div class="section rv">BATTLEGROUND RECORD</div>
+  <div class="bg rv">
+    <div class="cell"><div class="v">4</div><div class="k">FOUGHT</div></div>
+    <div class="cell"><div class="v">1</div><div class="k">FULL CLAIMS</div></div>
+    <div class="cell"><div class="v">13/16</div><div class="k">ZONES CLAIMED</div></div>
+  </div>
+
+  <div class="section rv">WHAT'S COMING</div>
+  <div class="next rv"><span class="eyebrow">THE ROAD AHEAD</span>
+    <p><b>Three board-weeks left in the season</b> — the Term 3 finale lands
+    25 Sep. Season 4 opens after the break with a new chapter: new events, new
+    ground. The cabinet and the rank carry over. They always do.</p>
+  </div>
+
+  <p class="foot">Your parents' Overall Picture draws this same map, same colours —
+  theirs reads it as revision priorities, yours as territory. Same ground either
+  way; nothing hidden in either direction.<br>
+  XP Daily &middot; refreshes with Friday's wrap &middot; design mockup — invented sample data ("Sam"), no real kid data.</p>
+</div>
+
+<nav class="knav"><div class="in">
+  <a href="../board/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h13l-2.5 4L18 12H5"/></svg><span>BOARD</span></a>
+  <a href="../wrap/"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.4 12.4l2.4 2.4 4.8-5.2"/></svg><span>WRAP</span></a>
+  <a class="on" aria-current="page" href="../season/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-6M12 20V9.5M19 20V4.5"/><path d="M3 20h18"/></svg><span>SEASON</span></a>
+</div></nav>
+
+<script>
+(function(){
+ var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(rm) return;
+ var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(es){
+   es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+ },{threshold:.12}) : null;
+ document.querySelectorAll('.rv').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); });
+ document.querySelectorAll('.bar .col').forEach(function(c,i){
+   c.style.transform='scaleY(0)';
+   setTimeout(function(){ c.style.transform='scaleY(1)'; }, 150+i*90);
+ });
+})();
+</script>
+</body>
+</html>
