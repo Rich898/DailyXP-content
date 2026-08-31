@@ -32,6 +32,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import friday_report as fr          # noqa: E402
 import friday_sms as fsms           # noqa: E402
+import kid_wrap as kw               # noqa: E402
 import report_page as rpage         # noqa: E402
 import report_stories as rst        # noqa: E402
 import netlify_deploy as deploy     # noqa: E402
@@ -94,9 +95,11 @@ def newest_targets(private_dir):
 def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
     """Everything one kid's Friday needs: fact card, stories, quote, accuracy."""
     topics = state["students"][code]["topics"]
-    tmap, _ = load_targets_for(code, targets)
+    tmap, subjects_block = load_targets_for(code, targets)
+    plans = plans_for(private_dir, code)
     days, _ = fr.week_days(asof)
     baseline = not prev_snapshot
+    prev_states = (prev_snapshot or {}).get(code, {})
 
     earned = load_json(os.path.join(private_dir, "work", "achievements_earned.json"), {}) or {}
     mine = (earned.get(code) or {}).get("earned", [])
@@ -109,12 +112,17 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
                 or load_json(os.path.join(private_dir, "work", "schedule.json")))
 
     card = fr.build_card(code, runs, topics, tmap, asof,
-                         prev_states=(prev_snapshot or {}).get(code, {}),
+                         prev_states=prev_states,
                          earned_this_week=this_week, baseline=baseline,
                          schedule=schedule)
-    stories = rst.build_stories(private_dir, runs, plans_for(private_dir, code),
-                                code, days, topics,
+    stories = rst.build_stories(private_dir, runs, plans, code, days, topics,
                                 depth_before=(prev_snapshot or {}).get(code + "_depth", {}))
+    # The subject spine (V2 §3): reorganises the same facts by subject. traces =
+    # what his sets actually worked this week (never intent); fluency = the
+    # held-promotion safeguard, narrated when it fired.
+    traces = rst.topic_traces(runs, plans, code, days)
+    subjects = rst.subject_blocks(topics, subjects_block, stories, traces, prev_states)
+    fluency = rst.fluency_catch(runs, plans, code, days)
     quote = rst.pick_quote(runs, code, days)
     acc = rst.subject_accuracy(runs, code, days)
     _, prev_days = fr.week_days(asof)
@@ -131,7 +139,33 @@ def build_for(code, asof, private_dir, runs, state, targets, prev_snapshot):
         notes.append("One written answer this week was left out of the figures: it "
                      "didn't read as this student's own writing, so it isn't counted "
                      "or quoted here.")
-    return card, stories, quote, acc, notes, speed, wow
+    return card, stories, quote, acc, notes, speed, wow, subjects, fluency
+
+
+def build_wrap(code, card, stories, quote, acc, asof, priv, runs, state, api_key):
+    """The kid's wrap HTML (KID-REPORT.md surface C), built from the SAME card /
+    stories / quote objects the parent report uses — the transparency law made
+    executable: the wrap re-dresses those facts and ADDS the game layer
+    (game_facts) + coaching; it never computes its own week facts and never
+    subtracts one. Returns the HTML, or None if a fact is missing or render()
+    refuses the page on a language-law breach — a missing wrap must never block
+    the parent report, which is the tier-1 surface."""
+    try:
+        days, _ = fr.week_days(asof)
+        earned = load_json(os.path.join(priv, "work", "achievements_earned.json"), {}) or {}
+        mine = (earned.get(code) or {}).get("earned", [])
+        this_week = [b for b in mine if (b.get("date") or "") in days]
+        topics = state.get("students", {}).get(code, {}).get("topics", [])
+        game = kw.game_facts(runs, code, days, this_week, asof,
+                             season_total=card.get("xp_total", 0),
+                             accuracy=acc, earned_all=mine, topics=topics)
+        targets = kw.targets_from(card, stories)
+        coaching, _src = kw.compose_coaching(targets, api_key=api_key)
+        return kw.render(card, stories=stories, quote=quote, game=game, coaching=coaching)
+    except (ValueError, KeyError, TypeError) as e:
+        # codes only in the public log
+        print(f"  wrap skipped ({type(e).__name__}) — report sends without it.")
+        return None
 
 
 def _send_and_mark(code, body, cursor, wk, sent, skipped):
@@ -201,7 +235,7 @@ def main():
             print(f"[{code}] no ledger — skipped.")
             continue
 
-        card, stories, quote, acc, notes, speed, wow = build_for(
+        card, stories, quote, acc, notes, speed, wow, subjects, fluency = build_for(
             code, asof, priv, runs, state, targets, prev_snapshot)
         # PUBLIC LOG: codes only. This repo is public, so Actions logs are too —
         # first names and per-kid report URLs are PII/access and never print here
@@ -211,11 +245,20 @@ def main():
               f"baseline={card['baseline']}")
 
         wrap_url = deploy.url_for(slugs[code]["wrap"], kind="w")
-        html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
-                            kid_wrap_url=None, extra_notes=notes, speed=speed, wow=wow)
         report_url = deploy.url_for(slugs[code]["report"], kind="r")
+        wrap_html = build_wrap(code, card, stories, quote, acc, asof,
+                               priv, runs, state, api_key)
 
         if a.dry_run:
+            # Wrap preview FIRST (KID-REPORT surface), collected by the workflow's
+            # widened preview_* artifact. The report preview links nothing live.
+            if wrap_html:
+                wp = os.path.join(priv, "work", f"preview_wrap_{code}.html")
+                open(wp, "w").write(wrap_html)
+                print(f"  DRY-RUN wrap -> {wp}")
+            html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
+                                kid_wrap_url=None, extra_notes=notes, speed=speed,
+                                wow=wow, subjects=subjects, fluency=fluency)
             out = os.path.join(priv, "work", f"preview_report_{code}.html")
             open(out, "w").write(html)
             body, src = fsms.render_body(card, report_url, api_key=api_key,
@@ -228,6 +271,19 @@ def main():
             print(f"  DRY-RUN sms  [{src}] {len(body)} chars -> {out_sms}")
             continue
 
+        # LIVE: publish the wrap BEFORE the report and link it only if it
+        # verified live (publish demands the wrap's own build stamp back from
+        # the URL) — a report must never point at a 404 wrap.
+        kid_wrap_url = None
+        if wrap_html:
+            if deploy.publish(slugs[code]["wrap"], wrap_html, kind="w"):
+                kid_wrap_url = wrap_url
+                print("  wrap LIVE ✓ (per-kid URL withheld from public log)")
+            else:
+                print("  wrap deploy FAILED — report sends without the wrap link.")
+        html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
+                            kid_wrap_url=kid_wrap_url, extra_notes=notes,
+                            speed=speed, wow=wow, subjects=subjects, fluency=fluency)
         live = deploy.publish(slugs[code]["report"], html, kind="r")
         if live:
             print("  page LIVE ✓ (per-kid URL withheld from public log)")

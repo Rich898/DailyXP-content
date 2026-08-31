@@ -1,0 +1,105 @@
+name: Parent portal
+
+# Publishes the four portal pages (/p/<slug>/ home + ahead + week + picture)
+# and, ONLY when monday_sms is ticked, sends the Monday pointer SMS.
+#
+# Cadence (manual dispatch for now; a pg_cron slot lands here once Rich
+# promotes the portal live):
+#   * Monday, after the sweep lands the new targets: run as-is (pages refresh;
+#     tick monday_sms to send the pointer — the weekly cursor makes re-runs
+#     safe, one pointer per kid per week).
+#   * Friday, after the Friday report job: run as-is so the weekly update and
+#     the overall picture catch the fresh week.
+#
+# The pages ship dark by default: a fresh unguessable /p/ slug that nobody has
+# been sent. Publishing is the shadow; the pointer SMS is the promotion, and
+# it only fires when the box is ticked.
+
+on:
+  workflow_dispatch:
+    inputs:
+      student:
+        description: "single player (blank = all active)"
+        required: false
+        default: ""
+      dry_run:
+        description: "build + render to a private preview artifact; no deploy, no SMS"
+        type: boolean
+        default: false
+      monday_sms:
+        description: "send the Monday pointer SMS after the pages verify live"
+        type: boolean
+        default: false
+
+concurrency:
+  group: parent-portal
+  cancel-in-progress: false
+
+jobs:
+  portal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout content (public)
+        uses: actions/checkout@v4
+
+      - name: Checkout private (ledger, targets, snapshots, slugs, cursors)
+        uses: actions/checkout@v4
+        with:
+          repository: Rich898/DailyXP-private
+          token: ${{ secrets.DAILYXP_TOKEN }}
+          persist-credentials: false
+          path: private
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build + publish (+ pointer, if ticked)
+        env:
+          DAILYXP_DEPTH_REPORTS_LIVE: "1"
+          MOBILE_MESSAGE_API_KEY: ${{ secrets.MOBILE_MESSAGE_API_KEY }}
+          MOBILE_MESSAGE_API_SECRET: ${{ secrets.MOBILE_MESSAGE_API_SECRET }}
+          MOBILE_MESSAGE_SENDER: ${{ secrets.MOBILE_MESSAGE_SENDER }}
+          # PARENT seats only — this job texts parents, never the boys.
+          MOBILE_MESSAGE_PARENTS_Y8: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y8 }}
+          MOBILE_MESSAGE_PARENTS_Y9: ${{ secrets.MOBILE_MESSAGE_PARENTS_Y9 }}
+          MOBILE_MESSAGE_PARENTS_T1: ${{ secrets.MOBILE_MESSAGE_PARENTS_T1 }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          DAILYXP_REPORTS_BASE: https://xpdaily-reports.netlify.app
+        run: |
+          ARGS="--private-dir private"
+          [ -n "${{ github.event.inputs.student }}" ] && ARGS="$ARGS --student ${{ github.event.inputs.student }}"
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          [ "${{ github.event.inputs.monday_sms }}" = "true" ] && ARGS="$ARGS --monday-sms"
+          echo "portal_run $ARGS"
+          python tools/portal_run.py $ARGS
+
+      # Dry-run previews carry names and per-kid URLs — private artifact only,
+      # never printed into this public repo's logs. The operator preview
+      # window for the portal's first weeks.
+      - name: Upload dry-run previews (operator review)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: portal-previews
+          path: private/work/preview_portal_*
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Commit private state (portal slug + pointer cursor)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        working-directory: private
+        env:
+          DAILYXP_TOKEN: ${{ secrets.DAILYXP_TOKEN }}
+        run: |
+          git config user.name "DailyXP"
+          git config user.email "dailyxp@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "parent portal: slugs + pointer cursor ($(date -u +%F))"
+            git push "https://x-access-token:${DAILYXP_TOKEN}@github.com/Rich898/DailyXP-private.git" HEAD:main
+            echo "private state committed."
+          else
+            echo "no private changes."
+          fi
