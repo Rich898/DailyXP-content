@@ -1,0 +1,34 @@
+# Deploy the per-kid quiz shells to their Netlify sites via API — no drag-and-drop.
+# Manual trigger ONLY (a shell deploy is a deliberate act, never scheduled).
+# Uses the same NETLIFY_AUTH_TOKEN the Friday reports deploy uses.
+#
+# What it does (tools/deploy_shells.py): for each roster seat, reads the kid's
+# display name out of the CURRENTLY LIVE page (names never live in this repo and
+# are never printed to this log), stamps shell/template_v3.html, zip-deploys it
+# to that seat's Netlify site, then verifies the new shell version + widgets are
+# actually live. Per-seat isolation: one failing seat never blocks the others,
+# and Netlify deploys are atomic — a failed deploy leaves the old page up.
+name: deploy-shells
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "single seat code (y8 / y9 / t1) — leave empty for all seats"
+        required: false
+        default: ""
+
+concurrency:
+  group: deploy-shells
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy + verify shells
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          python3 tools/deploy_shells.py ${{ inputs.only != '' && format('--only {0}', inputs.only) || '' }}
