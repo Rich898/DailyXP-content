@@ -171,8 +171,16 @@ def board_facts(code, asof, priv, runs, state, targets, prev_targets):
     """Everything the board renders, from the shared engines. Forward-only:
     nothing here reads last week's results."""
     topics = state.get("students", {}).get(code, {}).get("topics", [])
-    tmap, subjects_block = load_targets_for(code, targets)
-    _, prev_subjects_block = load_targets_for(code, prev_targets or {})
+
+    def _blocks(tdata):
+        # load_targets_for KeyErrors on a file with no students block (or the
+        # {} an absent prev-file loads as) — empty week, not a crash.
+        if (tdata or {}).get("students"):
+            return load_targets_for(code, tdata)
+        return {}, {}
+
+    tmap, subjects_block = _blocks(targets)
+    _, prev_subjects_block = _blocks(prev_targets)
 
     from portal_run import UNVERIFIED, upcoming_dates
     name = fr.name_for(runs, code)
@@ -513,7 +521,7 @@ def main():
             ok_all = False
             continue
         print(f"[{code}] ground-subjects={len(facts['brief'].get('rows', []))} "
-              f"named-badges={len(facts['badges'])} "
+              f"up-for-grabs={len(facts['grabs'])} "
               f"radar={'y' if facts['radar'] else 'n'} streak={facts['streak']}")
         if a.dry_run:
             out = os.path.join(priv, "work", f"preview_board_{code}.html")
