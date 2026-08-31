@@ -281,9 +281,33 @@ def main():
                 print("  wrap LIVE ✓ (per-kid URL withheld from public log)")
             else:
                 print("  wrap deploy FAILED — report sends without the wrap link.")
+
+        # THE PORTAL RIDES THE FRIDAY JOB (PARENT-PORTAL-BRIEF round 3: the
+        # weekly update IS the Friday report). Republish the four pages from
+        # tonight's facts and point the SMS at the weekly update; ANY failure
+        # here falls back to the /r/ page — the portal must never hostage the
+        # tier-1 send. Lazy import: portal_run imports this module.
+        portal_home_url = portal_week_url = None
+        try:
+            import portal_page as pp
+            import portal_run as prun
+            pslug = prun.portal_slugs(priv, [code])[code]["portal"]
+            tfiles = sorted(glob.glob(os.path.join(priv, "targets", "*.json")))
+            prev_targets = load_json(tfiles[-2], {}) if len(tfiles) > 1 else {}
+            portal, _b = prun.build_portal_for(code, asof, priv, runs, state,
+                                               targets, prev_targets, prev_snapshot)
+            ppages = pp.render_pages(portal, kid_wrap_url=kid_wrap_url)
+            if all(prun.publish_pages(pslug, ppages).values()):
+                portal_home_url = deploy.url_for(pslug, kind="p")
+                portal_week_url = deploy.url_for(f"{pslug}/week", kind="p")
+        except Exception as e:                                   # noqa: BLE001
+            print(f"  [WARN] portal republish failed ({type(e).__name__}) — "
+                  "the SMS keeps the /r/ link.")
+
         html = rpage.render(card, stories=stories, quote=quote, accuracy=acc,
                             kid_wrap_url=kid_wrap_url, extra_notes=notes,
-                            speed=speed, wow=wow, subjects=subjects, fluency=fluency)
+                            speed=speed, wow=wow, subjects=subjects, fluency=fluency,
+                            portal_url=portal_home_url)
         live = deploy.publish(slugs[code]["report"], html, kind="r")
         if live:
             print("  page LIVE ✓ (per-kid URL withheld from public log)")
@@ -292,9 +316,12 @@ def main():
                   "(the SMS is the tier-1 report).")
             report_url = None
 
-        body, src = fsms.render_body(card, report_url, api_key=api_key,
+        # the link the parent taps: the portal's weekly update when all four
+        # pages verified live, else the standalone /r/ page (never a dead link)
+        link_url = portal_week_url or report_url
+        body, src = fsms.render_body(card, link_url, api_key=api_key,
                                      use_ai=bool(api_key))
-        ok, why = fsms.validate(body, card["name"], report_url)
+        ok, why = fsms.validate(body, card["name"], link_url)
         if not ok:
             print(f"  ABORT {code}: body failed the law ({why}) — nothing sent.")
             continue

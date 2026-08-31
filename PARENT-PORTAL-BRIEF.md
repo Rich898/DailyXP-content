@@ -338,9 +338,31 @@ colour) to white. Design declared DONE for v1; wiring built:
   private dir (17 assertions).
 - Deferred, tracked: dated `/r/<slug>/<week>/` archive (needs the
   Friday-overwrites-in-place fix, V2 §5) — the archive section ships empty
-  until then; Friday-runner auto-republish of the portal (today: dispatch
-  this workflow after the Friday job); study-guide/due-date kinds in
-  UPCOMING DATES as the sweep grows them.
+  until then; study-guide/due-date kinds in UPCOMING DATES as the sweep
+  grows them.
+
+**Round 9 — 31 Aug, THE FULL PLUMBING PASS (Rich: "merge now, ready to
+automate, SMS update needed"):** PR #19 merged on Rich's directive. Then:
+- **Automation semantics in reviewed code:** the pg_cron dispatcher fires
+  workflows with NO inputs, so a scheduled run's behaviour lives in
+  `portal_run.py` — every active seat's pages republish; on a MONDAY the
+  pointer sends automatically for seats in **`POINTER_LIVE = ("t1",)`**.
+  Rich promotes y8/y9 by PR-ing that tuple — the merge is the ratification.
+  The runner's clock is Australia/Sydney (never the CI box's UTC).
+- **The Friday SMS now points at the weekly update** (round 3's "the weekly
+  update IS the Friday report", executed): `friday_report_run` republishes
+  the four portal pages from tonight's facts before the send, renders the
+  /r/ page with the portal-home footer link, and links the SMS to
+  `/p/<slug>/week/` — ANY portal failure falls back to the /r/ link, so the
+  tier-1 send is never hostage.
+- **Schedule live:** `supabase/006_portal_slots.sql` APPLIED to xp_schedule
+  (verified): portal-monday 18:45 Mon (post-quiz, clear of soundbyte-1) ·
+  portal-friday 21:15 Fri (after the report's 20:35 rung) · portal-saturday
+  08:00 Sat (heal). GitHub backup crons in the workflow (19:05 Mon /
+  21:35 Fri AEST). Publishing idempotent + pointer week-cursor = double
+  fires are no-ops.
+- First scheduled fire: **tonight, Mon 18:45 Sydney** — pages for all seats,
+  pointer for t1 (Rich's own family) only.
 
 **Round 7 — 31 Aug, THE SUBJECT BARS REDONE:** Rich (rightly) couldn't read
 the landed/explained stacking — subtle segments, new vocabulary disconnected
