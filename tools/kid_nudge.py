@@ -100,6 +100,9 @@ def board_link(private_dir, code, today):
     THIS week's <meta name="xpdaily-week"> (kid_board writes it; a stale or
     unpublished board must never be texted \u2014 the promise-not-kept law).
     Returns None on any doubt; the nudge then sends exactly as before."""
+    return None   # HOLD (31 Aug): round-2 board redesign awaiting Rich's
+    # approval — today's nudge stays the plain Monday text. Remove this line
+    # when the approved board ships (the gate below then governs again).
     if today.weekday() != 0 or not private_dir:
         return None
     monday = today.isoformat()
