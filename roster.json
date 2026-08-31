@@ -1,5 +1,5 @@
 {
-  "_": "The account structure: who exists. Codes only — names/numbers NEVER live here (names flow from private runs; numbers live in Actions secrets as MOBILE_MESSAGE_TO_<CODE> for the kid seat and MOBILE_MESSAGE_PARENTS_<CODE> for that kid's parent seat). targets_alias = quiz another student's curriculum (test players). play_url = the kid's permanent Netlify quiz link (public; appended to the daily nudge so it's one tap).",
+  "_": "The account structure: who exists. Codes only — names/numbers NEVER live here (names flow from private runs; numbers live in Actions secrets as MOBILE_MESSAGE_TO_<CODE> for the kid seat and MOBILE_MESSAGE_PARENTS_<CODE> for that kid's parent seat). targets_alias = quiz another student's curriculum (test players). play_url = the kid's permanent Netlify quiz link (public; appended to the daily nudge so it's one tap). kid_comms_via = 'parents' redirects a kid seat WITHOUT a number of its own to that kid's parent seat (explicit per-seat opt-in, resolved in notify.py; a real TO_<CODE> secret always wins).",
   "students": [
     {
       "code": "y8",
@@ -11,7 +11,8 @@
       "code": "y9",
       "tag_initial": "R",
       "active": true,
-      "play_url": "https://daily-xproshan.netlify.app/"
+      "play_url": "https://daily-xproshan.netlify.app/",
+      "kid_comms_via": "parents"
     },
     {
       "code": "t1",
