@@ -150,8 +150,8 @@ check("no throwback slot on boss/Battleground",
 
 check("run_daily and kid_nudge WEEKDAY_DIRECTIVE identical",
       run_daily.WEEKDAY_DIRECTIVE == kid_nudge.WEEKDAY_DIRECTIVE)
-check("nudge flavour exists for the Wed directive",
-      kid_nudge.WEEKDAY_DIRECTIVE[2] in kid_nudge.NUDGE)
+check("a nudge voice exists for every school weekday (per-day copy, 31 Aug)",
+      all(d in kid_nudge.NUDGE for d in kid_nudge.WEEKDAY_DIRECTIVE))
 check("no blitz nudge remains in the bank", not any("BLITZ" in v.upper() for v in kid_nudge.NUDGE.values()))
 
 print()
