@@ -185,15 +185,18 @@ with tempfile.TemporaryDirectory() as _priv:
     assert "up-for-grabs=" in _r.stdout
     assert os.path.exists(os.path.join(_priv, "work", "preview_board_t1.html"))
 
-# --- the nudge: board link only when handed one, copy untouched otherwise ---
+# --- the nudge: the board is Monday's front door (Rich's copy, 31 Aug) ------
 MON = date(2026, 8, 31)
 LIVE = {"date": "2026-08-31", "status": "ok"}
 _, _, plain = decide(LIVE, MON, "https://play.invalid")
 _, _, linked = decide(LIVE, MON, "https://play.invalid", "https://b.invalid/w/x/board/")
-assert plain in linked and linked.endswith("The week's board: https://b.invalid/w/x/board/")
-assert "board" in plain.lower()          # Monday copy already speaks board
+copy_line = plain.split("\n")[0]
+assert linked == (copy_line + "\nSee what's on the board this week here: "
+                  "https://b.invalid/w/x/board/")
+assert "play.invalid" not in linked      # one link: the board carries PLAY
+assert plain.endswith("https://play.invalid")   # no verified board -> play link
 _, _, tue = decide({"date": "2026-09-01", "status": "ok"}, date(2026, 9, 1),
                    "https://play.invalid", None)
-assert "The week's board" not in tue
+assert "board this week" not in tue and tue.endswith("https://play.invalid")
 
 print("test_kid_board: all assertions passed")

@@ -88,10 +88,14 @@ def decide(live_set, today, play_url=None, board_url=None):
     if directive is None:
         return False, "weekend \u2014 no nudge", None
     text = NUDGE[today.weekday()]
-    if play_url:
-        text = f"{text}\n{play_url}"
     if board_url:
-        text = f"{text}\nThe week's board: {board_url}"
+        # Monday, board verified: the board IS the front door (Rich's copy,
+        # 31 Aug) \u2014 its PLAY button carries the quiz link, so the text stays
+        # one link. Any doubt about the board and we fall through to the
+        # standard play-link form below: a nudge always carries a way in.
+        text = f"{text}\nSee what's on the board this week here: {board_url}"
+    elif play_url:
+        text = f"{text}\n{play_url}"
     return True, f"live set verified for today ({directive})", text
 
 
