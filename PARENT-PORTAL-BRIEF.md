@@ -318,6 +318,30 @@ that will later meet the study guides. Changes:
 - Preview snapshots extended to four banked weeks, including a deliberate
   Angles slide (green → amber → red) so the risk read is visible.
 
+**Round 8 — 31 Aug, RENAME + WIRING (Rich: "take it to live", Week Ahead out
+today post-sweep):** "The running picture" → **"The overall picture"**
+everywhere; the picture page's subject-card headers move from kelp (a grading
+colour) to white. Design declared DONE for v1; wiring built:
+- **`tools/portal_run.py`** — publishes all four pages to `/p/<slug>/…`
+  (portal slug minted lowercase into private `report_slugs.json`, report/wrap
+  untouched); Monday run refreshes the ahead page from the new targets while
+  the weekly update + picture re-render from LAST Friday's facts (the same
+  `friday_report_run.build_for`, read-only, FAIL-SOFT to the honest empty
+  state); `--monday-sms` sends the pointer (Monday-law validated, parent-seat
+  guard, weekly cursor — re-runs never double-text); `--dry-run` writes
+  `preview_portal_*` for the operator window. The pointer links the AHEAD
+  page (the brief's "pointers into the relevant page").
+- **`.github/workflows/parent-portal.yml`** — manual dispatch (student /
+  dry_run / monday_sms); publishing is the shadow (fresh unguessable slug
+  nobody holds), the ticked pointer is the promotion. pg_cron slots follow
+  the live go. `test_portal_run.py` covers the run end-to-end on a fixture
+  private dir (17 assertions).
+- Deferred, tracked: dated `/r/<slug>/<week>/` archive (needs the
+  Friday-overwrites-in-place fix, V2 §5) — the archive section ships empty
+  until then; Friday-runner auto-republish of the portal (today: dispatch
+  this workflow after the Friday job); study-guide/due-date kinds in
+  UPCOMING DATES as the sweep grows them.
+
 **Round 7 — 31 Aug, THE SUBJECT BARS REDONE:** Rich (rightly) couldn't read
 the landed/explained stacking — subtle segments, new vocabulary disconnected
 from the tables, and "2 of 4" invited a score reading. Replaced: **each

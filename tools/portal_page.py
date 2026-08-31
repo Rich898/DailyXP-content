@@ -21,7 +21,7 @@ on its own terms:
                         report_stories.subject_blocks, drawn by report_page's
                         own block renderer so Friday's two surfaces share one
                         shape. The Friday SMS points here.
-  /p/<slug>/picture/    THE RUNNING PICTURE (Friday, cumulative) — the map:
+  /p/<slug>/picture/    THE OVERALL PICTURE (Friday, cumulative) — the map:
                         the per-subject landed tally, position + depth on every
                         active topic (the confidently-shallow cross rendered
                         where it fires), term trends (4-week gate), the archive
@@ -35,7 +35,7 @@ at /p/abc/ahead/). Navigation is a fixed bottom app bar — thumb reach on the
 phone where parents open this — plus doorway cards on home.
 
 PAGE ACCENTS (one system, three time-frames): the WEEK AHEAD is reef (the blue
-horizon, forward), THIS WEEK is flare (the live heat of the week), the RUNNING
+horizon, forward), THIS WEEK is flare (the live heat of the week), the OVERALL
 PICTURE is kelp (what has grown). Home is ink. Everything else reuses
 report_page's ratified dark system — tokens, bands, depth ceiling, fonts.
 
@@ -160,7 +160,7 @@ def term_trends(snapshots, min_weeks=4):
 
 
 def _cumulative(cards):
-    """Per-subject rollup for the RUNNING PICTURE's bars, both axes with
+    """Per-subject rollup for the OVERALL PICTURE's bars, both axes with
     explicit criteria (Rich, 31 Aug — "what's the criteria for it"):
       landed     topics at developing/solid — "Nearly there" or better under
                  questioning (the position axis).
@@ -233,7 +233,7 @@ def build_portal(name, week_of, topics, subjects_block, radar,
                         Friday card — the This-Week page's hero when present.
       activity          optional {"days_done","possible","topics_practised",
                         "events"} from the Friday card (excused-aware).
-      running           THE RUNNING PICTURE (Friday, cumulative): subject cards
+      running           THE OVERALL PICTURE (Friday, cumulative): subject cards
                         + landed tally + term trends, this week folded in.
       touchpoints       account-surface rows; DEFAULT_TOUCHPOINTS until real
                         per-family config exists (C6).
@@ -387,7 +387,7 @@ body.pg-week h1.word{color:var(--ink)}
 .loop{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0D1A2C;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:18px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.45}
 .loop .go{color:var(--haze);font-size:20px;line-height:1}
 .loop b{color:var(--acc)}
-/* ------------------------------------------------ the running picture */
+/* ------------------------------------------------ the overall picture */
 .tally{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 17px;margin-bottom:8px}
 .tally .tr{display:grid;grid-template-columns:minmax(72px,auto) 1fr auto;gap:12px;align-items:center;padding:6px 0}
 .tally .s{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
@@ -406,7 +406,7 @@ body.pg-week h1.word{color:var(--ink)}
 .hist i.h0{background:#F0703F}.hist i.h1{background:#E8963C}
 .hist i.h2{background:#8FBE45}.hist i.h3{background:var(--kelp)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px}
-.map-subj{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.03em;color:var(--kelp);margin-bottom:9px}
+.map-subj{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.03em;color:var(--ink);margin-bottom:9px}
 .cshallow{background:#0D1A2C;border-left:3px solid var(--reef);border-radius:0 8px 8px 0;padding:8px 12px;margin:2px 0 6px;font-size:13px;line-height:1.45;color:var(--ink)}
 .cshallow b{color:var(--reef)}
 .arch{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:5px 6px}
@@ -505,7 +505,7 @@ def _span_label(monday_iso):
 
 def _subject_key(subject):
     """ONE canonical subject order for the whole portal (Rich, 30 Aug): the
-    Week Ahead, the Weekly update and the Running Picture all list subjects in
+    Week Ahead, the Weekly update and the Overall picture all list subjects in
     the same order, so a parent's eye lands in the same place on every page.
     monday_brief.week_ahead and subject_cards already sort this way; pages
     that receive pre-built blocks re-sort with this key."""
@@ -620,7 +620,7 @@ def _doors(portal, hrefs):
          "Refreshes Monday evening"),
         ("week", "d-week", "The weekly update", _week_teaser(portal),
          "Refreshes Friday evening"),
-        ("picture", "d-picture", "The running picture", _picture_teaser(portal),
+        ("picture", "d-picture", "The overall picture", _picture_teaser(portal),
          "Adds up every Friday"),
     ]
     out = []
@@ -664,7 +664,7 @@ def _how_to_read(name):
     (Rich, 30 Aug): the mission (comprehension mapped on the SOLO taxonomy,
     in plain words), the two axes with their real visual vocabulary (the
     coloured position dots, the depth rungs, the evidence gate), and what it
-    means for a parent. The Running Picture keeps its short at-point-of-use
+    means for a parent. The Overall picture keeps its short at-point-of-use
     legend; both draw chips from the same constants so they cannot drift."""
     bands = "".join(
         f"<span><span class='dot d{colour}'>&#9679;</span>{_e(label)}</span>"
@@ -950,14 +950,14 @@ def _week_page(portal, hrefs):
                      "be answering is on the Week Ahead page.</div>")
     parts.append(f"<a class='loop' href='{_e(hrefs['picture'])}'>"
                  "<span>Where it all adds up — every topic's position and "
-                 "depth, on <b>The running picture</b>.</span>"
+                 "depth, on <b>The overall picture</b>.</span>"
                  "<span class='go'>&#8250;</span></a>")
     return _shell("week", portal, hero, "".join(parts), hrefs,
                   f"The weekly update — {name} · XP Daily")
 
 
 # --------------------------------------------------------------------------- #
-# THE RUNNING PICTURE — Friday, cumulative. The map: tally, position + depth on
+# THE OVERALL PICTURE — Friday, cumulative. The map: tally, position + depth on
 # every active topic (the confidently-shallow cross), trends, archive, legend.
 
 def _history_strip(states):
@@ -1070,7 +1070,7 @@ def _picture_page(portal, hrefs):
     running = portal.get("running") or {}
     cards = running.get("cards") or []
     hero = ("<div class='peyebrow'>TERM TO DATE · CUMULATIVE</div>"
-            "<h1 class='phero'>The running picture</h1>"
+            "<h1 class='phero'>The overall picture</h1>"
             f"<p class='psub'>Where every topic stands and how deeply {_e(name)} "
             "understands it — the mastery map his weeks are drawing. Come "
             "assessment time this is the risk map: the weakest rows are where "
@@ -1097,7 +1097,7 @@ def _picture_page(portal, hrefs):
     parts.append(_archive_section(portal.get("archive")))
     parts.append(_legend())
     return _shell("picture", portal, hero, "".join(parts), hrefs,
-                  f"The running picture — {name} · XP Daily")
+                  f"The overall picture — {name} · XP Daily")
 
 
 # --------------------------------------------------------------------------- #
@@ -1109,7 +1109,7 @@ def render_pages(portal, kid_wrap_url=None, nav=None):
         ""         home (publish at  p/<slug>)
         "ahead"    the week ahead      (p/<slug>/ahead)
         "week"     the weekly update   (p/<slug>/week)
-        "picture"  the running picture (p/<slug>/picture)
+        "picture"  the overall picture (p/<slug>/picture)
 
     Pages cross-link relatively by default (they live under one slug), so no
     base URL is needed at render time; `nav` = {key: href} overrides every

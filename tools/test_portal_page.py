@@ -140,7 +140,7 @@ t("the topic map lives on THE RUNNING PICTURE only",
 print("\nhome — the front door:")
 t("all three doorways with live teasers",
   "The week ahead" in home and "The weekly update" in home
-  and "The running picture" in home and "one date on the radar" in home)
+  and "The overall picture" in home and "one date on the radar" in home)
 t("HOW TO READ THE REPORT teaches the model — SOLO in plain words, both axes",
   "HOW TO READ THE REPORT" in home and "SOLO taxonomy" in home
   and "Where he is" in home and "Depth" in home
@@ -243,7 +243,7 @@ t("with no runner totals the tiles sum the table; under 10 answered, "
 t("no chart from single-question subjects — two real rows or nothing",
   "Accuracy by subject" not in oo)
 
-print("\nthe running picture — Friday, cumulative (the mastery ledger):")
+print("\nthe overall picture — Friday, cumulative (the mastery ledger):")
 t("the landed tally leads", "of " in picture and "tally" in picture)
 t("each subject's bar IS its topics — band-coloured tiles, weakest first, "
   "no new vocabulary",
