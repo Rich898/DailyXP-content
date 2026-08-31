@@ -175,22 +175,27 @@ def verify(domain, code, want_version, want_stamp):
     """The live page must be THIS EXACT build (its own stamp back — the
     netlify_deploy.py first-run law) AND be served as renderable HTML.
     The content-type assertion exists because the zip-deploy incident passed a
-    body-only check while every browser showed raw source."""
-    body, hdrs = http(f"https://{domain}/?cb={int(time.time())}", timeout=30)
-    html = body.decode("utf-8", "replace")
-    ctype = (hdrs.get("Content-Type") or "").lower()
-    v = RE_VERSION.search(html)
-    s = RE_STUDENT.search(html)
-    ok = (v and v.group(1) == want_version and s and s.group(1) == code
-          and want_stamp in html
-          and "/*SCRUB-WIDGET-START*/" in html and "/*NUMERIC-WIDGET-START*/" in html
-          and "text/html" in ctype)
-    if not ok:
-        raise SystemExit(f"{domain}: VERIFY FAILED — live page is not the expected build "
-                         f"(version {v.group(1) if v else '?'}, student {s.group(1) if s else '?'}, "
-                         f"stamp {'present' if want_stamp in html else 'MISSING'}, "
-                         f"content-type {ctype or '?'})")
-    return ctype
+    body-only check while every browser showed raw source. A "ready" deploy can
+    lag a few seconds at the CDN edge (netlify_deploy.py's propagation lesson —
+    round 3 of this incident failed on exactly that), so retry briefly before
+    calling the deploy stale."""
+    last = ""
+    for attempt in range(6):
+        if attempt:
+            time.sleep(4)
+        body, hdrs = http(f"https://{domain}/?cb={int(time.time())}", timeout=30)
+        html = body.decode("utf-8", "replace")
+        ctype = (hdrs.get("Content-Type") or "").lower()
+        v = RE_VERSION.search(html)
+        s = RE_STUDENT.search(html)
+        if (v and v.group(1) == want_version and s and s.group(1) == code
+                and want_stamp in html
+                and "/*SCRUB-WIDGET-START*/" in html and "/*NUMERIC-WIDGET-START*/" in html
+                and "text/html" in ctype):
+            return ctype
+        last = (f"version {v.group(1) if v else '?'}, student {s.group(1) if s else '?'}, "
+                f"stamp {'present' if want_stamp in html else 'MISSING'}, content-type {ctype or '?'}")
+    raise SystemExit(f"{domain}: VERIFY FAILED after {attempt + 1} tries — live page is not the expected build ({last})")
 
 
 def main():
