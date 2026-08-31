@@ -1,34 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-08-28",
-  "day": "FRI",
-  "tag": "H5.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-28",
+  "date": "2026-08-31",
+  "day": "MON",
+  "tag": "H6.1",
+  "title": "DailyXP · MON 2026-08-31",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Shakespeare wrote in the 21st century",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "False — Shakespeare wrote in the late 1500s/early 1600s, during the Elizabethan and Jacobean eras, not modern times.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "The chorus is usually the fullest layered section",
+      "prompt": "Romeo is a Montague",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,250 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — the chorus typically stacks the most instruments and layers to make it feel bigger than the verse.",
+      "why": "Romeo belongs to the Montague family, while Juliet belongs to the Capulets — the two feuding households.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A trigger cause is the main long-term cause of an event",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "A trigger cause is the short-term spark that sets off an event; long-term causes are the deeper build-up over time.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "The verse usually has more layers than the chorus",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The chorus is usually the fullest, most heavily layered section — verses are kept sparser to build contrast.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Mental health only matters if someone has a mental illness",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Mental health is about everyone's wellbeing all the time, not just something relevant when illness appears.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In the prologue, what do the Chorus call the feud between the families?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "An ancient grudge",
+      "why": "The Chorus describes the feud as an 'ancient grudge', showing it has lasted for generations before the play begins.",
+      "options": [
+        "An ancient grudge",
+        "A minor quarrel",
+        "A trade dispute",
+        "A royal decree"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Which of these is a genuine sign of good mental health?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Talking openly about feelings",
+      "why": "Good mental health isn't about never feeling bad emotions — it's about managing them well, and talking openly is a healthy coping strategy. Never feeling sad or avoiding stress entirely isn't realistic or healthy.",
+      "options": [
+        "Talking openly about feelings",
+        "Never feeling sad at all",
+        "Hiding worries from everyone",
+        "Avoiding all stressful situations"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In the progression C–Am–F–G, which chord is the 'V'?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "G",
+      "why": "In the key of C major, G is the fifth chord (V), commonly used to create tension before resolving back to C.",
+      "options": [
+        "G",
+        "C",
+        "Am",
+        "F"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "How do you say 'thank you for the meal' after eating in Japanese?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Gochisousama",
+      "why": "'Gochisousama' is said after finishing a meal to thank whoever prepared it, unlike 'Itadakimasu' said before eating.",
+      "options": [
+        "Gochisousama",
+        "Itadakimasu",
+        "Oishii desu",
+        "Sumimasen"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What is biomass in an ecosystem?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Total mass of living matter",
+      "why": "Biomass measures the total mass of living organisms in an area, often used to track energy passing through a food chain.",
+      "options": [
+        "Total mass of living matter",
+        "Number of species present",
+        "Speed of nutrient cycling",
+        "Amount of sunlight received"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What made Japan's mountainous geography important for early warrior rule?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "It split land into rival regions",
+      "why": "Japan's mountains divided the land into separate regions, encouraging local lords and warriors to compete for power rather than one central ruler controlling everything.",
+      "options": [
+        "It split land into rival regions",
+        "It stopped all farming",
+        "It removed the need for lords",
+        "It united clans instantly"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what is the main aim of the artmaking activities?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Explore expressive brush marks",
+      "why": "The activities focus on loose, expressive mark-making to capture energy and movement, not on precise copying or tracing.",
+      "options": [
+        "Explore expressive brush marks",
+        "Copy a photo exactly",
+        "Memorise colour theory facts",
+        "Trace an outline precisely"
+      ],
+      "mode": "scrub",
+      "fresh": true
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "In the shogunate system, what was the Shogun's main role?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Supreme military ruler",
+      "why": "The Shogun held real military and political power, ruling in the emperor's name while the emperor kept only ceremonial status.",
+      "options": [
+        "Supreme military ruler",
+        "Ceremonial religious priest",
+        "Elected town governor",
+        "Foreign trade merchant"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment, what type of variable do you deliberately change?",
+      "prompt": "A student tests if the amount of sunlight affects how fast ice cubes melt, keeping the ice cube size the same each time. What type of variable is 'ice cube size'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -57,59 +274,65 @@
       },
       "type": "text",
       "accept": [
-        "independent variable",
-        "independent"
+        "controlled variable",
+        "controlled"
       ],
-      "why": "The independent variable is the one you choose to change on purpose, e.g. amount of light given to plants.",
+      "why": "It's the controlled variable — kept the same on purpose so it can't affect the result, isolating the effect of the variable being tested.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is the term for the point on Earth's surface directly above where an earthquake starts?",
+      "subject": "Maths",
+      "prompt": "A wooden box measures 10 cm by 6 cm by 5 cm. What is its volume?",
       "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
         "cta": "Start →"
       },
-      "type": "text",
-      "accept": [
-        "epicentre",
-        "epicenter"
-      ],
-      "why": "The epicentre is the surface point directly above the focus, the underground origin of the earthquake.",
-      "fresh": false
+      "type": "numeric",
+      "answer": 300,
+      "calc": true,
+      "pre": "",
+      "post": " cm³",
+      "why": "Volume of a rectangular prism = length × width × height = 10 × 6 × 5 = 300 cm³.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Which two monarchs' reigns did Shakespeare mainly write during?",
-      "answer": "Elizabeth I and James I",
-      "why": "Shakespeare's career spanned the reigns of Elizabeth I and James I, roughly 1590s-1610s, not earlier Tudor or later Stuart/Victorian periods.",
-      "options": [
-        "Elizabeth I and James I",
-        "Henry VIII and Elizabeth I",
-        "James I and Charles I",
-        "Victoria and Edward VII"
-      ],
+      "subject": "Maths",
+      "prompt": "A bag has 2 red and 8 blue balls. What is P(red) as a decimal?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.2,
+      "calc": true,
+      "pre": "",
+      "post": "",
+      "why": "P(red) = 2/10 = 0.2, found by dividing the number of red balls by the total number of balls.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In song structure, what is a 'hook' most known for?",
-      "answer": "Catchy, memorable phrase",
-      "why": "A hook is the short, catchy musical or lyrical phrase designed to stick in the listener's memory, often found in the chorus.",
+      "prompt": "Which song section usually introduces the main theme with the same melody and lyrics each time it appears?",
+      "answer": "Chorus",
+      "why": "The chorus repeats with the same melody and lyrics each time, carrying the song's main theme and hook.",
       "options": [
-        "Catchy, memorable phrase",
-        "Slow tempo change",
-        "Longest section",
-        "Instrumental solo only"
+        "Chorus",
+        "Verse",
+        "Bridge",
+        "Intro"
       ],
       "fresh": false
     },
@@ -117,62 +340,37 @@
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why is talking to someone good for mental health?",
-      "answer": "Eases emotional burden",
-      "why": "Talking to someone shares the emotional load and provides support, which helps wellbeing — it doesn't mean you're weak or only useful during illness.",
+      "prompt": "Which of these is a sign of good mental health?",
+      "answer": "Coping well with stress",
+      "why": "Good mental health is about coping with life's ups and downs, not about wealth, grades, or never feeling sad — everyone feels sad sometimes.",
       "options": [
-        "Eases emotional burden",
-        "Fixes problems instantly",
-        "Proves you are weak",
-        "Only needed when ill"
+        "Coping well with stress",
+        "Having lots of money",
+        "Never feeling sad",
+        "Getting top grades"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 3 red and 7 blue balls. What is P(red) as a decimal?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.3,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "P(red) = 3/10 = 0.3, the number of red balls over the total number of balls.",
-      "fresh": true
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "The chance of an event happening is 0.65. What is the chance it does not happen?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.35,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Complementary events add to 1, so 1 − 0.65 = 0.35 is the chance it does not happen.",
-      "fresh": true
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, why do the servants start fighting?",
+      "answer": "Old family feud",
+      "why": "The servants fight because of the long-standing feud between the Montagues and Capulets, shown from the very first scene.",
+      "options": [
+        "Old family feud",
+        "A stolen horse",
+        "A card game dispute",
+        "A broken promise"
+      ],
+      "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Science",
-      "prompt": "Two towns are hit by earthquakes of the same magnitude, but one suffers far more damage and deaths. Explain what factors, other than the size of the earthquake, could cause this difference."
+      "subject": "Maths",
+      "prompt": "Your friend rolled a die once, got a 6, and now says 'the die is rigged because 6 is more likely.' Explain what's wrong with his reasoning using the idea of probability over many trials."
     }
   ]
 }
