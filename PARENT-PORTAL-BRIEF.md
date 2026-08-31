@@ -293,3 +293,27 @@ XP Daily"); the masthead is **XP DAILY** only, never a page label; "the full
 picture" survives only as home's descriptive phrase until the D6 name
 decision. Preview-artifact gallery titles renamed to match (Portal · Home /
 Week Ahead / Weekly Update / Running Picture).
+
+**Round 6 — 31 Aug, THE RUNNING PICTURE (the mastery ledger, made
+longitudinal):** Rich framed the page's real job — the exam-time risk map
+that will later meet the study guides. Changes:
+- **Bar criteria made explicit and two-axis** (`_cumulative`): the full bar =
+  topics **landed** (developing/solid — "Nearly there" or better); the bright
+  core = **explained** (landed AND depth connects/applies). The gap between
+  them is confidently-shallow at subject level — the revision band — and the
+  criteria sentence sits on the page ("where revision bites"). Labels
+  "n of m · k explained".
+- **TERM TRENDS section retired**: its gains line folds into the bars card
+  ("This term: Science +2 · History +1 landed, across N weeks"), still gated
+  at 4 banked weeks with the honest before-then note.
+- **Per-topic history strips** (`topic_history` + `_history_strip`): one cell
+  per banked week on the band colour scale, oldest → newest, LIVE state
+  appended so every strip ends at now; 2+ points or no strip (a one-cell
+  strip says nothing). The weekly table vocabulary stays — same columns as
+  the Weekly update — so the longitudinal page needs no relearning.
+- **Risk read named**: weakest-first ordering is now stated on the page
+  ("the top rows of each subject are the revision priorities") and the hero
+  carries the exam framing. Study guides steering the quizzes is planner-side
+  work (EXAM-MODE, C3), not page work.
+- Preview snapshots extended to four banked weeks, including a deliberate
+  Angles slide (green → amber → red) so the risk read is visible.

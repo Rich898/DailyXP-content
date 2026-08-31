@@ -160,14 +160,45 @@ def term_trends(snapshots, min_weeks=4):
 
 
 def _cumulative(cards):
-    """Per-subject landed-of-total, folding this week in — the running tally the
-    RUNNING PICTURE leads with. `landed` = developing/solid."""
+    """Per-subject rollup for the RUNNING PICTURE's bars, both axes with
+    explicit criteria (Rich, 31 Aug — "what's the criteria for it"):
+      landed     topics at developing/solid — "Nearly there" or better under
+                 questioning (the position axis).
+      explained  landed topics whose depth has ALSO reached connects/applies —
+                 he can explain them, not just pick them (the depth axis).
+    The gap between the two is the exam-risk band: strong recall, shallow
+    roots, at subject level."""
     _LANDED = {"developing", "solid"}
     out = []
     for c in cards:
         total = len(c["rows"])
         landed = sum(1 for r in c["rows"] if r.get("state") in _LANDED)
-        out.append({"subject": c["subject"], "landed": landed, "total": total})
+        explained = sum(1 for r in c["rows"]
+                        if r.get("state") in _LANDED
+                        and r.get("depth") in _DEEP_DEPTH)
+        out.append({"subject": c["subject"], "landed": landed,
+                    "explained": explained, "total": total})
+    return out
+
+
+def topic_history(snapshots, topics):
+    """{topic: [state, ...]} oldest→newest from the banked weekly snapshots,
+    with the LIVE state appended so every strip ends at now. Topics appear
+    only from the week they were first tracked — a short strip honestly means
+    recently started, never missing data."""
+    hist = {}
+    for snap in snapshots or []:
+        for topic, st in (snap.get("topics") or {}).items():
+            hist.setdefault(topic, []).append(st)
+    out = {}
+    for tp in topics or []:
+        name = tp.get("topic")
+        if name is None:
+            continue
+        seq = list(hist.get(name, []))
+        if tp.get("state") is not None:
+            seq.append(tp.get("state"))
+        out[name] = seq
     return out
 
 
@@ -241,7 +272,8 @@ def build_portal(name, week_of, topics, subjects_block, radar,
         "week_verdict": week_verdict or {},
         "activity": activity or {},
         "running": {"cards": cards, "cumulative": _cumulative(cards),
-                    "trends": term_trends(snapshots or [])},
+                    "trends": term_trends(snapshots or []),
+                    "history": topic_history(snapshots or [], topics)},
         "archive": archive or [],
         "touchpoints": touchpoints if touchpoints is not None else DEFAULT_TOUCHPOINTS,
     }
@@ -356,24 +388,27 @@ body.pg-week h1.word{color:var(--ink)}
 .loop .go{color:var(--haze);font-size:20px;line-height:1}
 .loop b{color:var(--acc)}
 /* ------------------------------------------------ the running picture */
-.tally{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 17px;margin-bottom:14px}
+.tally{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 17px;margin-bottom:8px}
 .tally .tr{display:grid;grid-template-columns:minmax(72px,auto) 1fr auto;gap:12px;align-items:center;padding:6px 0}
 .tally .s{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
-.tally .bar{height:9px;border-radius:99px;background:#1C2B42;overflow:hidden}
-.tally .bar i{display:block;height:100%;background:var(--kelp);border-radius:99px}
-.tally .n{font-size:12px;color:var(--haze);font-family:'Space Mono',ui-monospace,monospace;white-space:nowrap}
-.tally-note{font-size:12px;color:var(--haze);line-height:1.5;margin:-4px 0 22px}
+.tally .bar{display:flex;gap:2px;height:9px;border-radius:99px;background:#1C2B42;overflow:hidden}
+.tally .bar i{display:block;height:100%;border-radius:99px}
+.tally .bar i.deep{background:var(--kelp)}
+.tally .bar i.shal{background:rgba(79,214,160,.32)}
+.tally .n{font-size:12px;color:var(--haze);font-family:'Space Mono',ui-monospace,monospace;white-space:nowrap;text-align:right}
+.tally .term{margin:9px 0 0;padding-top:9px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.5;color:var(--haze)}
+.tally .term b{color:var(--kelp);font-weight:700}
+.tally-note{font-size:12px;color:var(--haze);line-height:1.5;margin:0 0 22px}
+.tally-note b{color:var(--ink);font-weight:600}
+.risk-note{font-size:12.5px;color:var(--haze);line-height:1.5;margin:-2px 0 10px}
+.hist{display:flex;gap:2px;margin-top:4px}
+.hist i{width:8px;height:8px;border-radius:2px;background:#33415C;flex:none}
+.hist i.h0{background:#F0703F}.hist i.h1{background:#E8963C}
+.hist i.h2{background:#8FBE45}.hist i.h3{background:var(--kelp)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:12px}
 .map-subj{font-family:'Archivo Black','Arial Black',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.03em;color:var(--kelp);margin-bottom:9px}
-.trow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
-.trow:first-of-type{border-top:none}
-.trow .tn{font-size:14.5px;line-height:1.3}
-.trow .pos{font-size:12.5px;white-space:nowrap;text-align:right}
 .cshallow{background:#0D1A2C;border-left:3px solid var(--reef);border-radius:0 8px 8px 0;padding:8px 12px;margin:2px 0 6px;font-size:13px;line-height:1.45;color:var(--ink)}
 .cshallow b{color:var(--reef)}
-.trend{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
-.trend.soon{color:var(--haze);font-size:14px;line-height:1.55}
-.trow.trend-row{grid-template-columns:1fr auto}
 .arch{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:5px 6px}
 .arch a{display:flex;justify-content:space-between;text-decoration:none;color:var(--ink);padding:11px 12px;border-top:1px solid var(--line);font-size:14.5px}
 .arch a:first-child{border-top:none}
@@ -925,17 +960,35 @@ def _week_page(portal, hrefs):
 # THE RUNNING PICTURE — Friday, cumulative. The map: tally, position + depth on
 # every active topic (the confidently-shallow cross), trends, archive, legend.
 
-def _topic_tr(r):
+def _history_strip(states):
+    """A topic's week-by-week micro-timeline: one cell per banked week (oldest
+    → newest, the last cell is now), coloured on the same band scale as the
+    position dots — identity never rides on colour alone, the labelled dot
+    sits on the same row. Renders only with 2+ points (a one-cell strip says
+    nothing)."""
+    if not states or len(states) < 2:
+        return ""
+    cells = []
+    for st in states:
+        band = _STATE_BAND.get(st)
+        cls = f" class='h{_BANDS[band][1]}'" if band is not None else ""
+        cells.append(f"<i{cls}></i>")
+    return f"<div class='hist'>{''.join(cells)}</div>"
+
+
+def _topic_tr(r, history=None):
     """One topic on the map: position + depth side by side, on the SAME table
-    vocabulary the This-Week spine uses, so the two Friday surfaces read as one
-    product. The confidently-shallow cross renders as a full-width callout
-    directly under its topic."""
+    vocabulary the This-Week spine uses — plus the longitudinal strip under
+    the topic name (this page is the picture OVER TIME, Rich, 31 Aug). The
+    confidently-shallow cross renders as a full-width callout under its
+    topic."""
     band = _STATE_BAND.get(r.get("state"), 1)
     label, colour = _BANDS[band][0], _BANDS[band][1]
     dep = r.get("depth")
     dep_html = (f"<span class='dep'>{_e(_RUNG_LABEL[dep].capitalize())}</span>"
                 if dep in _RUNG_LABEL else "<span class='dep none'>&mdash;</span>")
-    rows = (f"<tr><td>{_e(r.get('topic'))}</td>"
+    strip = _history_strip((history or {}).get(r.get("topic")))
+    rows = (f"<tr><td>{_e(r.get('topic'))}{strip}</td>"
             f"<td class='pos'><span class='dot d{colour}'>&#9679;</span>{_e(label)}</td>"
             f"<td>{dep_html}</td></tr>")
     if r.get("confidently_shallow"):
@@ -947,39 +1000,44 @@ def _topic_tr(r):
 
 
 def _tally(running):
+    """THE SUBJECT PICTURE — per-subject stacked bars, criteria on the page
+    (Rich, 31 Aug): the full bar is topics LANDED (Nearly there or better);
+    the bright core is what he can also EXPLAIN (connects/applies). The gap
+    between them is the revision band. The term-trend line folds in here once
+    four weeks of snapshots bank (the old TERM TRENDS section, retired)."""
     cum = [c for c in (running or {}).get("cumulative") or [] if c.get("total")]
     if not cum:
         return ""
     rows = []
     for c in cum:
-        pct = round(100 * c["landed"] / c["total"]) if c["total"] else 0
+        deep_pct = round(100 * c["explained"] / c["total"])
+        shal_pct = round(100 * (c["landed"] - c["explained"]) / c["total"])
+        segs = ""
+        if deep_pct:
+            segs += f"<i class='deep' style='width:{deep_pct}%'></i>"
+        if shal_pct:
+            segs += f"<i class='shal' style='width:{shal_pct}%'></i>"
         rows.append(f"<div class='tr'><span class='s'>{_e(c['subject'])}</span>"
-                    f"<span class='bar'><i style='width:{pct}%'></i></span>"
-                    f"<span class='n'>{c['landed']} of {c['total']}</span></div>")
-    return (f"<div class='tally'>{''.join(rows)}</div>"
-            "<p class='tally-note'>Topics count as landed once they reach "
-            "&ldquo;Nearly there&rdquo; — steady under questioning, most of the "
-            "way in.</p>")
-
-
-def _trends_section(trends):
-    if not trends:
-        return ("<div class='section'>TERM TRENDS</div>"
-                "<div class='trend soon'>The term trend fills in here once there "
-                "are four weeks of history to compare — before then a "
-                "&ldquo;trend&rdquo; would be noise, so we don't fake one. "
-                "Weekly snapshots are banking now.</div>")
-    rows = []
-    for r in trends["rows"]:
-        gained = r["gained"]
-        tail = (f" <span style='color:var(--kelp)'>&uarr; +{gained} this term</span>"
-                if gained > 0 else "")
-        rows.append(f"<div class='trow trend-row'><span class='tn'>{_e(r['subject'])}</span>"
-                    f"<span class='pos'>{r['landed']} of {r['total']} landed{tail}</span></div>")
-    return ("<div class='section'>TERM TRENDS</div>"
-            f"<div class='trend'>{''.join(rows)}</div>"
-            f"<p class='notes' style='color:var(--haze);font-size:12.5px'>"
-            f"Across {trends['weeks']} weeks of history.</p>")
+                    f"<span class='bar'>{segs}</span>"
+                    f"<span class='n'>{c['landed']} of {c['total']} &middot; "
+                    f"{c['explained']} explained</span></div>")
+    trends = (running or {}).get("trends")
+    if trends:
+        gains = [f"<b>{_e(r['subject'])} +{r['gained']}</b>"
+                 for r in trends["rows"] if r["gained"] > 0]
+        term = ("This term: " + " &middot; ".join(gains) + " landed, across "
+                f"{trends['weeks']} weeks." if gains else
+                f"Holding steady across {trends['weeks']} weeks — nothing lost.")
+    else:
+        term = ("The term trend joins this card once four weeks of history "
+                "bank — before then a &ldquo;trend&rdquo; would be noise. "
+                "Weekly snapshots are banking now.")
+    return (f"<div class='tally'>{''.join(rows)}"
+            f"<div class='term'>{term}</div></div>"
+            "<p class='tally-note'>The bar fills as topics <b>land</b> — "
+            "&ldquo;Nearly there&rdquo; or better under questioning. The "
+            "bright core is what he can also <b>explain</b> — can connect it "
+            "or beyond. The gap between the two is where revision bites.</p>")
 
 
 def _archive_section(archive):
@@ -1013,14 +1071,20 @@ def _picture_page(portal, hrefs):
     hero = ("<div class='peyebrow'>TERM TO DATE · CUMULATIVE</div>"
             "<h1 class='phero'>The running picture</h1>"
             f"<p class='psub'>Where every topic stands and how deeply {_e(name)} "
-            "understands it — the map his weeks are drawing. This is the page "
-            "that grows.</p>")
+            "understands it — the mastery map his weeks are drawing. Come "
+            "assessment time this is the risk map: the weakest rows are where "
+            "revision starts, and his sets are already steering there.</p>")
     parts = []
     if cards:
         parts.append(_tally(running))
         parts.append("<div class='section'>EVERY TOPIC &mdash; POSITION AND DEPTH</div>")
+        parts.append("<p class='risk-note'>Weakest first — the top rows of "
+                     "each subject are the revision priorities. The small "
+                     "strip under a topic is its week-by-week history, oldest "
+                     "to newest, ending at now.</p>")
+        history = running.get("history") or {}
         for c in cards:
-            rows = "".join(_topic_tr(r) for r in c["rows"])
+            rows = "".join(_topic_tr(r, history) for r in c["rows"])
             parts.append(
                 f"<div class='card'><div class='map-subj'>{_e(c['subject'])}</div>"
                 "<table class='subj-table'><tr><th>Topic</th><th>Where he is</th>"
@@ -1029,7 +1093,6 @@ def _picture_page(portal, hrefs):
         parts.append("<div class='map-empty'>The map draws itself in as Fridays "
                      "bank — each week adds every topic's position and depth "
                      "here.</div>")
-    parts.append(_trends_section(running.get("trends")))
     parts.append(_archive_section(portal.get("archive")))
     parts.append(_legend())
     return _shell("picture", portal, hero, "".join(parts), hrefs,

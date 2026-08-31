@@ -243,8 +243,32 @@ t("with no runner totals the tiles sum the table; under 10 answered, "
 t("no chart from single-question subjects — two real rows or nothing",
   "Accuracy by subject" not in oo)
 
-print("\nthe running picture — Friday, cumulative:")
+print("\nthe running picture — Friday, cumulative (the mastery ledger):")
 t("the landed tally leads", "of " in picture and "tally" in picture)
+t("the bars carry both axes with their criteria on the page — landed AND "
+  "explained, the gap named",
+  "explained" in picture and "class='deep'" in picture
+  and "where revision bites" in picture)
+t("cumulative counts explained correctly (landed AND deep depth)",
+  {c["subject"]: (c["landed"], c["explained"])
+   for c in portal["running"]["cumulative"]}["Maths"] == (2, 1))
+t("weakest-first is named as the risk read", "revision priorities" in picture)
+t("the old TERM TRENDS section is folded into the bars",
+  "TERM TRENDS" not in picture)
+hist = pp.topic_history(four, [{"topic": "A", "subject": "Maths",
+                                "state": "solid", "depth": None}])
+t("topic_history stitches banked weeks and appends now",
+  hist["A"] == ["shaky", "shaky", "solid", "solid", "solid"])
+p4 = pp.render_pages(pp.build_portal(
+    "Harrison", "2026-08-10",
+    [{"topic": "A", "subject": "Maths", "state": "solid", "depth": None}],
+    SUBJECTS_BLOCK, None, snapshots=four))["picture"]
+t("with four banked weeks the term line switches on, in the bars card",
+  "This term:" in p4 and "Maths +1" in p4)
+t("each topic wears its week-by-week strip, ending at now",
+  p4.count("<i class='h") >= 5)
+t("a topic with no banked history gets no one-cell strip",
+  "class='hist'" not in picture)
 t("the confidently-shallow note reaches the page", "Strong recall" in picture)
 t("evidenced depth renders its rung", "Can connect it" in picture)
 t("unevidenced depth renders a dash, never an inflated claim",
