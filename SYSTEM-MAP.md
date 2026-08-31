@@ -170,13 +170,16 @@ repo without redeploys). That manual hop is a known scale gap — see §9.
 
 ## 4. The weekly overlays
 
-### The Canvas sweep (the menu) — weekly, human-in-the-loop
+### The Canvas sweep (the menu) — weekly, AUTOMATED (promoted 31 Aug 2026)
 
-A Claude session walks each boy's live Canvas courses (per the instructions in `SWEEP.md`) —
-pages, modules, homepages and announcements, using the Canvas API where page-walking is slow —
+The scheduled sweep (`sweep-shadow.yml`, pg_cron 07:07 Monday) pulls each boy's live Canvas
+courses via his own API token (per `SWEEP.md`) — pages, modules, homepages and announcements —
 and produces the per-student, per-subject outline: current topics, key concepts/skills,
-assessment dates, and what's new vs last week. That becomes the newest **targets file**
-(`targets/`, private repo). Every topic that appears live in a sweep is **seeded into the
+assessment dates, and what's new vs last week. Behind the validator gate that becomes the
+newest **targets file** (`targets/`, private repo); FAIL = HOLD. Promoted on Rich's GO after
+the B6 head-to-head (106/106 adjudicated vs the final manual sweep). The human residue is
+docx alerts, rotation overrides, and a changelog eyeball; the manual Chrome-panel drill is
+the outage fallback. Every topic that appears live in a sweep is **seeded into the
 ledger**, and the seeded state is written back to disk so results on brand-new topics count
 (the vanishing-seed bug from the 20 Aug audit is fixed and verified). Doctrine: **SEASONS
 LAW 6** — the sweep provides the outline only; the composer generates substance on demand;
@@ -237,7 +240,7 @@ navy `#101B2D`, Space Grotesk body, Space Mono data labels, Archivo Black week-w
 | **Per-run plans** | `plans/<seat>/<date>.json`, **private repo** | The planner's persisted question→topic join for each run — how the state writer knows which topic each answer belongs to. |
 | **Live quiz sets** | `y8.json` / `y9.json` / `t1.json`, **public repo** | Tonight's actual quizzes, fetched by the shells. |
 | **The shells / hosted pages** | Netlify (3 quiz sites + report + wrap pages) | What the family actually touches. |
-| **Schedule + dispatch log** | Supabase `xp_schedule` (14 slots: `daily-quiz`, `kid-nudge`, `soundbyte-1/2/3`, `wed-checkin-early/-cutoff`, `friday-report-2035/-2105/-2145/-0730-sat`, `watchdog-early/-late/-friday`), `xp_dispatch_log` | The clock and its receipt trail. |
+| **Schedule + dispatch log** | Supabase `xp_schedule` (18 slots: `sweep-0707-mon`, `daily-quiz`, `kid-nudge`, `soundbyte-1/2/3`, `wed-checkin-early/-cutoff`, `friday-report-2035/-2105/-2145/-0730-sat`, `watchdog-early/-late/-friday`, `portal-monday/-friday/-saturday`), `xp_dispatch_log` | The clock and its receipt trail. |
 | **Doctrine & specs** | **public repo**: `SEASONS.md`, `REPORTING.md`, `UNDERSTANDING.md`, `CONTENT-MODEL.md`, `EXAM-MODE.md`, `QUIZ-GENERATION.md`, `DAILY-PUBLISHING.md`, `SWEEP.md`, `ROADMAP.md`, `LEDGER-RULES.md`, `ONBOARDING.md`, `RUNBOOK.md` | The written law. The QA skill should treat these as the spec of record. |
 | **Secrets** | GitHub Actions secrets (content repo) + Supabase keys | Anthropic key, `DAILYXP_TOKEN` (fine-grained PAT scoped to both repos), Netlify secrets, Supabase `sb_publishable` / `sb_secret` (apikey header, not Bearer). Never in code; the public repo is grep-guarded for names/scores/secrets before pushes. |
 | **What holds no state** | The LLMs | By law. If it matters tomorrow, it's in git or Supabase tonight. |
@@ -248,7 +251,7 @@ navy `#101B2D`, Space Grotesk body, Space Mono data labels, Archivo Black week-w
 
 | When (Sydney time) | Fired by | What runs |
 |---|---|---|
-| Weekly (weekend, manual) | Rich kicks off a Claude session | Canvas sweep → new targets file → topic seeding |
+| Weekly (Mon 07:07, pg_cron `sweep-0707-mon`; guarded GitHub backup 08:07) | Automated Canvas sweep (`sweep-shadow.yml`, promoted 31 Aug via B6) | Fetch → summarise → validate → PROMOTED `targets/<monday>.json` → topic seeding; human = docx alerts + rotation overrides |
 | School days ~2:00 PM | pg_cron → `workflow_dispatch` | The 7-step build: ingest → state → depth → plan → compose → review → validate/publish |
 | School days ~4:00 PM | pg_cron → `workflow_dispatch` | Kid nudge SMS (suppressed for placeholder seats) + operator confirmation |
 | Evenings 18:30 / 20:00 / 21:30 (cursor) | pg_cron → `workflow_dispatch` (GitHub cron backup) | Parent daily soundbyte — each completion texted once |
@@ -349,9 +352,10 @@ You asked for everything to be built toward high scale — these are the current
 QA skill should watch, because each one becomes a bottleneck or a silent-failure risk at ten
 families:
 
-1. **The sweep is human-in-the-loop.** One school, working well. Ten families across multiple
-   schools makes the weekly sweep the scaling constraint — and school-holiday gaps are handled
-   by heartbeat + the Monday-independent design, but sweep *cadence* is a person's calendar.
+1. **The sweep is automated as of 31 Aug 2026** (B6 promotion) — cadence is no longer a
+   person's calendar. The residual scaling constraint is per-school onboarding (student
+   tokens, subject dialects, rotation overrides) and the human docx/edge-case layer; holiday
+   gaps stay covered by the Monday-independent design.
 2. **Shell deploys are manual zip drag-and-drop** to three Netlify sites. Fine at three seats;
    error-prone at thirty. (Nightly content needs no redeploy — this is only when the shell
    changes — but it's the kind of step that gets skipped for one seat and drifts.)

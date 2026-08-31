@@ -92,10 +92,14 @@ The three clocks (all GitHub-owned, Mon–Fri): **2:00pm** pipeline (plan→comp
 **4:00pm** kid nudge (verifies the live set is today's BEFORE texting), **6:30/8:00/9:30pm**
 soundbyte polls (first poll that sees a completed run texts that kid's parent seat).
 
-**Monday ~12:00 sweep:** the operator opens Canvas logged-in (y8 then y9) and runs the
-Claude-in-Chrome extension with: *"Run the DailyXP weekly sweep per SWEEP.md — y8 first,
-then y9."* Output goes to the build chat, which writes + commits `targets/<monday>.json`.
-LAW: Monday's quiz never depends on it (newest-file fallback).
+**Monday 07:07 sweep — AUTOMATED (promoted 31 Aug 2026, B6):** pg_cron slot
+`sweep-0707-mon` fires `sweep-shadow.yml` (GitHub cron demoted to a guarded Mon 08:07
+AEST backup): fetch → summarise → docx alert → schedule-pass → rotation overrides →
+validate (gate) → PROMOTE `targets/<monday>.json` → diff → commit. FAIL = HOLD (no
+promote; newest-file fallback + loud staleness warning). Human Monday = docx alerts +
+`overrides/rotations.json` on rotation switches + a changelog eyeball; the manual
+Chrome-panel drill is the outage fallback in SWEEP.md's appendix.
+LAW unchanged: Monday's quiz never depends on it (newest-file fallback).
 
 **Everything fails soft:** a held/red 2pm run → the 4pm nudge refuses to text; no run played →
 soundbyte stays silent; a failed send → retried next poll, cursor untouched. A red day is a
