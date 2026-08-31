@@ -213,7 +213,9 @@ def main():
 
     runs = (load_json(os.path.join(priv, "work", "runs.json"), {}) or {}).get("runs", [])
     state = load_json(os.path.join(priv, "work", "state.json"), {}) or {}
-    targets = newest_targets(priv)
+    # aliased seats (t1 → y8) borrow their curriculum at read time — the
+    # sweep never writes them a block of their own (roster.alias_targets)
+    targets = roster.alias_targets(newest_targets(priv), codes)
 
     # prior snapshot = trajectory source. Absent -> week 1 baseline.
     snaps = sorted(glob.glob(os.path.join(priv, SNAPDIR, "*.json")))
@@ -293,7 +295,8 @@ def main():
             import portal_run as prun
             pslug = prun.portal_slugs(priv, [code])[code]["portal"]
             tfiles = sorted(glob.glob(os.path.join(priv, "targets", "*.json")))
-            prev_targets = load_json(tfiles[-2], {}) if len(tfiles) > 1 else {}
+            prev_targets = roster.alias_targets(
+                load_json(tfiles[-2], {}) if len(tfiles) > 1 else {}, [code])
             portal, _b = prun.build_portal_for(code, asof, priv, runs, state,
                                                targets, prev_targets, prev_snapshot)
             ppages = pp.render_pages(portal, kid_wrap_url=kid_wrap_url)

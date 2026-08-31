@@ -364,6 +364,27 @@ automate, SMS update needed"):** PR #19 merged on Rich's directive. Then:
 - First scheduled fire: **tonight, Mon 18:45 Sydney** — pages for all seats,
   pointer for t1 (Rich's own family) only.
 
+**FIRST AUTOMATED FIRE — Mon 31 Aug 18:45 Sydney, VERIFIED:** pg_cron
+dispatched (HTTP 204), the workflow ran green in 78s: all 12 pages (3 seats
+× 4) verified LIVE, **pointers sent 3/3** — y8 and y9 were promoted into
+`POINTER_LIVE` by PR before the fire on Rich's directive, superseding this
+round's "t1 only" plan — and the weekly cursor committed to private. The
+kid nudges fired earlier on the new per-day Monday voice. **One defect in
+the operator sweep: t1's ahead page shipped its honest empty state**
+(ahead-subjects=0, upcoming=0). Root cause: the runner read targets under
+"t1", but the sweep never writes aliased seats a block of their own — t1
+quizzes y8's curriculum (roster `targets_alias`), and only the quiz
+pipeline resolved that. **Fix:** new `roster.alias_targets()` injects the
+alias's curriculum block at the runner's targets-load point — the exact
+pattern `scripts/run_daily.py` has always used — now wired into
+`portal_run`, `friday_report_run` (t1's Friday reports carried the same
+silent gap all along) and `kid_board`. `test_portal_run` keys its fixture
+targets under the alias, so the suite fails on any runner missing the
+injection (proven against the unfixed runner). Prepared during, merged
+after, the evening send window per the working model; t1's ahead page
+heals on the next scheduled publish (Fri 21:15 / Sat 08:00 heal — or a
+manual dispatch sooner).
+
 **Round 7 — 31 Aug, THE SUBJECT BARS REDONE:** Rich (rightly) couldn't read
 the landed/explained stacking — subtle segments, new vocabulary disconnected
 from the tables, and "2 of 4" invited a score reading. Replaced: **each

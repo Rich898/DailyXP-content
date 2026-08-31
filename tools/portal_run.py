@@ -237,6 +237,10 @@ def main():
     tfiles = sorted(glob.glob(os.path.join(priv, "targets", "*.json")))
     targets = frun.load_json(tfiles[-1], {}) if tfiles else {}
     prev_targets = frun.load_json(tfiles[-2], {}) if len(tfiles) > 1 else {}
+    # aliased seats (t1 → y8) borrow their curriculum at read time — the
+    # sweep never writes them a block of their own (roster.alias_targets)
+    roster.alias_targets(targets, codes)
+    roster.alias_targets(prev_targets, codes)
 
     snaps = sorted(glob.glob(os.path.join(priv, frun.SNAPDIR, "*.json")))
     prev_snapshot = frun.load_json(snaps[-1]) if snaps else None
