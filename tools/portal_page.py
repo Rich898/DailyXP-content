@@ -391,10 +391,10 @@ body.pg-week h1.word{color:var(--ink)}
 .tally{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 17px;margin-bottom:8px}
 .tally .tr{display:grid;grid-template-columns:minmax(72px,auto) 1fr auto;gap:12px;align-items:center;padding:6px 0}
 .tally .s{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
-.tally .bar{display:flex;gap:2px;height:9px;border-radius:99px;background:#1C2B42;overflow:hidden}
-.tally .bar i{display:block;height:100%;border-radius:99px}
-.tally .bar i.deep{background:var(--kelp)}
-.tally .bar i.shal{background:rgba(79,214,160,.32)}
+.tally .bar{display:flex;gap:2px;height:10px;border-radius:99px;overflow:hidden}
+.tally .bar i{display:block;height:100%;flex:1;background:#1C2B42}
+.tally .bar i.h0{background:#F0703F}.tally .bar i.h1{background:#E8963C}
+.tally .bar i.h2{background:#8FBE45}.tally .bar i.h3{background:var(--kelp)}
 .tally .n{font-size:12px;color:var(--haze);font-family:'Space Mono',ui-monospace,monospace;white-space:nowrap;text-align:right}
 .tally .term{margin:9px 0 0;padding-top:9px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.5;color:var(--haze)}
 .tally .term b{color:var(--kelp);font-weight:700}
@@ -1000,27 +1000,28 @@ def _topic_tr(r, history=None):
 
 
 def _tally(running):
-    """THE SUBJECT PICTURE — per-subject stacked bars, criteria on the page
-    (Rich, 31 Aug): the full bar is topics LANDED (Nearly there or better);
-    the bright core is what he can also EXPLAIN (connects/applies). The gap
-    between them is the revision band. The term-trend line folds in here once
-    four weeks of snapshots bank (the old TERM TRENDS section, retired)."""
-    cum = [c for c in (running or {}).get("cumulative") or [] if c.get("total")]
-    if not cum:
+    """THE SUBJECT PICTURE — each subject's bar IS its topics: one tile per
+    topic, coloured by that topic's band, weakest first — the table's dot
+    column compressed into a bar, zero new vocabulary (Rich, 31 Aug: the
+    landed/explained stacking read as a score and connected to nothing
+    below; this replaces it). The reading rule is one sentence, on the page.
+    The term-trend line folds in here once four weeks of snapshots bank."""
+    cards = [c for c in (running or {}).get("cards") or [] if c.get("rows")]
+    if not cards:
         return ""
     rows = []
-    for c in cum:
-        deep_pct = round(100 * c["explained"] / c["total"])
-        shal_pct = round(100 * (c["landed"] - c["explained"]) / c["total"])
-        segs = ""
-        if deep_pct:
-            segs += f"<i class='deep' style='width:{deep_pct}%'></i>"
-        if shal_pct:
-            segs += f"<i class='shal' style='width:{shal_pct}%'></i>"
+    for c in cards:
+        segs = "".join(
+            f"<i class='h{_BANDS[_STATE_BAND.get(r.get('state'), 1)][1]}'></i>"
+            for r in c["rows"])
+        total = len(c["rows"])
+        watch = sum(1 for r in c["rows"]
+                    if r.get("state") not in ("developing", "solid"))
+        label = (f"{total} topic{'s' if total != 1 else ''} &middot; "
+                 + (f"{watch} to watch" if watch else "none to watch"))
         rows.append(f"<div class='tr'><span class='s'>{_e(c['subject'])}</span>"
                     f"<span class='bar'>{segs}</span>"
-                    f"<span class='n'>{c['landed']} of {c['total']} &middot; "
-                    f"{c['explained']} explained</span></div>")
+                    f"<span class='n'>{label}</span></div>")
     trends = (running or {}).get("trends")
     if trends:
         gains = [f"<b>{_e(r['subject'])} +{r['gained']}</b>"
@@ -1034,10 +1035,10 @@ def _tally(running):
                 "Weekly snapshots are banking now.")
     return (f"<div class='tally'>{''.join(rows)}"
             f"<div class='term'>{term}</div></div>"
-            "<p class='tally-note'>The bar fills as topics <b>land</b> — "
-            "&ldquo;Nearly there&rdquo; or better under questioning. The "
-            "bright core is what he can also <b>explain</b> — can connect it "
-            "or beyond. The gap between the two is where revision bites.</p>")
+            "<p class='tally-note'>Each bar is that subject's topics, coloured "
+            "<b>exactly like the rows below</b> — the more green, the more "
+            "solid. Red and amber are where revision starts; &ldquo;to "
+            "watch&rdquo; counts them.</p>")
 
 
 def _archive_section(archive):

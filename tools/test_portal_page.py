@@ -245,11 +245,14 @@ t("no chart from single-question subjects — two real rows or nothing",
 
 print("\nthe running picture — Friday, cumulative (the mastery ledger):")
 t("the landed tally leads", "of " in picture and "tally" in picture)
-t("the bars carry both axes with their criteria on the page — landed AND "
-  "explained, the gap named",
-  "explained" in picture and "class='deep'" in picture
-  and "where revision bites" in picture)
-t("cumulative counts explained correctly (landed AND deep depth)",
+t("each subject's bar IS its topics — band-coloured tiles, weakest first, "
+  "no new vocabulary",
+  "<i class='h0'></i><i class='h3'></i><i class='h3'></i>" in picture
+  and "3 topics &middot; 1 to watch" in picture
+  and "exactly like the rows below" in picture)
+t("the landed/explained stacking is gone from the page",
+  "class='deep'" not in picture and "explained" not in picture)
+t("cumulative still computes explained for later use (landed AND deep depth)",
   {c["subject"]: (c["landed"], c["explained"])
    for c in portal["running"]["cumulative"]}["Maths"] == (2, 1))
 t("weakest-first is named as the risk read", "revision priorities" in picture)

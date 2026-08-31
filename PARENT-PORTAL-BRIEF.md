@@ -317,3 +317,16 @@ that will later meet the study guides. Changes:
   work (EXAM-MODE, C3), not page work.
 - Preview snapshots extended to four banked weeks, including a deliberate
   Angles slide (green → amber → red) so the risk read is visible.
+
+**Round 7 — 31 Aug, THE SUBJECT BARS REDONE:** Rich (rightly) couldn't read
+the landed/explained stacking — subtle segments, new vocabulary disconnected
+from the tables, and "2 of 4" invited a score reading. Replaced: **each
+subject's bar IS its topics** — one equal tile per topic, coloured by that
+topic's band, weakest first, i.e. the table's dot column compressed into a
+bar. Labels: "{n} topics · {k} to watch" (to watch = not yet landed). The
+reading rule is one sentence on the page: "Each bar is that subject's topics,
+coloured exactly like the rows below — the more green, the more solid; red
+and amber are where revision starts." Zero new vocabulary; the summary and
+the detail now share one colour language. Depth stays in the rows and the
+confidently-shallow callouts (`_cumulative` still computes `explained` for
+future use). The term line and its 4-week gate are unchanged.
