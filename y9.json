@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-08-28",
-  "day": "FRI",
-  "tag": "R5.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-08-28",
+  "date": "2026-08-31",
+  "day": "MON",
+  "tag": "R6.1",
+  "title": "DailyXP · MON 2026-08-31",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Vaccines contain the actual disease at full strength",
+      "subject": "English",
+      "prompt": "Ralph is voted chief mainly because he is the strongest fighter",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — vaccines use a weakened or harmless form of a pathogen to train the immune system without causing full disease.",
+      "why": "Ralph is voted chief mainly because he holds the conch and seems calm and organised — not because of physical strength.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "The Munich Putsch overthrew the German government in 1923",
+      "subject": "Science",
+      "prompt": "Skin is an example of the body's second line of defence",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,231 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — the putsch failed within a day; Hitler was arrested, though he later used the trial to gain publicity.",
+      "why": "Skin is a physical barrier and part of the FIRST line of defence, stopping pathogens before they enter the body.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The Munich Putsch happened in Berlin",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The putsch took place in Munich, not Berlin — Hitler and the Nazis tried to seize power there in 1923.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "4x + 4x simplifies to 8x",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "4x and 4x are like terms, so you add the coefficients: 4 + 4 = 8, giving 8x.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "Solve for x: 2x + 3 = 11",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "4",
+      "why": "Subtract 3 from both sides to get 2x = 8, then divide by 2 to get x = 4.",
+      "options": [
+        "4",
+        "7",
+        "5.5",
+        "3"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In Freud's model, which part represents our basic, instinctive desires?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The id",
+      "why": "The id is the instinctive part of personality, driven by pleasure and desire without thinking of consequences.",
+      "options": [
+        "The id",
+        "The ego",
+        "The superego",
+        "The conscience"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "A soft drink ad shows teens laughing together at a beach party. What technique is this?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Lifestyle appeal",
+      "why": "Ads often link a product to a fun, desirable lifestyle rather than its actual nutritional value, to influence choices.",
+      "options": [
+        "Lifestyle appeal",
+        "Nutrition labelling",
+        "Price discount",
+        "Health warning"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What is the term for people moving permanently from one country to live in another?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Migration",
+      "why": "Migration is the movement of people from one country to settle permanently in another, unlike short visits or commuting.",
+      "options": [
+        "Migration",
+        "Urbanisation",
+        "Tourism",
+        "Commuting"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What crisis hit Germany's currency in 1923?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Hyperinflation",
+      "why": "In 1923 the Weimar government printed huge amounts of money to pay debts, causing hyperinflation where prices spiralled and savings became worthless.",
+      "options": [
+        "Hyperinflation",
+        "A banking merger",
+        "A gold shortage",
+        "A stock market crash"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "A family moves to a city because it offers better hospitals and schools. What kind of factor is this?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "A pull factor",
+      "why": "Better services attracting people to a new place are pull factors, drawing migrants in rather than driving them away.",
+      "options": [
+        "A pull factor",
+        "A push factor",
+        "A trade factor",
+        "A climate factor"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "In a business plan, which section explains how the business will be run day-to-day?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Operations plan",
+      "why": "The operations plan covers daily running details, while the executive summary just briefly sums up the whole plan.",
+      "options": [
+        "Operations plan",
+        "Executive summary",
+        "Market analysis",
+        "Cover page"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A phone case shop sells both physical cases and a repair service. The repair service is best described as a…",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Service",
+      "why": "A service is work done for a customer, like repairs, while a product is a physical item like the phone case itself.",
+      "options": [
+        "Service",
+        "Product",
+        "Logo",
+        "Market analysis"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 22 cm and a height of 5 cm. Work through it calmly: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,33 +273,49 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 72,
-      "calc": false,
+      "answer": 55,
+      "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 9 = 72 cm². Halve first, then multiply — don't skip the ½.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 22 × 5 = 55 cm² — halving is the step that's easy to rush past.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "What is a central theme of Lord of the Flies?",
-      "answer": "Innocence turning to savagery",
-      "why": "The boys start out civilised but descend into savagery — Golding shows how easily order breaks down without society's rules.",
+      "subject": "Commerce",
+      "prompt": "From a while back — a shop keeps the exact same logo, colours and slogan across every product for years. What is this mainly building?",
+      "answer": "Brand recognition",
+      "why": "Using the same logo, colours and slogan consistently helps customers instantly recognise and trust the brand.",
       "options": [
-        "Innocence turning to savagery",
-        "The dangers of city life",
-        "The value of team sports",
-        "The importance of good manners"
+        "Brand recognition",
+        "Market analysis",
+        "A swot analysis",
+        "An executive summary"
       ],
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, what does Jack's growing obsession with hunting mainly represent?",
+      "answer": "Rising savagery",
+      "why": "Jack's hunting obsession shows him abandoning civilised rules and giving in to violent, primal instincts.",
+      "options": [
+        "Rising savagery",
+        "Loyalty to Ralph",
+        "Fear of the beast fading",
+        "Desire to be rescued"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
       "subject": "Science",
-      "prompt": "What type of white blood cell produces antibodies to target a specific pathogen?",
+      "prompt": "What type of white blood cell remembers a pathogen so the body can respond faster next time?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -92,17 +325,18 @@
       },
       "type": "text",
       "accept": [
-        "lymphocyte",
-        "lymphocytes"
+        "memory cells",
+        "memory cell",
+        "memory lymphocytes"
       ],
-      "why": "Lymphocytes produce antibodies that lock onto a specific pathogen, unlike phagocytes which engulf pathogens generally.",
+      "why": "Memory cells stay in the body after infection and allow a faster, stronger response if the same pathogen returns.",
       "fresh": false
     },
     {
-      "id": "T4",
+      "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events of the Munich Putsch",
+      "prompt": "Order these stages leading to and following the Munich Putsch",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -112,76 +346,36 @@
       },
       "type": "order",
       "sequence": [
-        "Hitler declares a national revolution in the beer hall",
-        "Nazi supporters march through Munich",
-        "Police open fire on the marchers",
-        "Hitler is arrested and put on trial"
+        "Nazi party grows in Bavaria",
+        "Hitler bursts into a Munich beer hall meeting",
+        "Putsch collapses within a day",
+        "Hitler writes Mein Kampf in prison"
       ],
       "top": "Earliest",
       "bot": "Latest",
-      "why": "The putsch began with Hitler's beer hall declaration, moved to the street march, was stopped by police gunfire, and ended with Hitler's arrest and trial.",
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
-      "subject": "D&T",
-      "prompt": "A market stall keeps the same logo, colours and packaging on every product for a whole year. What is this mainly building?",
-      "answer": "brand recognition",
-      "why": "Consistent branding builds recognition, so customers spot the stall instantly — that's the marketing point, not price, size, or supply chains, which are unrelated business factors.",
-      "options": [
-        "brand recognition",
-        "a lower price point",
-        "a bigger stall size",
-        "a shorter supply chain"
-      ],
+      "why": "The Nazi party built local strength first, then Hitler tried to seize power at the beer hall, the putsch quickly failed, and afterwards Hitler used his prison time to write Mein Kampf.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Simplify: 6x + 2x, then find its value when x = 3",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 24,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "6x + 2x = 8x, and 8 × 3 = 24. Combine like terms first, then substitute.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Solve for x: 3x + 7 = 22",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 5,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Subtract 7 from both sides to get 3x = 15, then divide by 3 to get x = 5.",
+      "subject": "D&T",
+      "prompt": "A market stall changes its packaging design to use recycled cardboard instead of plastic. What is this mainly an example of?",
+      "answer": "Innovation",
+      "why": "Introducing a new material or design approach to improve a product is innovation, distinct from keeping branding consistent.",
+      "options": [
+        "Innovation",
+        "Branding consistency",
+        "Market analysis",
+        "Executive summary"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "English",
-      "prompt": "Point → evidence → explain: pick one moment from Lord of the Flies that shows innocence turning to savagery. State your point, give the evidence (what happens), then explain what it reveals about the boys."
+      "subject": "D&T",
+      "prompt": "A market stall has striking branding but a product nobody actually wants to buy. Explain why strong branding alone can't save a weak product, using what you know about design factors and marketing."
     }
   ]
 }
