@@ -67,10 +67,13 @@ UNVERIFIED = {"y8": ("English",), "t1": ("English",),
 
 # Seats whose Monday pointer sends AUTOMATICALLY on a scheduled (input-less)
 # Monday run. The pg_cron dispatcher fires workflows with NO inputs, so
-# promotion lives here, in reviewed code: Rich promotes a seat by adding its
-# code via PR — the merge IS the ratification. --monday-sms remains the
-# manual override for any seat a dispatch targets.
-POINTER_LIVE = ("t1",)
+# promotion lives here, in reviewed code — a seat joins by PR, the merge
+# being the ratification. ALL SEATS promoted 31 Aug on Rich's directive
+# ("expand to y8 and y9 immediately"). NOTE: y8 + y9 are one household —
+# until the household-consolidation amendment is built (V2 §2), Monday
+# brings that household one pointer PER KID, each naming only its own kid.
+# --monday-sms remains the manual override for any seat a dispatch targets.
+POINTER_LIVE = ("t1", "y8", "y9")
 
 PAGE_ORDER = ("ahead", "week", "picture", "")   # home LAST — it links the rest
 

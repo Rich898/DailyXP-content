@@ -118,4 +118,10 @@ with tempfile.TemporaryDirectory() as priv:
     t("second run exits clean", r2.returncode == 0)
     t("the portal slug did not rotate", slugs2["t1"]["portal"] == slugs["t1"]["portal"])
 
+print("\npromotion sanity:")
+import portal_run   # noqa: E402
+import roster       # noqa: E402
+t("every POINTER_LIVE seat is an active roster code",
+  set(portal_run.POINTER_LIVE) <= set(roster.active()))
+
 print("\n✓ all portal_run tests green")
