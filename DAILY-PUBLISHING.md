@@ -155,10 +155,14 @@ finish. `status:"placeholder"` or empty questions → "No quiz posted yet".
 All SMS goes through `tools/notify.py` → Mobile Message
 (`api.mobilemessage.com.au/v1/messages`, basic auth, unicode on). **Numbers live only in
 GitHub Actions secrets**, resolved per seat: `MOBILE_MESSAGE_TO_<CODE>` (the kid),
-`MOBILE_MESSAGE_PARENTS_<CODE>` (that kid's parent seat), with a legacy fallback to
-`MOBILE_MESSAGE_TO_PARENTS` when a per-kid parent secret is unset (⚠ §O13). The live seat
-map (private `COMMS-SEATS.md`): TO_Y8→Harrison; PARENTS_Y8→Melina; TO_Y9→**empty by
-design** (Roshan's US phone; the nudge skips him gracefully — the icon is his channel);
+`MOBILE_MESSAGE_PARENTS_<CODE>` (that kid's parent seat — no fallback: it resolves to its
+own secret or to nobody, and senders abort loudly; the O13 silent fallback was removed).
+A kid seat with NO number of its own may carry an explicit roster.json redirect
+`kid_comms_via:"parents"` → that kid's own parent seat (a real TO_<CODE> secret always
+wins). The live seat map (private `COMMS-SEATS.md`): TO_Y8→Harrison; PARENTS_Y8→Melina;
+TO_Y9→**empty** (the US-phone gap) **redirected since 31 Aug 2026** via
+`kid_comms_via:"parents"` — Roshan's kid nudge lands on Rich's phone as his stand-in
+channel (Rich's ask, in session) until he has a local number;
 PARENTS_Y9→Rich; TO_T1→Rich; PARENTS_T1→Melina (deliberately — the multi-kid-parent
 experience under test).
 

@@ -13,6 +13,8 @@ SECRETS (env — set in GitHub Actions secrets, never in the repo):
 RECIPIENTS are injected, never hardcoded (phone numbers are PII):
   MOBILE_MESSAGE_TO_Y8, MOBILE_MESSAGE_TO_Y9           the boys
   MOBILE_MESSAGE_TO_PARENTS = comma-separated parent numbers
+A kid seat with no number may carry roster.json "kid_comms_via": "parents" —
+an explicit per-seat redirect to that kid's OWN parent seat (see _recipients).
 
 Request shape VERIFIED against Mobile Message's live API docs (Aug 2026):
 POST /v1/messages, Basic auth (API username:password base64), messages[] of
@@ -71,7 +73,29 @@ def _recipients(target):
         return _split(_env(f"MOBILE_MESSAGE_PARENTS_{code.upper()}"))
     if target == "parents":
         return _split(_env("MOBILE_MESSAGE_TO_PARENTS"))
-    return _split(_env(f"MOBILE_MESSAGE_TO_{target.upper()}"))
+    nums = _split(_env(f"MOBILE_MESSAGE_TO_{target.upper()}"))
+    if nums:
+        return nums
+    # A kid seat with no number of its own can carry an EXPLICIT roster redirect
+    # ("kid_comms_via": "parents") — the y9 US-phone gap, ratified 31 Aug 2026:
+    # that kid's own seat has no SMS channel at all, so his nudges ride the
+    # parent seat until he has a local number. Three guards keep this the
+    # opposite of the old silent fallback: a real TO_<CODE> secret always wins;
+    # no roster flag, no redirect (fail empty, senders abort loudly); and the
+    # redirect goes to THAT kid's own parent seat, never a shared list.
+    if _kid_comms_via(target) == "parents":
+        return _split(_env(f"MOBILE_MESSAGE_PARENTS_{target.upper()}"))
+    return []
+
+
+def _kid_comms_via(code):
+    """roster.json's per-seat redirect for a kid seat with no phone (see
+    _recipients). Fail-closed: an unreadable roster means no redirect."""
+    try:
+        import roster
+        return ((roster.entry(code) or {}).get("kid_comms_via") or "").strip()
+    except Exception:
+        return ""
 
 
 # Statuses Mobile Message can report per-message inside an HTTP-2xx body. A 2xx
