@@ -158,14 +158,15 @@ def deploy(domain, page_bytes, token):
     dep = api(f"/sites/{domain}/deploys", token, data={"files": manifest})
     dep_id = dep["id"]
     need = set(dep.get("required") or [])
-    uploaded = 0
     for path, blob in uploads.items():
         if shas[path] in need:
-            api(f"/deploys/{dep_id}/files{path}", token,
-                data=blob, ctype="application/octet-stream", method="PUT")
+            put = api(f"/deploys/{dep_id}/files{path}", token,
+                      data=blob, ctype="application/octet-stream", method="PUT") or {}
+            print(f"  {domain}: deploy {dep_id} PUT {path} — sent sha {shas[path][:12]}, "
+                  f"Netlify recorded {(put.get('sha') or '?')[:12]}")
             need.discard(shas[path])
-            uploaded += 1
-    print(f"  {domain}: deploy {dep_id} — Netlify required {uploaded} of {len(uploads)} upload(s)")
+        else:
+            print(f"  {domain}: deploy {dep_id} — {path} already in Netlify's store (sha {shas[path][:12]})")
     if need:
         raise SystemExit(f"{domain}: deploy {dep_id} wants {len(need)} file(s) this run does not hold — "
                          "abandoned, site unchanged")
@@ -193,6 +194,19 @@ def deploy(domain, page_bytes, token):
         if pub != dep_id:
             raise SystemExit(f"{domain}: could not publish deploy {dep_id} (site still publishes {pub}) — "
                              "check the site's published/locked deploy in the Netlify dashboard")
+    # CONTROL-PLANE PROOF (round 7 lesson): every HTTP probe from one runner can be
+    # served by a stale CDN edge (query strings are ignored for static caching —
+    # even a deploy permalink's first fetch can pin a fallback body for the whole
+    # retry window). Netlify's API is uncacheable: the published deploy's own file
+    # manifest must carry EXACTLY the sha we built. This, plus published == ours
+    # above, proves the site publishes our bytes regardless of any edge's lag.
+    listed = api(f"/deploys/{dep_id}/files", token, timeout=30) or []
+    got = {("/" + str(f.get("path") or f.get("id") or "").lstrip("/")): f.get("sha") for f in listed}
+    if got.get("/index.html") != shas["/index.html"]:
+        raise SystemExit(f"{domain}: deploy {dep_id} manifest carries /index.html sha "
+                         f"{str(got.get('/index.html'))[:12]}, expected {shas['/index.html'][:12]} — "
+                         "the upload did not take")
+    print(f"  {domain}: deploy {dep_id} published; API manifest confirms /index.html sha {shas['/index.html'][:12]}")
     return dep_id
 
 
@@ -214,30 +228,21 @@ def _check(url, code, want_version, want_stamp):
     return ok, ctype, detail
 
 
-def verify(domain, dep_id, code, want_version, want_stamp):
-    """Two-layer verification (rounds 3-6 of the 31 Aug incident taught each layer):
-    1. THE DEPLOY PERMALINK ({dep_id}--{site}) must serve THIS EXACT build, stamp
-       included — a per-deploy host the CDN cannot have stale. Proves the bytes.
-    2. THE MAIN URL must serve a fixed-shell page as text/html — WITHOUT demanding
-       the stamp: Netlify's edge ignores query strings for static caching and can
-       serve a seconds-old cached copy to one POP (the runner saw Age=20 while a
-       browser got the new page). Which build is published is already asserted
-       from the API (published_deploy == ours) in deploy(); demanding the stamp
-       from one laggy edge only manufactures false alarms."""
-    site = domain.split(".netlify.app")[0]
-    permalink = f"https://{dep_id}--{site}.netlify.app/?cb={int(time.time())}"
+def verify(domain, code, want_version):
+    """Data-plane sanity: the MAIN URL serves a fixed-shell page as text/html.
+    The exact-bytes and publication proofs live in deploy() against the API (the
+    control plane, uncacheable). A CDN edge can re-serve a seconds-old copy to
+    one client regardless of query-string busters (rounds 4-7 of the 31 Aug
+    incident), so this deliberately does not demand this build's stamp — only
+    that what the edge serves is a correctly-typed fixed shell for this seat."""
     last = ""
     for attempt in range(6):
         if attempt:
             time.sleep(4)
-        ok, _, detail = _check(permalink, code, want_version, want_stamp)
-        if not ok:
-            last = "permalink: " + detail
-            continue
-        ok2, ctype, detail2 = _check(f"https://{domain}/?cb={int(time.time())}", code, want_version, None)
-        if ok2:
+        ok, ctype, detail = _check(f"https://{domain}/?cb={int(time.time())}", code, want_version, None)
+        if ok:
             return ctype
-        last = "main url: " + detail2
+        last = detail
     raise SystemExit(f"{domain}: VERIFY FAILED after {attempt + 1} tries — {last}")
 
 
@@ -267,7 +272,7 @@ def main():
                 print(f"  {code} @ {domain}: shell v{old_v} live, v{new_v} built ({len(page)//1024} KB) — dry run, not deployed")
                 continue
             dep_id = deploy(domain, page, token)
-            ctype = verify(domain, dep_id, code, new_v, stamp)
+            ctype = verify(domain, code, new_v)
             print(f"  {code} @ {domain}: shell v{old_v} -> v{new_v}  deploy {dep_id}  served {ctype}  VERIFIED LIVE ✓")
         except SystemExit as e:                # per-seat isolation: one bad seat never blocks the rest
             print(f"  ✗ {e}")
