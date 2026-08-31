@@ -15,12 +15,16 @@ The two guard each other, and that complementarity is the whole design:
   * Tripwire 2 (this one): sees missing runs each evening; blind only if
     GitHub itself is fully down — which Tripwire 1 sees as timeouts.
 
-WHAT IT CHECKS (weekdays only — both were the 26 Aug casualties):
-  daily-quiz.yml   the quiz build   (expected 14:00 AEST + ladder)
-  kid-nudge.yml    the kid nudge    (expected 16:00 AEST + ladder)
-"Happened" = at least one run of that workflow was CREATED today (AEST). We
-ask only whether the run FIRED, not its conclusion — a green run that
-published nothing is the watchdog's department (cursors), not this one's.
+WHAT IT CHECKS (both were the 26 Aug casualties):
+  daily-quiz.yml   the quiz build   (expected 14:00 AEST + ladder; window closes 15:30)
+  kid-nudge.yml    the kid nudge    (expected 16:00 AEST + ladder; window closes 17:30)
+"Happened" = at least one run of that workflow was CREATED on the checked AEST
+date. The date and job list come from checks_for(now) — only windows that have
+CLOSED are ever checked, and a run landing before today's windows close checks
+the previous school day instead (drift-proofing: GitHub ran the 18:15 rung at
+02:08 the next morning on 1 Sep and false-alarmed a healthy scheduler). We ask
+only whether the run FIRED, not its conclusion — a green run that published
+nothing is the watchdog's department (cursors), not this one's.
 
 DEPENDENCIES, deliberately minimal — this must survive when other things don't:
   * GITHUB_TOKEN with actions:read   (the workflow grants it; ephemeral, per-run)
@@ -50,10 +54,12 @@ ALERT_SEAT = "t1"                       # Rich's own handset — ops only
 REPO = "Rich898/DailyXP-content"
 RUNS_API = "https://api.github.com/repos/{repo}/actions/workflows/{wf}/runs?per_page=20"
 
-# Weekday jobs whose absence today is a real incident.
+# Weekday jobs whose absence is a real incident, each with the AEST time its
+# expected window CLOSES (scheduled slot + retry ladder + slack). A job is only
+# ever checked AFTER its window has closed — see checks_for.
 EXPECTED = [
-    ("daily-quiz.yml", "daily quiz build"),
-    ("kid-nudge.yml",  "kid nudge"),
+    ("daily-quiz.yml", "daily quiz build", dt.time(15, 30)),   # 14:00 slot + slack
+    ("kid-nudge.yml",  "kid nudge",        dt.time(17, 30)),   # 16:00 + ladder to 17:15
 ]
 
 
@@ -64,8 +70,30 @@ def syd_now():
     return dt.datetime.utcnow() + dt.timedelta(hours=10)
 
 
-def ran_today(wf, today_aest, token):
-    """True if a run of `wf` was created on today's AEST date."""
+def checks_for(now):
+    """(date_to_check, [(wf, label), ...]) — only windows that have CLOSED.
+
+    GitHub's best-effort cron can run this HOURS late (proven 1 Sep 2026: the
+    18:15 AEST rung fired at 02:08 the next morning, asked 'did today's runs
+    happen?' about a day whose windows hadn't even opened, and texted Rich a
+    false 'scheduler/dispatch may be down' — while pg_cron had fired every job
+    to the second). So the question is derived from the CLOCK, not the rung:
+    a run landing before today's first window closes checks the PREVIOUS
+    school day instead — whose windows are all closed — and weekends check
+    Friday. Whenever this runs, it now asks a question that has an answer."""
+    day, t = now.date(), now.time()
+    if day.weekday() < 5:
+        due = [(wf, lbl) for wf, lbl, closes in EXPECTED if t >= closes]
+        if due:
+            return day, due
+    prev = day - dt.timedelta(days=1)
+    while prev.weekday() >= 5:
+        prev -= dt.timedelta(days=1)
+    return prev, [(wf, lbl) for wf, lbl, _ in EXPECTED]
+
+
+def ran_on(wf, date_aest, token):
+    """True if a run of `wf` was created on the given AEST date."""
     req = urllib.request.Request(
         RUNS_API.format(repo=REPO, wf=wf),
         headers={
@@ -82,21 +110,20 @@ def ran_today(wf, today_aest, token):
         if not created:
             continue
         c_utc = dt.datetime.strptime(created, "%Y-%m-%dT%H:%M:%SZ")
-        if (c_utc + dt.timedelta(hours=10)).date() == today_aest:
+        if (c_utc + dt.timedelta(hours=10)).date() == date_aest:
             return True
     return False
 
 
 def check(token, now):
     """Return a list of human-readable misses. Empty = healthy."""
-    if now.weekday() >= 5:                          # weekend — nothing expected
-        return []
-    today = now.date()
+    target, jobs = checks_for(now)
+    when = "today" if target == now.date() else f"on {target:%a %Y-%m-%d}"
     misses = []
-    for wf, label in EXPECTED:
+    for wf, label in jobs:
         try:
-            if not ran_today(wf, today, token):
-                misses.append(f"{label} ({wf}) has no run today")
+            if not ran_on(wf, target, token):
+                misses.append(f"{label} ({wf}) has no run {when}")
         except Exception as e:
             # An API error is itself worth flagging, never swallowing — a
             # tripwire that fails silent is the bug we are fixing.
