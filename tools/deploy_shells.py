@@ -107,8 +107,14 @@ def build_page(code, name):
     built = src.replace("__STUDENT__", code).replace("__NAME__", name)
     if "__STUDENT__" in built or "__NAME__" in built:
         raise SystemExit("stamp failed: placeholders left in the build")
-    stamp = f"xpdaily-shell-build {code} {time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())} {time.time_ns() % 10**9}"
-    built += f"\n<!-- {stamp} -->\n"
+    # A META tag, not an HTML comment: Netlify's post-processing strips a trailing
+    # comment from the served page (round 4 of this incident — the stamp never came
+    # back no matter how long verify waited). report_page's xpdaily-build stamp is a
+    # head meta for the same reason; mirror the proven form.
+    stamp = f"{code}-{time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())}-{time.time_ns() % 10**9}"
+    if built.count("</title>") != 1:
+        raise SystemExit("stamp failed: expected exactly one </title> anchor in the template")
+    built = built.replace("</title>", f'</title><meta name="xpdaily-shell-build" content="{stamp}">', 1)
     return built.encode("utf-8"), RE_VERSION.search(built).group(1), stamp
 
 
