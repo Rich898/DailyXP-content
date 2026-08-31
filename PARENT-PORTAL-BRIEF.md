@@ -247,3 +247,19 @@ worth knowing" (`_fold_fluency` + `report_page._subject_block
 fluency_detail`), replacing that subject's misconception detail when both
 fire — other subjects keep their misconception details; the page-level
 callout is gone.
+
+**Round 3 — 30 Aug, THE WEEKLY UPDATE:** the activity strip becomes **BY THE
+NUMBERS**, its own deliberate tile section — nights run (excused-aware) ·
+questions answered · **overall accuracy** (shown only at 10+ answered, the
+small-sample law; runner-supplied via `activity.questions/right`, else summed
+from the per-topic counts so the tiles always agree with the tables) · topics
+practised · events — followed by a **BY SUBJECT** section header before the
+spine. The **"This week his sets worked" intro line is removed on the portal**
+(the topic/where-he-is/depth table IS the organisation; the line repeated its
+first column). The **"full Friday report" link is removed — the Weekly update
+IS the Friday report** (open decision 3, re-decided by Rich's round-3 read):
+the standalone `/r/` render's only remaining job is the frozen dated snapshot
+the archive lists; its extras (the teach-back quote, say-one-thing / do-one-
+thing, depth-movement, week-on-week tiles, speed, next-week plan, XP total,
+reading notes) migrate into the Weekly update or are culled — per piece, on
+Rich's pick, next rounds.

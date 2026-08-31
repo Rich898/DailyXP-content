@@ -113,9 +113,9 @@ portal = pp.build_portal("Harrison", "2026-08-10", TOPICS, SUBJECTS_BLOCK, RADAR
                          updated="2026-08-31",
                          week_verdict={"word": "solid"},
                          activity={"days_done": 4, "possible": 5,
-                                   "topics_practised": 7, "events": 1})
-pages = pp.render_pages(portal, kid_wrap_url="https://x.example/w/abc/",
-                        report_url="https://x.example/r/abc/2026-08-10/")
+                                   "topics_practised": 7, "events": 1,
+                                   "questions": 41, "right": 34})
+pages = pp.render_pages(portal, kid_wrap_url="https://x.example/w/abc/")
 t("exactly the four pages render", set(pages) == {"", "ahead", "week", "picture"})
 home, ahead, week, picture = pages[""], pages["ahead"], pages["week"], pages["picture"]
 
@@ -178,7 +178,15 @@ print("\nthe weekly update — Friday, backward (round-2 feedback locked):")
 t("the page is the Weekly update, and names the reported week's span",
   "Weekly update" in week and "Mon 10 – Fri 14 Aug" in week)
 t("the verdict word is the hero", ">Solid</h1>" in week)
-t("the excused-aware activity strip renders", "4 of 5" in week)
+t("BY THE NUMBERS is its own deliberate section",
+  "BY THE NUMBERS" in week and "BY SUBJECT" in week
+  and week.index("BY THE NUMBERS") < week.index("BY SUBJECT"))
+t("the tiles carry nights (excused-aware), questions and overall accuracy",
+  "Nights run" in week and "of 5" in week
+  and "Questions answered" in week and ">41<" in week
+  and "Overall accuracy" in week and "34 of 41 right" in week)
+t("the intro line is gone — the table IS the organisation",
+  "This week his sets worked" not in week)
 t("the fluency catch lives INSIDE its subject block as the detail worth "
   "knowing — no page-level interruption",
   "class='fluency'" not in week
@@ -190,7 +198,8 @@ t("per-topic practice volume renders — asked and right",
   "<b>2</b> asked" in week and "<b>1</b> right" in week)
 t("the counts carry their small-sample caveat",
   "practice volume, not a score" in week)
-t("the full Friday report is linked", "https://x.example/r/abc/2026-08-10/" in week)
+t("no second 'full report' link — the Weekly update IS the Friday report",
+  "full Friday report" not in week and "rowlink" not in week.split("</style>")[1])
 oo_blocks = [
     {"subject": "Science", "unit": "U", "worked": ["W"],
      "topics": [{"topic": "W", "state": "solid", "depth": None, "asked": 1, "right": 1}]},
@@ -205,6 +214,9 @@ t("subjects render in the one canonical order, whatever order blocks arrive",
   if ">MATHS<" in oo else oo.index("Maths") < oo.index("Science"))
 t("a single question's accuracy is suppressed — volume only",
   "<b>1</b> asked" in oo and "<b>1</b> right" not in oo and "<b>0</b> right" not in oo)
+t("with no runner totals the tiles sum the table; under 10 answered, "
+  "overall accuracy is suppressed too",
+  "Questions answered" in oo and ">2<" in oo and "Overall accuracy" not in oo)
 
 print("\nthe running picture — Friday, cumulative:")
 t("the landed tally leads", "of " in picture and "tally" in picture)

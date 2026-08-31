@@ -316,6 +316,13 @@ body.pg-week h1.word{color:var(--ink)}
 .wa-dates .dr .dw{color:var(--haze);font-size:13px;white-space:nowrap}
 .wa-dates .steer{font-size:12.5px;color:var(--haze);margin-top:6px;line-height:1.45}
 .wa-empty,.tw-empty,.map-empty{color:var(--haze);font-size:14.5px;line-height:1.55;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
+/* ------------------------------------------------ the weekly update */
+.byn{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px}
+.byn .cell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.byn .k{font-size:10.5px;letter-spacing:.08em;color:var(--haze);text-transform:uppercase;font-weight:700}
+.byn .v{font-size:24px;font-weight:700;font-family:'Space Mono',ui-monospace,monospace;margin-top:4px;line-height:1.1}
+.byn .v .u{font-size:13px;color:var(--haze);font-weight:400;font-family:'Space Grotesk',system-ui,sans-serif}
+.byn .sub{font-size:11.5px;color:var(--haze);margin-top:3px;line-height:1.35}
 .loop{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0D1A2C;border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:18px;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.45}
 .loop .go{color:var(--haze);font-size:20px;line-height:1}
 .loop b{color:var(--acc)}
@@ -696,11 +703,57 @@ def _fold_fluency(blocks, fluency):
     return out
 
 
-def _week_page(portal, hrefs, report_url=None):
+def _by_the_numbers(activity, blocks):
+    """BY THE NUMBERS — the week's totals as a deliberate tile section (Rich,
+    30 Aug): nights run (excused-aware denominator), questions answered,
+    overall accuracy, topics practised, events. Question totals come from the
+    activity dict when the runner supplies them, else they are the sum of the
+    per-topic counts below — the tiles always agree with the table.
+
+    Overall accuracy renders only at 10+ answered (the small-sample law —
+    below that a percentage is noise, and the per-topic counts already tell
+    the story)."""
+    activity = activity or {}
+    asked = activity.get("questions")
+    right = activity.get("right")
+    if asked is None:
+        asked = sum(t.get("asked") or 0 for b in blocks for t in b.get("topics") or [])
+        right = sum(t.get("right") or 0 for b in blocks for t in b.get("topics") or [])
+    cells = []
+    if activity.get("possible"):
+        cells.append(("Nights run",
+                      f"{activity.get('days_done', 0)}<span class='u'> of "
+                      f"{activity['possible']}</span>", ""))
+    if asked:
+        cells.append(("Questions answered", f"{asked}", ""))
+        if right is not None and asked >= 10:
+            pct = round(100 * right / asked)
+            cells.append(("Overall accuracy", f"{pct}<span class='u'>%</span>",
+                          f"{right} of {asked} right"))
+    if activity.get("topics_practised"):
+        cells.append(("Topics practised", f"{activity['topics_practised']}", ""))
+    ev = activity.get("events", 0)
+    if ev:
+        cells.append(("Events cleared", f"{ev}", ""))
+    if not cells:
+        return ""
+    tiles = "".join(
+        f"<div class='cell'><div class='k'>{_e(k)}</div><div class='v'>{v}</div>"
+        + (f"<div class='sub'>{_e(sub)}</div>" if sub else "") + "</div>"
+        for k, v, sub in cells)
+    return ("<div class='section'>BY THE NUMBERS</div>"
+            f"<div class='byn'>{tiles}</div>")
+
+
+def _week_page(portal, hrefs):
     name = portal.get("name", "")
     tw = portal.get("this_week") or {}
     blocks = sorted(tw.get("blocks") or [], key=lambda b: _subject_key(b.get("subject")))
     blocks = _fold_fluency(blocks, tw.get("fluency"))
+    # The topic / where-he-is / depth table carries the whole story; the
+    # "this week his sets worked" intro repeated its first column (Rich,
+    # 30 Aug) — stripped here, on the portal only.
+    blocks = [{k: v for k, v in b.items() if k != "worked"} for b in blocks]
     word = (portal.get("week_verdict") or {}).get("word")
     span = _span_label(tw.get("week_of") or "")
     eyebrow_txt = f"Weekly update · {span}" if span else "Weekly update · Friday evening"
@@ -719,23 +772,16 @@ def _week_page(portal, hrefs, report_url=None):
                   "topic stands, and the one detail worth knowing — subject by "
                   "subject.</p>")
     parts = []
-    activity = portal.get("activity") or {}
-    if blocks and activity.get("possible"):
-        parts.append(rp._activity_strip({"activity": activity}))
     if blocks:
+        parts.append(_by_the_numbers(portal.get("activity"), blocks))
+        parts.append("<div class='section'>BY SUBJECT</div>")
         parts.append("".join(rp._subject_block(b, name) for b in blocks))
         if any(t.get("asked") for b in blocks for t in b.get("topics") or []):
-            parts.append("<p class='notes'>Question counts are small by design "
-                         "— a handful per topic each week — so read them as "
+            parts.append("<p class='notes'>Per-topic question counts are small "
+                         "by design — a handful each week — so read them as "
                          "practice volume, not a score. The coloured position "
                          "is the considered read; it weighs more evidence than "
                          "one week.</p>")
-        if report_url:
-            parts.append(f"<a class='rowlink' href='{_e(report_url)}'>"
-                         "<span><b>The full Friday report</b>"
-                         "<span class='sub'>The quote, the say-one-thing "
-                         "scripts, week on week — the long form.</span></span>"
-                         "<span class='go'>&#8250;</span></a>")
     else:
         parts.append("<div class='tw-empty'>The weekly update lands Friday "
                      "evening — what each subject actually worked, where it "
@@ -866,23 +912,26 @@ def _picture_page(portal, hrefs):
 # --------------------------------------------------------------------------- #
 # Entry point
 
-def render_pages(portal, kid_wrap_url=None, report_url=None, nav=None):
+def render_pages(portal, kid_wrap_url=None, nav=None):
     """The four portal pages, as {relative path: html}:
 
         ""         home (publish at  p/<slug>)
-        "ahead"    the week ahead    (p/<slug>/ahead)
-        "week"     this week         (p/<slug>/week)
+        "ahead"    the week ahead      (p/<slug>/ahead)
+        "week"     the weekly update   (p/<slug>/week)
         "picture"  the running picture (p/<slug>/picture)
 
     Pages cross-link relatively by default (they live under one slug), so no
     base URL is needed at render time; `nav` = {key: href} overrides every
     page's nav targets (used by the artifact preview, where the four pages live
-    at four absolute URLs). `report_url` links This Week to the full dated
-    Friday page when one exists; `kid_wrap_url` links home to the player card.
+    at four absolute URLs). `kid_wrap_url` links home to the player card.
+
+    The Weekly update IS the Friday report (Rich, 30 Aug) — there is no
+    second "full report" page to link; the standalone `/r/` render's only
+    remaining job is the frozen dated snapshot the archive lists.
     """
     return {
         "": _home_page(portal, _hrefs("", nav), kid_wrap_url=kid_wrap_url),
         "ahead": _ahead_page(portal, _hrefs("ahead", nav)),
-        "week": _week_page(portal, _hrefs("week", nav), report_url=report_url),
+        "week": _week_page(portal, _hrefs("week", nav)),
         "picture": _picture_page(portal, _hrefs("picture", nav)),
     }

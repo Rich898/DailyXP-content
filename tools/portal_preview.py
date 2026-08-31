@@ -174,7 +174,7 @@ def build():
                   "events": 1},
         upcoming=UPCOMING,
     )
-    return pp.render_pages(portal, kid_wrap_url="#", report_url="#")
+    return pp.render_pages(portal, kid_wrap_url="#")
 
 
 def write(pages, out=OUT):
