@@ -817,13 +817,18 @@ function swInjectCSS(){
 
 
 
+/*NUMERIC-WIDGET-START*/
 /* ===== embedded numeric widget ===== */
 function mountNumeric(container, q, cb){
   nmInjectCSS();
   var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
   var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
-  var CALC_KEYS=[['C','(',')','\u232b'],['7','8','9','\u00f7'],['4','5','6','\u00d7'],['1','2','3','\u2212'],['0','.','=','+']];
-  var NUM_KEYS =[['7','8','9'],['4','5','6'],['1','2','3'],['\u00b1','0','\u232b']];
+  // Decimal + fraction entry on BOTH pads (31 Aug 2026 — live-fire fix: t1 was served answer 0.4
+  // on a mental slot with no '.' key, and an 'as a fraction' slot with no way to write one).
+  // '/' is the FRACTION key (label a/b): writing the answer as a fraction, not computing — it
+  // never flips the used-calculator flag. Equivalent forms all earn credit: 0.4 == 2/5 == 4/10.
+  var CALC_KEYS=[['C','(',')','\u232b'],['7','8','9','\u00f7'],['4','5','6','\u00d7'],['1','2','3','\u2212'],['0','.','/','+'],['=']];
+  var NUM_KEYS =[['7','8','9'],['4','5','6'],['1','2','3'],['.','0','/'],['\u00b1','\u232b']];
   var entry='', usedOp=false, phase='answering', done=false;
 
   container.innerHTML =
@@ -839,15 +844,15 @@ function mountNumeric(container, q, cb){
   function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
   function trim(n){ return (Math.round(n*1e6)/1e6).toString(); }
   function isOp(k){ return '+\u2212\u00d7\u00f7()'.indexOf(k)>=0 && k.length===1; }
-  function trailingSeg(s){ return s.replace(/.*[+\u2212\u00d7\u00f7()]/,''); }
+  function trailingSeg(s){ return s.replace(/.*[+\u2212\u00d7\u00f7()\/]/,''); }
 
   /* safe shunting-yard evaluator (no eval) — verbatim from the approved prototype */
   function evalExpr(raw){
-    var s=String(raw).replace(/\u00d7/g,'*').replace(/\u00f7/g,'/').replace(/\u2212/g,'-').trim();
+    var s=String(raw).replace(/\u00d7/g,'*').replace(/\u00f7/g,':').replace(/\u2212/g,'-').trim();
     if(s==='') return NaN;
     if(s.charAt(0)==='-') s='0'+s;
-    var toks=s.match(/(\d+\.?\d*|\.\d+|[+\-*/()])/g); if(!toks) return NaN;
-    var out=[], ops=[], prec={'+':1,'-':1,'*':2,'/':2};
+    var toks=s.match(/(\d+\.?\d*|\.\d+|[+\-*/():])/g); if(!toks) return NaN;
+    var out=[], ops=[], prec={'+':1,'-':1,'*':2,':':2,'/':3};   // '/' = the fraction bar — binds tighter, so 8\u00f74/2 = 8\u00f7(4/2)
     for(var i=0;i<toks.length;i++){ var t=toks[i];
       if(/^[\d.]/.test(t)){ var n=parseFloat(t); if(!isFinite(n)) return NaN; out.push(n); }
       else if(t==='('){ ops.push(t); }
@@ -859,7 +864,7 @@ function mountNumeric(container, q, cb){
     for(var j=0;j<out.length;j++){ var x=out[j];
       if(typeof x==='number'){ st.push(x); }
       else { var b=st.pop(), a=st.pop(); if(a===undefined||b===undefined) return NaN;
-        st.push(x==='+'?a+b:x==='-'?a-b:x==='*'?a*b:a/b); } }
+        st.push(x==='+'?a+b:x==='-'?a-b:x==='*'?a*b:a/b); } }   // ':' and '/' both divide
     return st.length===1 ? st[0] : NaN;
   }
   function judge(val){ return isFinite(val) && Math.abs(val - q.answer) <= 0.01; }
@@ -874,8 +879,11 @@ function mountNumeric(container, q, cb){
   function renderKeys(){
     var rows=q.calc?CALC_KEYS:NUM_KEYS, cls=q.calc?'nm-pad calc':'nm-pad num', html='<div class="'+cls+'">';
     rows.forEach(function(row){ row.forEach(function(k){
-      var c='nm-key'; if(isOp(k)) c+=' op'; else if(k==='=') c+=' eq'; else if(k==='C'||k==='\u232b'||k==='\u00b1') c+=' fn';
-      html+='<button class="'+c+'" data-k="'+k+'">'+k+'</button>';
+      var c='nm-key', lbl=k;
+      if(isOp(k)) c+=' op'; else if(k==='=') c+=' eq'; else if(k==='C'||k==='\u232b'||k==='\u00b1') c+=' fn';
+      if(k==='/'){ c+=' frac'; lbl='a/b'; }
+      if(!q.calc && k==='\u232b') c+=' wide';
+      html+='<button class="'+c+'" data-k="'+k+'">'+lbl+'</button>';
     }); });
     html+='</div>'; keysWrap.innerHTML=html;
     var b=keysWrap.querySelectorAll('.nm-key'); for(var i=0;i<b.length;i++){ (function(btn){ btn.addEventListener('click',function(){ onKey(btn.getAttribute('data-k')); }); })(b[i]); }
@@ -886,7 +894,14 @@ function mountNumeric(container, q, cb){
     else if(k==='\u232b'){ entry=entry.slice(0,-1); }
     else if(k==='\u00b1'){ entry = entry.charAt(0)==='-'?entry.slice(1):'-'+entry; }
     else if(k==='='){ var v=evalExpr(entry); if(isFinite(v)){ entry=trim(v); usedOp=true; } else nudge(); }
-    else if(k==='.'){ var seg=q.calc?trailingSeg(entry):entry; if(seg.indexOf('.')===-1) entry+='.'; }
+    else if(k==='.'){ var seg=trailingSeg(entry); if(seg.indexOf('.')===-1) entry+='.'; else nudge(); }
+    else if(k==='/'){
+      // the fraction bar: needs a number in front; one fraction per answer on the mental pad.
+      // Writing a fraction is stating the answer — it never counts as calculator use.
+      if(!/\d$/.test(trailingSeg(entry)) && entry.charAt(entry.length-1)!==')'){ nudge(); }
+      else if(!q.calc && entry.indexOf('/')!==-1){ nudge(); }
+      else entry+='/';
+    }
     else if(isOp(k)){ entry+=k; usedOp=true; }
     else { entry+=k; }
     paint();
@@ -894,12 +909,12 @@ function mountNumeric(container, q, cb){
   function finish(ok,val,usedCalc){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok,value:val,usedCalc:usedCalc}); }catch(e){} }
   function doSubmit(){
     if(phase!=='answering') return;
-    var val = q.calc ? evalExpr(entry) : (entry===''||entry==='-'?NaN:parseFloat(entry));
+    var val = evalExpr(entry);   // both pads: bare numbers, decimals, and a/b fractions
     if(!isFinite(val)){ nudge(); return; }
     phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
     submitBtn.style.display='none';
     var ok=judge(val), usedCalc=!!(q.calc&&usedOp);
-    var ansStr=esc((q.pre||'')+trim(q.answer)+(q.post||''));
+    var ansStr=esc((q.pre||'')+(q.frac?q.frac+' (= '+trim(q.answer)+')':trim(q.answer))+(q.post||''));
     if(ok){
       buzz(18);
       var tag = q.calc ? (usedOp?'Computed on the calculator (logged).':'Answered directly \u2014 no calc used (logged).') : 'Mental \u2014 no calculator (logged).';
@@ -932,6 +947,9 @@ function nmInjectCSS(){
   ".nm-key.op{color:#39A7DE;border-color:rgba(57,167,222,.4)}.nm-key.fn{color:#8A97AD;font-size:18px}"+
   ".nm-key.eq{background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;border:none;box-shadow:0 4px 0 #8A5A00}"+
   ".nm-key.eq:active{transform:translateY(4px);box-shadow:0 0 0 #8A5A00}"+
+  ".nm-key.frac{color:#14C7C7;border-color:rgba(20,199,199,.45);font-size:16px;letter-spacing:.03em}"+
+  ".nm-pad.num .nm-key.wide{grid-column:span 2}"+
+  ".nm-pad.calc .nm-key.eq{grid-column:1/-1}"+
   ".nm-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:15px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:12px}"+
   ".nm-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
   ".nm-result{margin-top:10px}"+
@@ -941,6 +959,7 @@ function nmInjectCSS(){
   ".nm-strip b{color:#fff}.nm-strip .nm-lil{display:block;margin-top:6px;font-size:12px;font-weight:600;color:#8A97AD}";
   document.head.appendChild(css);
 }
+/*NUMERIC-WIDGET-END*/
 
 
 /* ===== embedded ordering widget ===== */
@@ -1587,7 +1606,12 @@ function numericOK(typed, q){
   var set={}; set[_normAns(q.answer)]=1;
   (q.accept||[]).forEach(function(a){ set[_normAns(a)]=1; });
   var bare=_leadNum(q.answer); if(bare) set[_normAns(bare)]=1;   // bare number always earns credit
-  return !!set[t];
+  if(set[t]) return true;
+  // a typed fraction a/b earns credit when its VALUE matches the answer (0.4 == 2/5 == 4/10)
+  var fm=String(typed).match(/^\s*(-?\d+(?:\.\d+)?)\s*\/\s*(-?\d+(?:\.\d+)?)\s*$/);
+  if(fm){ var den=parseFloat(fm[2]), bn=parseFloat(_leadNum(q.answer));
+    if(den && isFinite(bn) && Math.abs(parseFloat(fm[1])/den - bn)<=0.01) return true; }
+  return false;
 }
 /*NUMERIC-CORE-END*/
 

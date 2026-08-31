@@ -34,10 +34,11 @@ here before it's ever wired into live quizzes.
 |-------------|---------------------|------------------------------------------------------------------|
 | Plain MC    | LIVE                | One question, four short options, one answer, a re-teach.        |
 | Teach-back  | LIVE                | "Explain it in your own words," graded on verdict + depth.       |
-| Swipe Sort  | APPROVED (not live) | Flick a statement into one of two labelled buckets.              |
-| Numeric     | APPROVED (not live) | Type the maths answer — calculator on method Qs, number pad on mental. |
-| Ordering    | APPROVED (not live) | Drag scrambled tiles into the correct sequence (live reflow). |
-| Short-text  | APPROVED (not live) | Type a word or two; a fuzzy matcher forgives typos/variants. |
+| Swipe Sort  | LIVE (20 Aug 2026)  | Flick a statement into one of two labelled buckets.              |
+| Numeric     | LIVE (20 Aug 2026)  | Type the maths answer — calculator on method Qs, number pad on mental; decimals + a/b fractions since 31 Aug. |
+| Ordering    | LIVE (20 Aug 2026)  | Drag scrambled tiles into the correct sequence (live reflow). |
+| Short-text  | LIVE (20 Aug 2026)  | Type a word or two; a fuzzy matcher forgives typos/variants. |
+| Scrub It    | LIVE (31 Aug 2026)  | MC delivery mode: rub out the wrong answers; last one standing wins. See `SCRUB-WIDGET-BRIEF.md`. |
 
 ---
 
@@ -94,7 +95,9 @@ here before it's ever wired into live quizzes.
 
 ## Numeric / Calculator — spec
 
-**Status:** APPROVED for fun/quality (v1). NOT yet integrated into live quizzes.
+**Status:** LIVE since 20 Aug 2026 (Maths steady slots). Pads upgraded 31 Aug 2026: decimal point
+and a/b fraction entry on BOTH pads (live-fire fix — a mental slot with answer 0.4 had been
+unanswerable, and "as a fraction" questions had no way to write one). Locked by `shell/test_numeric.js`.
 **Preview / full build:** `modes/numeric/` (README has the design rationale).
 
 1. **What it is.** A typed-answer maths mechanic — no options to guess from. The player types
@@ -110,8 +113,13 @@ here before it's ever wired into live quizzes.
    (mental). Tag it wrong and you either hand a kid the answer (calc on a fact) or make a
    method question needlessly painful.
 
-4. **Answer mode.** Typed on a keypad: a computing calculator (`+ − × ÷`, parens, `=`) for
-   method Qs; a plain number pad (digits, `.`, `±`, no operators) for mental Qs.
+4. **Answer mode.** Typed on a keypad: a computing calculator (`+ − × ÷`, parens, `=`, plus the
+   `a/b` fraction key) for method Qs; a plain number pad (digits, `.`, `a/b`, `±`, no operators)
+   for mental Qs. **Equivalence law (31 Aug 2026):** any equivalent form of the value earns
+   credit — `0.4`, `2/5` and `4/10` are the same answer. The fraction key writes an answer, it
+   never computes — it does NOT flip the calc-used flag (honest-signal law, item 5). An authored
+   `frac` field carries the canonical fraction the reveal displays ("2/5 (= 0.4)"), validated
+   for equivalence by `tools/validate.py`.
 
 5. **Ledger rule (two parts).** (a) A typed answer has no options to guess from, so numeric is
    **stronger** mastery evidence than 4-option MC — a calc-off mental answer is stronger still.

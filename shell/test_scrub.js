@@ -1,5 +1,5 @@
-// XPDaily — Scrub It integration proof (stage 1b: staging-shell wiring).
-// Sources are extracted VERBATIM from integration/shell-staging.html between the
+// XPDaily — Scrub It integration proof (stage 2: LIVE template wiring — merged 31 Aug 2026).
+// Sources are extracted VERBATIM from shell/template_v3.html between the
 // SCRUB-WIDGET / SCRUB-WIRING markers and driven with a stub DOM (house pattern,
 // same as test_fx.js). Locks the HARD CONTRACT:
 //   1. DELIBERATE-STROKE LAW — a stroke only erases the tile it STARTED on;
@@ -17,7 +17,7 @@
 //   7. Ratified constants — ER_TUNE {22, 0.62, 2, 2} and the block identity.
 "use strict";
 const fs = require("fs");
-const src = fs.readFileSync(__dirname + "/../integration/shell-staging.html", "utf8");
+const src = fs.readFileSync(__dirname + "/template_v3.html", "utf8");
 
 let fails = 0;
 function check(name, ok, d) { console.log((ok ? "  ok   " : "  FAIL ") + name + (d ? "  [" + d + "]" : "")); if (!ok) fails++; }

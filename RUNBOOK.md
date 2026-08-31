@@ -10,7 +10,7 @@
 - **The LLM never holds state.** Sheet = raw event log. Mastery ledgers (kept privately) = curated state.
 
 ## Shell source & tests (in /shell)
-- `template_v3.html` — canonical shell. Build a student copy: replace `__STUDENT__` (y9|y8) and `__NAME__`, set the webhook URL constant, zip as `index.html`, deploy to that student's Netlify project (Deploys → drag zip → same project, URL unchanged).
+- `template_v3.html` — canonical shell. Build the student copies with `python3 tools/stamp_shell.py --names "y8=<Name>,y9=<Name>,t1=<Name>"` (stamps `__STUDENT__`/`__NAME__`, writes one drag-deploy zip per seat into gitignored `shell/build/`), then deploy each zip to that student's Netlify project (Deploys → drag zip → same project, URL unchanged). ⚠ A template fix reaches NOBODY until all three sites are re-deployed — the shells are static copies, not readers of this repo (the 31 Aug Scrub-It lesson).
 - `test_timing.js` — proves the timing invariants (active ≤ elapsed etc.) against the extracted TIMING-CORE.
 - `test_integration.js` — jsdom plays a full run against the built shell, captures the webhook POST, asserts payload + invariant. Needs `npm i jsdom` and a built `roshan/index.html` + `y9.json` beside it.
 - `test_offline.js` — send-fails → outbox → flush-on-open path.

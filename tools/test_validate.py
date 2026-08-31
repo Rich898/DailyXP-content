@@ -71,6 +71,39 @@ s = base(); s["questions"][0]["options"] = ["only one"]
 e, w = validate_set(s)
 check("mc with <2 options → error", any("needs an options list" in x for x in e), str(e))
 
+# --- numeric 'frac' (decimal+fraction upgrade, 31 Aug 2026) ---
+def numeric_q(**kw):
+    q = {"id": "T3", "phase": "steady", "subject": "Maths", "prompt": "P(yellow) from 4 of 10?",
+         "type": "numeric", "answer": 0.4, "calc": False, "pre": "", "post": "",
+         "why": "4 out of 10.", "fresh": True}
+    q.update(kw)
+    return q
+
+# 6a. numeric with a matching frac passes
+s = base(); s["questions"].insert(1, numeric_q(frac="2/5"))
+e, w = validate_set(s)
+check("numeric frac 2/5 == 0.4 → clean", e == [], str(e))
+
+# 6b. frac that doesn't equal the answer is REJECTED (review can't see numeric answers — §C7)
+s = base(); s["questions"].insert(1, numeric_q(frac="3/8"))
+e, w = validate_set(s)
+check("numeric frac 3/8 != 0.4 → error", any("must equal the keyed value" in x for x in e), str(e))
+
+# 6c. malformed frac is REJECTED
+s = base(); s["questions"].insert(1, numeric_q(frac="two fifths"))
+e, w = validate_set(s)
+check("numeric malformed frac → error", any("must look like 'a/b'" in x for x in e), str(e))
+
+# 6d. zero denominator is REJECTED
+s = base(); s["questions"].insert(1, numeric_q(frac="4/0"))
+e, w = validate_set(s)
+check("numeric frac zero denominator → error", any("zero denominator" in x for x in e), str(e))
+
+# 6e. no frac stays valid (optional field)
+s = base(); s["questions"].insert(1, numeric_q())
+e, w = validate_set(s)
+check("numeric without frac → clean", e == [], str(e))
+
 # --- regression: unrelated checks still fire (proves the edit didn't loosen the gate) ---
 # 7. answer not among options
 s = base(); s["questions"][0]["answer"] = "5"

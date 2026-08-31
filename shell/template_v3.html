@@ -329,7 +329,7 @@ var CONFIG = {
   WEBHOOK_URL: "https://script.google.com/macros/s/AKfycbyqm-ejLSDP9F7wCjZCgx4E0Ugh285GJf7AjmH5TBeRJ44OTFI6H-CwJ2Gx7ZyE5f-mEQ/exec",
   SUPABASE_URL: "https://ftknumgdmalxyjxvqlux.supabase.co",
   SUPABASE_ANON: "sb_publishable_02mBzFnvRg5fZFrzq3w3pg_xXzVK7KF",
-  SHELL_VERSION: "3.1.0"
+  SHELL_VERSION: "3.2.0"   // 3.2.0 (31 Aug 2026): Scrub It merged live; numeric pads gain decimal + a/b fraction entry
 };
 
 var SPEED_SECONDS = 30;
@@ -880,13 +880,18 @@ function swInjectCSS(){
 
 
 
+/*NUMERIC-WIDGET-START*/
 /* ===== embedded numeric widget ===== */
 function mountNumeric(container, q, cb){
   nmInjectCSS();
   var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
   var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
-  var CALC_KEYS=[['C','(',')','\u232b'],['7','8','9','\u00f7'],['4','5','6','\u00d7'],['1','2','3','\u2212'],['0','.','=','+']];
-  var NUM_KEYS =[['7','8','9'],['4','5','6'],['1','2','3'],['\u00b1','0','\u232b']];
+  // Decimal + fraction entry on BOTH pads (31 Aug 2026 — live-fire fix: t1 was served answer 0.4
+  // on a mental slot with no '.' key, and an 'as a fraction' slot with no way to write one).
+  // '/' is the FRACTION key (label a/b): writing the answer as a fraction, not computing — it
+  // never flips the used-calculator flag. Equivalent forms all earn credit: 0.4 == 2/5 == 4/10.
+  var CALC_KEYS=[['C','(',')','\u232b'],['7','8','9','\u00f7'],['4','5','6','\u00d7'],['1','2','3','\u2212'],['0','.','/','+'],['=']];
+  var NUM_KEYS =[['7','8','9'],['4','5','6'],['1','2','3'],['.','0','/'],['\u00b1','\u232b']];
   var entry='', usedOp=false, phase='answering', done=false;
 
   container.innerHTML =
@@ -902,15 +907,15 @@ function mountNumeric(container, q, cb){
   function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
   function trim(n){ return (Math.round(n*1e6)/1e6).toString(); }
   function isOp(k){ return '+\u2212\u00d7\u00f7()'.indexOf(k)>=0 && k.length===1; }
-  function trailingSeg(s){ return s.replace(/.*[+\u2212\u00d7\u00f7()]/,''); }
+  function trailingSeg(s){ return s.replace(/.*[+\u2212\u00d7\u00f7()\/]/,''); }
 
   /* safe shunting-yard evaluator (no eval) — verbatim from the approved prototype */
   function evalExpr(raw){
-    var s=String(raw).replace(/\u00d7/g,'*').replace(/\u00f7/g,'/').replace(/\u2212/g,'-').trim();
+    var s=String(raw).replace(/\u00d7/g,'*').replace(/\u00f7/g,':').replace(/\u2212/g,'-').trim();
     if(s==='') return NaN;
     if(s.charAt(0)==='-') s='0'+s;
-    var toks=s.match(/(\d+\.?\d*|\.\d+|[+\-*/()])/g); if(!toks) return NaN;
-    var out=[], ops=[], prec={'+':1,'-':1,'*':2,'/':2};
+    var toks=s.match(/(\d+\.?\d*|\.\d+|[+\-*/():])/g); if(!toks) return NaN;
+    var out=[], ops=[], prec={'+':1,'-':1,'*':2,':':2,'/':3};   // '/' = the fraction bar — binds tighter, so 8\u00f74/2 = 8\u00f7(4/2)
     for(var i=0;i<toks.length;i++){ var t=toks[i];
       if(/^[\d.]/.test(t)){ var n=parseFloat(t); if(!isFinite(n)) return NaN; out.push(n); }
       else if(t==='('){ ops.push(t); }
@@ -922,7 +927,7 @@ function mountNumeric(container, q, cb){
     for(var j=0;j<out.length;j++){ var x=out[j];
       if(typeof x==='number'){ st.push(x); }
       else { var b=st.pop(), a=st.pop(); if(a===undefined||b===undefined) return NaN;
-        st.push(x==='+'?a+b:x==='-'?a-b:x==='*'?a*b:a/b); } }
+        st.push(x==='+'?a+b:x==='-'?a-b:x==='*'?a*b:a/b); } }   // ':' and '/' both divide
     return st.length===1 ? st[0] : NaN;
   }
   function judge(val){ return isFinite(val) && Math.abs(val - q.answer) <= 0.01; }
@@ -937,8 +942,11 @@ function mountNumeric(container, q, cb){
   function renderKeys(){
     var rows=q.calc?CALC_KEYS:NUM_KEYS, cls=q.calc?'nm-pad calc':'nm-pad num', html='<div class="'+cls+'">';
     rows.forEach(function(row){ row.forEach(function(k){
-      var c='nm-key'; if(isOp(k)) c+=' op'; else if(k==='=') c+=' eq'; else if(k==='C'||k==='\u232b'||k==='\u00b1') c+=' fn';
-      html+='<button class="'+c+'" data-k="'+k+'">'+k+'</button>';
+      var c='nm-key', lbl=k;
+      if(isOp(k)) c+=' op'; else if(k==='=') c+=' eq'; else if(k==='C'||k==='\u232b'||k==='\u00b1') c+=' fn';
+      if(k==='/'){ c+=' frac'; lbl='a/b'; }
+      if(!q.calc && k==='\u232b') c+=' wide';
+      html+='<button class="'+c+'" data-k="'+k+'">'+lbl+'</button>';
     }); });
     html+='</div>'; keysWrap.innerHTML=html;
     var b=keysWrap.querySelectorAll('.nm-key'); for(var i=0;i<b.length;i++){ (function(btn){ btn.addEventListener('click',function(){ onKey(btn.getAttribute('data-k')); }); })(b[i]); }
@@ -949,7 +957,14 @@ function mountNumeric(container, q, cb){
     else if(k==='\u232b'){ entry=entry.slice(0,-1); }
     else if(k==='\u00b1'){ entry = entry.charAt(0)==='-'?entry.slice(1):'-'+entry; }
     else if(k==='='){ var v=evalExpr(entry); if(isFinite(v)){ entry=trim(v); usedOp=true; } else nudge(); }
-    else if(k==='.'){ var seg=q.calc?trailingSeg(entry):entry; if(seg.indexOf('.')===-1) entry+='.'; }
+    else if(k==='.'){ var seg=trailingSeg(entry); if(seg.indexOf('.')===-1) entry+='.'; else nudge(); }
+    else if(k==='/'){
+      // the fraction bar: needs a number in front; one fraction per answer on the mental pad.
+      // Writing a fraction is stating the answer — it never counts as calculator use.
+      if(!/\d$/.test(trailingSeg(entry)) && entry.charAt(entry.length-1)!==')'){ nudge(); }
+      else if(!q.calc && entry.indexOf('/')!==-1){ nudge(); }
+      else entry+='/';
+    }
     else if(isOp(k)){ entry+=k; usedOp=true; }
     else { entry+=k; }
     paint();
@@ -957,12 +972,12 @@ function mountNumeric(container, q, cb){
   function finish(ok,val,usedCalc){ if(done) return; done=true; try{ _onDone&&_onDone({ok:ok,value:val,usedCalc:usedCalc}); }catch(e){} }
   function doSubmit(){
     if(phase!=='answering') return;
-    var val = q.calc ? evalExpr(entry) : (entry===''||entry==='-'?NaN:parseFloat(entry));
+    var val = evalExpr(entry);   // both pads: bare numbers, decimals, and a/b fractions
     if(!isFinite(val)){ nudge(); return; }
     phase='reveal'; try{ _onCommit&&_onCommit(); }catch(e){}
     submitBtn.style.display='none';
     var ok=judge(val), usedCalc=!!(q.calc&&usedOp);
-    var ansStr=esc((q.pre||'')+trim(q.answer)+(q.post||''));
+    var ansStr=esc((q.pre||'')+(q.frac?q.frac+' (= '+trim(q.answer)+')':trim(q.answer))+(q.post||''));
     if(ok){
       buzz(18);
       var tag = q.calc ? (usedOp?'Computed on the calculator (logged).':'Answered directly \u2014 no calc used (logged).') : 'Mental \u2014 no calculator (logged).';
@@ -995,6 +1010,9 @@ function nmInjectCSS(){
   ".nm-key.op{color:#39A7DE;border-color:rgba(57,167,222,.4)}.nm-key.fn{color:#8A97AD;font-size:18px}"+
   ".nm-key.eq{background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;border:none;box-shadow:0 4px 0 #8A5A00}"+
   ".nm-key.eq:active{transform:translateY(4px);box-shadow:0 0 0 #8A5A00}"+
+  ".nm-key.frac{color:#14C7C7;border-color:rgba(20,199,199,.45);font-size:16px;letter-spacing:.03em}"+
+  ".nm-pad.num .nm-key.wide{grid-column:span 2}"+
+  ".nm-pad.calc .nm-key.eq{grid-column:1/-1}"+
   ".nm-submit{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.05em;text-transform:uppercase;width:100%;padding:12px 0;border-radius:14px;border:none;background:linear-gradient(#FFD34D,#FFB800);color:#3a2600;box-shadow:0 5px 0 #8A5A00;cursor:pointer;margin-top:8px}"+
   ".nm-submit:active{transform:translateY(4px);box-shadow:0 1px 0 #8A5A00}"+
   ".nm-result{margin-top:10px}"+
@@ -1004,6 +1022,7 @@ function nmInjectCSS(){
   ".nm-strip b{color:#fff}.nm-strip .nm-lil{display:block;margin-top:6px;font-size:12px;font-weight:600;color:#8A97AD}";
   document.head.appendChild(css);
 }
+/*NUMERIC-WIDGET-END*/
 
 
 /* ===== embedded ordering widget ===== */
@@ -1227,6 +1246,331 @@ function txInjectCSS(){
 }
 
 
+/*SCRUB-WIDGET-START*/
+/* Extracted VERBATIM from integration/scrub-widget.html (approved 25 Aug 2026).
+   Ratified: Shards break, ER_TUNE {brush:22, cover:0.62, revs:2, crumb:2},
+   deliberate-stroke law, no undo, no widget shake. */
+/* =======================================================================
+   SCRUB IT — MC delivery mode (erase). One deliberate stroke per tile.
+   mountScrub(container, q, cb)
+   q:  { type:'mc', subject, prompt, options:[4 labels], answer, why }
+   cb: { onCommit, onDone }
+   onDone -> { ok, telemetry }
+   telemetry: { mode:'scrub', result, totalMs,
+     eliminations:[{opt, startMs, commitMs}], longestLived, finalTwo, standing }
+   Block identity (shell block object shape):
+   ======================================================================= */
+var SCRUB_BLOCK = { label:'Scrub It', hue:'#B18CFF', icon:'\u232B',
+                    sub:'Rub out the wrong answers with your finger',
+                    cta:'Start scrubbing \u2192' };
+var ER_TUNE = { brush:22, cover:0.62, revs:2, crumb:2 };
+var ER_RM = false;
+try{ ER_RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+
+function mountScrub(container, q, cb){
+  scInjectCSS();
+  var _onCommit=(cb&&typeof cb==='object')?cb.onCommit:null;
+  var _onDone=(typeof cb==='function')?cb:((cb&&cb.onDone)||null);
+  var t0=performance.now(), done=false;
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function buzz(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+  function ms(){ return Math.round(performance.now()-t0); }
+  function rand(a,b){ return a+Math.random()*(b-a); }
+  function finish(ok, tel){
+    if(done) return; done=true;
+    tel.mode='scrub'; tel.result=ok?'hit':'miss'; tel.totalMs=ms();
+    try{ _onDone&&_onDone({ok:ok, telemetry:tel}); }catch(e){}
+  }
+
+  container.innerHTML=
+    '<div class="er-hint">\u261d '+esc(SCRUB_BLOCK.sub)+'</div>'+
+    '<div class="er-list" id="erList"></div>'+
+    '<div class="er-result" id="erResult"></div>';
+  var list=container.querySelector('#erList'), result=container.querySelector('#erResult');
+  var dpr=Math.max(1,Math.min(2.5,window.devicePixelRatio||1));
+  var tiles=[], erased=[], active=null, phase='live';
+
+  var fxCv=document.createElement('canvas'); fxCv.className='er-fx';
+  list.appendChild(fxCv);
+  var crumbs=[], frags=[], fxCtx=null, fxRaf=0;
+
+  q.options.forEach(function(label, idx){
+    var wrap=document.createElement('div'); wrap.className='er-tile';
+    wrap.setAttribute('data-opt',label);
+    var cv=document.createElement('canvas'); wrap.appendChild(cv);
+    list.appendChild(wrap);
+    tiles.push({label:label, idx:idx, wrap:wrap, cv:cv, ctx:null, w:0, h:56,
+                mask:null, gw:0, gh:0, total:0, cleared:0,
+                revs:0, lastX:null, lastDx:0, startMs:null, gone:false});
+  });
+
+  function sizeAll(){
+    var w=list.clientWidth||360;
+    tiles.forEach(function(t){
+      t.w=w; t.cv.width=Math.round(w*dpr); t.cv.height=Math.round(t.h*dpr);
+      t.cv.style.width=w+'px'; t.cv.style.height=t.h+'px';
+      t.ctx=t.cv.getContext('2d'); t.ctx.setTransform(dpr,0,0,dpr,0,0);
+      t.gw=Math.max(8,Math.round(w/12)); t.gh=Math.max(3,Math.round(t.h/12));
+      t.total=t.gw*t.gh; t.cleared=0; t.mask=new Array(t.total);
+      drawTile(t,'rgba(255,255,255,.16)','#fff');
+    });
+    var r=list.getBoundingClientRect();
+    fxCv.width=Math.round((r.width+24)*dpr); fxCv.height=Math.round((r.height+160)*dpr);
+    fxCtx=fxCv.getContext('2d'); fxCtx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function roundRect(c,x,y,w,h,r){
+    c.beginPath();
+    c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r);
+    c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath();
+  }
+  function drawTile(t, borderCol, inkCol){
+    var c=t.ctx; c.save();
+    c.globalCompositeOperation='source-over';
+    c.setLineDash([]);
+    c.clearRect(0,0,t.w,t.h);
+    roundRect(c,1.5,1.5,t.w-3,t.h-3,13);
+    c.fillStyle='rgba(255,255,255,.08)'; c.fill();
+    c.lineWidth=2; c.strokeStyle=borderCol; c.stroke();
+    c.fillStyle=inkCol; c.font='600 15px "Space Grotesk",system-ui,sans-serif';
+    c.textBaseline='middle';
+    var words=String(t.label).split(' '), lines=[''], li=0, maxW=t.w-34, i, test;
+    for(i=0;i<words.length;i++){
+      test=lines[li]?lines[li]+' '+words[i]:words[i];
+      if(c.measureText(test).width>maxW && lines[li]){ li++; lines[li]=words[i]; }
+      else lines[li]=test;
+    }
+    if(lines.length>2){ lines=[lines[0], lines.slice(1).join(' ')]; }
+    if(lines.length===1){ c.fillText(lines[0],17,t.h/2+1); }
+    else { c.fillText(lines[0],17,t.h/2-9); c.fillText(lines[1],17,t.h/2+10); }
+    c.restore();
+  }
+  function drawGhost(t){
+    var c=t.ctx; c.save();
+    c.clearRect(0,0,t.w,t.h);
+    c.setLineDash([6,6]); c.lineWidth=1.5; c.strokeStyle='rgba(255,255,255,.09)';
+    roundRect(c,1.5,1.5,t.w-3,t.h-3,13); c.stroke();
+    c.restore();
+  }
+
+  /* ---- fx: crumbs + canvas fragments, one rAF loop ---- */
+  function spawnCrumbs(x,y,n,burst){
+    if(ER_RM || n<=0) return;
+    var i,a,sp;
+    for(i=0;i<n;i++){
+      a=Math.random()*6.283; sp=burst?rand(60,220):rand(20,90);
+      crumbs.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-(burst?70:20),
+                   grav:900, life:rand(0.45,0.9), age:0, s:rand(1.5,4),
+                   gold:Math.random()<0.12});
+    }
+    kickFx();
+  }
+  function snapTile(t){
+    var s=document.createElement('canvas');
+    s.width=t.cv.width; s.height=t.cv.height;
+    var c=s.getContext('2d');
+    c.setTransform(dpr,0,0,dpr,0,0);
+    roundRect(c,1.5,1.5,t.w-3,t.h-3,13);
+    c.fillStyle='rgba(226,234,246,.18)'; c.fill();
+    c.lineWidth=2; c.strokeStyle='rgba(255,255,255,.28)'; c.stroke();
+    c.setTransform(1,0,0,1,0,0);
+    c.drawImage(t.cv,0,0);
+    return s;
+  }
+  function breakApart(t){
+    var lr=list.getBoundingClientRect(), r=t.wrap.getBoundingClientRect();
+    var ox=r.left-lr.left, oy=r.top-lr.top;
+    if(!ER_RM){
+      var img=snapTile(t);
+      var cols=3, rows=1, cw=t.w/cols, chh=t.h/rows, ci, rj, cx, cy;
+      for(rj=0;rj<rows;rj++) for(ci=0;ci<cols;ci++){
+        cx=ox+(ci+0.5)*cw; cy=oy+(rj+0.5)*chh;
+        frags.push({img:img, sx:ci*cw*dpr, sy:rj*chh*dpr, sw:cw*dpr, sh:chh*dpr,
+                    w:cw, h:chh, x:cx, y:cy,
+                    vx:rand(-30,30), vy:rand(10,70), vr:rand(-1.4,1.4), rot:0,
+                    grav:1600, life:rand(0.5,0.8), age:0});
+      }
+      spawnCrumbs(ox+t.w/2, oy+t.h/2, 10+ER_TUNE.crumb*4, true);
+    }
+    drawGhost(t);
+  }
+  var lastFX=0;
+  function kickFx(){ if(!fxRaf && (crumbs.length||frags.length)) fxRaf=requestAnimationFrame(fxTick); }
+  function fxTick(now){
+    if(!lastFX) lastFX=now;
+    var dt=Math.min(0.04,(now-lastFX)/1000); lastFX=now;
+    fxCtx.clearRect(0,0,fxCv.width,fxCv.height);
+    var aliveF=[], aliveC=[], i, p, k;
+    for(i=0;i<frags.length;i++){
+      p=frags[i]; p.age+=dt; if(p.age>=p.life) continue;
+      p.vy+=p.grav*dt; p.x+=p.vx*dt; p.y+=p.vy*dt; p.rot+=p.vr*dt;
+      k=p.age/p.life;
+      fxCtx.save();
+      fxCtx.globalAlpha = k>0.7 ? (1-(k-0.7)/0.3) : 1;
+      fxCtx.translate(p.x+12, p.y+12); fxCtx.rotate(p.rot);
+      fxCtx.drawImage(p.img, p.sx, p.sy, p.sw, p.sh, -p.w/2, -p.h/2, p.w, p.h);
+      fxCtx.restore();
+      aliveF.push(p);
+    }
+    for(i=0;i<crumbs.length;i++){
+      p=crumbs[i]; p.age+=dt; if(p.age>=p.life) continue;
+      p.vy+=(p.grav||900)*dt; p.x+=p.vx*dt; p.y+=p.vy*dt;
+      k=1-(p.age/p.life);
+      fxCtx.fillStyle=p.gold?('rgba(255,211,77,'+(0.85*k)+')'):('rgba(230,238,248,'+(0.7*k)+')');
+      fxCtx.fillRect(p.x+12-p.s/2, p.y+12-p.s/2, p.s, p.s);
+      aliveC.push(p);
+    }
+    frags=aliveF; crumbs=aliveC;
+    if(frags.length||crumbs.length){ fxRaf=requestAnimationFrame(fxTick); }
+    else { fxRaf=0; lastFX=0; }
+  }
+
+  /* ---- the eraser ---- */
+  function stamp(t,x,y){
+    var c=t.ctx, r=ER_TUNE.brush;
+    c.save(); c.globalCompositeOperation='destination-out';
+    c.beginPath(); c.arc(x,y,r,0,6.2832); c.fill(); c.restore();
+    var cw=t.w/t.gw, ch=t.h/t.gh;
+    var gx0=Math.max(0,Math.floor((x-r)/cw)), gx1=Math.min(t.gw-1,Math.floor((x+r)/cw));
+    var gy0=Math.max(0,Math.floor((y-r)/ch)), gy1=Math.min(t.gh-1,Math.floor((y+r)/ch));
+    var gx,gy,cx,cy,id,reach=(r+Math.sqrt(cw*cw+ch*ch)/2);
+    for(gy=gy0;gy<=gy1;gy++) for(gx=gx0;gx<=gx1;gx++){
+      id=gy*t.gw+gx; if(t.mask[id]) continue;
+      cx=(gx+0.5)*cw; cy=(gy+0.5)*ch;
+      if((cx-x)*(cx-x)+(cy-y)*(cy-y)<=reach*reach){ t.mask[id]=1; t.cleared++; }
+    }
+  }
+  function scrubProgress(t){ return t.cleared/t.total; }
+
+  function onDown(e){
+    if(phase!=='live'||active) return;
+    var t=tileFromEvent(e); if(!t||t.gone) return;
+    t.cv.setPointerCapture(e.pointerId);
+    if(t.startMs===null) t.startMs=ms();
+    var pt=localPoint(t,e);
+    active={pid:e.pointerId, t:t, x:pt.x, y:pt.y};
+    stamp(t,pt.x,pt.y); spawnCrumbs(tileOffX(t)+pt.x, tileOffY(t)+pt.y, ER_TUNE.crumb, false);
+    checkCommit(t);
+  }
+  function onMove(e){
+    if(!active||active.pid!==e.pointerId||phase!=='live') return;
+    var t=active.t; if(t.gone){ return; }
+    var pt=localPoint(t,e), dx=pt.x-active.x;
+    if(Math.abs(dx)>=3){
+      if(t.lastDx && ((dx>0)!==(t.lastDx>0))) t.revs++;
+      t.lastDx=dx;
+    }
+    var dist=Math.sqrt((pt.x-active.x)*(pt.x-active.x)+(pt.y-active.y)*(pt.y-active.y));
+    var steps=Math.max(1,Math.floor(dist/5)), i, ix, iy;
+    for(i=1;i<=steps;i++){
+      ix=active.x+(pt.x-active.x)*i/steps; iy=active.y+(pt.y-active.y)*i/steps;
+      stamp(t,ix,iy);
+    }
+    spawnCrumbs(tileOffX(t)+pt.x, tileOffY(t)+pt.y, ER_TUNE.crumb, false);
+    active.x=pt.x; active.y=pt.y;
+    checkCommit(t);
+  }
+  function onUp(e){ if(active&&active.pid===e.pointerId) active=null; }
+  function tileFromEvent(e){
+    var i; for(i=0;i<tiles.length;i++) if(tiles[i].cv===e.target) return tiles[i];
+    return null;
+  }
+  function localPoint(t,e){
+    var r=t.cv.getBoundingClientRect();
+    return {x:e.clientX-r.left, y:e.clientY-r.top};
+  }
+  function tileOffX(t){ var a=t.wrap.getBoundingClientRect(), b=list.getBoundingClientRect(); return a.left-b.left; }
+  function tileOffY(t){ var a=t.wrap.getBoundingClientRect(), b=list.getBoundingClientRect(); return a.top-b.top; }
+
+  function checkCommit(t){
+    if(t.gone) return;
+    if(scrubProgress(t)>=ER_TUNE.cover && t.revs>=ER_TUNE.revs) commitErase(t);
+  }
+  function commitErase(t){
+    t.gone=true; t.commitMs=ms(); active=null;
+    erased.push(t); buzz(12);
+    breakApart(t);
+    t.wrap.classList.add('er-gone');
+    try{ _onCommit&&_onCommit(); }catch(e){}
+    if(t.label===q.answer){ missSequence(t); return; }
+    if(erased.length===3) winSequence();
+  }
+
+  function standingDistractors(){
+    var out=[], i;
+    for(i=0;i<tiles.length;i++) if(!tiles[i].gone && tiles[i].label!==q.answer) out.push(tiles[i].label);
+    return out;
+  }
+  function elimTel(){
+    return erased.map(function(t){ return {opt:t.label, startMs:t.startMs, commitMs:t.commitMs}; });
+  }
+
+  function missSequence(ansTile){
+    phase='resolving'; buzz([30,50,30]);
+    tiles.forEach(function(t){ if(t!==ansTile && !t.gone) t.wrap.classList.add('er-dim'); });
+    setTimeout(function(){
+      ansTile.wrap.classList.remove('er-gone');
+      ansTile.wrap.classList.add('er-back','er-winglow');
+      ansTile.mask=new Array(ansTile.total); ansTile.cleared=0;
+      drawTile(ansTile,'#16E08C','#fff');
+      result.innerHTML='<div class="er-strip bad">\u2715 That one was the answer \u2014 <b>'+esc(q.answer)+'</b>'+
+        (q.why?'<span class="er-lil">'+esc(q.why)+'</span>':'')+'</div>';
+      setTimeout(function(){
+        finish(false,{eliminations:elimTel(), longestLived:null,
+                      finalTwo:null, standing:standingDistractors()});
+      },1600);
+    },300);
+  }
+  function winSequence(){
+    phase='resolving';
+    var ansTile=null, i;
+    for(i=0;i<tiles.length;i++) if(!tiles[i].gone) ansTile=tiles[i];
+    buzz(18);
+    drawTile(ansTile,'#16E08C','#fff');
+    ansTile.wrap.classList.add('er-winglow');
+    result.innerHTML='<div class="er-strip ok">\u2713 Last one standing'+
+      (q.why?'<span class="er-lil">'+esc(q.why)+'</span>':'')+'</div>';
+    var last=erased[erased.length-1];
+    setTimeout(function(){
+      finish(true,{eliminations:elimTel(), longestLived:last.label,
+                   finalTwo:[last.label,q.answer], standing:[]});
+    },1250);
+  }
+
+  list.addEventListener('pointerdown',onDown);
+  list.addEventListener('pointermove',onMove);
+  list.addEventListener('pointerup',onUp);
+  list.addEventListener('pointercancel',onUp);
+  sizeAll();
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ tiles.forEach(function(t){ if(!t.gone) drawTile(t,'rgba(255,255,255,.16)','#fff'); }); });
+  }
+}
+
+function scInjectCSS(){
+  if(document.getElementById('sc-widget-css')) return;
+  var css=document.createElement('style'); css.id='sc-widget-css';
+  css.textContent=
+  ".er-hint{font-family:'Space Grotesk',system-ui,sans-serif;font-size:13px;font-weight:600;color:#9AD3F2;text-align:center;margin-bottom:12px}"+
+  ".er-list{display:grid;gap:10px;position:relative}"+
+  ".er-tile{position:relative;height:56px;border-radius:14px;touch-action:none;transition:box-shadow .25s ease,opacity .25s ease}"+
+  ".er-tile canvas{position:absolute;inset:0;display:block;border-radius:14px;touch-action:none;cursor:crosshair}"+
+  ".er-tile.er-gone{pointer-events:none}"+
+  ".er-tile.er-back{pointer-events:none}"+
+  ".er-tile.er-dim{opacity:.32;pointer-events:none}"+
+  ".er-winglow{box-shadow:0 0 24px rgba(22,164,110,.55);border-radius:14px}"+
+  ".er-fx{position:absolute;left:-12px;top:-12px;pointer-events:none;z-index:6}"+
+  ".er-result{margin-top:10px}"+
+  ".er-strip{border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600;line-height:1.35}"+
+  ".er-strip.ok{background:rgba(22,164,110,.16);border:2px solid #16E08C;color:#CFF3E1}"+
+  ".er-strip.bad{background:rgba(255,77,41,.14);border:2px solid #FF4D29;color:#FFD9CF}"+
+  ".er-strip .er-lil{display:block;margin-top:6px;font-size:12.5px;font-weight:600}";
+  document.head.appendChild(css);
+}
+/*SCRUB-WIDGET-END*/
+
+
 function boot(){ state.screen="loading"; render(); loadQuiz(); }
 function loadQuiz(){
   var url = CONFIG.QUESTIONS_URL + "?t=" + Date.now();
@@ -1331,7 +1675,12 @@ function numericOK(typed, q){
   var set={}; set[_normAns(q.answer)]=1;
   (q.accept||[]).forEach(function(a){ set[_normAns(a)]=1; });
   var bare=_leadNum(q.answer); if(bare) set[_normAns(bare)]=1;   // bare number always earns credit
-  return !!set[t];
+  if(set[t]) return true;
+  // a typed fraction a/b earns credit when its VALUE matches the answer (0.4 == 2/5 == 4/10)
+  var fm=String(typed).match(/^\s*(-?\d+(?:\.\d+)?)\s*\/\s*(-?\d+(?:\.\d+)?)\s*$/);
+  if(fm){ var den=parseFloat(fm[2]), bn=parseFloat(_leadNum(q.answer));
+    if(den && isFinite(bn) && Math.abs(parseFloat(fm[1])/den - bn)<=0.01) return true; }
+  return false;
 }
 /*NUMERIC-CORE-END*/
 
@@ -1382,6 +1731,8 @@ function renderSpeed(){
   (qType(q)==="swipe" ? '' : '<h2 class="q" style="min-height:58px">'+esc(q.prompt)+'</h2>')+
   (qType(q)==="swipe"
     ? '<div id="swipeMount" style="height:460px"></div>'
+    : isScrub(q)
+    ? '<div id="scrubMount" style="margin-top:4px"></div>'
     : qType(q)==="numeric"
     ? '<div class="numin">'+
         '<input id="nin" class="ninput" inputmode="decimal" autocomplete="off" placeholder="type your answer" oninput="ninChanged()" onkeydown="if(event.key===\'Enter\'){event.preventDefault();submitSpeedTyped();}">'+
@@ -1396,13 +1747,22 @@ function renderSpeed(){
   if(qType(q)==="swipe"){ q.eyebrow=q.subject; q.idx=("0"+(state.idx+1)).slice(-2);
     mountSwipe(el("swipeMount"), q, { onCommit:function(){ clearInterval(timer); },
       onDone:function(res){ finishSwipe(res.ok, res.sideLabel, false); } }); }
+  if(isScrub(q)){ var scrubCommits=0;
+    // clock runs across all three erases; the OUTCOME is sealed at the 3rd commit
+    // (win) or at an answer-erase (miss either way), so the fuse can't steal a won
+    // question during the widget's ~1.3s resolve animation.
+    // Tiles are served in the shell's SHUFFLED order — same guess-floor protection
+    // as tap MC, so authored option order can never leak the answer's position.
+    var sq=Object.assign({}, q, {options: shuffled[q.id] || q.options});
+    mountScrub(el("scrubMount"), sq, { onCommit:function(){ if(++scrubCommits>=3) clearInterval(timer); },
+      onDone:function(res){ finishScrub(res, false); } }); }
   clearInterval(timer);
   timer=setInterval(function(){
     var left=Math.max(0,SPEED_SECONDS-(Date.now()-tStart)/1000);
     var c=el("clock"), f=el("fuse");
     if(c){ c.textContent=left.toFixed(1); c.style.color = left<6?"var(--flare)":"var(--ink)"; }
     if(f){ f.style.width=(left/SPEED_SECONDS*100)+"%"; if(left<6) f.classList.add("hot"); }
-    if(left<=0){ clearInterval(timer); if(qType(speedQs[state.idx])==="swipe") finishSwipe(false,null,true); else doSpeedAnswer(null,false); }
+    if(left<=0){ clearInterval(timer); var tq=speedQs[state.idx]; if(qType(tq)==="swipe") finishSwipe(false,null,true); else if(isScrub(tq)) finishScrub(null,true); else doSpeedAnswer(null,false); }
   },100);
 }
 
@@ -1470,6 +1830,53 @@ function finishSwipe(ok, label, timedOut){
       '<button class="cta display" style="margin-top:12px;font-size:16px" onclick="nextSpeed()">Got it \u2192</button>';
   } else { setTimeout(nextSpeed, 260); }
 }
+/*SCRUB-WIRING-START*/
+// Scrub It — MC delivery mode. FEEDBACK-OWNERSHIP LAW (ratified 25 Aug 2026):
+// verdict-level reward — burst, XP payout, hidden double-XP flash — is SHELL-owned
+// and paid HERE on onDone, identical to tap MC. The widget owns mechanic juice only
+// (shards + haptic buzz). Shake is miss-only per shell convention; scrub adds NO
+// shake anywhere. The ledger never learns the delivery mode: the record keeps
+// type:"mc"; mode + scrub telemetry ride alongside (confidence axis only).
+function isScrub(q){ return qType(q)==="mc" && q.mode==="scrub"; }
+function finishScrub(res, timedOut){
+  if(answeredThis) return; answeredThis=true;
+  clearInterval(timer);
+  var q=speedQs[state.idx];
+  var ok = !!(res && res.ok) && !timedOut;
+  var timeUsed=Math.min(SPEED_SECONDS,(Date.now()-tStart)/1000);
+  T.questionDone(q.id,q.subject,"speed",{ok:ok,timeUsed:+timeUsed.toFixed(1),mode:"scrub"});
+  var newCombo = ok?state.combo+1:0, pts=0;
+  if(ok){ pts=SPEED_BASE+Math.round((SPEED_SECONDS-timeUsed)*TIME_BONUS); if(newCombo>=2) pts+=COMBO_BONUS; }
+  var doubled = !!(q.x2 && ok); if(doubled) pts=x2mul(pts,q);      // hidden double-XP — same as tap MC
+  state.combo=newCombo; state.score+=pts; setScore();
+  var srec={id:q.id,subject:q.subject,phase:"speed",type:"mc",mode:"scrub",
+            picked:ok?q.answer:null,ok:ok,timeUsed:+timeUsed.toFixed(1),pts:pts};
+  if(q.x2) srec.x2=true;
+  if(res && res.telemetry) srec.scrub={eliminations:res.telemetry.eliminations,
+    longestLived:res.telemetry.longestLived, finalTwo:res.telemetry.finalTwo,
+    standing:res.telemetry.standing};
+  state.records.push(srec);
+  var fl=el("flash");
+  if(ok){
+    FX.celebrate(fxSpec(doubled?3:newCombo, pts));   // the shell pays — deliberately, not by accident
+    if(fl) fl.innerHTML = doubled
+      ? '<div class="flash x2">\u2b50 DOUBLE XP! That one was secretly worth 2\u00d7 \u2014 <b>+'+pts+'</b></div>'
+      : '<div class="flash ok">\u2713 Got it'+(newCombo>=2?'&nbsp;&nbsp;+'+COMBO_BONUS+' combo':'')+'</div>';
+    setTimeout(nextSpeed, doubled?1400:900);
+  } else if(timedOut){
+    var m=el("scrubMount"); if(m) m.style.pointerEvents="none";  // widget never resolved; lock input
+    if(fl) fl.innerHTML='<div class="flash bad">\u23f1 Ran out of time.'+
+      '<div style="margin-top:8px;font-weight:700">The answer: '+esc(q.answer)+'</div>'+
+      (q.why?'<div style="margin-top:6px;font-weight:400">'+esc(q.why)+'</div>':'')+
+      '</div>'+
+      '<button class="cta display" style="margin-top:12px;font-size:16px" onclick="nextSpeed()">Got it \u2192</button>';
+  } else {
+    // widget already revealed the answer + why in its own strip — no duplicate teaching, no shake
+    if(fl) fl.innerHTML='<button class="cta display" style="margin-top:12px;font-size:16px" onclick="nextSpeed()">Got it \u2192</button>';
+  }
+}
+/*SCRUB-WIRING-END*/
+
 function nextSpeed(){
   if(state.idx+1<speedQs.length){
     var cur=speedQs[state.idx].block, nxt=speedQs[state.idx+1].block;
