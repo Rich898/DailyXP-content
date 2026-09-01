@@ -89,25 +89,35 @@ both platforms **if run like this**:
    needed) rather than pasting a link around: invited reviews carry the "verified" mark
    and are far more defensible.
 
-## If VitalYOU is a regulated health service (AHPRA)
+## AHPRA (confirmed: VitalYOU has AHPRA-registered doctors — this section is load-bearing)
 
-Only relevant if AHPRA-registered practitioners deliver the service — but if so it's
-load-bearing:
+National Law s133 makes it an offence to **use testimonials in advertising** a regulated
+health service. A testimonial = a positive statement about **clinical** aspects (symptoms,
+diagnosis, treatment, outcomes, practitioner skill/experience). It binds the business, not
+just the practitioners. Penalties: $5k (individual) / $10k (body corporate) **per
+contravention** — and for the doctors it's unsatisfactory professional conduct, i.e. a
+registration matter. The line, in three tiers:
 
-- **Reviews sitting on Google/Trustpilot are fine** — AHPRA treats platforms you can't
-  switch off as outside your control, and patients are free to post.
-- **Using them in our own advertising is not.** Embedding reviews that speak to *clinical*
-  aspects (outcomes, treatment success) on the VitalYOU site or socials is a testimonial
-  under the National Law s133 — prohibited. Non-clinical comments (service, communication,
-  facilities) are usable. This makes the "nothing on our site initially" instinct not just
-  cautious but compliant — and it means the later embed step needs a clinical/non-clinical
-  filter, which favours a platform whose widgets can show curated/tagged subsets
-  (Trustpilot, paid) or simply hand-picked non-clinical quotes.
-- Replying to reviews that recount clinical detail needs care too.
+1. **Reviews sitting ON Trustpilot/Google: fine, always.** Platforms you can't switch off
+   are outside your control; patients are free to post; AHPRA doesn't require removal.
+   The 100 five-star reviews are never wasted — anyone searching "VitalYOU reviews"
+   finds them at full strength.
+2. **Score-only on our site: fine.** A bare aggregate stated as fact — "Rated 4.9/5 on
+   Trustpilot from 100 reviews" — with a neutral link to the profile. A star rating alone
+   says nothing clinical, so it isn't a testimonial. Trustpilot's badge-style TrustBoxes
+   (TrustScore + stars + count, **no review text**) fit this tier; that's the widget to
+   use.
+3. **Review TEXT on our site: only if strictly non-clinical.** Embedding the standard
+   review-feed widget is the breach vector, because most 5★ health reviews mention
+   clinical care ("fixed my…", "Dr X diagnosed…") and reproducing those in our own
+   advertising = using testimonials. Hand-picked quotes about booking, reception,
+   communication style, facilities are usable. Run anything borderline through
+   [AHPRA's testimonial tool](https://www.ahpra.gov.au/Resources/Advertising-hub/Resources-for-advertisers/Testimonial-tool.aspx)
+   before it ships.
 
-If VitalYOU is wellness/non-regulated, ignore this section; ACL rules above still apply
-(and TGA advertising rules if therapeutic goods are involved — testimonials there carry
-their own disclosure/verification requirements).
+Also: replying to reviews that recount clinical detail needs care (don't confirm or
+amplify the clinical content), and ACL rules above still apply to any quotes we do use
+(no misleading curation), plus TGA advertising rules if therapeutic goods get involved.
 
 ## Recommended sequence
 
@@ -117,9 +127,9 @@ their own disclosure/verification requirements).
 2. **Go-public:** if eligible, stand up the Google Business Profile *when ready to be
    seen*, and from then on ask every customer, alternating/offering both platforms.
    Google becomes the primary ask in AU; Trustpilot keeps collecting via invitations.
-3. **Site embed (later):** Trustpilot TrustBox (free one first; pay only if the widget set
-   earns it — note the annual commitment) — filtered for non-clinical content if AHPRA
-   applies.
+3. **Site embed (later):** score-only badge TrustBox + link (AHPRA tier 2 — compliant by
+   construction); review-text widgets only ever with non-clinical curation. Pay for a plan
+   only if the widget set earns it — note the annual commitment.
 4. **Only if ad spend arrives:** Trustpilot volume (100+/12mo) unlocks Google Seller
    Rating stars in ads.
 
