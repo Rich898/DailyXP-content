@@ -38,6 +38,14 @@ argument for keeping the machine running toward 50 over the quarter. (Recency an
 frequency also weight the score: a steady trickle beats a spike, which conveniently is
 also the pattern that never trips review filters.)
 
+**Display mechanics for week 1:** a zero-review claimed profile shows "0 reviews" and no
+score (reads *new*, not mediocre — the phantom baseline is internal only), and invitees
+via the evaluate link land straight on the review form, not the scored page. The score
+appears with review #1 at ~3.7 and climbs through the label bands: ~4 all-5★ reviews
+crosses into "Great" (≈4.05), **~8–9 crosses into "Excellent" (≥4.3)**. That 1–8 review
+zone is the whole reason Tier A goes first — punch through it in the first two weeks
+while the only visitors are our own invitees.
+
 ## Days 0–2 — setup checklist
 
 1. **Check for an existing profile first**: `trustpilot.com/review/<vitalyou-domain>` —
