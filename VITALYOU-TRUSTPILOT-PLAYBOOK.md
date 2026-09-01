@@ -91,9 +91,13 @@ gives a reason for the ask that isn't "please rate us."
 > Would you be up for putting that into a quick review? Two minutes, write whatever
 > you'd honestly tell a friend. I'll text you the link.
 
-Then text the evaluate link **to everyone you called**, same day, regardless of how the
-call went — a call list that matches the link list is what a clean invite pattern looks
-like.
+Then send the link **to everyone you called, same day, via the Trustpilot invitation
+tool** ("I'll email you the link now") — not the bare evaluate link. Invitation-tool
+reviews carry an attached invite record and the "Invited" label, and a 0→10 fortnight of
+invited reviews reads as textbook onboarding to Trustpilot, where ten organic-link
+reviews with no trail on a day-old profile reads as a burst. A call list that matches
+the invite list is what a clean pattern looks like. (Evaluate link = SMS-only people and
+later top-ups.)
 
 **Tier B founder email** (send via Trustpilot invitations where possible; this text works
 standalone too):
@@ -136,12 +140,17 @@ on the maybe-pile, here's the link again: [link]. Either way, thanks."
 | **4** | Auto-reminders land for Tier B. Sweep stragglers. Prep (don't publish) the site badge. | 20–28 |
 | **Month 2** | Remaining ~50 customers invited under the new month's cap. Flip the site when criteria met. | 25–40 |
 
-**Pacing rule that protects the count:** batches of 10–15 invites every few days, never
-the whole list in a day. A new profile absorbing 20–25 reviews as a steady 4-week curve
-is a natural signature; 15 reviews landing in a weekend on a day-old profile is the
-signature that gets batches quietly deleted. Same logic: reviews come from customers'
-own phones/laptops on their own networks — never a "leave it now" moment on clinic wifi
-or a shared device at reception.
+**Pacing rule that protects the count: compress the asks, not the arrivals.** Tier A
+calls happen across days 1–3; arrival lag (people review 0–7 days after an ask) spreads
+the landings into a natural day 1–12 drip on its own. Never orchestrate a posting moment
+("everyone do it Tuesday" is how ten land in 48h). Working target: **8–10 live by day
+10–14, no more than ~2–3 landing on any single day in week 1** — if a day runs hot, hold
+the next asks a day. Nobody but our own invitees sees the page during the low-score
+zone, so a slow-looking fortnight costs nothing; a burst-triggered removal costs real
+reviews and flags a day-old profile. Thereafter: batches of 10–15 invites every few
+days, never the whole list in a day. Same logic: reviews come from customers' own
+phones/laptops on their own networks — never a "leave it now" moment on clinic wifi or
+a shared device at reception.
 
 ## Operating rules (all mechanical — each one exists because breaking it deletes reviews)
 
