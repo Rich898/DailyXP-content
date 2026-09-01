@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-08-31",
-  "day": "MON",
-  "tag": "T6.1",
-  "title": "DailyXP · MON 2026-08-31",
+  "date": "2026-09-01",
+  "day": "TUE",
+  "tag": "T6.2",
+  "title": "DailyXP · TUE 2026-09-01",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "The chance of rain today is 0.3, so the chance of no rain is 0.7",
+      "prompt": "Rolling a die: getting a 4",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,36 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Complementary events add to 1, so if rain is 0.3, no rain must be 1 − 0.3 = 0.7.",
+      "left": "Likely",
+      "right": "Unlikely",
+      "answer": "Unlikely",
+      "why": "There is only a 1 in 6 chance of rolling any specific number, so it's unlikely.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "A thick fur coat helps an arctic fox survive cold winters",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Adaptation",
-      "right": "Not adaptation",
-      "answer": "Adaptation",
-      "why": "Thick fur is a physical adaptation that reduces heat loss, helping the fox survive its cold habitat.",
-      "fresh": true
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Every historical event has only one single cause",
+      "subject": "English",
+      "prompt": "A soliloquy is spoken to another character on stage",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Historians look for multiple causes working together, not one single trigger for an event.",
+      "why": "A soliloquy is spoken alone, revealing a character's private thoughts to the audience, not to another character.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S3",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'Gohan' means rice",
+      "subject": "Science",
+      "prompt": "A camel's ability to store fat in its hump is a behavioural adaptation",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +58,34 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "'Gohan' (ご飯) means cooked rice, and is also used generally to mean 'meal'.",
+      "answer": "False",
+      "why": "Storing fat in a hump is a physical (structural) adaptation, not a behaviour the animal chooses to do.",
+      "fresh": true
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Gochisousama' is said before you start eating",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "'Gochisousama' is said after finishing a meal to thank for the food; 'itadakimasu' is said before eating.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which habit shows someone managing stress in a healthy way?",
+      "subject": "History",
+      "prompt": "What does 'continuity' mean in history?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Talking to a trusted friend",
-      "why": "Talking to someone you trust helps process stress in a healthy way, while ignoring problems, lashing out, or losing sleep only makes stress worse.",
+      "answer": "Things staying the same",
+      "why": "Continuity refers to aspects of life that remain unchanged over time, in contrast with change.",
       "options": [
-        "Talking to a trusted friend",
-        "Ignoring the problem completely",
-        "Snapping at family members",
-        "Avoiding sleep to keep busy"
+        "Things staying the same",
+        "Things changing fast",
+        "One single cause",
+        "A list of dates"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who kills Mercutio in the play?",
+      "prompt": "In the prologue, what does the Chorus call Romeo and Juliet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Tybalt",
-      "why": "Tybalt stabs Mercutio in Act 3, which drives Romeo to avenge his friend.",
+      "answer": "Star-crossed lovers",
+      "why": "The prologue describes Romeo and Juliet as 'star-crossed lovers', meaning fate is against them from the start.",
       "options": [
-        "Tybalt",
-        "Romeo",
-        "Paris",
-        "Benvolio"
+        "Star-crossed lovers",
+        "Ancient rival houses",
+        "Doomed young cousins",
+        "Feuding servant boys"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to stop the servants' brawl?",
+      "subject": "PDHPE",
+      "prompt": "What's a common myth about therapy?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword to part the fighting servants, showing his peacemaking role.",
+      "answer": "It's only for crazy people",
+      "why": "A common myth is that therapy is only for 'crazy people' — really, it helps anyone manage everyday stress or emotions.",
       "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Friar Laurence"
+        "It's only for crazy people",
+        "It's mainly for older adults",
+        "It's just for major crises",
+        "It's only about medication"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a common myth about people with mental illness?",
+      "subject": "Music",
+      "prompt": "Adding new instrument layers in a chorus mainly creates what effect?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "That they are dangerous",
-      "why": "A harmful myth is that mental illness makes someone dangerous, but most people with mental illness are never violent.",
+      "answer": "Bigger, fuller sound",
+      "why": "Layering more instruments in the chorus thickens the texture, making the section feel bigger and fuller than the verse.",
       "options": [
-        "That they are dangerous",
-        "That they can recover with support",
-        "That it affects many people",
-        "That treatment can help"
+        "Bigger, fuller sound",
+        "Sparse, quiet texture",
+        "Sudden total silence",
+        "Slower steady tempo"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In film music, a low sustained drone note usually creates what mood?",
+      "subject": "History",
+      "prompt": "What title did Japan's top military ruler hold?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,44 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Tension or unease",
-      "why": "A low sustained drone builds a sense of tension or unease, which is why film composers use it in suspenseful scenes.",
+      "answer": "Shogun",
+      "why": "The shogun was the supreme military commander who actually ruled Japan, while the emperor remained a figurehead.",
       "options": [
-        "Tension or unease",
-        "A cheerful bounce",
-        "A faster tempo",
-        "A brighter tone colour"
+        "Shogun",
+        "Pharaoh",
+        "Emperor of China",
+        "Tsar"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Why did Japan's mountains encourage local, region-based rule?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "They isolated regions from each other",
-      "why": "Japan's mountainous terrain cut regions off from one another, making it hard for a central government to control the whole country, so local lords ruled their own areas instead.",
-      "options": [
-        "They isolated regions from each other",
-        "They joined regions by trade routes",
-        "They gave every region rich farmland",
-        "They removed the need for defence"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did artmaking activities mainly focus on?",
+      "prompt": "In 'Paint Like a Beast', how were the animals mostly painted?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,22 +203,22 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Expressive animal marks",
-      "why": "The activities focused on loose, expressive mark-making to capture the energy and character of animals, not precise tracing.",
+      "answer": "With loose, energetic brushwork",
+      "why": "The activities encouraged loose, expressive brushwork to capture animal energy, rather than precise tracing or flat, controlled marks.",
       "options": [
-        "Expressive animal marks",
-        "Precise ruler outlines",
-        "Photocopied templates",
-        "Digital animal photos"
+        "With loose, energetic brushwork",
+        "With carefully traced photo outlines",
+        "With flat, single grey washes",
+        "With rigid, ruled pencil outlines"
       ],
       "mode": "scrub",
       "fresh": true
     },
     {
-      "id": "S12",
+      "id": "S11",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What was a shogun's main role in Japan's political system?",
+      "subject": "PDHPE",
+      "prompt": "Mental health mainly refers to which part of a person?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +226,36 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Military ruler in charge",
-      "why": "The shogun was the top military commander who actually held political power, while the emperor remained a symbolic figurehead.",
+      "answer": "Emotional state",
+      "why": "Mental health refers to a person's emotional and psychological state, separate from purely physical measures like muscles or bones.",
       "options": [
-        "Military ruler in charge",
-        "Religious temple priest",
-        "Elected town mayor",
-        "Trade route merchant"
+        "Emotional state",
+        "Muscle strength",
+        "Blood pressure",
+        "Bone density"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Which is a healthy way to deal with strong feelings?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Talking to someone",
+      "why": "Talking about feelings with someone trusted is a healthy coping strategy, unlike suppressing or ignoring emotions.",
+      "options": [
+        "Talking to someone",
+        "Ignoring them completely",
+        "Bottling them up",
+        "Blaming others"
       ],
       "mode": "scrub",
       "fresh": false
@@ -263,16 +263,25 @@
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Which quote from Romeo and Juliet shows hate turning violent, not just love?",
-      "answer": "Tybalt draws his sword on Romeo",
-      "why": "Tybalt's aggression shows the hate theme through actual violence, not just words or romantic feeling.",
-      "options": [
-        "Tybalt draws his sword on Romeo",
-        "Romeo calls Juliet the sun",
-        "Juliet waits at her balcony",
-        "Romeo sighs over Rosaline"
+      "subject": "History",
+      "prompt": "Order these events from earliest to latest",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Western Roman Empire falls",
+        "Early medieval kingdoms form",
+        "Feudal system spreads",
+        "Crusades begin"
       ],
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "Rome fell in 476 CE, then kingdoms formed, feudalism developed over centuries, and the Crusades began in 1096.",
       "fresh": false,
       "throwback": true
     },
@@ -280,7 +289,7 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "The probability of picking a green marble is 0.6. What is the probability of not picking green?",
+      "prompt": "A bag has 5 red and 5 blue balls. What is the probability of drawing red, as a fraction out of 10?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -289,63 +298,19 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.4,
+      "answer": 0.5,
       "calc": false,
+      "frac": "5/10",
       "pre": "",
       "post": "",
-      "why": "Complementary probabilities add to 1, so 1 − 0.6 = 0.4.",
+      "why": "5 red out of 10 total balls gives a probability of 5/10, which equals 0.5.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the 'IV'?",
-      "answer": "F",
-      "why": "In the key of C major, F is built on the fourth note of the scale, making it the 'IV' chord.",
-      "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'delicious' when eating in Japanese?",
-      "answer": "Oishii desu",
-      "why": "'Oishii desu' means 'it's delicious', a common phrase to compliment food while eating.",
-      "options": [
-        "Oishii desu",
-        "Gochisousama",
-        "Itadakimasu",
-        "Sumimasen"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Which habit best supports long-term mental health?",
-      "answer": "Regular sleep and exercise",
-      "why": "Regular sleep and exercise help regulate mood and stress over time, unlike avoidance or ignoring feelings, which let problems build up.",
-      "options": [
-        "Regular sleep and exercise",
-        "Avoiding all social contact",
-        "Ignoring feelings until they pass",
-        "Working without any breaks"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
       "subject": "Maths",
-      "prompt": "A bag has 4 yellow and 6 green counters. What is the probability of drawing yellow, as a fraction out of 10?",
+      "prompt": "The probability of picking a striped sock is 0.45. What is the probability of not picking striped?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -354,18 +319,63 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.4,
-      "calc": true,
+      "answer": 0.55,
+      "calc": false,
       "pre": "",
       "post": "",
-      "why": "There are 4 yellow counters out of 10 total, so the probability is 4/10, which equals 0.4.",
+      "why": "Complementary events add to 1, so the probability of not striped is 1 − 0.45 = 0.55.",
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "Music",
+      "prompt": "In the progression C-Am-F-G, which chord is the 'vi'?",
+      "answer": "Am chord",
+      "why": "In the key of C major, Am is built on the sixth note of the scale, making it the 'vi' chord.",
+      "options": [
+        "Am chord",
+        "C chord",
+        "F chord",
+        "G chord"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "How do you say 'thank you for the meal' after eating in Japanese?",
+      "answer": "Gochisousama",
+      "why": "'Gochisousama' is said after finishing a meal to thank for the food, unlike 'itadakimasu' said before eating.",
+      "options": [
+        "Gochisousama",
+        "Itadakimasu",
+        "Oishii desu",
+        "Arigatou"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "What is a stage direction mainly used for in a play script?",
+      "answer": "Guiding actor movement",
+      "why": "Stage directions tell actors how to move, act, or where to stand, helping bring the script to life on stage.",
+      "options": [
+        "Guiding actor movement",
+        "Describing character feelings",
+        "Explaining the plot's theme",
+        "Naming the setting only"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why swapping the order to Am–F–C–G still uses the same four chords but can change how the song feels."
+      "prompt": "Explain why changing the order of the same four chords (like C-Am-F-G vs Am-F-C-G) can change how a song feels, even though the notes used are identical."
     }
   ]
 }
