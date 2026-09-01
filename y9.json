@@ -1,72 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-08-31",
-  "day": "MON",
-  "tag": "R6.1",
-  "title": "DailyXP · MON 2026-08-31",
+  "date": "2026-09-01",
+  "day": "TUE",
+  "tag": "R6.2",
+  "title": "DailyXP · TUE 2026-09-01",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Ralph is voted chief mainly because he is the strongest fighter",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Ralph is voted chief mainly because he holds the conch and seems calm and organised — not because of physical strength.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Skin is an example of the body's second line of defence",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Skin is a physical barrier and part of the FIRST line of defence, stopping pathogens before they enter the body.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Munich Putsch happened in Berlin",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The putsch took place in Munich, not Berlin — Hitler and the Nazis tried to seize power there in 1923.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "4x + 4x simplifies to 8x",
+      "prompt": "The conch shell stands for order and rules",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +21,71 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "4x and 4x are like terms, so you add the coefficients: 4 + 4 = 8, giving 8x.",
+      "why": "The conch symbolises civilisation and order — when it shatters, so does the boys' last hold on structure.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "Antibodies are made by lymphocytes",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Lymphocytes are the white blood cells that produce antibodies to target a specific pathogen.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The Munich Putsch happened in 1923",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Hitler's failed attempt to seize power in Munich took place in November 1923.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "4x + 3x simplifies to 12x",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "4x + 3x = 7x — you add the coefficients, not multiply them, since 4 + 3 = 7.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Solve for x: 2x + 3 = 11",
+      "prompt": "Solve for x: 4x + 2 = 18",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "4",
-      "why": "Subtract 3 from both sides to get 2x = 8, then divide by 2 to get x = 4.",
+      "answer": "x = 4",
+      "why": "Subtract 2 from both sides to get 4x = 16, then divide by 4 to get x = 4.",
       "options": [
-        "4",
-        "7",
-        "5.5",
-        "3"
+        "x = 4",
+        "x = 5",
+        "x = 6",
+        "x = 16"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Freud's model, which part represents our basic, instinctive desires?",
+      "prompt": "In Freud's model, which part develops last as a child grows?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The id",
-      "why": "The id is the instinctive part of personality, driven by pleasure and desire without thinking of consequences.",
+      "answer": "The superego",
+      "why": "The superego, our moral conscience, develops later than the id (present from birth) and the ego.",
       "options": [
         "The id",
         "The ego",
         "The superego",
-        "The conscience"
+        "The unconscious"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "A soft drink ad shows teens laughing together at a beach party. What technique is this?",
+      "prompt": "A soft drink ad links its product to feeling cool and popular. What technique is this?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Lifestyle appeal",
-      "why": "Ads often link a product to a fun, desirable lifestyle rather than its actual nutritional value, to influence choices.",
+      "answer": "Emotional appeal",
+      "why": "Linking a product to feelings like popularity or coolness is emotional appeal, a common marketing technique.",
       "options": [
-        "Lifestyle appeal",
-        "Nutrition labelling",
+        "Emotional appeal",
         "Price discount",
-        "Health warning"
+        "Nutrition labelling",
+        "Product recall"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is the term for people moving permanently from one country to live in another?",
+      "prompt": "What is the term for the movement of people within the same country?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Migration",
-      "why": "Migration is the movement of people from one country to settle permanently in another, unlike short visits or commuting.",
+      "answer": "Internal migration",
+      "why": "Internal migration is movement within one country's borders, unlike international migration which crosses countries.",
       "options": [
-        "Migration",
-        "Urbanisation",
-        "Tourism",
-        "Commuting"
+        "Internal migration",
+        "International migration",
+        "Emigration",
+        "Urban sprawl"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What crisis hit Germany's currency in 1923?",
+      "prompt": "Which event most damaged German trust in the Weimar government in 1923?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Hyperinflation",
-      "why": "In 1923 the Weimar government printed huge amounts of money to pay debts, causing hyperinflation where prices spiralled and savings became worthless.",
+      "answer": "Hyperinflation crisis",
+      "why": "The 1923 hyperinflation wiped out savings and made money nearly worthless, badly damaging trust in the Weimar government.",
       "options": [
-        "Hyperinflation",
-        "A banking merger",
-        "A gold shortage",
-        "A stock market crash"
+        "Hyperinflation crisis",
+        "The Treaty of Versailles",
+        "World War One",
+        "The Berlin Wall"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A family moves to a city because it offers better hospitals and schools. What kind of factor is this?",
+      "prompt": "A city's factories attract workers from the countryside. What kind of factor is this?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,12 +204,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "A pull factor",
-      "why": "Better services attracting people to a new place are pull factors, drawing migrants in rather than driving them away.",
+      "why": "Pull factors draw people towards a place, like job opportunities in a city; push factors drive people away from home.",
       "options": [
         "A pull factor",
         "A push factor",
-        "A trade factor",
-        "A climate factor"
+        "A natural disaster",
+        "A trade barrier"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "In a business plan, which section explains how the business will be run day-to-day?",
+      "prompt": "Which section of a business plan describes the day-to-day running of the business?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,12 +227,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Operations plan",
-      "why": "The operations plan covers daily running details, while the executive summary just briefly sums up the whole plan.",
+      "why": "The operations plan covers daily running details, while the executive summary just gives a brief overview.",
       "options": [
         "Operations plan",
         "Executive summary",
         "Market analysis",
-        "Cover page"
+        "Mission statement"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A phone case shop sells both physical cases and a repair service. The repair service is best described as a…",
+      "prompt": "A market stall sells handmade candles as well as scent-refill services. The refill service is a…",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,12 +250,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Service",
-      "why": "A service is work done for a customer, like repairs, while a product is a physical item like the phone case itself.",
+      "why": "A service is something done for a customer, unlike a product, which is a physical item they buy.",
       "options": [
         "Service",
         "Product",
         "Logo",
-        "Market analysis"
+        "Brand"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 22 cm and a height of 5 cm. Work through it calmly: what is its area?",
+      "prompt": "A triangle has a base of 21 cm and a height of 8 cm. Work through it calmly: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -273,25 +273,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 55,
-      "calc": true,
+      "answer": 84,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 22 × 5 = 55 cm² — halving is the step that's easy to rush past.",
+      "why": "Area = ½ × base × height = ½ × 21 × 8 = 84 cm². Halving is the step to slow down and check.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "From a while back — a shop keeps the exact same logo, colours and slogan across every product for years. What is this mainly building?",
-      "answer": "Brand recognition",
-      "why": "Using the same logo, colours and slogan consistently helps customers instantly recognise and trust the brand.",
+      "prompt": "From a while back — a coffee shop redesigns its logo with a simple steaming-cup icon. What is this logo mainly doing?",
+      "answer": "Building brand identity",
+      "why": "A distinctive, consistent logo helps customers recognise and remember a brand — that's brand identity.",
       "options": [
-        "Brand recognition",
-        "Market analysis",
-        "A swot analysis",
-        "An executive summary"
+        "Building brand identity",
+        "Lowering its prices",
+        "Hiring more staff",
+        "Changing its opening hours"
       ],
       "fresh": false,
       "throwback": true
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Lord of the Flies, what does Jack's growing obsession with hunting mainly represent?",
-      "answer": "Rising savagery",
-      "why": "Jack's hunting obsession shows him abandoning civilised rules and giving in to violent, primal instincts.",
+      "prompt": "In Lord of the Flies, what does the killing of Simon mainly reveal about the boys?",
+      "answer": "Savagery has taken hold",
+      "why": "Simon's death in the frenzied dance shows the boys have fully descended into savage, mob-like behaviour.",
       "options": [
-        "Rising savagery",
-        "Loyalty to Ralph",
-        "Fear of the beast fading",
-        "Desire to be rescued"
+        "Savagery has taken hold",
+        "They respect the rules",
+        "They miss civilisation",
+        "They fear Ralph's leadership"
       ],
       "fresh": false
     },
@@ -315,7 +315,7 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What type of white blood cell remembers a pathogen so the body can respond faster next time?",
+      "prompt": "What type of cell engulfs and digests invading pathogens?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -325,18 +325,17 @@
       },
       "type": "text",
       "accept": [
-        "memory cells",
-        "memory cell",
-        "memory lymphocytes"
+        "phagocyte",
+        "phagocytes"
       ],
-      "why": "Memory cells stay in the body after infection and allow a faster, stronger response if the same pathogen returns.",
+      "why": "Phagocytes are white blood cells that engulf and digest pathogens, a process called phagocytosis.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages leading to and following the Munich Putsch",
+      "prompt": "Order these stages of the Munich Putsch aftermath and trial",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -346,28 +345,28 @@
       },
       "type": "order",
       "sequence": [
-        "Nazi party grows in Bavaria",
-        "Hitler bursts into a Munich beer hall meeting",
-        "Putsch collapses within a day",
-        "Hitler writes Mein Kampf in prison"
+        "Hitler arrested near Munich",
+        "Hitler stands trial for treason",
+        "Hitler writes Mein Kampf in prison",
+        "Hitler released after serving less than a year"
       ],
       "top": "Earliest",
       "bot": "Latest",
-      "why": "The Nazi party built local strength first, then Hitler tried to seize power at the beer hall, the putsch quickly failed, and afterwards Hitler used his prison time to write Mein Kampf.",
+      "why": "After the failed putsch, Hitler was arrested, tried for treason, used his time in prison to write Mein Kampf, then was released early having served under a year of his sentence.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "D&T",
-      "prompt": "A market stall changes its packaging design to use recycled cardboard instead of plastic. What is this mainly an example of?",
-      "answer": "Innovation",
-      "why": "Introducing a new material or design approach to improve a product is innovation, distinct from keeping branding consistent.",
+      "prompt": "A market stall changes its packaging to use recycled cardboard. What is this mainly an example of?",
+      "answer": "Sustainable design",
+      "why": "Using eco-friendly materials like recycled cardboard is a sustainable design choice, a key design factor.",
       "options": [
-        "Innovation",
-        "Branding consistency",
-        "Market analysis",
-        "Executive summary"
+        "Sustainable design",
+        "Emotional appeal",
+        "Price skimming",
+        "Market segmentation"
       ],
       "fresh": false
     },
@@ -375,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "D&T",
-      "prompt": "A market stall has striking branding but a product nobody actually wants to buy. Explain why strong branding alone can't save a weak product, using what you know about design factors and marketing."
+      "prompt": "A market stall has bold, memorable branding but the product itself is poorly made. Explain why strong branding can't fix a weak product in the long run."
     }
   ]
 }
