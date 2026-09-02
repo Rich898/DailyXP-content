@@ -1,15 +1,53 @@
 {
   "student": "y8",
-  "date": "2026-09-01",
-  "day": "TUE",
-  "tag": "H6.2",
-  "title": "DailyXP · TUE 2026-09-01",
+  "date": "2026-09-02",
+  "day": "WED",
+  "tag": "H6.3",
+  "title": "DailyXP · WED 2026-09-02",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The play opens with a fight between servants",
+      "prompt": "Tybalt wants peace between the families",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Tybalt is aggressive and hates the Montagues — he wants conflict, not peace, shown clearly in Act 1.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Continuity means something changed completely over time",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Continuity means something stayed the same over time — change is the opposite idea.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "A middle-eight usually sounds contrasting to the chorus",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,52 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Romeo and Juliet opens with Capulet and Montague servants brawling in the street, showing the feud in action from the start.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A trigger cause is the same as the only cause of an event",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "A trigger cause is the final spark, but it usually acts alongside deeper long-term causes that built up over time.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "The outro usually has more layers than the chorus",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The chorus is normally the fullest, most layered section; the outro often strips layers away to close the song.",
+      "why": "A middle-eight (bridge) is written to sound different from the chorus, giving the song contrast before the final sections.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Good mental health means never feeling sad or stressed",
+      "prompt": "You can have good mental health and still feel stressed sometimes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Mental health is about coping well with life's ups and downs, not the total absence of hard feelings.",
+      "answer": "True",
+      "why": "Good mental health isn't the absence of stress or sadness — it's being able to cope with these normal feelings.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In the prologue, how many lines does the Chorus speak?",
+      "prompt": "Who is Juliet's cousin that dies in a duel with Romeo?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "14",
-      "why": "The Prologue is a 14-line sonnet, setting up the story before the action begins.",
+      "answer": "Tybalt",
+      "why": "Tybalt, Juliet's hot-headed cousin, is killed by Romeo in Act 3 after Tybalt kills Mercutio.",
       "options": [
-        "14",
-        "10",
-        "20",
-        "4"
+        "Tybalt",
+        "Paris",
+        "Mercutio",
+        "Benvolio"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a common myth about anxiety?",
+      "prompt": "What is a common myth about anger?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "It means someone is weak",
-      "why": "Anxiety is a normal response to stress, not a sign of weakness — this myth stops people seeking help.",
+      "answer": "Bottling it up is healthy",
+      "why": "Bottling up anger doesn't make it disappear — it often builds up and comes out worse later. Learning to express and manage anger safely is the healthy approach.",
       "options": [
-        "It means someone is weak",
-        "It affects the brain",
+        "Bottling it up is healthy",
         "It can be managed",
-        "It varies in severity"
+        "Everyone feels it sometimes",
+        "Talking about it helps"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the 'ii'?",
+      "prompt": "In C–Am–F–G, which chord is the 'ii'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "None of them",
-      "why": "C–Am–F–G maps to I–vi–IV–V, so there is no 'ii' chord here — Am is actually the vi, not the ii. Students often mislabel Am as ii by mistaking it for the second chord played.",
+      "answer": "None of the chords",
+      "why": "This progression only uses I, vi, IV and V (C, Am, F, G) — there is no ii chord (which would be Dm) present at all.",
       "options": [
-        "None of them",
-        "Am is the ii",
-        "F is the ii",
-        "G is the ii"
+        "None of the chords",
+        "Am, as the ii chord",
+        "F, as the ii chord",
+        "G, as the ii chord"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "How do you say 'I will have this' when ordering in Japanese?",
+      "prompt": "What does 'oishii' mean in Japanese?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Kore o kudasai",
-      "why": "'Kore o kudasai' means 'this, please' — the standard phrase for ordering food.",
+      "answer": "Delicious",
+      "why": "'Oishii' means delicious — a common word used to praise food in Japan.",
       "options": [
-        "Kore o kudasai",
-        "Oishii desu",
-        "Gochisousama",
-        "Ikura desu ka"
+        "Delicious",
+        "Water",
+        "Thank you",
+        "Bill please"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What term describes a trait that helps an organism survive in its habitat?",
+      "prompt": "What term describes a trait helping an organism survive in its habitat?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -182,12 +182,12 @@
         "cta": "Keep going →"
       },
       "answer": "Adaptation",
-      "why": "An adaptation is a feature that improves an organism's chance of survival in its environment.",
+      "why": "An adaptation is a feature that helps an organism survive and thrive in its specific habitat.",
       "options": [
         "Adaptation",
         "Biomass",
         "Population",
-        "Habitat"
+        "Migration"
       ],
       "fresh": true
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Why did Japan's mountainous geography help warrior rule develop?",
+      "prompt": "How did Japan's mountains affect its early cities and farmland?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "It split Japan into isolated regions",
-      "why": "Mountains divided Japan into separate areas, so local warrior leaders rose to control and defend their own regions.",
+      "answer": "They limited flat farmland",
+      "why": "Japan's mountains left only small pockets of flat, farmable land, forcing regions to be more self-sufficient and separate.",
       "options": [
-        "It split Japan into isolated regions",
-        "It made farming easy everywhere",
-        "It connected all regions by flat roads",
-        "It stopped any local leaders emerging"
+        "They limited flat farmland",
+        "They created huge deserts",
+        "They removed all coastlines",
+        "They joined regions together"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do the activities mainly build?",
+      "prompt": "In 'Paint Like a Beast', what do students study to guide their painting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Confidence with loose brushwork",
-      "why": "The activities encourage loose, expressive mark-making rather than precise or realistic copying.",
+      "answer": "Real animal reference photos",
+      "why": "The activities use real animal references so students learn to observe texture, fur, and form before painting.",
       "options": [
-        "Confidence with loose brushwork",
-        "Accuracy in photo copying",
-        "Skill with ruler-straight lines",
-        "Recall of colour theory terms"
+        "Real animal reference photos",
+        "Historical portrait paintings",
+        "Abstract colour charts",
+        "Architectural blueprints"
       ],
       "mode": "scrub",
       "fresh": true
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What was the Shogun's main role in the political hierarchy?",
+      "prompt": "Who did the shogun answer to, at least in name?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Supreme military ruler",
-      "why": "The Shogun held real military and political power, while the Emperor remained a ceremonial figurehead.",
+      "answer": "The emperor",
+      "why": "The emperor stayed the symbolic head of Japan, but the shogun held the real military and political power.",
       "options": [
-        "Supreme military ruler",
-        "Ceremonial religious priest",
-        "Elected town governor",
-        "Head of merchant guilds"
+        "The emperor",
+        "The local farmers",
+        "A council of merchants",
+        "Foreign kings"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if pot size affects tomato plant height, keeping sunlight the same for every plant. What type of variable is 'sunlight'?",
+      "prompt": "A student tests if music volume affects how fast a plant grows, keeping soil type the same. What kind of variable is 'volume'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "controlled"
+        "independent variable",
+        "independent"
       ],
-      "why": "Sunlight is kept the same on purpose, so it's the controlled variable — it stops other factors affecting the result.",
+      "why": "The independent variable is what you deliberately change — here, the volume of music being tested.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A storage crate measures 8 cm by 5 cm by 3 cm. What is its volume?",
+      "prompt": "A shoebox measures 12 cm by 6 cm by 4 cm. What is its volume?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 120,
+      "answer": 288,
       "calc": true,
       "pre": "",
       "post": " cm³",
-      "why": "Volume of a rectangular prism = length × width × height = 8 × 5 × 3 = 120 cm³.",
+      "why": "Volume of a rectangular prism = length × width × height, so 12 × 6 × 4 = 288 cm³.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "The chance of drawing a red card from a deck is 0.5. What is the chance of NOT drawing red?",
+      "prompt": "A bag has 5 red and 15 blue balls. What is P(red) as a decimal?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -314,25 +314,26 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.5,
-      "calc": false,
+      "answer": 0.25,
+      "calc": true,
+      "frac": "1/4",
       "pre": "",
       "post": "",
-      "why": "Probabilities of an event and its opposite always add to 1, so 1 − 0.5 = 0.5.",
+      "why": "P(red) = 5 red out of 20 total balls = 5/20 = 0.25.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "Which song section usually repeats with the same melody and lyrics each time?",
-      "answer": "Chorus",
-      "why": "The chorus keeps the same melody and lyrics on every repeat, carrying the song's main theme.",
+      "prompt": "Which song section usually introduces a new melody to contrast the chorus?",
+      "answer": "Bridge, with a new melody",
+      "why": "The bridge usually breaks away with a fresh melody and different feel, giving contrast before the song returns to the familiar chorus.",
       "options": [
-        "Chorus",
-        "Verse",
-        "Bridge",
-        "Intro"
+        "Bridge, with a new melody",
+        "Chorus, repeating its own melody",
+        "Intro, using instrumental sounds",
+        "Verse, using the chorus melody"
       ],
       "fresh": false
     },
@@ -340,14 +341,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "A person with good mental health can still feel what?",
-      "answer": "Sadness sometimes",
-      "why": "Good mental health doesn't mean never feeling down — it means coping well with normal emotions like sadness, not feeling nothing or being happy all the time.",
+      "prompt": "Which of these counts as part of someone's mental health?",
+      "answer": "How they cope with stress",
+      "why": "Mental health includes how someone handles stress and emotions day to day, not just whether they have a diagnosed illness.",
       "options": [
-        "Sadness sometimes",
-        "No emotions ever",
-        "Constant happiness",
-        "Zero stress always"
+        "How they cope with stress",
+        "Only if they have an illness",
+        "Their fitness test scores",
+        "Their exam results"
       ],
       "fresh": false
     },
@@ -355,14 +356,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, why does Tybalt want to fight Romeo?",
-      "answer": "Romeo crashed the party",
-      "why": "Tybalt recognises Romeo's voice at the Capulet feast and is enraged that a Montague dared to gatecrash their party.",
+      "prompt": "In Act 1 Scene 1, who tries to break up the servants' fight?",
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to try to stop the brawl, showing his role as a peacemaker early in the play.",
       "options": [
-        "Romeo crashed the party",
-        "Romeo insulted Juliet",
-        "Romeo stole from Capulet",
-        "Romeo broke a promise"
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "Prince Escalus"
       ],
       "fresh": false
     },
@@ -370,7 +371,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Maths",
-      "prompt": "Explain why knowing a probability of 0.3 for rain also tells you the probability of no rain, without being told that second number directly."
+      "prompt": "Your friend rolled a die twice and got a 3 both times. He now says 'the die must be biased towards 3.' Explain what's wrong with his reasoning, using the idea of probability over many trials."
     }
   ]
 }
