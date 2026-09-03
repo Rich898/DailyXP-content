@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-02",
-  "day": "WED",
-  "tag": "R6.3",
-  "title": "DailyXP · WED 2026-09-02",
+  "date": "2026-09-03",
+  "day": "THU",
+  "tag": "R6.4",
+  "title": "DailyXP · THU 2026-09-03",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Piggy is the boy who wears glasses and offers the clearest thinking",
+      "prompt": "The boys' choir becomes Jack's hunters",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,52 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Piggy is mocked for his weight and asthma but consistently offers the most rational, adult-like thinking in the group.",
+      "why": "Jack's choir gradually transforms into a group of hunters, showing the boys' shift from order toward savagery.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A vaccine works by causing the full disease first",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Vaccines use a weakened or harmless form of a pathogen to trigger immunity without causing the actual disease.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The 1923 Munich Putsch successfully overthrew the German government",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The putsch failed within a day; police stopped the Nazis' march and Hitler was later arrested and tried.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "6x + 2x simplifies to 8x",
+      "prompt": "HIV attacks helper T cells",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +40,52 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Like terms add together: 6x + 2x combines the coefficients to give 8x.",
+      "why": "HIV specifically targets helper T cells, weakening the immune system's ability to coordinate a response to infection.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The Munich Putsch took place in a beer hall",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Hitler launched the putsch by interrupting a meeting at the Bürgerbräukeller, a Munich beer hall, in November 1923.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "A refugee fleeing war is a pull-factor migrant",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "War is a push factor — something that drives people away from a place — not a pull factor drawing them toward one.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Solve for x: 5x + 6 = 26",
+      "subject": "Commerce",
+      "prompt": "Which business plan section covers cash flow and startup costs?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "4",
-      "why": "Subtract 6 from both sides to get 5x = 20, then divide by 5 to get x = 4.",
+      "answer": "Financial plan",
+      "why": "The financial plan section covers money matters like costs, funding, and cash flow — not the summary or market research.",
       "options": [
-        "4",
-        "5",
-        "6",
-        "20"
+        "Financial plan",
+        "Executive summary",
+        "Market analysis",
+        "Mission statement"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Freud's model, which part operates mostly hidden below conscious awareness?",
+      "prompt": "In Freud's model, which part follows the 'pleasure principle'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,7 +116,7 @@
         "cta": "Keep going →"
       },
       "answer": "The id",
-      "why": "The id is the unconscious, instinctive part of the mind, driven by basic desires without regard for reality or morals.",
+      "why": "The id acts purely on instinct and desire, seeking pleasure immediately without considering consequences.",
       "options": [
         "The id",
         "The ego",
@@ -128,8 +128,8 @@
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Ads that link a snack to feeling popular use which technique?",
+      "subject": "Commerce",
+      "prompt": "A car wash offering vacuuming for an extra fee is selling a…",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Emotional appeal",
-      "why": "Emotional appeal sells a feeling, like popularity or belonging, rather than facts about the product itself.",
+      "answer": "Service",
+      "why": "Vacuuming is an action performed for the customer, not a physical item, so it counts as a service rather than a product.",
       "options": [
-        "Emotional appeal",
-        "Price discount",
-        "Nutrition labelling",
-        "Product placement"
+        "Service",
+        "Product",
+        "Logo",
+        "Brand"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What term describes Australia's shift since the 1970s to accept migrants from many countries?",
+      "subject": "Maths",
+      "prompt": "Simplify: 8x − 3x",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Multiculturalism",
-      "why": "Multiculturalism describes the post-1970s policy of accepting and valuing migrants from diverse countries, not just Europe.",
+      "answer": "5x",
+      "why": "Only the coefficients of matching terms subtract: 8x − 3x = 5x, since both terms share the same variable.",
       "options": [
-        "Multiculturalism",
-        "Populate or Perish",
-        "Assisted Passage",
-        "White Australia Policy"
+        "5x",
+        "11x",
+        "8x",
+        "24x"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What crisis struck the German currency in 1923?",
+      "subject": "Maths",
+      "prompt": "Solve for x: 7x − 2 = 26",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Hyperinflation",
-      "why": "In 1923 German money became almost worthless, with prices rising so fast people needed wheelbarrows of cash for basics.",
+      "answer": "4",
+      "why": "Add 2 to both sides to get 7x = 28, then divide by 7 to find x = 4.",
       "options": [
-        "Hyperinflation",
-        "Bank collapse",
-        "Gold shortage",
-        "Trade embargo"
+        "4",
+        "3",
+        "5",
+        "6"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Geography",
-      "prompt": "A family moves to a city because wages there are higher. What kind of factor is this?",
+      "subject": "PDHPE",
+      "prompt": "Which nutrient is the body's main source of quick energy?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Pull factor",
-      "why": "A pull factor draws people toward a new place, like higher wages; a push factor drives them away from their old home.",
+      "answer": "Carbohydrates like bread",
+      "why": "Carbohydrates are broken down quickly into glucose, making them the body's main quick-energy source, unlike proteins or fats which are used more slowly.",
       "options": [
-        "Pull factor",
-        "Push factor",
-        "Natural factor",
-        "Political factor"
+        "Carbohydrates like bread",
+        "Proteins like chicken",
+        "Fats like butter",
+        "Vitamins like vitamin C"
       ],
       "mode": "scrub",
       "fresh": false
@@ -217,8 +217,8 @@
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "A business plan section that summarises the whole plan on one page is the…",
+      "subject": "PDHPE",
+      "prompt": "A soft drink ad shows a famous singer holding the can at a concert. What technique is this?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Executive summary",
-      "why": "The executive summary gives a brief one-page overview of the whole business plan, read first by anyone reviewing it.",
+      "answer": "Celebrity endorsement",
+      "why": "Using a famous person to promote a product is celebrity endorsement, designed to link the product to their popularity.",
       "options": [
-        "Executive summary",
-        "Market analysis",
-        "Financial plan",
-        "Marketing strategy"
+        "Celebrity endorsement",
+        "Bundling",
+        "Price discounting",
+        "Nutrition labelling"
       ],
       "mode": "scrub",
       "fresh": false
@@ -240,8 +240,8 @@
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "A bakery selling loaves of bread is selling a…",
+      "subject": "D&T",
+      "prompt": "A market stall designs its packaging to be sturdy for outdoor markets. What design factor is this?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Product",
-      "why": "A product is a physical item a customer takes away, like a loaf of bread, unlike a service which is an action performed for them.",
+      "answer": "Function",
+      "why": "Making packaging sturdy for practical use addresses function — how well the design performs its job — not looks or branding.",
       "options": [
-        "Product",
-        "Service",
-        "Logo",
-        "Brand"
+        "Function",
+        "Branding",
+        "Innovation",
+        "Aesthetics"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 24 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 23 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -273,69 +273,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 60,
+      "answer": 69,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height: ½ × 24 × 5 = 60 cm². Always halve after multiplying, not before or forgetting it.",
+      "why": "Area = ½ × base × height = ½ × 23 × 6 = 69 cm². Say the formula first, then multiply, then halve.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "From a while back — a bakery redesigns its logo with a simple wheat-sheaf icon. What is this logo mainly doing?",
-      "answer": "Building brand identity",
-      "why": "A distinctive, consistent logo helps customers recognise and remember a brand, which is what branding is for.",
-      "options": [
-        "Building brand identity",
-        "Setting the price",
-        "Analysing competitors",
-        "Running a SWOT analysis"
-      ],
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "In Lord of the Flies, what does the fire on the mountain mainly represent?",
-      "answer": "Hope of rescue",
-      "why": "The signal fire stands for the boys' connection to civilisation and rescue; letting it die shows their priorities shifting toward hunting and savagery.",
-      "options": [
-        "Hope of rescue",
-        "Jack's hunting skill",
-        "The boys' fear of the beast",
-        "Piggy's authority"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is the general name for a substance the body produces to target and destroy a specific pathogen?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "antibody",
-        "antibodies"
-      ],
-      "why": "Antibodies are proteins made by lymphocytes that lock onto and help destroy a specific pathogen.",
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events leading up to the Munich Putsch itself",
+      "prompt": "Order these stages in Hitler's rise from earliest to latest",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -345,36 +294,96 @@
       },
       "type": "order",
       "sequence": [
-        "Germany suffers hyperinflation crisis",
-        "Hitler plans to seize power in Bavaria",
-        "Nazis march to a Munich beer hall",
-        "Hitler declares a national revolution"
+        "Treaty of Versailles signed",
+        "Munich Putsch fails",
+        "Great Depression hits Germany",
+        "Hitler becomes Chancellor"
       ],
       "top": "Earliest",
       "bot": "Latest",
-      "why": "Economic crisis and unrest gave Hitler the opening to plan a takeover, which he launched by marching on a Munich beer hall and declaring revolution, before it collapsed.",
+      "why": "Versailles (1919) bred resentment, the failed Putsch (1923) taught Hitler to seek power legally, the Depression (1929) boosted Nazi support, leading to his appointment as Chancellor (1933).",
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "What type of white blood cell surrounds and digests invading bacteria?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "phagocyte",
+        "phagocytes"
+      ],
+      "why": "Phagocytes are white blood cells that engulf and digest pathogens as part of the body's immune response.",
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, what does Ralph mainly represent?",
+      "answer": "Order and leadership",
+      "why": "Ralph stands for civilisation, rules, and organised leadership, contrasting with Jack's descent into savagery.",
+      "options": [
+        "Order and leadership",
+        "Savagery and violence",
+        "Fear and superstition",
+        "Pure survival instinct"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Geography",
+      "prompt": "What term describes Australia's post-WWII policy of actively encouraging mass immigration?",
+      "answer": "Populate or perish",
+      "why": "'Populate or perish' was the slogan behind Australia's postwar drive to boost population through mass immigration for security and labour.",
+      "options": [
+        "Populate or perish",
+        "White Australia policy",
+        "Multiculturalism",
+        "Assimilation policy"
+      ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "D&T",
-      "prompt": "A market stall keeps its logo and colours the same across every product for a year. What is this mainly building?",
-      "answer": "Brand recognition",
-      "why": "Using consistent logo and colours over time helps customers recognise and remember the brand.",
-      "options": [
-        "Brand recognition",
-        "A market analysis",
-        "A SWOT analysis",
-        "A financial forecast"
+      "subject": "History",
+      "prompt": "Order these events of the Munich Putsch from earliest to latest",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Hitler interrupts beer hall meeting",
+        "Nazis march through Munich",
+        "Police open fire on marchers",
+        "Hitler is arrested"
       ],
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "Hitler began the putsch by seizing the beer hall meeting, then led a march that was met with police gunfire, ending in his arrest.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "D&T",
-      "prompt": "A market stall has a great product but keeps changing its logo, colours, and packaging every few weeks. Explain why this could still hurt the stall's success, even though the product itself is strong."
+      "subject": "Geography",
+      "prompt": "Australia's migration history is often summed up as 'a nation built by migrants.' Explain why this phrase captures more than just population growth — think about culture, economy, and identity."
     }
   ]
 }
