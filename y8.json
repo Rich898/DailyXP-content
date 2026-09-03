@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-02",
-  "day": "WED",
-  "tag": "H6.3",
-  "title": "DailyXP · WED 2026-09-02",
+  "date": "2026-09-03",
+  "day": "THU",
+  "tag": "H6.4",
+  "title": "DailyXP · THU 2026-09-03",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Tybalt wants peace between the families",
+      "subject": "Maths",
+      "prompt": "P(rain) = 0.2, so P(no rain) = 0.8",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Tybalt is aggressive and hates the Montagues — he wants conflict, not peace, shown clearly in Act 1.",
+      "answer": "True",
+      "why": "Complementary events add to 1, so P(no rain) = 1 − 0.2 = 0.8.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Continuity means something changed completely over time",
+      "prompt": "A trigger cause is the same as the only cause",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Continuity means something stayed the same over time — change is the opposite idea.",
+      "why": "A trigger cause just sparks an event; deeper long-term causes usually built up before it.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "A middle-eight usually sounds contrasting to the chorus",
+      "prompt": "The chorus is usually the fullest-layered section",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "A middle-eight (bridge) is written to sound different from the chorus, giving the song contrast before the final sections.",
+      "why": "Choruses usually stack the most instruments and layers to feel like the song's peak.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "You can have good mental health and still feel stressed sometimes",
+      "subject": "Visual Arts",
+      "prompt": "'Paint Like a Beast' activities mainly build painting skills",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Good mental health isn't the absence of stress or sadness — it's being able to cope with these normal feelings.",
-      "fresh": false
+      "why": "The activities are structured to build up practical painting technique step by step.",
+      "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Who is Juliet's cousin that dies in a duel with Romeo?",
+      "subject": "PDHPE",
+      "prompt": "What is a healthy first step when you feel angry?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Tybalt",
-      "why": "Tybalt, Juliet's hot-headed cousin, is killed by Romeo in Act 3 after Tybalt kills Mercutio.",
+      "answer": "Pause and breathe",
+      "why": "Pausing to breathe helps calm the body's stress response before reacting.",
       "options": [
-        "Tybalt",
-        "Paris",
-        "Mercutio",
-        "Benvolio"
+        "Pause and breathe",
+        "Yell it out",
+        "Ignore it forever",
+        "Blame someone else"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a common myth about anger?",
+      "prompt": "Is it true that mental illness means someone is weak?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Bottling it up is healthy",
-      "why": "Bottling up anger doesn't make it disappear — it often builds up and comes out worse later. Learning to express and manage anger safely is the healthy approach.",
+      "answer": "Myth, not true",
+      "why": "Mental illness is a health condition, not a sign of weakness or lack of willpower.",
       "options": [
-        "Bottling it up is healthy",
-        "It can be managed",
-        "Everyone feels it sometimes",
-        "Talking about it helps"
+        "Myth, not true",
+        "True fact",
+        "Only for adults",
+        "Only in extreme cases"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the 'ii'?",
+      "prompt": "In the progression C–Am–F–G, which chord is the 'vi'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "None of the chords",
-      "why": "This progression only uses I, vi, IV and V (C, Am, F, G) — there is no ii chord (which would be Dm) present at all.",
+      "answer": "Am minor",
+      "why": "In C major, the chords built on each scale note are numbered I–vii; Am is the sixth note (A), so it's the vi chord.",
       "options": [
-        "None of the chords",
-        "Am, as the ii chord",
-        "F, as the ii chord",
-        "G, as the ii chord"
+        "C major",
+        "Am minor",
+        "F major",
+        "G major"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What does 'oishii' mean in Japanese?",
+      "subject": "Science",
+      "prompt": "What term describes total living material in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Delicious",
-      "why": "'Oishii' means delicious — a common word used to praise food in Japan.",
+      "answer": "Biomass",
+      "why": "Biomass is the total mass of living organisms in an area or ecosystem.",
       "options": [
-        "Delicious",
-        "Water",
-        "Thank you",
-        "Bill please"
+        "Biomass",
+        "Biodiversity",
+        "Habitat",
+        "Population"
       ],
       "fresh": true
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "What term describes a trait helping an organism survive in its habitat?",
+      "subject": "History",
+      "prompt": "How did Japan's mountains affect its early farmland?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Adaptation",
-      "why": "An adaptation is a feature that helps an organism survive and thrive in its specific habitat.",
+      "answer": "Limited flat farmland",
+      "why": "Japan's mountainous terrain left only small pockets of flat land for farming and settlement.",
       "options": [
-        "Adaptation",
-        "Biomass",
-        "Population",
-        "Migration"
+        "Limited flat farmland",
+        "Created huge plains",
+        "Blocked all farming",
+        "Made rice impossible"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "How did Japan's mountains affect its early cities and farmland?",
+      "subject": "Japanese",
+      "prompt": "What does 'itadakimasu' mean?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,45 +203,45 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "They limited flat farmland",
-      "why": "Japan's mountains left only small pockets of flat, farmable land, forcing regions to be more self-sufficient and separate.",
+      "answer": "Thanks before eating",
+      "why": "'Itadakimasu' is said before eating to show gratitude for the meal.",
       "options": [
-        "They limited flat farmland",
-        "They created huge deserts",
-        "They removed all coastlines",
-        "They joined regions together"
+        "Thanks before eating",
+        "Thanks after eating",
+        "Please give water",
+        "I'd like the bill"
+      ],
+      "mode": "scrub",
+      "fresh": true
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "In the shogunate system, who ranked directly below the shogun?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "The daimyo",
+      "why": "Daimyo were powerful regional lords who answered directly to the shogun, sitting just below him in the hierarchy.",
+      "options": [
+        "The daimyo",
+        "The emperor",
+        "The peasants",
+        "The merchants"
       ],
       "mode": "scrub",
       "fresh": false
     },
     {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students study to guide their painting?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Real animal reference photos",
-      "why": "The activities use real animal references so students learn to observe texture, fur, and form before painting.",
-      "options": [
-        "Real animal reference photos",
-        "Historical portrait paintings",
-        "Abstract colour charts",
-        "Architectural blueprints"
-      ],
-      "mode": "scrub",
-      "fresh": true
-    },
-    {
       "id": "S12",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Who did the shogun answer to, at least in name?",
+      "subject": "PDHPE",
+      "prompt": "Which of these is a normal part of good mental health?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "The emperor",
-      "why": "The emperor stayed the symbolic head of Japan, but the shogun held the real military and political power.",
+      "answer": "Feeling stressed sometimes",
+      "why": "Good mental health doesn't mean never feeling bad — it means coping well, and occasional stress is normal and healthy.",
       "options": [
-        "The emperor",
-        "The local farmers",
-        "A council of merchants",
-        "Foreign kings"
+        "Feeling stressed sometimes",
+        "Feeling happy all day, every day",
+        "Never feeling upset at all",
+        "Avoiding every problem you face"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if music volume affects how fast a plant grows, keeping soil type the same. What kind of variable is 'volume'?",
+      "prompt": "A student tests if fertiliser amount affects plant height, keeping pot size the same. What is the variable they measure called?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,30 +274,25 @@
       },
       "type": "text",
       "accept": [
-        "independent variable",
-        "independent"
+        "dependent variable",
+        "dependent"
       ],
-      "why": "The independent variable is what you deliberately change — here, the volume of music being tested.",
+      "why": "The dependent variable is what you measure as a result — here, plant height.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A shoebox measures 12 cm by 6 cm by 4 cm. What is its volume?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 288,
-      "calc": true,
-      "pre": "",
-      "post": " cm³",
-      "why": "Volume of a rectangular prism = length × width × height, so 12 × 6 × 4 = 288 cm³.",
+      "subject": "English",
+      "prompt": "What is the central theme shown by love and hate existing together in Romeo and Juliet?",
+      "answer": "Love clashing with feud",
+      "why": "The play repeatedly shows romantic love colliding with the deep-rooted family hatred.",
+      "options": [
+        "Love clashing with feud",
+        "Love solving family feud",
+        "Hate replacing all love",
+        "Love ignored by families"
+      ],
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +300,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A bag has 5 red and 15 blue balls. What is P(red) as a decimal?",
+      "prompt": "The chance of an event happening is 0.45. What is the chance it does not happen?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -314,64 +309,68 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.25,
-      "calc": true,
-      "frac": "1/4",
+      "answer": 0.55,
+      "calc": false,
       "pre": "",
       "post": "",
-      "why": "P(red) = 5 red out of 20 total balls = 5/20 = 0.25.",
+      "why": "Complementary probabilities add to 1, so 1 − 0.45 = 0.55.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "Which song section usually introduces a new melody to contrast the chorus?",
-      "answer": "Bridge, with a new melody",
-      "why": "The bridge usually breaks away with a fresh melody and different feel, giving contrast before the song returns to the familiar chorus.",
-      "options": [
-        "Bridge, with a new melody",
-        "Chorus, repeating its own melody",
-        "Intro, using instrumental sounds",
-        "Verse, using the chorus melody"
-      ],
+      "subject": "Maths",
+      "prompt": "A bag has 6 red and 4 blue balls. What is P(red) as a decimal?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.6,
+      "calc": true,
+      "pre": "",
+      "post": "",
+      "why": "P(red) = 6 out of 10 total balls = 0.6.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Which of these counts as part of someone's mental health?",
-      "answer": "How they cope with stress",
-      "why": "Mental health includes how someone handles stress and emotions day to day, not just whether they have a diagnosed illness.",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, why do the Capulet and Montague servants start fighting?",
+      "answer": "Old family hatred",
+      "why": "The servants fight simply because of the long-running feud between their masters' families, shown from the play's very first scene.",
       "options": [
-        "How they cope with stress",
-        "Only if they have an illness",
-        "Their fitness test scores",
-        "Their exam results"
+        "Old family hatred",
+        "A stolen sword",
+        "An unpaid debt",
+        "A broken promise"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to break up the servants' fight?",
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword to try to stop the brawl, showing his role as a peacemaker early in the play.",
+      "subject": "Music",
+      "prompt": "In song structure, which section usually has the most layers of instruments?",
+      "answer": "Chorus, built up for impact",
+      "why": "Producers stack in extra drums, harmonies and instruments in the chorus to make it feel like the biggest, most energetic moment.",
       "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Prince Escalus"
+        "Chorus, built up for impact",
+        "Verse, kept fairly sparse",
+        "Intro, easing the song in",
+        "Bridge, stripped back for contrast"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Maths",
-      "prompt": "Your friend rolled a die twice and got a 3 both times. He now says 'the die must be biased towards 3.' Explain what's wrong with his reasoning, using the idea of probability over many trials."
+      "subject": "English",
+      "prompt": "Look at a short extract from Act 1 of Romeo and Juliet. Write a topic sentence about how Shakespeare uses language or structure in this moment, then explain what dramatic technique supports your point."
     }
   ]
 }
