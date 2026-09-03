@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-02",
-  "day": "WED",
-  "tag": "T6.3",
-  "title": "DailyXP · WED 2026-09-02",
+  "date": "2026-09-03",
+  "day": "THU",
+  "tag": "T6.4",
+  "title": "DailyXP · THU 2026-09-03",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Rolling a die: getting a 6 has probability 1/6",
+      "prompt": "Rolling a die: getting a number less than 3",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "A die has 6 equally likely faces, so any single number has a 1/6 chance.",
+      "left": "Certain",
+      "right": "Not certain",
+      "answer": "Not certain",
+      "why": "There are 4 numbers (3,4,5,6) that are NOT less than 3, so it's not guaranteed — this event is not certain.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "A stage direction is spoken aloud by an actor",
+      "prompt": "An aside is heard only by the audience, not other characters",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Stage directions are instructions for actors/staging, not lines the actor speaks.",
+      "answer": "True",
+      "why": "An aside is a short remark a character makes directly to the audience, which other characters on stage cannot hear.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A cactus storing water in its stem is a structural adaptation",
+      "prompt": "A polar bear's white fur is a structural adaptation",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Structural adaptations are physical features, like a fleshy stem built to store water.",
+      "why": "White fur is a physical (structural) feature of the body, unlike a behavioural adaptation which is an action an animal does.",
       "fresh": true
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Itadakimasu' is said before you start eating",
+      "prompt": "'Mizu' means water in Japanese",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Itadakimasu' is said before eating, while 'gochisousama' is said after the meal.",
+      "why": "'Mizu' is the Japanese word for water, commonly asked for in restaurants.",
       "fresh": true
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Why do historians usually reject 'single cause' explanations?",
+      "subject": "English",
+      "prompt": "Before falling for Juliet, who was Romeo infatuated with?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Real events have many linked causes",
-      "why": "Historians look for multiple, interacting causes behind an event, not one isolated trigger — reducing history to a single cause oversimplifies it.",
+      "answer": "Rosaline",
+      "why": "Romeo pines for Rosaline before he ever meets Juliet at the Capulet feast, though she never appears on stage.",
       "options": [
-        "Real events have many linked causes",
-        "Only economic causes actually matter",
-        "Only one cause is ever provable",
-        "Causes rarely connect to outcomes"
+        "Rosaline",
+        "Lady Capulet",
+        "The Nurse",
+        "Livia"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Who is Romeo's best friend, killed by Tybalt?",
+      "subject": "History",
+      "prompt": "Who did a shogun rule on behalf of, in name only?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Mercutio",
-      "why": "Mercutio is killed by Tybalt in Act 3, and his death drives Romeo to kill Tybalt in revenge.",
+      "answer": "The emperor",
+      "why": "The shogun held real military and political power, but officially ruled in the name of the emperor, who remained a symbolic figurehead.",
       "options": [
-        "Mercutio",
-        "Benvolio",
-        "Paris",
-        "Balthasar"
+        "The emperor",
+        "The pope",
+        "The daimyo",
+        "The samurai"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a common myth about anxiety?",
+      "subject": "History",
+      "prompt": "Why do historians usually avoid blaming one single cause for a big event?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "It means someone is weak",
-      "why": "Anxiety is a common mental health condition, not a sign of personal weakness — this myth stops people seeking help.",
+      "answer": "Big events usually have several linked causes",
+      "why": "Major historical events almost always result from several interacting causes, so picking just one oversimplifies what happened.",
       "options": [
-        "It means someone is weak",
-        "It can affect anyone",
-        "It is treatable",
-        "It is a mental health condition"
+        "Big events usually have several linked causes",
+        "Single causes are always too recent to trust",
+        "Textbooks prefer longer lists of causes",
+        "Only wars ever have multiple causes"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In a song's build-up, adding layers one by one mainly creates what effect?",
+      "subject": "PDHPE",
+      "prompt": "What's a common myth about anger?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Rising energy and intensity",
-      "why": "Stacking instruments gradually thickens the texture, which builds energy and intensity toward a climax.",
+      "answer": "Expressing it is always bad",
+      "why": "A common myth is that anger itself is bad or should always be hidden — actually anger is a normal emotion, and the goal is managing it in healthy ways, not suppressing it entirely.",
       "options": [
-        "Rising energy and intensity",
-        "A sudden drop in volume",
-        "A steady, unchanging texture",
-        "A shift to a slower tempo"
+        "Expressing it is always bad",
+        "It can be managed calmly",
+        "It's a normal emotion",
+        "Everyone feels it sometimes"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Why was central rule hard to enforce across old Japan?",
+      "subject": "PDHPE",
+      "prompt": "What is a healthy way to deal with anger?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Mountains isolated many regions",
-      "why": "Japan's mountainous terrain made travel and communication difficult, so local warrior rule grew stronger than distant central control.",
+      "answer": "Taking deep breaths",
+      "why": "Deep breathing helps calm the body's stress response, making it a healthy strategy compared to suppressing or exploding with anger.",
       "options": [
-        "Mountains isolated many regions",
-        "Rivers connected every province",
-        "Flat plains covered most land",
-        "Deserts blocked army movement"
+        "Taking deep breaths",
+        "Yelling at others",
+        "Bottling it up",
+        "Ignoring it completely"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what kind of brush marks did students mostly use?",
+      "subject": "Music",
+      "prompt": "Which change usually creates a 'build-up' effect in a song?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,45 +203,22 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Loose, expressive strokes",
-      "why": "The activities encouraged loose, expressive brushwork to show animal energy, rather than tidy dots, straight lines, or ruled edges.",
+      "answer": "Adding layers gradually",
+      "why": "Gradually adding instrument layers increases energy and texture, which is what creates a build-up feeling in a song.",
       "options": [
-        "Loose, expressive strokes",
-        "Tiny, careful dots",
-        "Perfectly straight lines",
-        "Thin, ruler-drawn edges"
-      ],
-      "mode": "scrub",
-      "fresh": true
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What does 'mental health' mainly describe?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Emotional and psychological wellbeing",
-      "why": "Mental health refers to emotional and psychological wellbeing, not physical fitness, academic results, or how sociable someone is.",
-      "options": [
-        "Emotional and psychological wellbeing",
-        "Physical fitness and strength levels",
-        "Grades and academic performance",
-        "How outgoing or sociable someone is"
+        "Adding layers gradually",
+        "Removing all instruments",
+        "Repeating the same verse",
+        "Slowing the tempo sharply"
       ],
       "mode": "scrub",
       "fresh": false
     },
     {
-      "id": "S12",
+      "id": "S11",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with strong feelings?",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what did students mainly explore through animal painting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +226,36 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Talking to someone trusted",
-      "why": "Talking to a trusted person helps process strong feelings, while bottling up or avoiding emotions can make things worse.",
+      "answer": "Expressive brushwork",
+      "why": "The activities focused on loose, expressive brush marks to capture the energy and character of animals, not exact realism.",
       "options": [
-        "Talking to someone trusted",
-        "Bottling them up completely",
-        "Ignoring them until they fade",
-        "Avoiding everyone around you"
+        "Expressive brushwork",
+        "Photographic realism",
+        "Digital editing",
+        "Pencil shading"
+      ],
+      "mode": "scrub",
+      "fresh": true
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "What does 'mental health' mainly refer to?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Emotional wellbeing",
+      "why": "Mental health describes a person's emotional and psychological wellbeing, not separate physical measures like exercise, grades, or sleep alone.",
+      "options": [
+        "Emotional wellbeing",
+        "Weekly exercise level",
+        "Grades at school",
+        "Hours of sleep"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these medieval developments from earliest to latest",
+      "prompt": "Order these feudal ranks from highest to lowest power",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -274,43 +274,52 @@
       },
       "type": "order",
       "sequence": [
-        "Fall of Western Rome",
-        "Feudal system spreads",
-        "Catholic Church gains political power",
-        "Crusades begin"
+        "King",
+        "Lords",
+        "Knights",
+        "Peasants"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "Rome fell in 476 CE, feudalism grew in the early medieval period, the Church's political power built up over centuries after that, and the Crusades began in 1096.",
+      "top": "Highest",
+      "bot": "Lowest",
+      "why": "In the feudal pyramid, the king held ultimate power, followed by lords, then knights, with peasants at the bottom doing the labour.",
       "fresh": false,
       "throwback": true
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 6 red and 4 blue marbles. What is the probability of drawing red, as a fraction out of 10?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.6,
-      "calc": false,
-      "frac": "6/10",
-      "pre": "",
-      "post": "",
-      "why": "6 red out of 10 total marbles gives a probability of 6/10, which equals 0.6.",
+      "subject": "Music",
+      "prompt": "In the progression C-Am-F-G, what role does the G chord play?",
+      "answer": "The V chord, creating tension",
+      "why": "G is the fifth note of the C major scale, so it's the V chord, which naturally pulls back toward the I chord (C).",
+      "options": [
+        "The V chord, creating tension",
+        "The I chord, feeling settled",
+        "The vi chord, sounding sadder",
+        "The IV chord, sounding open"
+      ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "What does 'gochisousama' mean?",
+      "answer": "Thank you for the meal",
+      "why": "'Gochisousama' is said after finishing a meal to thank the cook, unlike 'itadakimasu' which is said before eating.",
+      "options": [
+        "Thank you for the meal",
+        "This tastes delicious",
+        "Please start eating",
+        "Please pass the water"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
       "subject": "Maths",
-      "prompt": "The probability of picking a red counter is 0.7. What is the probability of not picking red?",
+      "prompt": "A bag has 2 black and 8 white balls. What is the probability of drawing black, as a fraction out of 10?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -319,55 +328,46 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.3,
+      "answer": 0.2,
       "calc": false,
+      "frac": "2/10",
       "pre": "",
       "post": "",
-      "why": "Complementary probabilities add to 1, so 1 minus 0.7 leaves 0.3 for not picking red.",
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the key of C major, which chord is built on the fourth note of the scale?",
-      "answer": "F",
-      "why": "The fourth note of the C major scale is F, so the chord built on it is F (the 'IV' chord).",
-      "options": [
-        "F",
-        "G",
-        "Am",
-        "C"
-      ],
+      "why": "There are 2 black balls out of 10 total, so the probability is 2/10, which simplifies to 1/5.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'water' in Japanese?",
-      "answer": "Mizu",
-      "why": "'Mizu' means water in Japanese; 'gohan' is rice, 'sakana' is fish, and 'niku' is meat.",
-      "options": [
-        "Mizu",
-        "Gohan",
-        "Sakana",
-        "Niku"
-      ],
-      "fresh": true
+      "subject": "Maths",
+      "prompt": "The probability of picking a blue ticket is 0.65. What is the probability of not picking blue?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.35,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Complementary probabilities add to 1, so the chance of not picking blue is 1 − 0.65 = 0.35.",
+      "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What is dialogue in a play script mainly used for?",
-      "answer": "Showing what characters say",
-      "why": "Dialogue is the spoken lines between characters, while stage directions handle movement and setting.",
+      "prompt": "What is dialogue mainly used for in a play script?",
+      "answer": "Showing character speech",
+      "why": "Dialogue is the spoken lines between characters, driving the story and revealing personality, unlike stage directions which describe actions.",
       "options": [
-        "Showing what characters say",
-        "Describing the set design",
-        "Naming the scene's location",
-        "Telling actors how to move"
+        "Showing character speech",
+        "Describing the set",
+        "Giving stage directions",
+        "Naming the acts"
       ],
       "fresh": false
     },
@@ -375,7 +375,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why the same four chords played in a different order (like starting on Am instead of C) can make a song feel sadder, even though no notes have changed."
+      "prompt": "A songwriter keeps the same four chords (C-Am-F-G) but changes which chord comes first each time. Explain why this can change how emotional or upbeat the song feels, even though the notes used are identical."
     }
   ]
 }
