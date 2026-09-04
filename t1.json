@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-03",
-  "day": "THU",
-  "tag": "T6.4",
-  "title": "DailyXP · THU 2026-09-03",
+  "date": "2026-09-04",
+  "day": "FRI",
+  "tag": "T6.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-04",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Rolling a die: getting a number less than 3",
+      "subject": "Japanese",
+      "prompt": "'oishii' means delicious",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Certain",
-      "right": "Not certain",
-      "answer": "Not certain",
-      "why": "There are 4 numbers (3,4,5,6) that are NOT less than 3, so it's not guaranteed — this event is not certain.",
-      "fresh": false
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Oishii' means delicious in Japanese — a key phrase for reacting to food.",
+      "fresh": true
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "An aside is heard only by the audience, not other characters",
+      "prompt": "An aside is heard by the audience only",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,334 +40,127 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "An aside is a short remark a character makes directly to the audience, which other characters on stage cannot hear.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "A polar bear's white fur is a structural adaptation",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "White fur is a physical (structural) feature of the body, unlike a behavioural adaptation which is an action an animal does.",
-      "fresh": true
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'Mizu' means water in Japanese",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "'Mizu' is the Japanese word for water, commonly asked for in restaurants.",
-      "fresh": true
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Before falling for Juliet, who was Romeo infatuated with?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Rosaline",
-      "why": "Romeo pines for Rosaline before he ever meets Juliet at the Capulet feast, though she never appears on stage.",
-      "options": [
-        "Rosaline",
-        "Lady Capulet",
-        "The Nurse",
-        "Livia"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Who did a shogun rule on behalf of, in name only?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "The emperor",
-      "why": "The shogun held real military and political power, but officially ruled in the name of the emperor, who remained a symbolic figurehead.",
-      "options": [
-        "The emperor",
-        "The pope",
-        "The daimyo",
-        "The samurai"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Why do historians usually avoid blaming one single cause for a big event?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Big events usually have several linked causes",
-      "why": "Major historical events almost always result from several interacting causes, so picking just one oversimplifies what happened.",
-      "options": [
-        "Big events usually have several linked causes",
-        "Single causes are always too recent to trust",
-        "Textbooks prefer longer lists of causes",
-        "Only wars ever have multiple causes"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a common myth about anger?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Expressing it is always bad",
-      "why": "A common myth is that anger itself is bad or should always be hidden — actually anger is a normal emotion, and the goal is managing it in healthy ways, not suppressing it entirely.",
-      "options": [
-        "Expressing it is always bad",
-        "It can be managed calmly",
-        "It's a normal emotion",
-        "Everyone feels it sometimes"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with anger?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Taking deep breaths",
-      "why": "Deep breathing helps calm the body's stress response, making it a healthy strategy compared to suppressing or exploding with anger.",
-      "options": [
-        "Taking deep breaths",
-        "Yelling at others",
-        "Bottling it up",
-        "Ignoring it completely"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "Which change usually creates a 'build-up' effect in a song?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Adding layers gradually",
-      "why": "Gradually adding instrument layers increases energy and texture, which is what creates a build-up feeling in a song.",
-      "options": [
-        "Adding layers gradually",
-        "Removing all instruments",
-        "Repeating the same verse",
-        "Slowing the tempo sharply"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did students mainly explore through animal painting?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Expressive brushwork",
-      "why": "The activities focused on loose, expressive brush marks to capture the energy and character of animals, not exact realism.",
-      "options": [
-        "Expressive brushwork",
-        "Photographic realism",
-        "Digital editing",
-        "Pencil shading"
-      ],
-      "mode": "scrub",
-      "fresh": true
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What does 'mental health' mainly refer to?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Emotional wellbeing",
-      "why": "Mental health describes a person's emotional and psychological wellbeing, not separate physical measures like exercise, grades, or sleep alone.",
-      "options": [
-        "Emotional wellbeing",
-        "Weekly exercise level",
-        "Grades at school",
-        "Hours of sleep"
-      ],
-      "mode": "scrub",
+      "why": "An aside is a line spoken so the audience hears it but other characters on stage do not.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these feudal ranks from highest to lowest power",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "King",
-        "Lords",
-        "Knights",
-        "Peasants"
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord is built on the sixth scale degree?",
+      "answer": "Am, sixth-degree chord",
+      "why": "Am sits on the sixth note of the C major scale, making it the 'vi' chord — F is 'iv' on the fourth note, G is 'v' on the fifth, and C is 'i' on the first.",
+      "options": [
+        "Am, sixth-degree chord",
+        "F, fourth-degree chord",
+        "G, fifth-degree chord",
+        "C, first-degree chord"
       ],
-      "top": "Highest",
-      "bot": "Lowest",
-      "why": "In the feudal pyramid, the king held ultimate power, followed by lords, then knights, with peasants at the bottom doing the labour.",
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, what role does the G chord play?",
-      "answer": "The V chord, creating tension",
-      "why": "G is the fifth note of the C major scale, so it's the V chord, which naturally pulls back toward the I chord (C).",
-      "options": [
-        "The V chord, creating tension",
-        "The I chord, feeling settled",
-        "The vi chord, sounding sadder",
-        "The IV chord, sounding open"
-      ],
+      "subject": "Maths",
+      "prompt": "A bag has 3 green and 9 orange counters. What is the probability of drawing green, as a fraction out of 12?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.25,
+      "calc": false,
+      "frac": "3/12",
+      "pre": "",
+      "post": "",
+      "why": "3 green out of 12 total counters gives a probability of 3/12, which simplifies to 1/4.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "What does 'gochisousama' mean?",
-      "answer": "Thank you for the meal",
-      "why": "'Gochisousama' is said after finishing a meal to thank the cook, unlike 'itadakimasu' which is said before eating.",
-      "options": [
-        "Thank you for the meal",
-        "This tastes delicious",
-        "Please start eating",
-        "Please pass the water"
-      ],
-      "fresh": true
+      "subject": "Maths",
+      "prompt": "The probability of picking a black pen is 0.55. What is the probability of not picking black?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.45,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Complementary events add to 1, so 1 − 0.55 = 0.45 is the probability of not picking black.",
+      "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 2 black and 8 white balls. What is the probability of drawing black, as a fraction out of 10?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.2,
-      "calc": false,
-      "frac": "2/10",
-      "pre": "",
-      "post": "",
-      "why": "There are 2 black balls out of 10 total, so the probability is 2/10, which simplifies to 1/5.",
-      "fresh": false
+      "subject": "Japanese",
+      "prompt": "How do you say 'rice' in Japanese?",
+      "answer": "gohan",
+      "why": "'Gohan' means rice in Japanese — a core food word from the restaurant unit.",
+      "options": [
+        "gohan",
+        "mizu",
+        "oishii",
+        "itadakimasu"
+      ],
+      "fresh": true
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "The probability of picking a blue ticket is 0.65. What is the probability of not picking blue?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.35,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Complementary probabilities add to 1, so the chance of not picking blue is 1 − 0.65 = 0.35.",
+      "subject": "English",
+      "prompt": "What does a stage direction tell an actor to do?",
+      "answer": "how to move or act",
+      "why": "Stage directions instruct actors on movement, tone, or actions — unlike dialogue, which is the actual spoken words characters say to each other.",
+      "options": [
+        "how to move or act",
+        "what words to speak",
+        "which character to play",
+        "when the play ends"
+      ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Maths",
+      "prompt": "Out of 20 students, 8 play football, 5 play tennis, and 3 play both. How many play neither?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 10,
+      "calc": true,
+      "pre": "",
+      "post": "",
+      "why": "Football or tennis = 8 + 5 − 3 = 10, so neither = 20 − 10 = 10; the overlap of 3 must be subtracted once to avoid double-counting.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "English",
-      "prompt": "What is dialogue mainly used for in a play script?",
-      "answer": "Showing character speech",
-      "why": "Dialogue is the spoken lines between characters, driving the story and revealing personality, unlike stage directions which describe actions.",
+      "prompt": "Who tries to stop the fight between the Capulets and Montagues in Act 1 Scene 1?",
+      "answer": "Prince Escalus",
+      "why": "Prince Escalus arrives to break up the servants' brawl and warns that further fighting will be punished by death, setting up the play's central conflict.",
       "options": [
-        "Showing character speech",
-        "Describing the set",
-        "Giving stage directions",
-        "Naming the acts"
+        "Prince Escalus",
+        "Friar Laurence",
+        "Lord Capulet",
+        "Benvolio's father"
       ],
       "fresh": false
     },
@@ -375,7 +168,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "A songwriter keeps the same four chords (C-Am-F-G) but changes which chord comes first each time. Explain why this can change how emotional or upbeat the song feels, even though the notes used are identical."
+      "prompt": "Explain why starting the same four chords on Am instead of C (Am-F-C-G vs C-Am-F-G) changes how the song feels, even though the chords used are identical."
     }
   ]
 }
