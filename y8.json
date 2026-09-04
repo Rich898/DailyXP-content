@@ -1,34 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-03",
-  "day": "THU",
-  "tag": "H6.4",
-  "title": "DailyXP · THU 2026-09-03",
+  "date": "2026-09-04",
+  "day": "FRI",
+  "tag": "H6.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-04",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "P(rain) = 0.2, so P(no rain) = 0.8",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Complementary events add to 1, so P(no rain) = 1 − 0.2 = 0.8.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A trigger cause is the same as the only cause",
+      "subject": "Music",
+      "prompt": "The bridge usually repeats the chorus melody exactly",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A trigger cause just sparks an event; deeper long-term causes usually built up before it.",
+      "why": "False — a bridge is meant to contrast the chorus with a new melody or feel, not repeat it, giving the song a moment of variety before the final chorus.",
       "fresh": false
     },
     {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "The chorus is usually the fullest-layered section",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Choruses usually stack the most instruments and layers to feel like the song's peak.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
+      "id": "S2",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "'Paint Like a Beast' activities mainly build painting skills",
+      "prompt": "'Paint Like a Beast' activities are mainly about copying an animal's photo exactly",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,194 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "The activities are structured to build up practical painting technique step by step.",
+      "answer": "False",
+      "why": "False — the activities mainly build painting skills like mark-making and colour mixing, using the animal as inspiration rather than a photo to copy precisely.",
       "fresh": true
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a healthy first step when you feel angry?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Pause and breathe",
-      "why": "Pausing to breathe helps calm the body's stress response before reacting.",
-      "options": [
-        "Pause and breathe",
-        "Yell it out",
-        "Ignore it forever",
-        "Blame someone else"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Is it true that mental illness means someone is weak?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Myth, not true",
-      "why": "Mental illness is a health condition, not a sign of weakness or lack of willpower.",
-      "options": [
-        "Myth, not true",
-        "True fact",
-        "Only for adults",
-        "Only in extreme cases"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the 'vi'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Am minor",
-      "why": "In C major, the chords built on each scale note are numbered I–vii; Am is the sixth note (A), so it's the vi chord.",
-      "options": [
-        "C major",
-        "Am minor",
-        "F major",
-        "G major"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What term describes total living material in an ecosystem?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Biomass",
-      "why": "Biomass is the total mass of living organisms in an area or ecosystem.",
-      "options": [
-        "Biomass",
-        "Biodiversity",
-        "Habitat",
-        "Population"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "How did Japan's mountains affect its early farmland?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Limited flat farmland",
-      "why": "Japan's mountainous terrain left only small pockets of flat land for farming and settlement.",
-      "options": [
-        "Limited flat farmland",
-        "Created huge plains",
-        "Blocked all farming",
-        "Made rice impossible"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What does 'itadakimasu' mean?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Thanks before eating",
-      "why": "'Itadakimasu' is said before eating to show gratitude for the meal.",
-      "options": [
-        "Thanks before eating",
-        "Thanks after eating",
-        "Please give water",
-        "I'd like the bill"
-      ],
-      "mode": "scrub",
-      "fresh": true
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "In the shogunate system, who ranked directly below the shogun?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "The daimyo",
-      "why": "Daimyo were powerful regional lords who answered directly to the shogun, sitting just below him in the hierarchy.",
-      "options": [
-        "The daimyo",
-        "The emperor",
-        "The peasants",
-        "The merchants"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which of these is a normal part of good mental health?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Feeling stressed sometimes",
-      "why": "Good mental health doesn't mean never feeling bad — it means coping well, and occasional stress is normal and healthy.",
-      "options": [
-        "Feeling stressed sometimes",
-        "Feeling happy all day, every day",
-        "Never feeling upset at all",
-        "Avoiding every problem you face"
-      ],
-      "mode": "scrub",
-      "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if fertiliser amount affects plant height, keeping pot size the same. What is the variable they measure called?",
+      "prompt": "A student tests if the type of fertiliser affects how many tomatoes a plant produces, keeping watering the same for every plant. What is the independent variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,33 +57,18 @@
       },
       "type": "text",
       "accept": [
-        "dependent variable",
-        "dependent"
+        "type of fertiliser",
+        "fertiliser type",
+        "fertiliser"
       ],
-      "why": "The dependent variable is what you measure as a result — here, plant height.",
+      "why": "The independent variable is what the experimenter deliberately changes — here that's the type of fertiliser. Watering stays the same (controlled), and tomato count is measured (dependent).",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "What is the central theme shown by love and hate existing together in Romeo and Juliet?",
-      "answer": "Love clashing with feud",
-      "why": "The play repeatedly shows romantic love colliding with the deep-rooted family hatred.",
-      "options": [
-        "Love clashing with feud",
-        "Love solving family feud",
-        "Hate replacing all love",
-        "Love ignored by families"
-      ],
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "Maths",
-      "prompt": "The chance of an event happening is 0.45. What is the chance it does not happen?",
+      "prompt": "The chance of a spinner landing on green is 0.35. What is the chance it does NOT land on green?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -309,18 +77,39 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.55,
+      "answer": 0.65,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Complementary probabilities add to 1, so 1 − 0.45 = 0.55.",
+      "why": "Complementary events add to 1, so 1 − 0.35 = 0.65. If one outcome happens 35% of the time, the opposite happens the rest of the time.",
+      "fresh": false
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "A bag has 3 yellow and 9 purple balls. What is P(yellow)?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.25,
+      "calc": false,
+      "frac": "1/4",
+      "pre": "",
+      "post": "",
+      "why": "P(yellow) = 3 out of 12 total balls = 3/12 = 1/4 = 0.25. Always divide the favourable outcomes by the total, not just compare the two groups.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A bag has 6 red and 4 blue balls. What is P(red) as a decimal?",
+      "prompt": "In a class of 20, 8 play football, 5 play both football and tennis, and the rest play only tennis or neither. If 12 play tennis in total, how many play only tennis?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -329,25 +118,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.6,
+      "answer": 7,
       "calc": true,
       "pre": "",
       "post": "",
-      "why": "P(red) = 6 out of 10 total balls = 0.6.",
+      "why": "Tennis total (12) minus the overlap with football (5) leaves 7 who play only tennis. In a Venn diagram, the overlap must be subtracted, never double-counted.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, why do the Capulet and Montague servants start fighting?",
-      "answer": "Old family hatred",
-      "why": "The servants fight simply because of the long-running feud between their masters' families, shown from the play's very first scene.",
+      "prompt": "In Act 1 Scene 5, what does Romeo compare Juliet to when he first sees her?",
+      "answer": "A bright torch",
+      "why": "Romeo says Juliet 'teaches the torches to burn bright', struck by her beauty the moment he sees her — 'a summer's day' is actually from Sonnet 18, a different Shakespeare text, which is why it's a tempting mix-up.",
       "options": [
-        "Old family hatred",
-        "A stolen sword",
-        "An unpaid debt",
-        "A broken promise"
+        "A bright torch",
+        "A summer's day",
+        "A blooming rose",
+        "The morning sun"
       ],
       "fresh": false
     },
@@ -355,22 +144,37 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In song structure, which section usually has the most layers of instruments?",
-      "answer": "Chorus, built up for impact",
-      "why": "Producers stack in extra drums, harmonies and instruments in the chorus to make it feel like the biggest, most energetic moment.",
+      "prompt": "In song structure, what does a bridge usually do?",
+      "answer": "Contrast the chorus",
+      "why": "A bridge is meant to sound different from the chorus, giving the listener a break before the song returns to its main hook — it doesn't just repeat the chorus melody.",
       "options": [
-        "Chorus, built up for impact",
-        "Verse, kept fairly sparse",
-        "Intro, easing the song in",
-        "Bridge, stripped back for contrast"
+        "Contrast the chorus",
+        "Repeat the chorus melody",
+        "Introduce the song",
+        "Add the most layers"
       ],
       "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what do the artmaking activities mainly build?",
+      "answer": "Painting skills",
+      "why": "The activities focus on building painting skills — brushwork, colour mixing, and mark-making — using an animal as a starting point for inspiration, not as a technique to copy exactly.",
+      "options": [
+        "Painting skills",
+        "Photography skills",
+        "Sculpture skills",
+        "Digital editing skills"
+      ],
+      "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "Look at a short extract from Act 1 of Romeo and Juliet. Write a topic sentence about how Shakespeare uses language or structure in this moment, then explain what dramatic technique supports your point."
+      "prompt": "Pick a short moment from Act 1 of Romeo and Juliet. Write a topic sentence about a dramatic or language technique Shakespeare uses there, then explain in your own words how that technique affects the audience."
     }
   ]
 }
