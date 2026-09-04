@@ -34,6 +34,8 @@ from answer_length import guidance_note  # noqa: E402  — reuse the ratified le
 API_URL = "https://api.anthropic.com/v1/messages"
 DEFAULT_MODEL = "claude-sonnet-5"   # strong + economical for language tasks; override with --model
 MAX_TOKENS = 8000                   # a 12-Q set is ~2.4k out; headroom so JSON never truncates
+REPEAT_MAX_RETRIES = 4              # budget when the ONLY blocker is the no-repeat gate (deep-history
+                                    # repeat pressure) — mirrors the scrub budget, see compose_set
 
 SYSTEM = """You write quiz questions for a spaced-repetition study tool used by two secondary-school boys.
 You are given a fixed plan of slots. You fill ONLY the language of each slot. You do not choose topics,
@@ -297,7 +299,13 @@ def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=
     the slots that failed (slot-splicing) and stitches them back, so fixing one bad slot
     never churns the good ones — the reliable fix for the deep-history t1 compose-fails
     (HARDENING item 5 follow-up). Falls back to a whole-set regenerate for the rare
-    set-level error, or when DAILYXP_WHOLE_SET_RECOMPOSE=1 forces the old behaviour."""
+    set-level error, or when DAILYXP_WHOLE_SET_RECOMPOSE=1 forces the old behaviour.
+
+    When the ONLY thing still blocking is the no-repeat gate, the budget extends to
+    REPEAT_MAX_RETRIES and every retry names ALL of that slot's rejected prompts — the
+    y8 H6.5 seat-down fix (4 Sep 2026): a battleground plan aims at the weakest (=
+    most-drilled) topics, so repeat collisions cluster exactly where retries are cheap
+    single-slot splices, and two blind retries were not enough."""
     api_key = api_key or os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         return None, ["ANTHROPIC_API_KEY not set"]
@@ -315,7 +323,10 @@ def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=
     splice = os.environ.get("DAILYXP_WHOLE_SET_RECOMPOSE") != "1"
 
     filled, last_errors = None, []
-    for attempt in range(max_retries + 1):
+    rejected = {}                        # slotId -> every prompt rejected as a repeat, across rounds
+    attempts, budget = 0, max_retries
+    while attempts <= budget:
+        attempts += 1
         try:
             if filled is None:
                 # first pass (or recovery from a parse error) — compose the whole set
@@ -324,13 +335,32 @@ def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=
                 slot_errs, set_errs = _partition_errors(last_errors)
                 if splice and slot_errs and not set_errs:
                     # SLOT-SPLICE: recompose only the failing slots; keep the rest verbatim
-                    objs = {sid: _fix_hint(es) for sid, es in slot_errs.items()}
+                    objs = {}
+                    for sid, es in slot_errs.items():
+                        hint = _fix_hint(es)
+                        if rejected.get(sid):
+                            # Name EVERY prompt this slot has burned, not just the last one —
+                            # otherwise the model can cycle between two seen questions and
+                            # never learn the shrinking space it must avoid.
+                            hint += (" You already tried these and ALL were rejected as repeats: "
+                                     + "; ".join(f"'{p}'" for p in rejected[sid])
+                                     + ". Ask about a DIFFERENT fact on this topic — not a "
+                                       "rewording of any of them.")
+                        objs[sid] = hint
                     sub = parse_json(call_api(
                         SYSTEM, build_user_slots(plan, set(slot_errs), filled, objs, seen), model, api_key))
                     if isinstance(sub, dict):
+                        matched = False
                         for sid in slot_errs:
                             if sid in sub:
                                 filled[sid] = sub[sid]
+                                matched = True
+                        if not matched and len(slot_errs) == 1 and "prompt" in sub:
+                            # The model sent the bare question object instead of keying it by
+                            # slotId. Accept it for the one requested slot — before this, such
+                            # a reply changed NOTHING and the round revalidated the same set,
+                            # silently burning the whole retry budget on identical errors.
+                            filled[next(iter(slot_errs))] = sub
                 else:
                     # whole-set regenerate (set-level error, or slicing disabled)
                     filled = parse_json(call_api(
@@ -346,6 +376,22 @@ def compose_set(plan, seen=None, model=DEFAULT_MODEL, api_key=None, max_retries=
         if not errors:
             return candidate, warns
         last_errors = errors
+        slot_errs, set_errs = _partition_errors(errors)
+        for sid, es in slot_errs.items():
+            if any("REPEATS" in e for e in es):
+                f = filled.get(sid) if isinstance(filled, dict) else None
+                p = f.get("prompt") if isinstance(f, dict) else None
+                if p and p not in rejected.setdefault(sid, []):
+                    rejected[sid].append(p)
+        if slot_errs and not set_errs and \
+                all(any("REPEATS" in e for e in es) for es in slot_errs.values()):
+            # REPEAT-ONLY failure = the no-repeat gate under deep-history pressure, not a bad
+            # set. Battleground days aim at the WEAKEST topics — exactly the most-drilled ones,
+            # whose unseen-question space is thinnest — so collisions cluster there (y8 H6.5 ·
+            # BATTLEGROUND, 4 Sep 2026: T5 collided on all three attempts and the seat went
+            # down). These retries are cheap single-slot splices, so repeat pressure earns the
+            # same larger budget scrub plans already get.
+            budget = max(budget, REPEAT_MAX_RETRIES)
     return None, last_errors
 
 
