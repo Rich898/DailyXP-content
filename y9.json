@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-04",
-  "day": "FRI",
-  "tag": "R6.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-04",
+  "date": "2026-09-07",
+  "day": "MON",
+  "tag": "R7.1",
+  "title": "DailyXP · MON 2026-09-07",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Geography",
-      "prompt": "A refugee granted permanent protection in Australia",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Push factor",
-      "right": "Pull factor",
-      "answer": "Push factor",
-      "why": "War forces people to leave — that's a push factor, something driving them away from home, not drawing them somewhere new.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Munich Putsch overthrew the German government",
+      "subject": "English",
+      "prompt": "The id acts on the reality principle",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,250 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The putsch failed within a day — police crushed the march and Hitler was arrested; the Weimar government stayed in power.",
+      "why": "The id acts on the pleasure principle, seeking instant satisfaction. It's the ego that operates on the reality principle.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "Mixing sand and water makes a new substance",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Sand and water just mix physically and can be separated again — no new substance forms, so it's not a chemical reaction.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Japan invaded China in 1937",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Japan launched a full-scale invasion of China in 1937, beginning the Second Sino-Japanese War.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Fat has more energy per gram than carbohydrate",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Fat provides about 9 calories per gram, more than double the roughly 4 calories per gram in carbohydrate.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "Which business plan section lists the founder's skills and experience?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Management team",
+      "why": "The management team section describes who runs the business and their relevant skills, separate from the market or financial sections.",
+      "options": [
+        "Management team",
+        "Market analysis",
+        "Executive summary",
+        "Financial plan"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What does the conch shell mainly symbolise in Lord of the Flies?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Order and civilisation",
+      "why": "The conch gives boys the right to speak and calls meetings, representing structured, civilised rules.",
+      "options": [
+        "Order and civilisation",
+        "Fear of the beast",
+        "Savagery and violence",
+        "Hunting and survival"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "A cereal ad uses cartoon mascots to appeal to children. What is this technique called?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Targeting children",
+      "why": "Using cartoon characters and bright colours to appeal specifically to children is a marketing technique called targeting children.",
+      "options": [
+        "Targeting children",
+        "Bandwagon effect",
+        "Celebrity endorsement",
+        "Bulk discount pricing"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "D&T",
+      "prompt": "A stall keeps the same logo and colours on every product for a year. What is this building?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Brand recognition",
+      "why": "Repeating the same logo and colours consistently helps customers recognise and remember the brand over time.",
+      "options": [
+        "Brand recognition",
+        "Market research",
+        "A swot analysis",
+        "An action plan"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "D&T",
+      "prompt": "In Adobe Illustrator, what type of graphics does it mainly create?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Vector graphics",
+      "why": "Illustrator works with vector graphics, made of scalable paths, so logos stay sharp at any size.",
+      "options": [
+        "Vector graphics",
+        "Raster photographs",
+        "Sound files",
+        "Video animations"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "D&T",
+      "prompt": "Which section of a financial plan lists expected startup costs?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Startup costs list",
+      "why": "Startup costs are listed in their own dedicated section, not mixed into a summary, market research, or mission wording.",
+      "options": [
+        "Startup costs list",
+        "One-page summary",
+        "Competitor price research",
+        "Company mission wording"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "In a sealed flask, 10g of reactants react completely. What is the mass of products?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "10g",
+      "why": "In a closed system, mass is conserved — atoms rearrange but none are lost, so products equal the starting mass.",
+      "options": [
+        "10g",
+        "5g",
+        "15g",
+        "20g"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "Which of these is a sign a chemical reaction has happened?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Gas bubbles form",
+      "why": "Bubbles show a new gas has been produced, a sign of chemical change. Dissolving, evaporating and shape changes are physical.",
+      "options": [
+        "Gas bubbles form",
+        "Object changes shape",
+        "Substance dissolves fully",
+        "Liquid evaporates away"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 18 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 15 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,133 +273,99 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 81,
+      "answer": 75,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 18 × 9 = 81 cm². Say the ½ out loud before multiplying so you don't skip it.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 15 × 10 = 75 cm². Always halve after multiplying.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What type of white blood cell attacks helper T cells in someone infected with HIV?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "helper t cells",
-        "t cells",
-        "t-cells"
+      "subject": "Commerce",
+      "prompt": "A plumber charges a fee to fix a leaking pipe. What is the plumber selling?",
+      "answer": "A service",
+      "why": "A service is an action performed for a customer, like fixing a pipe, rather than a physical item they take home.",
+      "options": [
+        "A service",
+        "A product",
+        "A raw material",
+        "A physical good"
       ],
-      "why": "HIV specifically targets and destroys helper T cells, which weakens the immune system's ability to coordinate a response to other infections.",
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Geography",
-      "prompt": "Which best explains why Australia recruited migrants after WWII?",
-      "answer": "It needed workers and feared being under-populated",
-      "why": "The 'Populate or Perish' policy combined a labour shortage for growing industries with fears about national security if the population stayed small — not just one simple reason.",
-      "options": [
-        "It needed workers and feared being under-populated",
-        "It wanted to boost tourism numbers quickly",
-        "It was required to by the United Nations",
-        "It had no unemployment and needed extra spending"
-      ],
+      "subject": "Maths",
+      "prompt": "Solve for x: 4x + 5 = 25",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 5,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Subtract 5 from both sides to get 4x = 20, then divide by 4 to find x = 5.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these stages of Hitler's fortunes around the Munich Putsch, earliest to latest",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Hitler leads the Nazi Party in Munich",
-        "Hitler attempts to seize power by force",
-        "Hitler is imprisoned and writes Mein Kampf",
-        "Hitler decides to pursue power through elections"
+      "subject": "PDHPE",
+      "prompt": "Which nutrient is mainly needed for building and repairing muscle?",
+      "answer": "Protein",
+      "why": "Protein provides amino acids the body uses to build and repair muscle tissue, unlike carbs or fats which mainly provide energy.",
+      "options": [
+        "Protein",
+        "Carbohydrate",
+        "Fat",
+        "Fibre"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "Before the putsch Hitler led a small Munich party, then tried to seize power by force in 1923, was jailed where he wrote Mein Kampf, and afterwards switched strategy to winning power legally through elections.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Freud's model, which part operates on the 'reality principle', balancing desires against consequences?",
-      "answer": "Ego",
-      "why": "The ego works on the reality principle, mediating between the id's raw desires and the superego's moral demands — unlike the id, which seeks pleasure with no regard for consequences.",
+      "prompt": "In Freud's model, which part develops first in a young child?",
+      "answer": "The id",
+      "why": "The id is present from birth and drives instinctive desires; the ego and superego develop later as a child grows.",
       "options": [
-        "Ego",
-        "Id",
-        "Superego",
-        "Libido"
+        "The id",
+        "The ego",
+        "The superego",
+        "The conscience"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Simplify: 6x + 3x − 2x, then find its value when x = 4",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 28,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "6x + 3x − 2x = 7x, and 7 × 4 = 28. Combine like terms carefully before substituting.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Solve for x: 5x − 3 = 27",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 6,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Add 3 to both sides to get 5x = 30, then divide by 5 to get x = 6.",
+      "subject": "Commerce",
+      "prompt": "Which business plan section explains how the business will make its profit?",
+      "answer": "Financial plan",
+      "why": "The financial plan covers costs, pricing and profit projections, showing how the business expects to make money.",
+      "options": [
+        "Financial plan",
+        "Executive summary",
+        "Mission statement",
+        "Market analysis"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Science",
-      "prompt": "A student says: 'Vaccines work by giving you a mild version of the actual disease, so you feel a bit sick first.' Explain what's wrong with this idea and what a vaccine actually contains."
+      "subject": "Maths",
+      "prompt": "Explain how you know when to use inverse operations to solve an equation like 3x + 4 = 19, and why each step you do to one side must also be done to the other."
     }
   ]
 }
