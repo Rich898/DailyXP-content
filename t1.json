@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-04",
-  "day": "FRI",
-  "tag": "T6.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-04",
+  "date": "2026-09-07",
+  "day": "MON",
+  "tag": "T7.1",
+  "title": "DailyXP · MON 2026-09-07",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'oishii' means delicious",
+      "subject": "Maths",
+      "prompt": "Rolling a die: getting an odd number",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "'Oishii' means delicious in Japanese — a key phrase for reacting to food.",
-      "fresh": true
+      "left": "Certain",
+      "right": "Not certain",
+      "answer": "Not certain",
+      "why": "An odd number (1,3,5) is only 3 of 6 outcomes, so it's possible but not certain.",
+      "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "An aside is heard by the audience only",
+      "prompt": "Romeo and Juliet meet for the first time at the Capulet party",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,29 +40,256 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "An aside is a line spoken so the audience hears it but other characters on stage do not.",
+      "why": "In Act 1 Scene 5, Romeo sneaks into the Capulet feast and meets Juliet there for the first time.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "A cactus's spines are a behavioural adaptation",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Spines are a physical body feature, so they are a structural adaptation, not a behavioural one.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Oishii' means 'thank you'",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "'Oishii' means 'delicious'; 'thank you' would be a different word entirely.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Who did a shogun rule Japan on behalf of?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The emperor",
+      "why": "The shogun held real military and political power but ruled in the emperor's name, who remained the symbolic head of state.",
+      "options": [
+        "The emperor",
+        "The daimyo",
+        "The samurai",
+        "The shogunate council"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What does 'consequence' mean when studying history?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The result of an event",
+      "why": "A consequence is what happens as a result of an event — its effects or outcomes over time.",
+      "options": [
+        "The result of an event",
+        "The date of an event",
+        "The people involved",
+        "The location of an event"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What form does the Prologue of Romeo and Juliet take?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A sonnet",
+      "why": "The Prologue is written as a 14-line sonnet, a fixed poetic form Shakespeare uses to introduce the play.",
+      "options": [
+        "A sonnet",
+        "A ballad",
+        "Blank verse",
+        "Free verse"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "What's a common myth about medication for mental illness?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "That it's a quick, easy fix",
+      "why": "Medication is often just one part of treatment alongside therapy and lifestyle changes, not an instant cure — this myth causes people to give up too soon.",
+      "options": [
+        "That it's a quick, easy fix",
+        "That it needs a doctor's prescription",
+        "That it can have side effects",
+        "That it takes time to work"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "What's a healthy way to deal with strong anger?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Take slow breaths and pause",
+      "why": "Pausing and breathing slowly calms the body's stress response, making it easier to think clearly instead of reacting on impulse.",
+      "options": [
+        "Take slow breaths and pause",
+        "Shout loudly to feel better",
+        "Bottle it up quietly",
+        "Ignore it and hope it fades"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "Adding more instrument layers in a chorus usually creates what effect?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "A bigger, fuller sound",
+      "why": "Layering more instruments increases volume and texture, making the chorus feel bigger and more powerful than the verse.",
+      "options": [
+        "A bigger, fuller sound",
+        "A quieter, thinner sound",
+        "A slower tempo change",
+        "A key change"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what animal feature did students focus on capturing?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Movement and texture",
+      "why": "The activities focused on capturing an animal's movement and texture through expressive paint handling, not exact realism or symmetry.",
+      "options": [
+        "Movement and texture",
+        "Exact anatomical accuracy",
+        "Realistic photographic detail",
+        "Precise symmetrical shapes"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Which habit most damages mental health over time?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Avoiding all difficult feelings",
+      "why": "Constantly avoiding or suppressing difficult feelings tends to make problems worse over time, while talking, sleep, and connection all support good mental health.",
+      "options": [
+        "Avoiding all difficult feelings",
+        "Talking through daily worries",
+        "Getting regular quality sleep",
+        "Staying connected with friends"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the sixth scale degree?",
-      "answer": "Am, sixth-degree chord",
-      "why": "Am sits on the sixth note of the C major scale, making it the 'vi' chord — F is 'iv' on the fourth note, G is 'v' on the fifth, and C is 'i' on the first.",
-      "options": [
-        "Am, sixth-degree chord",
-        "F, fourth-degree chord",
-        "G, fifth-degree chord",
-        "C, first-degree chord"
+      "subject": "History",
+      "prompt": "Order these steps in the feudal land exchange from top to bottom",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "King grants land",
+        "Lord grants land to vassal",
+        "Vassal grants land to knight",
+        "Knight protects peasants working land"
       ],
-      "fresh": false
+      "top": "First",
+      "bot": "Last",
+      "why": "Land flowed downward from king to lord to vassal to knight, with each level owing loyalty and service upward in return.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A bag has 3 green and 9 orange counters. What is the probability of drawing green, as a fraction out of 12?",
+      "prompt": "A bag has 4 red and 6 blue balls. What is the probability of drawing red, as a fraction out of 10?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -71,19 +298,19 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.25,
+      "answer": 0.4,
       "calc": false,
-      "frac": "3/12",
+      "frac": "4/10",
       "pre": "",
       "post": "",
-      "why": "3 green out of 12 total counters gives a probability of 3/12, which simplifies to 1/4.",
+      "why": "There are 4 red balls out of 10 total, so the probability is 4/10.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "The probability of picking a black pen is 0.55. What is the probability of not picking black?",
+      "prompt": "The probability of picking a yellow sweet is 0.25. What is the probability of not picking yellow?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -92,75 +319,55 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.45,
+      "answer": 0.75,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Complementary events add to 1, so 1 − 0.55 = 0.45 is the probability of not picking black.",
+      "why": "Complementary probabilities add to 1, so 1 − 0.25 = 0.75.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'rice' in Japanese?",
-      "answer": "gohan",
-      "why": "'Gohan' means rice in Japanese — a core food word from the restaurant unit.",
+      "subject": "Music",
+      "prompt": "In the key of C major, which chord is built on the sixth scale degree?",
+      "answer": "Am",
+      "why": "Counting up the C major scale, the sixth note is A, so the chord built there is Am (the 'vi' chord).",
       "options": [
-        "gohan",
-        "mizu",
-        "oishii",
-        "itadakimasu"
+        "Am",
+        "F",
+        "G",
+        "Dm"
       ],
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "What does a stage direction tell an actor to do?",
-      "answer": "how to move or act",
-      "why": "Stage directions instruct actors on movement, tone, or actions — unlike dialogue, which is the actual spoken words characters say to each other.",
+      "subject": "Japanese",
+      "prompt": "How do you say 'delicious' after tasting food in Japanese?",
+      "answer": "Oishii",
+      "why": "'Oishii' means delicious, used to praise food, while 'itadakimasu' is said before eating, 'gochisousama' after eating, and 'gohan' means rice.",
       "options": [
-        "how to move or act",
-        "what words to speak",
-        "which character to play",
-        "when the play ends"
+        "Oishii",
+        "Itadakimasu",
+        "Gochisousama",
+        "Gohan"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Out of 20 students, 8 play football, 5 play tennis, and 3 play both. How many play neither?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 10,
-      "calc": true,
-      "pre": "",
-      "post": "",
-      "why": "Football or tennis = 8 + 5 − 3 = 10, so neither = 20 − 10 = 10; the overlap of 3 must be subtracted once to avoid double-counting.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
       "subject": "English",
-      "prompt": "Who tries to stop the fight between the Capulets and Montagues in Act 1 Scene 1?",
-      "answer": "Prince Escalus",
-      "why": "Prince Escalus arrives to break up the servants' brawl and warns that further fighting will be punished by death, setting up the play's central conflict.",
+      "prompt": "In Act 1 Scene 5, whose party do Romeo and his friends sneak into?",
+      "answer": "The Capulets'",
+      "why": "Romeo and his friends sneak into a masked party held by the rival Capulet family, where Romeo first sees Juliet.",
       "options": [
-        "Prince Escalus",
-        "Friar Laurence",
-        "Lord Capulet",
-        "Benvolio's father"
+        "The Capulets'",
+        "The Montagues'",
+        "Prince Escalus'",
+        "Friar Laurence's"
       ],
       "fresh": false
     },
@@ -168,7 +375,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why starting the same four chords on Am instead of C (Am-F-C-G vs C-Am-F-G) changes how the song feels, even though the chords used are identical."
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting on a different chord each time can change how the song feels, even though the chords used are identical."
     }
   ]
 }
