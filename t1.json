@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-07",
-  "day": "MON",
-  "tag": "T7.1",
-  "title": "DailyXP · MON 2026-09-07",
+  "date": "2026-09-08",
+  "day": "TUE",
+  "tag": "T7.2",
+  "title": "DailyXP · TUE 2026-09-08",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Rolling a die: getting an odd number",
+      "prompt": "Rolling a die: getting a 1",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "Certain",
       "right": "Not certain",
       "answer": "Not certain",
-      "why": "An odd number (1,3,5) is only 3 of 6 outcomes, so it's possible but not certain.",
+      "why": "Getting a 1 is only one of six equally likely outcomes, so it's possible but not certain.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet meet for the first time at the Capulet party",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In Act 1 Scene 5, Romeo sneaks into the Capulet feast and meets Juliet there for the first time.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "A cactus's spines are a behavioural adaptation",
+      "prompt": "The Capulets and Montagues are close friends",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Spines are a physical body feature, so they are a structural adaptation, not a behavioural one.",
+      "why": "The two families have a long-standing feud, shown by the servants' brawl in Act 1 Scene 1.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Japan's mountainous terrain made it easy for one ruler to control the whole country",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Japan's mountains divided the land into isolated regions, making central rule difficult and encouraging local warrior rule instead.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Oishii' means 'thank you'",
+      "prompt": "'Itadakimasu' is used after finishing a meal",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'Oishii' means 'delicious'; 'thank you' would be a different word entirely.",
+      "why": "'Itadakimasu' is said before eating; 'gochisousama' is said after finishing the meal.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Who did a shogun rule Japan on behalf of?",
+      "subject": "English",
+      "prompt": "What theatre in London was strongly associated with Shakespeare's plays?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The emperor",
-      "why": "The shogun held real military and political power but ruled in the emperor's name, who remained the symbolic head of state.",
+      "answer": "The Globe",
+      "why": "Shakespeare's company performed most of his plays at the Globe Theatre in London, built in 1599.",
       "options": [
-        "The emperor",
-        "The daimyo",
-        "The samurai",
-        "The shogunate council"
+        "The Globe",
+        "The Old Vic",
+        "The Royal Court",
+        "The Barbican"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What does 'consequence' mean when studying history?",
+      "prompt": "In history, what does 'continuity' mean?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The result of an event",
-      "why": "A consequence is what happens as a result of an event — its effects or outcomes over time.",
+      "answer": "Things staying the same",
+      "why": "Continuity refers to aspects of life or society that remain stable over time, contrasted with change.",
       "options": [
-        "The result of an event",
-        "The date of an event",
-        "The people involved",
-        "The location of an event"
+        "Things staying the same",
+        "Things changing fast",
+        "One single cause",
+        "A list of dates"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "What form does the Prologue of Romeo and Juliet take?",
+      "subject": "PDHPE",
+      "prompt": "What is a common myth about people who go to therapy?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A sonnet",
-      "why": "The Prologue is written as a 14-line sonnet, a fixed poetic form Shakespeare uses to introduce the play.",
+      "answer": "They are weak",
+      "why": "A common myth is that seeking therapy shows weakness, but it actually shows self-awareness and strength.",
       "options": [
-        "A sonnet",
-        "A ballad",
-        "Blank verse",
-        "Free verse"
+        "They are weak",
+        "They talk too much",
+        "They are too old",
+        "They lack friends"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What's a common myth about medication for mental illness?",
+      "prompt": "Which is a healthy way to deal with sadness?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "That it's a quick, easy fix",
-      "why": "Medication is often just one part of treatment alongside therapy and lifestyle changes, not an instant cure — this myth causes people to give up too soon.",
+      "answer": "Talk to someone",
+      "why": "Talking to a trusted person helps process sadness, unlike bottling up or avoiding feelings, which can make them worse.",
       "options": [
-        "That it's a quick, easy fix",
-        "That it needs a doctor's prescription",
-        "That it can have side effects",
-        "That it takes time to work"
+        "Talk to someone",
+        "Bottle it up",
+        "Avoid everyone",
+        "Ignore it fully"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a healthy way to deal with strong anger?",
+      "subject": "Music",
+      "prompt": "In a song, what usually happens to instrument layers during the chorus?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Take slow breaths and pause",
-      "why": "Pausing and breathing slowly calms the body's stress response, making it easier to think clearly instead of reacting on impulse.",
+      "answer": "More layers are added",
+      "why": "Choruses often add extra instruments or vocals to create a fuller, more powerful sound compared to the verse.",
       "options": [
-        "Take slow breaths and pause",
-        "Shout loudly to feel better",
-        "Bottle it up quietly",
-        "Ignore it and hope it fades"
+        "More layers are added",
+        "All layers are removed",
+        "Tempo is halved",
+        "Lyrics disappear"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "Adding more instrument layers in a chorus usually creates what effect?",
+      "subject": "Science",
+      "prompt": "A cactus storing water in its thick stem is what type of adaptation?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "A bigger, fuller sound",
-      "why": "Layering more instruments increases volume and texture, making the chorus feel bigger and more powerful than the verse.",
+      "answer": "Structural adaptation",
+      "why": "A structural adaptation is a physical feature of the body, like a thick water-storing stem, not a behaviour or learned habit.",
       "options": [
-        "A bigger, fuller sound",
-        "A quieter, thinner sound",
-        "A slower tempo change",
-        "A key change"
+        "Structural adaptation",
+        "Behavioural adaptation",
+        "Chemical reaction",
+        "Learned habit"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what animal feature did students focus on capturing?",
+      "prompt": "In 'Paint Like a Beast', what tool did students mainly use to apply paint?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Movement and texture",
-      "why": "The activities focused on capturing an animal's movement and texture through expressive paint handling, not exact realism or symmetry.",
+      "answer": "Brushes",
+      "why": "Students mainly used brushes to build up expressive marks that suggested animal fur and texture.",
       "options": [
-        "Movement and texture",
-        "Exact anatomical accuracy",
-        "Realistic photographic detail",
-        "Precise symmetrical shapes"
+        "Brushes",
+        "Fingers only",
+        "Palette knives",
+        "Sponges"
       ],
       "mode": "scrub",
       "fresh": false
@@ -240,8 +240,8 @@
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which habit most damages mental health over time?",
+      "subject": "History",
+      "prompt": "Which class below the shogun ruled local Japanese domains?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Avoiding all difficult feelings",
-      "why": "Constantly avoiding or suppressing difficult feelings tends to make problems worse over time, while talking, sleep, and connection all support good mental health.",
+      "answer": "Daimyo",
+      "why": "Daimyo were powerful regional lords who governed domains and answered to the shogun above them.",
       "options": [
-        "Avoiding all difficult feelings",
-        "Talking through daily worries",
-        "Getting regular quality sleep",
-        "Staying connected with friends"
+        "Daimyo",
+        "Samurai",
+        "Emperor",
+        "Peasant"
       ],
       "mode": "scrub",
       "fresh": false
@@ -263,25 +263,21 @@
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps in the feudal land exchange from top to bottom",
+      "subject": "Science",
+      "prompt": "In an experiment testing how light affects plant growth, what is the independent variable?",
       "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
       },
-      "type": "order",
-      "sequence": [
-        "King grants land",
-        "Lord grants land to vassal",
-        "Vassal grants land to knight",
-        "Knight protects peasants working land"
+      "type": "text",
+      "accept": [
+        "light",
+        "amount of light"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Land flowed downward from king to lord to vassal to knight, with each level owing loyalty and service upward in return.",
+      "why": "The independent variable is the one the experimenter deliberately changes — here, the amount of light.",
       "fresh": false,
       "throwback": true
     },
@@ -289,7 +285,7 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A bag has 4 red and 6 blue balls. What is the probability of drawing red, as a fraction out of 10?",
+      "prompt": "A bag has 7 red and 3 blue counters. What is the probability of drawing red, as a fraction out of 10?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -298,19 +294,19 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.4,
+      "answer": 0.7,
       "calc": false,
-      "frac": "4/10",
+      "frac": "7/10",
       "pre": "",
       "post": "",
-      "why": "There are 4 red balls out of 10 total, so the probability is 4/10.",
+      "why": "There are 7 red counters out of 10 total, so the probability is 7/10.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "The probability of picking a yellow sweet is 0.25. What is the probability of not picking yellow?",
+      "prompt": "The probability of picking a striped tie is 0.8. What is the probability of not picking striped?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -319,55 +315,55 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.75,
+      "answer": 0.2,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Complementary probabilities add to 1, so 1 − 0.25 = 0.75.",
+      "why": "Complementary probabilities add to 1, so 1 − 0.8 = 0.2.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the key of C major, which chord is built on the sixth scale degree?",
-      "answer": "Am",
-      "why": "Counting up the C major scale, the sixth note is A, so the chord built there is Am (the 'vi' chord).",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 5, what does Romeo do as soon as he sees Juliet?",
+      "answer": "Falls instantly in love",
+      "why": "Romeo is immediately struck by Juliet's beauty at the Capulet party, forgetting his earlier infatuation with Rosaline.",
       "options": [
-        "Am",
-        "F",
-        "G",
-        "Dm"
+        "Falls instantly in love",
+        "Challenges her to dance",
+        "Insults her family",
+        "Leaves the party"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'delicious' after tasting food in Japanese?",
-      "answer": "Oishii",
-      "why": "'Oishii' means delicious, used to praise food, while 'itadakimasu' is said before eating, 'gochisousama' after eating, and 'gohan' means rice.",
+      "subject": "Music",
+      "prompt": "In the progression C-Am-F-G, what scale degree is the C chord built on?",
+      "answer": "The first",
+      "why": "C is the tonic chord, built on the first note of the C major scale, giving it the roman numeral 'I'.",
       "options": [
-        "Oishii",
-        "Itadakimasu",
-        "Gochisousama",
-        "Gohan"
+        "The first",
+        "The fourth",
+        "The fifth",
+        "The sixth"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 5, whose party do Romeo and his friends sneak into?",
-      "answer": "The Capulets'",
-      "why": "Romeo and his friends sneak into a masked party held by the rival Capulet family, where Romeo first sees Juliet.",
+      "subject": "Japanese",
+      "prompt": "How do you say 'thank you' in Japanese?",
+      "answer": "Arigatou",
+      "why": "'Arigatou' means thank you, a basic polite word used alongside restaurant phrases in Unit 6.",
       "options": [
-        "The Capulets'",
-        "The Montagues'",
-        "Prince Escalus'",
-        "Friar Laurence's"
+        "Arigatou",
+        "Mizu",
+        "Gohan",
+        "Itadakimasu"
       ],
       "fresh": false
     },
@@ -375,7 +371,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting on a different chord each time can change how the song feels, even though the chords used are identical."
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) in a different order can change the emotional feel of a song, even though the notes stay the same."
     }
   ]
 }
