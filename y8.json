@@ -1,15 +1,53 @@
 {
   "student": "y8",
-  "date": "2026-09-07",
-  "day": "MON",
-  "tag": "H7.1",
-  "title": "DailyXP · MON 2026-09-07",
+  "date": "2026-09-08",
+  "day": "TUE",
+  "tag": "H7.2",
+  "title": "DailyXP · TUE 2026-09-08",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "P(win) = 0.7, so P(lose) = 0.3",
+      "subject": "English",
+      "prompt": "Shakespeare wrote Romeo and Juliet in the 1900s",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Shakespeare wrote in the late 1500s, during the Elizabethan era, not the 1900s.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A trigger cause explains the whole event on its own",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "A trigger cause is just the final spark — the deeper long-term causes are what really built up the event.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, the G chord is the 'V'",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,52 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Complementary events add to 1, so P(lose) = 1 − 0.7 = 0.3.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A trigger cause is the same as the deep, long-term cause",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "A trigger is the short-term spark that sets off an event; long-term causes are the deeper build-up over time.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "The middle-eight usually repeats the chorus melody exactly",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "A middle-eight (bridge) is meant to contrast the chorus with a new melody or feel, not repeat it.",
+      "why": "Counting from C as 'I', G is the fifth note of the scale, so it's the 'V' chord.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast activities are about copying an animal photo exactly",
+      "subject": "Japanese",
+      "prompt": "'Kudasai' is used to politely ask for something",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "The activities build painting skills like brush control and mark-making, not exact photo copying.",
+      "answer": "True",
+      "why": "'Kudasai' means 'please give me' and is used when ordering food or asking for items.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a healthy first step when feeling overwhelmed by stress?",
+      "subject": "English",
+      "prompt": "Who is Juliet's father in Romeo and Juliet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Take slow deep breaths",
-      "why": "Slow breathing calms the body's stress response; isolating, skipping meals, or losing sleep all make stress harder to manage.",
+      "answer": "Lord Capulet",
+      "why": "Juliet's father is Lord Capulet, head of the Capulet household.",
       "options": [
-        "Take slow deep breaths",
-        "Skip meals all day",
-        "Isolate from friends",
-        "Stay up all night"
+        "Lord Capulet",
+        "Lord Montague",
+        "Friar Laurence",
+        "Prince Escalus"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a common myth about mental illness?",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if the families fight again?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "It means someone is weak",
-      "why": "Mental illness is not a sign of weakness — it's a health condition, not a character flaw. The other options describe true, healthy realities of mental health.",
+      "answer": "Death for the feuding families",
+      "why": "Prince Escalus declares that if either family disturbs the peace of Verona again, the punishment will be death, showing how serious the feud has become.",
       "options": [
-        "It means someone is weak",
-        "It can affect daily energy",
-        "It can be helped by talking",
-        "It can improve over time"
+        "Death for the feuding families",
+        "Exile for Romeo alone",
+        "A heavy fine for both houses",
+        "Imprisonment for the servants"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the 'I'?",
+      "subject": "PDHPE",
+      "prompt": "What is a common myth about people with depression?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "C",
-      "why": "C is the tonic chord, so it's labelled 'I' in the key of C major.",
+      "answer": "They can just cheer up",
+      "why": "Depression is not solved by simply choosing to feel happier; it often needs time, support or treatment.",
       "options": [
-        "C",
-        "Am",
-        "F",
-        "G"
+        "They can just cheer up",
+        "They can have good days",
+        "They may need support",
+        "They can recover over time"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "In a food chain, what is the main source of energy for producers?",
+      "subject": "PDHPE",
+      "prompt": "What is a healthy way to deal with feeling overwhelmed?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Sunlight",
-      "why": "Producers like plants make their own food using sunlight through photosynthesis, forming the base of the energy flow in an ecosystem.",
+      "answer": "Talk to someone trusted",
+      "why": "Sharing feelings with a trusted person helps process emotions instead of letting them build up unmanaged.",
       "options": [
-        "Sunlight",
-        "Soil nutrients",
-        "Other organisms",
-        "Water"
+        "Talk to someone trusted",
+        "Bottle it up completely",
+        "Avoid the problem forever",
+        "Blame yourself harshly"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What did daimyo give samurai in return for their loyalty and service?",
+      "subject": "Science",
+      "prompt": "What is an adaptation in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Land and income",
-      "why": "Daimyo rewarded samurai with land and income, similar to how European lords granted land to knights in exchange for service.",
+      "answer": "A trait aiding survival",
+      "why": "An adaptation is a feature that helps an organism survive and reproduce in its specific habitat.",
       "options": [
-        "Land and income",
-        "Foreign trade rights",
-        "Religious titles",
-        "Farming tools"
+        "A trait aiding survival",
+        "Any random body part",
+        "A trait causing harm",
+        "A trait from diet only"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "In a Japanese restaurant, what do you say before eating?",
+      "subject": "History",
+      "prompt": "How did Japan's mountains affect its early history?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Itadakimasu",
-      "why": "'Itadakimasu' is said before eating to show thanks for the meal; 'gochisousama' is said after.",
+      "answer": "They split land into regions",
+      "why": "Japan's mountainous terrain divided the land into separate regions, encouraging local rule by warrior clans rather than one central power.",
       "options": [
-        "Itadakimasu",
-        "Gochisousama",
-        "Oishii",
-        "Arigatou"
+        "They split land into regions",
+        "They removed all farmland",
+        "They stopped city growth",
+        "They made Japan flat"
       ],
       "mode": "scrub",
       "fresh": false
@@ -217,8 +217,8 @@
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What was the shogun's main role in the hierarchy?",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what part of a painting shows an animal's rough or smooth fur?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Military ruler",
-      "why": "The shogun held real military and political power, ruling in the emperor's name while the emperor stayed a symbolic figurehead.",
+      "answer": "Texture",
+      "why": "Texture is the visual quality showing whether fur, scales, or feathers look rough, smooth, or shaggy — a key focus when painting animals from observation.",
       "options": [
-        "Military ruler",
-        "Ceremonial priest",
-        "Local farmer leader",
-        "Trade minister"
+        "Texture",
+        "Perspective",
+        "Symmetry",
+        "Vanishing point"
       ],
       "mode": "scrub",
       "fresh": false
@@ -240,8 +240,8 @@
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What does good mental health mean day to day?",
+      "subject": "History",
+      "prompt": "In the shogunate system, who did the shogun rule below in name only?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Coping with normal ups and downs",
-      "why": "Good mental health means coping with life's normal ups and downs, not being endlessly cheerful or problem-free — everyone feels worried sometimes.",
+      "answer": "The emperor",
+      "why": "The emperor kept ceremonial status, but the shogun held the real political and military power.",
       "options": [
-        "Coping with normal ups and downs",
-        "Feeling cheerful all day long",
-        "Never facing any problems",
-        "Never feeling worried at all"
+        "The emperor",
+        "The daimyo",
+        "The samurai",
+        "The peasants"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if screen brightness affects eye strain, keeping room lighting the same. What type of variable is 'room lighting'?",
+      "prompt": "A student tests if the type of music affects heart rate, keeping room temperature the same. What is the controlled variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,25 +274,30 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "controlled"
+        "room temperature",
+        "temperature"
       ],
-      "why": "Room lighting is kept the same on purpose, so it's the controlled variable — it isolates the effect of the one thing being tested.",
+      "why": "The controlled variable is kept the same on purpose so it doesn't affect the result — here, that's room temperature.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Romeo and Juliet, what central theme is shown by love and hate existing together?",
-      "answer": "Love can survive amid conflict",
-      "why": "The play repeatedly shows love persisting despite the deep hatred between the families, which is a central theme.",
-      "options": [
-        "Love can survive amid conflict",
-        "Hate always destroys love",
-        "Family loyalty solves conflict",
-        "Love causes the feud"
-      ],
+      "subject": "Maths",
+      "prompt": "A rectangle has length 9 cm and width 4 cm. What is its area?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 36,
+      "calc": false,
+      "pre": "",
+      "post": " cm²",
+      "why": "Area of a rectangle is length × width, so 9 × 4 = 36 cm².",
       "fresh": false,
       "throwback": true
     },
@@ -300,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "The chance of a spinner landing on red is 0.55. What is the chance it does not land on red?",
+      "prompt": "A bag has 7 green and 13 pink balls. What is P(green) as a decimal?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -309,68 +314,64 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.45,
-      "calc": false,
+      "answer": 0.35,
+      "calc": true,
+      "frac": "7/20",
       "pre": "",
       "post": "",
-      "why": "Complementary events add to 1, so 1 − 0.55 = 0.45.",
+      "why": "There are 20 balls total, so P(green) = 7/20 = 0.35.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 4 green and 16 orange balls. What is P(green) as a decimal?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.2,
-      "calc": true,
-      "pre": "",
-      "post": "",
-      "why": "There are 20 balls total, so P(green) = 4/20 = 0.2.",
+      "subject": "Music",
+      "prompt": "In the progression C–Am–F–G, which chord comes third?",
+      "answer": "F",
+      "why": "The progression runs C, then Am, then F, then G — F is the third chord, functioning as the 'IV' chord.",
+      "options": [
+        "F",
+        "C",
+        "Am",
+        "G"
+      ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, who orders the fighting men to stop or face death?",
-      "answer": "Prince Escalus",
-      "why": "Prince Escalus arrives to break up the brawl and warns that any future fighting between the families will be punished by death.",
+      "subject": "Music",
+      "prompt": "In song structure, what does a 'hook' mainly do?",
+      "answer": "Grabs the listener's attention",
+      "why": "A hook is a short, catchy musical or lyrical moment designed to stick in the listener's memory and grab attention.",
       "options": [
-        "Prince Escalus",
-        "Lord Capulet",
-        "Lord Montague",
-        "Friar Laurence"
+        "Grabs the listener's attention",
+        "Introduces the instruments quietly",
+        "Slows the song down",
+        "Ends the song abruptly"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In song structure, what is the main purpose of the intro?",
-      "answer": "Set the mood before verses",
-      "why": "An intro establishes the song's tone and feel, preparing the listener before the verses and lyrics begin.",
+      "subject": "Japanese",
+      "prompt": "What does 'oishii' mean when eating in a Japanese restaurant?",
+      "answer": "Delicious",
+      "why": "'Oishii' is used to say food tastes delicious, often said while eating to compliment the meal.",
       "options": [
-        "Set the mood before verses",
-        "Repeat the chorus melody",
-        "Deliver the final climax",
-        "Introduce new lyrics only"
+        "Delicious",
+        "Water please",
+        "Thank you",
+        "The bill please"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "English",
-      "prompt": "Pick a moment from Act 1 of Romeo and Juliet and explain how Shakespeare's language or structure there affects how the audience feels."
+      "subject": "Maths",
+      "prompt": "Explain how a Venn diagram helps you work out the probability of an event belonging to two overlapping groups, using an example of your own."
     }
   ]
 }
