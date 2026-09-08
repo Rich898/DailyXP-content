@@ -1,53 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-07",
-  "day": "MON",
-  "tag": "R7.1",
-  "title": "DailyXP · MON 2026-09-07",
+  "date": "2026-09-08",
+  "day": "TUE",
+  "tag": "R7.2",
+  "title": "DailyXP · TUE 2026-09-08",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "The id acts on the reality principle",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The id acts on the pleasure principle, seeking instant satisfaction. It's the ego that operates on the reality principle.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
       "subject": "Science",
-      "prompt": "Mixing sand and water makes a new substance",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Sand and water just mix physically and can be separated again — no new substance forms, so it's not a chemical reaction.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Japan invaded China in 1937",
+      "prompt": "In a sealed, closed container, mass stays the same after a reaction",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,52 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Japan launched a full-scale invasion of China in 1937, beginning the Second Sino-Japanese War.",
+      "why": "In a closed system no matter escapes or enters, so total mass of reactants equals total mass of products — this is conservation of mass.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Japan invaded Manchuria before invading the rest of China",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Japan seized Manchuria in 1931, using it as a base before the full-scale invasion of China in 1937.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "x = 4 solves 2x + 1 = 9",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "2(4)+1 = 9, so x = 4 checks out correctly.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Fat has more energy per gram than carbohydrate",
+      "prompt": "Protein is the body's main quick-energy nutrient",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Fat provides about 9 calories per gram, more than double the roughly 4 calories per gram in carbohydrate.",
+      "answer": "False",
+      "why": "Carbohydrate is the body's main quick-energy source; protein is mainly used for building and repairing tissue.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Which business plan section lists the founder's skills and experience?",
+      "subject": "English",
+      "prompt": "In Freud's model, which part develops last, shaped by parents and society?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Management team",
-      "why": "The management team section describes who runs the business and their relevant skills, separate from the market or financial sections.",
+      "answer": "The superego, formed through moral upbringing",
+      "why": "The superego develops last, around age 5+, as a child absorbs moral rules from parents and society. The id is innate from birth, and the ego develops early to manage reality.",
       "options": [
-        "Management team",
-        "Market analysis",
-        "Executive summary",
-        "Financial plan"
+        "The superego, formed through moral upbringing",
+        "The id, present from birth instinctively",
+        "The ego, balancing needs realistically",
+        "The unconscious, hidden below awareness"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "What does the conch shell mainly symbolise in Lord of the Flies?",
+      "subject": "D&T",
+      "prompt": "In a business plan, which section lists expected startup costs?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Order and civilisation",
-      "why": "The conch gives boys the right to speak and calls meetings, representing structured, civilised rules.",
+      "answer": "Financial plan",
+      "why": "The financial plan covers costs, funding and cash flow, while the market analysis instead looks at customers and competitors.",
       "options": [
-        "Order and civilisation",
-        "Fear of the beast",
-        "Savagery and violence",
-        "Hunting and survival"
+        "Financial plan",
+        "Market analysis",
+        "Executive summary",
+        "Action plan"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "A cereal ad uses cartoon mascots to appeal to children. What is this technique called?",
+      "subject": "Science",
+      "prompt": "Which of these is a sign a chemical reaction has occurred?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Targeting children",
-      "why": "Using cartoon characters and bright colours to appeal specifically to children is a marketing technique called targeting children.",
+      "answer": "Gas bubbles form",
+      "why": "Gas bubbles show a new substance is forming, a genuine sign of chemical change, unlike a simple physical change like shape or temperature.",
       "options": [
-        "Targeting children",
-        "Bandwagon effect",
-        "Celebrity endorsement",
-        "Bulk discount pricing"
+        "Gas bubbles form",
+        "Object changes shape",
+        "Liquid gets colder only",
+        "Object gets heavier by adding water"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "D&T",
-      "prompt": "A stall keeps the same logo and colours on every product for a year. What is this building?",
+      "subject": "Commerce",
+      "prompt": "A phone repair shop fixing a cracked screen for a fee is selling a…",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Brand recognition",
-      "why": "Repeating the same logo and colours consistently helps customers recognise and remember the brand over time.",
+      "answer": "Service",
+      "why": "Fixing a screen is an action performed for a customer, making it a service, not a physical product being sold.",
       "options": [
-        "Brand recognition",
-        "Market research",
-        "A swot analysis",
-        "An action plan"
+        "Service",
+        "Product",
+        "Logo",
+        "Brand"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "D&T",
-      "prompt": "In Adobe Illustrator, what type of graphics does it mainly create?",
+      "subject": "PDHPE",
+      "prompt": "A chip ad shows a famous footballer enjoying the snack after a match. What technique is this?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Vector graphics",
-      "why": "Illustrator works with vector graphics, made of scalable paths, so logos stay sharp at any size.",
+      "answer": "Celebrity endorsement",
+      "why": "Using a famous athlete to promote a product is celebrity endorsement, designed to link the snack to admiration and success.",
       "options": [
-        "Vector graphics",
-        "Raster photographs",
-        "Sound files",
-        "Video animations"
+        "Celebrity endorsement",
+        "Bulk discount",
+        "Nutrition labelling",
+        "Store placement"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "D&T",
-      "prompt": "Which section of a financial plan lists expected startup costs?",
+      "prompt": "A market stall keeps the exact same logo and colours on every product for a year. What is this mainly building?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Startup costs list",
-      "why": "Startup costs are listed in their own dedicated section, not mixed into a summary, market research, or mission wording.",
+      "answer": "Brand recognition",
+      "why": "Consistent logos and colours across products build brand recognition, helping customers instantly identify the stall's products.",
       "options": [
-        "Startup costs list",
-        "One-page summary",
-        "Competitor price research",
-        "Company mission wording"
+        "Brand recognition",
+        "Cash flow",
+        "Market research",
+        "Product design"
       ],
       "mode": "scrub",
       "fresh": false
@@ -217,8 +217,8 @@
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "In a sealed flask, 10g of reactants react completely. What is the mass of products?",
+      "subject": "D&T",
+      "prompt": "In Adobe Illustrator, what happens to a logo's quality when you resize it much larger?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "10g",
-      "why": "In a closed system, mass is conserved — atoms rearrange but none are lost, so products equal the starting mass.",
+      "answer": "Stays sharp and clean",
+      "why": "Illustrator uses vector paths, defined by maths not pixels, so logos resize to any size without going blurry — unlike raster images, which pixelate when enlarged.",
       "options": [
-        "10g",
-        "5g",
-        "15g",
-        "20g"
+        "Stays sharp and clean",
+        "Turns blurry and pixelated",
+        "Loses its colours",
+        "Changes to a photo"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Which of these is a sign a chemical reaction has happened?",
+      "prompt": "When two substances react and form a new substance, what has changed?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Gas bubbles form",
-      "why": "Bubbles show a new gas has been produced, a sign of chemical change. Dissolving, evaporating and shape changes are physical.",
+      "answer": "Chemical composition",
+      "why": "A chemical reaction rearranges atoms into new substances with different chemical composition, not just a surface-level change.",
       "options": [
-        "Gas bubbles form",
-        "Object changes shape",
-        "Substance dissolves fully",
-        "Liquid evaporates away"
+        "Chemical composition",
+        "Only the colour",
+        "Only the shape",
+        "Only the temperature"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 15 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 20 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -273,25 +273,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 75,
+      "answer": 90,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 15 × 10 = 75 cm². Always halve after multiplying.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 20 × 9 = 90 cm² — remember to halve after multiplying.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "A plumber charges a fee to fix a leaking pipe. What is the plumber selling?",
-      "answer": "A service",
-      "why": "A service is an action performed for a customer, like fixing a pipe, rather than a physical item they take home.",
+      "subject": "English",
+      "prompt": "From a while back — in Lord of the Flies, what does the beast mainly represent?",
+      "answer": "The boys' inner savagery",
+      "why": "The beast symbolises the savagery and fear hidden inside the boys themselves, not a literal creature on the island.",
       "options": [
-        "A service",
-        "A product",
-        "A raw material",
-        "A physical good"
+        "The boys' inner savagery",
+        "A real predator on the island",
+        "Ralph's fear of Jack",
+        "The island's dangerous weather"
       ],
       "fresh": false,
       "throwback": true
@@ -299,8 +299,23 @@
     {
       "id": "T3",
       "phase": "steady",
+      "subject": "Commerce",
+      "prompt": "Which section of a business plan explains how the business will actually earn its profit?",
+      "answer": "Market analysis",
+      "why": "The market analysis examines customers, competitors, and demand, showing where profit will realistically come from.",
+      "options": [
+        "Market analysis",
+        "Executive summary",
+        "Company description",
+        "Appendix"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 4x + 5 = 25",
+      "prompt": "Solve for x: 3x + 5 = 20",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -313,59 +328,44 @@
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 5 from both sides to get 4x = 20, then divide by 4 to find x = 5.",
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Which nutrient is mainly needed for building and repairing muscle?",
-      "answer": "Protein",
-      "why": "Protein provides amino acids the body uses to build and repair muscle tissue, unlike carbs or fats which mainly provide energy.",
-      "options": [
-        "Protein",
-        "Carbohydrate",
-        "Fat",
-        "Fibre"
-      ],
+      "why": "Subtract 5 from both sides to get 3x = 15, then divide by 3 to find x = 5.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Freud's model, which part develops first in a young child?",
-      "answer": "The id",
-      "why": "The id is present from birth and drives instinctive desires; the ego and superego develop later as a child grows.",
+      "subject": "PDHPE",
+      "prompt": "Which nutrient provides the most energy per gram?",
+      "answer": "Fat",
+      "why": "Fat provides about 9 calories per gram, more than double carbohydrate or protein, which each provide about 4.",
       "options": [
-        "The id",
-        "The ego",
-        "The superego",
-        "The conscience"
+        "Fat",
+        "Carbohydrate",
+        "Protein",
+        "Water"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "Which business plan section explains how the business will make its profit?",
-      "answer": "Financial plan",
-      "why": "The financial plan covers costs, pricing and profit projections, showing how the business expects to make money.",
+      "subject": "English",
+      "prompt": "In Freud's model, which part operates on the 'pleasure principle', seeking instant satisfaction?",
+      "answer": "Id",
+      "why": "The id seeks pleasure without regard for consequences, unlike the reality-balancing ego or the moral superego.",
       "options": [
-        "Financial plan",
-        "Executive summary",
-        "Mission statement",
-        "Market analysis"
+        "Id",
+        "Superego",
+        "Ego",
+        "Conscience"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Maths",
-      "prompt": "Explain how you know when to use inverse operations to solve an equation like 3x + 4 = 19, and why each step you do to one side must also be done to the other."
+      "subject": "Commerce",
+      "prompt": "A student writing a business plan lists 'our biggest strength is our unique flavours' and 'a threat is a new competitor opening nearby' under the market analysis section. Explain why this is actually misplaced, and where it truly belongs."
     }
   ]
 }
