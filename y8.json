@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-08",
-  "day": "TUE",
-  "tag": "H7.2",
-  "title": "DailyXP · TUE 2026-09-08",
+  "date": "2026-09-09",
+  "day": "WED",
+  "tag": "H7.3",
+  "title": "DailyXP · WED 2026-09-09",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Shakespeare wrote Romeo and Juliet in the 1900s",
+      "prompt": "Romeo and Juliet is set in Verona",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Shakespeare wrote in the late 1500s, during the Elizabethan era, not the 1900s.",
+      "answer": "True",
+      "why": "Shakespeare set Romeo and Juliet in the Italian city of Verona.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A trigger cause explains the whole event on its own",
+      "prompt": "A trigger cause explains an entire event by itself",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "A trigger cause is just the final spark — the deeper long-term causes are what really built up the event.",
+      "why": "A trigger cause is the short-term spark, but long-term causes usually built up the conditions — no single cause explains everything alone.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, the G chord is the 'V'",
+      "prompt": "Am is the 'I' chord in C-Am-F-G",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Counting from C as 'I', G is the fifth note of the scale, so it's the 'V' chord.",
+      "answer": "False",
+      "why": "C is the 'I' chord because the progression is built on the C major scale — Am is the 'vi' chord.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Kudasai' is used to politely ask for something",
+      "prompt": "'Kudasai' means 'goodbye'",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "'Kudasai' means 'please give me' and is used when ordering food or asking for items.",
+      "answer": "False",
+      "why": "'Kudasai' is used to politely ask for something, not to say goodbye.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who is Juliet's father in Romeo and Juliet?",
+      "prompt": "In Act 1 Scene 1, what does Benvolio try to do when he arrives?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Lord Capulet",
-      "why": "Juliet's father is Lord Capulet, head of the Capulet household.",
+      "answer": "Stop the fighting",
+      "why": "Benvolio draws his sword to part the brawling servants, showing his peacemaking role, before Tybalt arrives and escalates things.",
       "options": [
-        "Lord Capulet",
-        "Lord Montague",
-        "Friar Laurence",
-        "Prince Escalus"
+        "Stop the fighting",
+        "Join the Capulets",
+        "Fetch Prince Escalus",
+        "Insult Tybalt"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if the families fight again?",
+      "prompt": "In Act 1 Scene 1, who breaks up the servants' street fight?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Death for the feuding families",
-      "why": "Prince Escalus declares that if either family disturbs the peace of Verona again, the punishment will be death, showing how serious the feud has become.",
+      "answer": "Prince Escalus",
+      "why": "Prince Escalus arrives and threatens death to anyone who disturbs the peace again.",
       "options": [
-        "Death for the feuding families",
-        "Exile for Romeo alone",
-        "A heavy fine for both houses",
-        "Imprisonment for the servants"
+        "Prince Escalus",
+        "Friar Laurence",
+        "Lord Montague",
+        "Mercutio"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a common myth about people with depression?",
+      "prompt": "What is a common myth about people with mental illness?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They can just cheer up",
-      "why": "Depression is not solved by simply choosing to feel happier; it often needs time, support or treatment.",
+      "answer": "They can just snap out of it",
+      "why": "Believing someone can simply 'snap out of' a mental illness is a harmful myth — recovery usually needs time, support, and sometimes treatment, not willpower alone.",
       "options": [
-        "They can just cheer up",
-        "They can have good days",
-        "They may need support",
-        "They can recover over time"
+        "They can just snap out of it",
+        "They can still hold jobs",
+        "They can recover with treatment",
+        "They can have supportive friends"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with feeling overwhelmed?",
+      "prompt": "What is a healthy way to deal with stress before a big test?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Talk to someone trusted",
-      "why": "Sharing feelings with a trusted person helps process emotions instead of letting them build up unmanaged.",
+      "answer": "Break study into small chunks",
+      "why": "Breaking work into small, manageable chunks reduces stress, while cramming, losing sleep, or avoidance tends to make stress worse.",
       "options": [
-        "Talk to someone trusted",
-        "Bottle it up completely",
-        "Avoid the problem forever",
-        "Blame yourself harshly"
+        "Break study into small chunks",
+        "Cram everything the night before",
+        "Skip sleep to study more",
+        "Avoid thinking about it at all"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What is an adaptation in an ecosystem?",
+      "prompt": "What term describes a trait helping an organism survive?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A trait aiding survival",
-      "why": "An adaptation is a feature that helps an organism survive and reproduce in its specific habitat.",
+      "answer": "Adaptation",
+      "why": "An adaptation is a trait that helps an organism survive and thrive in its particular habitat.",
       "options": [
-        "A trait aiding survival",
-        "Any random body part",
-        "A trait causing harm",
-        "A trait from diet only"
+        "Adaptation",
+        "Biomass",
+        "Population",
+        "Ecosystem"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "History",
-      "prompt": "How did Japan's mountains affect its early history?",
+      "prompt": "In the shogunate system, who did the shogun rule beneath, at least in name?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "They split land into regions",
-      "why": "Japan's mountainous terrain divided the land into separate regions, encouraging local rule by warrior clans rather than one central power.",
+      "answer": "The emperor of Japan",
+      "why": "The shogun held real military and political power, but officially ruled in the name of the emperor, who remained a symbolic figurehead.",
       "options": [
-        "They split land into regions",
-        "They removed all farmland",
-        "They stopped city growth",
-        "They made Japan flat"
+        "The emperor of Japan",
+        "A council of merchants",
+        "The daimyo lords",
+        "Regional farmers"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what part of a painting shows an animal's rough or smooth fur?",
+      "prompt": "In 'Paint Like a Beast', what do students look closely at before they start painting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Texture",
-      "why": "Texture is the visual quality showing whether fur, scales, or feathers look rough, smooth, or shaggy — a key focus when painting animals from observation.",
+      "answer": "Reference photos",
+      "why": "Students study reference photos of animals to notice real details like fur, markings, and form before painting them.",
       "options": [
-        "Texture",
-        "Perspective",
-        "Symmetry",
-        "Vanishing point"
+        "Reference photos",
+        "Old sketchbooks",
+        "Colour theory charts",
+        "Other students' work"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In the shogunate system, who did the shogun rule below in name only?",
+      "prompt": "What did daimyo give samurai in exchange for loyalty and service?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "The emperor",
-      "why": "The emperor kept ceremonial status, but the shogun held the real political and military power.",
+      "answer": "Land and income",
+      "why": "Daimyo rewarded loyal samurai with land and income, similar to how European lords granted land to knights.",
       "options": [
-        "The emperor",
-        "The daimyo",
-        "The samurai",
-        "The peasants"
+        "Land and income",
+        "A seat in government",
+        "Direct rule of villages",
+        "Freedom from all taxes"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the type of music affects heart rate, keeping room temperature the same. What is the controlled variable?",
+      "prompt": "In an experiment testing if the amount of sunlight affects plant height, what is the independent variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "room temperature",
-        "temperature"
+        "amount of sunlight",
+        "sunlight"
       ],
-      "why": "The controlled variable is kept the same on purpose so it doesn't affect the result — here, that's room temperature.",
+      "why": "The independent variable is the thing the experimenter deliberately changes — here, the amount of sunlight given to each plant.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A rectangle has length 9 cm and width 4 cm. What is its area?",
+      "prompt": "A rectangle has length 8 cm and width 5 cm. What is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 36,
+      "answer": 40,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a rectangle is length × width, so 9 × 4 = 36 cm².",
+      "why": "Area of a rectangle is length × width, so 8 × 5 = 40 cm².",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A bag has 7 green and 13 pink balls. What is P(green) as a decimal?",
+      "prompt": "A bag has 6 blue and 14 red balls. What is P(blue) as a decimal?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -314,26 +314,26 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.35,
-      "calc": true,
-      "frac": "7/20",
+      "answer": 0.3,
+      "calc": false,
+      "frac": "3/10",
       "pre": "",
       "post": "",
-      "why": "There are 20 balls total, so P(green) = 7/20 = 0.35.",
+      "why": "There are 20 balls total, so P(blue) = 6/20 = 0.3.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord comes third?",
-      "answer": "F",
-      "why": "The progression runs C, then Am, then F, then G — F is the third chord, functioning as the 'IV' chord.",
+      "prompt": "In the progression C-Am-F-G, which chord comes last?",
+      "answer": "G",
+      "why": "The progression runs C, then Am, then F, then G — G is the final chord, acting as the 'V'.",
       "options": [
-        "F",
+        "G",
         "C",
         "Am",
-        "G"
+        "F"
       ],
       "fresh": false
     },
@@ -341,14 +341,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In song structure, what does a 'hook' mainly do?",
-      "answer": "Grabs the listener's attention",
-      "why": "A hook is a short, catchy musical or lyrical moment designed to stick in the listener's memory and grab attention.",
+      "prompt": "In song structure, what does the outro usually do?",
+      "answer": "Bring the song to a close",
+      "why": "The outro is the section that winds the song down and ends it, often by fading or simplifying the instrumentation.",
       "options": [
-        "Grabs the listener's attention",
-        "Introduces the instruments quietly",
-        "Slows the song down",
-        "Ends the song abruptly"
+        "Bring the song to a close",
+        "Introduce the main theme",
+        "Add the fullest layering",
+        "Contrast the verse"
       ],
       "fresh": false
     },
@@ -356,14 +356,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What does 'oishii' mean when eating in a Japanese restaurant?",
-      "answer": "Delicious",
-      "why": "'Oishii' is used to say food tastes delicious, often said while eating to compliment the meal.",
+      "prompt": "What do you say before eating in a Japanese restaurant to show thanks?",
+      "answer": "Itadakimasu",
+      "why": "'Itadakimasu' is said before eating to show gratitude for the meal, while 'Gochisousama' is said afterwards.",
       "options": [
-        "Delicious",
-        "Water please",
-        "Thank you",
-        "The bill please"
+        "Itadakimasu",
+        "Gochisousama",
+        "Kudasai",
+        "Sayonara"
       ],
       "fresh": false
     },
