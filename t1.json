@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-08",
-  "day": "TUE",
-  "tag": "T7.2",
-  "title": "DailyXP · TUE 2026-09-08",
+  "date": "2026-09-09",
+  "day": "WED",
+  "tag": "T7.3",
+  "title": "DailyXP · WED 2026-09-09",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Rolling a die: getting a 1",
+      "prompt": "A coin lands on heads or tails, never both",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Certain",
-      "right": "Not certain",
-      "answer": "Not certain",
-      "why": "Getting a 1 is only one of six equally likely outcomes, so it's possible but not certain.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "A coin toss has only two mutually exclusive outcomes, so it must land on exactly one of them.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The Capulets and Montagues are close friends",
+      "prompt": "Romeo and Juliet meet at the Capulet party in Act 1",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "The two families have a long-standing feud, shown by the servants' brawl in Act 1 Scene 1.",
+      "answer": "True",
+      "why": "In Act 1 Scene 5, Romeo sneaks into the Capulet party and first sees and speaks with Juliet there.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountainous terrain made it easy for one ruler to control the whole country",
+      "prompt": "A shogun ruled Japan in the emperor's name only",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Japan's mountains divided the land into isolated regions, making central rule difficult and encouraging local warrior rule instead.",
+      "answer": "True",
+      "why": "The shogun held the real military and political power while the emperor remained a figurehead ruler in name.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'Itadakimasu' is used after finishing a meal",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', students painted realistic photo-like animals",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'Itadakimasu' is said before eating; 'gochisousama' is said after finishing the meal.",
+      "why": "The activities focused on expressive, textured brush marks capturing an animal's feel, not photographic realism.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "What theatre in London was strongly associated with Shakespeare's plays?",
+      "subject": "Japanese",
+      "prompt": "How do you say 'let's eat' before a meal in Japanese?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The Globe",
-      "why": "Shakespeare's company performed most of his plays at the Globe Theatre in London, built in 1599.",
+      "answer": "Itadakimasu",
+      "why": "'Itadakimasu' is said before eating to show thanks for the meal; 'gochisousama' is said after finishing.",
       "options": [
-        "The Globe",
-        "The Old Vic",
-        "The Royal Court",
-        "The Barbican"
+        "Itadakimasu",
+        "Gochisousama",
+        "Oishii desu",
+        "Sumimasen"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In history, what does 'continuity' mean?",
+      "prompt": "In history, what is a 'cause'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Things staying the same",
-      "why": "Continuity refers to aspects of life or society that remain stable over time, contrasted with change.",
+      "answer": "Something that leads to an event",
+      "why": "A cause is a factor or condition that leads to an event happening — it comes before the event, not after it.",
       "options": [
-        "Things staying the same",
-        "Things changing fast",
-        "One single cause",
-        "A list of dates"
+        "Something that leads to an event",
+        "Something that happens after",
+        "A modern opinion about the past",
+        "A description of a location"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a common myth about people who go to therapy?",
+      "subject": "English",
+      "prompt": "Who does Romeo love before he meets Juliet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They are weak",
-      "why": "A common myth is that seeking therapy shows weakness, but it actually shows self-awareness and strength.",
+      "answer": "Rosaline",
+      "why": "Romeo begins the play infatuated with Rosaline, who never appears on stage, before falling for Juliet.",
       "options": [
-        "They are weak",
-        "They talk too much",
-        "They are too old",
-        "They lack friends"
+        "Rosaline",
+        "Lady Capulet",
+        "The Nurse",
+        "Juliet's cousin"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which is a healthy way to deal with sadness?",
+      "prompt": "What is a common myth about people with anxiety?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Talk to someone",
-      "why": "Talking to a trusted person helps process sadness, unlike bottling up or avoiding feelings, which can make them worse.",
+      "answer": "They can just relax easily",
+      "why": "A common myth is that anxious people can simply 'snap out of it,' but anxiety is a real condition, not a choice.",
       "options": [
-        "Talk to someone",
-        "Bottle it up",
-        "Avoid everyone",
-        "Ignore it fully"
+        "They can just relax easily",
+        "They avoid all challenges",
+        "They never feel calm",
+        "They enjoy feeling worried"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In a song, what usually happens to instrument layers during the chorus?",
+      "subject": "PDHPE",
+      "prompt": "What's a healthy way to deal with sadness?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,44 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "More layers are added",
-      "why": "Choruses often add extra instruments or vocals to create a fuller, more powerful sound compared to the verse.",
+      "answer": "Talk to someone you trust",
+      "why": "Sharing sad feelings with someone you trust helps process them, while avoiding or hiding feelings can make things harder.",
       "options": [
-        "More layers are added",
-        "All layers are removed",
-        "Tempo is halved",
-        "Lyrics disappear"
+        "Talk to someone you trust",
+        "Avoid everyone for weeks",
+        "Pretend you feel fine",
+        "Snap at your friends"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
+      "subject": "Music",
+      "prompt": "In a song, what usually happens to instrument layers in the chorus?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "More layers are added",
+      "why": "Choruses often add fuller instrumentation to create a bigger, more energetic sound than the verse.",
+      "options": [
+        "More layers are added",
+        "All instruments stop",
+        "Only drums remain",
+        "Tempo slows right down"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
       "subject": "Science",
-      "prompt": "A cactus storing water in its thick stem is what type of adaptation?",
+      "prompt": "A camel storing fat in its hump is what type of adaptation?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,35 +227,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Structural adaptation",
-      "why": "A structural adaptation is a physical feature of the body, like a thick water-storing stem, not a behaviour or learned habit.",
+      "why": "A structural adaptation is a physical body feature, like a fat-storing hump, not a behaviour an animal chooses.",
       "options": [
         "Structural adaptation",
         "Behavioural adaptation",
-        "Chemical reaction",
-        "Learned habit"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what tool did students mainly use to apply paint?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Brushes",
-      "why": "Students mainly used brushes to build up expressive marks that suggested animal fur and texture.",
-      "options": [
-        "Brushes",
-        "Fingers only",
-        "Palette knives",
-        "Sponges"
+        "Learned adaptation",
+        "Seasonal migration"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which class below the shogun ruled local Japanese domains?",
+      "prompt": "What did Japan's regional warlords, the daimyo, control?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Daimyo",
-      "why": "Daimyo were powerful regional lords who governed domains and answered to the shogun above them.",
+      "answer": "Local domains",
+      "why": "Daimyo were powerful lords who controlled their own local domains, ruling their regions while pledging loyalty to the shogun.",
       "options": [
-        "Daimyo",
-        "Samurai",
-        "Emperor",
-        "Peasant"
+        "Local domains",
+        "The whole nation",
+        "The imperial court",
+        "Foreign trade only"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing how light affects plant growth, what is the independent variable?",
+      "prompt": "What natural hazard is most often triggered by movement of tectonic plates underwater, causing giant sea waves?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "light",
-        "amount of light"
+        "tsunami",
+        "tsunamis"
       ],
-      "why": "The independent variable is the one the experimenter deliberately changes — here, the amount of light.",
+      "why": "Tsunamis are giant waves usually caused by underwater earthquakes shifting huge volumes of water.",
       "fresh": false,
       "throwback": true
     },
@@ -285,7 +285,7 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A bag has 7 red and 3 blue counters. What is the probability of drawing red, as a fraction out of 10?",
+      "prompt": "A bag has 5 red and 15 blue counters. What is the probability of drawing red, as a fraction out of 20?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -294,19 +294,19 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.7,
+      "answer": 0.25,
       "calc": false,
-      "frac": "7/10",
+      "frac": "5/20",
       "pre": "",
       "post": "",
-      "why": "There are 7 red counters out of 10 total, so the probability is 7/10.",
+      "why": "5 out of 20 counters are red, so the probability is 5/20, which simplifies to 1/4 or 0.25.",
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "The probability of picking a striped tie is 0.8. What is the probability of not picking striped?",
+      "prompt": "The probability of picking a striped shirt is 0.55. What is the probability of not picking striped?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -315,25 +315,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 0.2,
+      "answer": 0.45,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Complementary probabilities add to 1, so 1 − 0.8 = 0.2.",
+      "why": "Complementary probabilities add to 1, so the chance of not picking striped is 1 minus 0.55, which is 0.45.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, what does Romeo do as soon as he sees Juliet?",
-      "answer": "Falls instantly in love",
-      "why": "Romeo is immediately struck by Juliet's beauty at the Capulet party, forgetting his earlier infatuation with Rosaline.",
+      "prompt": "In Act 1 Scene 5, what does Tybalt want to do to Romeo?",
+      "answer": "Fight him at once",
+      "why": "Tybalt recognises Romeo's voice and wants to fight him immediately, but Capulet stops him to avoid ruining the party.",
       "options": [
-        "Falls instantly in love",
-        "Challenges her to dance",
-        "Insults her family",
-        "Leaves the party"
+        "Fight him at once",
+        "Invite him to dance",
+        "Report him to the Prince",
+        "Ignore him completely"
       ],
       "fresh": false
     },
@@ -341,29 +341,29 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, what scale degree is the C chord built on?",
-      "answer": "The first",
-      "why": "C is the tonic chord, built on the first note of the C major scale, giving it the roman numeral 'I'.",
+      "prompt": "In the progression C–Am–F–G, which chord provides the most tension, wanting to resolve back to C?",
+      "answer": "G chord",
+      "why": "G is the V (dominant) chord, which creates tension that pulls strongly back to the I (C) chord.",
       "options": [
-        "The first",
-        "The fourth",
-        "The fifth",
-        "The sixth"
+        "G chord",
+        "Am chord",
+        "F chord",
+        "C chord"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'thank you' in Japanese?",
-      "answer": "Arigatou",
-      "why": "'Arigatou' means thank you, a basic polite word used alongside restaurant phrases in Unit 6.",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what did students use to apply paint besides brushes?",
+      "answer": "Their fingers",
+      "why": "Students experimented with applying paint using their fingers, not just brushes, to create loose, expressive marks.",
       "options": [
-        "Arigatou",
-        "Mizu",
-        "Gohan",
-        "Itadakimasu"
+        "Their fingers",
+        "Only pencils",
+        "Only rulers",
+        "Printed stamps"
       ],
       "fresh": false
     },
@@ -371,7 +371,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) in a different order can change the emotional feel of a song, even though the notes stay the same."
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on a different chord can change how a song feels, even though the notes used are identical."
     }
   ]
 }
