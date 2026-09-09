@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-08",
-  "day": "TUE",
-  "tag": "R7.2",
-  "title": "DailyXP · TUE 2026-09-08",
+  "date": "2026-09-09",
+  "day": "WED",
+  "tag": "R7.3",
+  "title": "DailyXP · WED 2026-09-09",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a sealed, closed container, mass stays the same after a reaction",
+      "prompt": "Burning wood in an open dish loses mass overall",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In a closed system no matter escapes or enters, so total mass of reactants equals total mass of products — this is conservation of mass.",
+      "why": "In an open system, gases like carbon dioxide escape into the air, so the measured mass drops even though total mass is conserved overall.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan invaded Manchuria before invading the rest of China",
+      "prompt": "Japan's invasion of China began in 1937",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Japan seized Manchuria in 1931, using it as a base before the full-scale invasion of China in 1937.",
+      "why": "Full-scale war between Japan and China started in 1937, though Japan had already seized Manchuria earlier.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "x = 4 solves 2x + 1 = 9",
+      "prompt": "x = 3 solves 2x + 4 = 10",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "2(4)+1 = 9, so x = 4 checks out correctly.",
+      "why": "Substituting x = 3 gives 2(3) + 4 = 10, so the equation balances correctly.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Protein is the body's main quick-energy nutrient",
+      "prompt": "Fibre is mainly needed for quick energy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Carbohydrate is the body's main quick-energy source; protein is mainly used for building and repairing tissue.",
+      "why": "Fibre aids digestion and gut health; carbohydrates are the body's main quick-energy nutrient.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Freud's model, which part develops last, shaped by parents and society?",
+      "prompt": "In Freud's model, which part is mostly unconscious and instinctive?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The superego, formed through moral upbringing",
-      "why": "The superego develops last, around age 5+, as a child absorbs moral rules from parents and society. The id is innate from birth, and the ego develops early to manage reality.",
+      "answer": "Id",
+      "why": "The id is the primitive, unconscious part driven by instinct, seeking pleasure without thinking of consequences.",
       "options": [
-        "The superego, formed through moral upbringing",
-        "The id, present from birth instinctively",
-        "The ego, balancing needs realistically",
-        "The unconscious, hidden below awareness"
+        "Id",
+        "Ego",
+        "Superego",
+        "Conscience"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "D&T",
-      "prompt": "In a business plan, which section lists expected startup costs?",
+      "prompt": "Which business plan section lists expected startup costs and cash flow?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,12 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Financial plan",
-      "why": "The financial plan covers costs, funding and cash flow, while the market analysis instead looks at customers and competitors.",
+      "why": "The financial plan section covers startup costs, cash flow, and funding needs — the market analysis looks at competitors and customers, not money details.",
       "options": [
         "Financial plan",
         "Market analysis",
         "Executive summary",
-        "Action plan"
+        "Company overview"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Which of these is a sign a chemical reaction has occurred?",
+      "prompt": "Which sign of a chemical reaction means a new gas has formed?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Gas bubbles form",
-      "why": "Gas bubbles show a new substance is forming, a genuine sign of chemical change, unlike a simple physical change like shape or temperature.",
+      "answer": "Bubbles forming",
+      "why": "Bubbling shows a gas is being produced, which means a new substance has formed — shape, size, and position are just physical changes.",
       "options": [
-        "Gas bubbles form",
-        "Object changes shape",
-        "Liquid gets colder only",
-        "Object gets heavier by adding water"
+        "Bubbles forming",
+        "Change in shape",
+        "Change in size",
+        "Change in position"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A phone repair shop fixing a cracked screen for a fee is selling a…",
+      "prompt": "A car dealership offering free servicing for a year is selling a…",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -160,7 +160,7 @@
         "cta": "Keep going →"
       },
       "answer": "Service",
-      "why": "Fixing a screen is an action performed for a customer, making it a service, not a physical product being sold.",
+      "why": "Servicing is work done for the customer, not a physical item, so it counts as a service.",
       "options": [
         "Service",
         "Product",
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "A chip ad shows a famous footballer enjoying the snack after a match. What technique is this?",
+      "prompt": "A fast food ad shows a meal with a free toy to attract kids. What technique is this?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Celebrity endorsement",
-      "why": "Using a famous athlete to promote a product is celebrity endorsement, designed to link the snack to admiration and success.",
+      "answer": "Targeting children",
+      "why": "Free toys and fun packaging are used to appeal directly to children, encouraging pester power on parents.",
       "options": [
-        "Celebrity endorsement",
-        "Bulk discount",
-        "Nutrition labelling",
-        "Store placement"
+        "Targeting children",
+        "Price discounting",
+        "Health labelling",
+        "Portion control"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "D&T",
-      "prompt": "A market stall keeps the exact same logo and colours on every product for a year. What is this mainly building?",
+      "prompt": "A market stall keeps the same logo and colours on everything it sells. What is this mainly building?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,12 +204,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Brand recognition",
-      "why": "Consistent logos and colours across products build brand recognition, helping customers instantly identify the stall's products.",
+      "why": "Consistent logo and colours help customers recognise the stall instantly, building brand recognition over time.",
       "options": [
         "Brand recognition",
-        "Cash flow",
+        "Product quality",
         "Market research",
-        "Product design"
+        "Startup funding"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "D&T",
-      "prompt": "In Adobe Illustrator, what happens to a logo's quality when you resize it much larger?",
+      "prompt": "In Adobe Illustrator, what happens when you resize a logo much larger?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Stays sharp and clean",
-      "why": "Illustrator uses vector paths, defined by maths not pixels, so logos resize to any size without going blurry — unlike raster images, which pixelate when enlarged.",
+      "answer": "It stays sharp",
+      "why": "Illustrator uses vector graphics, so shapes scale up cleanly without losing sharpness, unlike pixel-based images.",
       "options": [
-        "Stays sharp and clean",
-        "Turns blurry and pixelated",
-        "Loses its colours",
-        "Changes to a photo"
+        "It stays sharp",
+        "It turns blurry",
+        "It changes colour",
+        "It loses its shape"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "When two substances react and form a new substance, what has changed?",
+      "prompt": "When two substances react and form a new substance, what has happened?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Chemical composition",
-      "why": "A chemical reaction rearranges atoms into new substances with different chemical composition, not just a surface-level change.",
+      "answer": "A chemical change",
+      "why": "Forming a new substance with different properties is the key sign of a chemical change, not just a physical one.",
       "options": [
-        "Chemical composition",
-        "Only the colour",
-        "Only the shape",
-        "Only the temperature"
+        "A chemical change",
+        "A physical change",
+        "A state change",
+        "A size change"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 20 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 12 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -273,25 +273,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 90,
-      "calc": false,
+      "answer": 54,
+      "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 20 × 9 = 90 cm² — remember to halve after multiplying.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 9 = 54 cm² — always halve after multiplying.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does the beast mainly represent?",
-      "answer": "The boys' inner savagery",
-      "why": "The beast symbolises the savagery and fear hidden inside the boys themselves, not a literal creature on the island.",
+      "prompt": "From a while back — in Lord of the Flies, what does the signal fire mainly represent?",
+      "answer": "Hope of rescue",
+      "why": "The fire symbolises the boys' connection to civilisation and their hope of being rescued; letting it die shows that hope fading.",
       "options": [
-        "The boys' inner savagery",
-        "A real predator on the island",
-        "Ralph's fear of Jack",
-        "The island's dangerous weather"
+        "Hope of rescue",
+        "The boys' fear",
+        "Piggy's intelligence",
+        "Jack's leadership"
       ],
       "fresh": false,
       "throwback": true
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "Which section of a business plan explains how the business will actually earn its profit?",
-      "answer": "Market analysis",
-      "why": "The market analysis examines customers, competitors, and demand, showing where profit will realistically come from.",
+      "prompt": "Which section of a business plan lists the founder's skills and experience?",
+      "answer": "Management summary",
+      "why": "The management summary outlines who runs the business and their relevant skills and experience.",
       "options": [
+        "Management summary",
         "Market analysis",
         "Executive summary",
-        "Company description",
-        "Appendix"
+        "Financial plan"
       ],
       "fresh": false
     },
@@ -315,7 +315,7 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 3x + 5 = 20",
+      "prompt": "Solve for x: 4x + 6 = 26",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -325,24 +325,24 @@
       },
       "type": "numeric",
       "answer": 5,
-      "calc": false,
+      "calc": true,
       "pre": "",
       "post": "",
-      "why": "Subtract 5 from both sides to get 3x = 15, then divide by 3 to find x = 5.",
+      "why": "Subtract 6 from both sides to get 4x = 20, then divide by 4 to find x = 5.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Which nutrient provides the most energy per gram?",
-      "answer": "Fat",
-      "why": "Fat provides about 9 calories per gram, more than double carbohydrate or protein, which each provide about 4.",
+      "prompt": "Which nutrient is mainly needed to build and repair muscle?",
+      "answer": "Protein",
+      "why": "Protein supplies the amino acids used to build and repair muscle tissue, unlike fats and carbs which mainly supply energy.",
       "options": [
+        "Protein",
         "Fat",
         "Carbohydrate",
-        "Protein",
-        "Water"
+        "Fibre"
       ],
       "fresh": false
     },
@@ -350,14 +350,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Freud's model, which part operates on the 'pleasure principle', seeking instant satisfaction?",
+      "prompt": "In Freud's model, which part operates on the pleasure principle?",
       "answer": "Id",
-      "why": "The id seeks pleasure without regard for consequences, unlike the reality-balancing ego or the moral superego.",
+      "why": "The id seeks instant pleasure with no regard for consequences, unlike the ego, which balances desires against reality.",
       "options": [
         "Id",
-        "Superego",
         "Ego",
-        "Conscience"
+        "Superego",
+        "Instinct"
       ],
       "fresh": false
     },
@@ -365,7 +365,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "A student writing a business plan lists 'our biggest strength is our unique flavours' and 'a threat is a new competitor opening nearby' under the market analysis section. Explain why this is actually misplaced, and where it truly belongs."
+      "prompt": "A student writing a business plan for a new snack stall notes: 'our biggest weakness is limited seating' and 'a big competitor sells similar snacks nearby' under the executive summary. Explain why this is misplaced and where it truly belongs."
     }
   ]
 }
