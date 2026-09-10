@@ -1,15 +1,34 @@
 {
   "student": "y8",
-  "date": "2026-09-09",
-  "day": "WED",
-  "tag": "H7.3",
-  "title": "DailyXP · WED 2026-09-09",
+  "date": "2026-09-10",
+  "day": "THU",
+  "tag": "H7.4",
+  "title": "DailyXP · THU 2026-09-10",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo and Juliet is set in Verona",
+      "subject": "Maths",
+      "prompt": "Rolling a die and getting a 7",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "Possible",
+      "right": "Impossible",
+      "answer": "Impossible",
+      "why": "A standard die only has faces 1–6, so rolling a 7 can never happen.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Japan's mountains made farmland scarce",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Shakespeare set Romeo and Juliet in the Italian city of Verona.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A trigger cause explains an entire event by itself",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "A trigger cause is the short-term spark, but long-term causes usually built up the conditions — no single cause explains everything alone.",
+      "why": "Japan's mountainous terrain left little flat land, so farmland was limited and valuable.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Am is the 'I' chord in C-Am-F-G",
+      "prompt": "In C–Am–F–G, Am is the 'vi' chord",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "C is the 'I' chord because the progression is built on the C major scale — Am is the 'vi' chord.",
+      "answer": "True",
+      "why": "Am is the sixth chord built on the scale, so it's labelled 'vi' in the I–vi–IV–V pattern.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Kudasai' means 'goodbye'",
+      "prompt": "'Itadakimasu' is said after finishing a meal",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'Kudasai' is used to politely ask for something, not to say goodbye.",
+      "why": "'Itadakimasu' is said before eating to show thanks; 'gochisousama' is said after.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Benvolio try to do when he arrives?",
+      "subject": "Maths",
+      "prompt": "P(win) = 0.4. What is P(not win)?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Stop the fighting",
-      "why": "Benvolio draws his sword to part the brawling servants, showing his peacemaking role, before Tybalt arrives and escalates things.",
+      "answer": "0.6",
+      "why": "Complementary events add to 1, so P(not win) = 1 − 0.4 = 0.6.",
       "options": [
-        "Stop the fighting",
-        "Join the Capulets",
-        "Fetch Prince Escalus",
-        "Insult Tybalt"
+        "0.4",
+        "0.6",
+        "1.4",
+        "0.04"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, who breaks up the servants' street fight?",
+      "subject": "History",
+      "prompt": "What's the difference between a cause and a consequence?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Prince Escalus",
-      "why": "Prince Escalus arrives and threatens death to anyone who disturbs the peace again.",
+      "answer": "Cause leads, consequence follows",
+      "why": "A cause is what makes an event happen; a consequence is what results from it afterward.",
       "options": [
-        "Prince Escalus",
-        "Friar Laurence",
-        "Lord Montague",
-        "Mercutio"
+        "Cause leads, consequence follows",
+        "Both mean the same event",
+        "Consequence always comes first",
+        "Cause is always long-term"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a common myth about people with mental illness?",
+      "prompt": "Is it true that people with mental illness can 'just snap out of it'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They can just snap out of it",
-      "why": "Believing someone can simply 'snap out of' a mental illness is a harmful myth — recovery usually needs time, support, and sometimes treatment, not willpower alone.",
+      "answer": "No, that's a myth",
+      "why": "Mental illness isn't solved by willpower alone; it often needs support, time, or treatment, like any health condition.",
       "options": [
-        "They can just snap out of it",
-        "They can still hold jobs",
-        "They can recover with treatment",
-        "They can have supportive friends"
+        "No, that's a myth",
+        "Yes, with willpower",
+        "Yes, if they try harder",
+        "Only mild cases can"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is a healthy way to deal with stress before a big test?",
+      "prompt": "What's a healthy first step when feeling overwhelmed by stress?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Break study into small chunks",
-      "why": "Breaking work into small, manageable chunks reduces stress, while cramming, losing sleep, or avoidance tends to make stress worse.",
+      "answer": "Pause and breathe slowly",
+      "why": "Pausing to breathe calms the body's stress response, making it easier to think clearly and cope.",
       "options": [
-        "Break study into small chunks",
-        "Cram everything the night before",
-        "Skip sleep to study more",
-        "Avoid thinking about it at all"
+        "Pause and breathe slowly",
+        "Ignore it completely",
+        "Bottle it up quietly",
+        "Avoid everyone all day"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "What term describes a trait helping an organism survive?",
+      "subject": "Music",
+      "prompt": "What is the main job of a song's 'hook'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Adaptation",
-      "why": "An adaptation is a trait that helps an organism survive and thrive in its particular habitat.",
+      "answer": "Make it memorable",
+      "why": "A hook is the catchy, memorable bit designed to stick in the listener's head, often repeated in the chorus.",
       "options": [
-        "Adaptation",
-        "Biomass",
-        "Population",
-        "Ecosystem"
+        "Make it memorable",
+        "Add extra layers",
+        "Slow the tempo",
+        "Introduce new lyrics"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "In the shogunate system, who did the shogun rule beneath, at least in name?",
+      "subject": "Maths",
+      "prompt": "A class of 30 students plays sport. 18 play rugby, 10 play both rugby and hockey. How many play only hockey if 15 play hockey in total?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "The emperor of Japan",
-      "why": "The shogun held real military and political power, but officially ruled in the name of the emperor, who remained a symbolic figurehead.",
+      "answer": "5",
+      "why": "Only-hockey = total hockey minus the overlap: 15 − 10 = 5. The overlap must be subtracted, not added again.",
       "options": [
-        "The emperor of Japan",
-        "A council of merchants",
-        "The daimyo lords",
-        "Regional farmers"
+        "5",
+        "10",
+        "15",
+        "18"
       ],
       "mode": "scrub",
       "fresh": false
@@ -217,8 +217,8 @@
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students look closely at before they start painting?",
+      "subject": "Science",
+      "prompt": "What name is given to the total mass of living material in an ecosystem?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Reference photos",
-      "why": "Students study reference photos of animals to notice real details like fur, markings, and form before painting them.",
+      "answer": "Biomass",
+      "why": "Biomass measures the total amount of living matter, often used to compare energy at different points in a food chain.",
       "options": [
-        "Reference photos",
-        "Old sketchbooks",
-        "Colour theory charts",
-        "Other students' work"
+        "Biomass",
+        "Adaptation",
+        "Population",
+        "Habitat"
       ],
       "mode": "scrub",
       "fresh": false
@@ -240,8 +240,8 @@
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What did daimyo give samurai in exchange for loyalty and service?",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what do students look closely at before painting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Land and income",
-      "why": "Daimyo rewarded loyal samurai with land and income, similar to how European lords granted land to knights.",
+      "answer": "Animal textures",
+      "why": "Students study animal textures like fur and skin closely so their brushwork reflects real surface details.",
       "options": [
-        "Land and income",
-        "A seat in government",
-        "Direct rule of villages",
-        "Freedom from all taxes"
+        "Animal textures",
+        "Colour wheels",
+        "Portrait photos",
+        "Landscape scenes"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if the amount of sunlight affects plant height, what is the independent variable?",
+      "prompt": "In an experiment testing if the amount of water affects seed growth, keeping pot size the same, what type of variable is 'pot size'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,104 +274,102 @@
       },
       "type": "text",
       "accept": [
-        "amount of sunlight",
-        "sunlight"
+        "controlled variable",
+        "controlled"
       ],
-      "why": "The independent variable is the thing the experimenter deliberately changes — here, the amount of sunlight given to each plant.",
+      "why": "Pot size is kept the same on purpose, so it's the controlled variable — it stops other factors from affecting the result.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A rectangle has length 8 cm and width 5 cm. What is its area?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 40,
-      "calc": false,
-      "pre": "",
-      "post": " cm²",
-      "why": "Area of a rectangle is length × width, so 8 × 5 = 40 cm².",
+      "subject": "English",
+      "prompt": "Pick a moment from Act 1 of Romeo and Juliet. What technique does Shakespeare use there, and what effect does it have?",
+      "answer": "Oxymoron shows conflicting emotion",
+      "why": "Shakespeare often uses oxymorons, like Romeo's 'loving hate', to show the mixed emotions and tension in the play.",
+      "options": [
+        "Oxymoron shows conflicting emotion",
+        "Simple rhyme shows simplicity",
+        "Long stage directions build setting",
+        "Footnotes explain the plot"
+      ],
       "fresh": false,
       "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 6 blue and 14 red balls. What is P(blue) as a decimal?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.3,
-      "calc": false,
-      "frac": "3/10",
-      "pre": "",
-      "post": "",
-      "why": "There are 20 balls total, so P(blue) = 6/20 = 0.3.",
+      "subject": "English",
+      "prompt": "In the Prologue, what does the Chorus call the setting of the play?",
+      "answer": "Fair Verona",
+      "why": "The Prologue opens 'In fair Verona, where we lay our scene', naming the Italian city where the play takes place.",
+      "options": [
+        "Fair Verona",
+        "Ancient Rome",
+        "Merry England",
+        "Sunny Florence"
+      ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, which chord comes last?",
-      "answer": "G",
-      "why": "The progression runs C, then Am, then F, then G — G is the final chord, acting as the 'V'.",
+      "prompt": "In the progression C–Am–F–G, which chord is the 'IV'?",
+      "answer": "F",
+      "why": "F is the fourth chord of the scale, giving it the Roman numeral 'IV' in this progression.",
       "options": [
-        "G",
+        "F",
         "C",
         "Am",
-        "F"
+        "G"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In song structure, what does the outro usually do?",
-      "answer": "Bring the song to a close",
-      "why": "The outro is the section that winds the song down and ends it, often by fading or simplifying the instrumentation.",
-      "options": [
-        "Bring the song to a close",
-        "Introduce the main theme",
-        "Add the fullest layering",
-        "Contrast the verse"
+      "subject": "History",
+      "prompt": "Order these stages in the rise of warrior rule in Japan",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Mountainous terrain limits farmland",
+        "Local lords compete for land",
+        "Warrior clans grow powerful",
+        "Shogun takes military control"
       ],
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "Japan's limited farmland led local lords to compete for resources, strengthening warrior clans until a shogun seized control.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What do you say before eating in a Japanese restaurant to show thanks?",
-      "answer": "Itadakimasu",
-      "why": "'Itadakimasu' is said before eating to show gratitude for the meal, while 'Gochisousama' is said afterwards.",
+      "prompt": "How do you say 'delicious' when eating in Japanese?",
+      "answer": "Oishii",
+      "why": "'Oishii' means delicious and is often said while enjoying a meal.",
       "options": [
+        "Oishii",
         "Itadakimasu",
-        "Gochisousama",
         "Kudasai",
-        "Sayonara"
+        "Gochisousama"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Maths",
-      "prompt": "Explain how a Venn diagram helps you work out the probability of an event belonging to two overlapping groups, using an example of your own."
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, why does Shakespeare open the play with a fight between servants rather than the main characters?"
     }
   ]
 }
