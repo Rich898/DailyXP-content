@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-09",
-  "day": "WED",
-  "tag": "R7.3",
-  "title": "DailyXP · WED 2026-09-09",
+  "date": "2026-09-10",
+  "day": "THU",
+  "tag": "R7.4",
+  "title": "DailyXP · THU 2026-09-10",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Burning wood in an open dish loses mass overall",
+      "prompt": "Burning magnesium in an open dish (mass measured after)",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In an open system, gases like carbon dioxide escape into the air, so the measured mass drops even though total mass is conserved overall.",
+      "left": "Mass Same",
+      "right": "Mass Changes",
+      "answer": "Mass Changes",
+      "why": "In an open system gas can escape or oxygen can be added, so measured mass can change even though mass is conserved overall — conservation only holds cleanly in a closed system.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's invasion of China began in 1937",
+      "prompt": "Japan's invasion of China began with the Marco Polo Bridge Incident",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Full-scale war between Japan and China started in 1937, though Japan had already seized Manchuria earlier.",
+      "why": "The Marco Polo Bridge Incident in July 1937 sparked the full-scale Japanese invasion of China.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "x = 3 solves 2x + 4 = 10",
+      "prompt": "x = 5 solves 2x + 3 = 13",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Substituting x = 3 gives 2(3) + 4 = 10, so the equation balances correctly.",
+      "why": "2(5) + 3 = 13, so x = 5 is correct.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Fibre is mainly needed for quick energy",
+      "prompt": "Sugar is listed under carbohydrates on a nutrition label",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Fibre aids digestion and gut health; carbohydrates are the body's main quick-energy nutrient.",
+      "answer": "True",
+      "why": "Sugars are a type of carbohydrate, so they appear as a sub-line under the carbohydrate total on nutrition labels.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Freud's model, which part is mostly unconscious and instinctive?",
+      "prompt": "In Freud's model, which part is entirely unconscious?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -94,12 +94,12 @@
         "cta": "Keep going →"
       },
       "answer": "Id",
-      "why": "The id is the primitive, unconscious part driven by instinct, seeking pleasure without thinking of consequences.",
+      "why": "The id is entirely unconscious and driven by instinct, unlike the ego and superego which have conscious elements.",
       "options": [
         "Id",
         "Ego",
         "Superego",
-        "Conscience"
+        "Conscious mind"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "D&T",
-      "prompt": "Which business plan section lists expected startup costs and cash flow?",
+      "prompt": "Why do designers write action plans for clients?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Financial plan",
-      "why": "The financial plan section covers startup costs, cash flow, and funding needs — the market analysis looks at competitors and customers, not money details.",
+      "answer": "To track project steps",
+      "why": "An action plan lays out tasks and timing so both designer and client can track progress toward the finished product.",
       "options": [
-        "Financial plan",
-        "Market analysis",
-        "Executive summary",
-        "Company overview"
+        "To track project steps",
+        "To replace all sketches",
+        "To set the final price",
+        "To avoid client meetings"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Which sign of a chemical reaction means a new gas has formed?",
+      "prompt": "Which of these signals a chemical reaction happened?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Bubbles forming",
-      "why": "Bubbling shows a gas is being produced, which means a new substance has formed — shape, size, and position are just physical changes.",
+      "answer": "Colour change",
+      "why": "A colour change indicates new substances have formed, which is a genuine sign of chemical change, unlike shape or state changes alone.",
       "options": [
-        "Bubbles forming",
-        "Change in shape",
-        "Change in size",
-        "Change in position"
+        "Colour change",
+        "Change of shape",
+        "Change of state only",
+        "Object gets heavier"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A car dealership offering free servicing for a year is selling a…",
+      "prompt": "A car wash offering vacuuming for extra pay is selling a…",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -160,7 +160,7 @@
         "cta": "Keep going →"
       },
       "answer": "Service",
-      "why": "Servicing is work done for the customer, not a physical item, so it counts as a service.",
+      "why": "Vacuuming is an action performed for the customer, not a physical item, so it counts as a service.",
       "options": [
         "Service",
         "Product",
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "A fast food ad shows a meal with a free toy to attract kids. What technique is this?",
+      "prompt": "Placing sweets near supermarket checkouts is an example of what?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Targeting children",
-      "why": "Free toys and fun packaging are used to appeal directly to children, encouraging pester power on parents.",
+      "answer": "Marketing placement",
+      "why": "Positioning tempting items at checkouts is a deliberate marketing technique to boost impulse buys, not a nutrition or safety measure.",
       "options": [
-        "Targeting children",
-        "Price discounting",
-        "Health labelling",
-        "Portion control"
+        "Marketing placement",
+        "Nutrition labelling",
+        "Portion control",
+        "Food safety rule"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "D&T",
-      "prompt": "A market stall keeps the same logo and colours on everything it sells. What is this mainly building?",
+      "prompt": "A market stall keeps the same logo and colours on every product for a year. What is this building?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,12 +204,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Brand recognition",
-      "why": "Consistent logo and colours help customers recognise the stall instantly, building brand recognition over time.",
+      "why": "Consistent logo and colours over time build brand recognition, helping customers instantly identify the stall's products.",
       "options": [
         "Brand recognition",
         "Product quality",
-        "Market research",
-        "Startup funding"
+        "Cheaper packaging",
+        "Faster sales only"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "D&T",
-      "prompt": "In Adobe Illustrator, what happens when you resize a logo much larger?",
+      "prompt": "In Adobe Illustrator, what happens to a logo when resized much larger?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "It stays sharp",
-      "why": "Illustrator uses vector graphics, so shapes scale up cleanly without losing sharpness, unlike pixel-based images.",
+      "answer": "Stays sharp",
+      "why": "Illustrator creates vector graphics, which scale to any size without losing quality, unlike pixel-based images.",
       "options": [
-        "It stays sharp",
-        "It turns blurry",
-        "It changes colour",
-        "It loses its shape"
+        "Stays sharp",
+        "Becomes blurry",
+        "Loses colour",
+        "Changes shape"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "When two substances react and form a new substance, what has happened?",
+      "prompt": "Which is a sign that a chemical reaction has taken place?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "A chemical change",
-      "why": "Forming a new substance with different properties is the key sign of a chemical change, not just a physical one.",
+      "answer": "A gas bubbles off",
+      "why": "Bubbling shows a new gas has formed, which is a sign of a chemical reaction; melting, dissolving and shape changes are physical changes with no new substance.",
       "options": [
-        "A chemical change",
-        "A physical change",
-        "A state change",
-        "A size change"
+        "A gas bubbles off",
+        "The substance melts",
+        "The substance dissolves",
+        "The shape changes"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -273,25 +273,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 54,
-      "calc": true,
+      "answer": 70,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 9 = 54 cm² — always halve after multiplying.",
+      "why": "Area = ½ × base × height = ½ × 14 × 10 = 70 cm² — halving is the step that gets skipped when rushing.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does the signal fire mainly represent?",
-      "answer": "Hope of rescue",
-      "why": "The fire symbolises the boys' connection to civilisation and their hope of being rescued; letting it die shows that hope fading.",
+      "prompt": "From a while back — what does Jack's face-paint mainly let him do?",
+      "answer": "Shed shame and act savagely",
+      "why": "The mask of paint frees Jack from self-consciousness, letting him abandon civilised restraint and act on impulse.",
       "options": [
-        "Hope of rescue",
-        "The boys' fear",
-        "Piggy's intelligence",
-        "Jack's leadership"
+        "Shed shame and act savagely",
+        "Hide from real predators",
+        "Signal he is chief",
+        "Copy Ralph's leadership"
       ],
       "fresh": false,
       "throwback": true
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "Which section of a business plan lists the founder's skills and experience?",
-      "answer": "Management summary",
-      "why": "The management summary outlines who runs the business and their relevant skills and experience.",
+      "prompt": "Which business plan section explains how the business will actually earn its profit?",
+      "answer": "Financial plan",
+      "why": "The financial plan covers costs, pricing, and how the business expects to make money, unlike the executive summary which just overviews the whole plan.",
       "options": [
-        "Management summary",
-        "Market analysis",
+        "Financial plan",
         "Executive summary",
-        "Financial plan"
+        "Market analysis",
+        "Mission statement"
       ],
       "fresh": false
     },
@@ -315,7 +315,7 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 4x + 6 = 26",
+      "prompt": "Solve for x: 3x + 6 = 21",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -325,24 +325,24 @@
       },
       "type": "numeric",
       "answer": 5,
-      "calc": true,
+      "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 6 from both sides to get 4x = 20, then divide by 4 to find x = 5.",
+      "why": "Subtract 6 from both sides to get 3x = 15, then divide by 3 to get x = 5.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Which nutrient is mainly needed to build and repair muscle?",
-      "answer": "Protein",
-      "why": "Protein supplies the amino acids used to build and repair muscle tissue, unlike fats and carbs which mainly supply energy.",
+      "prompt": "On a nutrition label, which group does sugar fall under?",
+      "answer": "Carbohydrates",
+      "why": "Sugar is a simple carbohydrate, so it's counted within the carbohydrate figure on food labels, not listed as its own separate nutrient group.",
       "options": [
-        "Protein",
-        "Fat",
-        "Carbohydrate",
-        "Fibre"
+        "Carbohydrates",
+        "Proteins",
+        "Fats",
+        "Dietary fibre"
       ],
       "fresh": false
     },
@@ -350,14 +350,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Freud's model, which part operates on the pleasure principle?",
+      "prompt": "Which part of the mind, in Freud's model, exists mostly in the unconscious?",
       "answer": "Id",
-      "why": "The id seeks instant pleasure with no regard for consequences, unlike the ego, which balances desires against reality.",
+      "why": "The id is almost entirely unconscious, holding raw instincts and desires, while the ego works mostly at a conscious level to manage them.",
       "options": [
         "Id",
         "Ego",
         "Superego",
-        "Instinct"
+        "Conscious mind"
       ],
       "fresh": false
     },
@@ -365,7 +365,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "A student writing a business plan for a new snack stall notes: 'our biggest weakness is limited seating' and 'a big competitor sells similar snacks nearby' under the executive summary. Explain why this is misplaced and where it truly belongs."
+      "prompt": "Explain why a market analysis and a SWOT analysis in a business plan cover different things, even though both can mention competitors."
     }
   ]
 }
