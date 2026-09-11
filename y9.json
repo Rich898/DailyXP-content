@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-10",
-  "day": "THU",
-  "tag": "R7.4",
-  "title": "DailyXP · THU 2026-09-10",
+  "date": "2026-09-11",
+  "day": "FRI",
+  "tag": "R7.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-11",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Burning magnesium in an open dish (mass measured after)",
+      "subject": "English",
+      "prompt": "The ego works purely on instinct with no regard for reality",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Mass Same",
-      "right": "Mass Changes",
-      "answer": "Mass Changes",
-      "why": "In an open system gas can escape or oxygen can be added, so measured mass can change even though mass is conserved overall — conservation only holds cleanly in a closed system.",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "False — that describes the id. The ego operates on the reality principle, balancing desires against consequences.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Japan's invasion of China began with the Marco Polo Bridge Incident",
+      "subject": "D&T",
+      "prompt": "A designer writes an action plan mainly to keep the client informed of progress",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,231 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The Marco Polo Bridge Incident in July 1937 sparked the full-scale Japanese invasion of China.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "x = 5 solves 2x + 3 = 13",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "2(5) + 3 = 13, so x = 5 is correct.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Sugar is listed under carbohydrates on a nutrition label",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Sugars are a type of carbohydrate, so they appear as a sub-line under the carbohydrate total on nutrition labels.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Freud's model, which part is entirely unconscious?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Id",
-      "why": "The id is entirely unconscious and driven by instinct, unlike the ego and superego which have conscious elements.",
-      "options": [
-        "Id",
-        "Ego",
-        "Superego",
-        "Conscious mind"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "D&T",
-      "prompt": "Why do designers write action plans for clients?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "To track project steps",
-      "why": "An action plan lays out tasks and timing so both designer and client can track progress toward the finished product.",
-      "options": [
-        "To track project steps",
-        "To replace all sketches",
-        "To set the final price",
-        "To avoid client meetings"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Which of these signals a chemical reaction happened?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Colour change",
-      "why": "A colour change indicates new substances have formed, which is a genuine sign of chemical change, unlike shape or state changes alone.",
-      "options": [
-        "Colour change",
-        "Change of shape",
-        "Change of state only",
-        "Object gets heavier"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "A car wash offering vacuuming for extra pay is selling a…",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Service",
-      "why": "Vacuuming is an action performed for the customer, not a physical item, so it counts as a service.",
-      "options": [
-        "Service",
-        "Product",
-        "Logo",
-        "Brand"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Placing sweets near supermarket checkouts is an example of what?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Marketing placement",
-      "why": "Positioning tempting items at checkouts is a deliberate marketing technique to boost impulse buys, not a nutrition or safety measure.",
-      "options": [
-        "Marketing placement",
-        "Nutrition labelling",
-        "Portion control",
-        "Food safety rule"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "D&T",
-      "prompt": "A market stall keeps the same logo and colours on every product for a year. What is this building?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Brand recognition",
-      "why": "Consistent logo and colours over time build brand recognition, helping customers instantly identify the stall's products.",
-      "options": [
-        "Brand recognition",
-        "Product quality",
-        "Cheaper packaging",
-        "Faster sales only"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "D&T",
-      "prompt": "In Adobe Illustrator, what happens to a logo when resized much larger?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Stays sharp",
-      "why": "Illustrator creates vector graphics, which scale to any size without losing quality, unlike pixel-based images.",
-      "options": [
-        "Stays sharp",
-        "Becomes blurry",
-        "Loses colour",
-        "Changes shape"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Which is a sign that a chemical reaction has taken place?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "A gas bubbles off",
-      "why": "Bubbling shows a new gas has formed, which is a sign of a chemical reaction; melting, dissolving and shape changes are physical changes with no new substance.",
-      "options": [
-        "A gas bubbles off",
-        "The substance melts",
-        "The substance dissolves",
-        "The shape changes"
-      ],
-      "mode": "scrub",
+      "why": "True — action plans set out steps and timings so the client can see how the project will unfold and stay in the loop.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 17 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -273,49 +56,107 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 70,
+      "answer": 68,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 14 × 10 = 70 cm² — halving is the step that gets skipped when rushing.",
+      "why": "Area of a triangle is ½ × base × height: ½ × 17 × 8 = 68 cm². Halving is the step rushing skips.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — what does Jack's face-paint mainly let him do?",
-      "answer": "Shed shame and act savagely",
-      "why": "The mask of paint frees Jack from self-consciousness, letting him abandon civilised restraint and act on impulse.",
+      "subject": "Commerce",
+      "prompt": "Which business plan section lists the founder's skills and past work experience?",
+      "answer": "Management team",
+      "why": "The management team section covers the founder's skills and experience. The executive summary just overviews the plan, market analysis covers customers and competitors, and the financial plan covers costs and revenue.",
       "options": [
-        "Shed shame and act savagely",
-        "Hide from real predators",
-        "Signal he is chief",
-        "Copy Ralph's leadership"
+        "Management team",
+        "Executive summary",
+        "Market analysis",
+        "Financial plan"
       ],
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "Which business plan section explains how the business will actually earn its profit?",
-      "answer": "Financial plan",
-      "why": "The financial plan covers costs, pricing, and how the business expects to make money, unlike the executive summary which just overviews the whole plan.",
+      "subject": "English",
+      "prompt": "In Freud's model, which part is guided by moral rules learned from parents?",
+      "answer": "Superego",
+      "why": "The superego holds the moral rules and conscience taught by parents and society. The id is instinctive desire, and the ego balances that desire against reality.",
       "options": [
-        "Financial plan",
-        "Executive summary",
-        "Market analysis",
-        "Mission statement"
+        "Superego",
+        "Id",
+        "Ego",
+        "Conscious mind"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
+      "subject": "D&T",
+      "prompt": "A market stall keeps the same logo and colours on every product for a year. What is this mainly building?",
+      "answer": "Brand identity",
+      "why": "Consistent logo and colours build brand identity, making the stall recognisable. This isn't a financial plan, market analysis, or SWOT, which cover different parts of a business plan.",
+      "options": [
+        "Brand identity",
+        "A financial plan",
+        "A market analysis",
+        "A SWOT analysis"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "In a sealed, closed container, what happens to total mass after a chemical reaction?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "stays the same",
+        "unchanged",
+        "conserved"
+      ],
+      "why": "Mass is conserved in a closed system — atoms are rearranged into new products but none are lost or gained.",
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "Name one sign that shows a chemical reaction has taken place.",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "gas produced",
+        "colour change",
+        "temperature change",
+        "new substance formed",
+        "precipitate formed"
+      ],
+      "why": "Signs like gas bubbles, a colour change, a temperature change, or a precipitate show a new substance has formed, meaning a chemical reaction occurred.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 3x + 6 = 21",
+      "prompt": "Solve for x: 5x + 3 = 28",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -328,44 +169,14 @@
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 6 from both sides to get 3x = 15, then divide by 3 to get x = 5.",
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "On a nutrition label, which group does sugar fall under?",
-      "answer": "Carbohydrates",
-      "why": "Sugar is a simple carbohydrate, so it's counted within the carbohydrate figure on food labels, not listed as its own separate nutrient group.",
-      "options": [
-        "Carbohydrates",
-        "Proteins",
-        "Fats",
-        "Dietary fibre"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "Which part of the mind, in Freud's model, exists mostly in the unconscious?",
-      "answer": "Id",
-      "why": "The id is almost entirely unconscious, holding raw instincts and desires, while the ego works mostly at a conscious level to manage them.",
-      "options": [
-        "Id",
-        "Ego",
-        "Superego",
-        "Conscious mind"
-      ],
+      "why": "Subtract 3 from both sides to get 5x = 25, then divide by 5: x = 5. Always do the same operation to both sides.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "Explain why a market analysis and a SWOT analysis in a business plan cover different things, even though both can mention competitors."
+      "prompt": "A student writing a business plan for a new bakery lists 'we plan to hire two staff by month three' under the market analysis section. Explain why this is misplaced and where it truly belongs."
     }
   ]
 }
