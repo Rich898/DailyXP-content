@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-10",
-  "day": "THU",
-  "tag": "H7.4",
-  "title": "DailyXP · THU 2026-09-10",
+  "date": "2026-09-11",
+  "day": "FRI",
+  "tag": "H7.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-11",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Rolling a die and getting a 7",
+      "subject": "Music",
+      "prompt": "F is the 'IV' chord in C–Am–F–G",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,55 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Possible",
-      "right": "Impossible",
-      "answer": "Impossible",
-      "why": "A standard die only has faces 1–6, so rolling a 7 can never happen.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "F is the fourth chord of the C major scale, so in C–Am–F–G it functions as the IV chord.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountains made farmland scarce",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Japan's mountainous terrain left little flat land, so farmland was limited and valuable.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, Am is the 'vi' chord",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Am is the sixth chord built on the scale, so it's labelled 'vi' in the I–vi–IV–V pattern.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'Itadakimasu' is said after finishing a meal",
+      "prompt": "Japan's mountains gave it huge open plains for farming",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,193 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'Itadakimasu' is said before eating to show thanks; 'gochisousama' is said after.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "P(win) = 0.4. What is P(not win)?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "0.6",
-      "why": "Complementary events add to 1, so P(not win) = 1 − 0.4 = 0.6.",
-      "options": [
-        "0.4",
-        "0.6",
-        "1.4",
-        "0.04"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What's the difference between a cause and a consequence?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Cause leads, consequence follows",
-      "why": "A cause is what makes an event happen; a consequence is what results from it afterward.",
-      "options": [
-        "Cause leads, consequence follows",
-        "Both mean the same event",
-        "Consequence always comes first",
-        "Cause is always long-term"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Is it true that people with mental illness can 'just snap out of it'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "No, that's a myth",
-      "why": "Mental illness isn't solved by willpower alone; it often needs support, time, or treatment, like any health condition.",
-      "options": [
-        "No, that's a myth",
-        "Yes, with willpower",
-        "Yes, if they try harder",
-        "Only mild cases can"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a healthy first step when feeling overwhelmed by stress?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Pause and breathe slowly",
-      "why": "Pausing to breathe calms the body's stress response, making it easier to think clearly and cope.",
-      "options": [
-        "Pause and breathe slowly",
-        "Ignore it completely",
-        "Bottle it up quietly",
-        "Avoid everyone all day"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "What is the main job of a song's 'hook'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Make it memorable",
-      "why": "A hook is the catchy, memorable bit designed to stick in the listener's head, often repeated in the chorus.",
-      "options": [
-        "Make it memorable",
-        "Add extra layers",
-        "Slow the tempo",
-        "Introduce new lyrics"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A class of 30 students plays sport. 18 play rugby, 10 play both rugby and hockey. How many play only hockey if 15 play hockey in total?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "5",
-      "why": "Only-hockey = total hockey minus the overlap: 15 − 10 = 5. The overlap must be subtracted, not added again.",
-      "options": [
-        "5",
-        "10",
-        "15",
-        "18"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What name is given to the total mass of living material in an ecosystem?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Biomass",
-      "why": "Biomass measures the total amount of living matter, often used to compare energy at different points in a food chain.",
-      "options": [
-        "Biomass",
-        "Adaptation",
-        "Population",
-        "Habitat"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students look closely at before painting?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Animal textures",
-      "why": "Students study animal textures like fur and skin closely so their brushwork reflects real surface details.",
-      "options": [
-        "Animal textures",
-        "Colour wheels",
-        "Portrait photos",
-        "Landscape scenes"
-      ],
-      "mode": "scrub",
+      "why": "Japan's mountains left very little flat land, making farmland scarce, not abundant.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if the amount of water affects seed growth, keeping pot size the same, what type of variable is 'pot size'?",
+      "prompt": "In an experiment testing if screen time affects sleep hours, keeping bedtime routine the same, what is the independent variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,63 +57,47 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "controlled"
+        "screen time",
+        "amount of screen time"
       ],
-      "why": "Pot size is kept the same on purpose, so it's the controlled variable — it stops other factors from affecting the result.",
+      "why": "The independent variable is the one the experimenter deliberately changes — here, screen time. Sleep hours is what's measured (dependent), and bedtime routine is kept the same (controlled).",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Pick a moment from Act 1 of Romeo and Juliet. What technique does Shakespeare use there, and what effect does it have?",
-      "answer": "Oxymoron shows conflicting emotion",
-      "why": "Shakespeare often uses oxymorons, like Romeo's 'loving hate', to show the mixed emotions and tension in the play.",
+      "prompt": "In Act 1 Scene 1, who tries to stop the servants' street fight?",
+      "answer": "Benvolio steps in",
+      "why": "Benvolio, Romeo's peace-loving cousin, tries to break up the servants' brawl by drawing his sword only to part them. Tybalt instead arrives to fuel the fight, showing the contrast between the two characters.",
       "options": [
-        "Oxymoron shows conflicting emotion",
-        "Simple rhyme shows simplicity",
-        "Long stage directions build setting",
-        "Footnotes explain the plot"
+        "Benvolio steps in",
+        "Tybalt draws his sword",
+        "Prince Escalus arrives late",
+        "Lord Capulet joins in"
       ],
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In the Prologue, what does the Chorus call the setting of the play?",
-      "answer": "Fair Verona",
-      "why": "The Prologue opens 'In fair Verona, where we lay our scene', naming the Italian city where the play takes place.",
+      "subject": "Music",
+      "prompt": "In the four-chord song C–Am–F–G, which chord is played last?",
+      "answer": "G chord plays last",
+      "why": "The order C, Am, F, G puts G in the final spot, matching the 'V' position in I–vi–IV–V. Students often assume the progression ends back on the home chord (C), but it actually ends on G before looping round.",
       "options": [
-        "Fair Verona",
-        "Ancient Rome",
-        "Merry England",
-        "Sunny Florence"
+        "G chord plays last",
+        "C chord plays last",
+        "Am chord plays last",
+        "F chord plays last"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the 'IV'?",
-      "answer": "F",
-      "why": "F is the fourth chord of the scale, giving it the Roman numeral 'IV' in this progression.",
-      "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages in the rise of warrior rule in Japan",
+      "prompt": "Order these ranks in Japan's feudal hierarchy",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,36 +107,76 @@
       },
       "type": "order",
       "sequence": [
-        "Mountainous terrain limits farmland",
-        "Local lords compete for land",
-        "Warrior clans grow powerful",
-        "Shogun takes military control"
+        "Emperor",
+        "Shogun",
+        "Daimyo",
+        "Samurai"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "Japan's limited farmland led local lords to compete for resources, strengthening warrior clans until a shogun seized control.",
+      "top": "Highest",
+      "bot": "Lowest",
+      "why": "The emperor stayed at the top in name, but the shogun held real power, ruling over daimyo (regional lords), who in turn commanded samurai warriors.",
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "How do you say 'please give me this' when ordering food in Japanese?",
+      "answer": "Kudasai",
+      "why": "'Kudasai' means 'please give me' and is used when ordering. 'Oishii' means delicious, 'itadakimasu' is said before eating, and 'gochisousama' is said after.",
+      "options": [
+        "Kudasai",
+        "Oishii",
+        "Itadakimasu",
+        "Gochisousama"
+      ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'delicious' when eating in Japanese?",
-      "answer": "Oishii",
-      "why": "'Oishii' means delicious and is often said while enjoying a meal.",
-      "options": [
-        "Oishii",
-        "Itadakimasu",
-        "Kudasai",
-        "Gochisousama"
-      ],
+      "subject": "Maths",
+      "prompt": "A bag has 5 green and 15 yellow balls. What is P(green) as a decimal?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.25,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "P(green) = 5 out of 20 total balls = 5/20 = 0.25.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "Maths",
+      "prompt": "The chance of a spinner landing on purple is 0.45. What is the chance it does not land on purple?",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 0.55,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Complementary events add to 1, so the chance of not landing on purple is 1 − 0.45 = 0.55.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, why does Shakespeare open the play with a fight between servants rather than the main characters?"
+      "prompt": "Explain why Shakespeare opens Romeo and Juliet with a street fight between servants rather than the main characters, and what this sets up for the rest of the play."
     }
   ]
 }
