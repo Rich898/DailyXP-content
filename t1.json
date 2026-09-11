@@ -1,72 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-09",
-  "day": "WED",
-  "tag": "T7.3",
-  "title": "DailyXP · WED 2026-09-09",
+  "date": "2026-09-11",
+  "day": "FRI",
+  "tag": "T7.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-11",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A coin lands on heads or tails, never both",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "A coin toss has only two mutually exclusive outcomes, so it must land on exactly one of them.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo and Juliet meet at the Capulet party in Act 1",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In Act 1 Scene 5, Romeo sneaks into the Capulet party and first sees and speaks with Juliet there.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A shogun ruled Japan in the emperor's name only",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "The shogun held the real military and political power while the emperor remained a figurehead ruler in name.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', students painted realistic photo-like animals",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, the G chord is the 'iii'",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,300 +21,156 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The activities focused on expressive, textured brush marks capturing an animal's feel, not photographic realism.",
+      "why": "False — G is the 'V' chord, built on the fifth scale degree. It creates tension that pulls back to C.",
       "fresh": false
     },
     {
-      "id": "S5",
+      "id": "S2",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "How do you say 'let's eat' before a meal in Japanese?",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', students used only fine detail brushes",
       "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
       },
-      "answer": "Itadakimasu",
-      "why": "'Itadakimasu' is said before eating to show thanks for the meal; 'gochisousama' is said after finishing.",
-      "options": [
-        "Itadakimasu",
-        "Gochisousama",
-        "Oishii desu",
-        "Sumimasen"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "In history, what is a 'cause'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Something that leads to an event",
-      "why": "A cause is a factor or condition that leads to an event happening — it comes before the event, not after it.",
-      "options": [
-        "Something that leads to an event",
-        "Something that happens after",
-        "A modern opinion about the past",
-        "A description of a location"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Who does Romeo love before he meets Juliet?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Rosaline",
-      "why": "Romeo begins the play infatuated with Rosaline, who never appears on stage, before falling for Juliet.",
-      "options": [
-        "Rosaline",
-        "Lady Capulet",
-        "The Nurse",
-        "Juliet's cousin"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What is a common myth about people with anxiety?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "They can just relax easily",
-      "why": "A common myth is that anxious people can simply 'snap out of it,' but anxiety is a real condition, not a choice.",
-      "options": [
-        "They can just relax easily",
-        "They avoid all challenges",
-        "They never feel calm",
-        "They enjoy feeling worried"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "What's a healthy way to deal with sadness?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Talk to someone you trust",
-      "why": "Sharing sad feelings with someone you trust helps process them, while avoiding or hiding feelings can make things harder.",
-      "options": [
-        "Talk to someone you trust",
-        "Avoid everyone for weeks",
-        "Pretend you feel fine",
-        "Snap at your friends"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In a song, what usually happens to instrument layers in the chorus?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "More layers are added",
-      "why": "Choruses often add fuller instrumentation to create a bigger, more energetic sound than the verse.",
-      "options": [
-        "More layers are added",
-        "All instruments stop",
-        "Only drums remain",
-        "Tempo slows right down"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "A camel storing fat in its hump is what type of adaptation?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Structural adaptation",
-      "why": "A structural adaptation is a physical body feature, like a fat-storing hump, not a behaviour an animal chooses.",
-      "options": [
-        "Structural adaptation",
-        "Behavioural adaptation",
-        "Learned adaptation",
-        "Seasonal migration"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What did Japan's regional warlords, the daimyo, control?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Local domains",
-      "why": "Daimyo were powerful lords who controlled their own local domains, ruling their regions while pledging loyalty to the shogun.",
-      "options": [
-        "Local domains",
-        "The whole nation",
-        "The imperial court",
-        "Foreign trade only"
-      ],
-      "mode": "scrub",
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "False — students used bold, loose marks and varied tools to capture energy and texture, not fine detail.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What natural hazard is most often triggered by movement of tectonic plates underwater, causing giant sea waves?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "tsunami",
-        "tsunamis"
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, what does Benvolio try to do?",
+      "answer": "Stop the servants fighting",
+      "why": "Benvolio draws his sword to part the brawling servants, showing his peacemaking role, before Tybalt escalates the fight.",
+      "options": [
+        "Stop the servants fighting",
+        "Challenge Tybalt to a duel",
+        "Introduce Romeo to Juliet",
+        "Report Romeo to the Prince"
       ],
-      "why": "Tsunamis are giant waves usually caused by underwater earthquakes shifting huge volumes of water.",
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 5 red and 15 blue counters. What is the probability of drawing red, as a fraction out of 20?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.25,
-      "calc": false,
-      "frac": "5/20",
-      "pre": "",
-      "post": "",
-      "why": "5 out of 20 counters are red, so the probability is 5/20, which simplifies to 1/4 or 0.25.",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord is built on the fourth scale degree?",
+      "answer": "The F chord",
+      "why": "F is the 'IV' chord, built on the fourth note of the C major scale. A common mix-up is thinking Am (the 'vi') or G (the 'V') hold that role instead.",
+      "options": [
+        "The C chord",
+        "The Am chord",
+        "The F chord",
+        "The G chord"
+      ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "The probability of picking a striped shirt is 0.55. What is the probability of not picking striped?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.45,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Complementary probabilities add to 1, so the chance of not picking striped is 1 minus 0.55, which is 0.45.",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what did students mainly use besides brushes to apply paint?",
+      "answer": "Fingers and sponges",
+      "why": "Students experimented with fingers and sponges to create loose, expressive animal textures, rather than relying only on brushes.",
+      "options": [
+        "Fingers and sponges",
+        "Rulers and stencils",
+        "Pencils and erasers",
+        "Scissors and glue"
+      ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 5, what does Tybalt want to do to Romeo?",
-      "answer": "Fight him at once",
-      "why": "Tybalt recognises Romeo's voice and wants to fight him immediately, but Capulet stops him to avoid ruining the party.",
+      "subject": "Japanese",
+      "prompt": "Which Japanese word means 'delicious'?",
+      "answer": "Oishii",
+      "why": "'Oishii' means delicious, used while eating. 'Itadakimasu' is said before eating, 'gochisousama' after, and 'mizu' means water.",
       "options": [
-        "Fight him at once",
-        "Invite him to dance",
-        "Report him to the Prince",
-        "Ignore him completely"
+        "Oishii",
+        "Itadakimasu",
+        "Gochisousama",
+        "Mizu"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord provides the most tension, wanting to resolve back to C?",
-      "answer": "G chord",
-      "why": "G is the V (dominant) chord, which creates tension that pulls strongly back to the I (C) chord.",
-      "options": [
-        "G chord",
-        "Am chord",
-        "F chord",
-        "C chord"
+      "subject": "History",
+      "prompt": "Order these ranks in the feudal pyramid from highest to lowest power",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasants"
       ],
+      "top": "Highest",
+      "bot": "Lowest",
+      "why": "The Shogun held supreme military power, below him daimyo ruled domains, samurai served them, and peasants sat at the base.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did students use to apply paint besides brushes?",
-      "answer": "Their fingers",
-      "why": "Students experimented with applying paint using their fingers, not just brushes, to create loose, expressive marks.",
+      "subject": "History",
+      "prompt": "Order these steps of cause-and-consequence analysis from first to last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Identify the event",
+        "Find multiple causes",
+        "Examine short-term effects",
+        "Examine long-term consequences"
+      ],
+      "top": "First",
+      "bot": "Last",
+      "why": "Historians first identify the event, then find its multiple causes, before tracing its short-term and long-term consequences.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "Which character does Romeo love before he meets Juliet?",
+      "answer": "Rosaline",
+      "why": "Romeo is infatuated with Rosaline at the start of the play, before he even meets Juliet at the party. Students often forget this earlier crush existed and think Juliet was his first love.",
       "options": [
-        "Their fingers",
-        "Only pencils",
-        "Only rulers",
-        "Printed stamps"
+        "Rosaline",
+        "Juliet's cousin",
+        "Lady Capulet",
+        "Paris's sister"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on a different chord can change how a song feels, even though the notes used are identical."
+      "subject": "English",
+      "prompt": "A classmate says Act 1 Scene 1 is 'just a fight scene' with no real purpose in the play. Explain what this misses about how the scene sets up the rest of Romeo and Juliet."
     }
   ]
 }
