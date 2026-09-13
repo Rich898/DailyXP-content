@@ -6,8 +6,14 @@ CARRY-FORWARD LAW (ratified 25 Aug 2026): the first sweep creates a seat's
 outline; every sweep after is an UPDATE applied to the previous file. Topics
 transition (upcoming->live->prior_term), gain corrected dates, and new ones
 join — but a topic NEVER leaves by omission. Absence from a pull is not
-evidence of removal. Removal is only ever explicit (flagged, human-decided)
-or the end-of-year rollover. The merge is enforced in CODE: any base topic
+evidence of removal. Removal is only ever explicit (flagged, human-decided),
+the end-of-year rollover, or the ROTATION-CHANGEOVER clause (14 Sep 2026):
+a base subject whose course is gone from a CLEAN pull that also gained a
+brand-new academic course is a rotation swap — course-level enrolment is
+machine-visible evidence, unlike strand membership — and its topics retire
+via explicit removal records, loudly flagged in the changelog. Any other
+absence (fetch errors, or nothing new appeared) carries the base verbatim.
+The merge is enforced in CODE: any base topic
 the LLM fails to echo is reinserted by the guard, and sweep_validate.py
 hard-fails any output where a base topic is missing. Blank-slating is not a
 mistake we avoid; it is a thing the gate refuses to ship.
@@ -296,6 +302,42 @@ def merge_subject(base_topics, llm_topics):
     return out, chg
 
 
+def resolve_absent_subjects(bsubs, subjects, fetch_errors):
+    """THE ROTATION-CHANGEOVER CLAUSE. A base subject with no course in this
+    pull never leaves by omission. Clean fetch AND a brand-new academic
+    course in the same pull (the changeover signature) -> every base topic
+    becomes an explicit removal record — the proof sweep_validate.py demands.
+    Any other absence -> the base entry carries verbatim into `subjects`.
+    Mutates `subjects` on the carry path; returns (changelog dict to merge
+    into the seat's sweep_update, human-readable log lines)."""
+    changes, lines = {}, []
+    new_subjects = sorted(s for s in subjects if s not in (bsubs or {}))
+    for bsubj, bentry in (bsubs or {}).items():
+        if bsubj in subjects:
+            continue
+        btopics = [dict(t) for t in (bentry or {}).get("topics", [])]
+        if fetch_errors == 0 and new_subjects:
+            reason = ("course absent from enrolments in a clean fetch; new "
+                      "course(s) this sweep: " + ", ".join(new_subjects)
+                      + " — rotation changeover, auto-retired")
+            changes[bsubj] = {"removed": [{"topic": t.get("topic"),
+                                           "reason": reason} for t in btopics],
+                              "retired": True}
+            lines.append(f"{bsubj}: RETIRED — course gone from a clean fetch, "
+                         f"new course(s) {', '.join(new_subjects)} present; "
+                         f"{len(btopics)} topic(s) -> explicit removal records")
+        else:
+            subjects[bsubj] = {"unit": (bentry or {}).get("unit", ""),
+                               "topics": btopics}
+            changes[bsubj] = {"guard_reinserted": [t.get("topic")
+                                                   for t in btopics],
+                              "course_absent": True}
+            lines.append(f"{bsubj}: course absent from pull ({fetch_errors} "
+                         f"fetch error(s), {len(new_subjects)} new course(s)) "
+                         f"— base carried verbatim, NOT retired")
+    return changes, lines
+
+
 def newest_manual(manual_dir):
     files = sorted(glob.glob(os.path.join(manual_dir, "*.json")))
     return files[-1] if files else None
@@ -420,6 +462,11 @@ def main():
                         f"(+{len(chg['added'])} new, "
                         f"{len(chg['transitioned'])} transitioned, "
                         f"guard reinserted {len(chg['guard_reinserted'])})")
+        absent_chg, absent_lines = resolve_absent_subjects(
+            bsubs, subjects, len(dump.get("errors") or []))
+        seat_chg.update(absent_chg)
+        for line in absent_lines:
+            log(f"{code}/{line}")
         out["students"][code] = {"subjects": subjects}
         out["sweep_update"]["seats"][code] = seat_chg
 

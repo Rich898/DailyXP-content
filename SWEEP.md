@@ -22,10 +22,15 @@ Chrome-panel drill is retired to the appendix as the outage fallback.*
 - **Pipeline:** fetch (per-student tokens; six content surfaces; never
   grades/submissions/inbox) → summarise (code owns structure, LLM writes
   language only; carry-forward law: topics transition, never vanish by
-  omission) → **docx alert** (flags NEW assessment paperwork it cannot
+  omission; **changeover clause, 14 Sep 2026**: a subject whose course is
+  gone from a CLEAN pull that also gained a brand-new academic course is a
+  rotation swap — it auto-retires with explicit removal records, loudly
+  flagged in the run summary; any other absence carries the base verbatim)
+  → **docx alert** (flags NEW assessment paperwork it cannot
   read, vs the previous week's dump) → schedule-pass (year-group
   noticeboard assessment PDFs) → **rotation overrides** (private
-  `overrides/rotations.json`) → **validate — the gate** →
+  `overrides/rotations.json`) → **validate — the gate** (the sane band
+  counts the live surface only — prior_term history never trips it) →
   **promote** to `targets/<monday>.json` → diff vs last week's file (the
   weekly-delta record) → commit targets + shadow evidence.
 - **FAIL = HOLD.** A validator FAIL turns the run red and nothing is
@@ -45,9 +50,12 @@ Chrome-panel drill is retired to the appendix as the outage fallback.*
    hand the dates to the build chat → the targets file gets patched.
 2. **Rotation switches.** When a boy changes Tech rotation (or any
    streamed subject), update the `live` string in private
-   `overrides/rotations.json`. Membership is provable only from
-   submissions, which the sweep never reads — this fact stays human by
-   design.
+   `overrides/rotations.json`. STRAND membership within a shared course is
+   provable only from submissions, which the sweep never reads — that fact
+   stays human by design. A whole-COURSE swap (old course gone from his
+   enrolments, new one appeared) is machine-visible and retires itself via
+   the changeover clause — just eyeball the RETIRED line in the run
+   summary and update the `live` string for the new unit.
 3. **Eyeball the changelog.** The run summary prints per-subject
    added/transitioned counts; the promoted file's `sweep_update` block
    carries details. Anything odd → dispatch the workflow manually (`seat`

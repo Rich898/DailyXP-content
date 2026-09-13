@@ -11,8 +11,10 @@ Checks:
      in the output; legends carried.
   2. coverage: every academic course in the raw dump surfaced as a subject
      (HSIE counts via History/Geography); no "SWEEP FAILED" subjects.
-  3. sanity: per-seat topic totals within band; statuses legal; fresh is
-     bool; assessment dates ISO and within -30..+180 days of the stamp.
+  3. sanity: per-seat LIVE-SURFACE topic totals within band (prior_term is
+     retained history under the carry-forward law and never counts toward
+     the ceiling — 14 Sep 2026); statuses legal; fresh is bool; assessment
+     dates ISO and within -30..+180 days of the stamp.
   4. collapse detector (vs newest manual targets, warn-or-fail): per-seat
      topic total under 40% of manual = FAIL; subject-set drift = WARN.
 
@@ -26,7 +28,7 @@ import os
 import re
 import sys
 
-BAND = (3, 90)          # sane per-seat topic totals
+BAND = (3, 90)          # sane per-seat NON-prior_term topic totals
 COLLAPSE_RATIO = 0.4
 
 
@@ -95,11 +97,14 @@ def main():
                     fails.append(f"{seat}: academic course "
                                  f"'{c.get('name')}' has no subject entry")
         total = 0
+        live_total = 0  # everything but prior_term — the asserted live surface
         for name, entry in subjects.items():
             if str(entry.get("unit", "")).startswith("SWEEP FAILED"):
                 fails.append(f"{seat}/{name}: course summarisation failed")
             for topic in entry.get("topics", []):
                 total += 1
+                if topic.get("status") != "prior_term":
+                    live_total += 1
                 if topic.get("status") not in {"live", "upcoming",
                                                "not_yet_posted", "prior_term"}:
                     fails.append(f"{seat}/{name}: bad status "
@@ -138,8 +143,9 @@ def main():
                         fails.append(f"CARRY-FORWARD VIOLATION: {seat}/"
                                      f"{bsubj}/'{nm}' dropped without an "
                                      f"explicit removal record")
-        if not (BAND[0] <= total <= BAND[1]):
-            fails.append(f"{seat}: {total} topics outside sane band {BAND}")
+        if not (BAND[0] <= live_total <= BAND[1]):
+            fails.append(f"{seat}: {live_total} non-prior topics outside sane "
+                         f"band {BAND} (total incl. prior_term: {total})")
 
         manuals = sorted(glob.glob(os.path.join(args.manual_dir, "*.json")))
         if manuals:
