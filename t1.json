@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-11",
-  "day": "FRI",
-  "tag": "T7.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-11",
+  "date": "2026-09-14",
+  "day": "MON",
+  "tag": "T8.1",
+  "title": "DailyXP · MON 2026-09-14",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, the G chord is the 'iii'",
+      "subject": "Maths",
+      "prompt": "A die roll giving a 7",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "False — G is the 'V' chord, built on the fifth scale degree. It creates tension that pulls back to C.",
+      "left": "Possible",
+      "right": "Impossible",
+      "answer": "Impossible",
+      "why": "A standard die only has faces 1-6, so rolling a 7 can never happen — its probability is 0.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', students used only fine detail brushes",
+      "subject": "English",
+      "prompt": "Stage directions are printed in italics for actors to read aloud",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,137 +40,327 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — students used bold, loose marks and varied tools to capture energy and texture, not fine detail.",
+      "why": "Stage directions tell actors how to move or act — they are instructions, not lines spoken aloud.",
       "fresh": false
     },
     {
-      "id": "T1",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Benvolio try to do?",
-      "answer": "Stop the servants fighting",
-      "why": "Benvolio draws his sword to part the brawling servants, showing his peacemaking role, before Tybalt escalates the fight.",
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The shogun held real military and political power in Japan",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Although the emperor was the symbolic head, the shogun actually controlled the government and military.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', students used only fine detail brushwork",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The activities focused on loose, expressive marks and unconventional tools, not fine detail brushwork.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "How do you say 'let's eat' before starting a meal?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "itadakimasu",
+      "why": "'Itadakimasu' is said before eating to show thanks for the food; 'gochisousama' is said after finishing.",
       "options": [
-        "Stop the servants fighting",
-        "Challenge Tybalt to a duel",
-        "Introduce Romeo to Juliet",
-        "Report Romeo to the Prince"
+        "itadakimasu",
+        "gochisousama",
+        "oishii",
+        "sumimasen"
       ],
       "fresh": false
     },
     {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What does 'consequence' mean in history?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A result of an event",
+      "why": "A consequence is what happens as a result of an event, distinct from the causes that led to it.",
+      "options": [
+        "A result of an event",
+        "The date of an event",
+        "A cause of an event",
+        "A person in an event"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In a song, what usually happens when a chorus repeats with fuller instrumentation?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Extra layers build a bigger sound",
+      "why": "Adding instrument layers in a repeated chorus thickens the texture and builds energy, making it feel bigger without changing the notes.",
+      "options": [
+        "Layers thin out to one quiet voice",
+        "Extra layers build a bigger sound",
+        "Tempo slows to half speed",
+        "The key changes down a step"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What term describes a camel storing fat in its hump?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Structural adaptation",
+      "why": "A structural adaptation is a physical body feature, like a fat-storing hump, not a learned behaviour.",
+      "options": [
+        "Structural adaptation",
+        "Behavioural adaptation",
+        "Cultural adaptation",
+        "Random mutation"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What class of warriors served under the daimyo lords?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Samurai",
+      "why": "Samurai were the warrior class who served daimyo lords, forming the backbone of Japan's military structure.",
+      "options": [
+        "Samurai",
+        "Shogun",
+        "Peasants",
+        "Monks"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In the spice rack design brief, radiata pine was mainly chosen because it is:",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Easy to work with",
+      "why": "Radiata pine is a soft, affordable timber that is easy to cut and shape, making it ideal for student projects.",
+      "options": [
+        "Easy to work with",
+        "The heaviest timber",
+        "Naturally waterproof",
+        "The most expensive wood"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "What are two pieces joined edge to edge at a right angle called?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Butt joint",
+      "why": "A butt joint simply joins two pieces end-to-end or edge-to-edge without interlocking shapes.",
+      "options": [
+        "Butt joint",
+        "Dovetail joint",
+        "Mitre joint",
+        "Finger joint"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "Sandpaper is mainly used before finishing to:",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Smooth the surface",
+      "why": "Sandpaper smooths rough wood surfaces so the finish, like varnish or paint, goes on evenly.",
+      "options": [
+        "Smooth the surface",
+        "Add colour",
+        "Seal out moisture",
+        "Glue pieces together"
+      ],
+      "mode": "scrub",
+      "fresh": true
+    },
+    {
+      "id": "T1",
+      "phase": "steady",
+      "subject": "Science",
+      "prompt": "What natural hazard is most often caused by the sudden movement of tectonic plates?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "earthquake",
+        "earthquakes"
+      ],
+      "why": "Earthquakes are caused by the sudden release of built-up stress along tectonic plate boundaries.",
+      "fresh": false,
+      "throwback": true
+    },
+    {
       "id": "T2",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the fourth scale degree?",
-      "answer": "The F chord",
-      "why": "F is the 'IV' chord, built on the fourth note of the C major scale. A common mix-up is thinking Am (the 'vi') or G (the 'V') hold that role instead.",
+      "subject": "English",
+      "prompt": "In a play script, what is a stage direction mainly used for?",
+      "answer": "Telling actors how to move",
+      "why": "Stage directions (in italics) guide actors' movement, tone, or actions — they are instructions, not spoken dialogue.",
       "options": [
-        "The C chord",
-        "The Am chord",
-        "The F chord",
-        "The G chord"
+        "Telling actors how to move",
+        "Showing a character's spoken lines",
+        "Naming the scene's location only",
+        "Listing the full cast of actors"
       ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did students mainly use besides brushes to apply paint?",
-      "answer": "Fingers and sponges",
-      "why": "Students experimented with fingers and sponges to create loose, expressive animal textures, rather than relying only on brushes.",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, what does the Prince threaten if the families fight again?",
+      "answer": "Death",
+      "why": "The Prince declares that any further street brawling between the families will be punished by death.",
       "options": [
-        "Fingers and sponges",
-        "Rulers and stencils",
-        "Pencils and erasers",
-        "Scissors and glue"
+        "Death",
+        "Exile",
+        "A fine",
+        "Imprisonment"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "Which Japanese word means 'delicious'?",
-      "answer": "Oishii",
-      "why": "'Oishii' means delicious, used while eating. 'Itadakimasu' is said before eating, 'gochisousama' after, and 'mizu' means water.",
+      "subject": "Music",
+      "prompt": "In C-Am-F-G, which chord acts as the 'V', creating tension that pulls back to C?",
+      "answer": "The G major chord",
+      "why": "G is built on the fifth scale degree of C major, making it the 'V' chord — the strongest pull back to the tonic C.",
       "options": [
-        "Oishii",
-        "Itadakimasu",
-        "Gochisousama",
-        "Mizu"
+        "The G major chord",
+        "The C major chord",
+        "The Am minor chord",
+        "The F major chord"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these ranks in the feudal pyramid from highest to lowest power",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Shogun",
-        "Daimyo",
-        "Samurai",
-        "Peasants"
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what did the activities mainly focus on capturing?",
+      "answer": "Movement and texture",
+      "why": "The activities encouraged loose, expressive marks to capture an animal's energy and texture, not exact realism.",
+      "options": [
+        "Movement and texture",
+        "Exact photo likeness",
+        "Precise anatomy",
+        "Background scenery"
       ],
-      "top": "Highest",
-      "bot": "Lowest",
-      "why": "The Shogun held supreme military power, below him daimyo ruled domains, samurai served them, and peasants sat at the base.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps of cause-and-consequence analysis from first to last",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Identify the event",
-        "Find multiple causes",
-        "Examine short-term effects",
-        "Examine long-term consequences"
-      ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Historians first identify the event, then find its multiple causes, before tracing its short-term and long-term consequences.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "Which character does Romeo love before he meets Juliet?",
-      "answer": "Rosaline",
-      "why": "Romeo is infatuated with Rosaline at the start of the play, before he even meets Juliet at the party. Students often forget this earlier crush existed and think Juliet was his first love.",
+      "subject": "Japanese",
+      "prompt": "What do you say in Japanese before starting a meal?",
+      "answer": "Itadakimasu",
+      "why": "'Itadakimasu' is said before eating to show gratitude for the food, while 'gochisousama' is said afterward.",
       "options": [
-        "Rosaline",
-        "Juliet's cousin",
-        "Lady Capulet",
-        "Paris's sister"
+        "Itadakimasu",
+        "Gochisousama",
+        "Oishii",
+        "Sumimasen"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "English",
-      "prompt": "A classmate says Act 1 Scene 1 is 'just a fight scene' with no real purpose in the play. Explain what this misses about how the scene sets up the rest of Romeo and Juliet."
+      "subject": "Music",
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but changing the order can make a song feel different, even though no notes have changed."
     }
   ]
 }
