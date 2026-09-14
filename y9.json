@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-11",
-  "day": "FRI",
-  "tag": "R7.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-11",
+  "date": "2026-09-14",
+  "day": "MON",
+  "tag": "R8.1",
+  "title": "DailyXP · MON 2026-09-14",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "The ego works purely on instinct with no regard for reality",
+      "subject": "Science",
+      "prompt": "In a sealed jar, mass changes after burning",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — that describes the id. The ego operates on the reality principle, balancing desires against consequences.",
+      "why": "In a closed system no matter escapes, so mass stays the same before and after the reaction — conservation of mass.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "D&T",
-      "prompt": "A designer writes an action plan mainly to keep the client informed of progress",
+      "subject": "History",
+      "prompt": "Civilians in Nanjing were targeted in 1937",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,232 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — action plans set out steps and timings so the client can see how the project will unfold and stay in the loop.",
+      "why": "During the Nanjing Massacre, Japanese forces killed and harmed huge numbers of civilians and disarmed soldiers, not just combatants.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "The superego acts on pure instinct",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The superego holds our learned morals and conscience; it's the id that acts on raw instinct and pleasure.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A haircut is a service, not a product",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "A service is an action performed for someone, like cutting hair, while a product is a physical item they keep.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "An ad shows a footballer enjoying a snack. What technique is this?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Celebrity endorsement",
+      "why": "Using a famous person to promote a product to make it seem more appealing is celebrity endorsement.",
+      "options": [
+        "Celebrity endorsement",
+        "Bulk discount",
+        "Nutrition labelling",
+        "Loyalty card"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "Which nutrient group does sugar belong to on a food label?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Carbohydrates",
+      "why": "Sugar is a simple carbohydrate, so it's grouped under carbohydrates on nutrition labels, not proteins or fats.",
+      "options": [
+        "Carbohydrates",
+        "Proteins, for muscle repair",
+        "Fats, for stored energy",
+        "Fibre, for digestion"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "PDHPE",
+      "prompt": "What is one key feature of a balanced diet?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Variety of food groups",
+      "why": "A balanced diet means eating a variety of foods from each group in the right amounts, not cutting out whole groups or relying on one food type.",
+      "options": [
+        "Variety of food groups",
+        "Only low-fat foods",
+        "Mostly protein shakes",
+        "Skipping breakfast daily"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "In Food Technology, what does 'food selection' mainly refer to?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Choosing what foods to eat",
+      "why": "Food selection is about the choices people make when deciding what to eat, based on needs and influences.",
+      "options": [
+        "Choosing what foods to eat",
+        "Cooking food safely",
+        "Growing crops on farms",
+        "Packaging food for sale"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "What is one main function of food in the body?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Providing energy",
+      "why": "Food provides energy for the body to function, alongside growth and repair, and regulating processes.",
+      "options": [
+        "Providing energy",
+        "Producing sound",
+        "Filtering air",
+        "Storing memories"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "What best describes a balanced diet?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Varied foods, right proportions",
+      "why": "A balanced diet means eating a variety of food groups in the right proportions, not cutting out whole groups or overloading on one nutrient.",
+      "options": [
+        "Varied foods, right proportions",
+        "Only fruit, vegetables daily",
+        "High protein, every meal",
+        "Low fat, every meal"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has base 12 cm and height 4 cm. What is its area?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "24 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 4 = 24 cm² — halving is the step to slow down and check.",
+      "options": [
+        "24 cm²",
+        "48 cm²",
+        "16 cm²",
+        "36 cm²"
+      ],
+      "mode": "scrub",
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What replaced the Kaiser after WWI in Germany?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Weimar Republic",
+      "why": "After the Kaiser abdicated in 1918, Germany became a democracy known as the Weimar Republic, lasting until 1933.",
+      "options": [
+        "Weimar Republic",
+        "Nazi dictatorship",
+        "Prussian monarchy",
+        "Military junta"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 17 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,55 +274,56 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 68,
+      "answer": 56,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height: ½ × 17 × 8 = 68 cm². Halving is the step rushing skips.",
+      "why": "Area = ½ × base × height = ½ × 16 × 7 = 56 cm². Say the formula before multiplying to avoid rushing past the half.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "Which business plan section lists the founder's skills and past work experience?",
-      "answer": "Management team",
-      "why": "The management team section covers the founder's skills and experience. The executive summary just overviews the plan, market analysis covers customers and competitors, and the financial plan covers costs and revenue.",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, what does the signal fire mainly represent?",
+      "answer": "Hope of rescue",
+      "why": "The signal fire symbolises the boys' connection to civilisation and their hope of being rescued.",
       "options": [
-        "Management team",
-        "Executive summary",
-        "Market analysis",
-        "Financial plan"
+        "Hope of rescue",
+        "The boys' fear",
+        "Piggy's intelligence",
+        "The island's danger"
       ],
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Freud's model, which part is guided by moral rules learned from parents?",
-      "answer": "Superego",
-      "why": "The superego holds the moral rules and conscience taught by parents and society. The id is instinctive desire, and the ego balances that desire against reality.",
+      "subject": "Commerce",
+      "prompt": "Which business plan section lists startup costs?",
+      "answer": "Financial plan",
+      "why": "The financial plan covers costs, pricing, and cash flow needed to start and run the business.",
       "options": [
-        "Superego",
-        "Id",
-        "Ego",
-        "Conscious mind"
+        "Financial plan",
+        "Executive summary",
+        "Market analysis",
+        "Mission statement"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "D&T",
-      "prompt": "A market stall keeps the same logo and colours on every product for a year. What is this mainly building?",
-      "answer": "Brand identity",
-      "why": "Consistent logo and colours build brand identity, making the stall recognisable. This isn't a financial plan, market analysis, or SWOT, which cover different parts of a business plan.",
+      "subject": "English",
+      "prompt": "In Freud's model, which part follows the 'reality principle'?",
+      "answer": "The ego",
+      "why": "The ego balances the id's desires against real-world consequences, unlike the id which just seeks pleasure.",
       "options": [
-        "Brand identity",
-        "A financial plan",
-        "A market analysis",
-        "A SWOT analysis"
+        "The ego",
+        "The id",
+        "The superego",
+        "The conscience"
       ],
       "fresh": false
     },
@@ -112,7 +331,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed, closed container, what happens to total mass after a chemical reaction?",
+      "prompt": "In a closed container, 20g of reactants react fully. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -122,18 +341,18 @@
       },
       "type": "text",
       "accept": [
-        "stays the same",
-        "unchanged",
-        "conserved"
+        "20g",
+        "20 grams",
+        "20"
       ],
-      "why": "Mass is conserved in a closed system — atoms are rearranged into new products but none are lost or gained.",
+      "why": "Mass is conserved in a closed system, so the products must total the same mass as the reactants: 20g.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "Name one sign that shows a chemical reaction has taken place.",
+      "prompt": "Name a sign that shows a new gas has been produced in a reaction.",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -143,40 +362,18 @@
       },
       "type": "text",
       "accept": [
-        "gas produced",
-        "colour change",
-        "temperature change",
-        "new substance formed",
-        "precipitate formed"
+        "bubbles",
+        "fizzing",
+        "gas bubbles"
       ],
-      "why": "Signs like gas bubbles, a colour change, a temperature change, or a precipitate show a new substance has formed, meaning a chemical reaction occurred.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Solve for x: 5x + 3 = 28",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 5,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Subtract 3 from both sides to get 5x = 25, then divide by 5: x = 5. Always do the same operation to both sides.",
+      "why": "Bubbles or fizzing show a gas is being released, which is a sign a new substance has formed.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "A student writing a business plan for a new bakery lists 'we plan to hire two staff by month three' under the market analysis section. Explain why this is misplaced and where it truly belongs."
+      "prompt": "A student's business plan lists 'our biggest strength is our unique recipe' under the financial plan section. Explain why this is misplaced and where it truly belongs."
     }
   ]
 }
