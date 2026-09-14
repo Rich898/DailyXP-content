@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-11",
-  "day": "FRI",
-  "tag": "H7.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-11",
+  "date": "2026-09-14",
+  "day": "MON",
+  "tag": "H8.1",
+  "title": "DailyXP · MON 2026-09-14",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "F is the 'IV' chord in C–Am–F–G",
+      "subject": "Maths",
+      "prompt": "Volume = length × width × height",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "F is the fourth chord of the C major scale, so in C–Am–F–G it functions as the IV chord.",
+      "why": "For a rectangular prism, volume is found by multiplying length, width and height together.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountains gave it huge open plains for farming",
+      "prompt": "Japan's mountains left little flat land for farming",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,233 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Japan's mountains left very little flat land, making farmland scarce, not abundant.",
+      "answer": "True",
+      "why": "Japan's mountainous terrain meant only small pockets of flat land were usable for farming and settlement.",
       "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "G is the 'V' chord in C–Am–F–G",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "In the key of C, G is built on the fifth note of the scale, so it is the 'V' chord.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Kudasai' is used when politely asking for something",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Kudasai' means 'please give me' and is used to politely request an item, such as food.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "In history, what do we call an event that happens as a result of another event?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A consequence",
+      "why": "A consequence is the result or effect that follows from a cause — it comes after, not before.",
+      "options": [
+        "A consequence",
+        "A cause",
+        "A continuity",
+        "A trigger"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "Which song section usually has the most layered instruments?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Chorus",
+      "why": "The chorus is usually the fullest section, with more instruments layered in to make it feel the biggest.",
+      "options": [
+        "Chorus",
+        "Intro",
+        "Outro",
+        "Bridge"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What term means the total mass of living material in an ecosystem?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Biomass",
+      "why": "Biomass is the total mass of living organisms in an area, often measured to compare energy at different levels of a food chain.",
+      "options": [
+        "Biomass",
+        "Adaptation",
+        "Population",
+        "Habitat"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what do students study before painting?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Photos of real animals",
+      "why": "The activities start with close observation of real animal photos so paintings are grounded in real texture and form, not copied from other art.",
+      "options": [
+        "Photos of real animals",
+        "Diagrams of paint mixing",
+        "Other students' finished work",
+        "A colour theory chart"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In the design portfolio, what does a 'design brief' describe?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "What the product must do",
+      "why": "A design brief sets out the requirements the finished product must meet, based on the identified need.",
+      "options": [
+        "What the product must do",
+        "The type of wood used",
+        "The final selling price",
+        "The tools needed"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "What is a butt joint?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Two pieces joined end to end",
+      "why": "A butt joint is the simplest joint, made by placing two pieces of timber together end to end or edge to edge.",
+      "options": [
+        "Two pieces joined end to end",
+        "Two pieces overlapped diagonally",
+        "Two pieces locked with interlocking teeth",
+        "Two pieces joined at a curved edge"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "What grit of sandpaper is best for a final smooth finish?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Fine grit",
+      "why": "Fine grit sandpaper is used last to smooth the surface before applying a finish, after coarser grits shape the wood.",
+      "options": [
+        "Fine grit",
+        "Coarse grit",
+        "Medium grit",
+        "Extra coarse grit"
+      ],
+      "mode": "scrub",
+      "fresh": true
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "A student tests if the amount of water given affects seed germination, keeping the type of seed the same. What is the controlled variable?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Type of seed",
+      "why": "The controlled variable is kept the same on purpose — here that's the type of seed, so it doesn't affect the result.",
+      "options": [
+        "Type of seed",
+        "Amount of water",
+        "Germination result",
+        "Number of seeds"
+      ],
+      "mode": "scrub",
+      "fresh": false,
+      "repair": true
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if screen time affects sleep hours, keeping bedtime routine the same, what is the independent variable?",
+      "prompt": "In an experiment testing if the amount of sunlight affects plant height, what is the dependent variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -57,47 +275,63 @@
       },
       "type": "text",
       "accept": [
-        "screen time",
-        "amount of screen time"
+        "plant height",
+        "height of plant"
       ],
-      "why": "The independent variable is the one the experimenter deliberately changes — here, screen time. Sleep hours is what's measured (dependent), and bedtime routine is kept the same (controlled).",
+      "why": "The dependent variable is what you measure as a result — here, the plant's height, since sunlight (IV) is changed and height (DV) is recorded.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to stop the servants' street fight?",
-      "answer": "Benvolio steps in",
-      "why": "Benvolio, Romeo's peace-loving cousin, tries to break up the servants' brawl by drawing his sword only to part them. Tybalt instead arrives to fuel the fight, showing the contrast between the two characters.",
+      "prompt": "Why does Shakespeare open Romeo and Juliet with a fight between servants?",
+      "answer": "It shows the feud's danger early",
+      "why": "The opening brawl immediately shows the audience how deep and violent the Montague-Capulet feud is, setting up the tragedy to come.",
       "options": [
-        "Benvolio steps in",
-        "Tybalt draws his sword",
-        "Prince Escalus arrives late",
-        "Lord Capulet joins in"
+        "It shows the feud's danger early",
+        "It introduces the play's comic relief",
+        "It shows Romeo's fighting skill",
+        "It delays Juliet's first entrance"
       ],
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the four-chord song C–Am–F–G, which chord is played last?",
-      "answer": "G chord plays last",
-      "why": "The order C, Am, F, G puts G in the final spot, matching the 'V' position in I–vi–IV–V. Students often assume the progression ends back on the home chord (C), but it actually ends on G before looping round.",
+      "subject": "English",
+      "prompt": "Who kills Mercutio in Act 3 of Romeo and Juliet?",
+      "answer": "Tybalt",
+      "why": "Tybalt stabs Mercutio under Romeo's arm during their street fight, which then drives Romeo to kill Tybalt in revenge.",
       "options": [
-        "G chord plays last",
-        "C chord plays last",
-        "Am chord plays last",
-        "F chord plays last"
+        "Tybalt",
+        "Paris",
+        "Benvolio",
+        "Romeo"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
+      "subject": "Music",
+      "prompt": "In the key of C major, what note is the root of the 'V' chord?",
+      "answer": "G",
+      "why": "G is the fifth note of the C major scale, making the G chord the 'V' chord in the key of C.",
+      "options": [
+        "G",
+        "C",
+        "F",
+        "A"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks in Japan's feudal hierarchy",
+      "prompt": "Order these events in the rise of Japan's warrior rule, earliest to latest",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -107,76 +341,36 @@
       },
       "type": "order",
       "sequence": [
-        "Emperor",
-        "Shogun",
-        "Daimyo",
-        "Samurai"
+        "Emperor holds symbolic power",
+        "Local lords raise armies",
+        "Samurai warriors gain influence",
+        "Shogun rules in practice"
       ],
-      "top": "Highest",
-      "bot": "Lowest",
-      "why": "The emperor stayed at the top in name, but the shogun held real power, ruling over daimyo (regional lords), who in turn commanded samurai warriors.",
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'please give me this' when ordering food in Japanese?",
-      "answer": "Kudasai",
-      "why": "'Kudasai' means 'please give me' and is used when ordering. 'Oishii' means delicious, 'itadakimasu' is said before eating, and 'gochisousama' is said after.",
-      "options": [
-        "Kudasai",
-        "Oishii",
-        "Itadakimasu",
-        "Gochisousama"
-      ],
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "As central imperial control weakened, local lords built their own armies, samurai rose alongside them, and eventually a shogun held real power while the emperor remained a figurehead.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "A bag has 5 green and 15 yellow balls. What is P(green) as a decimal?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.25,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "P(green) = 5 out of 20 total balls = 5/20 = 0.25.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Maths",
-      "prompt": "The chance of a spinner landing on purple is 0.45. What is the chance it does not land on purple?",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 0.55,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Complementary events add to 1, so the chance of not landing on purple is 1 − 0.45 = 0.55.",
+      "subject": "Japanese",
+      "prompt": "How do you say 'delicious' in Japanese when eating?",
+      "answer": "Oishii",
+      "why": "'Oishii' means 'delicious' and is used to compliment food while or after eating.",
+      "options": [
+        "Oishii",
+        "Itadakimasu",
+        "Kudasai",
+        "Gochisousama"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "Explain why Shakespeare opens Romeo and Juliet with a street fight between servants rather than the main characters, and what this sets up for the rest of the play."
+      "prompt": "Explain why the fight between servants at the start of Romeo and Juliet matters for understanding the rest of the play."
     }
   ]
 }
