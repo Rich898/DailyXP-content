@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-14",
-  "day": "MON",
-  "tag": "R8.1",
-  "title": "DailyXP · MON 2026-09-14",
+  "date": "2026-09-15",
+  "day": "TUE",
+  "tag": "R8.2",
+  "title": "DailyXP · TUE 2026-09-15",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a sealed jar, mass changes after burning",
+      "prompt": "Burning wood in an open dish: total mass stays the same",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "In a closed system no matter escapes, so mass stays the same before and after the reaction — conservation of mass.",
+      "why": "In an open system, gas escapes into the air, so the measured mass drops even though no mass is truly destroyed.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Civilians in Nanjing were targeted in 1937",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "During the Nanjing Massacre, Japanese forces killed and harmed huge numbers of civilians and disarmed soldiers, not just combatants.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "The superego acts on pure instinct",
+      "prompt": "Only soldiers were harmed during the Nanjing Massacre",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The superego holds our learned morals and conscience; it's the id that acts on raw instinct and pleasure.",
+      "why": "Civilians — men, women, and children — were the main victims of the violence in Nanjing in 1937.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S3",
       "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "A haircut is a service, not a product",
+      "subject": "English",
+      "prompt": "The superego is guided by moral rules",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "A service is an action performed for someone, like cutting hair, while a product is a physical item they keep.",
+      "why": "The superego develops from parents and society and judges actions using conscience and morals.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A gym membership is a product",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "Product",
+      "right": "Service",
+      "answer": "Service",
+      "why": "A gym membership gives access to an ongoing activity, not a physical item, so it counts as a service.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "An ad shows a footballer enjoying a snack. What technique is this?",
+      "prompt": "A snack ad shows kids laughing at a party eating chips. What technique is this?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Celebrity endorsement",
-      "why": "Using a famous person to promote a product to make it seem more appealing is celebrity endorsement.",
+      "answer": "Peer appeal",
+      "why": "Showing friends enjoying food together uses peer appeal to make the snack seem socially desirable.",
       "options": [
-        "Celebrity endorsement",
-        "Bulk discount",
-        "Nutrition labelling",
-        "Loyalty card"
+        "Peer appeal",
+        "Nutritional labelling",
+        "Price discount",
+        "Portion control"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which nutrient group does sugar belong to on a food label?",
+      "prompt": "On a nutrition label, which nutrient gives the most energy per gram?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Carbohydrates",
-      "why": "Sugar is a simple carbohydrate, so it's grouped under carbohydrates on nutrition labels, not proteins or fats.",
+      "answer": "Fat, at over twice the energy of carbs",
+      "why": "Fat provides about 9 calories per gram, more than double carbohydrate or protein, which each provide around 4 calories per gram.",
       "options": [
-        "Carbohydrates",
-        "Proteins, for muscle repair",
-        "Fats, for stored energy",
-        "Fibre, for digestion"
+        "Fat, at over twice the energy of carbs",
+        "Carbohydrate, the body's main fuel source",
+        "Protein, used for muscle repair",
+        "Fibre, needed for digestion"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is one key feature of a balanced diet?",
+      "prompt": "What is one key feature of a healthy food choice?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Variety of food groups",
-      "why": "A balanced diet means eating a variety of foods from each group in the right amounts, not cutting out whole groups or relying on one food type.",
+      "answer": "Variety of foods",
+      "why": "Healthy eating relies on variety across food groups, not restricting to just one type of food.",
       "options": [
-        "Variety of food groups",
+        "Variety of foods",
         "Only low-fat foods",
-        "Mostly protein shakes",
-        "Skipping breakfast daily"
+        "Only high-protein foods",
+        "Skipping meals"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "In Food Technology, what does 'food selection' mainly refer to?",
+      "prompt": "In Food Technology, what does 'food selection' mainly mean?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Choosing what foods to eat",
-      "why": "Food selection is about the choices people make when deciding what to eat, based on needs and influences.",
+      "answer": "Choosing foods to eat",
+      "why": "Food selection refers to the choices people make about which foods to eat, shaped by health, culture, and cost.",
       "options": [
-        "Choosing what foods to eat",
-        "Cooking food safely",
-        "Growing crops on farms",
-        "Packaging food for sale"
+        "Choosing foods to eat",
+        "Cooking methods used",
+        "Storing food safely",
+        "Growing food crops"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "What is one main function of food in the body?",
+      "prompt": "Why does the body need protein in the diet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Providing energy",
-      "why": "Food provides energy for the body to function, alongside growth and repair, and regulating processes.",
+      "answer": "For growth and repair",
+      "why": "Protein builds and repairs body tissue like muscle; carbohydrates, not protein, are the body's main quick-energy source.",
       "options": [
-        "Providing energy",
-        "Producing sound",
-        "Filtering air",
-        "Storing memories"
+        "For growth and repair",
+        "For quick energy bursts",
+        "For better eyesight",
+        "For faster digestion"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "What best describes a balanced diet?",
+      "prompt": "Which model shows the proportions of a balanced diet?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Varied foods, right proportions",
-      "why": "A balanced diet means eating a variety of food groups in the right proportions, not cutting out whole groups or overloading on one nutrient.",
+      "answer": "Eatwell Guide",
+      "why": "The Eatwell Guide is the official model showing correct food group proportions for a balanced diet.",
       "options": [
-        "Varied foods, right proportions",
-        "Only fruit, vegetables daily",
-        "High protein, every meal",
-        "Low fat, every meal"
+        "Eatwell Guide",
+        "Food Pyramid Myth",
+        "Calorie Chart",
+        "Protein Wheel"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has base 12 cm and height 4 cm. What is its area?",
+      "prompt": "A triangle has base 14 cm and height 6 cm. What is its area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "24 cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 4 = 24 cm² — halving is the step to slow down and check.",
+      "answer": "42 cm²",
+      "why": "Area = ½ × base × height = ½ × 14 × 6 = 42 cm². Skipping the ½ gives the wrong doubled answer, 84 cm².",
       "options": [
-        "24 cm²",
-        "48 cm²",
-        "16 cm²",
-        "36 cm²"
+        "42 cm²",
+        "84 cm²",
+        "40 cm²",
+        "56 cm²"
       ],
       "mode": "scrub",
       "fresh": false,
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What replaced the Kaiser after WWI in Germany?",
+      "prompt": "What money crisis hit Germany in 1923?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Weimar Republic",
-      "why": "After the Kaiser abdicated in 1918, Germany became a democracy known as the Weimar Republic, lasting until 1933.",
+      "answer": "Hyperinflation",
+      "why": "In 1923 the Weimar government printed vast amounts of money, causing hyperinflation so severe that prices doubled daily and savings became worthless.",
       "options": [
-        "Weimar Republic",
-        "Nazi dictatorship",
-        "Prussian monarchy",
-        "Military junta"
+        "Hyperinflation",
+        "Stock market crash",
+        "Bank nationalisation",
+        "Gold rush"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 18 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 56,
+      "answer": 72,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 7 = 56 cm². Say the formula before multiplying to avoid rushing past the half.",
+      "why": "Area = ½ × base × height = ½ × 18 × 8 = 72 cm². Halve first (or last), don't skip that step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Lord of the Flies, what does the signal fire mainly represent?",
-      "answer": "Hope of rescue",
-      "why": "The signal fire symbolises the boys' connection to civilisation and their hope of being rescued.",
+      "prompt": "From a while back — what does the conch shell mainly symbolise in Lord of the Flies?",
+      "answer": "Order and civilisation",
+      "why": "The conch gives its holder the right to speak, representing the rules and order the boys start with.",
       "options": [
-        "Hope of rescue",
-        "The boys' fear",
-        "Piggy's intelligence",
-        "The island's danger"
+        "Order and civilisation",
+        "Fear of the beast",
+        "Jack's hunting power",
+        "Piggy's intelligence"
       ],
       "fresh": false,
       "throwback": true
@@ -301,9 +301,9 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "Which business plan section lists startup costs?",
+      "prompt": "Which part of a business plan lists expected startup costs?",
       "answer": "Financial plan",
-      "why": "The financial plan covers costs, pricing, and cash flow needed to start and run the business.",
+      "why": "Startup costs and cash flow figures belong in the financial plan, which covers the money side of the business.",
       "options": [
         "Financial plan",
         "Executive summary",
@@ -316,12 +316,12 @@
       "id": "T4",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Freud's model, which part follows the 'reality principle'?",
-      "answer": "The ego",
-      "why": "The ego balances the id's desires against real-world consequences, unlike the id which just seeks pleasure.",
+      "prompt": "In Freud's model, which part seeks pleasure without restraint?",
+      "answer": "The id",
+      "why": "The id is entirely unconscious and instinctive, seeking pleasure with no regard for consequences.",
       "options": [
-        "The ego",
         "The id",
+        "The ego",
         "The superego",
         "The conscience"
       ],
@@ -331,7 +331,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a closed container, 20g of reactants react fully. What is the mass of the products?",
+      "prompt": "If you burn wood in an open dish, why does the measured mass appear to decrease?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -341,18 +341,18 @@
       },
       "type": "text",
       "accept": [
-        "20g",
-        "20 grams",
-        "20"
+        "gas escapes",
+        "gases escape into the air",
+        "products escape as gas"
       ],
-      "why": "Mass is conserved in a closed system, so the products must total the same mass as the reactants: 20g.",
+      "why": "In an open system, gas products escape into the air, so the measured mass drops even though total mass is actually conserved.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "Name a sign that shows a new gas has been produced in a reaction.",
+      "prompt": "What sign of a chemical reaction would you see when a precipitate forms?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -362,18 +362,18 @@
       },
       "type": "text",
       "accept": [
-        "bubbles",
-        "fizzing",
-        "gas bubbles"
+        "cloudy solid forms",
+        "solid forms",
+        "insoluble solid appears"
       ],
-      "why": "Bubbles or fizzing show a gas is being released, which is a sign a new substance has formed.",
+      "why": "A precipitate is an insoluble solid that suddenly appears in a solution, showing a new substance has formed.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "A student's business plan lists 'our biggest strength is our unique recipe' under the financial plan section. Explain why this is misplaced and where it truly belongs."
+      "prompt": "Explain why a business plan separates the market analysis from the financial plan, even though both deal with numbers."
     }
   ]
 }
