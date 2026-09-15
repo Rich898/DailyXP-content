@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-14",
-  "day": "MON",
-  "tag": "H8.1",
-  "title": "DailyXP · MON 2026-09-14",
+  "date": "2026-09-15",
+  "day": "TUE",
+  "tag": "H8.2",
+  "title": "DailyXP · TUE 2026-09-15",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Volume = length × width × height",
+      "prompt": "A cube with side 4 cm has volume 64 cm³",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "For a rectangular prism, volume is found by multiplying length, width and height together.",
+      "why": "Volume of a cube is side × side × side, so 4 × 4 × 4 = 64 cm³.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountains left little flat land for farming",
+      "prompt": "Japan's mountains left plenty of flat land for huge farms",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Japan's mountainous terrain meant only small pockets of flat land were usable for farming and settlement.",
+      "answer": "False",
+      "why": "Japan's mountainous terrain left very little flat land, which shaped where people could farm and settle.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "G is the 'V' chord in C–Am–F–G",
+      "prompt": "In C–Am–F–G, the F chord is the 'IV'",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In the key of C, G is built on the fifth note of the scale, so it is the 'V' chord.",
+      "why": "In the key of C major, F is the fourth note of the scale, so it is the IV chord.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Kudasai' is used when politely asking for something",
+      "prompt": "'Itadakimasu' is said before you start eating",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Kudasai' means 'please give me' and is used to politely request an item, such as food.",
+      "why": "'Itadakimasu' is said before a meal to show thanks for the food, not after finishing.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In history, what do we call an event that happens as a result of another event?",
+      "prompt": "What do we call an event that happens because of an earlier one?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -94,12 +94,12 @@
         "cta": "Keep going →"
       },
       "answer": "A consequence",
-      "why": "A consequence is the result or effect that follows from a cause — it comes after, not before.",
+      "why": "A consequence is the result that follows from a cause; it always comes after, not before.",
       "options": [
         "A consequence",
-        "A cause",
+        "A trigger",
         "A continuity",
-        "A trigger"
+        "A prologue"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Which song section usually has the most layered instruments?",
+      "prompt": "Which song section usually has the most instrument layers?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,12 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Chorus",
-      "why": "The chorus is usually the fullest section, with more instruments layered in to make it feel the biggest.",
+      "why": "The chorus is usually the fullest, most layered section because it carries the song's main hook and energy peak.",
       "options": [
         "Chorus",
-        "Intro",
-        "Outro",
-        "Bridge"
+        "Intro (sparse setup)",
+        "Verse (sparse setup)",
+        "Outro (fading layers)"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What term means the total mass of living material in an ecosystem?",
+      "prompt": "In a food chain, what do we call an animal that eats other animals?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,12 +137,12 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Biomass",
-      "why": "Biomass is the total mass of living organisms in an area, often measured to compare energy at different levels of a food chain.",
+      "answer": "Consumer",
+      "why": "A consumer is an organism that gets energy by eating other living things, unlike producers which make their own food.",
       "options": [
-        "Biomass",
-        "Adaptation",
-        "Population",
+        "Consumer",
+        "Producer",
+        "Decomposer",
         "Habitat"
       ],
       "fresh": false
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students study before painting?",
+      "prompt": "In 'Paint Like a Beast', what do students study closely before they start painting?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Photos of real animals",
-      "why": "The activities start with close observation of real animal photos so paintings are grounded in real texture and form, not copied from other art.",
+      "answer": "Animal reference images",
+      "why": "Students study real animal reference images to guide brushwork and texture, rather than tracing an exact photocopy or focusing on framing or colour theory alone.",
       "options": [
-        "Photos of real animals",
-        "Diagrams of paint mixing",
-        "Other students' finished work",
-        "A colour theory chart"
+        "Animal reference images",
+        "Photocopied outlines",
+        "Frame design sketches",
+        "Colour theory charts"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the design portfolio, what does a 'design brief' describe?",
+      "prompt": "In the design portfolio, what does identifying a 'need' come from?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "What the product must do",
-      "why": "A design brief sets out the requirements the finished product must meet, based on the identified need.",
+      "answer": "A problem to solve",
+      "why": "A design starts by identifying a real problem or need, which then shapes the design brief.",
       "options": [
-        "What the product must do",
-        "The type of wood used",
-        "The final selling price",
-        "The tools needed"
+        "A problem to solve",
+        "The final price",
+        "The chosen timber",
+        "The finished sketch"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What is a butt joint?",
+      "prompt": "Which joint has a notch cut into both pieces so they interlock flush?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Two pieces joined end to end",
-      "why": "A butt joint is the simplest joint, made by placing two pieces of timber together end to end or edge to edge.",
+      "answer": "Halving joint",
+      "why": "A halving joint removes half the thickness from each piece so they sit flush and interlock, unlike a butt joint which just meets edge to edge with no interlocking cut.",
       "options": [
-        "Two pieces joined end to end",
-        "Two pieces overlapped diagonally",
-        "Two pieces locked with interlocking teeth",
-        "Two pieces joined at a curved edge"
+        "Halving joint",
+        "Simple butt joint",
+        "Plain mitre joint",
+        "Basic dowel joint"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What grit of sandpaper is best for a final smooth finish?",
+      "prompt": "What is PVA glue mainly used for in the spice rack build?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Fine grit",
-      "why": "Fine grit sandpaper is used last to smooth the surface before applying a finish, after coarser grits shape the wood.",
+      "answer": "Bonding wood joints",
+      "why": "PVA glue is a wood adhesive used to bond joints together, while sanding and finishing are separate later steps.",
       "options": [
-        "Fine grit",
-        "Coarse grit",
-        "Medium grit",
-        "Extra coarse grit"
+        "Bonding wood joints",
+        "Sealing the surface finish",
+        "Smoothing rough edges",
+        "Colouring the timber"
       ],
       "mode": "scrub",
       "fresh": true
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A student tests if the amount of water given affects seed germination, keeping the type of seed the same. What is the controlled variable?",
+      "prompt": "A student tests if plant food type affects flower size, keeping water amount the same. What is the independent variable?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Type of seed",
-      "why": "The controlled variable is kept the same on purpose — here that's the type of seed, so it doesn't affect the result.",
+      "answer": "Type of plant food used",
+      "why": "The independent variable is what the student deliberately changes — here, the type of plant food used.",
       "options": [
-        "Type of seed",
-        "Amount of water",
-        "Germination result",
-        "Number of seeds"
+        "Type of plant food used",
+        "Flower size measured",
+        "Amount of water given",
+        "Colour of the flower pot"
       ],
       "mode": "scrub",
       "fresh": false,
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if the amount of sunlight affects plant height, what is the dependent variable?",
+      "prompt": "A student tests if the type of light bulb affects room temperature, keeping the room size the same. What is the dependent variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -275,24 +275,24 @@
       },
       "type": "text",
       "accept": [
-        "plant height",
-        "height of plant"
+        "room temperature",
+        "temperature"
       ],
-      "why": "The dependent variable is what you measure as a result — here, the plant's height, since sunlight (IV) is changed and height (DV) is recorded.",
+      "why": "The dependent variable is what you measure to see the effect — here, the room temperature.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Why does Shakespeare open Romeo and Juliet with a fight between servants?",
-      "answer": "It shows the feud's danger early",
-      "why": "The opening brawl immediately shows the audience how deep and violent the Montague-Capulet feud is, setting up the tragedy to come.",
+      "prompt": "In Romeo and Juliet, what technique does Shakespeare use in the Prologue to reveal the ending before the play begins?",
+      "answer": "Dramatic irony",
+      "why": "The Prologue tells the audience the lovers will die, creating dramatic irony — we know their fate while the characters don't, which builds tension throughout.",
       "options": [
-        "It shows the feud's danger early",
-        "It introduces the play's comic relief",
-        "It shows Romeo's fighting skill",
-        "It delays Juliet's first entrance"
+        "Dramatic irony",
+        "Rhyming couplets",
+        "A servants' brawl",
+        "A masked ball scene"
       ],
       "fresh": false,
       "throwback": true
@@ -301,14 +301,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Who kills Mercutio in Act 3 of Romeo and Juliet?",
-      "answer": "Tybalt",
-      "why": "Tybalt stabs Mercutio under Romeo's arm during their street fight, which then drives Romeo to kill Tybalt in revenge.",
+      "prompt": "In Romeo and Juliet, what does Romeo do moments after first speaking to Juliet at the party?",
+      "answer": "Kisses her",
+      "why": "Romeo and Juliet share a sonnet when they meet, and it ends with their first kiss — before Romeo even knows her name.",
       "options": [
-        "Tybalt",
-        "Paris",
-        "Benvolio",
-        "Romeo"
+        "Kisses her",
+        "Fights Tybalt",
+        "Leaves the party",
+        "Sends her a letter"
       ],
       "fresh": false
     },
@@ -316,14 +316,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the key of C major, what note is the root of the 'V' chord?",
-      "answer": "G",
-      "why": "G is the fifth note of the C major scale, making the G chord the 'V' chord in the key of C.",
+      "prompt": "In C–Am–F–G, which chord is played third?",
+      "answer": "F",
+      "why": "The progression runs C, Am, F, G in order, so F is the third chord played.",
       "options": [
-        "G",
-        "C",
         "F",
-        "A"
+        "C",
+        "Am",
+        "G"
       ],
       "fresh": false
     },
@@ -331,7 +331,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events in the rise of Japan's warrior rule, earliest to latest",
+      "prompt": "Order these events in the fall of Rome and rise of the medieval world",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -341,28 +341,28 @@
       },
       "type": "order",
       "sequence": [
-        "Emperor holds symbolic power",
-        "Local lords raise armies",
-        "Samurai warriors gain influence",
-        "Shogun rules in practice"
+        "Western Roman Empire falls",
+        "Central authority collapses",
+        "Local lords gain power",
+        "Feudal system spreads"
       ],
       "top": "Earliest",
       "bot": "Latest",
-      "why": "As central imperial control weakened, local lords built their own armies, samurai rose alongside them, and eventually a shogun held real power while the emperor remained a figurehead.",
+      "why": "Rome's fall in 476 CE left no central government, so local lords filled the power gap, and this gradually developed into the feudal system across medieval Europe.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say 'delicious' in Japanese when eating?",
-      "answer": "Oishii",
-      "why": "'Oishii' means 'delicious' and is used to compliment food while or after eating.",
+      "prompt": "What do you say in Japanese before eating a meal?",
+      "answer": "Itadakimasu",
+      "why": "'Itadakimasu' is said before eating to show thanks for the meal, while 'gochisousama' is said afterwards.",
       "options": [
-        "Oishii",
         "Itadakimasu",
+        "Gochisousama",
         "Kudasai",
-        "Gochisousama"
+        "Oishii"
       ],
       "fresh": false
     },
@@ -370,7 +370,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "Explain why the fight between servants at the start of Romeo and Juliet matters for understanding the rest of the play."
+      "prompt": "Explain why the servants' fight at the start of Romeo and Juliet matters for the rest of the play, in your own words."
     }
   ]
 }
