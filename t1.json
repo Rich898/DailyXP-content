@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-14",
-  "day": "MON",
-  "tag": "T8.1",
-  "title": "DailyXP · MON 2026-09-14",
+  "date": "2026-09-15",
+  "day": "TUE",
+  "tag": "T8.2",
+  "title": "DailyXP · TUE 2026-09-15",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A die roll giving a 7",
+      "prompt": "A die roll giving an 8",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "Possible",
       "right": "Impossible",
       "answer": "Impossible",
-      "why": "A standard die only has faces 1-6, so rolling a 7 can never happen — its probability is 0.",
+      "why": "A standard die only has faces 1–6, so rolling an 8 can never happen.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Stage directions are printed in italics for actors to read aloud",
+      "prompt": "A monologue spoken alone on stage",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,17 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Stage directions tell actors how to move or act — they are instructions, not lines spoken aloud.",
+      "left": "Drama feature",
+      "right": "Not drama feature",
+      "answer": "Drama feature",
+      "why": "A monologue is a drama technique where a character speaks their thoughts alone on stage, revealing feelings to the audience.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun held real military and political power in Japan",
+      "prompt": "The shogun outranked the emperor in real power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Although the emperor was the symbolic head, the shogun actually controlled the government and military.",
+      "why": "The emperor kept his title and status, but the shogun actually held military and political control of Japan.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', students used only fine detail brushwork",
+      "prompt": "Students used only fine brushes in Paint Like a Beast",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The activities focused on loose, expressive marks and unconventional tools, not fine detail brushwork.",
+      "why": "The activities encouraged bold, expressive marks using tools beyond fine brushes, like sponges or fingers, to capture animal energy.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "How do you say 'let's eat' before starting a meal?",
+      "prompt": "What does 'okawari' mean in a Japanese restaurant?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "itadakimasu",
-      "why": "'Itadakimasu' is said before eating to show thanks for the food; 'gochisousama' is said after finishing.",
+      "answer": "Refill",
+      "why": "'Okawari' is used to ask for a second helping or refill of food or drink.",
       "options": [
-        "itadakimasu",
-        "gochisousama",
-        "oishii",
-        "sumimasen"
+        "Refill",
+        "Bill please",
+        "Delicious",
+        "Water"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What does 'consequence' mean in history?",
+      "prompt": "What does 'change' mean in history?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A result of an event",
-      "why": "A consequence is what happens as a result of an event, distinct from the causes that led to it.",
+      "answer": "A shift over time",
+      "why": "Change refers to how things become different over time, in contrast to continuity, where things stay the same.",
       "options": [
-        "A result of an event",
-        "The date of an event",
-        "A cause of an event",
-        "A person in an event"
+        "Things staying the same",
+        "A shift over time",
+        "A single cause",
+        "A fixed date"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In a song, what usually happens when a chorus repeats with fuller instrumentation?",
+      "prompt": "What usually happens to instruments in a song's bridge?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Extra layers build a bigger sound",
-      "why": "Adding instrument layers in a repeated chorus thickens the texture and builds energy, making it feel bigger without changing the notes.",
+      "answer": "They strip back",
+      "why": "A bridge often strips instrumentation back to create contrast before the final chorus returns with full energy.",
       "options": [
-        "Layers thin out to one quiet voice",
-        "Extra layers build a bigger sound",
-        "Tempo slows to half speed",
-        "The key changes down a step"
+        "They strip back",
+        "They stay identical",
+        "They double in speed",
+        "They disappear completely"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What term describes a camel storing fat in its hump?",
+      "prompt": "What is biomass in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Structural adaptation",
-      "why": "A structural adaptation is a physical body feature, like a fat-storing hump, not a learned behaviour.",
+      "answer": "Total mass of living things",
+      "why": "Biomass measures the total mass of living organisms in an area, often used to compare energy at each feeding level.",
       "options": [
-        "Structural adaptation",
-        "Behavioural adaptation",
-        "Cultural adaptation",
-        "Random mutation"
+        "Total mass of living things",
+        "Number of species present",
+        "Speed of energy transfer",
+        "Amount of sunlight received"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What class of warriors served under the daimyo lords?",
+      "prompt": "Why was central rule difficult across old Japan?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Samurai",
-      "why": "Samurai were the warrior class who served daimyo lords, forming the backbone of Japan's military structure.",
+      "answer": "Mountainous terrain",
+      "why": "Japan's mountainous landscape made travel and communication hard, encouraging local warlords to rule their own regions.",
       "options": [
-        "Samurai",
-        "Shogun",
-        "Peasants",
-        "Monks"
+        "Mountainous terrain",
+        "Lack of writing",
+        "No rivers for travel",
+        "Too few people"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack design brief, radiata pine was mainly chosen because it is:",
+      "prompt": "Why was radiata pine chosen for the spice rack?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,12 +204,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Easy to work with",
-      "why": "Radiata pine is a soft, affordable timber that is easy to cut and shape, making it ideal for student projects.",
+      "why": "Radiata pine is soft, affordable, and easy for beginners to cut, shape, and finish, which is why it suits student projects.",
       "options": [
         "Easy to work with",
-        "The heaviest timber",
         "Naturally waterproof",
-        "The most expensive wood"
+        "Heaviest timber option",
+        "Most expensive material"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What are two pieces joined edge to edge at a right angle called?",
+      "prompt": "What is a butt joint?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Butt joint",
-      "why": "A butt joint simply joins two pieces end-to-end or edge-to-edge without interlocking shapes.",
+      "answer": "Two pieces joined end to end",
+      "why": "A butt joint simply joins two pieces of timber end to end or edge to edge, without interlocking shapes.",
       "options": [
-        "Butt joint",
-        "Dovetail joint",
-        "Mitre joint",
-        "Finger joint"
+        "Two pieces joined end to end",
+        "Two pieces overlapped diagonally",
+        "Two pieces interlocked with teeth",
+        "Two pieces glued at an angle"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "Sandpaper is mainly used before finishing to:",
+      "prompt": "Why sand timber before applying a finish?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Smooth the surface",
-      "why": "Sandpaper smooths rough wood surfaces so the finish, like varnish or paint, goes on evenly.",
+      "answer": "Creates a smooth surface",
+      "why": "Sanding smooths out roughness and marks, letting the finish sit evenly and look better on the timber.",
       "options": [
-        "Smooth the surface",
-        "Add colour",
-        "Seal out moisture",
-        "Glue pieces together"
+        "Creates a smooth surface",
+        "Makes wood waterproof",
+        "Adds strength to joints",
+        "Changes the wood's colour"
       ],
       "mode": "scrub",
       "fresh": true
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What natural hazard is most often caused by the sudden movement of tectonic plates?",
+      "prompt": "What natural hazard is caused by sudden movement of tectonic plates underground?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,7 +277,7 @@
         "earthquake",
         "earthquakes"
       ],
-      "why": "Earthquakes are caused by the sudden release of built-up stress along tectonic plate boundaries.",
+      "why": "Earthquakes happen when built-up stress along tectonic plate boundaries is suddenly released, shaking the ground.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In a play script, what is a stage direction mainly used for?",
-      "answer": "Telling actors how to move",
-      "why": "Stage directions (in italics) guide actors' movement, tone, or actions — they are instructions, not spoken dialogue.",
+      "prompt": "What is a soliloquy in a play?",
+      "answer": "A character speaking their thoughts alone",
+      "why": "A soliloquy is when a character speaks their private thoughts aloud while alone on stage, letting the audience hear their true feelings.",
       "options": [
-        "Telling actors how to move",
-        "Showing a character's spoken lines",
-        "Naming the scene's location only",
-        "Listing the full cast of actors"
+        "A character speaking their thoughts alone",
+        "A conversation between two characters",
+        "A note describing the set design",
+        "A song performed between scenes"
       ],
       "fresh": false
     },
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does the Prince threaten if the families fight again?",
-      "answer": "Death",
-      "why": "The Prince declares that any further street brawling between the families will be punished by death.",
+      "prompt": "Who tries to stop the servants' brawl in Act 1 Scene 1?",
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to try to separate the fighting servants, showing his peacemaking role early in the play.",
       "options": [
-        "Death",
-        "Exile",
-        "A fine",
-        "Imprisonment"
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "The Prince"
       ],
       "fresh": false
     },
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C-Am-F-G, which chord acts as the 'V', creating tension that pulls back to C?",
-      "answer": "The G major chord",
-      "why": "G is built on the fifth scale degree of C major, making it the 'V' chord — the strongest pull back to the tonic C.",
+      "prompt": "In C–Am–F–G, which chord is the 'vi'?",
+      "answer": "The Am chord",
+      "why": "Am is built on the sixth scale degree of C major, making it the 'vi' chord in the progression.",
       "options": [
-        "The G major chord",
-        "The C major chord",
-        "The Am minor chord",
-        "The F major chord"
+        "The Am chord",
+        "The C chord itself",
+        "The F chord instead",
+        "The G chord instead"
       ],
       "fresh": false
     },
@@ -330,14 +330,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did the activities mainly focus on capturing?",
-      "answer": "Movement and texture",
-      "why": "The activities encouraged loose, expressive marks to capture an animal's energy and texture, not exact realism.",
+      "prompt": "What did the Paint Like a Beast activities mainly focus on?",
+      "answer": "Capturing animal movement",
+      "why": "The activities encouraged expressive, energetic marks to capture an animal's movement and character, not photographic detail.",
       "options": [
-        "Movement and texture",
-        "Exact photo likeness",
-        "Precise anatomy",
-        "Background scenery"
+        "Capturing animal movement",
+        "Copying photos exactly",
+        "Painting tiny fine details",
+        "Mixing only grey tones"
       ],
       "fresh": false
     },
@@ -345,14 +345,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What do you say in Japanese before starting a meal?",
+      "prompt": "How do you say 'let's eat' in Japanese?",
       "answer": "Itadakimasu",
-      "why": "'Itadakimasu' is said before eating to show gratitude for the food, while 'gochisousama' is said afterward.",
+      "why": "'Itadakimasu' is said right before eating, similar to 'let's eat' or 'I gratefully receive this meal'.",
       "options": [
         "Itadakimasu",
+        "Arigatou",
         "Gochisousama",
-        "Oishii",
-        "Sumimasen"
+        "Sayonara"
       ],
       "fresh": false
     },
@@ -360,7 +360,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but changing the order can make a song feel different, even though no notes have changed."
+      "prompt": "Explain why playing C–Am–F–G starting on Am instead of C can make the same four chords feel sadder, even though no notes have changed."
     }
   ]
 }
