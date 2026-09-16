@@ -1,34 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-15",
-  "day": "TUE",
-  "tag": "H8.2",
-  "title": "DailyXP · TUE 2026-09-15",
+  "date": "2026-09-16",
+  "day": "WED",
+  "tag": "H8.3",
+  "title": "DailyXP · WED 2026-09-16",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A cube with side 4 cm has volume 64 cm³",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Volume of a cube is side × side × side, so 4 × 4 × 4 = 64 cm³.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Japan's mountains left plenty of flat land for huge farms",
+      "prompt": "Volume of a cuboid = length × width ÷ height",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan's mountainous terrain left very little flat land, which shaped where people could farm and settle.",
+      "why": "Volume of a cuboid is length × width × height — all three dimensions multiply together, none are divided.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Japan's mountains made building large empires easier",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Japan's rugged mountains split the land into isolated regions, making unified control hard and helping local warrior rule take root instead.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, the F chord is the 'IV'",
+      "prompt": "In C–Am–F–G, the G chord is the 'i' chord",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "In the key of C major, F is the fourth note of the scale, so it is the IV chord.",
+      "answer": "False",
+      "why": "C is the 'i' chord since the progression is built in the key of C major — G is the 'v' chord.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Itadakimasu' is said before you start eating",
+      "prompt": "'Gochisousama' is said before you start eating",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "'Itadakimasu' is said before a meal to show thanks for the food, not after finishing.",
+      "answer": "False",
+      "why": "'Gochisousama' is said after finishing a meal to thank for the food — 'itadakimasu' is said before eating.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What do we call an event that happens because of an earlier one?",
+      "prompt": "What is a 'consequence' of a historical event?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A consequence",
-      "why": "A consequence is the result that follows from a cause; it always comes after, not before.",
+      "answer": "Something caused by it",
+      "why": "A consequence is a result that happens because of the event — a cause is what made the event happen in the first place.",
       "options": [
-        "A consequence",
-        "A trigger",
-        "A continuity",
-        "A prologue"
+        "Something caused by it",
+        "Something that caused it",
+        "Its exact starting date",
+        "A person involved in it"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Which song section usually has the most instrument layers?",
+      "prompt": "Which song section usually has the fullest layering?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,12 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Chorus",
-      "why": "The chorus is usually the fullest, most layered section because it carries the song's main hook and energy peak.",
+      "why": "The chorus is usually the fullest-layered section, building energy with more instruments than the verse or intro.",
       "options": [
         "Chorus",
-        "Intro (sparse setup)",
-        "Verse (sparse setup)",
-        "Outro (fading layers)"
+        "Intro",
+        "Bridge",
+        "Outro"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a food chain, what do we call an animal that eats other animals?",
+      "prompt": "What term describes a trait that helps an organism survive?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Consumer",
-      "why": "A consumer is an organism that gets energy by eating other living things, unlike producers which make their own food.",
+      "answer": "Adaptation",
+      "why": "An adaptation is a trait shaped by natural selection that helps an organism survive and reproduce in its habitat.",
       "options": [
-        "Consumer",
-        "Producer",
-        "Decomposer",
-        "Habitat"
+        "Adaptation",
+        "Mutation event",
+        "Habitat marker",
+        "Growth spurt"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students study closely before they start painting?",
+      "prompt": "In 'Paint Like a Beast', what tool creates rough fur marks?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Animal reference images",
-      "why": "Students study real animal reference images to guide brushwork and texture, rather than tracing an exact photocopy or focusing on framing or colour theory alone.",
+      "answer": "A stiff, dry brush",
+      "why": "A stiff, dry brush drags paint unevenly across the surface, creating the rough textured marks used to suggest fur.",
       "options": [
-        "Animal reference images",
-        "Photocopied outlines",
-        "Frame design sketches",
-        "Colour theory charts"
+        "A stiff, dry brush",
+        "A soft watercolour wash",
+        "A fine ink pen",
+        "A smooth roller"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the design portfolio, what does identifying a 'need' come from?",
+      "prompt": "What does a 'design brief' describe?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A problem to solve",
-      "why": "A design starts by identifying a real problem or need, which then shapes the design brief.",
+      "answer": "What the product must do",
+      "why": "A design brief sets out the requirements the finished product must meet, based on the identified need.",
       "options": [
-        "A problem to solve",
-        "The final price",
-        "The chosen timber",
-        "The finished sketch"
+        "What the product must do",
+        "The exact timber cost",
+        "The final sanding grit",
+        "The glue drying time"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "Which joint has a notch cut into both pieces so they interlock flush?",
+      "prompt": "Which joint interlocks two notched pieces flush?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,12 +204,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Halving joint",
-      "why": "A halving joint removes half the thickness from each piece so they sit flush and interlock, unlike a butt joint which just meets edge to edge with no interlocking cut.",
+      "why": "A halving joint has a notch cut into both pieces so they interlock flush, giving more glued surface than a plain butt, mitre or lap joint.",
       "options": [
         "Halving joint",
         "Simple butt joint",
-        "Plain mitre joint",
-        "Basic dowel joint"
+        "Basic mitre joint",
+        "Overlapping lap joint"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What is PVA glue mainly used for in the spice rack build?",
+      "prompt": "What is PVA glue mainly used for?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,11 +226,11 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Bonding wood joints",
-      "why": "PVA glue is a wood adhesive used to bond joints together, while sanding and finishing are separate later steps.",
+      "answer": "Bonding wood pieces",
+      "why": "PVA glue is a wood adhesive used to bond joints together firmly, not to finish or colour the surface.",
       "options": [
-        "Bonding wood joints",
-        "Sealing the surface finish",
+        "Bonding wood pieces",
+        "Sealing the finish coat",
         "Smoothing rough edges",
         "Colouring the timber"
       ],
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A student tests if plant food type affects flower size, keeping water amount the same. What is the independent variable?",
+      "prompt": "Testing plant height with different water amounts, soil kept the same. What is the controlled variable?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Type of plant food used",
-      "why": "The independent variable is what the student deliberately changes — here, the type of plant food used.",
+      "answer": "Soil type",
+      "why": "The controlled variable is kept the same on purpose — here that's soil type, while water amount is changed (independent) and height is measured (dependent).",
       "options": [
-        "Type of plant food used",
-        "Flower size measured",
-        "Amount of water given",
-        "Colour of the flower pot"
+        "Soil type",
+        "Water amount",
+        "Plant height",
+        "Number of plants"
       ],
       "mode": "scrub",
       "fresh": false,
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the type of light bulb affects room temperature, keeping the room size the same. What is the dependent variable?",
+      "prompt": "A student tests if the amount of exercise affects heart rate, keeping the person's diet the same. What is the independent variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -275,24 +275,25 @@
       },
       "type": "text",
       "accept": [
-        "room temperature",
-        "temperature"
+        "amount of exercise",
+        "exercise amount",
+        "exercise"
       ],
-      "why": "The dependent variable is what you measure to see the effect — here, the room temperature.",
+      "why": "The independent variable is what the experimenter deliberately changes — here that's the amount of exercise.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, what technique does Shakespeare use in the Prologue to reveal the ending before the play begins?",
-      "answer": "Dramatic irony",
-      "why": "The Prologue tells the audience the lovers will die, creating dramatic irony — we know their fate while the characters don't, which builds tension throughout.",
+      "prompt": "What does the Prologue's Chorus call the feud between the two families?",
+      "answer": "An ancient grudge",
+      "why": "The Chorus describes the feud as an 'ancient grudge' — long-standing hatred, not something new.",
       "options": [
-        "Dramatic irony",
-        "Rhyming couplets",
-        "A servants' brawl",
-        "A masked ball scene"
+        "An ancient grudge",
+        "A new argument",
+        "A royal decree",
+        "A friendly rivalry"
       ],
       "fresh": false,
       "throwback": true
@@ -301,14 +302,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, what does Romeo do moments after first speaking to Juliet at the party?",
-      "answer": "Kisses her",
-      "why": "Romeo and Juliet share a sonnet when they meet, and it ends with their first kiss — before Romeo even knows her name.",
+      "prompt": "Who starts the fight in Act 1 Scene 1?",
+      "answer": "The servants",
+      "why": "The play opens with Capulet and Montague servants brawling in the street, not the main characters.",
       "options": [
-        "Kisses her",
-        "Fights Tybalt",
-        "Leaves the party",
-        "Sends her a letter"
+        "The servants",
+        "Romeo and Tybalt",
+        "The Prince's guards",
+        "Lord Capulet"
       ],
       "fresh": false
     },
@@ -316,14 +317,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is played third?",
-      "answer": "F",
-      "why": "The progression runs C, Am, F, G in order, so F is the third chord played.",
+      "prompt": "In C–Am–F–G, which chord comes second?",
+      "answer": "Am chord",
+      "why": "The progression runs C then Am then F then G, so Am is the second chord played.",
       "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
+        "Am chord",
+        "C chord",
+        "F chord",
+        "G chord"
       ],
       "fresh": false
     },
@@ -331,7 +332,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events in the fall of Rome and rise of the medieval world",
+      "prompt": "Order these events in Japan's early feudal hierarchy forming",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -341,28 +342,28 @@
       },
       "type": "order",
       "sequence": [
-        "Western Roman Empire falls",
-        "Central authority collapses",
-        "Local lords gain power",
-        "Feudal system spreads"
+        "Emperor holds symbolic power",
+        "Daimyo control large land estates",
+        "Samurai serve daimyo for land",
+        "Shogun commands military rule"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "Rome's fall in 476 CE left no central government, so local lords filled the power gap, and this gradually developed into the feudal system across medieval Europe.",
+      "top": "First",
+      "bot": "Last",
+      "why": "As Japan's feudal system formed, land-holding daimyo relied on samurai for protection, while the shogun ultimately took military control beneath the emperor's symbolic authority.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What do you say in Japanese before eating a meal?",
-      "answer": "Itadakimasu",
-      "why": "'Itadakimasu' is said before eating to show thanks for the meal, while 'gochisousama' is said afterwards.",
+      "prompt": "What does 'kudasai' mean when ordering food?",
+      "answer": "Please give me",
+      "why": "'Kudasai' is used to politely ask for something, like 'water, kudasai' meaning 'water, please'.",
       "options": [
-        "Itadakimasu",
-        "Gochisousama",
-        "Kudasai",
-        "Oishii"
+        "Please give me",
+        "Thank you very much",
+        "Excuse me",
+        "Delicious"
       ],
       "fresh": false
     },
@@ -370,7 +371,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "English",
-      "prompt": "Explain why the servants' fight at the start of Romeo and Juliet matters for the rest of the play, in your own words."
+      "prompt": "Explain why Shakespeare places the Capulet-Montague street fight right at the start of the play, before we meet Romeo or Juliet."
     }
   ]
 }
