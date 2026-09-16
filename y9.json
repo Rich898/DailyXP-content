@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-15",
-  "day": "TUE",
-  "tag": "R8.2",
-  "title": "DailyXP · TUE 2026-09-15",
+  "date": "2026-09-16",
+  "day": "WED",
+  "tag": "R8.3",
+  "title": "DailyXP · WED 2026-09-16",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Burning wood in an open dish: total mass stays the same",
+      "prompt": "Burning magnesium in a sealed, closed flask: total mass changes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "In an open system, gas escapes into the air, so the measured mass drops even though no mass is truly destroyed.",
+      "why": "In a closed system nothing escapes or enters, so mass is conserved even though the magnesium changes chemically.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Only soldiers were harmed during the Nanjing Massacre",
+      "prompt": "Only Japanese soldiers were harmed in the Nanjing Massacre",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Civilians — men, women, and children — were the main victims of the violence in Nanjing in 1937.",
+      "why": "The victims were overwhelmingly Chinese civilians and disarmed soldiers, not Japanese troops.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The superego is guided by moral rules",
+      "prompt": "The id follows the pleasure principle",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The superego develops from parents and society and judges actions using conscience and morals.",
+      "why": "The id seeks instant gratification with no regard for consequences, which is the pleasure principle.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A gym membership is a product",
+      "prompt": "A plumber fixing a pipe for a fee",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "Product",
       "right": "Service",
       "answer": "Service",
-      "why": "A gym membership gives access to an ongoing activity, not a physical item, so it counts as a service.",
+      "why": "A service is work done for someone, like fixing a pipe, rather than a physical item they keep.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "A snack ad shows kids laughing at a party eating chips. What technique is this?",
+      "prompt": "A drink ad shows a famous athlete celebrating with the product. What technique is this?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Peer appeal",
-      "why": "Showing friends enjoying food together uses peer appeal to make the snack seem socially desirable.",
+      "answer": "Celebrity endorsement",
+      "why": "Linking a famous person to a product is celebrity endorsement, designed to transfer their appeal to the brand.",
       "options": [
-        "Peer appeal",
-        "Nutritional labelling",
-        "Price discount",
-        "Portion control"
+        "Celebrity endorsement",
+        "Bulk discount pricing",
+        "Nutrition labelling",
+        "Recipe suggestion"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient gives the most energy per gram?",
+      "prompt": "On a nutrition label, what does 'per serving' tell you?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Fat, at over twice the energy of carbs",
-      "why": "Fat provides about 9 calories per gram, more than double carbohydrate or protein, which each provide around 4 calories per gram.",
+      "answer": "Amount in one portion",
+      "why": "'Per serving' shows the nutrient amounts for a single suggested portion, not the entire package or a daily limit.",
       "options": [
-        "Fat, at over twice the energy of carbs",
-        "Carbohydrate, the body's main fuel source",
-        "Protein, used for muscle repair",
-        "Fibre, needed for digestion"
+        "Amount in one portion",
+        "Amount in whole pack",
+        "Daily limit allowed",
+        "Amount per 100g only"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "What is one key feature of a healthy food choice?",
+      "prompt": "Which model shows the recommended proportions of food groups for a healthy diet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Variety of foods",
-      "why": "Healthy eating relies on variety across food groups, not restricting to just one type of food.",
+      "answer": "The Eatwell Plate",
+      "why": "The Eatwell Plate (or Australian Guide to Healthy Eating) visually shows the correct proportions of each food group for a balanced diet.",
       "options": [
-        "Variety of foods",
-        "Only low-fat foods",
-        "Only high-protein foods",
-        "Skipping meals"
+        "The Eatwell Plate",
+        "The Food Pyramid Scale",
+        "The Nutrient Wheel",
+        "The Energy Balance Chart"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "In Food Technology, what does 'food selection' mainly mean?",
+      "prompt": "Which nutrient is mainly needed for building and repairing muscle tissue?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Choosing foods to eat",
-      "why": "Food selection refers to the choices people make about which foods to eat, shaped by health, culture, and cost.",
+      "answer": "Protein, for growth and repair",
+      "why": "Protein supplies the amino acids needed to build and repair muscle tissue, unlike fat, fibre or vitamin C, which serve other roles in the body.",
       "options": [
-        "Choosing foods to eat",
-        "Cooking methods used",
-        "Storing food safely",
-        "Growing food crops"
+        "Protein, for growth and repair",
+        "Fat, for insulation and energy storage",
+        "Fibre, for digestive health",
+        "Vitamin C, for immune support"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Why does the body need protein in the diet?",
+      "prompt": "Which nutrient helps carry oxygen around the body?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "For growth and repair",
-      "why": "Protein builds and repairs body tissue like muscle; carbohydrates, not protein, are the body's main quick-energy source.",
+      "answer": "Iron",
+      "why": "Iron is needed to make haemoglobin, the part of red blood cells that carries oxygen around the body.",
       "options": [
-        "For growth and repair",
-        "For quick energy bursts",
-        "For better eyesight",
-        "For faster digestion"
+        "Iron",
+        "Protein",
+        "Fibre",
+        "Vitamin C"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which model shows the proportions of a balanced diet?",
+      "prompt": "Which nutrient helps the body absorb calcium properly?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Eatwell Guide",
-      "why": "The Eatwell Guide is the official model showing correct food group proportions for a balanced diet.",
+      "answer": "Vitamin D",
+      "why": "Vitamin D helps the body absorb calcium from food, supporting strong bones, unlike vitamin C, iron, or fibre which serve other roles.",
       "options": [
-        "Eatwell Guide",
-        "Food Pyramid Myth",
-        "Calorie Chart",
-        "Protein Wheel"
+        "Vitamin D",
+        "Vitamin C",
+        "Iron mineral",
+        "Dietary fibre"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has base 14 cm and height 6 cm. What is its area?",
+      "prompt": "A triangle has a base of 12 cm and a height of 10 cm. What is its area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "42 cm²",
-      "why": "Area = ½ × base × height = ½ × 14 × 6 = 42 cm². Skipping the ½ gives the wrong doubled answer, 84 cm².",
+      "answer": "60 cm²",
+      "why": "Area is ½ × base × height, so ½ × 12 × 10 = 60 cm²; forgetting to halve gives the wrong 120 cm².",
       "options": [
-        "42 cm²",
-        "84 cm²",
-        "40 cm²",
-        "56 cm²"
+        "60 cm²",
+        "120 cm²",
+        "22 cm²",
+        "72 cm²"
       ],
       "mode": "scrub",
       "fresh": false,
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What money crisis hit Germany in 1923?",
+      "prompt": "The Weimar Republic began after which event?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Hyperinflation",
-      "why": "In 1923 the Weimar government printed vast amounts of money, causing hyperinflation so severe that prices doubled daily and savings became worthless.",
+      "answer": "Germany's WWI defeat",
+      "why": "The Weimar Republic was formed in 1919 after Germany's defeat in WWI and the Kaiser's abdication.",
       "options": [
-        "Hyperinflation",
-        "Stock market crash",
-        "Bank nationalisation",
-        "Gold rush"
+        "Germany's WWI defeat",
+        "The Munich Putsch",
+        "Hitler becoming chancellor",
+        "The Great Depression"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 18 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 72,
+      "answer": 56,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 18 × 8 = 72 cm². Halve first (or last), don't skip that step.",
+      "why": "Area is ½ × base × height, so ½ × 14 × 8 = 56 cm²; the halving step is what rushing skips.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does the conch shell mainly symbolise in Lord of the Flies?",
-      "answer": "Order and civilisation",
-      "why": "The conch gives its holder the right to speak, representing the rules and order the boys start with.",
+      "prompt": "From a while back — what does the signal fire mainly represent in Lord of the Flies?",
+      "answer": "Hope of rescue",
+      "why": "The fire symbolises the boys' connection to civilisation and their hope of being rescued.",
       "options": [
-        "Order and civilisation",
-        "Fear of the beast",
-        "Jack's hunting power",
-        "Piggy's intelligence"
+        "Hope of rescue",
+        "The boys' fear",
+        "Jack's leadership",
+        "The island's danger"
       ],
       "fresh": false,
       "throwback": true
@@ -301,14 +301,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "Which part of a business plan lists expected startup costs?",
-      "answer": "Financial plan",
-      "why": "Startup costs and cash flow figures belong in the financial plan, which covers the money side of the business.",
+      "prompt": "In a business plan, which section outlines day-to-day running of the business?",
+      "answer": "Operations plan, covering daily tasks",
+      "why": "The operations plan describes how the business actually runs day-to-day, while the executive summary, market analysis and financial plan cover overview, competition and money instead.",
       "options": [
-        "Financial plan",
-        "Executive summary",
-        "Market analysis",
-        "Mission statement"
+        "Operations plan, covering daily tasks",
+        "Executive summary, a one-page overview",
+        "Market analysis, covering competitors",
+        "Financial plan, covering costs"
       ],
       "fresh": false
     },
@@ -316,14 +316,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Freud's model, which part seeks pleasure without restraint?",
-      "answer": "The id",
-      "why": "The id is entirely unconscious and instinctive, seeking pleasure with no regard for consequences.",
+      "prompt": "In Freud's model, which part is mostly conscious and rational?",
+      "answer": "Ego",
+      "why": "The ego operates mostly at a conscious level, making realistic decisions that balance the id's desires against the world's demands.",
       "options": [
-        "The id",
-        "The ego",
-        "The superego",
-        "The conscience"
+        "Ego",
+        "Id",
+        "Superego",
+        "Unconscious"
       ],
       "fresh": false
     },
@@ -331,7 +331,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "If you burn wood in an open dish, why does the measured mass appear to decrease?",
+      "prompt": "In an open container, why might measured mass seem to change after a reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -342,17 +342,17 @@
       "type": "text",
       "accept": [
         "gas escapes",
-        "gases escape into the air",
-        "products escape as gas"
+        "gas enters or leaves",
+        "a gas is released"
       ],
-      "why": "In an open system, gas products escape into the air, so the measured mass drops even though total mass is actually conserved.",
+      "why": "In an open system, gases can escape into or enter from the air, so the measured mass changes even though total mass is still conserved overall.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What sign of a chemical reaction would you see when a precipitate forms?",
+      "prompt": "What sign of a chemical reaction would you see if it releases heat?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -362,18 +362,18 @@
       },
       "type": "text",
       "accept": [
-        "cloudy solid forms",
-        "solid forms",
-        "insoluble solid appears"
+        "temperature rises",
+        "gets hot",
+        "temperature increases"
       ],
-      "why": "A precipitate is an insoluble solid that suddenly appears in a solution, showing a new substance has formed.",
+      "why": "A rise in temperature shows energy is being released, a common sign that a chemical reaction is taking place.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "Explain why a business plan separates the market analysis from the financial plan, even though both deal with numbers."
+      "prompt": "A student's business plan lists 'our biggest weakness is high rent costs' under the executive summary. Explain why this is misplaced and where it truly belongs."
     }
   ]
 }
