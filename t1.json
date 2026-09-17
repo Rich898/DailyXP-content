@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-16",
-  "day": "WED",
-  "tag": "T8.3",
-  "title": "DailyXP · WED 2026-09-16",
+  "date": "2026-09-17",
+  "day": "THU",
+  "tag": "T8.4",
+  "title": "DailyXP · THU 2026-09-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Rolling a die: getting a number greater than 4",
+      "prompt": "A die roll giving a result of 5",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Certain",
-      "right": "Not certain",
-      "answer": "Not certain",
-      "why": "Only 5 and 6 are greater than 4, so it's possible but not guaranteed — that makes it not certain.",
+      "left": "Possible",
+      "right": "Impossible",
+      "answer": "Possible",
+      "why": "A standard die has faces 1-6, so rolling a 5 is a possible outcome.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Two characters talking to each other on stage",
+      "prompt": "The narrator character in a Greek-style play who comments on the action",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,36 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Dialogue",
-      "right": "Soliloquy",
-      "answer": "Dialogue",
-      "why": "Dialogue is spoken exchange between characters; a soliloquy is spoken alone, revealing private thoughts.",
+      "left": "Chorus",
+      "right": "Protagonist",
+      "answer": "Chorus",
+      "why": "The Chorus narrates and comments on events, unlike the protagonist who drives the action.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun answered to no one, not even the emperor",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The shogun ruled in the emperor's name and technically held power on his behalf, even though he had the real control.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', students focused on capturing texture and movement, not exact likeness",
+      "prompt": "The shogun needed the emperor's permission to hold power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The activities encouraged loose, expressive brushwork to suggest an animal's energy rather than photo-realistic detail.",
+      "why": "The shogun ruled with real military power but technically governed in the emperor's name.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', students aimed for photo-realistic detail",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The activities focused on texture and movement, not exact photo-like likeness.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What do you say to start eating in Japanese?",
+      "prompt": "In a Japanese restaurant, what do you say before starting to eat?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Itadakimasu",
-      "why": "Itadakimasu is said before eating; gochisousama is said after, oishii means delicious, and okawari means 'seconds please'.",
+      "answer": "itadakimasu",
+      "why": "'Itadakimasu' is said before eating to show gratitude for the food. 'Gochisousama' is said after finishing, 'sumimasen' means excuse me, and 'okawari' means a second helping.",
       "options": [
-        "Itadakimasu",
-        "Gochisousama",
-        "Oishii",
-        "Okawari"
+        "itadakimasu",
+        "gochisousama",
+        "sumimasen",
+        "okawari"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In history, what does 'cause' mean?",
+      "prompt": "In history, what is a 'consequence'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Why something happened",
-      "why": "A cause is a reason or factor that made an event happen, distinct from its consequence (what happened afterwards).",
+      "answer": "A result of an event",
+      "why": "A consequence is what happens as a result of an event, distinct from its cause.",
       "options": [
-        "Why something happened",
-        "What happened after",
-        "A date on a timeline",
-        "A historian's opinion"
+        "A result of an event",
+        "The date of an event",
+        "A cause of an event",
+        "A person involved"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What usually happens to instrument layers in a song's chorus?",
+      "prompt": "What effect does a key change often create in a song?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They thicken",
-      "why": "Choruses often add more instrument layers to build energy and make the section feel bigger than the verse.",
+      "answer": "A lift in energy",
+      "why": "Shifting to a higher key is a common technique to add excitement or lift near a song's end.",
       "options": [
-        "They thicken",
-        "They stop completely",
-        "They stay identical",
-        "They slow down"
+        "A lift in energy",
+        "A slower tempo",
+        "A quieter dynamic",
+        "A key stays the same"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Why do polar bears have a thick layer of fat under their skin?",
+      "prompt": "What term describes total living matter in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To insulate against cold",
-      "why": "Blubber traps heat and insulates the bear against freezing arctic temperatures, a structural adaptation for survival.",
+      "answer": "Biomass",
+      "why": "Biomass is the measure of total living material in an ecosystem, often used to track energy flow.",
       "options": [
-        "To insulate against cold",
-        "To help them swim faster",
-        "To increase body size",
-        "To store extra oxygen"
+        "Biomass",
+        "Biodiversity",
+        "Habitat",
+        "Population"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What class of warriors served under Japan's daimyo lords?",
+      "prompt": "What made central rule difficult across old Japan?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Samurai",
-      "why": "Samurai were the warrior class who served daimyo lords, providing military service in exchange for land and protection.",
+      "answer": "Mountainous terrain",
+      "why": "Japan's mountainous geography isolated regions, making it hard for one ruler to control the whole country.",
       "options": [
-        "Samurai",
-        "Ninja",
-        "Ronin",
-        "Ashigaru only"
+        "Mountainous terrain",
+        "Flat open plains",
+        "A large navy",
+        "A single language barrier"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What type of tree does radiata pine come from?",
+      "prompt": "In the spice rack design brief, why was radiata pine mainly chosen?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Softwood conifer",
-      "why": "Radiata pine is a fast-growing softwood conifer, which is why it's affordable and easy to work with in school projects.",
+      "answer": "It is easy to work with",
+      "why": "Radiata pine was chosen because it is a soft, easy-to-work timber suitable for student projects, not for extreme strength or waterproofing.",
       "options": [
-        "Softwood conifer",
-        "Hardwood deciduous",
-        "Tropical hardwood",
-        "Bamboo grass"
+        "It is easy to work with",
+        "It is extremely heavy",
+        "It resists all water damage",
+        "It is the strongest hardwood"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What is a mitre joint mainly used for?",
+      "prompt": "Which joint uses angled 45° cuts for a neat corner with no end grain showing?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Hiding end grain",
-      "why": "A mitre joint is cut at 45° on both pieces so the joint meets at a corner without showing end grain, giving a neater finish than a butt joint.",
+      "answer": "Mitre joint",
+      "why": "A mitre joint uses two 45° angled cuts to form a corner where no end grain is visible, unlike a plain butt joint.",
       "options": [
-        "Hiding end grain",
-        "Locking drawer sides",
-        "Joining mid-panel",
-        "Reinforcing a T-shape"
+        "Mitre joint",
+        "Butt joint",
+        "Dowel joint",
+        "Rebate joint"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What grit sandpaper is usually used first on rough timber?",
+      "prompt": "What grit sandpaper is best for the first pass on rough timber?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,12 +250,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Coarse grit",
-      "why": "Coarse grit sandpaper is used first to remove roughness quickly, before finer grits smooth the surface for finishing.",
+      "why": "Coarse grit removes rough surface material fast; you move to fine grit only afterwards, for smoothing before a finish.",
       "options": [
         "Coarse grit",
         "Fine grit",
-        "Extra-fine grit",
-        "Wet-dry grit"
+        "Very fine grit",
+        "Wet-and-dry grit"
       ],
       "mode": "scrub",
       "fresh": true
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes a large release of energy at a plate boundary that shakes the ground?",
+      "prompt": "What natural hazard is most often caused by sudden movement of tectonic plates underground?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,7 +277,7 @@
         "earthquake",
         "earthquakes"
       ],
-      "why": "An earthquake happens when built-up stress at a tectonic plate boundary is suddenly released, sending shockwaves through the ground.",
+      "why": "Sudden movement along a fault line releases energy as seismic waves, causing an earthquake.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What is an aside in a play?",
-      "answer": "Words heard only by the audience",
-      "why": "An aside is a short remark a character makes that the audience hears but other characters on stage do not.",
+      "prompt": "In a play script, what does dialogue mainly show?",
+      "answer": "Words characters speak",
+      "why": "Dialogue is the spoken conversation between characters, separate from stage directions which tell actors how to move.",
       "options": [
-        "Words heard only by the audience",
-        "A stage direction in italics",
-        "A speech given alone on stage",
-        "Dialogue between two characters"
+        "Words characters speak",
+        "How actors should move",
+        "The scene's setting",
+        "Notes on lighting"
       ],
       "fresh": false
     },
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, whose party do Romeo and his friends attend uninvited?",
-      "answer": "Capulet's",
-      "why": "Romeo and his friends sneak into a Capulet party in disguise, where Romeo first sees Juliet despite the families' feud.",
+      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if fighting continues?",
+      "answer": "Death",
+      "why": "Prince Escalus warns that any further public brawling between the families will be punished by death, showing how serious the feud has become.",
       "options": [
-        "Capulet's",
-        "Montague's",
-        "Prince's",
-        "Friar's"
+        "Death",
+        "Exile",
+        "A fine",
+        "Imprisonment"
       ],
       "fresh": false
     },
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord acts as the 'IV', built on the fourth scale degree?",
-      "answer": "F major chord",
-      "why": "In C major, the scale degrees run C(1)-D(2)-E(3)-F(4)-G(5)-A(6)-B(7), so a chord built on F is the fourth degree — the 'IV' chord.",
+      "prompt": "In the key of C major, which chord is built on the fifth scale degree?",
+      "answer": "G major",
+      "why": "Counting up from C (1-2-3-4-5), the fifth note is G, so G major is the 'V' chord. F is the fourth degree ('IV') and A minor is the sixth degree ('vi').",
       "options": [
-        "C major chord",
-        "Am minor chord",
-        "F major chord",
-        "G major chord"
+        "G major",
+        "F major",
+        "A minor",
+        "D minor"
       ],
       "fresh": false
     },
@@ -330,14 +330,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what colours did students mostly use?",
-      "answer": "Bold, exaggerated colours",
-      "why": "The activities pushed students to use bold, exaggerated colours to express an animal's character, rather than copying its true-to-life colouring.",
+      "prompt": "In 'Paint Like a Beast', what animal feature did students mainly focus on capturing?",
+      "answer": "Texture and movement",
+      "why": "The activities focused on capturing an animal's texture and movement through loose brushwork, not exact photographic likeness.",
       "options": [
-        "Bold, exaggerated colours",
-        "Only black and white",
-        "Realistic natural colours",
-        "Pale pastel tones"
+        "Texture and movement",
+        "Exact photo-like detail",
+        "Precise anatomy",
+        "Realistic colouring"
       ],
       "fresh": false
     },
@@ -345,14 +345,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say 'let's eat' before starting a meal in Japanese?",
-      "answer": "Itadakimasu",
-      "why": "Itadakimasu is said before eating to show gratitude for the meal, similar to 'let's eat' or 'thanks for the food'.",
+      "prompt": "What does 'gochisousama' mean in Japanese?",
+      "answer": "Thank you for the meal",
+      "why": "'Gochisousama' is said after finishing a meal to thank whoever prepared or provided the food.",
       "options": [
-        "Itadakimasu",
-        "Gochisousama",
-        "Okawari",
-        "Oishii"
+        "Thank you for the meal",
+        "Let's eat",
+        "Delicious",
+        "Please pass the rice"
       ],
       "fresh": false
     },
@@ -360,7 +360,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why the same four chords (C-Am-F-G) can sound completely different in mood depending on which chord starts the sequence."
+      "prompt": "Explain why swapping which chord starts the C-Am-F-G loop can change how a song feels, even though the same four chords are used."
     }
   ]
 }
