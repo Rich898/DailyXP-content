@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-16",
-  "day": "WED",
-  "tag": "H8.3",
-  "title": "DailyXP · WED 2026-09-16",
+  "date": "2026-09-17",
+  "day": "THU",
+  "tag": "H8.4",
+  "title": "DailyXP · THU 2026-09-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Volume of a cuboid = length × width ÷ height",
+      "prompt": "A shape with volume 60 cm³ could be 3 cm × 4 cm × 5 cm",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Volume of a cuboid is length × width × height — all three dimensions multiply together, none are divided.",
+      "answer": "True",
+      "why": "3 × 4 × 5 = 60, so those dimensions give a volume of 60 cm³.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountains made building large empires easier",
+      "prompt": "Japan's mountains left lots of flat land for huge farms",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan's rugged mountains split the land into isolated regions, making unified control hard and helping local warrior rule take root instead.",
+      "why": "Japan's mountains left very little flat land, which shaped small farms and separate regions ruled by local warriors.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, the G chord is the 'i' chord",
+      "subject": "Science",
+      "prompt": "Biomass means the total living material in an ecosystem",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "C is the 'i' chord since the progression is built in the key of C major — G is the 'v' chord.",
+      "answer": "True",
+      "why": "Biomass is the total mass of living things in an area, often measured to compare energy at each food chain level.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Gochisousama' is said before you start eating",
+      "prompt": "'Kudasai' means 'delicious'",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'Gochisousama' is said after finishing a meal to thank for the food — 'itadakimasu' is said before eating.",
+      "why": "'Kudasai' means 'please give me'; 'oishii' is the word for 'delicious'.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What is a 'consequence' of a historical event?",
+      "subject": "Technology",
+      "prompt": "In the spice rack build, what is a butt joint?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Something caused by it",
-      "why": "A consequence is a result that happens because of the event — a cause is what made the event happen in the first place.",
+      "answer": "Two edges glued flat together",
+      "why": "A butt joint is the simplest joint: two pieces joined edge-to-edge or end-to-end with glue, no interlocking cuts — unlike housing or dowel joints.",
       "options": [
-        "Something caused by it",
-        "Something that caused it",
-        "Its exact starting date",
-        "A person involved in it"
+        "Two edges glued flat together",
+        "Two notched pieces slotted flush",
+        "A diagonal angled overlap cut",
+        "A pinned round dowel joint"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "Which song section usually has the fullest layering?",
+      "subject": "Technology",
+      "prompt": "What grit of sandpaper should you finish with for a smooth surface?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Chorus",
-      "why": "The chorus is usually the fullest-layered section, building energy with more instruments than the verse or intro.",
+      "answer": "Fine grit",
+      "why": "Fine grit sandpaper is used last to smooth the surface before finishing, after coarser grits have shaped and levelled the wood.",
       "options": [
-        "Chorus",
-        "Intro",
-        "Bridge",
-        "Outro"
+        "Fine grit",
+        "Coarse grit",
+        "Medium grit",
+        "Wet grit"
       ],
-      "fresh": false
+      "fresh": true
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "What term describes a trait that helps an organism survive?",
+      "subject": "English",
+      "prompt": "Which London theatre performed Shakespeare's plays?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Adaptation",
-      "why": "An adaptation is a trait shaped by natural selection that helps an organism survive and reproduce in its habitat.",
+      "answer": "The Globe",
+      "why": "Shakespeare's company performed most of his plays, including Romeo and Juliet, at The Globe theatre in London.",
       "options": [
-        "Adaptation",
-        "Mutation event",
-        "Habitat marker",
-        "Growth spurt"
+        "The Globe",
+        "The Old Vic",
+        "Sadler's Wells",
+        "The Palladium"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what tool creates rough fur marks?",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, what does Benvolio try to do when he arrives at the brawl?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A stiff, dry brush",
-      "why": "A stiff, dry brush drags paint unevenly across the surface, creating the rough textured marks used to suggest fur.",
+      "answer": "Break up the fighting servants at once",
+      "why": "Benvolio, whose name means 'good will', tries to stop the brawl the moment he arrives — showing he wants peace, unlike Tybalt who escalates it.",
       "options": [
-        "A stiff, dry brush",
-        "A soft watercolour wash",
-        "A fine ink pen",
-        "A smooth roller"
+        "Draw his own sword to join the fighting",
+        "Break up the fighting servants at once",
+        "Run away before Tybalt arrives",
+        "Fetch the Prince to punish the men"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What does a 'design brief' describe?",
+      "subject": "History",
+      "prompt": "Who did the shogun rule below, at least in name?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "What the product must do",
-      "why": "A design brief sets out the requirements the finished product must meet, based on the identified need.",
+      "answer": "The emperor",
+      "why": "The emperor kept symbolic status at the top, while the shogun actually held military and political power beneath him in name only.",
       "options": [
-        "What the product must do",
-        "The exact timber cost",
-        "The final sanding grit",
-        "The glue drying time"
+        "The emperor",
+        "The daimyo",
+        "The samurai",
+        "The shrine priests"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Which joint interlocks two notched pieces flush?",
+      "subject": "Music",
+      "prompt": "In song structure, what does the intro mainly do?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Halving joint",
-      "why": "A halving joint has a notch cut into both pieces so they interlock flush, giving more glued surface than a plain butt, mitre or lap joint.",
+      "answer": "Sets up the mood",
+      "why": "The intro establishes the song's mood and key before the verse begins, rather than repeating or concluding material heard later.",
       "options": [
-        "Halving joint",
-        "Simple butt joint",
-        "Basic mitre joint",
-        "Overlapping lap joint"
+        "Sets up the mood",
+        "Repeats the chorus",
+        "Delivers the climax",
+        "Closes the song"
       ],
       "mode": "scrub",
       "fresh": false
@@ -217,8 +217,8 @@
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What is PVA glue mainly used for?",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what do students study closely before painting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,22 +226,22 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Bonding wood pieces",
-      "why": "PVA glue is a wood adhesive used to bond joints together firmly, not to finish or colour the surface.",
+      "answer": "Animal fur textures",
+      "why": "Students study real animal fur and skin textures closely so they can recreate believable marks and patterns in paint.",
       "options": [
-        "Bonding wood pieces",
-        "Sealing the finish coat",
-        "Smoothing rough edges",
-        "Colouring the timber"
+        "Animal fur textures",
+        "Colour wheel theory",
+        "Famous portraits",
+        "Landscape photos"
       ],
       "mode": "scrub",
-      "fresh": true
+      "fresh": false
     },
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Testing plant height with different water amounts, soil kept the same. What is the controlled variable?",
+      "subject": "Technology",
+      "prompt": "What is radiata pine mainly chosen for in the spice rack build?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,23 +249,22 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Soil type",
-      "why": "The controlled variable is kept the same on purpose — here that's soil type, while water amount is changed (independent) and height is measured (dependent).",
+      "answer": "Easy to work with",
+      "why": "Radiata pine is a soft, affordable timber that's easy to cut, sand and join, making it ideal for beginner projects like the spice rack.",
       "options": [
-        "Soil type",
-        "Water amount",
-        "Plant height",
-        "Number of plants"
+        "Easy to work with",
+        "Very heat resistant",
+        "Naturally waterproof",
+        "Heaviest timber option"
       ],
       "mode": "scrub",
-      "fresh": false,
-      "repair": true
+      "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the amount of exercise affects heart rate, keeping the person's diet the same. What is the independent variable?",
+      "prompt": "In an experiment testing if fertiliser type affects plant height, what is the plant height called?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -275,25 +274,24 @@
       },
       "type": "text",
       "accept": [
-        "amount of exercise",
-        "exercise amount",
-        "exercise"
+        "dependent variable",
+        "dependent"
       ],
-      "why": "The independent variable is what the experimenter deliberately changes — here that's the amount of exercise.",
+      "why": "Plant height is measured, so it's the dependent variable — it depends on what's changed (the independent variable).",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What does the Prologue's Chorus call the feud between the two families?",
-      "answer": "An ancient grudge",
-      "why": "The Chorus describes the feud as an 'ancient grudge' — long-standing hatred, not something new.",
+      "prompt": "In what city is Romeo and Juliet set?",
+      "answer": "Verona",
+      "why": "Romeo and Juliet is set in Verona, Italy, where the feuding Montague and Capulet families both live.",
       "options": [
-        "An ancient grudge",
-        "A new argument",
-        "A royal decree",
-        "A friendly rivalry"
+        "Verona",
+        "Venice",
+        "Florence",
+        "Rome"
       ],
       "fresh": false,
       "throwback": true
@@ -301,38 +299,43 @@
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Who starts the fight in Act 1 Scene 1?",
-      "answer": "The servants",
-      "why": "The play opens with Capulet and Montague servants brawling in the street, not the main characters.",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord is built on the 4th note of the C major scale?",
+      "answer": "F, the 'IV' chord",
+      "why": "F sits on the 4th note of the C major scale, making it the 'IV' chord — C is 'I', Am is 'vi', and G is 'V'.",
       "options": [
-        "The servants",
-        "Romeo and Tybalt",
-        "The Prince's guards",
-        "Lord Capulet"
+        "F, the 'IV' chord",
+        "Am, the 'IV' chord",
+        "G, the 'IV' chord",
+        "C, the 'IV' chord"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord comes second?",
-      "answer": "Am chord",
-      "why": "The progression runs C then Am then F then G, so Am is the second chord played.",
-      "options": [
-        "Am chord",
-        "C chord",
-        "F chord",
-        "G chord"
+      "subject": "Science",
+      "prompt": "What word describes an organism that makes its own food using sunlight?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "producer",
+        "autotroph"
       ],
+      "why": "Producers, like plants, make their own food through photosynthesis, forming the base of most food chains.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events in Japan's early feudal hierarchy forming",
+      "prompt": "Order these stages in Japan's feudal hierarchy forming",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -342,36 +345,36 @@
       },
       "type": "order",
       "sequence": [
-        "Emperor holds symbolic power",
-        "Daimyo control large land estates",
+        "Daimyo control local land",
         "Samurai serve daimyo for land",
-        "Shogun commands military rule"
+        "Rival daimyo fight for power",
+        "Strongest daimyo becomes shogun"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "As Japan's feudal system formed, land-holding daimyo relied on samurai for protection, while the shogun ultimately took military control beneath the emperor's symbolic authority.",
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "Daimyo controlled land and granted it to samurai in exchange for service, rival daimyo then fought for dominance, and the strongest eventually became shogun.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What does 'kudasai' mean when ordering food?",
-      "answer": "Please give me",
-      "why": "'Kudasai' is used to politely ask for something, like 'water, kudasai' meaning 'water, please'.",
+      "prompt": "How do you say 'rice' in Japanese?",
+      "answer": "Gohan",
+      "why": "'Gohan' means 'rice', one of the core food words in Unit 6's restaurant vocabulary.",
       "options": [
-        "Please give me",
-        "Thank you very much",
-        "Excuse me",
-        "Delicious"
+        "Gohan",
+        "Mizu",
+        "Sakana",
+        "Niku"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "English",
-      "prompt": "Explain why Shakespeare places the Capulet-Montague street fight right at the start of the play, before we meet Romeo or Juliet."
+      "subject": "Music",
+      "prompt": "Explain why the Am chord is called the 'vi' chord in the key of C major, using the idea of scale position."
     }
   ]
 }
