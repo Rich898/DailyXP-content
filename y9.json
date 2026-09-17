@@ -1,53 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-16",
-  "day": "WED",
-  "tag": "R8.3",
-  "title": "DailyXP · WED 2026-09-16",
+  "date": "2026-09-17",
+  "day": "THU",
+  "tag": "R8.4",
+  "title": "DailyXP · THU 2026-09-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Burning magnesium in a sealed, closed flask: total mass changes",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "In a closed system nothing escapes or enters, so mass is conserved even though the magnesium changes chemically.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Only Japanese soldiers were harmed in the Nanjing Massacre",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The victims were overwhelmingly Chinese civilians and disarmed soldiers, not Japanese troops.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "The id follows the pleasure principle",
+      "prompt": "Rusting iron in a sealed jar keeps the same total mass",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,52 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The id seeks instant gratification with no regard for consequences, which is the pleasure principle.",
+      "why": "In a closed system no matter can enter or leave, so mass is conserved even though the iron changes to rust — this matches the Law of Conservation of Mass.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Chinese civilians in Nanjing, 1937",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "Impacted",
+      "right": "Not impacted",
+      "answer": "Impacted",
+      "why": "Civilians, not just soldiers, were deliberately targeted and killed during the Nanjing Massacre — this is a key fact from Lesson 7.3.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "The ego is fully aware and always logical",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The ego mediates between the id and superego and works with reality, but it is only partly conscious — it isn't purely logical.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A plumber fixing a pipe for a fee",
+      "prompt": "A car wash offering vacuuming for a fee",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "Product",
       "right": "Service",
       "answer": "Service",
-      "why": "A service is work done for someone, like fixing a pipe, rather than a physical item they keep.",
+      "why": "Vacuuming is an action performed for the customer, not a physical item sold — that makes it a service, not a product.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "A drink ad shows a famous athlete celebrating with the product. What technique is this?",
+      "prompt": "A cereal box uses cartoon mascots to appeal to kids. What is this technique called?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Celebrity endorsement",
-      "why": "Linking a famous person to a product is celebrity endorsement, designed to transfer their appeal to the brand.",
+      "answer": "Child-targeted appeal",
+      "why": "Cartoon mascots and bright colours are designed to attract children specifically, not to use fame, crowds, or price to sell.",
       "options": [
         "Celebrity endorsement",
-        "Bulk discount pricing",
-        "Nutrition labelling",
-        "Recipe suggestion"
+        "Child-targeted appeal",
+        "Bandwagon effect",
+        "Price discounting"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does 'per serving' tell you?",
+      "prompt": "On a nutrition label, what does 'per serving' show?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Amount in one portion",
-      "why": "'Per serving' shows the nutrient amounts for a single suggested portion, not the entire package or a daily limit.",
+      "answer": "Amount in one serving",
+      "why": "'Per serving' gives values for a single serving size, which can differ from the whole package amount — a common label misread.",
       "options": [
-        "Amount in one portion",
+        "Amount in one serving",
         "Amount in whole pack",
-        "Daily limit allowed",
-        "Amount per 100g only"
+        "Amount per 100g always",
+        "Daily recommended amount"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "PDHPE",
-      "prompt": "Which model shows the recommended proportions of food groups for a healthy diet?",
+      "prompt": "Which of these is a key feature of a healthy food choice?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The Eatwell Plate",
-      "why": "The Eatwell Plate (or Australian Guide to Healthy Eating) visually shows the correct proportions of each food group for a balanced diet.",
+      "answer": "Balanced portion sizes",
+      "why": "Healthy eating is about balance and portion control, not about cost, storage life, or eating the largest amount.",
       "options": [
-        "The Eatwell Plate",
-        "The Food Pyramid Scale",
-        "The Nutrient Wheel",
-        "The Energy Balance Chart"
+        "Balanced portion sizes",
+        "Lowest possible price",
+        "Longest shelf life",
+        "Biggest serving size"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which nutrient is mainly needed for building and repairing muscle tissue?",
+      "prompt": "In Food Technology, what does 'food selection' mean?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Protein, for growth and repair",
-      "why": "Protein supplies the amino acids needed to build and repair muscle tissue, unlike fat, fibre or vitamin C, which serve other roles in the body.",
+      "answer": "Choosing foods to eat",
+      "why": "Food selection refers to the process of choosing which foods to eat, based on needs, preferences and availability.",
       "options": [
-        "Protein, for growth and repair",
-        "Fat, for insulation and energy storage",
-        "Fibre, for digestive health",
-        "Vitamin C, for immune support"
+        "Choosing foods to eat",
+        "Cooking method used",
+        "Storing food safely",
+        "Growing food crops"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which nutrient helps carry oxygen around the body?",
+      "prompt": "Which nutrient is mainly needed for growth and tissue repair?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Iron",
-      "why": "Iron is needed to make haemoglobin, the part of red blood cells that carries oxygen around the body.",
+      "answer": "Protein",
+      "why": "Protein builds and repairs body tissue, like muscle. Vitamin C supports the immune system, fibre aids digestion, and carbohydrate mainly supplies quick energy.",
       "options": [
-        "Iron",
         "Protein",
-        "Fibre",
-        "Vitamin C"
+        "Vitamin C",
+        "Dietary fibre",
+        "Carbohydrate"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which nutrient helps the body absorb calcium properly?",
+      "prompt": "In the Eatwell Plate, which food group takes up the biggest portion?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Vitamin D",
-      "why": "Vitamin D helps the body absorb calcium from food, supporting strong bones, unlike vitamin C, iron, or fibre which serve other roles.",
+      "answer": "Vegetables and fruit",
+      "why": "The Eatwell Plate gives vegetables and fruit the largest share of the plate, with the other groups making up smaller portions.",
       "options": [
-        "Vitamin D",
-        "Vitamin C",
-        "Iron mineral",
-        "Dietary fibre"
+        "Vegetables and fruit",
+        "Meat, fish and beans",
+        "Milk and dairy foods",
+        "Bread, rice and pasta"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 10 cm. What is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "60 cm²",
-      "why": "Area is ½ × base × height, so ½ × 12 × 10 = 60 cm²; forgetting to halve gives the wrong 120 cm².",
+      "answer": "80 cm²",
+      "why": "Area of a triangle is ½ × base × height = ½ × 16 × 10 = 80 cm². Forgetting the ½ gives the wrong answer of 160.",
       "options": [
-        "60 cm²",
-        "120 cm²",
-        "22 cm²",
-        "72 cm²"
+        "80 cm²",
+        "160 cm²",
+        "26 cm²",
+        "13 cm²"
       ],
       "mode": "scrub",
       "fresh": false,
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Weimar Republic began after which event?",
+      "prompt": "Who was the German president during most of the Weimar Republic?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Germany's WWI defeat",
-      "why": "The Weimar Republic was formed in 1919 after Germany's defeat in WWI and the Kaiser's abdication.",
+      "answer": "Hindenburg",
+      "why": "Paul von Hindenburg was president for most of the Weimar years, later appointing Hitler as chancellor in 1933.",
       "options": [
-        "Germany's WWI defeat",
-        "The Munich Putsch",
-        "Hitler becoming chancellor",
-        "The Great Depression"
+        "Hindenburg",
+        "Hitler",
+        "Ebert",
+        "Wilhelm II"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 18 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 56,
+      "answer": 54,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area is ½ × base × height, so ½ × 14 × 8 = 56 cm²; the halving step is what rushing skips.",
+      "why": "Area = ½ × base × height = ½ × 18 × 6 = 54 cm². Pause and say the formula before multiplying to avoid rushing.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does the signal fire mainly represent in Lord of the Flies?",
-      "answer": "Hope of rescue",
-      "why": "The fire symbolises the boys' connection to civilisation and their hope of being rescued.",
+      "prompt": "From a while back — why does Piggy's death matter so much in Lord of the Flies?",
+      "answer": "Reason and order are gone",
+      "why": "Piggy represents logic and civilised thinking, so his death shows that reason has been completely destroyed by the boys' descent into savagery.",
       "options": [
-        "Hope of rescue",
-        "The boys' fear",
-        "Jack's leadership",
-        "The island's danger"
+        "Reason and order are gone",
+        "The boys lose their food supply",
+        "Ralph becomes the new leader",
+        "The island is finally rescued"
       ],
       "fresh": false,
       "throwback": true
@@ -301,14 +301,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Commerce",
-      "prompt": "In a business plan, which section outlines day-to-day running of the business?",
-      "answer": "Operations plan, covering daily tasks",
-      "why": "The operations plan describes how the business actually runs day-to-day, while the executive summary, market analysis and financial plan cover overview, competition and money instead.",
+      "prompt": "Which section of a business plan lists expected startup costs?",
+      "answer": "Financial plan",
+      "why": "Startup costs, cash flow and funding needs belong in the financial plan, not the summary or market research sections.",
       "options": [
-        "Operations plan, covering daily tasks",
-        "Executive summary, a one-page overview",
-        "Market analysis, covering competitors",
-        "Financial plan, covering costs"
+        "Financial plan",
+        "Executive summary",
+        "Market analysis",
+        "Business description"
       ],
       "fresh": false
     },
@@ -316,14 +316,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Freud's model, which part is mostly conscious and rational?",
-      "answer": "Ego",
-      "why": "The ego operates mostly at a conscious level, making realistic decisions that balance the id's desires against the world's demands.",
+      "prompt": "In Freud's model, which part follows the pleasure principle?",
+      "answer": "Id",
+      "why": "The id seeks instant pleasure with no regard for consequences, unlike the ego (reality) or superego (morals).",
       "options": [
-        "Ego",
         "Id",
+        "Ego",
         "Superego",
-        "Unconscious"
+        "Conscience"
       ],
       "fresh": false
     },
@@ -331,7 +331,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an open container, why might measured mass seem to change after a reaction?",
+      "prompt": "In a sealed container, 30g of reactants react fully. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -341,18 +341,18 @@
       },
       "type": "text",
       "accept": [
-        "gas escapes",
-        "gas enters or leaves",
-        "a gas is released"
+        "30g",
+        "30 grams",
+        "30"
       ],
-      "why": "In an open system, gases can escape into or enter from the air, so the measured mass changes even though total mass is still conserved overall.",
+      "why": "In a closed system, mass is conserved, so the total mass of products equals the total mass of reactants: 30g.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What sign of a chemical reaction would you see if it releases heat?",
+      "prompt": "What word describes a solid that suddenly appears in a reaction between two liquids?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -362,18 +362,16 @@
       },
       "type": "text",
       "accept": [
-        "temperature rises",
-        "gets hot",
-        "temperature increases"
+        "precipitate"
       ],
-      "why": "A rise in temperature shows energy is being released, a common sign that a chemical reaction is taking place.",
+      "why": "A precipitate is a solid that forms when two solutions react, showing a chemical change has occurred.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "A student's business plan lists 'our biggest weakness is high rent costs' under the executive summary. Explain why this is misplaced and where it truly belongs."
+      "prompt": "A student's business plan lists 'our target customers are teenagers who play sport' under the financial plan section. Explain why this is misplaced and where it truly belongs."
     }
   ]
 }
