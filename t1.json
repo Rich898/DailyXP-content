@@ -1,53 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-17",
-  "day": "THU",
-  "tag": "T8.4",
-  "title": "DailyXP · THU 2026-09-17",
+  "date": "2026-09-18",
+  "day": "FRI",
+  "tag": "T8.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-18",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A die roll giving a result of 5",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Possible",
-      "right": "Impossible",
-      "answer": "Possible",
-      "why": "A standard die has faces 1-6, so rolling a 5 is a possible outcome.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "The narrator character in a Greek-style play who comments on the action",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Chorus",
-      "right": "Protagonist",
-      "answer": "Chorus",
-      "why": "The Chorus narrates and comments on events, unlike the protagonist who drives the action.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The shogun needed the emperor's permission to hold power",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, the G chord is the 'V'",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun ruled with real military power but technically governed in the emperor's name.",
+      "why": "True — G is built on the fifth scale degree, giving it the tension that pulls back to C.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S2",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', students aimed for photo-realistic detail",
+      "prompt": "Paint Like a Beast aimed for exact photo-realism",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,289 +40,137 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The activities focused on texture and movement, not exact photo-like likeness.",
+      "why": "False — the activities focused on texture and movement over exact likeness.",
       "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "In a Japanese restaurant, what do you say before starting to eat?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "itadakimasu",
-      "why": "'Itadakimasu' is said before eating to show gratitude for the food. 'Gochisousama' is said after finishing, 'sumimasen' means excuse me, and 'okawari' means a second helping.",
-      "options": [
-        "itadakimasu",
-        "gochisousama",
-        "sumimasen",
-        "okawari"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "In history, what is a 'consequence'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A result of an event",
-      "why": "A consequence is what happens as a result of an event, distinct from its cause.",
-      "options": [
-        "A result of an event",
-        "The date of an event",
-        "A cause of an event",
-        "A person involved"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "What effect does a key change often create in a song?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A lift in energy",
-      "why": "Shifting to a higher key is a common technique to add excitement or lift near a song's end.",
-      "options": [
-        "A lift in energy",
-        "A slower tempo",
-        "A quieter dynamic",
-        "A key stays the same"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What term describes total living matter in an ecosystem?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Biomass",
-      "why": "Biomass is the measure of total living material in an ecosystem, often used to track energy flow.",
-      "options": [
-        "Biomass",
-        "Biodiversity",
-        "Habitat",
-        "Population"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What made central rule difficult across old Japan?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Mountainous terrain",
-      "why": "Japan's mountainous geography isolated regions, making it hard for one ruler to control the whole country.",
-      "options": [
-        "Mountainous terrain",
-        "Flat open plains",
-        "A large navy",
-        "A single language barrier"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "In the spice rack design brief, why was radiata pine mainly chosen?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "It is easy to work with",
-      "why": "Radiata pine was chosen because it is a soft, easy-to-work timber suitable for student projects, not for extreme strength or waterproofing.",
-      "options": [
-        "It is easy to work with",
-        "It is extremely heavy",
-        "It resists all water damage",
-        "It is the strongest hardwood"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Which joint uses angled 45° cuts for a neat corner with no end grain showing?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Mitre joint",
-      "why": "A mitre joint uses two 45° angled cuts to form a corner where no end grain is visible, unlike a plain butt joint.",
-      "options": [
-        "Mitre joint",
-        "Butt joint",
-        "Dowel joint",
-        "Rebate joint"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What grit sandpaper is best for the first pass on rough timber?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Coarse grit",
-      "why": "Coarse grit removes rough surface material fast; you move to fine grit only afterwards, for smoothing before a finish.",
-      "options": [
-        "Coarse grit",
-        "Fine grit",
-        "Very fine grit",
-        "Wet-and-dry grit"
-      ],
-      "mode": "scrub",
-      "fresh": true
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What natural hazard is most often caused by sudden movement of tectonic plates underground?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "earthquake",
-        "earthquakes"
+      "subject": "English",
+      "prompt": "What is a soliloquy?",
+      "answer": "Speech alone on stage",
+      "why": "A soliloquy is spoken by a character alone on stage, revealing private thoughts to the audience — not to another character.",
+      "options": [
+        "Speech alone on stage",
+        "Speech to another character",
+        "A printed stage note",
+        "Two actors arguing"
       ],
-      "why": "Sudden movement along a fault line releases energy as seismic waves, causing an earthquake.",
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In a play script, what does dialogue mainly show?",
-      "answer": "Words characters speak",
-      "why": "Dialogue is the spoken conversation between characters, separate from stage directions which tell actors how to move.",
+      "prompt": "Whose party do Romeo and his friends sneak into in Act 1 Scene 5?",
+      "answer": "The Capulets'",
+      "why": "Romeo and his friends gatecrash a Capulet party, where he first sees Juliet — a big risk given the families' feud.",
       "options": [
-        "Words characters speak",
-        "How actors should move",
-        "The scene's setting",
-        "Notes on lighting"
+        "The Capulets'",
+        "The Montagues'",
+        "The Prince's",
+        "Friar Lawrence's"
       ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if fighting continues?",
-      "answer": "Death",
-      "why": "Prince Escalus warns that any further public brawling between the families will be punished by death, showing how serious the feud has become.",
+      "subject": "Music",
+      "prompt": "In the progression C–Am–F–G, which chord provides the tension that resolves back to C?",
+      "answer": "G",
+      "why": "G is the V chord — the dominant — and its tension naturally pulls the ear back to the tonic, C.",
       "options": [
-        "Death",
-        "Exile",
-        "A fine",
-        "Imprisonment"
+        "G",
+        "Am",
+        "F",
+        "C"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In the key of C major, which chord is built on the fifth scale degree?",
-      "answer": "G major",
-      "why": "Counting up from C (1-2-3-4-5), the fifth note is G, so G major is the 'V' chord. F is the fourth degree ('IV') and A minor is the sixth degree ('vi').",
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, what did students mainly focus on capturing?",
+      "answer": "Texture and movement",
+      "why": "The activities pushed students to capture texture and movement in the animals, not photo-realistic detail.",
       "options": [
-        "G major",
-        "F major",
-        "A minor",
-        "D minor"
+        "Texture and movement",
+        "Exact photo likeness",
+        "Precise fine outlines",
+        "Background scenery"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what animal feature did students mainly focus on capturing?",
-      "answer": "Texture and movement",
-      "why": "The activities focused on capturing an animal's texture and movement through loose brushwork, not exact photographic likeness.",
+      "subject": "Japanese",
+      "prompt": "What does 'okawari' let you ask for at a Japanese meal?",
+      "answer": "Seconds",
+      "why": "'Okawari' means asking for a refill or second helping, a handy phrase at the table.",
       "options": [
-        "Texture and movement",
-        "Exact photo-like detail",
-        "Precise anatomy",
-        "Realistic colouring"
+        "Seconds",
+        "The bill",
+        "A napkin",
+        "Chopsticks"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "What does 'gochisousama' mean in Japanese?",
-      "answer": "Thank you for the meal",
-      "why": "'Gochisousama' is said after finishing a meal to thank whoever prepared or provided the food.",
-      "options": [
-        "Thank you for the meal",
-        "Let's eat",
-        "Delicious",
-        "Please pass the rice"
+      "subject": "History",
+      "prompt": "Order these steps of how a shogun kept control, from first to last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Shogun grants land to Daimyo",
+        "Daimyo commands local Samurai",
+        "Samurai enforce order in the domain",
+        "Peasants farm the land for their lords"
       ],
+      "top": "First",
+      "bot": "Last",
+      "why": "Power flowed downward: the Shogun granted land to Daimyo, who commanded Samurai, who enforced control over the peasants who worked the land.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order these steps of historical cause-and-consequence analysis from first to last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Identify the event",
+        "Find its causes",
+        "Trace its consequences",
+        "Assess long-term change"
+      ],
+      "top": "First",
+      "bot": "Last",
+      "why": "Good historical analysis starts by identifying the event, then works out what caused it, what followed, and finally what changed over time.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Music",
-      "prompt": "Explain why swapping which chord starts the C-Am-F-G loop can change how a song feels, even though the same four chords are used."
+      "subject": "English",
+      "prompt": "A classmate says Act 1 Scene 1 is 'just a fight scene' with no real purpose. Explain what this misses about how the scene sets up the rest of Romeo and Juliet."
     }
   ]
 }
