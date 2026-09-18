@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-17",
-  "day": "THU",
-  "tag": "R8.4",
-  "title": "DailyXP · THU 2026-09-17",
+  "date": "2026-09-18",
+  "day": "FRI",
+  "tag": "R8.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-18",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Rusting iron in a sealed jar keeps the same total mass",
+      "subject": "English",
+      "prompt": "Sneaking a biscuit then feeling guilty afterwards",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In a closed system no matter can enter or leave, so mass is conserved even though the iron changes to rust — this matches the Law of Conservation of Mass.",
+      "left": "Id",
+      "right": "Superego",
+      "answer": "Superego",
+      "why": "The guilt afterwards comes from the superego's moral judgement — the id already got its pleasure by taking the biscuit.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Chinese civilians in Nanjing, 1937",
+      "subject": "Science",
+      "prompt": "Fizzy gas escaping into the air during a reaction in an open beaker",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,235 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Impacted",
-      "right": "Not impacted",
-      "answer": "Impacted",
-      "why": "Civilians, not just soldiers, were deliberately targeted and killed during the Nanjing Massacre — this is a key fact from Lesson 7.3.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "The ego is fully aware and always logical",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The ego mediates between the id and superego and works with reality, but it is only partly conscious — it isn't purely logical.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "A car wash offering vacuuming for a fee",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Product",
-      "right": "Service",
-      "answer": "Service",
-      "why": "Vacuuming is an action performed for the customer, not a physical item sold — that makes it a service, not a product.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "A cereal box uses cartoon mascots to appeal to kids. What is this technique called?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Child-targeted appeal",
-      "why": "Cartoon mascots and bright colours are designed to attract children specifically, not to use fame, crowds, or price to sell.",
-      "options": [
-        "Celebrity endorsement",
-        "Child-targeted appeal",
-        "Bandwagon effect",
-        "Price discounting"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does 'per serving' show?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Amount in one serving",
-      "why": "'Per serving' gives values for a single serving size, which can differ from the whole package amount — a common label misread.",
-      "options": [
-        "Amount in one serving",
-        "Amount in whole pack",
-        "Amount per 100g always",
-        "Daily recommended amount"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "PDHPE",
-      "prompt": "Which of these is a key feature of a healthy food choice?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Balanced portion sizes",
-      "why": "Healthy eating is about balance and portion control, not about cost, storage life, or eating the largest amount.",
-      "options": [
-        "Balanced portion sizes",
-        "Lowest possible price",
-        "Longest shelf life",
-        "Biggest serving size"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "In Food Technology, what does 'food selection' mean?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Choosing foods to eat",
-      "why": "Food selection refers to the process of choosing which foods to eat, based on needs, preferences and availability.",
-      "options": [
-        "Choosing foods to eat",
-        "Cooking method used",
-        "Storing food safely",
-        "Growing food crops"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Which nutrient is mainly needed for growth and tissue repair?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Protein",
-      "why": "Protein builds and repairs body tissue, like muscle. Vitamin C supports the immune system, fibre aids digestion, and carbohydrate mainly supplies quick energy.",
-      "options": [
-        "Protein",
-        "Vitamin C",
-        "Dietary fibre",
-        "Carbohydrate"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "In the Eatwell Plate, which food group takes up the biggest portion?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Vegetables and fruit",
-      "why": "The Eatwell Plate gives vegetables and fruit the largest share of the plate, with the other groups making up smaller portions.",
-      "options": [
-        "Vegetables and fruit",
-        "Meat, fish and beans",
-        "Milk and dairy foods",
-        "Bread, rice and pasta"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "80 cm²",
-      "why": "Area of a triangle is ½ × base × height = ½ × 16 × 10 = 80 cm². Forgetting the ½ gives the wrong answer of 160.",
-      "options": [
-        "80 cm²",
-        "160 cm²",
-        "26 cm²",
-        "13 cm²"
-      ],
-      "mode": "scrub",
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Who was the German president during most of the Weimar Republic?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Hindenburg",
-      "why": "Paul von Hindenburg was president for most of the Weimar years, later appointing Hitler as chancellor in 1933.",
-      "options": [
-        "Hindenburg",
-        "Hitler",
-        "Ebert",
-        "Wilhelm II"
-      ],
-      "mode": "scrub",
+      "left": "Mass appears to change",
+      "right": "Mass stays exactly the same",
+      "answer": "Mass appears to change",
+      "why": "In an open system, gas can escape into the air, so the measured mass seems to drop even though mass is truly conserved overall.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 18 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 13 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,64 +56,48 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 54,
-      "calc": false,
+      "answer": 65,
+      "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 18 × 6 = 54 cm². Pause and say the formula before multiplying to avoid rushing.",
+      "why": "Area = ½ × base × height = ½ × 13 × 10 = 65 cm². Say the ½ out loud before multiplying so you never skip halving.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — why does Piggy's death matter so much in Lord of the Flies?",
-      "answer": "Reason and order are gone",
-      "why": "Piggy represents logic and civilised thinking, so his death shows that reason has been completely destroyed by the boys' descent into savagery.",
+      "subject": "Commerce",
+      "prompt": "A student's business plan lists 'our founder ran a café for five years' as a strength. Which section of the plan does this belong in?",
+      "answer": "SWOT analysis",
+      "why": "Founder experience is a strength, so it belongs in the SWOT analysis, not the market analysis (which studies customers and competitors), the executive summary (a one-page overview), or the financial plan (costs and revenue).",
       "options": [
-        "Reason and order are gone",
-        "The boys lose their food supply",
-        "Ralph becomes the new leader",
-        "The island is finally rescued"
+        "SWOT analysis",
+        "Market analysis",
+        "Executive summary",
+        "Financial plan"
       ],
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "Which section of a business plan lists expected startup costs?",
-      "answer": "Financial plan",
-      "why": "Startup costs, cash flow and funding needs belong in the financial plan, not the summary or market research sections.",
+      "subject": "English",
+      "prompt": "In Freud's model, which part is entirely unconscious and never becomes rational?",
+      "answer": "Id",
+      "why": "The id is wholly unconscious, driven by instinct and pleasure, unlike the ego, which is partly conscious and deals with reality.",
       "options": [
-        "Financial plan",
-        "Executive summary",
-        "Market analysis",
-        "Business description"
+        "Id",
+        "Ego",
+        "Superego",
+        "Conscience-drive"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Freud's model, which part follows the pleasure principle?",
-      "answer": "Id",
-      "why": "The id seeks instant pleasure with no regard for consequences, unlike the ego (reality) or superego (morals).",
-      "options": [
-        "Id",
-        "Ego",
-        "Superego",
-        "Conscience"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 30g of reactants react fully. What is the mass of the products?",
+      "prompt": "In a sealed container, 25g of reactants react fully. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -341,18 +107,18 @@
       },
       "type": "text",
       "accept": [
-        "30g",
-        "30 grams",
-        "30"
+        "25g",
+        "25 g",
+        "25 grams"
       ],
-      "why": "In a closed system, mass is conserved, so the total mass of products equals the total mass of reactants: 30g.",
+      "why": "Mass is conserved in a closed system, so the products must total 25g — nothing can enter or escape.",
       "fresh": false
     },
     {
-      "id": "T6",
+      "id": "T5",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What word describes a solid that suddenly appears in a reaction between two liquids?",
+      "prompt": "What word describes a solid that suddenly appears when two liquids react?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -364,14 +130,44 @@
       "accept": [
         "precipitate"
       ],
-      "why": "A precipitate is a solid that forms when two solutions react, showing a chemical change has occurred.",
+      "why": "A precipitate is the solid that forms when two solutions react, showing a chemical change has occurred.",
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, why does Jack paint his face before hunting?",
+      "answer": "It hides his identity and shame",
+      "why": "The face-paint acts as a mask, freeing Jack from guilt and civilised restraint, letting his savage side take over more easily.",
+      "options": [
+        "It hides his identity and shame",
+        "It helps him see in the dark",
+        "It marks him as chief",
+        "It scares off wild animals"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "Commerce",
+      "prompt": "A bakery sells cakes and also offers cake-decorating classes. The classes are best described as a…",
+      "answer": "Service",
+      "why": "A service is work or skill provided to a customer, like teaching a class. A product is a physical item, like a cake, that the customer takes home.",
+      "options": [
+        "Service",
+        "Product",
+        "Logo",
+        "Brand"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Commerce",
-      "prompt": "A student's business plan lists 'our target customers are teenagers who play sport' under the financial plan section. Explain why this is misplaced and where it truly belongs."
+      "prompt": "A student's business plan has a strong product idea but keeps mixing SWOT points into the market analysis section. Explain why these sections need to stay separate, even though both can mention competitors."
     }
   ]
 }
