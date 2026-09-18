@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-17",
-  "day": "THU",
-  "tag": "H8.4",
-  "title": "DailyXP · THU 2026-09-17",
+  "date": "2026-09-18",
+  "day": "FRI",
+  "tag": "H8.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-18",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A shape with volume 60 cm³ could be 3 cm × 4 cm × 5 cm",
+      "subject": "Science",
+      "prompt": "A thick coat of fur on an arctic fox",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "3 × 4 × 5 = 60, so those dimensions give a volume of 60 cm³.",
+      "left": "Adaptation",
+      "right": "Not adaptation",
+      "answer": "Adaptation",
+      "why": "Thick fur helps the fox survive cold conditions, so it is an adaptation — a trait that suits an organism to its habitat.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountains left lots of flat land for huge farms",
+      "prompt": "Japan's mountains left lots of flat farmland",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,231 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan's mountains left very little flat land, which shaped small farms and separate regions ruled by local warriors.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "Biomass means the total living material in an ecosystem",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Biomass is the total mass of living things in an area, often measured to compare energy at each food chain level.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'Kudasai' means 'delicious'",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "'Kudasai' means 'please give me'; 'oishii' is the word for 'delicious'.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "In the spice rack build, what is a butt joint?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Two edges glued flat together",
-      "why": "A butt joint is the simplest joint: two pieces joined edge-to-edge or end-to-end with glue, no interlocking cuts — unlike housing or dowel joints.",
-      "options": [
-        "Two edges glued flat together",
-        "Two notched pieces slotted flush",
-        "A diagonal angled overlap cut",
-        "A pinned round dowel joint"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What grit of sandpaper should you finish with for a smooth surface?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Fine grit",
-      "why": "Fine grit sandpaper is used last to smooth the surface before finishing, after coarser grits have shaped and levelled the wood.",
-      "options": [
-        "Fine grit",
-        "Coarse grit",
-        "Medium grit",
-        "Wet grit"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which London theatre performed Shakespeare's plays?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "The Globe",
-      "why": "Shakespeare's company performed most of his plays, including Romeo and Juliet, at The Globe theatre in London.",
-      "options": [
-        "The Globe",
-        "The Old Vic",
-        "Sadler's Wells",
-        "The Palladium"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Benvolio try to do when he arrives at the brawl?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Break up the fighting servants at once",
-      "why": "Benvolio, whose name means 'good will', tries to stop the brawl the moment he arrives — showing he wants peace, unlike Tybalt who escalates it.",
-      "options": [
-        "Draw his own sword to join the fighting",
-        "Break up the fighting servants at once",
-        "Run away before Tybalt arrives",
-        "Fetch the Prince to punish the men"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Who did the shogun rule below, at least in name?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "The emperor",
-      "why": "The emperor kept symbolic status at the top, while the shogun actually held military and political power beneath him in name only.",
-      "options": [
-        "The emperor",
-        "The daimyo",
-        "The samurai",
-        "The shrine priests"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In song structure, what does the intro mainly do?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Sets up the mood",
-      "why": "The intro establishes the song's mood and key before the verse begins, rather than repeating or concluding material heard later.",
-      "options": [
-        "Sets up the mood",
-        "Repeats the chorus",
-        "Delivers the climax",
-        "Closes the song"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students study closely before painting?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Animal fur textures",
-      "why": "Students study real animal fur and skin textures closely so they can recreate believable marks and patterns in paint.",
-      "options": [
-        "Animal fur textures",
-        "Colour wheel theory",
-        "Famous portraits",
-        "Landscape photos"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What is radiata pine mainly chosen for in the spice rack build?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Easy to work with",
-      "why": "Radiata pine is a soft, affordable timber that's easy to cut, sand and join, making it ideal for beginner projects like the spice rack.",
-      "options": [
-        "Easy to work with",
-        "Very heat resistant",
-        "Naturally waterproof",
-        "Heaviest timber option"
-      ],
-      "mode": "scrub",
+      "why": "Japan's mountains left very little flat land, forcing farming into small valleys and coastal plains — this scarcity shaped the rise of local warrior rule.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an experiment testing if fertiliser type affects plant height, what is the plant height called?",
+      "prompt": "A student tests if the type of soil affects plant height, keeping water the same. What is 'plant height' called?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,45 +60,29 @@
         "dependent variable",
         "dependent"
       ],
-      "why": "Plant height is measured, so it's the dependent variable — it depends on what's changed (the independent variable).",
+      "why": "Plant height is what's measured as an outcome, so it's the dependent variable — it depends on the soil type being tested.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In what city is Romeo and Juliet set?",
-      "answer": "Verona",
-      "why": "Romeo and Juliet is set in Verona, Italy, where the feuding Montague and Capulet families both live.",
-      "options": [
-        "Verona",
-        "Venice",
-        "Florence",
-        "Rome"
-      ],
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the 4th note of the C major scale?",
-      "answer": "F, the 'IV' chord",
-      "why": "F sits on the 4th note of the C major scale, making it the 'IV' chord — C is 'I', Am is 'vi', and G is 'V'.",
+      "prompt": "In C–Am–F–G, which chord carries the minor, sadder mood?",
+      "answer": "Am, the minor vi chord",
+      "why": "Am is a minor chord (vi), giving it a darker, sadder sound than the major C, F, and G chords, which all sound bright and resolved.",
       "options": [
-        "F, the 'IV' chord",
-        "Am, the 'IV' chord",
-        "G, the 'IV' chord",
-        "C, the 'IV' chord"
+        "Am, the minor vi chord",
+        "C, the major i chord",
+        "F, the major iv chord",
+        "G, the major v chord"
       ],
       "fresh": false
     },
     {
-      "id": "T4",
+      "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What word describes an organism that makes its own food using sunlight?",
+      "prompt": "What term describes an animal that hunts and eats other animals?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -325,17 +92,17 @@
       },
       "type": "text",
       "accept": [
-        "producer",
-        "autotroph"
+        "predator",
+        "carnivore"
       ],
-      "why": "Producers, like plants, make their own food through photosynthesis, forming the base of most food chains.",
+      "why": "A predator hunts and eats other animals for energy — this role controls prey populations and shapes the food web.",
       "fresh": false
     },
     {
-      "id": "T5",
+      "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages in Japan's feudal hierarchy forming",
+      "prompt": "Order these Japanese feudal ranks from most to least power",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -345,36 +112,66 @@
       },
       "type": "order",
       "sequence": [
-        "Daimyo control local land",
-        "Samurai serve daimyo for land",
-        "Rival daimyo fight for power",
-        "Strongest daimyo becomes shogun"
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasant"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "Daimyo controlled land and granted it to samurai in exchange for service, rival daimyo then fought for dominance, and the strongest eventually became shogun.",
+      "top": "Most power",
+      "bot": "Least power",
+      "why": "The shogun held military rule, daimyo were regional lords beneath him, samurai served the daimyo as warriors, and peasants worked the land at the bottom.",
+      "fresh": false
+    },
+    {
+      "id": "T5",
+      "phase": "steady",
+      "subject": "Japanese",
+      "prompt": "In a Japanese restaurant, what phrase do you use to call the waiter over?",
+      "answer": "Sumimasen",
+      "why": "'Sumimasen' means 'excuse me' and is used to politely get a waiter's attention — different from 'oishii' (delicious) or the meal greetings.",
+      "options": [
+        "Sumimasen",
+        "Oishii",
+        "Gochisousama",
+        "Itadakimasu"
+      ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say 'rice' in Japanese?",
-      "answer": "Gohan",
-      "why": "'Gohan' means 'rice', one of the core food words in Unit 6's restaurant vocabulary.",
+      "subject": "Technology",
+      "prompt": "In the spice rack build, which tool is mainly used to smooth wood before finishing?",
+      "answer": "Sandpaper",
+      "why": "Sandpaper smooths the surface ready for finish, while a coping saw cuts curves, a mitre block guides angled cuts, and a chisel removes material — none of them smooth the surface.",
       "options": [
-        "Gohan",
-        "Mizu",
-        "Sakana",
-        "Niku"
+        "Sandpaper",
+        "Coping saw",
+        "Mitre block",
+        "Wood chisel"
       ],
       "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "Technology",
+      "prompt": "Why should you sand wood before applying a finish?",
+      "answer": "So the finish sits on a smooth surface",
+      "why": "Sanding removes rough marks so the finish (like varnish) goes on evenly and looks smooth, rather than trapping bumps and scratches underneath.",
+      "options": [
+        "So the finish sits on a smooth surface",
+        "So the wood absorbs more glue",
+        "So the grain direction reverses",
+        "So the wood changes colour permanently"
+      ],
+      "fresh": true
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why the Am chord is called the 'vi' chord in the key of C major, using the idea of scale position."
+      "prompt": "Explain why the Am chord in C–Am–F–G sounds different in mood from the C, F, and G chords, using the idea of major and minor chords."
     }
   ]
 }
