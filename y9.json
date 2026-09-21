@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-18",
-  "day": "FRI",
-  "tag": "R8.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-18",
+  "date": "2026-09-21",
+  "day": "MON",
+  "tag": "R9.1",
+  "title": "DailyXP · MON 2026-09-21",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Sneaking a biscuit then feeling guilty afterwards",
+      "subject": "Science",
+      "prompt": "Burning wood in a sealed, closed jar: total mass changes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Id",
-      "right": "Superego",
-      "answer": "Superego",
-      "why": "The guilt afterwards comes from the superego's moral judgement — the id already got its pleasure by taking the biscuit.",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "In a closed system nothing can escape or enter, so mass stays the same — the gases produced are trapped inside and still counted.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Fizzy gas escaping into the air during a reaction in an open beaker",
+      "subject": "History",
+      "prompt": "The Nanjing Massacre happened because Japan wanted quick, total submission from China",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,17 +37,235 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Mass appears to change",
-      "right": "Mass stays exactly the same",
-      "answer": "Mass appears to change",
-      "why": "In an open system, gas can escape into the air, so the measured mass seems to drop even though mass is truly conserved overall.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Japanese commanders used terror and mass killing to crush Chinese resistance quickly and force a fast surrender.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "A promotional video's script is part of its content creation",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Content creation covers everything made for the video, including the script, footage and music, not just the filming.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "'Food selection' means choosing what food to buy or eat",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Food selection is the process of choosing foods, based on things like taste, cost, health and culture.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Which nutrient mainly helps the body grow and repair itself?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Protein, for growth and repair",
+      "why": "Protein builds and repairs body tissue like muscle, while fat and sugar are mainly energy sources and fibre mainly aids digestion, not tissue repair.",
+      "options": [
+        "Protein, for growth and repair",
+        "Fat, for quick bursts of energy",
+        "Fibre, for fast digestion only",
+        "Sugar, for permanent tissue repair"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Why should a balanced diet include foods from every group, not just favourites?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Each group gives different nutrients",
+      "why": "No single food group supplies everything the body needs, so a balanced diet mixes groups to get all the different nutrients.",
+      "options": [
+        "Each group gives different nutrients",
+        "It makes meals cheaper",
+        "It stops you feeling hungry",
+        "It keeps meals looking colourful"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In which country was Oscar Wilde born?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Ireland",
+      "why": "Oscar Wilde was born in Dublin, Ireland, though he later became famous in England.",
+      "options": [
+        "Ireland",
+        "England",
+        "Scotland",
+        "Wales"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What is the main purpose of satire?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Mock society's flaws",
+      "why": "Satire uses humour and exaggeration to criticise and expose flaws in people or society, not to simply scare or describe.",
+      "options": [
+        "Mock society's flaws",
+        "Frighten the reader",
+        "Describe scenery",
+        "Record real events"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 20 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "80 cm²",
+      "why": "Area = ½ × base × height = ½ × 20 × 8 = 80 cm². Halving is the step that gets rushed and skipped.",
+      "options": [
+        "80 cm²",
+        "160 cm²",
+        "28 cm²",
+        "100 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A closed cylinder has radius 5 cm and height 10 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "471.0 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 157.0 + 314.0 = 471.0 cm². Forgetting the two circular ends gives the smaller wrong values.",
+      "options": [
+        "471.0 cm²",
+        "314.0 cm²",
+        "157.0 cm²",
+        "628.0 cm²"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "Which best describes Australia's population history?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Shaped mainly by migration waves",
+      "why": "Waves of migration since colonisation have shaped Australia's population, culture and economy, not just natural birth rates or farming growth.",
+      "options": [
+        "Shaped mainly by migration waves",
+        "Grown mainly by high birth rates",
+        "Steady since colonisation began",
+        "Built mainly by farm expansion"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Where did the 1923 Munich Putsch take place?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "A beer hall",
+      "why": "Hitler launched the failed putsch from a beer hall in Munich, which is why it's called the Beer Hall Putsch.",
+      "options": [
+        "A beer hall",
+        "The Reichstag",
+        "A prison",
+        "A train station"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 13 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 15 cm and a height of 6 cm. Take your time: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,48 +274,55 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 65,
-      "calc": true,
+      "answer": 45,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 13 × 10 = 65 cm². Say the ½ out loud before multiplying so you never skip halving.",
+      "why": "Area = ½ × base × height = ½ × 15 × 6 = 45 cm². Say the ½ step in your head before multiplying to avoid rushing.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "A student's business plan lists 'our founder ran a café for five years' as a strength. Which section of the plan does this belong in?",
-      "answer": "SWOT analysis",
-      "why": "Founder experience is a strength, so it belongs in the SWOT analysis, not the market analysis (which studies customers and competitors), the executive summary (a one-page overview), or the financial plan (costs and revenue).",
+      "subject": "English",
+      "prompt": "From a while back — in Lord of the Flies, what does the conch shell mainly symbolise?",
+      "answer": "Order and civilisation",
+      "why": "The conch grants the right to speak at assemblies, symbolising rules and civilised order among the boys.",
       "options": [
-        "SWOT analysis",
-        "Market analysis",
-        "Executive summary",
-        "Financial plan"
+        "Order and civilisation",
+        "Fear of the beast",
+        "Physical strength",
+        "The boys' hunting skill"
       ],
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Freud's model, which part is entirely unconscious and never becomes rational?",
-      "answer": "Id",
-      "why": "The id is wholly unconscious, driven by instinct and pleasure, unlike the ego, which is partly conscious and deals with reality.",
-      "options": [
-        "Id",
-        "Ego",
-        "Superego",
-        "Conscience-drive"
+      "subject": "Science",
+      "prompt": "In a closed system, what happens to total mass during a chemical reaction?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "stays the same",
+        "unchanged",
+        "conserved"
       ],
+      "why": "Mass is conserved in a closed system — atoms are rearranged, not created or destroyed, so total mass stays the same.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 25g of reactants react fully. What is the mass of the products?",
+      "prompt": "Name one sign that a chemical reaction has taken place.",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -107,67 +332,49 @@
       },
       "type": "text",
       "accept": [
-        "25g",
-        "25 g",
-        "25 grams"
+        "colour change",
+        "gas produced",
+        "temperature change",
+        "precipitate formed"
       ],
-      "why": "Mass is conserved in a closed system, so the products must total 25g — nothing can enter or escape.",
+      "why": "Signs of a chemical reaction include colour change, gas bubbles, heat change, or a solid (precipitate) forming.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What word describes a solid that suddenly appears when two liquids react?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "precipitate"
+      "subject": "PDHPE",
+      "prompt": "Why might a sports drink ad featuring a famous athlete influence a teenager's food choice?",
+      "answer": "Links product to admired success",
+      "why": "This technique connects the product to an admired athlete's success and image, not to its actual nutritional value.",
+      "options": [
+        "Links product to admired success",
+        "Lists its ingredients clearly",
+        "Explains its nutrition facts",
+        "Shows its true sugar content"
       ],
-      "why": "A precipitate is the solid that forms when two solutions react, showing a chemical change has occurred.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Lord of the Flies, why does Jack paint his face before hunting?",
-      "answer": "It hides his identity and shame",
-      "why": "The face-paint acts as a mask, freeing Jack from guilt and civilised restraint, letting his savage side take over more easily.",
+      "subject": "PDHPE",
+      "prompt": "On a nutrition label, which section lists sugar as a type of?",
+      "answer": "Carbohydrate, under total carbs",
+      "why": "Sugar is a simple carbohydrate, so nutrition labels list it as a sub-category under total carbohydrates, not under protein, fat, or fibre.",
       "options": [
-        "It hides his identity and shame",
-        "It helps him see in the dark",
-        "It marks him as chief",
-        "It scares off wild animals"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "A bakery sells cakes and also offers cake-decorating classes. The classes are best described as a…",
-      "answer": "Service",
-      "why": "A service is work or skill provided to a customer, like teaching a class. A product is a physical item, like a cake, that the customer takes home.",
-      "options": [
-        "Service",
-        "Product",
-        "Logo",
-        "Brand"
+        "Carbohydrate, under total carbs",
+        "Protein, under total protein",
+        "Fat, under saturated fat",
+        "Fibre, under dietary fibre"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Commerce",
-      "prompt": "A student's business plan has a strong product idea but keeps mixing SWOT points into the market analysis section. Explain why these sections need to stay separate, even though both can mention competitors."
+      "subject": "PDHPE",
+      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
     }
   ]
 }
