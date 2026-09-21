@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-18",
-  "day": "FRI",
-  "tag": "T8.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-18",
+  "date": "2026-09-21",
+  "day": "MON",
+  "tag": "T9.1",
+  "title": "DailyXP · MON 2026-09-21",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, the G chord is the 'V'",
+      "subject": "Maths",
+      "prompt": "y = 2x + 1, when x = 3, y = 7",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — G is built on the fifth scale degree, giving it the tension that pulls back to C.",
+      "why": "Substitute x = 3: y = 2(3) + 1 = 7. Always sub the x-value in before doing anything else.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast aimed for exact photo-realism",
+      "subject": "English",
+      "prompt": "Romeo and Juliet marry in Act 1",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,36 +40,259 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — the activities focused on texture and movement over exact likeness.",
+      "why": "In Act 1 they only meet and fall for each other at the party — the marriage happens later, in Act 2.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The shogun was below the daimyo in power",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The shogun sat above the daimyo, who were regional lords answering to him — the shogun held the real political and military power.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', students painted with fine detail brushes only",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Students used loose, expressive marks and unconventional tools to capture texture and movement, not tight photo-real detail.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In the prologue, what do the two feuding families share?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A city, Verona",
+      "why": "The Chorus tells us both families live in fair Verona, whose old grudge breaks into new violence.",
+      "options": [
+        "A city, Verona",
+        "A single house",
+        "A trade business",
+        "A royal title"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In a chorus, adding extra instrument layers mainly creates what effect?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A fuller, bigger sound",
+      "why": "Layering more instruments adds volume and texture, making the chorus feel bigger and fuller than the verse.",
+      "options": [
+        "A fuller, bigger sound",
+        "A quieter, thinner sound",
+        "A slower steady tempo",
+        "A total change of key"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What do we call an inherited feature that helps an organism survive?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "An adaptation",
+      "why": "An adaptation is a trait, like a structure or behaviour, shaped by evolution to help an organism survive in its environment.",
+      "options": [
+        "An adaptation",
+        "A mutation event",
+        "A food chain",
+        "A biomass unit"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In a design brief, what does the 'need' describe?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The problem to solve",
+      "why": "The need explains why the product must exist, e.g. spices being disorganised — the brief then responds to that need.",
+      "options": [
+        "The problem to solve",
+        "The final material used",
+        "The exact measurements",
+        "The sanding technique"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "What two surfaces meet in a basic butt joint?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Two flat ends",
+      "why": "A butt joint simply joins two flat, square-cut ends together — it's the simplest joint but the weakest without extra support.",
+      "options": [
+        "Two flat ends",
+        "Two mitred edges",
+        "Two dovetail slots",
+        "Two overlapping grooves"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "Why sand timber before adding a finish?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "To smooth the surface",
+      "why": "Sanding removes rough fibres and marks so the finish sits evenly on a smooth surface, giving a cleaner result.",
+      "options": [
+        "To smooth the surface",
+        "To seal in moisture",
+        "To darken the wood colour",
+        "To strengthen the joint"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is 'juu' in Japanese?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Ten",
+      "why": "'Juu' means ten in Japanese, the base number used to build 11-19 (e.g. juu-ichi is eleven).",
+      "options": [
+        "Ten",
+        "Two",
+        "Seven",
+        "Nine"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is 'hyaku' in Japanese?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Hundred",
+      "why": "'Hyaku' means one hundred — larger Japanese numbers build from juu (ten), hyaku (hundred), and sen (thousand).",
+      "options": [
+        "Hundred",
+        "Ten",
+        "Thousand",
+        "Fifty"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "What is a soliloquy?",
-      "answer": "Speech alone on stage",
-      "why": "A soliloquy is spoken by a character alone on stage, revealing private thoughts to the audience — not to another character.",
-      "options": [
-        "Speech alone on stage",
-        "Speech to another character",
-        "A printed stage note",
-        "Two actors arguing"
+      "subject": "Science",
+      "prompt": "What is the term for the boundary where two tectonic plates push together, often forming mountains or trenches?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "convergent boundary",
+        "convergent plate boundary"
       ],
-      "fresh": false
+      "why": "A convergent boundary is where two plates collide, causing crumpling, mountain building, or one plate sinking beneath the other.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Whose party do Romeo and his friends sneak into in Act 1 Scene 5?",
-      "answer": "The Capulets'",
-      "why": "Romeo and his friends gatecrash a Capulet party, where he first sees Juliet — a big risk given the families' feud.",
+      "prompt": "In Act 1 Scene 5, why does Tybalt want to fight Romeo?",
+      "answer": "A Montague at the feast",
+      "why": "Tybalt is enraged simply because Romeo, a Montague, has dared to enter the Capulet feast, showing how deep the family hatred runs.",
       "options": [
-        "The Capulets'",
-        "The Montagues'",
-        "The Prince's",
-        "Friar Lawrence's"
+        "A Montague at the feast",
+        "He insulted Lord Capulet",
+        "He challenged Mercutio first",
+        "He was caught stealing wine"
       ],
       "fresh": false
     },
@@ -77,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord provides the tension that resolves back to C?",
-      "answer": "G",
-      "why": "G is the V chord — the dominant — and its tension naturally pulls the ear back to the tonic, C.",
+      "prompt": "In the progression C–Am–F–G, which chord acts as the tonic, or 'home' chord?",
+      "answer": "C",
+      "why": "C is the 'I' chord, the tonic, so the progression feels like it's leaving home and eventually returning to it.",
       "options": [
-        "G",
+        "C",
         "Am",
         "F",
-        "C"
+        "G"
       ],
       "fresh": false
     },
@@ -92,13 +315,13 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what did students mainly focus on capturing?",
+      "prompt": "In 'Paint Like a Beast', what did students mainly aim to capture in their animal paintings?",
       "answer": "Texture and movement",
-      "why": "The activities pushed students to capture texture and movement in the animals, not photo-realistic detail.",
+      "why": "The activities focused on expressive, loose mark-making to suggest an animal's texture and motion, not realistic accuracy.",
       "options": [
         "Texture and movement",
         "Exact photo likeness",
-        "Precise fine outlines",
+        "Precise anatomy",
         "Background scenery"
       ],
       "fresh": false
@@ -106,23 +329,8 @@
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "What does 'okawari' let you ask for at a Japanese meal?",
-      "answer": "Seconds",
-      "why": "'Okawari' means asking for a refill or second helping, a handy phrase at the table.",
-      "options": [
-        "Seconds",
-        "The bill",
-        "A napkin",
-        "Chopsticks"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of how a shogun kept control, from first to last",
+      "prompt": "Order these ranks in Japan's feudal hierarchy from highest to lowest power",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -132,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun grants land to Daimyo",
-        "Daimyo commands local Samurai",
-        "Samurai enforce order in the domain",
-        "Peasants farm the land for their lords"
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasants"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Power flowed downward: the Shogun granted land to Daimyo, who commanded Samurai, who enforced control over the peasants who worked the land.",
+      "top": "Highest power",
+      "bot": "Lowest power",
+      "why": "The shogun held supreme military power, ruling through daimyo lords, who commanded samurai warriors, with peasants at the base of the hierarchy.",
       "fresh": false
     },
     {
-      "id": "T7",
+      "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of historical cause-and-consequence analysis from first to last",
+      "prompt": "Order these steps of historical cause-and-consequence analysis, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -159,18 +367,18 @@
         "Identify the event",
         "Find its causes",
         "Trace its consequences",
-        "Assess long-term change"
+        "Assess long-term significance"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Good historical analysis starts by identifying the event, then works out what caused it, what followed, and finally what changed over time.",
+      "why": "Good historical analysis starts by pinning down the event, then works outward to what caused it, what followed, and how significant it was overall.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "English",
-      "prompt": "A classmate says Act 1 Scene 1 is 'just a fight scene' with no real purpose. Explain what this misses about how the scene sets up the rest of Romeo and Juliet."
+      "subject": "Music",
+      "prompt": "A songwriter keeps the same four chords (C-Am-F-G) but starts the pattern on Am instead of C. Explain why this can make the song feel sadder even though the notes used are identical."
     }
   ]
 }
