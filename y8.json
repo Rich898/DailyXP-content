@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-18",
-  "day": "FRI",
-  "tag": "H8.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-18",
+  "date": "2026-09-21",
+  "day": "MON",
+  "tag": "H9.1",
+  "title": "DailyXP · MON 2026-09-21",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "A thick coat of fur on an arctic fox",
+      "subject": "Maths",
+      "prompt": "Table: x=3, y=9 fits y = 3x",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Adaptation",
-      "right": "Not adaptation",
-      "answer": "Adaptation",
-      "why": "Thick fur helps the fox survive cold conditions, so it is an adaptation — a trait that suits an organism to its habitat.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Substituting x=3 into y=3x gives y=9, so this pair fits the rule.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountains left lots of flat farmland",
+      "prompt": "Japan's mountains made travel and communication between regions easy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,231 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan's mountains left very little flat land, forcing farming into small valleys and coastal plains — this scarcity shaped the rise of local warrior rule.",
+      "why": "Japan's mountains made travel between regions hard, which encouraged local warlords and warrior rule instead of one easy-to-govern empire.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "The verse and chorus usually sound identical in melody",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The chorus is written to contrast with the verse in melody and layering, so they usually sound different, not the same.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, students mix and test colours before painting fur",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "The activities build painting skills like mixing colour and texture, practised before tackling the final animal painting.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In the spice rack project, what does a design brief describe?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The requirements to meet",
+      "why": "A design brief lays out the requirements a design must satisfy, based on the identified need.",
+      "options": [
+        "The requirements to meet",
+        "The final selling price",
+        "The tools available",
+        "The wood grain pattern"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord is the minor 'vi'?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Am chord",
+      "why": "Am is built on the 6th note of the C major scale, making it the 'vi' chord — and the only minor chord in this progression, giving it a sadder sound.",
+      "options": [
+        "Am chord",
+        "C chord",
+        "F chord",
+        "G chord"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What does biomass measure in an ecosystem?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Total living material",
+      "why": "Biomass is the total mass of living material in an ecosystem, not a count of species or a measure of climate.",
+      "options": [
+        "Total living material",
+        "Number of species",
+        "Average temperature",
+        "Total water volume"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In the spice rack build, which tool cuts the wood to length?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Tenon saw",
+      "why": "A tenon saw is used to cut wood accurately to length, while coping saws, chisels and files serve other shaping jobs.",
+      "options": [
+        "Tenon saw",
+        "Coping saw",
+        "Chisel",
+        "File"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "Why sand wood before applying a finish?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "To create a smooth surface",
+      "why": "Sanding smooths the surface so the finish goes on evenly, rather than changing the wood's weight or colour.",
+      "options": [
+        "To create a smooth surface",
+        "To make the wood heavier",
+        "To change the wood's colour",
+        "To seal in moisture"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "How do you say '7' in Japanese?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Nana",
+      "why": "Nana means 7. Yon is 4, Hachi is 8, and Roku is 6 — easy to mix up since they're all learned together.",
+      "options": [
+        "Nana",
+        "Yon",
+        "Hachi",
+        "Roku"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "How do you say '1000' in Japanese?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Sen",
+      "why": "Sen means 1000, while Hyaku means 100, Juu means 10, and Man means 10,000 in the counting system.",
+      "options": [
+        "Sen",
+        "Hyaku",
+        "Man",
+        "Juu"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What does 'Ikura desu ka' mean?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "How much is it?",
+      "why": "'Ikura desu ka' is the set phrase for asking a price, used when shopping or ordering food.",
+      "options": [
+        "How much is it?",
+        "What is this?",
+        "Where is it?",
+        "Do you have this?"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the type of soil affects plant height, keeping water the same. What is 'plant height' called?",
+      "prompt": "A student tests if fertiliser type changes plant height, keeping pot size the same. What kind of variable is pot size?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -57,52 +274,33 @@
       },
       "type": "text",
       "accept": [
-        "dependent variable",
-        "dependent"
+        "controlled variable",
+        "controlled"
       ],
-      "why": "Plant height is what's measured as an outcome, so it's the dependent variable — it depends on the soil type being tested.",
+      "why": "Pot size is deliberately kept the same for every plant, making it the controlled variable, not the one being measured or changed.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord carries the minor, sadder mood?",
-      "answer": "Am, the minor vi chord",
-      "why": "Am is a minor chord (vi), giving it a darker, sadder sound than the major C, F, and G chords, which all sound bright and resolved.",
+      "subject": "English",
+      "prompt": "In Romeo and Juliet, what does Romeo drink at the end of the play?",
+      "answer": "A vial of poison",
+      "why": "Romeo buys poison from an apothecary and drinks it beside Juliet's body, believing she is dead — it's a vial of poison, not the sleeping potion Juliet took earlier.",
       "options": [
-        "Am, the minor vi chord",
-        "C, the major i chord",
-        "F, the major iv chord",
-        "G, the major v chord"
+        "A vial of poison",
+        "A cup of wine",
+        "A sleeping potion",
+        "A love potion"
       ],
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What term describes an animal that hunts and eats other animals?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "predator",
-        "carnivore"
-      ],
-      "why": "A predator hunts and eats other animals for energy — this role controls prey populations and shapes the food web.",
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these Japanese feudal ranks from most to least power",
+      "prompt": "Order these steps in how Japan's warrior class first formed",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -112,66 +310,75 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun",
-        "Daimyo",
-        "Samurai",
-        "Peasant"
+        "Emperor's central control weakens",
+        "Regional lords raise private armies",
+        "Warriors serve lords for protection",
+        "Samurai class becomes established"
       ],
-      "top": "Most power",
-      "bot": "Least power",
-      "why": "The shogun held military rule, daimyo were regional lords beneath him, samurai served the daimyo as warriors, and peasants worked the land at the bottom.",
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "As central imperial power weakened, regional lords built their own armies, and the warriors who served them formed the samurai class.",
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "Which two English monarchs' reigns did Shakespeare mainly write during?",
+      "answer": "Elizabeth I and James I",
+      "why": "Shakespeare's writing career spanned the reigns of Elizabeth I and, after 1603, James I.",
+      "options": [
+        "Elizabeth I and James I",
+        "Henry VIII and Mary I",
+        "Victoria and Edward VII",
+        "James I and Charles I"
+      ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "In a Japanese restaurant, what phrase do you use to call the waiter over?",
-      "answer": "Sumimasen",
-      "why": "'Sumimasen' means 'excuse me' and is used to politely get a waiter's attention — different from 'oishii' (delicious) or the meal greetings.",
-      "options": [
-        "Sumimasen",
-        "Oishii",
-        "Gochisousama",
-        "Itadakimasu"
+      "subject": "History",
+      "prompt": "Order these groups by how directly they farmed the land",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Peasants",
+        "Samurai",
+        "Daimyo",
+        "Shogun"
       ],
+      "top": "Most direct farming",
+      "bot": "Least direct farming",
+      "why": "Peasants physically worked the land, samurai guarded it for their lord, daimyo controlled large estates, and the shogun ruled over all without farming himself.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Technology",
-      "prompt": "In the spice rack build, which tool is mainly used to smooth wood before finishing?",
-      "answer": "Sandpaper",
-      "why": "Sandpaper smooths the surface ready for finish, while a coping saw cuts curves, a mitre block guides angled cuts, and a chisel removes material — none of them smooth the surface.",
+      "subject": "Music",
+      "prompt": "In song structure, which section usually plays right before the first verse?",
+      "answer": "Intro",
+      "why": "The intro sets up the song's sound and mood before the first verse begins, unlike the bridge, outro or hook which appear later.",
       "options": [
-        "Sandpaper",
-        "Coping saw",
-        "Mitre block",
-        "Wood chisel"
+        "Intro",
+        "Bridge",
+        "Outro",
+        "Hook"
       ],
       "fresh": false
     },
     {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Technology",
-      "prompt": "Why should you sand wood before applying a finish?",
-      "answer": "So the finish sits on a smooth surface",
-      "why": "Sanding removes rough marks so the finish (like varnish) goes on evenly and looks smooth, rather than trapping bumps and scratches underneath.",
-      "options": [
-        "So the finish sits on a smooth surface",
-        "So the wood absorbs more glue",
-        "So the grain direction reverses",
-        "So the wood changes colour permanently"
-      ],
-      "fresh": true
-    },
-    {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Music",
-      "prompt": "Explain why the Am chord in C–Am–F–G sounds different in mood from the C, F, and G chords, using the idea of major and minor chords."
+      "subject": "English",
+      "prompt": "Shakespeare opens Romeo and Juliet with a fight between servants, not the main characters. Why might he choose to start this way, and what does it tell the audience before Romeo or Juliet even appear?"
     }
   ]
 }
