@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-21",
-  "day": "MON",
-  "tag": "H9.1",
-  "title": "DailyXP · MON 2026-09-21",
+  "date": "2026-09-22",
+  "day": "TUE",
+  "tag": "H9.2",
+  "title": "DailyXP · TUE 2026-09-22",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Table: x=3, y=9 fits y = 3x",
+      "subject": "English",
+      "prompt": "Romeo and Juliet's servants start the Act 1 brawl",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Substituting x=3 into y=3x gives y=9, so this pair fits the rule.",
+      "why": "The play opens with Capulet and Montague servants trading insults and drawing swords before any main character appears.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's mountains made travel and communication between regions easy",
+      "prompt": "A shogun ruled as Japan's true top authority in name",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan's mountains made travel between regions hard, which encouraged local warlords and warrior rule instead of one easy-to-govern empire.",
+      "why": "The emperor held the title in name, but the shogun actually held the real military and political power.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "The verse and chorus usually sound identical in melody",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The chorus is written to contrast with the verse in melody and layering, so they usually sound different, not the same.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, students mix and test colours before painting fur",
+      "subject": "Japanese",
+      "prompt": "'juuni' means 12 in Japanese",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The activities build painting skills like mixing colour and texture, practised before tackling the final animal painting.",
+      "why": "'Juu' is 10, so 'juuni' (10+2) is 12 — Japanese numbers past 10 are built by adding onto juu.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'hyaku' means 1,000",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "'Hyaku' means 100. 'Sen' is the word for 1,000 — the two are easy to mix up.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "In the spice rack project, what does a design brief describe?",
+      "subject": "History",
+      "prompt": "In history, what do we call an event that directly leads to another event?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,21 +93,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The requirements to meet",
-      "why": "A design brief lays out the requirements a design must satisfy, based on the identified need.",
+      "answer": "A trigger",
+      "why": "An event that leads directly to another is a cause or trigger. A consequence is the result that comes after, not the thing that starts it.",
       "options": [
-        "The requirements to meet",
-        "The final selling price",
-        "The tools available",
-        "The wood grain pattern"
+        "A trigger",
+        "A consequence",
+        "A continuity",
+        "A myth"
       ],
       "fresh": false
     },
     {
       "id": "S6",
       "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the minor 'vi'?",
+      "subject": "English",
+      "prompt": "In Romeo and Juliet, what does the Prologue tell the audience?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,21 +115,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Am chord",
-      "why": "Am is built on the 6th note of the C major scale, making it the 'vi' chord — and the only minor chord in this progression, giving it a sadder sound.",
+      "answer": "The ending in advance",
+      "why": "The Chorus's Prologue reveals the lovers will die, building dramatic irony for the rest of the play.",
       "options": [
-        "Am chord",
-        "C chord",
-        "F chord",
-        "G chord"
+        "The ending in advance",
+        "Juliet's secret plan",
+        "Romeo's family history",
+        "The party guest list"
       ],
       "fresh": false
     },
     {
       "id": "S7",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "What does biomass measure in an ecosystem?",
+      "subject": "Music",
+      "prompt": "In the progression C-Am-F-G, which chord is the 'vi'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,21 +137,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Total living material",
-      "why": "Biomass is the total mass of living material in an ecosystem, not a count of species or a measure of climate.",
+      "answer": "Am, the minor chord",
+      "why": "Am is built on the 6th note of the C major scale, making it the 'vi' chord, and it carries a minor, sadder sound compared to the major C, F and G.",
       "options": [
-        "Total living material",
-        "Number of species",
-        "Average temperature",
-        "Total water volume"
+        "Am, the minor chord",
+        "C, the tonic chord",
+        "F, the subdominant",
+        "G, the dominant"
       ],
       "fresh": false
     },
     {
       "id": "S8",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "In the spice rack build, which tool cuts the wood to length?",
+      "subject": "Science",
+      "prompt": "In an ecosystem, what does 'biomass' measure?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,21 +159,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Tenon saw",
-      "why": "A tenon saw is used to cut wood accurately to length, while coping saws, chisels and files serve other shaping jobs.",
+      "answer": "Total mass of living things",
+      "why": "Biomass is the total mass of living material in an area, often used to compare energy at each food chain level.",
       "options": [
-        "Tenon saw",
-        "Coping saw",
-        "Chisel",
-        "File"
+        "Total mass of living things",
+        "Number of species present",
+        "Speed of population growth",
+        "Amount of sunlight received"
       ],
       "fresh": false
     },
     {
       "id": "S9",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Why sand wood before applying a finish?",
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what do students study before painting fur?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,21 +181,21 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To create a smooth surface",
-      "why": "Sanding smooths the surface so the finish goes on evenly, rather than changing the wood's weight or colour.",
+      "answer": "Real animal textures",
+      "why": "Students look closely at real fur, scales, or skin patterns first, so their brushwork reflects genuine texture.",
       "options": [
-        "To create a smooth surface",
-        "To make the wood heavier",
-        "To change the wood's colour",
-        "To seal in moisture"
+        "Real animal textures",
+        "Famous artist signatures",
+        "Colour theory charts",
+        "Canvas stretching methods"
       ],
       "fresh": false
     },
     {
       "id": "S10",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "How do you say '7' in Japanese?",
+      "subject": "Maths",
+      "prompt": "For y = 2x + 1, what is y when x = 3?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Nana",
-      "why": "Nana means 7. Yon is 4, Hachi is 8, and Roku is 6 — easy to mix up since they're all learned together.",
+      "answer": "7",
+      "why": "Substitute x = 3: 2(3) + 1 = 7. A common slip is forgetting to add the +1 after multiplying.",
       "options": [
-        "Nana",
-        "Yon",
-        "Hachi",
-        "Roku"
+        "7",
+        "6",
+        "8",
+        "5"
       ],
       "mode": "scrub",
       "fresh": false
@@ -217,8 +217,8 @@
     {
       "id": "S11",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "How do you say '1000' in Japanese?",
+      "subject": "English",
+      "prompt": "In Romeo and Juliet, love and hate are shown as what?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Sen",
-      "why": "Sen means 1000, while Hyaku means 100, Juu means 10, and Man means 10,000 in the counting system.",
+      "answer": "Tangled together",
+      "why": "The play constantly links love and hate in the same moments, like Romeo falling for a Capulet at a feud-fuelled party.",
       "options": [
-        "Sen",
-        "Hyaku",
-        "Man",
-        "Juu"
+        "Tangled together",
+        "Completely separate",
+        "Only felt by Romeo",
+        "Growing weaker over time"
       ],
       "mode": "scrub",
       "fresh": false
@@ -240,8 +240,8 @@
     {
       "id": "S12",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What does 'Ikura desu ka' mean?",
+      "subject": "Music",
+      "prompt": "At the advanced level of 'Stand By Me', what mainly increases?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "How much is it?",
-      "why": "'Ikura desu ka' is the set phrase for asking a price, used when shopping or ordering food.",
+      "answer": "Chord and rhythm complexity",
+      "why": "Advanced level adds trickier chord changes and rhythms, while beginner level keeps the basic pattern simple.",
       "options": [
-        "How much is it?",
-        "What is this?",
-        "Where is it?",
-        "Do you have this?"
+        "Chord and rhythm complexity",
+        "Number of singers needed",
+        "Length of the song",
+        "Volume of the recording"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if fertiliser type changes plant height, keeping pot size the same. What kind of variable is pot size?",
+      "prompt": "A student tests if the amount of light affects how fast a plant grows, keeping water the same. What is the dependent variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,25 +274,31 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "controlled"
+        "how fast the plant grows",
+        "plant growth",
+        "growth rate"
       ],
-      "why": "Pot size is deliberately kept the same for every plant, making it the controlled variable, not the one being measured or changed.",
+      "why": "The dependent variable is what you measure — here, growth speed — since it depends on the amount of light changed.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Romeo and Juliet, what does Romeo drink at the end of the play?",
-      "answer": "A vial of poison",
-      "why": "Romeo buys poison from an apothecary and drinks it beside Juliet's body, believing she is dead — it's a vial of poison, not the sleeping potion Juliet took earlier.",
-      "options": [
-        "A vial of poison",
-        "A cup of wine",
-        "A sleeping potion",
-        "A love potion"
-      ],
+      "subject": "Maths",
+      "prompt": "Solve for x: 3x + 5 = 20",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 5,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Subtract 5 from both sides to get 3x = 15, then divide by 3 to get x = 5 — always do the same thing to both sides.",
       "fresh": false,
       "throwback": true
     },
@@ -300,7 +306,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps in how Japan's warrior class first formed",
+      "prompt": "Order these ranks in Japan's shogunate hierarchy",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -310,75 +316,66 @@
       },
       "type": "order",
       "sequence": [
-        "Emperor's central control weakens",
-        "Regional lords raise private armies",
-        "Warriors serve lords for protection",
-        "Samurai class becomes established"
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasants"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "As central imperial power weakened, regional lords built their own armies, and the warriors who served them formed the samurai class.",
+      "top": "Most power",
+      "bot": "Least power",
+      "why": "The shogun held supreme military power, daimyo ruled regions under him, samurai served daimyo, and peasants worked the land beneath all of them.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Which two English monarchs' reigns did Shakespeare mainly write during?",
-      "answer": "Elizabeth I and James I",
-      "why": "Shakespeare's writing career spanned the reigns of Elizabeth I and, after 1603, James I.",
+      "subject": "Technology",
+      "prompt": "In the spice rack design portfolio, what does the 'need' identify?",
+      "answer": "The problem to solve",
+      "why": "The 'need' names the real-world problem the design must fix, which then shapes the whole design brief.",
       "options": [
-        "Elizabeth I and James I",
-        "Henry VIII and Mary I",
-        "Victoria and Edward VII",
-        "James I and Charles I"
+        "The problem to solve",
+        "The final measurements",
+        "The type of glue used",
+        "The sanding grit needed"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these groups by how directly they farmed the land",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Peasants",
-        "Samurai",
-        "Daimyo",
-        "Shogun"
+      "subject": "Technology",
+      "prompt": "Why sand the timber before applying a finish?",
+      "answer": "So the finish soaks in evenly",
+      "why": "Sanding removes rough patches so the finish spreads smoothly and evenly instead of soaking in unevenly.",
+      "options": [
+        "So the finish soaks in evenly",
+        "So the wood changes colour",
+        "So the wood becomes waterproof",
+        "So the joints fit tighter"
       ],
-      "top": "Most direct farming",
-      "bot": "Least direct farming",
-      "why": "Peasants physically worked the land, samurai guarded it for their lord, daimyo controlled large estates, and the shogun ruled over all without farming himself.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In song structure, which section usually plays right before the first verse?",
-      "answer": "Intro",
-      "why": "The intro sets up the song's sound and mood before the first verse begins, unlike the bridge, outro or hook which appear later.",
+      "subject": "Japanese",
+      "prompt": "How do you say '15' in Japanese?",
+      "answer": "juu-go",
+      "why": "'Juu-go' is 10+5=15. Reversing it to 'go-juu' would mean 5x10=50, a common mix-up.",
       "options": [
-        "Intro",
-        "Bridge",
-        "Outro",
-        "Hook"
+        "juu-go",
+        "go-juu",
+        "juu-yon",
+        "ni-juu"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "English",
-      "prompt": "Shakespeare opens Romeo and Juliet with a fight between servants, not the main characters. Why might he choose to start this way, and what does it tell the audience before Romeo or Juliet even appear?"
+      "subject": "Technology",
+      "prompt": "Explain why a good design brief for the spice rack should describe the need before listing the materials or measurements."
     }
   ]
 }
