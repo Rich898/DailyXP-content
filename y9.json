@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-21",
-  "day": "MON",
-  "tag": "R9.1",
-  "title": "DailyXP · MON 2026-09-21",
+  "date": "2026-09-22",
+  "day": "TUE",
+  "tag": "R9.2",
+  "title": "DailyXP · TUE 2026-09-22",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Burning wood in a sealed, closed jar: total mass changes",
+      "prompt": "Burning wood in a sealed, closed jar loses mass",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "In a closed system nothing can escape or enter, so mass stays the same — the gases produced are trapped inside and still counted.",
+      "why": "In a closed system no matter can escape, so total mass stays the same — mass only seems to change in open systems where gas escapes.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Nanjing Massacre happened because Japan wanted quick, total submission from China",
+      "prompt": "The Nanjing Massacre happened only because of random soldier cruelty, with no wider military reason",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Japanese commanders used terror and mass killing to crush Chinese resistance quickly and force a fast surrender.",
+      "answer": "False",
+      "why": "Japanese commanders wanted to crush Chinese resistance quickly and force total submission — the violence was deliberate strategy, not just isolated cruelty.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "A promotional video's script is part of its content creation",
+      "prompt": "A promotional video's script counts as content creation",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Content creation covers everything made for the video, including the script, footage and music, not just the filming.",
+      "why": "Content creation covers everything made for the video — script, footage, and editing — not just the final filmed product.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "'Food selection' means choosing what food to buy or eat",
+      "prompt": "'Food selection' only means deciding what to buy at the shop",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,37 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Food selection is the process of choosing foods, based on things like taste, cost, health and culture.",
+      "answer": "False",
+      "why": "Food selection covers all the choices behind what we eat — availability, cost, culture and health — not just shopping decisions.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which nutrient mainly helps the body grow and repair itself?",
+      "prompt": "Besides energy, what else does food provide for the body?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Materials for growth and repair",
+      "why": "Food provides energy plus materials for growth and repair of body tissue — it doesn't guarantee eyesight, cure illness, or control height.",
+      "options": [
+        "Materials for growth and repair",
+        "Better eyesight",
+        "Protection from all illness",
+        "Faster height growth"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Which nutrient in a balanced diet is mainly needed for growth and repair?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -94,34 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Protein, for growth and repair",
-      "why": "Protein builds and repairs body tissue like muscle, while fat and sugar are mainly energy sources and fibre mainly aids digestion, not tissue repair.",
+      "why": "Protein builds and repairs body tissue like muscle; sugar and fibre serve other roles, and water has no calories or protein.",
       "options": [
         "Protein, for growth and repair",
-        "Fat, for quick bursts of energy",
-        "Fibre, for fast digestion only",
-        "Sugar, for permanent tissue repair"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Why should a balanced diet include foods from every group, not just favourites?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Each group gives different nutrients",
-      "why": "No single food group supplies everything the body needs, so a balanced diet mixes groups to get all the different nutrients.",
-      "options": [
-        "Each group gives different nutrients",
-        "It makes meals cheaper",
-        "It stops you feeling hungry",
-        "It keeps meals looking colourful"
+        "Sugar, for growth and repair",
+        "Fibre, for growth and repair",
+        "Water, for growth and repair"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In which country was Oscar Wilde born?",
+      "prompt": "In which city was Oscar Wilde born?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Ireland",
-      "why": "Oscar Wilde was born in Dublin, Ireland, though he later became famous in England.",
+      "answer": "Dublin",
+      "why": "Oscar Wilde was born in Dublin, Ireland, in 1854, not in any of the British cities often guessed instead.",
       "options": [
-        "Ireland",
-        "England",
-        "Scotland",
-        "Wales"
+        "Dublin",
+        "Edinburgh",
+        "Liverpool",
+        "Belfast"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What is the main purpose of satire?",
+      "prompt": "Which device does satire often use to criticise its target?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Mock society's flaws",
-      "why": "Satire uses humour and exaggeration to criticise and expose flaws in people or society, not to simply scare or describe.",
+      "answer": "Irony and exaggeration",
+      "why": "Satire typically relies on irony and exaggeration to make flaws look ridiculous, pushing readers to notice and question them.",
       "options": [
-        "Mock society's flaws",
-        "Frighten the reader",
-        "Describe scenery",
-        "Record real events"
+        "Irony and exaggeration",
+        "Plain factual reporting",
+        "Formal footnotes",
+        "Strict rhyme schemes"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 20 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 10 cm. Take your time: what is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -182,12 +182,12 @@
         "cta": "Keep going →"
       },
       "answer": "80 cm²",
-      "why": "Area = ½ × base × height = ½ × 20 × 8 = 80 cm². Halving is the step that gets rushed and skipped.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 16 × 10 = 80 cm² — don't skip the halving step.",
       "options": [
         "80 cm²",
         "160 cm²",
-        "28 cm²",
-        "100 cm²"
+        "26 cm²",
+        "40 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 5 cm and height 10 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 4 cm and height 10 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "471.0 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 157.0 + 314.0 = 471.0 cm². Forgetting the two circular ends gives the smaller wrong values.",
+      "answer": "351.7 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(16) + 2(3.14)(4)(10) = 100.5 + 251.2 = 351.7 cm². Forgetting the two circular ends gives the wrong smaller totals.",
       "options": [
-        "471.0 cm²",
-        "314.0 cm²",
-        "157.0 cm²",
-        "628.0 cm²"
+        "351.7 cm²",
+        "251.2 cm²",
+        "150.7 cm²",
+        "125.6 cm²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "Which best describes Australia's population history?",
+      "prompt": "What is the term for Australia's shift to accepting migrants from many different countries since the 1970s?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Shaped mainly by migration waves",
-      "why": "Waves of migration since colonisation have shaped Australia's population, culture and economy, not just natural birth rates or farming growth.",
+      "answer": "Multiculturalism",
+      "why": "Since the 1970s, Australia adopted multiculturalism, welcoming migrants from many nations rather than favouring one background.",
       "options": [
-        "Shaped mainly by migration waves",
-        "Grown mainly by high birth rates",
-        "Steady since colonisation began",
-        "Built mainly by farm expansion"
+        "Multiculturalism",
+        "Populate or Perish",
+        "White Australia Policy",
+        "Assimilation Policy"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Where did the 1923 Munich Putsch take place?",
+      "prompt": "What book did Hitler write in prison after the Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "A beer hall",
-      "why": "Hitler launched the failed putsch from a beer hall in Munich, which is why it's called the Beer Hall Putsch.",
+      "answer": "Mein Kampf",
+      "why": "While jailed after the failed 1923 Putsch, Hitler wrote Mein Kampf, setting out his beliefs and plans.",
       "options": [
-        "A beer hall",
-        "The Reichstag",
-        "A prison",
-        "A train station"
+        "Mein Kampf",
+        "The People's State",
+        "Third Reich Rising",
+        "Germany Awake"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 15 cm and a height of 6 cm. Take your time: what is its area?",
+      "prompt": "A triangle has a base of 18 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -278,21 +278,21 @@
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 15 × 6 = 45 cm². Say the ½ step in your head before multiplying to avoid rushing.",
+      "why": "Area = ½ × base × height = ½ × 18 × 5 = 45 cm². Say the formula first, then multiply, so you don't skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does the conch shell mainly symbolise?",
-      "answer": "Order and civilisation",
-      "why": "The conch grants the right to speak at assemblies, symbolising rules and civilised order among the boys.",
+      "prompt": "From a while back — what does Jack's face-paint mainly let him do in Lord of the Flies?",
+      "answer": "Hide his identity",
+      "why": "The face-paint acts as a mask, freeing Jack from shame and civilised restraint so he can act on savage impulses.",
       "options": [
-        "Order and civilisation",
-        "Fear of the beast",
-        "Physical strength",
-        "The boys' hunting skill"
+        "Hide his identity",
+        "Signal for rescue",
+        "Show his rank",
+        "Keep warm at night"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a closed system, what happens to total mass during a chemical reaction?",
+      "prompt": "In a closed container, 40g of reactants react fully. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,18 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "stays the same",
-        "unchanged",
-        "conserved"
+        "40g",
+        "40 grams"
       ],
-      "why": "Mass is conserved in a closed system — atoms are rearranged, not created or destroyed, so total mass stays the same.",
+      "why": "Mass is conserved in a closed system, so the total mass of products equals the total mass of reactants: 40g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "Name one sign that a chemical reaction has taken place.",
+      "prompt": "What sign of a reaction would you notice if it gives off heat?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,26 +331,25 @@
       },
       "type": "text",
       "accept": [
-        "colour change",
-        "gas produced",
-        "temperature change",
-        "precipitate formed"
+        "temperature rise",
+        "gets hot",
+        "heat released"
       ],
-      "why": "Signs of a chemical reaction include colour change, gas bubbles, heat change, or a solid (precipitate) forming.",
+      "why": "A temperature change, such as the mixture getting hotter, is a clear sign that a chemical reaction is happening.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why might a sports drink ad featuring a famous athlete influence a teenager's food choice?",
-      "answer": "Links product to admired success",
-      "why": "This technique connects the product to an admired athlete's success and image, not to its actual nutritional value.",
+      "prompt": "A cereal ad uses cartoon mascots and prizes to appeal to children. What effect is this technique aiming for?",
+      "answer": "Making the product seem fun",
+      "why": "Mascots and prizes are marketing techniques designed to make a product appealing and fun to children, not to change its actual nutrition or price.",
       "options": [
-        "Links product to admired success",
-        "Lists its ingredients clearly",
-        "Explains its nutrition facts",
-        "Shows its true sugar content"
+        "Making the product seem fun",
+        "Lowering the product's price",
+        "Improving the product's nutrition",
+        "Reducing sugar content"
       ],
       "fresh": false
     },
@@ -359,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which section lists sugar as a type of?",
-      "answer": "Carbohydrate, under total carbs",
-      "why": "Sugar is a simple carbohydrate, so nutrition labels list it as a sub-category under total carbohydrates, not under protein, fat, or fibre.",
+      "prompt": "On a nutrition label, what does the 'per serving' column actually show?",
+      "answer": "Amount in one serving",
+      "why": "'Per serving' shows the nutrients in a single serving size, not the whole pack, your daily needs, or a fixed 100g amount.",
       "options": [
-        "Carbohydrate, under total carbs",
-        "Protein, under total protein",
-        "Fat, under saturated fat",
-        "Fibre, under dietary fibre"
+        "Amount in one serving",
+        "Amount in whole pack",
+        "Daily amount needed",
+        "Amount per 100 grams"
       ],
       "fresh": false
     },
@@ -374,7 +372,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
+      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning a match. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
     }
   ]
 }
