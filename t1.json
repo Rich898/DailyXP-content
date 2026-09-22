@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-21",
-  "day": "MON",
-  "tag": "T9.1",
-  "title": "DailyXP · MON 2026-09-21",
+  "date": "2026-09-22",
+  "day": "TUE",
+  "tag": "T9.2",
+  "title": "DailyXP · TUE 2026-09-22",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 2x + 1, when x = 3, y = 7",
+      "prompt": "A table of values can have two different y-values for the same x",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Substitute x = 3: y = 2(3) + 1 = 7. Always sub the x-value in before doing anything else.",
+      "answer": "False",
+      "why": "In a table of values built from a function, each x must give exactly one y — that's what makes it a valid function table.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet marry in Act 1",
+      "prompt": "Romeo and Juliet secretly marry before Act 1 ends",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "In Act 1 they only meet and fall for each other at the party — the marriage happens later, in Act 2.",
+      "why": "By the end of Act 1 they have only just met at the Capulet party — the secret marriage happens later, in Act 2.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun was below the daimyo in power",
+      "prompt": "A shogun had to obey orders from the daimyo beneath him",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The shogun sat above the daimyo, who were regional lords answering to him — the shogun held the real political and military power.",
+      "why": "The shogun was the top military ruler; daimyo were powerful lords who answered to the shogun, not the other way round.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', students painted with fine detail brushes only",
+      "prompt": "In Paint Like a Beast, students blended colours smoothly for a soft, calm look",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Students used loose, expressive marks and unconventional tools to capture texture and movement, not tight photo-real detail.",
+      "why": "The activities pushed bold, energetic brushwork to capture texture and movement, not smooth, calm blending.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In the prologue, what do the two feuding families share?",
+      "prompt": "What does the Prologue reveal about Romeo and Juliet's fate?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A city, Verona",
-      "why": "The Chorus tells us both families live in fair Verona, whose old grudge breaks into new violence.",
+      "answer": "They will die",
+      "why": "The Prologue calls them 'star-crossed lovers' and tells the audience upfront that they will die, building dramatic irony.",
       "options": [
-        "A city, Verona",
-        "A single house",
-        "A trade business",
-        "A royal title"
+        "They will die",
+        "They will marry happily",
+        "They will flee Verona",
+        "They will reconcile the families"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In a chorus, adding extra instrument layers mainly creates what effect?",
+      "prompt": "In a song's chorus, what usually happens to the instrument layers?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A fuller, bigger sound",
-      "why": "Layering more instruments adds volume and texture, making the chorus feel bigger and fuller than the verse.",
+      "answer": "More layers get added in",
+      "why": "Choruses usually thicken the texture by adding instrument layers, making the sound feel fuller and more energetic than the verse.",
       "options": [
-        "A fuller, bigger sound",
-        "A quieter, thinner sound",
-        "A slower steady tempo",
-        "A total change of key"
+        "More layers get added in",
+        "All layers cut to silence",
+        "Tempo slows right down",
+        "Vocals are removed entirely"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What do we call an inherited feature that helps an organism survive?",
+      "prompt": "What best describes biomass in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "An adaptation",
-      "why": "An adaptation is a trait, like a structure or behaviour, shaped by evolution to help an organism survive in its environment.",
+      "answer": "Total mass of living things",
+      "why": "Biomass measures the total mass of living material at a point in the food chain, not species count or energy input.",
       "options": [
-        "An adaptation",
-        "A mutation event",
-        "A food chain",
-        "A biomass unit"
+        "Total mass of living things",
+        "Number of species present",
+        "Total energy from the sun",
+        "Amount of soil nutrients"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In a design brief, what does the 'need' describe?",
+      "prompt": "In the spice rack design brief, what does the 'need' identify?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -160,12 +160,12 @@
         "cta": "Keep going →"
       },
       "answer": "The problem to solve",
-      "why": "The need explains why the product must exist, e.g. spices being disorganised — the brief then responds to that need.",
+      "why": "The 'need' section states the real-world problem the design must address, before any materials or steps are chosen.",
       "options": [
         "The problem to solve",
-        "The final material used",
-        "The exact measurements",
-        "The sanding technique"
+        "The exact timber grain",
+        "The sandpaper grit",
+        "The glue drying time"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What two surfaces meet in a basic butt joint?",
+      "prompt": "In a basic butt joint, how are the two timber pieces joined?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Two flat ends",
-      "why": "A butt joint simply joins two flat, square-cut ends together — it's the simplest joint but the weakest without extra support.",
+      "answer": "End face to face",
+      "why": "A butt joint simply joins one piece's end or edge flat against another, without any interlocking or angled cuts.",
       "options": [
-        "Two flat ends",
-        "Two mitred edges",
-        "Two dovetail slots",
-        "Two overlapping grooves"
+        "End face to face",
+        "At interlocking fingers",
+        "With angled 45° cuts",
+        "Overlapping halves"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "Why sand timber before adding a finish?",
+      "prompt": "What type of glue is best for a strong wood joint?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "To smooth the surface",
-      "why": "Sanding removes rough fibres and marks so the finish sits evenly on a smooth surface, giving a cleaner result.",
+      "answer": "PVA wood glue",
+      "why": "PVA wood glue bonds timber fibres for a strong, lasting joint — super glue is brittle on wood, tape isn't permanent, and filler just hides gaps.",
       "options": [
-        "To smooth the surface",
-        "To seal in moisture",
-        "To darken the wood colour",
-        "To strengthen the joint"
+        "PVA wood glue",
+        "Super glue",
+        "Masking tape",
+        "Wood filler paste"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is 'juu' in Japanese?",
+      "prompt": "What is the Japanese word for the number 8?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Ten",
-      "why": "'Juu' means ten in Japanese, the base number used to build 11-19 (e.g. juu-ichi is eleven).",
+      "answer": "Hachi",
+      "why": "'Hachi' means eight; 'shichi' is seven, 'roku' is six, and 'kyuu' is nine — easy to muddle if learned as a list.",
       "options": [
-        "Ten",
-        "Two",
-        "Seven",
-        "Nine"
+        "Hachi",
+        "Shichi",
+        "Roku",
+        "Kyuu"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is 'hyaku' in Japanese?",
+      "prompt": "What is 'hyaku' the Japanese word for?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Hundred",
-      "why": "'Hyaku' means one hundred — larger Japanese numbers build from juu (ten), hyaku (hundred), and sen (thousand).",
+      "answer": "100",
+      "why": "'Hyaku' means one hundred; students often confuse it with 'juu' (10) or 'sen' (1,000) since they all sound similar in a list.",
       "options": [
-        "Hundred",
-        "Ten",
-        "Thousand",
-        "Fifty"
+        "100",
+        "10",
+        "1,000",
+        "10,000"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the term for the boundary where two tectonic plates push together, often forming mountains or trenches?",
+      "prompt": "What natural hazard is most often caused by sudden movement of tectonic plates?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "convergent boundary",
-        "convergent plate boundary"
+        "earthquake",
+        "earthquakes"
       ],
-      "why": "A convergent boundary is where two plates collide, causing crumpling, mountain building, or one plate sinking beneath the other.",
+      "why": "Sudden movement along a fault line releases energy as shaking — this is an earthquake, the classic tectonic hazard.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, why does Tybalt want to fight Romeo?",
-      "answer": "A Montague at the feast",
-      "why": "Tybalt is enraged simply because Romeo, a Montague, has dared to enter the Capulet feast, showing how deep the family hatred runs.",
+      "prompt": "In Act 1 Scene 1, what does the Prince threaten if fighting continues?",
+      "answer": "Death for the offenders",
+      "why": "Prince Escalus declares that any further brawling in Verona's streets will be punished by death, showing how seriously he takes the feud disrupting his city.",
       "options": [
-        "A Montague at the feast",
-        "He insulted Lord Capulet",
-        "He challenged Mercutio first",
-        "He was caught stealing wine"
+        "Death for the offenders",
+        "Exile from Verona",
+        "Heavy fines for families",
+        "Loss of family property"
       ],
       "fresh": false
     },
@@ -300,9 +300,9 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord acts as the tonic, or 'home' chord?",
+      "prompt": "In C-Am-F-G, which chord is the tonic, or 'home' chord?",
       "answer": "C",
-      "why": "C is the 'I' chord, the tonic, so the progression feels like it's leaving home and eventually returning to it.",
+      "why": "C is the 'I' chord, built on the first note of the scale, so it acts as the home base the progression returns to.",
       "options": [
         "C",
         "Am",
@@ -315,9 +315,9 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did students mainly aim to capture in their animal paintings?",
+      "prompt": "In Paint Like a Beast, what did students mainly aim to capture?",
       "answer": "Texture and movement",
-      "why": "The activities focused on expressive, loose mark-making to suggest an animal's texture and motion, not realistic accuracy.",
+      "why": "The activities focused on expressive texture and movement in the brushwork, not photo-realistic detail or accuracy.",
       "options": [
         "Texture and movement",
         "Exact photo likeness",
@@ -330,7 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks in Japan's feudal hierarchy from highest to lowest power",
+      "prompt": "Order these steps of a feudal land exchange, from top to bottom",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun",
-        "Daimyo",
-        "Samurai",
-        "Peasants"
+        "Shogun holds power",
+        "Shogun grants land",
+        "Daimyo controls domain",
+        "Samurai serve daimyo"
       ],
-      "top": "Highest power",
-      "bot": "Lowest power",
-      "why": "The shogun held supreme military power, ruling through daimyo lords, who commanded samurai warriors, with peasants at the base of the hierarchy.",
+      "top": "Top",
+      "bot": "Bottom",
+      "why": "The shogun granted land to daimyo, who ruled their domains and commanded samurai warriors to enforce that control locally.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of historical cause-and-consequence analysis, from first to last",
+      "prompt": "Order these steps in the feudal land exchange, from top to bottom",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +364,21 @@
       },
       "type": "order",
       "sequence": [
-        "Identify the event",
-        "Find its causes",
-        "Trace its consequences",
-        "Assess long-term significance"
+        "King grants land",
+        "Lord pledges loyalty",
+        "Lord grants land to vassal",
+        "Vassal provides service"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Good historical analysis starts by pinning down the event, then works outward to what caused it, what followed, and how significant it was overall.",
+      "why": "The king granted land to lords in return for loyalty, and lords passed land down to vassals who owed service in return, forming the feudal chain.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "A songwriter keeps the same four chords (C-Am-F-G) but starts the pattern on Am instead of C. Explain why this can make the song feel sadder even though the notes used are identical."
+      "prompt": "Explain why playing C-Am-F-G but starting the sequence on G instead of C can change how the song feels, even though the same four chords are used"
     }
   ]
 }
