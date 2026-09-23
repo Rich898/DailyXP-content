@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-22",
-  "day": "TUE",
-  "tag": "H9.2",
-  "title": "DailyXP · TUE 2026-09-22",
+  "date": "2026-09-23",
+  "day": "WED",
+  "tag": "H9.3",
+  "title": "DailyXP · WED 2026-09-23",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet's servants start the Act 1 brawl",
+      "prompt": "Romeo and Juliet meet at a Capulet party",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The play opens with Capulet and Montague servants trading insults and drawing swords before any main character appears.",
+      "why": "They first speak and fall in love at the Capulet feast in Act 1 Scene 5, despite being from rival families.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A shogun ruled as Japan's true top authority in name",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The emperor held the title in name, but the shogun actually held the real military and political power.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'juuni' means 12 in Japanese",
+      "prompt": "A shogun held more real power than the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Juu' is 10, so 'juuni' (10+2) is 12 — Japanese numbers past 10 are built by adding onto juu.",
+      "why": "The shogun was the actual military and political ruler, while the emperor was a figurehead in name only.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S3",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'hyaku' means 1,000",
+      "prompt": "'juu' means 10 in Japanese",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +58,34 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "'Hyaku' means 100. 'Sen' is the word for 1,000 — the two are easy to mix up.",
+      "answer": "True",
+      "why": "'Juu' is the Japanese word for the number 10.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'sen' is used for counting in the thousands",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Sen' means 1,000, so it's the base word used when counting larger amounts like yen prices.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In history, what do we call an event that directly leads to another event?",
+      "prompt": "What do we call something that stayed roughly the same across a period of history?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A trigger",
-      "why": "An event that leads directly to another is a cause or trigger. A consequence is the result that comes after, not the thing that starts it.",
+      "answer": "A continuity",
+      "why": "Continuity describes something that remained unchanged over time, unlike change which marks a shift.",
       "options": [
-        "A trigger",
-        "A consequence",
         "A continuity",
-        "A myth"
+        "A consequence",
+        "A trigger cause",
+        "A turning point"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, what does the Prologue tell the audience?",
+      "prompt": "Who is Romeo's best friend killed by Tybalt in Act 3?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The ending in advance",
-      "why": "The Chorus's Prologue reveals the lovers will die, building dramatic irony for the rest of the play.",
+      "answer": "Mercutio",
+      "why": "Mercutio is killed by Tybalt while defending Romeo's honour, sparking Romeo's revenge.",
       "options": [
-        "The ending in advance",
-        "Juliet's secret plan",
-        "Romeo's family history",
-        "The party guest list"
+        "Mercutio",
+        "Benvolio",
+        "Paris",
+        "Balthasar"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, which chord is the 'vi'?",
+      "prompt": "In C–Am–F–G, which chord is the 'I' chord?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Am, the minor chord",
-      "why": "Am is built on the 6th note of the C major scale, making it the 'vi' chord, and it carries a minor, sadder sound compared to the major C, F and G.",
+      "answer": "C",
+      "why": "C is the tonic chord built on the first note of the C major scale, making it the 'I' chord.",
       "options": [
-        "Am, the minor chord",
-        "C, the tonic chord",
-        "F, the subdominant",
-        "G, the dominant"
+        "C",
+        "Am",
+        "F",
+        "G"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In an ecosystem, what does 'biomass' measure?",
+      "prompt": "What do we call an animal that only eats plants?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Total mass of living things",
-      "why": "Biomass is the total mass of living material in an area, often used to compare energy at each food chain level.",
+      "answer": "A herbivore",
+      "why": "A herbivore is an animal whose diet consists only of plant material.",
       "options": [
-        "Total mass of living things",
-        "Number of species present",
-        "Speed of population growth",
-        "Amount of sunlight received"
+        "A herbivore",
+        "A carnivore",
+        "A producer",
+        "A decomposer"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students study before painting fur?",
+      "prompt": "In 'Paint Like a Beast', what helps students paint realistic fur texture?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Real animal textures",
-      "why": "Students look closely at real fur, scales, or skin patterns first, so their brushwork reflects genuine texture.",
+      "answer": "Studying real fur patterns",
+      "why": "The activities focus on observing real fur closely to guide brushwork and texture, not copying or tracing.",
       "options": [
-        "Real animal textures",
-        "Famous artist signatures",
-        "Colour theory charts",
-        "Canvas stretching methods"
+        "Studying real fur patterns",
+        "Copying a cartoon",
+        "Using only black paint",
+        "Tracing a photo outline"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 2x + 1, what is y when x = 3?",
+      "prompt": "For y = 2x, what is y when x = 4?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "7",
-      "why": "Substitute x = 3: 2(3) + 1 = 7. A common slip is forgetting to add the +1 after multiplying.",
+      "answer": "8",
+      "why": "Substitute x = 4 into y = 2x: 2 × 4 = 8.",
       "options": [
-        "7",
-        "6",
         "8",
-        "5"
+        "6",
+        "2",
+        "16"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, love and hate are shown as what?",
+      "prompt": "In Romeo and Juliet, what does the play suggest about love and hate?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Tangled together",
-      "why": "The play constantly links love and hate in the same moments, like Romeo falling for a Capulet at a feud-fuelled party.",
+      "answer": "They exist closely together",
+      "why": "Shakespeare constantly shows love and hate intertwined, like Romeo falling for a Capulet despite the feud.",
       "options": [
-        "Tangled together",
-        "Completely separate",
-        "Only felt by Romeo",
-        "Growing weaker over time"
+        "They exist closely together",
+        "They stay fully separate always",
+        "Hate defeats love completely",
+        "Love only appears briefly"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "At the advanced level of 'Stand By Me', what mainly increases?",
+      "prompt": "In 'Stand By Me', what mainly changes at the advanced level?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Chord and rhythm complexity",
-      "why": "Advanced level adds trickier chord changes and rhythms, while beginner level keeps the basic pattern simple.",
+      "answer": "More complex playing skills",
+      "why": "Advanced level adds harder techniques and parts, while beginner/intermediate keep things simpler.",
       "options": [
-        "Chord and rhythm complexity",
-        "Number of singers needed",
-        "Length of the song",
-        "Volume of the recording"
+        "More complex playing skills",
+        "The song's key changes",
+        "The lyrics get longer",
+        "The tempo slows right down"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the amount of light affects how fast a plant grows, keeping water the same. What is the dependent variable?",
+      "prompt": "In an experiment testing if fertiliser amount affects plant height, what type of variable is 'fertiliser amount'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,18 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "how fast the plant grows",
-        "plant growth",
-        "growth rate"
+        "independent",
+        "independent variable"
       ],
-      "why": "The dependent variable is what you measure — here, growth speed — since it depends on the amount of light changed.",
+      "why": "The independent variable is the one the experimenter deliberately changes — here, the fertiliser amount.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 3x + 5 = 20",
+      "prompt": "Solve for x: 3x + 7 = 22",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -298,7 +297,7 @@
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 5 from both sides to get 3x = 15, then divide by 3 to get x = 5 — always do the same thing to both sides.",
+      "why": "Subtract 7 from both sides to get 3x = 15, then divide by 3 to get x = 5.",
       "fresh": false,
       "throwback": true
     },
@@ -306,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks in Japan's shogunate hierarchy",
+      "prompt": "Order these steps in how Japan's warrior class first gained power",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -316,28 +315,28 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun",
-        "Daimyo",
-        "Samurai",
-        "Peasants"
+        "Weak central government",
+        "Local lords raise armies",
+        "Samurai serve daimyo",
+        "Shogun rules in emperor's name"
       ],
-      "top": "Most power",
-      "bot": "Least power",
-      "why": "The shogun held supreme military power, daimyo ruled regions under him, samurai served daimyo, and peasants worked the land beneath all of them.",
+      "top": "First",
+      "bot": "Last",
+      "why": "As central rule weakened, local lords raised their own armies of samurai, and eventually a shogun took real power while the emperor stayed a figurehead.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack design portfolio, what does the 'need' identify?",
-      "answer": "The problem to solve",
-      "why": "The 'need' names the real-world problem the design must fix, which then shapes the whole design brief.",
+      "prompt": "In the spice rack design portfolio, what should come first: the need or the materials list?",
+      "answer": "The need",
+      "why": "A good design brief starts by identifying the need the product solves, before choosing materials or measurements.",
       "options": [
-        "The problem to solve",
-        "The final measurements",
-        "The type of glue used",
-        "The sanding grit needed"
+        "The need",
+        "The materials list",
+        "The measurements",
+        "The finish type"
       ],
       "fresh": false
     },
@@ -345,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "Why sand the timber before applying a finish?",
-      "answer": "So the finish soaks in evenly",
-      "why": "Sanding removes rough patches so the finish spreads smoothly and evenly instead of soaking in unevenly.",
+      "prompt": "In the spice rack build, what does a butt joint use to hold pieces together?",
+      "answer": "Glue only, no interlocking cut",
+      "why": "A butt joint is the simplest joint — two flat ends glued together with no interlocking cut, unlike joints such as housing or dovetail joints which are shaped to lock together.",
       "options": [
-        "So the finish soaks in evenly",
-        "So the wood changes colour",
-        "So the wood becomes waterproof",
-        "So the joints fit tighter"
+        "Glue only, no interlocking cut",
+        "Interlocking notches in both pieces",
+        "A metal hinge",
+        "Overlapping dovetails"
       ],
       "fresh": false
     },
@@ -360,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '15' in Japanese?",
-      "answer": "juu-go",
-      "why": "'Juu-go' is 10+5=15. Reversing it to 'go-juu' would mean 5x10=50, a common mix-up.",
+      "prompt": "How do you say '14' in Japanese?",
+      "answer": "juuyon",
+      "why": "'Juuyon' combines 'juu' (10) and 'yon' (4) to make 14.",
       "options": [
-        "juu-go",
-        "go-juu",
-        "juu-yon",
-        "ni-juu"
+        "juuyon",
+        "juuni",
+        "juuroku",
+        "juusan"
       ],
       "fresh": false
     },
@@ -375,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a good design brief for the spice rack should describe the need before listing the materials or measurements."
+      "prompt": "Explain why a spice rack's design brief should describe the problem it solves before listing materials like radiata pine, and what could go wrong if a designer skips straight to materials."
     }
   ]
 }
