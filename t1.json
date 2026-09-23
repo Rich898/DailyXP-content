@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-22",
-  "day": "TUE",
-  "tag": "T9.2",
-  "title": "DailyXP · TUE 2026-09-22",
+  "date": "2026-09-23",
+  "day": "WED",
+  "tag": "T9.3",
+  "title": "DailyXP · WED 2026-09-23",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A table of values can have two different y-values for the same x",
+      "prompt": "y = x + 2 is a valid table-of-values rule",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "In a table of values built from a function, each x must give exactly one y — that's what makes it a valid function table.",
+      "answer": "True",
+      "why": "y = x + 2 gives exactly one y for every x, so it works fine as a rule for a table of values.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet secretly marry before Act 1 ends",
+      "prompt": "Romeo crashes the Capulet party uninvited",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "By the end of Act 1 they have only just met at the Capulet party — the secret marriage happens later, in Act 2.",
+      "answer": "True",
+      "why": "In Act 1 Scene 5, Romeo and his friends sneak into the Capulet feast wearing masks, which is how he first sees Juliet.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A shogun had to obey orders from the daimyo beneath him",
+      "prompt": "The shogun ruled with real military power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "The shogun was the top military ruler; daimyo were powerful lords who answered to the shogun, not the other way round.",
+      "answer": "True",
+      "why": "The shogun held actual military and political control, while the emperor kept only a symbolic, ceremonial role.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, students blended colours smoothly for a soft, calm look",
+      "prompt": "Paint Like a Beast used only fine detail brushes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The activities pushed bold, energetic brushwork to capture texture and movement, not smooth, calm blending.",
+      "why": "Students used bold, loose brushwork and varied tools, not just fine detail brushes, to capture texture and movement.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What does the Prologue reveal about Romeo and Juliet's fate?",
+      "prompt": "Who is killed by Tybalt in Act 3?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They will die",
-      "why": "The Prologue calls them 'star-crossed lovers' and tells the audience upfront that they will die, building dramatic irony.",
+      "answer": "Mercutio",
+      "why": "Tybalt kills Mercutio in Act 3, which drives Romeo to kill Tybalt in revenge and sets the tragedy in motion.",
       "options": [
-        "They will die",
-        "They will marry happily",
-        "They will flee Verona",
-        "They will reconcile the families"
+        "Mercutio",
+        "Paris",
+        "Benvolio",
+        "Balthasar"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In a song's chorus, what usually happens to the instrument layers?",
+      "prompt": "In a song's verse, instruments are usually kept how, compared to the chorus?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "More layers get added in",
-      "why": "Choruses usually thicken the texture by adding instrument layers, making the sound feel fuller and more energetic than the verse.",
+      "answer": "Sparser than the chorus",
+      "why": "Verses are usually kept sparser than the chorus so the fuller, layered chorus feels like a lift by contrast.",
       "options": [
-        "More layers get added in",
-        "All layers cut to silence",
-        "Tempo slows right down",
-        "Vocals are removed entirely"
+        "Sparser than the chorus",
+        "Louder than the chorus",
+        "Identical to the chorus",
+        "Faster than the chorus"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What best describes biomass in an ecosystem?",
+      "prompt": "What do we call a feature an organism inherits to help it survive?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Total mass of living things",
-      "why": "Biomass measures the total mass of living material at a point in the food chain, not species count or energy input.",
+      "answer": "Adaptation",
+      "why": "An adaptation is an inherited trait, like thick fur or camouflage, that helps an organism survive in its environment.",
       "options": [
-        "Total mass of living things",
-        "Number of species present",
-        "Total energy from the sun",
-        "Amount of soil nutrients"
+        "Adaptation",
+        "Biomass",
+        "Habitat",
+        "Population"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack design brief, what does the 'need' identify?",
+      "prompt": "In the spice rack design brief, what does the 'need' describe?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -160,12 +160,12 @@
         "cta": "Keep going →"
       },
       "answer": "The problem to solve",
-      "why": "The 'need' section states the real-world problem the design must address, before any materials or steps are chosen.",
+      "why": "The 'need' identifies the problem or gap the design must address, before any decisions about materials or dimensions are made.",
       "options": [
         "The problem to solve",
-        "The exact timber grain",
-        "The sandpaper grit",
-        "The glue drying time"
+        "The exact final measurements",
+        "The type of glue used",
+        "The sandpaper grit chosen"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In a basic butt joint, how are the two timber pieces joined?",
+      "prompt": "Which joint uses interlocking cuts for extra strength?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "End face to face",
-      "why": "A butt joint simply joins one piece's end or edge flat against another, without any interlocking or angled cuts.",
+      "answer": "Finger joint",
+      "why": "A finger joint uses interlocking cut fingers to increase glue surface and strength, unlike a plain butt joint's flat ends.",
       "options": [
-        "End face to face",
-        "At interlocking fingers",
-        "With angled 45° cuts",
-        "Overlapping halves"
+        "Finger joint",
+        "Butt joint",
+        "Mitre joint",
+        "Lap joint"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What type of glue is best for a strong wood joint?",
+      "prompt": "What grit sandpaper is best for the first rough pass?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "PVA wood glue",
-      "why": "PVA wood glue bonds timber fibres for a strong, lasting joint — super glue is brittle on wood, tape isn't permanent, and filler just hides gaps.",
+      "answer": "Coarse grit",
+      "why": "Coarse grit removes rough surface material fastest on the first pass; finer grits are used later to smooth it further.",
       "options": [
-        "PVA wood glue",
-        "Super glue",
-        "Masking tape",
-        "Wood filler paste"
+        "Coarse grit",
+        "Fine grit",
+        "Medium grit",
+        "Extra-fine grit"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 8?",
+      "prompt": "What is the Japanese word for the number 6?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Hachi",
-      "why": "'Hachi' means eight; 'shichi' is seven, 'roku' is six, and 'kyuu' is nine — easy to muddle if learned as a list.",
+      "answer": "Roku",
+      "why": "Roku means 6 in Japanese. Hachi is 8, kyuu is 9, and shichi is 7 — easy to mix up when learning numbers together.",
       "options": [
-        "Hachi",
-        "Shichi",
         "Roku",
-        "Kyuu"
+        "Hachi",
+        "Kyuu",
+        "Shichi"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is 'hyaku' the Japanese word for?",
+      "prompt": "What is 'sen' in Japanese?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "100",
-      "why": "'Hyaku' means one hundred; students often confuse it with 'juu' (10) or 'sen' (1,000) since they all sound similar in a list.",
+      "answer": "1000",
+      "why": "Sen means 1000. It's easy to confuse with juu (10) and hyaku (100) since they all name large round numbers.",
       "options": [
-        "100",
+        "1000",
         "10",
-        "1,000",
-        "10,000"
+        "100",
+        "10000"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What natural hazard is most often caused by sudden movement of tectonic plates?",
+      "prompt": "From a while back: what natural hazard is most often caused by sudden movement of tectonic plates underground?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,7 +277,7 @@
         "earthquake",
         "earthquakes"
       ],
-      "why": "Sudden movement along a fault line releases energy as shaking — this is an earthquake, the classic tectonic hazard.",
+      "why": "An earthquake happens when built-up stress along tectonic plate boundaries suddenly releases, shaking the ground.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does the Prince threaten if fighting continues?",
-      "answer": "Death for the offenders",
-      "why": "Prince Escalus declares that any further brawling in Verona's streets will be punished by death, showing how seriously he takes the feud disrupting his city.",
+      "prompt": "In Act 1 Scene 5, what does Tybalt recognise about Romeo?",
+      "answer": "His voice",
+      "why": "Tybalt recognises Romeo by his voice despite his disguise, which sparks Tybalt's fury at a Montague crashing the Capulet party.",
       "options": [
-        "Death for the offenders",
-        "Exile from Verona",
-        "Heavy fines for families",
-        "Loss of family property"
+        "His voice",
+        "His mask",
+        "His sword",
+        "His clothing"
       ],
       "fresh": false
     },
@@ -300,9 +300,9 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C-Am-F-G, which chord is the tonic, or 'home' chord?",
+      "prompt": "In C–Am–F–G, which chord is the tonic, or 'home' chord?",
       "answer": "C",
-      "why": "C is the 'I' chord, built on the first note of the scale, so it acts as the home base the progression returns to.",
+      "why": "C is built on the first scale degree, making it the tonic — the chord that feels like 'home' and where the progression resolves.",
       "options": [
         "C",
         "Am",
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what did students mainly aim to capture?",
-      "answer": "Texture and movement",
-      "why": "The activities focused on expressive texture and movement in the brushwork, not photo-realistic detail or accuracy.",
+      "prompt": "In Paint Like a Beast, what did students use besides brushes to apply paint?",
+      "answer": "Sponges and tools",
+      "why": "Students experimented with sponges and other tools alongside brushes to create varied texture and movement in their animal paintings.",
       "options": [
-        "Texture and movement",
-        "Exact photo likeness",
-        "Precise anatomy",
-        "Background scenery"
+        "Sponges and tools",
+        "Only fingers",
+        "Only pencils",
+        "Printing stamps only"
       ],
       "fresh": false
     },
@@ -330,31 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of a feudal land exchange, from top to bottom",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Shogun holds power",
-        "Shogun grants land",
-        "Daimyo controls domain",
-        "Samurai serve daimyo"
-      ],
-      "top": "Top",
-      "bot": "Bottom",
-      "why": "The shogun granted land to daimyo, who ruled their domains and commanded samurai warriors to enforce that control locally.",
-      "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps in the feudal land exchange, from top to bottom",
+      "prompt": "Order these steps in a feudal land exchange from top to bottom",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -365,20 +341,44 @@
       "type": "order",
       "sequence": [
         "King grants land",
-        "Lord pledges loyalty",
-        "Lord grants land to vassal",
-        "Vassal provides service"
+        "Lord grants portion to vassal",
+        "Vassal offers military service",
+        "Peasants work the land"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "The king granted land to lords in return for loyalty, and lords passed land down to vassals who owed service in return, forming the feudal chain.",
+      "why": "Land flowed downward from the king to lords to vassals in exchange for service, with peasants working the land at the base.",
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order these events in the Crusades from earliest to latest",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Pope Urban II calls for crusade",
+        "First Crusade begins",
+        "Crusaders capture Jerusalem",
+        "Jerusalem falls back to Muslim forces"
+      ],
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "Pope Urban II's call in 1095 led to the First Crusade in 1096, which captured Jerusalem in 1099, before it was later retaken by Muslim forces.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing C-Am-F-G but starting the sequence on G instead of C can change how the song feels, even though the same four chords are used"
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting on Am instead of C can make a song feel sadder, even though the notes used are identical."
     }
   ]
 }
