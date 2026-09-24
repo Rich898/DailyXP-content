@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-23",
-  "day": "WED",
-  "tag": "T9.3",
-  "title": "DailyXP · WED 2026-09-23",
+  "date": "2026-09-24",
+  "day": "THU",
+  "tag": "T9.4",
+  "title": "DailyXP · THU 2026-09-24",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = x + 2 is a valid table-of-values rule",
+      "prompt": "y = 2x, when x = 5, y = 10",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "y = x + 2 gives exactly one y for every x, so it works fine as a rule for a table of values.",
+      "why": "Substituting x = 5 into y = 2x gives y = 10, so this pair correctly fits the rule.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo crashes the Capulet party uninvited",
+      "prompt": "Romeo and Juliet marry secretly with Friar Laurence's help",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In Act 1 Scene 5, Romeo and his friends sneak into the Capulet feast wearing masks, which is how he first sees Juliet.",
+      "why": "Friar Laurence agrees to marry them secretly, hoping it will end the feud between their families.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun ruled with real military power",
+      "prompt": "A shogun was Japan's top military ruler",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun held actual military and political control, while the emperor kept only a symbolic, ceremonial role.",
+      "why": "The shogun held real military and political power, ruling in the emperor's name.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast used only fine detail brushes",
+      "prompt": "In Paint Like a Beast, precise photo-realism was the goal",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Students used bold, loose brushwork and varied tools, not just fine detail brushes, to capture texture and movement.",
+      "why": "The activities focused on capturing texture and movement, not exact photographic likeness.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who is killed by Tybalt in Act 3?",
+      "prompt": "Whose death directly causes Romeo's banishment?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Mercutio",
-      "why": "Tybalt kills Mercutio in Act 3, which drives Romeo to kill Tybalt in revenge and sets the tragedy in motion.",
+      "answer": "Tybalt's",
+      "why": "Romeo kills Tybalt in revenge for Mercutio's death, and it is that killing of Tybalt which the Prince punishes with banishment.",
       "options": [
-        "Mercutio",
-        "Paris",
-        "Benvolio",
-        "Balthasar"
+        "Mercutio's",
+        "Tybalt's",
+        "Paris's",
+        "Benvolio's"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In a song's verse, instruments are usually kept how, compared to the chorus?",
+      "prompt": "Stripping back to one instrument in a verse mainly creates what effect?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Sparser than the chorus",
-      "why": "Verses are usually kept sparser than the chorus so the fuller, layered chorus feels like a lift by contrast.",
+      "answer": "Builds intimacy",
+      "why": "A sparse verse with fewer instruments feels more personal, contrasting with a fuller, bigger chorus.",
       "options": [
-        "Sparser than the chorus",
-        "Louder than the chorus",
-        "Identical to the chorus",
-        "Faster than the chorus"
+        "Builds intimacy",
+        "Builds tension only",
+        "Signals the song's end",
+        "Adds more layers"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What do we call a feature an organism inherits to help it survive?",
+      "prompt": "What term describes the total mass of living things in an area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,11 +137,11 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Adaptation",
-      "why": "An adaptation is an inherited trait, like thick fur or camouflage, that helps an organism survive in its environment.",
+      "answer": "Biomass",
+      "why": "Biomass is the total mass of living organisms in a given area or ecosystem, often measured to compare energy at each level.",
       "options": [
-        "Adaptation",
         "Biomass",
+        "Adaptation",
         "Habitat",
         "Population"
       ],
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack design brief, what does the 'need' describe?",
+      "prompt": "In the spice rack design brief, what does the specification list?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The problem to solve",
-      "why": "The 'need' identifies the problem or gap the design must address, before any decisions about materials or dimensions are made.",
+      "answer": "The exact requirements",
+      "why": "The specification lists the precise requirements a design must meet, such as size, material, and function, separate from the general need.",
       "options": [
+        "The exact requirements",
         "The problem to solve",
-        "The exact final measurements",
-        "The type of glue used",
-        "The sandpaper grit chosen"
+        "The finished sketch",
+        "The client's name"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "Which joint uses interlocking cuts for extra strength?",
+      "prompt": "Which joint uses angled 45° cuts so no end grain shows?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Finger joint",
-      "why": "A finger joint uses interlocking cut fingers to increase glue surface and strength, unlike a plain butt joint's flat ends.",
+      "answer": "A mitre joint",
+      "why": "A mitre joint uses two 45° angled cuts to form a neat corner that hides the end grain, unlike a plain butt joint.",
       "options": [
-        "Finger joint",
-        "Butt joint",
-        "Mitre joint",
-        "Lap joint"
+        "A mitre joint",
+        "A butt joint",
+        "A lap joint",
+        "A dowel joint"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What grit sandpaper is best for the first rough pass?",
+      "prompt": "What grit sandpaper should you use for the first rough pass?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Coarse grit",
-      "why": "Coarse grit removes rough surface material fastest on the first pass; finer grits are used later to smooth it further.",
+      "answer": "Coarse grit paper",
+      "why": "Coarse grit paper cuts fastest, so it's used first to remove rough marks before switching to finer grits.",
       "options": [
-        "Coarse grit",
-        "Fine grit",
-        "Medium grit",
-        "Extra-fine grit"
+        "Coarse grit paper",
+        "Fine grit paper",
+        "Medium grit paper",
+        "Wet-dry grit paper"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 6?",
+      "prompt": "What is the Japanese word for the number 7?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Roku",
-      "why": "Roku means 6 in Japanese. Hachi is 8, kyuu is 9, and shichi is 7 — easy to mix up when learning numbers together.",
+      "answer": "Nana",
+      "why": "Nana means seven; hachi is eight, roku is six, and kyuu is nine.",
       "options": [
-        "Roku",
+        "Nana",
         "Hachi",
-        "Kyuu",
-        "Shichi"
+        "Roku",
+        "Kyuu"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is 'sen' in Japanese?",
+      "prompt": "What is 'sen' in Japanese counting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "1000",
-      "why": "Sen means 1000. It's easy to confuse with juu (10) and hyaku (100) since they all name large round numbers.",
+      "answer": "One thousand",
+      "why": "Sen means one thousand; hyaku is one hundred and man is ten thousand.",
       "options": [
-        "1000",
-        "10",
-        "100",
-        "10000"
+        "One thousand",
+        "One hundred",
+        "Ten thousand",
+        "One million"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what natural hazard is most often caused by sudden movement of tectonic plates underground?",
+      "prompt": "From a while back: what is the name for a giant sea wave caused by an underwater earthquake?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,9 @@
       },
       "type": "text",
       "accept": [
-        "earthquake",
-        "earthquakes"
+        "tsunami"
       ],
-      "why": "An earthquake happens when built-up stress along tectonic plate boundaries suddenly releases, shaking the ground.",
+      "why": "A tsunami is a series of huge waves triggered by sudden underwater movement, often from an earthquake.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +284,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, what does Tybalt recognise about Romeo?",
-      "answer": "His voice",
-      "why": "Tybalt recognises Romeo by his voice despite his disguise, which sparks Tybalt's fury at a Montague crashing the Capulet party.",
+      "prompt": "Who does Tybalt recognise Romeo as, at the Capulet party?",
+      "answer": "A Montague enemy",
+      "why": "Tybalt spots Romeo by his voice and manner and immediately identifies him as a Montague gatecrashing the party, which fuels his anger and sets up later conflict.",
       "options": [
-        "His voice",
-        "His mask",
-        "His sword",
-        "His clothing"
+        "A Montague enemy",
+        "A hired musician",
+        "The Prince's cousin",
+        "A masked stranger"
       ],
       "fresh": false
     },
@@ -300,14 +299,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the tonic, or 'home' chord?",
-      "answer": "C",
-      "why": "C is built on the first scale degree, making it the tonic — the chord that feels like 'home' and where the progression resolves.",
+      "prompt": "In C–Am–F–G, which chord is the 'vi', built on the sixth scale degree?",
+      "answer": "Am chord",
+      "why": "In C major, Am sits on the sixth scale degree, making it the 'vi' chord — the minor chord that gives the progression its wistful lift.",
       "options": [
-        "C",
-        "Am",
-        "F",
-        "G"
+        "Am chord",
+        "C chord",
+        "F chord",
+        "G chord"
       ],
       "fresh": false
     },
@@ -315,14 +314,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what did students use besides brushes to apply paint?",
-      "answer": "Sponges and tools",
-      "why": "Students experimented with sponges and other tools alongside brushes to create varied texture and movement in their animal paintings.",
+      "prompt": "In Paint Like a Beast, what did students mainly aim to capture in their animal paintings?",
+      "answer": "Texture and movement",
+      "why": "The activities encouraged expressive brushwork to capture texture and movement, not exact likeness.",
       "options": [
-        "Sponges and tools",
-        "Only fingers",
-        "Only pencils",
-        "Printing stamps only"
+        "Texture and movement",
+        "Exact colour matching",
+        "Precise proportions",
+        "Fine outline detail"
       ],
       "fresh": false
     },
@@ -330,7 +329,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps in a feudal land exchange from top to bottom",
+      "prompt": "Order these positions in Japan's feudal system, from most power to least",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +339,21 @@
       },
       "type": "order",
       "sequence": [
-        "King grants land",
-        "Lord grants portion to vassal",
-        "Vassal offers military service",
-        "Peasants work the land"
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasant"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Land flowed downward from the king to lords to vassals in exchange for service, with peasants working the land at the base.",
+      "top": "Most power",
+      "bot": "Least power",
+      "why": "The shogun held supreme military and political power, daimyo were regional lords under him, samurai served the daimyo as warriors, and peasants were at the bottom farming the land.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events in the Crusades from earliest to latest",
+      "prompt": "Order these steps of writing a historical cause-and-consequence argument, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +363,21 @@
       },
       "type": "order",
       "sequence": [
-        "Pope Urban II calls for crusade",
-        "First Crusade begins",
-        "Crusaders capture Jerusalem",
-        "Jerusalem falls back to Muslim forces"
+        "Identify the event",
+        "Find its causes",
+        "Explain its consequences",
+        "Judge long-term significance"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "Pope Urban II's call in 1095 led to the First Crusade in 1096, which captured Jerusalem in 1099, before it was later retaken by Muslim forces.",
+      "top": "First",
+      "bot": "Last",
+      "why": "Good historical analysis starts by identifying the event, then digs into its causes, explains what followed as consequences, and finally judges how significant it was over time.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting on Am instead of C can make a song feel sadder, even though the notes used are identical."
+      "prompt": "Explain why swapping the order of the same four chords (C-Am-F-G) can change how emotional a song feels, even though the notes used are identical."
     }
   ]
 }
