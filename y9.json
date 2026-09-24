@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-23",
-  "day": "WED",
-  "tag": "R9.3",
-  "title": "DailyXP · WED 2026-09-23",
+  "date": "2026-09-24",
+  "day": "THU",
+  "tag": "R9.4",
+  "title": "DailyXP · THU 2026-09-24",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Burning wood in a sealed, closed jar loses mass overall",
+      "prompt": "A sealed flask of reacting chemicals has the same mass before and after",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "In a closed system nothing can escape, so total mass stays the same — the gases produced remain trapped inside with the solid remains.",
+      "answer": "True",
+      "why": "In a closed system no matter can enter or leave, so total mass is conserved — atoms just rearrange into new products.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Nanjing Massacre happened only because individual soldiers acted cruelly, with no wider military reason",
+      "prompt": "The Nanjing Massacre happened only because individual soldiers snapped, with no military strategy behind it",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan wanted to crush Chinese resistance quickly and force total submission — the massacre served a deliberate military strategy, not just random cruelty.",
+      "why": "It reflected a deliberate military strategy to force quick, total Chinese submission, not just random acts of cruelty by soldiers.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Filming the footage is part of content creation",
+      "prompt": "Choosing the music for a promotional video",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -56,17 +56,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Content creation includes every step of making the video — planning, filming, and editing — not just the final upload.",
+      "left": "Content creation",
+      "right": "Not content creation",
+      "answer": "Content creation",
+      "why": "Content creation covers every creative element made for the video — script, footage, and music all count.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Cost is one factor that affects food selection",
+      "prompt": "'Food selection' includes why we choose certain foods, not just what we buy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Food selection is shaped by many factors — cost, culture, health, and availability — not just personal taste.",
+      "why": "Food selection covers the reasons behind choices — cost, culture, health — not only the act of shopping.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Besides energy, what else does food provide the body?",
+      "prompt": "Which nutrient is mainly needed for growth and repair of body tissue?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Nutrients for growth",
-      "why": "Food supplies nutrients needed for growth, repair, and maintaining health, not quick physical changes like height or eyesight.",
+      "answer": "Protein",
+      "why": "Protein builds and repairs muscles and tissues, unlike fibre (digestion) or vitamin C (immune support).",
       "options": [
-        "Nutrients for growth",
-        "Instant height gain",
-        "Better eyesight",
-        "Whiter teeth"
+        "Protein",
+        "Fibre",
+        "Vitamin C",
+        "Water"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Why does a balanced diet need foods from every food group?",
+      "prompt": "What could happen if a diet lacks fruit and vegetables?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Each group gives different nutrients the body needs",
-      "why": "No single food group supplies everything the body needs, so eating from every group covers energy, growth, and repair. Variety matters for nutrition, not just appearance or convenience.",
+      "answer": "Vitamin shortage",
+      "why": "Fruit and vegetables supply key vitamins and minerals; missing them can cause deficiencies, not extra energy or protein.",
       "options": [
-        "Each group gives different nutrients the body needs",
-        "It makes meals look more colourful on the plate",
-        "It stops you from feeling hungry between meals",
-        "It keeps the weekly shopping list more varied"
+        "Vitamin shortage",
+        "Too much energy",
+        "Excess protein",
+        "Faster digestion"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In which decade was Oscar Wilde born?",
+      "prompt": "In which city did Oscar Wilde study before moving to England?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "1850s",
-      "why": "Oscar Wilde was born in 1854, placing his birth firmly in the 1850s.",
+      "answer": "Dublin",
+      "why": "Wilde studied at Trinity College Dublin before continuing his education at Oxford in England.",
       "options": [
-        "1850s",
-        "1870s",
-        "1830s",
-        "1890s"
+        "Dublin",
+        "Edinburgh",
+        "Cardiff",
+        "Belfast"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which technique does satire commonly use to make its point?",
+      "prompt": "Which technique does satire commonly use to exaggerate flaws?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Exaggeration",
-      "why": "Satire often exaggerates flaws or behaviour to mock and criticise its target more sharply.",
+      "answer": "Irony",
+      "why": "Satire often uses irony to highlight the gap between how things are and how they should be, exposing flaws.",
       "options": [
-        "Exaggeration",
-        "Rhyming couplets",
-        "Flashback scenes",
-        "Detailed footnotes"
+        "Irony",
+        "Rhyme",
+        "Alliteration",
+        "Metaphor"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 22 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 12 cm and a height of 5 cm. Slow down and work it through: what is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "77 cm²",
-      "why": "Area = ½ × base × height = ½ × 22 × 7 = 77 cm². Halving is the step rushing skips.",
+      "answer": "30 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 5 = 30 cm². Halving is the step rushing skips.",
       "options": [
-        "77 cm²",
-        "154 cm²",
-        "29 cm²",
-        "88 cm²"
+        "30 cm²",
+        "60 cm²",
+        "17 cm²",
+        "34 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "What two measurements do you need to find a cylinder's total surface area?",
+      "prompt": "Which formula finds a cylinder's curved surface area alone?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Radius and height",
-      "why": "Cylinder surface area combines the two circular ends and the curved side, both calculated using radius and height.",
+      "answer": "2πrh",
+      "why": "The curved surface area of a cylinder is 2πrh; 2πr² is just the two circular ends, and πr²h and 4πr² are unrelated formulas.",
       "options": [
-        "Radius and height",
-        "Diameter and volume",
-        "Circumference and mass",
-        "Height and weight"
+        "2πrh",
+        "2πr²",
+        "πr²h",
+        "4πr²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What term describes Australia's post-1970s policy of accepting migrants from many different countries?",
+      "prompt": "What best describes Australia's population history?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Multiculturalism",
-      "why": "Since the 1970s, Australia adopted multiculturalism, welcoming migrants from diverse countries rather than favouring one background.",
+      "answer": "Shaped mainly by migration",
+      "why": "Waves of migration from Britain, Europe, and later Asia and the Middle East have continually reshaped Australia's population and culture.",
       "options": [
-        "Multiculturalism",
-        "Assimilation",
-        "Populate or Perish",
-        "White Australia Policy"
+        "Shaped mainly by migration",
+        "Shaped mainly by farming",
+        "Unchanged since colonisation",
+        "Shaped mainly by mining"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What happened to Hitler after the Munich Putsch failed?",
+      "prompt": "Which book did Hitler write while in prison after the putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "He was tried and jailed",
-      "why": "After the failed putsch, Hitler was arrested, put on trial for treason, and sentenced to prison, where he wrote Mein Kampf.",
+      "answer": "Mein Kampf",
+      "why": "Hitler wrote Mein Kampf during his imprisonment after the failed Munich Putsch, setting out his ideology.",
       "options": [
-        "He was tried and jailed",
-        "He was exiled abroad",
-        "He was executed",
-        "He fled the country"
+        "Mein Kampf",
+        "Das Kapital",
+        "The Third Reich",
+        "Berlin Diary"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 19 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 22 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 76,
+      "answer": 99,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 19 × 8 = 76 cm². Halve first, then multiply, to avoid rushing errors.",
+      "why": "Area = ½ × base × height = ½ × 22 × 9 = 99 cm². Say the formula first so you don't skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does Jack's face-paint mainly let him do?",
-      "answer": "Shed his inhibitions",
-      "why": "The mask of paint lets Jack lose his sense of shame and civilised restraint, freeing him to act on savage impulses.",
+      "prompt": "From a while back — why do the boys paint their faces before hunting in Lord of the Flies?",
+      "answer": "To hide behind a mask",
+      "why": "The face-paint acts as a mask that lets the boys shed their identity and civilised restraint, freeing them to act on savage impulses without shame.",
       "options": [
-        "Shed his inhibitions",
-        "Hide from the beast",
-        "Signal for rescue",
-        "Show his rank as chief"
+        "To hide behind a mask",
+        "To copy Ralph's rules",
+        "To signal for rescue",
+        "To honour Piggy's ideas"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a chemical reaction inside a sealed container, what happens to the total mass?",
+      "prompt": "In a sealed container, 30g of reactants react completely. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,18 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "stays the same",
-        "unchanged",
-        "conserved"
+        "30g",
+        "30 grams"
       ],
-      "why": "Mass is conserved in a closed system — atoms are only rearranged, none are created or destroyed.",
+      "why": "In a closed system, mass is conserved — the products must have the same total mass as the reactants, 30g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What gas is usually shown escaping as bubbles when a chemical reaction occurs?",
+      "prompt": "What word describes a solid that suddenly forms when two liquids react?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,24 +331,23 @@
       },
       "type": "text",
       "accept": [
-        "gas",
-        "carbon dioxide"
+        "precipitate"
       ],
-      "why": "Bubbling or fizzing during a reaction usually shows a gas being produced and escaping from the mixture.",
+      "why": "A precipitate is a solid that forms unexpectedly during a reaction between two liquids, showing a chemical change occurred.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "A snack ad shows kids laughing at a party while eating chips. What technique is this?",
-      "answer": "Linking product to fun",
-      "why": "Marketing often links snacks to positive feelings like fun and friendship, making the product seem more appealing than its nutrition alone would suggest.",
+      "prompt": "A cereal ad uses cartoon mascots to appeal to kids. What is this technique called?",
+      "answer": "Character marketing",
+      "why": "Using cartoon characters or mascots to attract children is called character marketing, aiming to build brand appeal early.",
       "options": [
-        "Linking product to fun",
-        "Listing nutrition facts",
-        "Comparing prices",
-        "Showing cooking steps"
+        "Character marketing",
+        "Price discounting",
+        "Nutritional labelling",
+        "Product placement"
       ],
       "fresh": false
     },
@@ -357,14 +355,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the 'per serving' column show?",
-      "answer": "Nutrients in one serving",
-      "why": "The 'per serving' column shows nutrient amounts for a single serving size, not the entire package.",
+      "prompt": "On a nutrition label, which nutrient is mainly needed for growth and repair of body tissue?",
+      "answer": "Protein, found in meat and eggs",
+      "why": "Protein supplies the amino acids needed to build and repair muscle and other body tissue, while carbohydrate and fat are mainly used for energy and fibre aids digestion.",
       "options": [
-        "Nutrients in one serving",
-        "Nutrients in the whole pack",
-        "Recommended daily intake",
-        "Cost per serving"
+        "Protein, found in meat and eggs",
+        "Carbohydrate, found in bread and rice",
+        "Fat, found in butter and oils",
+        "Fibre, found in fruit and vegetables"
       ],
       "fresh": false
     },
@@ -372,7 +370,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning a match. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
+      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
