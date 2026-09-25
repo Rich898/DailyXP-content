@@ -1,53 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-24",
-  "day": "THU",
-  "tag": "R9.4",
-  "title": "DailyXP · THU 2026-09-24",
+  "date": "2026-09-25",
+  "day": "FRI",
+  "tag": "R9.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-09-25",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "A sealed flask of reacting chemicals has the same mass before and after",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In a closed system no matter can enter or leave, so total mass is conserved — atoms just rearrange into new products.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Nanjing Massacre happened only because individual soldiers snapped, with no military strategy behind it",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "It reflected a deliberate military strategy to force quick, total Chinese submission, not just random acts of cruelty by soldiers.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Choosing the music for a promotional video",
+      "prompt": "Choosing background music for a promo video",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,14 @@
       "left": "Content creation",
       "right": "Not content creation",
       "answer": "Content creation",
-      "why": "Content creation covers every creative element made for the video — script, footage, and music all count.",
+      "why": "Content creation covers every creative task that builds the video itself — script, filming, music, editing — so choosing music belongs here.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S2",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "'Food selection' includes why we choose certain foods, not just what we buy",
+      "prompt": "Deciding why you picked an apple over chips",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -75,197 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Food selection covers the reasons behind choices — cost, culture, health — not only the act of shopping.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Which nutrient is mainly needed for growth and repair of body tissue?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Protein",
-      "why": "Protein builds and repairs muscles and tissues, unlike fibre (digestion) or vitamin C (immune support).",
-      "options": [
-        "Protein",
-        "Fibre",
-        "Vitamin C",
-        "Water"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "What could happen if a diet lacks fruit and vegetables?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Vitamin shortage",
-      "why": "Fruit and vegetables supply key vitamins and minerals; missing them can cause deficiencies, not extra energy or protein.",
-      "options": [
-        "Vitamin shortage",
-        "Too much energy",
-        "Excess protein",
-        "Faster digestion"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In which city did Oscar Wilde study before moving to England?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Dublin",
-      "why": "Wilde studied at Trinity College Dublin before continuing his education at Oxford in England.",
-      "options": [
-        "Dublin",
-        "Edinburgh",
-        "Cardiff",
-        "Belfast"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which technique does satire commonly use to exaggerate flaws?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Irony",
-      "why": "Satire often uses irony to highlight the gap between how things are and how they should be, exposing flaws.",
-      "options": [
-        "Irony",
-        "Rhyme",
-        "Alliteration",
-        "Metaphor"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 5 cm. Slow down and work it through: what is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "30 cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 5 = 30 cm². Halving is the step rushing skips.",
-      "options": [
-        "30 cm²",
-        "60 cm²",
-        "17 cm²",
-        "34 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Which formula finds a cylinder's curved surface area alone?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "2πrh",
-      "why": "The curved surface area of a cylinder is 2πrh; 2πr² is just the two circular ends, and πr²h and 4πr² are unrelated formulas.",
-      "options": [
-        "2πrh",
-        "2πr²",
-        "πr²h",
-        "4πr²"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What best describes Australia's population history?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Shaped mainly by migration",
-      "why": "Waves of migration from Britain, Europe, and later Asia and the Middle East have continually reshaped Australia's population and culture.",
-      "options": [
-        "Shaped mainly by migration",
-        "Shaped mainly by farming",
-        "Unchanged since colonisation",
-        "Shaped mainly by mining"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Which book did Hitler write while in prison after the putsch?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Mein Kampf",
-      "why": "Hitler wrote Mein Kampf during his imprisonment after the failed Munich Putsch, setting out his ideology.",
-      "options": [
-        "Mein Kampf",
-        "Das Kapital",
-        "The Third Reich",
-        "Berlin Diary"
-      ],
-      "mode": "scrub",
+      "left": "Food selection",
+      "right": "Not food selection",
+      "answer": "Food selection",
+      "why": "Food selection includes the reasons behind a choice, not just the act of buying — so weighing up options counts.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 22 cm and a height of 9 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 17 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,18 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 99,
-      "calc": false,
+      "answer": 34,
+      "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 22 × 9 = 99 cm². Say the formula first so you don't skip the halving step.",
+      "why": "Area = ½ × base × height = ½ × 17 × 4 = 34 cm². Say the formula before multiplying so you don't forget to halve.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — why do the boys paint their faces before hunting in Lord of the Flies?",
-      "answer": "To hide behind a mask",
-      "why": "The face-paint acts as a mask that lets the boys shed their identity and civilised restraint, freeing them to act on savage impulses without shame.",
-      "options": [
-        "To hide behind a mask",
-        "To copy Ralph's rules",
-        "To signal for rescue",
-        "To honour Piggy's ideas"
-      ],
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 30g of reactants react completely. What is the mass of the products?",
+      "prompt": "In an open container, why does the measured mass sometimes seem to drop after a reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +77,17 @@
       },
       "type": "text",
       "accept": [
-        "30g",
-        "30 grams"
+        "gas escapes",
+        "a gas escapes into the air"
       ],
-      "why": "In a closed system, mass is conserved — the products must have the same total mass as the reactants, 30g.",
+      "why": "Mass is actually conserved — but if a gas product escapes into the open air, it leaves the container, so the scale reads less.",
       "fresh": false
     },
     {
-      "id": "T4",
+      "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What word describes a solid that suddenly forms when two liquids react?",
+      "prompt": "What is the name for a solid that suddenly forms when two liquids are mixed and react?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -333,36 +99,71 @@
       "accept": [
         "precipitate"
       ],
-      "why": "A precipitate is a solid that forms unexpectedly during a reaction between two liquids, showing a chemical change occurred.",
+      "why": "A precipitate is a solid that appears from a reaction between two solutions — a clear sign a chemical change happened.",
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "PDHPE",
+      "prompt": "A drink ad shows a famous swimmer celebrating with a sugary sports drink. What technique is this?",
+      "answer": "Celebrity endorsement",
+      "why": "Using a famous athlete to make a product look desirable is celebrity endorsement — it sells an image, not the drink's actual health value.",
+      "options": [
+        "Celebrity endorsement",
+        "Nutritional information",
+        "Price discount",
+        "Packaging design"
+      ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "A cereal ad uses cartoon mascots to appeal to kids. What is this technique called?",
-      "answer": "Character marketing",
-      "why": "Using cartoon characters or mascots to attract children is called character marketing, aiming to build brand appeal early.",
+      "prompt": "On a nutrition label, which nutrient provides the most energy per gram?",
+      "answer": "Fat",
+      "why": "Fat provides about 9 calories per gram, more than double protein or carbohydrate — a common mix-up is thinking carbs give the most energy.",
       "options": [
-        "Character marketing",
-        "Price discounting",
-        "Nutritional labelling",
-        "Product placement"
+        "Fat",
+        "Protein",
+        "Carbohydrate",
+        "Fibre"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is mainly needed for growth and repair of body tissue?",
-      "answer": "Protein, found in meat and eggs",
-      "why": "Protein supplies the amino acids needed to build and repair muscle and other body tissue, while carbohydrate and fat are mainly used for energy and fibre aids digestion.",
+      "subject": "Science",
+      "prompt": "When two substances react and form a new substance, what has actually changed inside them?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "chemical bonds",
+        "the bonds between atoms rearrange"
+      ],
+      "why": "The atoms rearrange and form new bonds, creating new substances with different properties — the atoms themselves aren't destroyed.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "Commerce",
+      "prompt": "For a bakery's promo video, which task counts as content creation?",
+      "answer": "Writing the video script",
+      "why": "Content creation means making the actual material people will see or hear, like a script — not admin tasks like bookings or invoices, which just support the video's production.",
       "options": [
-        "Protein, found in meat and eggs",
-        "Carbohydrate, found in bread and rice",
-        "Fat, found in butter and oils",
-        "Fibre, found in fruit and vegetables"
+        "Writing the video script",
+        "Booking the studio room",
+        "Emailing the final invoice",
+        "Printing shop opening hours"
       ],
       "fresh": false
     },
@@ -370,7 +171,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
+      "prompt": "Explain why a sports drink ad featuring a famous athlete can influence a teenager's food choice, even though the drink itself isn't a healthy option."
     }
   ]
 }
