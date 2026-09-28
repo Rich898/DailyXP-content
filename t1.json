@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-25",
-  "day": "FRI",
-  "tag": "T9.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-25",
+  "date": "2026-09-28",
+  "day": "MON",
+  "tag": "T10.1",
+  "title": "DailyXP · MON 2026-09-28",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "Students aimed for photo-realistic detail",
+      "subject": "Maths",
+      "prompt": "y = 3x - 1, when x = 4, y = 11",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Paint Like a Beast focused on texture and movement, not photo-realism — the loose, expressive marks were the point, not precise likeness.",
+      "answer": "True",
+      "why": "3×4 = 12, then 12 - 1 = 11, so this table row is correct.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "A shogun needed the emperor's permission to hold power",
+      "subject": "English",
+      "prompt": "Romeo and Juliet meet before Act 1 Scene 5",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,83 +40,297 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The shogun ruled with real military and political power; the emperor's blessing was just a symbolic formality, not an actual limit on the shogun's authority.",
+      "why": "They first meet and fall for each other at the Capulet party in Act 1 Scene 5, not before.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The shogun was chosen by a public vote",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The shogun held power through military strength and hereditary title, not election by the people.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "Paint Like a Beast focused on smooth, blended detail",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The activities focused on bold texture and movement, not smooth blended detail.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Where does Romeo and Juliet mainly take place?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Verona",
+      "why": "The play is set in the city of Verona, Italy, home to the feuding Capulets and Montagues.",
+      "options": [
+        "Verona",
+        "Rome",
+        "Venice",
+        "Florence"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "What effect does a sudden key change often add to a song?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A lift in energy",
+      "why": "A key change (modulation) often lifts a song's energy, giving a familiar section a fresh boost near the end.",
+      "options": [
+        "A lift in energy",
+        "A slower tempo",
+        "A quieter dynamic",
+        "A longer silence"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What do we call a trait passed down that helps an animal survive?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Adaptation",
+      "why": "An adaptation is an inherited trait that helps an organism survive and reproduce in its environment.",
+      "options": [
+        "Adaptation",
+        "Habitat",
+        "Ecosystem",
+        "Biomass"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In the spice rack design brief, what does the specification usually include?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Exact size measurements",
+      "why": "The specification lists precise, measurable requirements like size, while the 'need' only states the problem being solved.",
+      "options": [
+        "Exact size measurements",
+        "The problem to solve",
+        "The final user feedback",
+        "The sales price range"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "Why is a basic butt joint considered the weakest common joint?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Small glue surface area",
+      "why": "A butt joint only joins two flat ends, giving a small gluing surface, so it holds less strongly than interlocking joints.",
+      "options": [
+        "Small glue surface area",
+        "Uses angled 45° cuts",
+        "Has interlocking fingers",
+        "Needs no fasteners"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "What grit of sandpaper should finish a smooth surface, ready for finish?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Fine grit sandpaper",
+      "why": "You move from coarse to fine grit sandpaper, finishing with fine grit to leave a smooth surface for the finish to sit on evenly.",
+      "options": [
+        "Fine grit sandpaper",
+        "Coarse rough sandpaper",
+        "Wet thick sandpaper",
+        "Heavy metal sandpaper"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is the Japanese word for the number 9?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Kyuu",
+      "why": "Kyuu means nine in Japanese; the others are different numbers in the 1-10 sequence.",
+      "options": [
+        "Kyuu",
+        "Hachi",
+        "Roku",
+        "Nana"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is 'hyaku' in Japanese counting?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "One hundred",
+      "why": "Hyaku means one hundred, a key unit for counting larger numbers like yen amounts.",
+      "options": [
+        "One hundred",
+        "Ten",
+        "One thousand",
+        "Fifty"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to stop the servants' fight?",
-      "answer": "Benvolio",
-      "why": "Benvolio tries to keep the peace, while Tybalt arrives determined to fight — this contrast introduces both characters early.",
-      "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Friar Laurence"
+      "subject": "Science",
+      "prompt": "From a while back: what is the name for the boundary where two tectonic plates push together?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "convergent boundary",
+        "convergent"
       ],
-      "fresh": false
+      "why": "A convergent boundary is where plates push together, often forming mountains or trenches.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is the tonic ('home') chord?",
-      "answer": "C",
-      "why": "C is built on the first scale degree, making it the tonic — the chord that feels like 'home' and where the progression resolves.",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, what does Benvolio try to do when he arrives?",
+      "answer": "Stop the fighting",
+      "why": "Benvolio draws his sword only to try to separate the brawling servants, showing his peacemaking role early in the play.",
       "options": [
-        "C",
-        "Am",
-        "F",
-        "G"
+        "Stop the fighting",
+        "Join the Capulets",
+        "Fetch the Prince",
+        "Challenge Tybalt"
       ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what quality did students avoid aiming for in their animal paintings?",
-      "answer": "Photo-like realism",
-      "why": "The activities pushed students toward loose, expressive texture and movement rather than exact photographic likeness.",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord acts as the 'V', creating tension that pulls back to C?",
+      "answer": "G",
+      "why": "G is the fifth-degree chord, and its tension naturally wants to resolve back to the tonic C.",
       "options": [
-        "Photo-like realism",
-        "Bold brush texture",
-        "Sense of movement",
-        "Expressive colour"
+        "G",
+        "Am",
+        "F",
+        "C"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these events in a daimyo's rise to local power, from first to last",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Shogun grants land",
-        "Daimyo settles domain",
-        "Samurai enforce daimyo's rule",
-        "Peasants pay tribute in rice"
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, what did the activities mainly focus on capturing?",
+      "answer": "Texture and movement",
+      "why": "The activities focused on expressive texture and movement rather than realistic, photo-like detail.",
+      "options": [
+        "Texture and movement",
+        "Exact photo likeness",
+        "Precise anatomy",
+        "Flat block colour"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "A daimyo first received land from the shogun, settled and governed it, used samurai to enforce control, then collected rice tribute from the peasants working it.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of assessing historical continuity and change, from first to last",
+      "prompt": "Order these steps of a daimyo's rise to local power, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -126,51 +340,45 @@
       },
       "type": "order",
       "sequence": [
-        "Identify the time span",
-        "Note what stayed the same",
-        "Note what changed",
-        "Judge overall significance"
+        "Gain military strength",
+        "Control local land",
+        "Collect loyalty of samurai",
+        "Rule a domain"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "To assess continuity and change, historians first fix the period, then compare what persisted and what shifted, before judging how significant that change really was.",
+      "why": "A daimyo first built military strength, then took control of land, gathered samurai loyalty, and finally ruled an established domain.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "What does Romeo do immediately after killing Tybalt?",
-      "answer": "Flees in shock",
-      "why": "After killing Tybalt in revenge for Mercutio, Romeo flees the scene in horror at what he's done, which leads to his banishment.",
-      "options": [
-        "Flees in shock",
-        "Marries Juliet",
-        "Confronts Prince Escalus",
-        "Duels Paris"
+      "subject": "History",
+      "prompt": "Order these steps of assessing continuity and change, from first to last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Compare two time points",
+        "Note what stayed the same",
+        "Note what changed",
+        "Explain why change happened"
       ],
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "In which country did Shakespeare live and write his plays?",
-      "answer": "England",
-      "why": "Shakespeare lived and wrote in England, even though many of his plays, including Romeo and Juliet, are set abroad in places like Italy.",
-      "options": [
-        "England",
-        "Italy",
-        "France",
-        "Scotland"
-      ],
+      "top": "First",
+      "bot": "Last",
+      "why": "Assessing continuity and change starts by comparing time points, noting sameness and difference, then explaining the causes of change.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why starting the same four chords (C-Am-F-G) on Am instead of C can make a song feel sadder, even though the chords used are identical."
+      "prompt": "A songwriter keeps the same four chords (C-Am-F-G) but changes which chord repeats twice as long as the others. Explain why this can change the song's emotional feel, even though the same four chords are used."
     }
   ]
 }
