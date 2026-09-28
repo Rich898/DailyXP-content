@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-24",
-  "day": "THU",
-  "tag": "H9.4",
-  "title": "DailyXP · THU 2026-09-24",
+  "date": "2026-09-28",
+  "day": "MON",
+  "tag": "H10.1",
+  "title": "DailyXP · MON 2026-09-28",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet meet for the first time at the Capulet party",
+      "prompt": "The Capulet-Montague feud is a source of comedy in Act 1",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,34 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Romeo and Juliet first meet at the Capulet feast in Act 1 Scene 5, where they share a sonnet before Romeo learns her name.",
+      "answer": "False",
+      "why": "The feud drives tension and violence, not comedy — it's the tragic engine of the whole play.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A shogun could be removed by the emperor whenever he wished",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The shogun held the real military and political power; the emperor was a figurehead with no ability to remove him.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'juuhachi' means 18",
+      "prompt": "The shogun outranked the emperor in real political power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "juu (10) + hachi (8) combine to make juuhachi, 18, following the standard Japanese number pattern.",
+      "why": "The emperor kept ceremonial status, but the shogun actually controlled the military and government.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'juuyon' means 14",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Juuyon' (10+4) means 14 in Japanese number formation.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'nihyaku' means 20",
+      "prompt": "'nisen' means 200",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'nihyaku' means 200 (ni = 2, hyaku = 100); 20 is 'nijuu'.",
+      "why": "'Nisen' means 2,000 (ni=2, sen=1000); 200 would be 'nihyaku'.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What do historians call an event that sparks something bigger, without being the whole explanation?",
+      "prompt": "What do historians call something that stays roughly the same across a period?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Trigger cause",
-      "why": "A trigger cause is the immediate spark, but it works alongside deeper long-term causes — it doesn't explain the whole event alone.",
+      "answer": "Continuity",
+      "why": "Continuity describes what stayed the same over time, in contrast with 'change', which describes what shifted.",
       "options": [
-        "Trigger cause",
-        "Long-term cause",
+        "Continuity",
         "Consequence",
-        "Continuity"
+        "Trigger cause",
+        "Turning point"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who does Juliet marry secretly in Romeo and Juliet?",
+      "prompt": "In Act 1, who tries to stop the servants' street fight?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Romeo",
-      "why": "Friar Laurence secretly marries Romeo and Juliet, hoping it will end the feud between their families.",
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to try to part the fighting servants, showing his peacemaking role, before Tybalt escalates it.",
       "options": [
-        "Romeo",
-        "Paris",
+        "Benvolio",
         "Tybalt",
-        "Mercutio"
+        "Mercutio",
+        "Prince Escalus"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is played first?",
+      "prompt": "In C–Am–F–G, which chord comes straight after Am?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "C",
-      "why": "The progression is written in order: C comes first, followed by Am, F, then G.",
+      "answer": "F",
+      "why": "The order is C–Am–F–G, so F is the third chord, coming right after Am.",
       "options": [
-        "C",
-        "Am",
         "F",
-        "G"
+        "C",
+        "G",
+        "Am"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a food chain, what does biomass decrease at each stage?",
+      "prompt": "What word describes a trait that helps an organism survive in its habitat?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Energy is lost as heat",
-      "why": "At each stage of a food chain, energy is lost as heat through respiration and movement, so less biomass is available to the next level.",
+      "answer": "Adaptation",
+      "why": "An adaptation is a feature that improves an organism's chance of survival in its specific environment.",
       "options": [
-        "Energy is lost as heat",
-        "Animals stop eating",
-        "Producers absorb it back",
-        "Predators store it forever"
+        "Adaptation",
+        "Biomass",
+        "Ecosystem",
+        "Consumer"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what do students study before painting fur?",
+      "prompt": "In 'Paint Like a Beast', what do students mix before painting fur?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Reference photos",
-      "why": "Students study close-up reference photos of animal fur to understand texture and direction before painting it.",
+      "answer": "Colours",
+      "why": "Students mix and test colours to match an animal's real fur tones before they start painting.",
       "options": [
-        "Reference photos",
-        "Colour theory charts",
-        "Finished artworks",
-        "Brush catalogues"
+        "Colours",
+        "Glazes",
+        "Varnish",
+        "Adhesives"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 2x + 3, what is y when x = 5?",
+      "prompt": "For y = 3x − 1, what is y when x = 4?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "13",
-      "why": "Substitute x = 5: 2(5) + 3 = 13. Multiply first, then add the constant.",
+      "answer": "11",
+      "why": "3 × 4 = 12, then subtract 1, giving 11. A common slip is forgetting to subtract at the end.",
       "options": [
+        "11",
+        "12",
         "13",
-        "10",
-        "8",
-        "16"
+        "10"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, which pair of opposites does Juliet name when she learns Romeo is a Montague?",
+      "prompt": "What does Juliet suggest when she says a rose by any other name would smell as sweet?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Love and hate",
-      "why": "Juliet says she must love her 'only hate', showing Shakespeare fusing love and hate in a single line.",
+      "answer": "Names don't change true worth",
+      "why": "Juliet argues Romeo's identity isn't defined by the Montague name — the person matters more than the label.",
       "options": [
-        "Love and hate",
-        "Life and death",
-        "Youth and age",
-        "Wealth and poverty"
+        "Names don't change true worth",
+        "Romeo must change his name",
+        "Flowers are more honest than people",
+        "Love needs family approval"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "At the advanced level of Stand By Me, what mainly increases?",
+      "prompt": "At the beginner level of 'Stand By Me', what is the main focus?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Chord complexity",
-      "why": "Higher levels of the performance add more complex chords and techniques, not just louder or longer playing.",
+      "answer": "Basic chord changes",
+      "why": "Beginner level focuses on getting simple chord changes smooth and steady before adding complexity.",
       "options": [
-        "Chord complexity",
-        "Song length",
-        "Number of singers",
-        "Volume only"
+        "Basic chord changes",
+        "Complex fingerpicking",
+        "Improvised solos",
+        "Full band arrangement"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the type of paint affects how fast metal rusts, keeping the metal type the same. What is the metal type an example of?",
+      "prompt": "A student changes the amount of sunlight given to plants and measures plant height, keeping water the same. What type of variable is 'plant height'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "control variable"
+        "dependent variable",
+        "dependent"
       ],
-      "why": "The metal type is kept the same for every test, so it's the controlled variable — this makes sure only the paint type could explain any difference in rust.",
+      "why": "Plant height is what's measured as a result of the change, making it the dependent variable — sunlight is independent, water is controlled.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 5x + 4 = 29",
+      "prompt": "Solve for x: 4x + 3 = 19",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 5,
+      "answer": 4,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 4 from both sides to get 5x = 25, then divide by 5 to find x = 5.",
+      "why": "Subtract 3 from both sides to get 4x = 16, then divide by 4 to get x = 4.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks in the shogunate hierarchy",
+      "prompt": "Order these groups by who they answer to in the shogunate system",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -315,28 +315,28 @@
       },
       "type": "order",
       "sequence": [
+        "Emperor",
         "Shogun",
         "Daimyo",
-        "Samurai",
-        "Peasants"
+        "Samurai"
       ],
-      "top": "Most power",
-      "bot": "Least power",
-      "why": "The shogun held supreme military power, ruling through daimyo lords, who commanded samurai warriors, above the peasants at the bottom.",
+      "top": "Answers to no one",
+      "bot": "Answers to most people",
+      "why": "The emperor was the top figurehead, the shogun held real power beneath him, daimyo answered to the shogun, and samurai served the daimyo.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack design portfolio, what should be identified first?",
-      "answer": "The need",
-      "why": "A design brief should start from the need the product solves, before deciding on materials or measurements.",
+      "prompt": "In the spice rack design portfolio, what should be identified before choosing materials?",
+      "answer": "The need it solves",
+      "why": "A good design brief starts with the need or problem, such as messy spice storage, before deciding on materials like radiata pine.",
       "options": [
-        "The need",
-        "The materials list",
-        "The sandpaper grit",
-        "The final finish"
+        "The need it solves",
+        "The exact price",
+        "The tool list",
+        "The sanding grit"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "Which tool is used to smooth the timber before applying a finish?",
-      "answer": "Sandpaper",
-      "why": "Sandpaper smooths rough fibres so the finish sits evenly; saws are for cutting to shape and a try square is for checking right angles, not smoothing surfaces.",
+      "prompt": "Why should you sand timber before applying a finish?",
+      "answer": "To create a smooth surface",
+      "why": "Sanding removes rough marks so the finish sits evenly, giving a smooth, professional-looking surface.",
       "options": [
-        "Sandpaper",
-        "Tenon saw",
-        "Coping saw",
-        "Try square"
+        "To create a smooth surface",
+        "To make the wood darker",
+        "To seal the wood permanently",
+        "To remove all glue"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '16' in Japanese?",
-      "answer": "juuroku",
-      "why": "juuroku combines juu (10) and roku (6) to make 16, following the standard Japanese number pattern.",
+      "prompt": "How do you say '13' in Japanese?",
+      "answer": "Juusan",
+      "why": "'Juusan' (10+3) means 13; the others mean 14, 12, and 16 respectively.",
       "options": [
-        "juuroku",
-        "juuhachi",
-        "rokujuu",
-        "juuni"
+        "Juusan",
+        "Juuyon",
+        "Juuni",
+        "Juuroku"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should describe the need it solves, such as messy spice storage, before choosing radiata pine as the material — and what could go wrong if a designer picks the material first."
+      "prompt": "Explain why a spice rack's design brief should describe the storage problem it solves before deciding to use radiata pine, and what might go wrong if a designer chose the material first."
     }
   ]
 }
