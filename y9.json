@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-25",
-  "day": "FRI",
-  "tag": "R9.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-09-25",
+  "date": "2026-09-29",
+  "day": "TUE",
+  "tag": "R10.2",
+  "title": "DailyXP · TUE 2026-09-29",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Choosing background music for a promo video",
+      "subject": "Science",
+      "prompt": "Rusting iron in an open dish gains mass from the air",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Content creation",
-      "right": "Not content creation",
-      "answer": "Content creation",
-      "why": "Content creation covers every creative task that builds the video itself — script, filming, music, editing — so choosing music belongs here.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "In an open system, iron can react with oxygen from the air, so the solid mass measured actually increases — mass isn't lost, it's exchanged with the surroundings.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Deciding why you picked an apple over chips",
+      "subject": "History",
+      "prompt": "Japanese soldiers had strict orders to protect all Nanjing civilians",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,17 +37,235 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Food selection",
-      "right": "Not food selection",
-      "answer": "Food selection",
-      "why": "Food selection includes the reasons behind a choice, not just the act of buying — so weighing up options counts.",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Commanders pushed for rapid, total conquest and gave little restraint on troops, which allowed mass killing and atrocities against civilians rather than protecting them.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food selection only means picking what tastes nice",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Food selection covers all the reasons behind choices — cost, culture, health, availability — not just taste.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food only provides the body with energy",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Food also provides materials for growth, repair, and regulating body processes — energy is only one function.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "What could happen if a diet lacks enough calcium?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Weak bones",
+      "why": "Calcium builds and maintains strong bones and teeth, so a diet lacking it can lead to weak, brittle bones.",
+      "options": [
+        "Weak bones",
+        "Faster growth",
+        "Better digestion",
+        "Clearer skin"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "For a promotional video, choosing the background music counts as which task?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Content creation",
+      "why": "Content creation covers all the creative production tasks for the video, including music, script, and filming.",
+      "options": [
+        "Content creation",
+        "Market research",
+        "Financial planning",
+        "Legal registration"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Which university did Oscar Wilde attend in England?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Oxford",
+      "why": "Wilde studied classics at Magdalen College, Oxford, after leaving Trinity College Dublin, and it shaped his witty, aesthetic style.",
+      "options": [
+        "Oxford",
+        "Cambridge",
+        "Durham",
+        "Bristol"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Which famous writer is known for satirical work like Gulliver's Travels?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Jonathan Swift",
+      "why": "Jonathan Swift wrote Gulliver's Travels, a classic satire mocking politics and human folly through fantastical adventures.",
+      "options": [
+        "Jonathan Swift",
+        "William Wordsworth",
+        "Charles Dickens",
+        "Emily Bronte"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 16 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "64 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 16 × 8 = 64 cm². Halving is the step that's easy to rush past.",
+      "options": [
+        "64 cm²",
+        "128 cm²",
+        "24 cm²",
+        "48 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A cylinder's total surface area adds the curved area to what else?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Two circle ends",
+      "why": "A cylinder has two flat circular ends, so total surface area equals the curved area plus both circles, not just one.",
+      "options": [
+        "Two circle ends",
+        "One circle end",
+        "The height alone",
+        "The diameter alone"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What is a 'pull factor' in migration?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "A reason to move there",
+      "why": "A pull factor is a positive condition, like jobs or safety, that attracts people toward a new place.",
+      "options": [
+        "A reason to move there",
+        "A reason to leave home",
+        "A ban on entry",
+        "A tax on travel"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Which book did Hitler write while imprisoned after the putsch?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Mein Kampf",
+      "why": "Hitler wrote Mein Kampf during his imprisonment after the failed 1923 Munich Putsch, setting out his political ideas.",
+      "options": [
+        "Mein Kampf",
+        "The Third Reich",
+        "My Struggle Years",
+        "Twilight of Democracy"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 17 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 18 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,18 +274,34 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 34,
-      "calc": true,
+      "answer": 63,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 17 × 4 = 34 cm². Say the formula before multiplying so you don't forget to halve.",
+      "why": "Area = ½ × base × height = ½ × 18 × 7 = 63 cm². The pause to halve is what stops the rushing mistake.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
+      "subject": "English",
+      "prompt": "In Lord of the Flies, what does the conch shell mostly stand for?",
+      "answer": "Order and rules",
+      "why": "The conch gives whoever holds it the right to speak, so it stands for order, rules and civilised discussion among the boys.",
+      "options": [
+        "Order and rules",
+        "Fear of the beast",
+        "Jack's hunting power",
+        "The signal fire's smoke"
+      ],
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
       "subject": "Science",
-      "prompt": "In an open container, why does the measured mass sometimes seem to drop after a reaction?",
+      "prompt": "In an open dish, why does the measured mass appear to decrease after burning wood?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -78,16 +312,17 @@
       "type": "text",
       "accept": [
         "gas escapes",
-        "a gas escapes into the air"
+        "gases released into air",
+        "gas is lost"
       ],
-      "why": "Mass is actually conserved — but if a gas product escapes into the open air, it leaves the container, so the scale reads less.",
+      "why": "Mass isn't actually lost overall — gas produced by burning escapes into the air, so the container appears lighter when weighed.",
       "fresh": false
     },
     {
-      "id": "T3",
+      "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the name for a solid that suddenly forms when two liquids are mixed and react?",
+      "prompt": "What is it called when a reaction releases heat and things feel warmer?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -97,73 +332,39 @@
       },
       "type": "text",
       "accept": [
-        "precipitate"
+        "exothermic",
+        "exothermic reaction"
       ],
-      "why": "A precipitate is a solid that appears from a reaction between two solutions — a clear sign a chemical change happened.",
-      "fresh": false
-    },
-    {
-      "id": "T4",
-      "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "A drink ad shows a famous swimmer celebrating with a sugary sports drink. What technique is this?",
-      "answer": "Celebrity endorsement",
-      "why": "Using a famous athlete to make a product look desirable is celebrity endorsement — it sells an image, not the drink's actual health value.",
-      "options": [
-        "Celebrity endorsement",
-        "Nutritional information",
-        "Price discount",
-        "Packaging design"
-      ],
+      "why": "An exothermic reaction releases heat energy to its surroundings, making the container or mixture feel warmer.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient provides the most energy per gram?",
-      "answer": "Fat",
-      "why": "Fat provides about 9 calories per gram, more than double protein or carbohydrate — a common mix-up is thinking carbs give the most energy.",
+      "prompt": "A drink ad shows a famous athlete celebrating with a sugary drink. What technique is this?",
+      "answer": "Celebrity endorsement",
+      "why": "Using a famous person to promote a product is celebrity endorsement, which can make an unhealthy choice feel appealing.",
       "options": [
-        "Fat",
-        "Protein",
-        "Carbohydrate",
-        "Fibre"
+        "Celebrity endorsement",
+        "Nutritional labelling",
+        "Price discounting",
+        "Portion control"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "When two substances react and form a new substance, what has actually changed inside them?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "chemical bonds",
-        "the bonds between atoms rearrange"
-      ],
-      "why": "The atoms rearrange and form new bonds, creating new substances with different properties — the atoms themselves aren't destroyed.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "Commerce",
-      "prompt": "For a bakery's promo video, which task counts as content creation?",
-      "answer": "Writing the video script",
-      "why": "Content creation means making the actual material people will see or hear, like a script — not admin tasks like bookings or invoices, which just support the video's production.",
+      "subject": "PDHPE",
+      "prompt": "On a nutrition label, which nutrient gives the body the most energy per gram?",
+      "answer": "Fat",
+      "why": "Fat provides about 9 calories per gram, roughly double the energy per gram of carbohydrate or protein, which each give about 4.",
       "options": [
-        "Writing the video script",
-        "Booking the studio room",
-        "Emailing the final invoice",
-        "Printing shop opening hours"
+        "Fat",
+        "Protein",
+        "Carbohydrate",
+        "Dietary fibre"
       ],
       "fresh": false
     },
@@ -171,7 +372,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "Explain why a sports drink ad featuring a famous athlete can influence a teenager's food choice, even though the drink itself isn't a healthy option."
+      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
