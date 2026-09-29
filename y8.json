@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-28",
-  "day": "MON",
-  "tag": "H10.1",
-  "title": "DailyXP · MON 2026-09-28",
+  "date": "2026-09-29",
+  "day": "TUE",
+  "tag": "H10.2",
+  "title": "DailyXP · TUE 2026-09-29",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The Capulet-Montague feud is a source of comedy in Act 1",
+      "prompt": "The prologue tells the audience how the play will end",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,53 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "The feud drives tension and violence, not comedy — it's the tragic engine of the whole play.",
+      "answer": "True",
+      "why": "The chorus's opening speech reveals from the start that the 'star-crossed lovers' will die — Shakespeare gives away the ending on purpose.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun outranked the emperor in real political power",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "The emperor kept ceremonial status, but the shogun actually controlled the military and government.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'juuyon' means 14",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "'Juuyon' (10+4) means 14 in Japanese number formation.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'nisen' means 200",
+      "prompt": "The emperor gave orders and the shogun just carried them out",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +40,52 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'Nisen' means 2,000 (ni=2, sen=1000); 200 would be 'nihyaku'.",
+      "why": "It was the reverse — the shogun held the real military and political power, while the emperor was a symbolic figurehead.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Juuroku' means 16",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Juu' (10) + 'roku' (6) = juuroku, 16 — Japanese numbers 11-19 are built by adding the ones digit onto juu.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'Sanbyaku' means 300",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'San' (3) + 'byaku' (hundred) = sanbyaku, 300 — hundreds combine the number word with 'hyaku/byaku'.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What do historians call something that stays roughly the same across a period?",
+      "prompt": "What do historians call things that stayed roughly the same across a period, alongside things that changed?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -94,11 +94,11 @@
         "cta": "Keep going →"
       },
       "answer": "Continuity",
-      "why": "Continuity describes what stayed the same over time, in contrast with 'change', which describes what shifted.",
+      "why": "Continuity refers to what stays the same over time, studied alongside change — history rarely means everything transformed at once.",
       "options": [
         "Continuity",
-        "Consequence",
         "Trigger cause",
+        "Consequence",
         "Turning point"
       ],
       "fresh": false
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1, who tries to stop the servants' street fight?",
+      "prompt": "In Act 1 Scene 5, what does Romeo do straight after speaking to Juliet for the first time?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword to try to part the fighting servants, showing his peacemaking role, before Tybalt escalates it.",
+      "answer": "Kisses her",
+      "why": "Romeo and Juliet share witty, sonnet-like flirting the moment they meet, ending with a kiss — showing how fast their attraction develops.",
       "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Prince Escalus"
+        "Kisses her",
+        "Leaves the party",
+        "Fights Tybalt",
+        "Asks her to marry him"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord comes straight after Am?",
+      "prompt": "In C–Am–F–G, which chord carries the sad, minor mood?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "F",
-      "why": "The order is C–Am–F–G, so F is the third chord, coming right after Am.",
+      "answer": "Am minor chord",
+      "why": "Am is the only minor chord in this progression, built on the 6th note of the scale, giving it a darker, sadder sound than the major C, F and G chords.",
       "options": [
-        "F",
-        "C",
-        "G",
-        "Am"
+        "C major chord",
+        "Am minor chord",
+        "F major chord",
+        "G major chord"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What word describes a trait that helps an organism survive in its habitat?",
+      "prompt": "What is the main source of energy for producers in a food chain?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Adaptation",
-      "why": "An adaptation is a feature that improves an organism's chance of survival in its specific environment.",
+      "answer": "Sunlight",
+      "why": "Producers like plants use sunlight to make their own food through photosynthesis, starting the flow of energy through the food chain.",
       "options": [
-        "Adaptation",
-        "Biomass",
-        "Ecosystem",
-        "Consumer"
+        "Sunlight",
+        "Soil nutrients",
+        "Other plants",
+        "Rainwater"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students mix before painting fur?",
+      "prompt": "In 'Paint Like a Beast', what do students study closely before painting fur?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Colours",
-      "why": "Students mix and test colours to match an animal's real fur tones before they start painting.",
+      "answer": "Reference photos",
+      "why": "Students study close-up reference photos of animal fur to understand texture and direction before attempting to paint it.",
       "options": [
-        "Colours",
-        "Glazes",
-        "Varnish",
-        "Adhesives"
+        "Reference photos",
+        "Colour theory charts",
+        "Famous paintings",
+        "Brush catalogues"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 3x − 1, what is y when x = 4?",
+      "prompt": "For y = 4x − 1, what is y when x = 2?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "11",
-      "why": "3 × 4 = 12, then subtract 1, giving 11. A common slip is forgetting to subtract at the end.",
+      "answer": "7",
+      "why": "Substitute x = 2: 4×2 = 8, then 8 − 1 = 7. A common slip is forgetting to subtract the 1 at the end.",
       "options": [
-        "11",
-        "12",
-        "13",
-        "10"
+        "7",
+        "8",
+        "9",
+        "6"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What does Juliet suggest when she says a rose by any other name would smell as sweet?",
+      "prompt": "In Romeo and Juliet, what does the play suggest happens when love and hate collide?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Names don't change true worth",
-      "why": "Juliet argues Romeo's identity isn't defined by the Montague name — the person matters more than the label.",
+      "answer": "Love leads to tragedy",
+      "why": "The lovers' deaths, caused by the families' hatred, show love and hate as intertwined forces that ultimately destroy the young couple.",
       "options": [
-        "Names don't change true worth",
-        "Romeo must change his name",
-        "Flowers are more honest than people",
-        "Love needs family approval"
+        "Love leads to tragedy",
+        "Hate always wins",
+        "Love conquers all easily",
+        "They never interact"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "At the beginner level of 'Stand By Me', what is the main focus?",
+      "prompt": "In 'Stand By Me', what does the intermediate level mainly add to the beginner version?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Basic chord changes",
-      "why": "Beginner level focuses on getting simple chord changes smooth and steady before adding complexity.",
+      "answer": "Fuller chord shapes",
+      "why": "The intermediate level moves beyond simple beginner strums by introducing fuller, more complete chord shapes, once basic rhythm is secure.",
       "options": [
-        "Basic chord changes",
-        "Complex fingerpicking",
-        "Improvised solos",
-        "Full band arrangement"
+        "Fuller chord shapes",
+        "Slower steady tempo",
+        "Single strum patterns",
+        "Spoken chord counting"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student changes the amount of sunlight given to plants and measures plant height, keeping water the same. What type of variable is 'plant height'?",
+      "prompt": "A student tests whether the type of soap used affects how many bubbles form, keeping the water temperature the same each time. What is the controlled variable?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "dependent variable",
-        "dependent"
+        "water temperature",
+        "temperature of water"
       ],
-      "why": "Plant height is what's measured as a result of the change, making it the dependent variable — sunlight is independent, water is controlled.",
+      "why": "The controlled variable is kept the same on purpose so it can't affect the result — here that's water temperature, while soap type is changed and bubble count is measured.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 4x + 3 = 19",
+      "prompt": "Solve for x: 2x + 5 = 17",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 4,
+      "answer": 6,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 3 from both sides to get 4x = 16, then divide by 4 to get x = 4.",
+      "why": "Subtract 5 from both sides to get 2x = 12, then divide both sides by 2 to get x = 6 — keep the equation balanced at each step.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups by who they answer to in the shogunate system",
+      "prompt": "Order these stages in how samurai warriors first gained real power in Japan",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -315,28 +315,28 @@
       },
       "type": "order",
       "sequence": [
-        "Emperor",
-        "Shogun",
-        "Daimyo",
-        "Samurai"
+        "Central government grows weak",
+        "Local lords build private armies",
+        "Warriors protect noble estates",
+        "Warrior class becomes essential to rule"
       ],
-      "top": "Answers to no one",
-      "bot": "Answers to most people",
-      "why": "The emperor was the top figurehead, the shogun held real power beneath him, daimyo answered to the shogun, and samurai served the daimyo.",
+      "top": "Earliest",
+      "bot": "Latest",
+      "why": "As the central government weakened, local lords raised their own armies for protection; the warriors they hired became so vital that the warrior class itself gained lasting power.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack design portfolio, what should be identified before choosing materials?",
-      "answer": "The need it solves",
-      "why": "A good design brief starts with the need or problem, such as messy spice storage, before deciding on materials like radiata pine.",
+      "prompt": "In the spice rack design portfolio, what should be identified before choosing radiata pine as the material?",
+      "answer": "The storage need",
+      "why": "A design brief should start from the need the product solves, like messy spice storage — picking the material first can lock in choices that don't actually fix the problem.",
       "options": [
-        "The need it solves",
-        "The exact price",
-        "The tool list",
-        "The sanding grit"
+        "The storage need",
+        "The screw sizes",
+        "The paint colour",
+        "The workshop tools"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "Why should you sand timber before applying a finish?",
-      "answer": "To create a smooth surface",
-      "why": "Sanding removes rough marks so the finish sits evenly, giving a smooth, professional-looking surface.",
+      "prompt": "In the spice rack build, what is PVA glue mainly used for?",
+      "answer": "Joining wood pieces",
+      "why": "PVA glue bonds timber pieces together at joints, giving a strong hold before any finishing steps like sanding or painting.",
       "options": [
-        "To create a smooth surface",
-        "To make the wood darker",
-        "To seal the wood permanently",
-        "To remove all glue"
+        "Joining wood pieces",
+        "Sealing paint colour",
+        "Smoothing rough edges",
+        "Marking cut lines"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '13' in Japanese?",
-      "answer": "Juusan",
-      "why": "'Juusan' (10+3) means 13; the others mean 14, 12, and 16 respectively.",
+      "prompt": "How do you say '11' in Japanese?",
+      "answer": "Juuichi",
+      "why": "'Juu' (10) plus 'ichi' (1) gives juuichi, 11 — numbers 11-19 add the ones digit after juu, not before it.",
       "options": [
-        "Juusan",
-        "Juuyon",
+        "Juuichi",
         "Juuni",
-        "Juuroku"
+        "Ichijuu",
+        "Hyaku"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should describe the storage problem it solves before deciding to use radiata pine, and what might go wrong if a designer chose the material first."
+      "prompt": "Explain why the design brief for the spice rack should describe the storage problem it solves before choosing radiata pine as the material, and what could go wrong if a designer picked the material first."
     }
   ]
 }
