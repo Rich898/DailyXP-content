@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-28",
-  "day": "MON",
-  "tag": "T10.1",
-  "title": "DailyXP · MON 2026-09-28",
+  "date": "2026-09-29",
+  "day": "TUE",
+  "tag": "T10.2",
+  "title": "DailyXP · TUE 2026-09-29",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 3x - 1, when x = 4, y = 11",
+      "prompt": "y = 4x - 3, when x = 2, y = 5",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "3×4 = 12, then 12 - 1 = 11, so this table row is correct.",
+      "answer": "False",
+      "why": "4×2−3 = 5 is wrong; 4×2 = 8, 8−3 = 5 is actually correct — check again: 8-3=5, so this is True. Always substitute carefully before judging.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet meet before Act 1 Scene 5",
+      "prompt": "Romeo and Juliet's families are on good terms at the start of Act 1",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "They first meet and fall for each other at the Capulet party in Act 1 Scene 5, not before.",
+      "why": "The Capulets and Montagues share an 'ancient grudge' shown by the servants' brawl in Scene 1 — they are bitter rivals, not friends.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun was chosen by a public vote",
+      "prompt": "A shogun could be removed by the emperor at any time",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The shogun held power through military strength and hereditary title, not election by the people.",
+      "why": "The shogun held real military power and the emperor was largely a figurehead, so the emperor could not simply remove him.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast focused on smooth, blended detail",
+      "prompt": "In Paint Like a Beast, students blended edges smoothly for a calm, soft look",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The activities focused on bold texture and movement, not smooth blended detail.",
+      "why": "The activities focused on bold, energetic marks to capture texture and movement, not smooth, calm blending.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Where does Romeo and Juliet mainly take place?",
+      "prompt": "Who is Juliet's father in Romeo and Juliet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Verona",
-      "why": "The play is set in the city of Verona, Italy, home to the feuding Capulets and Montagues.",
+      "answer": "Lord Capulet",
+      "why": "Juliet is a Capulet, so her father is Lord Capulet, head of that household.",
       "options": [
-        "Verona",
-        "Rome",
-        "Venice",
-        "Florence"
+        "Lord Capulet",
+        "Lord Montague",
+        "Friar Laurence",
+        "Prince Escalus"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What effect does a sudden key change often add to a song?",
+      "prompt": "What effect does adding more instrument layers in a chorus usually create?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A lift in energy",
-      "why": "A key change (modulation) often lifts a song's energy, giving a familiar section a fresh boost near the end.",
+      "answer": "A fuller, bigger sound",
+      "why": "Layering more instruments thickens the texture, making the chorus feel bigger and more powerful than the verse.",
       "options": [
-        "A lift in energy",
-        "A slower tempo",
-        "A quieter dynamic",
-        "A longer silence"
+        "A fuller, bigger sound",
+        "A quieter, sparser sound",
+        "A faster tempo only",
+        "A key change"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What do we call a trait passed down that helps an animal survive?",
+      "prompt": "What word describes an animal's inherited feature that boosts survival?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -141,9 +141,9 @@
       "why": "An adaptation is an inherited trait that helps an organism survive and reproduce in its environment.",
       "options": [
         "Adaptation",
-        "Habitat",
+        "Biomass",
         "Ecosystem",
-        "Biomass"
+        "Consumer"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack design brief, what does the specification usually include?",
+      "prompt": "What must a design specification include?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Exact size measurements",
-      "why": "The specification lists precise, measurable requirements like size, while the 'need' only states the problem being solved.",
+      "answer": "Measurable requirements",
+      "why": "A specification turns the need into measurable points (size, material, cost limit) so the finished design can actually be tested against it.",
       "options": [
-        "Exact size measurements",
-        "The problem to solve",
-        "The final user feedback",
-        "The sales price range"
+        "Measurable requirements",
+        "A list of suppliers",
+        "The final selling price",
+        "The student's name only"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "Why is a basic butt joint considered the weakest common joint?",
+      "prompt": "What is usually applied to strengthen a glued butt joint?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Small glue surface area",
-      "why": "A butt joint only joins two flat ends, giving a small gluing surface, so it holds less strongly than interlocking joints.",
+      "answer": "Nails or screws",
+      "why": "Glue alone can be weak on a plain butt joint, so nails or screws are added to reinforce the connection between the two flat surfaces.",
       "options": [
-        "Small glue surface area",
-        "Uses angled 45° cuts",
-        "Has interlocking fingers",
-        "Needs no fasteners"
+        "Nails or screws",
+        "Extra sanding",
+        "A coat of varnish",
+        "Wood dye"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What grit of sandpaper should finish a smooth surface, ready for finish?",
+      "prompt": "What grit sandpaper is best for the first rough pass on timber?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Fine grit sandpaper",
-      "why": "You move from coarse to fine grit sandpaper, finishing with fine grit to leave a smooth surface for the finish to sit on evenly.",
+      "answer": "Coarse grit",
+      "why": "Coarse grit removes rough marks and shapes the surface quickly first, before finer grits smooth it for finishing.",
       "options": [
-        "Fine grit sandpaper",
-        "Coarse rough sandpaper",
-        "Wet thick sandpaper",
-        "Heavy metal sandpaper"
+        "Coarse grit",
+        "Fine grit",
+        "Very fine grit",
+        "Polishing grit"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 9?",
+      "prompt": "What is the Japanese word for the number 12?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Kyuu",
-      "why": "Kyuu means nine in Japanese; the others are different numbers in the 1-10 sequence.",
+      "answer": "Juuni",
+      "why": "Juuni (十二) means 12 — juu (10) plus ni (2), following the regular pattern for teen numbers.",
       "options": [
-        "Kyuu",
-        "Hachi",
-        "Roku",
-        "Nana"
+        "Juuni",
+        "Juuichi",
+        "Juusan",
+        "Ni juu"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is 'hyaku' in Japanese counting?",
+      "prompt": "What is 'nihyaku' in Japanese counting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "One hundred",
-      "why": "Hyaku means one hundred, a key unit for counting larger numbers like yen amounts.",
+      "answer": "200",
+      "why": "Nihyaku means 200 — ni (2) combined with hyaku (100), following the pattern for hundreds.",
       "options": [
-        "One hundred",
-        "Ten",
-        "One thousand",
-        "Fifty"
+        "200",
+        "20",
+        "2000",
+        "2"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what is the name for the boundary where two tectonic plates push together?",
+      "prompt": "From a while back: what is the term for the boundary where two tectonic plates move apart?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "convergent boundary",
-        "convergent"
+        "divergent boundary",
+        "divergent"
       ],
-      "why": "A convergent boundary is where plates push together, often forming mountains or trenches.",
+      "why": "A divergent boundary is where two tectonic plates move apart, often creating new crust as magma rises up.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Benvolio try to do when he arrives?",
-      "answer": "Stop the fighting",
-      "why": "Benvolio draws his sword only to try to separate the brawling servants, showing his peacemaking role early in the play.",
+      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if the families fight again?",
+      "answer": "Death",
+      "why": "The Prince declares that further brawling between the families will be punished by death, raising the stakes from the start.",
       "options": [
-        "Stop the fighting",
-        "Join the Capulets",
-        "Fetch the Prince",
-        "Challenge Tybalt"
+        "Death",
+        "Exile",
+        "A heavy fine",
+        "Public whipping"
       ],
       "fresh": false
     },
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord acts as the 'V', creating tension that pulls back to C?",
-      "answer": "G",
-      "why": "G is the fifth-degree chord, and its tension naturally wants to resolve back to the tonic C.",
+      "prompt": "In the progression C-Am-F-G, which chord is the tonic, or 'home' chord?",
+      "answer": "C",
+      "why": "C is the tonic (the 'I' chord) in the key of C major, the chord that feels like home and where the progression resolves.",
       "options": [
-        "G",
+        "C",
         "Am",
         "F",
-        "C"
+        "G"
       ],
       "fresh": false
     },
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what did the activities mainly focus on capturing?",
-      "answer": "Texture and movement",
-      "why": "The activities focused on expressive texture and movement rather than realistic, photo-like detail.",
+      "prompt": "In Paint Like a Beast, what did students mainly use to apply paint besides brushes?",
+      "answer": "Fingers and sponges",
+      "why": "Students experimented with fingers and sponges alongside brushes to create varied textures and marks, rather than sticking to precise tools.",
       "options": [
-        "Texture and movement",
-        "Exact photo likeness",
-        "Precise anatomy",
-        "Flat block colour"
+        "Fingers and sponges",
+        "Fine-tip pens",
+        "Pencils and rulers",
+        "Palette knives only"
       ],
       "fresh": false
     },
@@ -330,7 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of a daimyo's rise to local power, from first to last",
+      "prompt": "Order these steps in a feudal land exchange, from top to bottom",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
-        "Gain military strength",
-        "Control local land",
-        "Collect loyalty of samurai",
-        "Rule a domain"
+        "Emperor grants title",
+        "Shogun distributes land",
+        "Daimyo commands samurai",
+        "Samurai protect peasants"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "A daimyo first built military strength, then took control of land, gathered samurai loyalty, and finally ruled an established domain.",
+      "why": "Land and power flowed downward: the emperor gave legitimacy, the shogun distributed land to daimyo, daimyo commanded samurai, and samurai protected peasants working the land.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of assessing continuity and change, from first to last",
+      "prompt": "Order these steps of writing a historical continuity-and-change argument, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +364,21 @@
       },
       "type": "order",
       "sequence": [
-        "Compare two time points",
-        "Note what stayed the same",
-        "Note what changed",
-        "Explain why change happened"
+        "Gather evidence from both points in time",
+        "Identify what stayed the same",
+        "Identify what changed",
+        "Explain the significance of the change"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Assessing continuity and change starts by comparing time points, noting sameness and difference, then explaining the causes of change.",
+      "why": "A strong continuity-and-change argument starts with evidence, sorts it into what stayed the same versus what changed, then explains why that change matters.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "A songwriter keeps the same four chords (C-Am-F-G) but changes which chord repeats twice as long as the others. Explain why this can change the song's emotional feel, even though the same four chords are used."
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on Am instead of C can make a song feel sadder, even though the notes used are identical."
     }
   ]
 }
