@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-29",
-  "day": "TUE",
-  "tag": "H10.2",
-  "title": "DailyXP · TUE 2026-09-29",
+  "date": "2026-09-30",
+  "day": "WED",
+  "tag": "H10.3",
+  "title": "DailyXP · WED 2026-09-30",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The prologue tells the audience how the play will end",
+      "prompt": "The prologue is spoken by the Chorus",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The chorus's opening speech reveals from the start that the 'star-crossed lovers' will die — Shakespeare gives away the ending on purpose.",
+      "why": "The Chorus speaks the 14-line prologue, telling the audience the fate of the two lovers before the play begins.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The emperor gave orders and the shogun just carried them out",
+      "prompt": "The shogun held more real political power than the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "It was the reverse — the shogun held the real military and political power, while the emperor was a symbolic figurehead.",
+      "answer": "True",
+      "why": "The emperor kept his title and stayed the symbolic head of Japan, but the shogun actually controlled the government, army, and land — real power sat with the shogun, not the emperor.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Juuroku' means 16",
+      "prompt": "'juusan' means 13",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Juu' (10) + 'roku' (6) = juuroku, 16 — Japanese numbers 11-19 are built by adding the ones digit onto juu.",
+      "why": "'Juusan' (十三) combines juu (10) + san (3) to make 13.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'Sanbyaku' means 300",
+      "prompt": "'gohyaku' means 500",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'San' (3) + 'byaku' (hundred) = sanbyaku, 300 — hundreds combine the number word with 'hyaku/byaku'.",
+      "why": "'Gohyaku' combines go (5) + hyaku (100) to make 500.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What do historians call things that stayed roughly the same across a period, alongside things that changed?",
+      "prompt": "What is a 'trigger' cause of an event?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Continuity",
-      "why": "Continuity refers to what stays the same over time, studied alongside change — history rarely means everything transformed at once.",
+      "answer": "The spark that sets it off",
+      "why": "A trigger cause is the immediate spark for an event, but it works alongside deeper, long-term causes — it's not the whole explanation.",
       "options": [
-        "Continuity",
-        "Trigger cause",
-        "Consequence",
-        "Turning point"
+        "The spark that sets it off",
+        "The only real cause",
+        "A change over time",
+        "Something that stayed the same"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, what does Romeo do straight after speaking to Juliet for the first time?",
+      "prompt": "In Act 1 Scene 1, who breaks up the servants' street brawl?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Kisses her",
-      "why": "Romeo and Juliet share witty, sonnet-like flirting the moment they meet, ending with a kiss — showing how fast their attraction develops.",
+      "answer": "Prince Escalus",
+      "why": "Prince Escalus arrives with his men and orders both families to stop fighting on pain of death; Benvolio tries to calm things but cannot stop the brawl alone.",
       "options": [
-        "Kisses her",
-        "Leaves the party",
-        "Fights Tybalt",
-        "Asks her to marry him"
+        "Prince Escalus",
+        "Lord Capulet himself",
+        "Benvolio alone",
+        "Friar Laurence"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord carries the sad, minor mood?",
+      "prompt": "In C-Am-F-G, which chord is the 'IV'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Am minor chord",
-      "why": "Am is the only minor chord in this progression, built on the 6th note of the scale, giving it a darker, sadder sound than the major C, F and G chords.",
+      "answer": "F",
+      "why": "F is built on the 4th note of the C major scale, making it the 'IV' chord.",
       "options": [
-        "C major chord",
-        "Am minor chord",
-        "F major chord",
-        "G major chord"
+        "F",
+        "C",
+        "Am",
+        "G"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What is the main source of energy for producers in a food chain?",
+      "prompt": "What does 'biomass' measure in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Sunlight",
-      "why": "Producers like plants use sunlight to make their own food through photosynthesis, starting the flow of energy through the food chain.",
+      "answer": "Total living material",
+      "why": "Biomass is the total mass of living material at a stage in a food chain, and it decreases at each level.",
       "options": [
-        "Sunlight",
-        "Soil nutrients",
-        "Other plants",
-        "Rainwater"
+        "Total living material",
+        "Number of species",
+        "Amount of sunlight",
+        "Size of the habitat"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what do students study closely before painting fur?",
+      "prompt": "In 'Paint Like a Beast', what tool is used to create rough fur textures?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Reference photos",
-      "why": "Students study close-up reference photos of animal fur to understand texture and direction before attempting to paint it.",
+      "answer": "A stiff dry brush",
+      "why": "A stiff, dry brush drags paint unevenly across the surface, creating the rough, broken marks that suggest fur texture.",
       "options": [
-        "Reference photos",
-        "Colour theory charts",
-        "Famous paintings",
-        "Brush catalogues"
+        "A stiff dry brush",
+        "A fine wet brush",
+        "A palette knife",
+        "A cotton swab"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 4x − 1, what is y when x = 2?",
+      "prompt": "For y = 2x + 3, what is y when x = 4?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "7",
-      "why": "Substitute x = 2: 4×2 = 8, then 8 − 1 = 7. A common slip is forgetting to subtract the 1 at the end.",
+      "answer": "11",
+      "why": "2 × 4 = 8, then add 3, giving y = 11.",
       "options": [
-        "7",
+        "11",
         "8",
         "9",
-        "6"
+        "14"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Romeo and Juliet, what does the play suggest happens when love and hate collide?",
+      "prompt": "Which London theatre is most associated with Shakespeare's plays?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Love leads to tragedy",
-      "why": "The lovers' deaths, caused by the families' hatred, show love and hate as intertwined forces that ultimately destroy the young couple.",
+      "answer": "The Globe",
+      "why": "The Globe Theatre in London was built by Shakespeare's own acting company and staged many of his plays.",
       "options": [
-        "Love leads to tragedy",
-        "Hate always wins",
-        "Love conquers all easily",
-        "They never interact"
+        "The Globe",
+        "The Old Vic",
+        "The Lyceum",
+        "The Adelphi"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In 'Stand By Me', what does the intermediate level mainly add to the beginner version?",
+      "prompt": "Which song section usually plays the same short catchy phrase, often repeated word-for-word?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Fuller chord shapes",
-      "why": "The intermediate level moves beyond simple beginner strums by introducing fuller, more complete chord shapes, once basic rhythm is secure.",
+      "answer": "Hook",
+      "why": "The hook is the short, catchy, repeated phrase designed to stick in your head, unlike verses which change lyrics each time.",
       "options": [
-        "Fuller chord shapes",
-        "Slower steady tempo",
-        "Single strum patterns",
-        "Spoken chord counting"
+        "Hook",
+        "Verse",
+        "Bridge",
+        "Intro"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests whether the type of soap used affects how many bubbles form, keeping the water temperature the same each time. What is the controlled variable?",
+      "prompt": "A student tests if the amount of fertiliser affects plant height, keeping pot size the same. What type of variable is 'pot size'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "water temperature",
-        "temperature of water"
+        "controlled variable",
+        "controlled"
       ],
-      "why": "The controlled variable is kept the same on purpose so it can't affect the result — here that's water temperature, while soap type is changed and bubble count is measured.",
+      "why": "Pot size is kept the same on purpose so it can't affect the result — that makes it a controlled variable, not the one being measured or changed.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 2x + 5 = 17",
+      "prompt": "Solve for x: 3x + 4 = 19",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 6,
+      "answer": 5,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 5 from both sides to get 2x = 12, then divide both sides by 2 to get x = 6 — keep the equation balanced at each step.",
+      "why": "Subtract 4 from both sides to get 3x = 15, then divide by 3 to find x = 5.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages in how samurai warriors first gained real power in Japan",
+      "prompt": "Order these groups by how much land they actually farmed themselves, from most to least",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -315,28 +315,28 @@
       },
       "type": "order",
       "sequence": [
-        "Central government grows weak",
-        "Local lords build private armies",
-        "Warriors protect noble estates",
-        "Warrior class becomes essential to rule"
+        "Peasants",
+        "Samurai",
+        "Daimyo",
+        "Shogun"
       ],
-      "top": "Earliest",
-      "bot": "Latest",
-      "why": "As the central government weakened, local lords raised their own armies for protection; the warriors they hired became so vital that the warrior class itself gained lasting power.",
+      "top": "Most",
+      "bot": "Least",
+      "why": "Peasants worked the land directly, while samurai, daimyo, and the shogun ranked further up the chain, controlling land rather than farming it themselves.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack design portfolio, what should be identified before choosing radiata pine as the material?",
-      "answer": "The storage need",
-      "why": "A design brief should start from the need the product solves, like messy spice storage — picking the material first can lock in choices that don't actually fix the problem.",
+      "prompt": "In the spice rack project, what does a design brief mainly describe?",
+      "answer": "The problem being solved",
+      "why": "A design brief explains the need or problem the design must solve, guiding every choice that follows, including materials.",
       "options": [
-        "The storage need",
-        "The screw sizes",
-        "The paint colour",
-        "The workshop tools"
+        "The problem being solved",
+        "The exact wood grain pattern",
+        "The customer's home address",
+        "The shop's opening hours"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack build, what is PVA glue mainly used for?",
-      "answer": "Joining wood pieces",
-      "why": "PVA glue bonds timber pieces together at joints, giving a strong hold before any finishing steps like sanding or painting.",
+      "prompt": "In the spice rack build, what is radiata pine mainly chosen for?",
+      "answer": "Being easy to work with",
+      "why": "Radiata pine is soft and easy to cut, sand and shape, making it a practical timber choice for student projects.",
       "options": [
-        "Joining wood pieces",
-        "Sealing paint colour",
-        "Smoothing rough edges",
-        "Marking cut lines"
+        "Being easy to work with",
+        "Being waterproof naturally",
+        "Being the heaviest timber",
+        "Being fire resistant"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '11' in Japanese?",
-      "answer": "Juuichi",
-      "why": "'Juu' (10) plus 'ichi' (1) gives juuichi, 11 — numbers 11-19 add the ones digit after juu, not before it.",
+      "prompt": "How do you say '17' in Japanese?",
+      "answer": "juunana",
+      "why": "'Juunana' combines juu (10) + nana (7) to make 17.",
       "options": [
-        "Juuichi",
-        "Juuni",
-        "Ichijuu",
-        "Hyaku"
+        "juunana",
+        "juuhachi",
+        "juuroku",
+        "juuni"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why the design brief for the spice rack should describe the storage problem it solves before choosing radiata pine as the material, and what could go wrong if a designer picked the material first."
+      "prompt": "Explain why a spice rack's design brief should describe the storage need it solves before deciding on radiata pine as the material, and what could go wrong if a designer picked the material first."
     }
   ]
 }
