@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-09-30",
-  "day": "WED",
-  "tag": "H10.3",
-  "title": "DailyXP · WED 2026-09-30",
+  "date": "2026-10-01",
+  "day": "THU",
+  "tag": "H10.4",
+  "title": "DailyXP · THU 2026-10-01",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The prologue is spoken by the Chorus",
+      "prompt": "The Prologue reveals Romeo and Juliet will die",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The Chorus speaks the 14-line prologue, telling the audience the fate of the two lovers before the play begins.",
+      "why": "The Chorus's opening speech tells the audience outright that the 'star-crossed lovers' will die — Shakespeare gives away the ending on purpose.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun held more real political power than the emperor",
+      "prompt": "The shogun ranked above the emperor in real power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The emperor kept his title and stayed the symbolic head of Japan, but the shogun actually controlled the government, army, and land — real power sat with the shogun, not the emperor.",
+      "why": "The emperor kept his title in name, but the shogun actually controlled the government and military — real power sat with the shogun.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'juusan' means 13",
+      "prompt": "'juuichi' means 11",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Juusan' (十三) combines juu (10) + san (3) to make 13.",
+      "why": "'juu' (10) plus 'ichi' (1) makes 'juuichi', 11 — Japanese numbers 11-19 are built by adding the ones digit after juu.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'gohyaku' means 500",
+      "prompt": "'yonhyaku' means 4,000",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "'Gohyaku' combines go (5) + hyaku (100) to make 500.",
+      "answer": "False",
+      "why": "'yonhyaku' means 400 (yon + hyaku, hundreds). 4,000 would use 'sen' (thousands), as in 'yonsen'.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What is a 'trigger' cause of an event?",
+      "prompt": "What do historians call a factor that sets off an event, even though deeper causes built up long before?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The spark that sets it off",
-      "why": "A trigger cause is the immediate spark for an event, but it works alongside deeper, long-term causes — it's not the whole explanation.",
+      "answer": "Trigger cause",
+      "why": "A trigger cause is the short-term spark (like an assassination) that sets off an event already made likely by long-term causes building up over time.",
       "options": [
-        "The spark that sets it off",
-        "The only real cause",
-        "A change over time",
-        "Something that stayed the same"
+        "Trigger cause",
+        "Long-term cause",
+        "Consequence",
+        "Continuity"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who breaks up the servants' street brawl?",
+      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if the families fight again in the streets?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Prince Escalus",
-      "why": "Prince Escalus arrives with his men and orders both families to stop fighting on pain of death; Benvolio tries to calm things but cannot stop the brawl alone.",
+      "answer": "Death as the penalty",
+      "why": "Prince Escalus warns that any further brawling between the Capulets and Montagues will be punished by death, showing how seriously the feud threatens Verona's peace.",
       "options": [
-        "Prince Escalus",
-        "Lord Capulet himself",
-        "Benvolio alone",
-        "Friar Laurence"
+        "Death as the penalty",
+        "Permanent exile abroad",
+        "Loss of all family wealth",
+        "Public whipping in the square"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C-Am-F-G, which chord is the 'IV'?",
+      "prompt": "In the progression C–Am–F–G, which chord carries the minor, sadder mood?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "F",
-      "why": "F is built on the 4th note of the C major scale, making it the 'IV' chord.",
+      "answer": "Am chord",
+      "why": "Am is the vi chord and the only minor chord in this progression, so it gives the sequence its brief dip into a sadder sound.",
       "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
+        "Am chord",
+        "C chord",
+        "F chord",
+        "G chord"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What does 'biomass' measure in an ecosystem?",
+      "prompt": "What do we call the total mass of living material in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Total living material",
-      "why": "Biomass is the total mass of living material at a stage in a food chain, and it decreases at each level.",
+      "answer": "Biomass",
+      "why": "Biomass measures the total amount of living material at a stage in a food chain, and it decreases as you move up each level.",
       "options": [
-        "Total living material",
-        "Number of species",
-        "Amount of sunlight",
-        "Size of the habitat"
+        "Biomass",
+        "Habitat",
+        "Population",
+        "Food web"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what tool is used to create rough fur textures?",
+      "prompt": "In 'Paint Like a Beast', what tool makes rough fur marks in the paint?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -182,12 +182,12 @@
         "cta": "Keep going →"
       },
       "answer": "A stiff dry brush",
-      "why": "A stiff, dry brush drags paint unevenly across the surface, creating the rough, broken marks that suggest fur texture.",
+      "why": "A stiff dry brush drags paint unevenly, creating the broken, scratchy marks that look like rough fur texture.",
       "options": [
         "A stiff dry brush",
-        "A fine wet brush",
+        "A fine liner brush",
         "A palette knife",
-        "A cotton swab"
+        "A cotton bud"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 2x + 3, what is y when x = 4?",
+      "prompt": "For y = 2x + 5, what is y when x = 3?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,12 +204,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "11",
-      "why": "2 × 4 = 8, then add 3, giving y = 11.",
+      "why": "Substitute x = 3: 2 × 3 = 6, then 6 + 5 = 11. Always multiply before adding in the table of values.",
       "options": [
         "11",
+        "10",
         "8",
-        "9",
-        "14"
+        "13"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which London theatre is most associated with Shakespeare's plays?",
+      "prompt": "During which two monarchs' reigns did Shakespeare mainly write his plays?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "The Globe",
-      "why": "The Globe Theatre in London was built by Shakespeare's own acting company and staged many of his plays.",
+      "answer": "Elizabeth I and James I",
+      "why": "Shakespeare's career spanned the late Elizabethan era into the early Jacobean era, writing under both Elizabeth I and James I.",
       "options": [
-        "The Globe",
-        "The Old Vic",
-        "The Lyceum",
-        "The Adelphi"
+        "Elizabeth I and James I",
+        "Henry VIII and Edward VI",
+        "Victoria and Edward VII",
+        "James I and Charles I"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Which song section usually plays the same short catchy phrase, often repeated word-for-word?",
+      "prompt": "Which song section usually plays right at the end, winding the track down?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Hook",
-      "why": "The hook is the short, catchy, repeated phrase designed to stick in your head, unlike verses which change lyrics each time.",
+      "answer": "Outro",
+      "why": "The outro closes the song, often fading out or stripping back the layers, while the intro opens it and verses/bridge sit in the middle.",
       "options": [
-        "Hook",
+        "Outro",
+        "Intro",
         "Verse",
-        "Bridge",
-        "Intro"
+        "Bridge"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the amount of fertiliser affects plant height, keeping pot size the same. What type of variable is 'pot size'?",
+      "prompt": "A student tests whether the amount of sugar in a drink affects how fast ants are attracted to it, keeping the drink temperature the same each time. What type of variable is 'drink temperature'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,14 +277,14 @@
         "controlled variable",
         "controlled"
       ],
-      "why": "Pot size is kept the same on purpose so it can't affect the result — that makes it a controlled variable, not the one being measured or changed.",
+      "why": "It's the controlled variable — kept the same on purpose so it can't affect the result, isolating the true effect of the sugar amount.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 3x + 4 = 19",
+      "prompt": "Solve for x: 2x + 7 = 19",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 5,
+      "answer": 6,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 4 from both sides to get 3x = 15, then divide by 3 to find x = 5.",
+      "why": "Subtract 7 from both sides to get 2x = 12, then divide both sides by 2 to get x = 6 — always do the same thing to both sides.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups by how much land they actually farmed themselves, from most to least",
+      "prompt": "Order these groups by how directly they farmed the land themselves",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -320,23 +320,23 @@
         "Daimyo",
         "Shogun"
       ],
-      "top": "Most",
-      "bot": "Least",
-      "why": "Peasants worked the land directly, while samurai, daimyo, and the shogun ranked further up the chain, controlling land rather than farming it themselves.",
+      "top": "Farmed most directly",
+      "bot": "Farmed least directly",
+      "why": "Peasants worked the soil directly, samurai served lords instead of farming, daimyo managed land through others, and the shogun was furthest removed, ruling over the whole system.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack project, what does a design brief mainly describe?",
-      "answer": "The problem being solved",
-      "why": "A design brief explains the need or problem the design must solve, guiding every choice that follows, including materials.",
+      "prompt": "In the spice rack design portfolio, what should a design brief describe first?",
+      "answer": "The storage need",
+      "why": "A design brief should describe the problem or need it solves, like messy spice storage, before any decisions about materials or finish are made.",
       "options": [
-        "The problem being solved",
-        "The exact wood grain pattern",
-        "The customer's home address",
-        "The shop's opening hours"
+        "The storage need",
+        "The wood grain colour",
+        "The sandpaper grit",
+        "The finishing coat"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack build, what is radiata pine mainly chosen for?",
-      "answer": "Being easy to work with",
-      "why": "Radiata pine is soft and easy to cut, sand and shape, making it a practical timber choice for student projects.",
+      "prompt": "In the spice rack build, why is radiata pine mainly chosen?",
+      "answer": "It is easy to work",
+      "why": "Radiata pine is a soft, easy-to-cut timber, which makes it well suited to beginner projects like the spice rack.",
       "options": [
-        "Being easy to work with",
-        "Being waterproof naturally",
-        "Being the heaviest timber",
-        "Being fire resistant"
+        "It is easy to work",
+        "It is very heavy",
+        "It resists all water",
+        "It is the cheapest metal"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '17' in Japanese?",
-      "answer": "juunana",
-      "why": "'Juunana' combines juu (10) + nana (7) to make 17.",
+      "prompt": "How do you say '19' in Japanese?",
+      "answer": "juukyuu",
+      "why": "'juu' (10) plus 'kyuu' (9) makes 'juukyuu', 19 — following the same pattern as other teen numbers in Japanese.",
       "options": [
-        "juunana",
+        "juukyuu",
         "juuhachi",
         "juuroku",
-        "juuni"
+        "nijuu"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should describe the storage need it solves before deciding on radiata pine as the material, and what could go wrong if a designer picked the material first."
+      "prompt": "Explain why a good design brief should describe the storage need before deciding to use radiata pine, and what could go wrong if a designer chose the material first."
     }
   ]
 }
