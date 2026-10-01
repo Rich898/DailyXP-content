@@ -1,53 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-09-30",
-  "day": "WED",
-  "tag": "T10.3",
-  "title": "DailyXP · WED 2026-09-30",
+  "date": "2026-10-01",
+  "day": "THU",
+  "tag": "T10.4",
+  "title": "DailyXP · THU 2026-10-01",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 2x + 3, when x = 4, y = 12",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "y = 2(4) + 3 = 11, not 12. Substitute carefully then do the multiplication before adding.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo and Juliet marry before the play's first act ends",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "They don't even meet until Act 1 Scene 5, and the secret marriage happens later with Friar Laurence's help.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The shogun ranked above the emperor in real power",
+      "prompt": "y = 3x + 2, when x = 5, y = 17",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The emperor was a figurehead; the shogun actually held military and political control of Japan.",
+      "why": "3(5)+2 = 17, so this is correct — always substitute the x-value first, then apply the rule in order.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S2",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, students aimed for photo-realistic detail",
+      "subject": "English",
+      "prompt": "The Capulets and Montagues have an ancient grudge",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +39,53 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "The focus was on capturing texture and movement with loose, expressive brushwork, not exact likeness.",
+      "answer": "True",
+      "why": "The prologue tells us the two households share an 'ancient grudge', which fuels the whole play's conflict.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A shogun could pass his title to his son",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Shogun titles were usually hereditary, passed down within a ruling family, unlike a position chosen by vote or appointed fresh each time.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, students used sponges and rags to apply paint",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "The activities encouraged experimenting with tools beyond brushes, like sponges and rags, to capture texture and movement.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who does Romeo crash the Capulet party with, uninvited, in Act 1?",
+      "prompt": "In Act 1, who does Romeo ask to help him see Rosaline at the party?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,12 +93,12 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "His friends",
-      "why": "Romeo sneaks into the Capulet party with his friends, including Mercutio and Benvolio, still hoping to see Rosaline.",
+      "answer": "Benvolio",
+      "why": "Benvolio persuades Romeo to go to the Capulet party, originally hoping to help him forget Rosaline.",
       "options": [
-        "His friends",
-        "His parents",
-        "The Prince",
+        "Benvolio",
+        "Mercutio",
+        "Tybalt",
         "Friar Laurence"
       ],
       "fresh": false
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What effect does stripping back to one instrument in a verse usually create?",
+      "prompt": "What effect does removing instruments in a bridge section usually create?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Builds intimacy",
-      "why": "A sparse verse feels quieter and more personal, setting up contrast before the fuller chorus returns.",
+      "answer": "Builds tension",
+      "why": "Stripping back instruments in a bridge creates space and tension, often setting up a strong return to the chorus.",
       "options": [
-        "Builds intimacy",
-        "Adds more energy",
-        "Signals the song's end",
-        "Raises the pitch"
+        "Builds tension",
+        "Adds volume",
+        "Speeds the tempo",
+        "Ends the song"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What word names an inherited feature that helps an organism survive?",
+      "prompt": "What do we call the total mass of living material in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Adaptation",
-      "why": "An adaptation is an inherited trait that helps an organism survive and reproduce in its environment, unlike broader terms like habitat or ecosystem.",
+      "answer": "Biomass",
+      "why": "Biomass is the total mass of living things in an area. Population size just counts individuals, not their total mass.",
       "options": [
-        "Adaptation",
-        "Ecosystem",
         "Biomass",
-        "Habitat"
+        "Population size",
+        "Food chain length",
+        "Habitat range"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack brief, what does the specification list?",
+      "prompt": "In the spice rack brief, what must the specification include?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Exact size and material limits",
-      "why": "A specification sets out precise, measurable requirements like dimensions and materials, so the design can be checked against them — it isn't a tool list or a colour preference.",
+      "answer": "Exact measurements",
+      "why": "The specification gives precise, measurable details like size and materials, turning the general 'need' into something buildable.",
       "options": [
-        "Exact size and material limits",
-        "The tools stored in the workshop",
-        "A history of timber joints",
-        "The client's favourite colours"
+        "Exact measurements",
+        "A general problem statement",
+        "The customer's name",
+        "A list of tools owned"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What is usually applied over a glued butt joint to make it stronger?",
+      "prompt": "Why is a basic butt joint considered weak?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Screws or nails",
-      "why": "Because a butt joint has a small glue surface, screws or nails are added to reinforce it and stop the joint pulling apart.",
+      "answer": "No interlocking surfaces",
+      "why": "A butt joint just joins two flat faces together with glue, with nothing interlocking to resist force, so it relies on glue strength alone.",
       "options": [
-        "Screws or nails",
-        "More sandpaper",
-        "Wood stain",
-        "Masking tape"
+        "No interlocking surfaces",
+        "Uses metal screws only",
+        "Needs angled 45° cuts",
+        "Hides all end grain"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What grit sandpaper should be used to finish a smooth surface just before applying a finish?",
+      "prompt": "Why should timber be sanded before applying a finish?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Fine grit",
-      "why": "Fine grit is used last to smooth the surface before a finish is applied, after coarser grits have already removed rough material.",
+      "answer": "So the finish sits smoothly",
+      "why": "Sanding removes roughness and scratches so paint, oil, or varnish can sit evenly on the surface instead of soaking in unevenly or trapping bumps.",
       "options": [
-        "Fine grit",
-        "Coarse grit",
-        "Medium grit",
-        "Wet-dry grit"
+        "So the finish sits smoothly",
+        "So the wood changes colour",
+        "So the glue dries faster",
+        "So screws grip better"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 15?",
+      "prompt": "What is the Japanese word for the number 14?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Juu-go",
-      "why": "Juu-go means fifteen (ten-five); juu-yon is fourteen, go-juu is fifty, and juu-roku is sixteen.",
+      "answer": "juuyon",
+      "why": "'Juuyon' (10+4) is 14; the others are juuni (12), juusan (13), and juugo (15).",
       "options": [
-        "Juu-go",
-        "Juu-yon",
-        "Go-juu",
-        "Juu-roku"
+        "juuyon",
+        "juuni",
+        "juusan",
+        "juugo"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is 'man' in Japanese counting?",
+      "prompt": "What is 'juu' in Japanese counting?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Ten thousand",
-      "why": "Man means ten thousand, a key unit in Japanese counting; sen is one thousand and hyaku is one hundred.",
+      "answer": "10",
+      "why": "'Juu' is the Japanese word for ten, the basic counting unit below 'hyaku' (hundred).",
       "options": [
-        "Ten thousand",
-        "One thousand",
-        "One hundred",
-        "One million"
+        "10",
+        "100",
+        "1000",
+        "1"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what is the term for the boundary where two tectonic plates push together?",
+      "prompt": "From a while back: what is the term for the boundary where two tectonic plates slide past each other sideways?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "convergent boundary",
-        "convergent"
+        "transform boundary",
+        "transform fault"
       ],
-      "why": "A convergent boundary is where plates push together, often forming mountains or trenches through collision.",
+      "why": "A transform boundary is where plates slide past each other sideways, often causing earthquakes without forming mountains or trenches.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Who tries to break up the servants' brawl in Act 1 Scene 1?",
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword to part the fighting servants, showing his peacemaking role, before Tybalt escalates things by attacking him instead.",
+      "prompt": "In Act 1 Scene 5, what does Tybalt want to do when he spots Romeo?",
+      "answer": "Fight him",
+      "why": "Tybalt recognises Romeo's voice and wants to fight him immediately, but Lord Capulet stops him to keep the peace.",
       "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Prince Escalus"
+        "Fight him",
+        "Welcome him",
+        "Ignore him",
+        "Warn Juliet"
       ],
       "fresh": false
     },
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the tonic, or 'home' chord?",
-      "answer": "C",
-      "why": "C is the tonic in the key of C major, the chord that feels most resolved and like 'home'.",
+      "prompt": "In C-Am-F-G, which chord creates tension that pulls back to C?",
+      "answer": "G",
+      "why": "G is the 'V' chord, built on the fifth scale degree, and creates tension that naturally resolves back to the tonic C.",
       "options": [
-        "C",
+        "G",
         "Am",
         "F",
-        "G"
+        "C"
       ],
       "fresh": false
     },
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did students mainly focus on capturing?",
-      "answer": "Texture and movement",
-      "why": "The activities aimed at capturing texture and movement with loose, expressive brushwork, not photo-realistic detail or precise colour matching.",
+      "prompt": "In Paint Like a Beast, what did students mostly paint?",
+      "answer": "Wild animals",
+      "why": "The activities centred on painting wild, beast-like animals, using loose brushwork to capture energy rather than realism.",
       "options": [
-        "Texture and movement",
-        "Exact photo likeness",
-        "Fine tiny details",
-        "Accurate fur colour"
+        "Wild animals",
+        "Still life fruit bowls",
+        "Family portraits",
+        "City buildings"
       ],
       "fresh": false
     },
@@ -330,7 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of a feudal land exchange in Japan, from first to last",
+      "prompt": "Order these groups in Japan's feudal system by how much land they typically controlled, from most to least",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
-        "Lord grants land",
-        "Vassal receives fief",
-        "Vassal pledges loyalty",
-        "Vassal provides military service"
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasants"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "A lord first granted land to a vassal, who then received the fief, pledged loyalty in return, and finally provided military service when called upon.",
+      "top": "Most land",
+      "bot": "Least land",
+      "why": "The shogun controlled the most territory overall, daimyo held large regional domains granted to them, samurai held none but served daimyo, and peasants farmed land they did not own.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of assessing continuity and change in history, from first to last",
+      "prompt": "Order these steps of judging historical significance, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +364,21 @@
       },
       "type": "order",
       "sequence": [
-        "Identify the time period",
-        "Note what stayed the same",
-        "Note what changed",
-        "Explain the significance"
+        "Identify the event",
+        "Find its effects at the time",
+        "Check its long-term impact",
+        "Decide how significant it was"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Analysing continuity and change starts by fixing the time period, then comparing what stayed the same versus what changed, before judging why it matters.",
+      "why": "To judge significance, historians first identify the event, then look at its immediate effects, then its long-term impact, before finally forming a judgement on how significant it was.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting on F instead of C can change how a song feels, even though the chords used are identical"
+      "prompt": "A friend says changing the order of C-Am-F-G to start on Am instead of C doesn't matter because 'it's still the same four chords.' Explain why starting on a different chord can change how the song feels, even though the notes are identical."
     }
   ]
 }
