@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-09-30",
-  "day": "WED",
-  "tag": "R10.3",
-  "title": "DailyXP · WED 2026-09-30",
+  "date": "2026-10-01",
+  "day": "THU",
+  "tag": "R10.4",
+  "title": "DailyXP · THU 2026-10-01",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A chemical reaction in a sealed container loses no mass at all",
+      "prompt": "Burning paper in an open dish loses mass",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In a closed system, no matter enters or leaves, so total mass before and after the reaction stays exactly the same.",
+      "why": "In an open system, gas produced escapes into the air, so the measured mass of what's left behind appears to drop — even though no mass was truly destroyed.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's army wanted a quick, total surrender from China in 1937",
+      "prompt": "Japan's army wanted a fast surrender from China in 1937",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The attack on Nanjing was driven by a military strategy of forcing fast Chinese submission, not just random cruelty by individual soldiers.",
+      "why": "Japan expected a quick victory and used extreme violence at Nanjing partly to try to terrify China into total submission fast.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food selection includes why we choose foods, not just what we buy",
+      "prompt": "Food selection is only about what's in your shopping trolley",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Food selection covers the reasons behind choices, like cost, culture and health, not only the act of buying.",
+      "answer": "False",
+      "why": "Food selection includes WHY we choose foods — cost, culture, mood, availability — not just the final items bought.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Protein helps repair body tissue",
+      "prompt": "Food only gives the body energy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Protein is essential for growth and repair of body tissue, unlike carbohydrates which mainly provide quick energy.",
+      "answer": "False",
+      "why": "Food also provides materials for growth, repair, and protection — energy is just one of several functions.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which food group should take up the smallest portion of a balanced diet?",
+      "prompt": "What could happen if a diet lacks enough iron?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Fats and sugars",
-      "why": "Fats and sugars should be eaten only in small amounts, while fruit, vegetables, and starchy carbs make up the bulk of a balanced diet.",
+      "answer": "Tiredness from low iron",
+      "why": "Iron is needed to carry oxygen in the blood, so too little can cause tiredness and anaemia.",
       "options": [
-        "Fats and sugars",
-        "Fruit and vegetables",
-        "Starchy carbohydrates",
-        "Protein foods"
+        "Tiredness from low iron",
+        "Weak bones from calcium",
+        "Poor eyesight loss",
+        "Slow muscle growth"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "For a promo video, choosing the background music counts as which task?",
+      "prompt": "Writing the script for a promo video is part of which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,12 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Content creation",
-      "why": "Choosing music, filming footage, and writing scripts are all part of creating the video's content.",
+      "why": "Scripts, footage, and music are all part of creating the actual content of a promotional video.",
       "options": [
         "Content creation",
-        "Market analysis",
+        "Market research",
         "Financial planning",
-        "Branding logo design"
+        "Staff recruitment"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What pen name did Oscar Wilde's mother write under?",
+      "prompt": "What was the title of Oscar Wilde's only novel?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Speranza",
-      "why": "Wilde's mother, Jane Wilde, was a poet and nationalist who wrote under the pen name Speranza; his witty, literary household shaped his own writing style.",
+      "answer": "The Picture of Dorian Gray",
+      "why": "Oscar Wilde wrote only one novel, The Picture of Dorian Gray, published in 1890.",
       "options": [
-        "Speranza",
-        "Ellis Bell",
-        "George Eliot",
-        "Currer Bell"
+        "The Picture of Dorian Gray",
+        "Great Expectations",
+        "A Tale of Two Cities",
+        "The Importance of Being Earnest"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which device does satire often use to exaggerate flaws?",
+      "prompt": "Which exaggerated technique does satire often use?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Exaggeration",
-      "why": "Satire often exaggerates flaws or behaviour to make them look ridiculous and expose criticism.",
+      "answer": "Irony",
+      "why": "Satire often relies on irony, saying one thing while meaning another, to highlight flaws in its target.",
       "options": [
-        "Exaggeration",
+        "Irony",
         "Rhyme scheme",
-        "Alliteration",
-        "Flashback"
+        "Flashback",
+        "Alliteration"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 6 cm. What is its area?",
+      "prompt": "A triangle has a base of 10 cm and a height of 6 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "36 cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 6 = 36 cm². Don't forget to halve after multiplying.",
+      "answer": "30 cm²",
+      "why": "Area = ½ × base × height = ½ × 10 × 6 = 30 cm². Always halve after multiplying base by height.",
       "options": [
-        "36 cm²",
-        "72 cm²",
-        "18 cm²",
-        "48 cm²"
+        "30 cm²",
+        "60 cm²",
+        "16 cm²",
+        "20 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For a cylinder, which part of the formula gives the area of BOTH circular ends together?",
+      "prompt": "What two areas does a cylinder's total surface area combine?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "2πr²",
-      "why": "Each circular end has area πr², and there are two ends, so together they contribute 2πr². Using just πr² only covers one end.",
+      "answer": "Curved area and two circle ends",
+      "why": "A cylinder's total surface area is the curved surface plus the area of both circular ends — missing the second circle is a common error.",
       "options": [
-        "2πr²",
-        "πr²",
-        "2πrh",
-        "πd"
+        "Curved area and two circle ends",
+        "Curved area and one circle end",
+        "Two circle ends only",
+        "Curved area and a rectangle"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What do we call people moving permanently from one country to settle in another?",
+      "prompt": "What is it called when people move permanently from one country to live in another?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -228,12 +228,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Migration",
-      "why": "Migration is the permanent movement of people between countries, unlike urbanisation which is movement from rural areas to cities within one country.",
+      "why": "Migration is the permanent movement of people between countries, distinct from urbanisation which is movement within a country.",
       "options": [
         "Migration",
         "Urbanisation",
-        "Tourism",
-        "Emigration only"
+        "Emigration rate",
+        "Population growth"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What book did Hitler write during his jail term after the Munich Putsch?",
+      "prompt": "What did Hitler attempt to do during the 1923 Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Mein Kampf",
-      "why": "While jailed after the failed Putsch, Hitler wrote Mein Kampf, setting out his political beliefs and later ideology.",
+      "answer": "Seize power by force",
+      "why": "The Munich Putsch was an attempted armed coup to seize power, not a legal or electoral route — it failed and Hitler was arrested.",
       "options": [
-        "Mein Kampf",
-        "Das Kapital",
-        "The Prince",
-        "Mein Reich"
+        "Seize power by force",
+        "Win a general election",
+        "Negotiate with Britain",
+        "Resign from politics"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 11 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 35,
+      "answer": 88,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height: ½ × 14 × 5 = 35 cm². Say the formula before multiplying to avoid rushing.",
+      "why": "Area = ½ × base × height = ½ × 16 × 11 = 88 cm². Say the formula before multiplying to avoid rushing past the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does the beast in Lord of the Flies mainly represent?",
-      "answer": "The boys' inner savagery",
-      "why": "The beast is never a real creature; it symbolises the primal fear and savagery growing inside the boys themselves.",
+      "prompt": "From a while back — in Lord of the Flies, what does Jack mainly represent?",
+      "answer": "Savagery and power",
+      "why": "Jack symbolises savagery, violence, and the desire for power, contrasting with Ralph's focus on order and rescue.",
       "options": [
-        "The boys' inner savagery",
-        "A real jungle predator",
-        "Ralph's leadership",
-        "The island's weather"
+        "Savagery and power",
+        "Order and rules",
+        "Hope of rescue",
+        "Fear of the unknown"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an open container, why does the measured mass seem to decrease after burning?",
+      "prompt": "In a sealed container, 15g of reactants react completely. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "gas escapes",
-        "gas is released into the air"
+        "15g",
+        "15 grams",
+        "15"
       ],
-      "why": "In an open system, gas produced by the reaction escapes into the air, so the measured mass appears to drop even though mass is still conserved overall.",
+      "why": "Mass is conserved in a closed system, so the products have the same total mass as the reactants: 15g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is the name for a solid that suddenly forms when two liquids react?",
+      "prompt": "What do we call a solid that suddenly forms when two liquids react?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -333,21 +334,21 @@
       "accept": [
         "precipitate"
       ],
-      "why": "A precipitate is an insoluble solid that forms suddenly when two solutions react together.",
+      "why": "A precipitate is a solid that forms from a reaction between two liquids, showing a chemical change has happened.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "A soft drink ad shows a famous athlete celebrating with the product. What technique is this?",
-      "answer": "Celebrity endorsement",
-      "why": "Using a famous person to promote a product is celebrity endorsement, making the product seem more appealing.",
+      "prompt": "A snack ad shows teenagers laughing at a party eating chips. What technique is this?",
+      "answer": "Lifestyle association",
+      "why": "This technique links a product to a fun, desirable lifestyle so viewers associate the snack with good feelings, not its actual health value.",
       "options": [
-        "Celebrity endorsement",
-        "Bandwagon appeal",
-        "Bulk discount pricing",
-        "Nutritional labelling"
+        "Lifestyle association",
+        "Nutritional labelling",
+        "Price discounting",
+        "Portion guidance"
       ],
       "fresh": false
     },
@@ -355,14 +356,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is mainly needed for building and repairing muscle?",
-      "answer": "Protein",
-      "why": "Protein is the nutrient mainly responsible for building and repairing muscle and other body tissue.",
+      "prompt": "On a nutrition label, which nutrient group does sugar get listed under?",
+      "answer": "Carbohydrates, since sugar is one type",
+      "why": "Sugar is a simple carbohydrate, so nutrition labels list it as a sub-type under the carbohydrate total, not under protein, fat, or fibre.",
       "options": [
-        "Protein",
-        "Fat",
-        "Carbohydrate",
-        "Fibre"
+        "Carbohydrates, since sugar is one type",
+        "Proteins, since sugar builds muscle",
+        "Fats, since sugar stores energy",
+        "Fibre, since sugar aids digestion"
       ],
       "fresh": false
     },
@@ -370,7 +371,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning a match. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
+      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
