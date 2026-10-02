@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-01",
-  "day": "THU",
-  "tag": "R10.4",
-  "title": "DailyXP · THU 2026-10-01",
+  "date": "2026-10-02",
+  "day": "FRI",
+  "tag": "R10.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-02",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Burning paper in an open dish loses mass",
+      "subject": "Food Technology",
+      "prompt": "Choosing an apple over chips because it's healthier",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In an open system, gas produced escapes into the air, so the measured mass of what's left behind appears to drop — even though no mass was truly destroyed.",
+      "left": "Food Selection",
+      "right": "Food Function",
+      "answer": "Food Selection",
+      "why": "Food selection is about the choices we make and why we make them — like picking an apple over chips. Food function is what the food does once eaten.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Japan's army wanted a fast surrender from China in 1937",
+      "subject": "Food Technology",
+      "prompt": "Calcium building strong bones",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,235 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Japan expected a quick victory and used extreme violence at Nanjing partly to try to terrify China into total submission fast.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food selection is only about what's in your shopping trolley",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Food selection includes WHY we choose foods — cost, culture, mood, availability — not just the final items bought.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food only gives the body energy",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Food also provides materials for growth, repair, and protection — energy is just one of several functions.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "What could happen if a diet lacks enough iron?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Tiredness from low iron",
-      "why": "Iron is needed to carry oxygen in the blood, so too little can cause tiredness and anaemia.",
-      "options": [
-        "Tiredness from low iron",
-        "Weak bones from calcium",
-        "Poor eyesight loss",
-        "Slow muscle growth"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Writing the script for a promo video is part of which task?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Content creation",
-      "why": "Scripts, footage, and music are all part of creating the actual content of a promotional video.",
-      "options": [
-        "Content creation",
-        "Market research",
-        "Financial planning",
-        "Staff recruitment"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What was the title of Oscar Wilde's only novel?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "The Picture of Dorian Gray",
-      "why": "Oscar Wilde wrote only one novel, The Picture of Dorian Gray, published in 1890.",
-      "options": [
-        "The Picture of Dorian Gray",
-        "Great Expectations",
-        "A Tale of Two Cities",
-        "The Importance of Being Earnest"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which exaggerated technique does satire often use?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Irony",
-      "why": "Satire often relies on irony, saying one thing while meaning another, to highlight flaws in its target.",
-      "options": [
-        "Irony",
-        "Rhyme scheme",
-        "Flashback",
-        "Alliteration"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 10 cm and a height of 6 cm. What is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "30 cm²",
-      "why": "Area = ½ × base × height = ½ × 10 × 6 = 30 cm². Always halve after multiplying base by height.",
-      "options": [
-        "30 cm²",
-        "60 cm²",
-        "16 cm²",
-        "20 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "What two areas does a cylinder's total surface area combine?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Curved area and two circle ends",
-      "why": "A cylinder's total surface area is the curved surface plus the area of both circular ends — missing the second circle is a common error.",
-      "options": [
-        "Curved area and two circle ends",
-        "Curved area and one circle end",
-        "Two circle ends only",
-        "Curved area and a rectangle"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What is it called when people move permanently from one country to live in another?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Migration",
-      "why": "Migration is the permanent movement of people between countries, distinct from urbanisation which is movement within a country.",
-      "options": [
-        "Migration",
-        "Urbanisation",
-        "Emigration rate",
-        "Population growth"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What did Hitler attempt to do during the 1923 Munich Putsch?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Seize power by force",
-      "why": "The Munich Putsch was an attempted armed coup to seize power, not a legal or electoral route — it failed and Hitler was arrested.",
-      "options": [
-        "Seize power by force",
-        "Win a general election",
-        "Negotiate with Britain",
-        "Resign from politics"
-      ],
-      "mode": "scrub",
+      "left": "Food Selection",
+      "right": "Food Function",
+      "answer": "Food Function",
+      "why": "This describes what a nutrient does inside the body — a function of food — not a choice about what to eat.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 11 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 13 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,39 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 88,
-      "calc": false,
+      "answer": 52,
+      "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 11 = 88 cm². Say the formula before multiplying to avoid rushing past the halving step.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 13 × 8 = 52 cm². Say the ½ step out loud before multiplying so it never gets skipped.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does Jack mainly represent?",
-      "answer": "Savagery and power",
-      "why": "Jack symbolises savagery, violence, and the desire for power, contrasting with Ralph's focus on order and rescue.",
-      "options": [
-        "Savagery and power",
-        "Order and rules",
-        "Hope of rescue",
-        "Fear of the unknown"
+      "subject": "Science",
+      "prompt": "In a sealed container, 18g of reactants react completely. What is the mass of the products?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "18g",
+        "18 grams",
+        "18"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "Mass is conserved in a closed system — atoms are only rearranged, not lost, so the products weigh the same as the reactants: 18g.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 15g of reactants react completely. What is the mass of the products?",
+      "prompt": "Name one sign that tells you a chemical reaction has happened.",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,67 +98,88 @@
       },
       "type": "text",
       "accept": [
-        "15g",
-        "15 grams",
-        "15"
+        "colour change",
+        "gas produced",
+        "temperature change",
+        "precipitate formed",
+        "new smell"
       ],
-      "why": "Mass is conserved in a closed system, so the products have the same total mass as the reactants: 15g.",
+      "why": "Signs like a colour change, gas bubbles, a temperature change, or a solid (precipitate) forming all show a new substance has been made.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What do we call a solid that suddenly forms when two liquids react?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "precipitate"
+      "subject": "PDHPE",
+      "prompt": "Why can a cartoon mascot on a cereal box affect a child's food choice?",
+      "answer": "It makes the cereal seem fun and exciting",
+      "why": "Mascots create a fun, likeable feeling around a product, not facts about health — kids often mistake that good feeling for proof the food is actually healthy.",
+      "options": [
+        "It makes the cereal seem fun and exciting",
+        "It proves the cereal is low in sugar",
+        "It shows the cereal has more vitamins",
+        "It guarantees the cereal is fresh"
       ],
-      "why": "A precipitate is a solid that forms from a reaction between two liquids, showing a chemical change has happened.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "A snack ad shows teenagers laughing at a party eating chips. What technique is this?",
-      "answer": "Lifestyle association",
-      "why": "This technique links a product to a fun, desirable lifestyle so viewers associate the snack with good feelings, not its actual health value.",
+      "prompt": "On a nutrition label, what does the '% Daily Intake' column mainly tell you?",
+      "answer": "How a food fits daily needs",
+      "why": "The %DI column shows how much one serve contributes toward an average day's nutrient needs, letting you compare foods. Some students confuse it with pack weight or freshness, which aren't shown by that column at all.",
       "options": [
-        "Lifestyle association",
-        "Nutritional labelling",
-        "Price discounting",
-        "Portion guidance"
+        "How a food fits daily needs",
+        "The total weight of the pack",
+        "How fresh the product is",
+        "The cooking time required"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "What gas is often seen bubbling off when a chemical reaction happens?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "carbon dioxide",
+        "co2",
+        "gas",
+        "oxygen",
+        "hydrogen"
+      ],
+      "why": "Bubbles forming in a reaction usually show a gas such as carbon dioxide, oxygen or hydrogen being produced — a classic visible sign a new substance has formed.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient group does sugar get listed under?",
-      "answer": "Carbohydrates, since sugar is one type",
-      "why": "Sugar is a simple carbohydrate, so nutrition labels list it as a sub-type under the carbohydrate total, not under protein, fat, or fibre.",
+      "prompt": "Why is grilled chicken a healthier choice than fried chicken?",
+      "answer": "Grilling needs less added fat",
+      "why": "Grilling uses little or no oil, so the food absorbs much less fat than frying does — fat content, not vitamins or protein, is the key difference here.",
       "options": [
-        "Carbohydrates, since sugar is one type",
-        "Proteins, since sugar builds muscle",
-        "Fats, since sugar stores energy",
-        "Fibre, since sugar aids digestion"
+        "Grilling needs less added fat",
+        "Frying adds more vitamins",
+        "Grilling removes all the protein",
+        "Fried chicken has less salt"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
+      "subject": "Food Technology",
+      "prompt": "Explain why 'food selection' means more than just deciding what to buy at the shop — what else does it actually involve?"
     }
   ]
 }
