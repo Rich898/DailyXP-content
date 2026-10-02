@@ -1,72 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-10-01",
-  "day": "THU",
-  "tag": "H10.4",
-  "title": "DailyXP · THU 2026-10-01",
+  "date": "2026-10-02",
+  "day": "FRI",
+  "tag": "H10.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-02",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "The Prologue reveals Romeo and Juliet will die",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "The Chorus's opening speech tells the audience outright that the 'star-crossed lovers' will die — Shakespeare gives away the ending on purpose.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The shogun ranked above the emperor in real power",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "The emperor kept his title in name, but the shogun actually controlled the government and military — real power sat with the shogun.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'juuichi' means 11",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "'juu' (10) plus 'ichi' (1) makes 'juuichi', 11 — Japanese numbers 11-19 are built by adding the ones digit after juu.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'yonhyaku' means 4,000",
+      "subject": "Technology",
+      "prompt": "A design brief should list materials before the need",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,193 +21,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "'yonhyaku' means 400 (yon + hyaku, hundreds). 4,000 would use 'sen' (thousands), as in 'yonsen'.",
+      "why": "False — the design brief must describe the need first; picking materials like radiata pine before defining the problem risks solving the wrong thing.",
       "fresh": false
     },
     {
-      "id": "S5",
+      "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "What do historians call a factor that sets off an event, even though deeper causes built up long before?",
+      "subject": "Japanese",
+      "prompt": "'nijuu' means 20",
       "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
       },
-      "answer": "Trigger cause",
-      "why": "A trigger cause is the short-term spark (like an assassination) that sets off an event already made likely by long-term causes building up over time.",
-      "options": [
-        "Trigger cause",
-        "Long-term cause",
-        "Consequence",
-        "Continuity"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if the families fight again in the streets?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Death as the penalty",
-      "why": "Prince Escalus warns that any further brawling between the Capulets and Montagues will be punished by death, showing how seriously the feud threatens Verona's peace.",
-      "options": [
-        "Death as the penalty",
-        "Permanent exile abroad",
-        "Loss of all family wealth",
-        "Public whipping in the square"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord carries the minor, sadder mood?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Am chord",
-      "why": "Am is the vi chord and the only minor chord in this progression, so it gives the sequence its brief dip into a sadder sound.",
-      "options": [
-        "Am chord",
-        "C chord",
-        "F chord",
-        "G chord"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What do we call the total mass of living material in an ecosystem?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Biomass",
-      "why": "Biomass measures the total amount of living material at a stage in a food chain, and it decreases as you move up each level.",
-      "options": [
-        "Biomass",
-        "Habitat",
-        "Population",
-        "Food web"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what tool makes rough fur marks in the paint?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A stiff dry brush",
-      "why": "A stiff dry brush drags paint unevenly, creating the broken, scratchy marks that look like rough fur texture.",
-      "options": [
-        "A stiff dry brush",
-        "A fine liner brush",
-        "A palette knife",
-        "A cotton bud"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "For y = 2x + 5, what is y when x = 3?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "11",
-      "why": "Substitute x = 3: 2 × 3 = 6, then 6 + 5 = 11. Always multiply before adding in the table of values.",
-      "options": [
-        "11",
-        "10",
-        "8",
-        "13"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "During which two monarchs' reigns did Shakespeare mainly write his plays?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Elizabeth I and James I",
-      "why": "Shakespeare's career spanned the late Elizabethan era into the early Jacobean era, writing under both Elizabeth I and James I.",
-      "options": [
-        "Elizabeth I and James I",
-        "Henry VIII and Edward VI",
-        "Victoria and Edward VII",
-        "James I and Charles I"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "Which song section usually plays right at the end, winding the track down?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Outro",
-      "why": "The outro closes the song, often fading out or stripping back the layers, while the intro opens it and verses/bridge sit in the middle.",
-      "options": [
-        "Outro",
-        "Intro",
-        "Verse",
-        "Bridge"
-      ],
-      "mode": "scrub",
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "True — ni (2) + juu (10) combines to make nijuu, 20.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests whether the amount of sugar in a drink affects how fast ants are attracted to it, keeping the drink temperature the same each time. What type of variable is 'drink temperature'?",
+      "prompt": "A student tests if the brand of soil affects seed sprouting, keeping water the same. What kind of variable is 'water'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,35 +60,14 @@
         "controlled variable",
         "controlled"
       ],
-      "why": "It's the controlled variable — kept the same on purpose so it can't affect the result, isolating the true effect of the sugar amount.",
+      "why": "Water is the controlled variable — it's deliberately kept the same so it can't be blamed for any change in results.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Solve for x: 2x + 7 = 19",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 6,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Subtract 7 from both sides to get 2x = 12, then divide both sides by 2 to get x = 6 — always do the same thing to both sides.",
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups by how directly they farmed the land themselves",
+      "prompt": "Order these groups by how much farming they actually did themselves",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -320,38 +82,53 @@
         "Daimyo",
         "Shogun"
       ],
-      "top": "Farmed most directly",
-      "bot": "Farmed least directly",
-      "why": "Peasants worked the soil directly, samurai served lords instead of farming, daimyo managed land through others, and the shogun was furthest removed, ruling over the whole system.",
+      "top": "Most farming",
+      "bot": "Least farming",
+      "why": "Peasants worked the land directly, samurai served and protected but didn't farm, daimyo managed land from above, and the shogun ruled the whole system without farming at all.",
+      "fresh": false
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Technology",
+      "prompt": "In the spice rack design portfolio, what should identifying a 'need' be based on?",
+      "answer": "A real storage problem",
+      "why": "A 'need' comes from a genuine problem to solve, like messy spice storage — not from picking a favourite material or worrying about tools or shops first.",
+      "options": [
+        "A real storage problem",
+        "A favourite wood type",
+        "The cost of tools",
+        "The shop's location"
+      ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack design portfolio, what should a design brief describe first?",
-      "answer": "The storage need",
-      "why": "A design brief should describe the problem or need it solves, like messy spice storage, before any decisions about materials or finish are made.",
+      "prompt": "In the spice rack build, what grit of sandpaper should you finish with?",
+      "answer": "Fine grit",
+      "why": "Fine grit is used last to leave a smooth surface ready for finish — coarse and medium grits are for shaping and removing rough marks earlier on, not finishing.",
       "options": [
-        "The storage need",
-        "The wood grain colour",
-        "The sandpaper grit",
-        "The finishing coat"
+        "Fine grit",
+        "Coarse grit",
+        "Medium grit",
+        "No sandpaper needed"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Technology",
-      "prompt": "In the spice rack build, why is radiata pine mainly chosen?",
-      "answer": "It is easy to work",
-      "why": "Radiata pine is a soft, easy-to-cut timber, which makes it well suited to beginner projects like the spice rack.",
+      "subject": "Japanese",
+      "prompt": "How do you say '20' in Japanese?",
+      "answer": "nijuu",
+      "why": "Nijuu means 20 (ni=2, juu=10). Juuni is 12, nihyaku is 200, and ninjuu mixes up the pattern incorrectly.",
       "options": [
-        "It is easy to work",
-        "It is very heavy",
-        "It resists all water",
-        "It is the cheapest metal"
+        "nijuu",
+        "juuni",
+        "ninjuu",
+        "nihyaku"
       ],
       "fresh": false
     },
@@ -359,22 +136,46 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '19' in Japanese?",
-      "answer": "juukyuu",
-      "why": "'juu' (10) plus 'kyuu' (9) makes 'juukyuu', 19 — following the same pattern as other teen numbers in Japanese.",
+      "prompt": "What does 'nihyaku' mean?",
+      "answer": "200",
+      "why": "Nihyaku means 200 (ni=2, hyaku=100). Mixing up hyaku (hundred) with juu (ten) or sen (thousand) causes the common slip-ups.",
       "options": [
-        "juukyuu",
-        "juuhachi",
-        "juuroku",
-        "nijuu"
+        "200",
+        "20",
+        "2,000",
+        "12"
       ],
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order this chain from root cause to final consequence",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Rising unemployment",
+        "Factory closures",
+        "Falling trade",
+        "Government spending cuts"
+      ],
+      "top": "Root cause",
+      "bot": "Final consequence",
+      "why": "Rising unemployment led to factory closures, which caused trade to fall, which finally forced government spending cuts — each link drives the next.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Technology",
-      "prompt": "Explain why a good design brief should describe the storage need before deciding to use radiata pine, and what could go wrong if a designer chose the material first."
+      "subject": "History",
+      "prompt": "A classmate says 'the shogun was just a servant who followed the emperor's orders.' Explain why this is wrong, describing where real power actually sat in the shogunate system."
     }
   ]
 }
