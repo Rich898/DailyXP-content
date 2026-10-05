@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-10-02",
-  "day": "FRI",
-  "tag": "H10.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-02",
+  "date": "2026-10-05",
+  "day": "MON",
+  "tag": "H11.1",
+  "title": "DailyXP · MON 2026-10-05",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "A design brief should list materials before the need",
+      "subject": "English",
+      "prompt": "The prologue tells the audience the play ends in happy marriage",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — the design brief must describe the need first; picking materials like radiata pine before defining the problem risks solving the wrong thing.",
+      "why": "The prologue actually reveals the 'star-crossed lovers' will die — Shakespeare tells the audience the tragic ending in advance.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'nijuu' means 20",
+      "subject": "History",
+      "prompt": "The shogun governed Japan while claiming to serve the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,231 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — ni (2) + juu (10) combines to make nijuu, 20.",
+      "why": "The shogun held the real military and political power but ruled in the emperor's name, keeping the emperor as a figurehead.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "Juu means 10",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Juu (十) is the number 10 in Japanese, and forms the base for numbers like juuichi (11).",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "Hyaku means 100",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Hyaku (百) means 100, and is combined with other numbers to make 200, 300, and so on.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What do historians call something that changed over time?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A change",
+      "why": "A 'change' is something different across a period, while a 'continuity' is something that stayed the same.",
+      "options": [
+        "A change",
+        "A continuity",
+        "A consequence",
+        "A trigger"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Who tries to break up the servants' fight in Act 1 Scene 1?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to stop the fighting, trying to keep the peace, before Tybalt arrives and escalates it.",
+      "options": [
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "Prince Escalus"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In C-Am-F-G, which chord is played first?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "C",
+      "why": "The progression is played in the order C, Am, F, G, so C comes first as the tonic chord.",
+      "options": [
+        "C",
+        "Am",
+        "F",
+        "G"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What do we call an animal that eats only other animals?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "A carnivore",
+      "why": "A carnivore eats only other animals, unlike a herbivore which eats only plants.",
+      "options": [
+        "A carnivore",
+        "A herbivore",
+        "A producer",
+        "A decomposer"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, what do students study closely before painting fur?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Real animal photos",
+      "why": "Students study real animal photos closely to understand fur texture and direction before painting it.",
+      "options": [
+        "Real animal photos",
+        "Famous paintings",
+        "Colour wheels",
+        "Their own sketches"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "For y = 2x + 1, what is y when x = 4?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "9",
+      "why": "Substitute x=4: 2×4=8, then add 1, giving 9.",
+      "options": [
+        "9",
+        "8",
+        "7",
+        "10"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "During which two monarchs' reigns did Shakespeare mainly write?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Elizabeth I and James I",
+      "why": "Shakespeare wrote during the reigns of Elizabeth I and her successor James I, spanning the late 1500s to early 1600s.",
+      "options": [
+        "Elizabeth I and James I",
+        "Henry VIII and Elizabeth I",
+        "James I and Charles I",
+        "Elizabeth I and Victoria"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "Which song section usually introduces a brand new melody to contrast the chorus?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Bridge",
+      "why": "The bridge brings in a fresh melody that contrasts the chorus, breaking up repetition before the song returns to familiar sections.",
+      "options": [
+        "Bridge",
+        "Verse repeat",
+        "Second chorus",
+        "Final outro"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the brand of soil affects seed sprouting, keeping water the same. What kind of variable is 'water'?",
+      "prompt": "A student tests if the amount of water given changes bean plant height, keeping pot size the same. What type of variable is pot size?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -60,14 +277,35 @@
         "controlled variable",
         "controlled"
       ],
-      "why": "Water is the controlled variable — it's deliberately kept the same so it can't be blamed for any change in results.",
+      "why": "Pot size is kept the same on purpose so it can't affect the result — that makes it a controlled variable, not the one being measured or changed.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
+      "subject": "Maths",
+      "prompt": "Solve for x: 3x + 5 = 23",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 6,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Subtract 5 from both sides to get 3x = 18, then divide both sides by 3 to get x = 6.",
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups by how much farming they actually did themselves",
+      "prompt": "Order these groups by how much land they actually farmed themselves",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -82,53 +320,38 @@
         "Daimyo",
         "Shogun"
       ],
-      "top": "Most farming",
-      "bot": "Least farming",
-      "why": "Peasants worked the land directly, samurai served and protected but didn't farm, daimyo managed land from above, and the shogun ruled the whole system without farming at all.",
-      "fresh": false
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "Technology",
-      "prompt": "In the spice rack design portfolio, what should identifying a 'need' be based on?",
-      "answer": "A real storage problem",
-      "why": "A 'need' comes from a genuine problem to solve, like messy spice storage — not from picking a favourite material or worrying about tools or shops first.",
-      "options": [
-        "A real storage problem",
-        "A favourite wood type",
-        "The cost of tools",
-        "The shop's location"
-      ],
+      "top": "Most farming done themselves",
+      "bot": "Least farming done themselves",
+      "why": "Peasants worked the land directly, while samurai, daimyo, and the shogun ranked progressively further from hands-on farming, instead commanding or taxing those below them.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack build, what grit of sandpaper should you finish with?",
-      "answer": "Fine grit",
-      "why": "Fine grit is used last to leave a smooth surface ready for finish — coarse and medium grits are for shaping and removing rough marks earlier on, not finishing.",
+      "prompt": "What should a design brief describe before listing materials like radiata pine?",
+      "answer": "The storage need",
+      "why": "A design brief should start with the problem or need it solves — like messy spice storage — before choosing materials to solve it.",
       "options": [
-        "Fine grit",
-        "Coarse grit",
-        "Medium grit",
-        "No sandpaper needed"
+        "The storage need",
+        "The exact measurements",
+        "The sanding method",
+        "The adhesive type"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say '20' in Japanese?",
-      "answer": "nijuu",
-      "why": "Nijuu means 20 (ni=2, juu=10). Juuni is 12, nihyaku is 200, and ninjuu mixes up the pattern incorrectly.",
+      "subject": "Technology",
+      "prompt": "What grit of sandpaper gives the smoothest final finish?",
+      "answer": "Fine grit",
+      "why": "Fine grit sandpaper is used last to smooth the surface before finishing; coarse grit is only for removing rough material early on.",
       "options": [
-        "nijuu",
-        "juuni",
-        "ninjuu",
-        "nihyaku"
+        "Fine grit",
+        "Coarse grit",
+        "Medium grit",
+        "No sanding needed"
       ],
       "fresh": false
     },
@@ -136,46 +359,22 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What does 'nihyaku' mean?",
-      "answer": "200",
-      "why": "Nihyaku means 200 (ni=2, hyaku=100). Mixing up hyaku (hundred) with juu (ten) or sen (thousand) causes the common slip-ups.",
+      "prompt": "How do you say '12' in Japanese?",
+      "answer": "Juuni",
+      "why": "Juuni (十二) means 12, combining juu (10) and ni (2); juuichi is 11, nijuu is 20, and juusan is 13.",
       "options": [
-        "200",
-        "20",
-        "2,000",
-        "12"
+        "Juuni",
+        "Juuichi",
+        "Nijuu",
+        "Juusan"
       ],
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "History",
-      "prompt": "Order this chain from root cause to final consequence",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Rising unemployment",
-        "Factory closures",
-        "Falling trade",
-        "Government spending cuts"
-      ],
-      "top": "Root cause",
-      "bot": "Final consequence",
-      "why": "Rising unemployment led to factory closures, which caused trade to fall, which finally forced government spending cuts — each link drives the next.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "History",
-      "prompt": "A classmate says 'the shogun was just a servant who followed the emperor's orders.' Explain why this is wrong, describing where real power actually sat in the shogunate system."
+      "subject": "Technology",
+      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, and what could go wrong if a designer picked the material first."
     }
   ]
 }
