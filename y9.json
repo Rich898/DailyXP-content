@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-02",
-  "day": "FRI",
-  "tag": "R10.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-02",
+  "date": "2026-10-05",
+  "day": "MON",
+  "tag": "R11.1",
+  "title": "DailyXP · MON 2026-10-05",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Choosing an apple over chips because it's healthier",
+      "subject": "Science",
+      "prompt": "Rusting iron in a sealed, closed jar",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Food Selection",
-      "right": "Food Function",
-      "answer": "Food Selection",
-      "why": "Food selection is about the choices we make and why we make them — like picking an apple over chips. Food function is what the food does once eaten.",
+      "left": "Mass unchanged",
+      "right": "Mass changes",
+      "answer": "Mass unchanged",
+      "why": "In a closed system nothing can enter or leave, so the total mass of reactants and products stays exactly the same.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Calcium building strong bones",
+      "subject": "History",
+      "prompt": "Nanjing massacre driven by military strategy, not just individual cruelty",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,17 +37,235 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Food Selection",
-      "right": "Food Function",
-      "answer": "Food Function",
-      "why": "This describes what a nutrient does inside the body — a function of food — not a choice about what to eat.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Japan's army wanted a fast, total collapse of Chinese resistance, and commanders allowed mass violence against civilians to achieve it — it wasn't only soldiers acting alone.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food selection only means what you buy at the shop",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Food selection also covers why we choose foods — taste, cost, culture, and health — not just the act of buying.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Calcium is mainly for strong bones",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Calcium builds and maintains strong bones and teeth — one of the specific jobs nutrients do beyond just giving energy.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Which food group should take up the smallest part of a balanced diet?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Fats and sugars",
+      "why": "Fats and sugars should only make up a small part of a balanced diet, while fruit, vegetables, and starchy carbs take up much larger portions.",
+      "options": [
+        "Fats and sugars",
+        "Fruit and vegetables",
+        "Starchy carbohydrates",
+        "Protein foods"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "Testing how well the finished promo video performs online counts as which task?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Evaluation",
+      "why": "Evaluation happens after the video is made, checking how well it performed against its original goals — a separate task from creating the content itself.",
+      "options": [
+        "Evaluation",
+        "Content creation",
+        "Market research",
+        "Financial planning"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What was the profession of Oscar Wilde's father, Sir William Wilde?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Surgeon",
+      "why": "Oscar Wilde's father, Sir William Wilde, was a leading eye and ear surgeon in Dublin, while his mother Jane was a poet and writer.",
+      "options": [
+        "Surgeon",
+        "Barrister",
+        "Clergyman",
+        "Journalist"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Which writer is famous for the satire Gulliver's Travels?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Jonathan Swift",
+      "why": "Jonathan Swift wrote Gulliver's Travels, a classic satire that mocks politics and human nature through exaggerated fantasy.",
+      "options": [
+        "Jonathan Swift",
+        "Charles Dickens",
+        "Oscar Wilde",
+        "William Shakespeare"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 16 cm and a height of 9 cm. What is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "72 cm²",
+      "why": "Area = ½ × base × height = ½ × 16 × 9 = 72 cm². Halving is the step rushing skips.",
+      "options": [
+        "72 cm²",
+        "144 cm²",
+        "80 cm²",
+        "100 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A cylinder has radius 4 cm. What is the area of one circular end?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "16π cm²",
+      "why": "The area of a circle is πr², so with radius 4 cm the end area is π × 4² = 16π cm². Doubling the radius instead of squaring it is a common slip.",
+      "options": [
+        "16π cm²",
+        "8π cm²",
+        "4π cm²",
+        "32π cm²"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What is the term for Australia's post-1970s policy of accepting migrants from many countries?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Multiculturalism",
+      "why": "Since the 1970s Australia shifted to multiculturalism, welcoming migrants from diverse countries rather than favouring one group.",
+      "options": [
+        "Multiculturalism",
+        "Populate or perish",
+        "Assisted passage",
+        "White Australia policy"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What book did Hitler write while in prison after the Munich Putsch?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Mein Kampf",
+      "why": "Hitler wrote Mein Kampf during his prison sentence after the failed 1923 Munich Putsch, setting out his ideas and beliefs.",
+      "options": [
+        "Mein Kampf",
+        "The Communist Manifesto",
+        "Das Kapital",
+        "Twilight of the Idols"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 13 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 20 cm and a height of 11 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,39 +274,34 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 52,
+      "answer": 110,
       "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 13 × 8 = 52 cm². Say the ½ step out loud before multiplying so it never gets skipped.",
+      "why": "Area = ½ × base × height = ½ × 20 × 11 = 110 cm². Say the formula before multiplying so you don't skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "In a sealed container, 18g of reactants react completely. What is the mass of the products?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "18g",
-        "18 grams",
-        "18"
+      "subject": "English",
+      "prompt": "From a while back — in Lord of the Flies, what does Piggy's role mainly show?",
+      "answer": "That intelligence is ignored in a savage group",
+      "why": "Piggy consistently offers the most rational, sensible ideas, but the boys mock and sideline him — showing how reason gets pushed aside as the group turns savage.",
+      "options": [
+        "That intelligence is ignored in a savage group",
+        "That weak boys always become leaders",
+        "That glasses are a symbol of weakness",
+        "That the group respects careful thinking"
       ],
-      "why": "Mass is conserved in a closed system — atoms are only rearranged, not lost, so the products weigh the same as the reactants: 18g.",
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "Name one sign that tells you a chemical reaction has happened.",
+      "prompt": "In a sealed container, 24g of reactants react completely. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -98,88 +311,66 @@
       },
       "type": "text",
       "accept": [
-        "colour change",
-        "gas produced",
-        "temperature change",
-        "precipitate formed",
-        "new smell"
+        "24g",
+        "24 grams"
       ],
-      "why": "Signs like a colour change, gas bubbles, a temperature change, or a solid (precipitate) forming all show a new substance has been made.",
+      "why": "In a closed system, mass is conserved — the products must total the same 24g as the reactants.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Why can a cartoon mascot on a cereal box affect a child's food choice?",
-      "answer": "It makes the cereal seem fun and exciting",
-      "why": "Mascots create a fun, likeable feeling around a product, not facts about health — kids often mistake that good feeling for proof the food is actually healthy.",
-      "options": [
-        "It makes the cereal seem fun and exciting",
-        "It proves the cereal is low in sugar",
-        "It shows the cereal has more vitamins",
-        "It guarantees the cereal is fresh"
+      "subject": "Science",
+      "prompt": "What is it called when a reaction releases heat and makes things feel warmer?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "exothermic"
       ],
+      "why": "A reaction that releases heat energy to its surroundings, making them feel warmer, is called exothermic.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the '% Daily Intake' column mainly tell you?",
-      "answer": "How a food fits daily needs",
-      "why": "The %DI column shows how much one serve contributes toward an average day's nutrient needs, letting you compare foods. Some students confuse it with pack weight or freshness, which aren't shown by that column at all.",
+      "prompt": "Why do ads place sugary snacks near supermarket checkouts?",
+      "answer": "To tempt impulse buying",
+      "why": "Placing sugary snacks at checkouts targets impulse buying, as people grab them while waiting without planning the purchase in advance.",
       "options": [
-        "How a food fits daily needs",
-        "The total weight of the pack",
-        "How fresh the product is",
-        "The cooking time required"
+        "To tempt impulse buying",
+        "To show nutrition facts",
+        "To lower the price",
+        "To prove they are healthy"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What gas is often seen bubbling off when a chemical reaction happens?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "carbon dioxide",
-        "co2",
-        "gas",
-        "oxygen",
-        "hydrogen"
-      ],
-      "why": "Bubbles forming in a reaction usually show a gas such as carbon dioxide, oxygen or hydrogen being produced — a classic visible sign a new substance has formed.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why is grilled chicken a healthier choice than fried chicken?",
-      "answer": "Grilling needs less added fat",
-      "why": "Grilling uses little or no oil, so the food absorbs much less fat than frying does — fat content, not vitamins or protein, is the key difference here.",
+      "prompt": "On a nutrition label, which nutrient is usually listed under carbohydrates?",
+      "answer": "Sugar",
+      "why": "Sugar is listed as a type of carbohydrate on nutrition labels, shown separately to show how much of the carbs come from sugars.",
       "options": [
-        "Grilling needs less added fat",
-        "Frying adds more vitamins",
-        "Grilling removes all the protein",
-        "Fried chicken has less salt"
+        "Sugar",
+        "Protein",
+        "Fibre",
+        "Sodium"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Food Technology",
-      "prompt": "Explain why 'food selection' means more than just deciding what to buy at the shop — what else does it actually involve?"
+      "subject": "PDHPE",
+      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
