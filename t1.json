@@ -1,34 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-10-02",
-  "day": "FRI",
-  "tag": "T10.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-02",
+  "date": "2026-10-05",
+  "day": "MON",
+  "tag": "T11.1",
+  "title": "DailyXP · MON 2026-10-05",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "Painting fine photo-realistic detail",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Paint Like a Beast",
-      "right": "Not the focus",
-      "answer": "Not the focus",
-      "why": "Paint Like a Beast focused on texture and movement, not precise photo-realistic detail — that's a common mix-up.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Shogun outranks the emperor in real power",
+      "subject": "Maths",
+      "prompt": "y = 2x - 1, when x = 4, y = 7",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,83 +21,316 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun held the real military and political power, even though he ruled in the emperor's name — the emperor was a figurehead by comparison.",
+      "why": "When x = 4, y = 2(4) - 1 = 8 - 1 = 7, so this is correct.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Romeo kills Tybalt in Act 1",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Tybalt's death happens in Act 3, not Act 1 — Act 1 only sets up the feud and the party.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A shogun could appoint daimyo to control regions",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "The shogun held real military power and granted land and authority to daimyo lords beneath him.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "Paint Like a Beast used loose, expressive brushwork",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "The activities focused on capturing texture and movement with loose marks, not fine photo-realistic detail.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Who does Romeo marry in secret?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Juliet",
+      "why": "Romeo secretly marries Juliet with Friar Laurence's help, not Rosaline, whom Romeo only admired before meeting Juliet.",
+      "options": [
+        "Juliet",
+        "Rosaline",
+        "Lady Capulet",
+        "Paris"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "What usually happens to layers when a chorus repeats?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Layers get fuller",
+      "why": "Choruses usually add more instrument layers to build energy and make the section feel bigger.",
+      "options": [
+        "Layers get fuller",
+        "Layers get thinner",
+        "Tempo slows down",
+        "Key signature changes"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "Why does an arctic fox grow a thick white coat in winter?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Structural adaptation for survival",
+      "why": "A thick white coat is a physical body feature the fox is born with, so it's a structural adaptation, not a learned behaviour.",
+      "options": [
+        "Structural adaptation for survival",
+        "Behavioural adaptation for survival",
+        "Learned habit from its parents",
+        "Random change with no cause"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In the spice rack brief, what does the 'need' describe?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "The problem to solve",
+      "why": "The 'need' section explains the problem the design must address, before any material or finish choices are made.",
+      "options": [
+        "The problem to solve",
+        "The exact timber type",
+        "The finishing coat",
+        "The sandpaper grit"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "In spice rack assembly, what is a mitre joint mainly used for?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Neat 45° corners",
+      "why": "A mitre joint uses two 45° angled cuts to form a neat corner where no end grain is visible, mainly for appearance.",
+      "options": [
+        "Neat 45° corners",
+        "Hidden interior shelves",
+        "Joining end to middle",
+        "Extra strength only"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "What grit sandpaper finishes a surface ready for a finish coat?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Fine grit paper",
+      "why": "Fine grit paper is used last to leave a smooth surface ready for finish, after coarser grits have shaped and smoothed the wood.",
+      "options": [
+        "Fine grit paper",
+        "Coarse grit paper",
+        "Medium grit paper",
+        "Wet grit paper"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is the Japanese word for the number 20?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Nijuu",
+      "why": "Nijuu (2x10) means 20. Juuni is 12, sanjuu is 30, and yonjuu is 40.",
+      "options": [
+        "Nijuu",
+        "Juuni",
+        "Sanjuu",
+        "Yonjuu"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is the Japanese word for 500?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Gohyaku, meaning 500",
+      "why": "Gohyaku (5x hyaku) means 500. Gojuu is 50, hyaku alone is 100, and gosen is 5000.",
+      "options": [
+        "Gohyaku, meaning 500",
+        "Gojuu, meaning 50",
+        "Hyaku, meaning 100",
+        "Gosen, meaning 5000"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In the Prologue, what form does the opening speech take?",
-      "answer": "A sonnet",
-      "why": "The Prologue is spoken by the Chorus as a 14-line sonnet, a structured poetic form that signals the play's fate is already fixed.",
-      "options": [
-        "A sonnet",
-        "A soliloquy",
-        "A ballad",
-        "Blank prose"
+      "subject": "Science",
+      "prompt": "From a while back: what is the term for a boundary where two tectonic plates move apart?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "divergent boundary",
+        "divergent"
       ],
-      "fresh": false
+      "why": "A divergent boundary is where plates move apart, often forming new crust or rift valleys.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord acts as the dominant, pulling back toward C?",
-      "answer": "The G chord, built on degree 5",
-      "why": "G is the dominant (V), built on the fifth scale degree, and creates tension that resolves back to C. C is the tonic (I), Am is the vi, and F is the subdominant (IV).",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten?",
+      "answer": "Death for fighting",
+      "why": "Prince Escalus declares that if the Capulets and Montagues disturb the peace again, the punishment will be death.",
       "options": [
-        "The G chord, built on degree 5",
-        "The C chord, built on degree 1",
-        "The Am chord, built on degree 6",
-        "The F chord, built on degree 4"
+        "Death for fighting",
+        "Exile from Verona",
+        "Loss of land",
+        "Public whipping"
       ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what did students mainly use besides brushes to apply paint?",
-      "answer": "Sponges and rags",
-      "why": "Students used sponges and rags alongside brushes to build expressive texture — the activity wasn't about fine, controlled tools like pens or stencils, which suit precise detail rather than loose, textured marks.",
+      "subject": "Music",
+      "prompt": "In the key of C major, which chord is built on the fourth scale degree?",
+      "answer": "F",
+      "why": "F is built on the fourth note of the C major scale, making it the 'IV' chord in the progression.",
       "options": [
-        "Sponges and rags",
-        "Fine-tipped pens only",
-        "Rulers and stencils",
-        "Cotton buds only"
+        "F",
+        "C",
+        "Am",
+        "G"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these groups in Japan's feudal system by how much power they held, from most to least",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Shogun",
-        "Daimyo",
-        "Samurai",
-        "Peasants"
+      "subject": "Visual Arts",
+      "prompt": "In 'Paint Like a Beast', what did students mostly paint?",
+      "answer": "Wild animals",
+      "why": "The 'Paint Like a Beast' activities centred on painting wild animals with loose, expressive brushwork, not fruit, people, or scenery.",
+      "options": [
+        "Wild animals",
+        "Still life fruit",
+        "Human portraits",
+        "Landscapes"
       ],
-      "top": "Most power",
-      "bot": "Least power",
-      "why": "The shogun held supreme military and political power, daimyo were regional lords beneath him, samurai served the daimyo as warriors, and peasants sat at the bottom working the land.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of assessing historical significance, from first to last",
+      "prompt": "Order these roles in japan's feudal system by how directly they farmed the land, from most to least",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -126,51 +340,45 @@
       },
       "type": "order",
       "sequence": [
-        "Identify the event",
-        "Examine its immediate impact",
-        "Trace its long-term effects",
-        "Judge how it changed things afterward"
+        "Peasants",
+        "Samurai",
+        "Daimyo",
+        "Shogun"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Judging significance means first identifying the event, then checking its immediate impact, then tracing its long-term effects, before finally judging the scale of change it caused.",
+      "top": "Most hands-on farming",
+      "bot": "Least hands-on farming",
+      "why": "Peasants worked the land directly, samurai guarded it for their lord, daimyo owned and managed the domains, and the shogun oversaw the whole country without farming himself.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "Who does Romeo marry in secret with Friar Laurence's help?",
-      "answer": "Juliet",
-      "why": "Romeo secretly marries Juliet with Friar Laurence's help, hoping the marriage will end the feud between their families.",
-      "options": [
-        "Juliet",
-        "Rosaline",
-        "Lady Capulet",
-        "Juliet's nurse"
+      "subject": "History",
+      "prompt": "Order these stages of a continuity-and-change enquiry by scale, from one single detail to the widest view",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "A single event",
+        "A short time period",
+        "A whole era",
+        "Change across centuries"
       ],
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "In which century did Shakespeare write and perform his plays?",
-      "answer": "16th century",
-      "why": "Shakespeare wrote and performed mainly in the late 16th century (he was born in 1564), during the Elizabethan era.",
-      "options": [
-        "16th century",
-        "14th century",
-        "18th century",
-        "19th century"
-      ],
+      "top": "Narrowest",
+      "bot": "Widest",
+      "why": "Historians often zoom out: starting with one event, then a short period, then a whole era, before comparing change across centuries.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on a different chord can change how a song feels, even though the notes used are identical."
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on G instead of C can change how a song feels, even though the chords used are identical."
     }
   ]
 }
