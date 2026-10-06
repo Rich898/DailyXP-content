@@ -1,34 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-10-05",
-  "day": "MON",
-  "tag": "T11.1",
-  "title": "DailyXP · MON 2026-10-05",
+  "date": "2026-10-06",
+  "day": "TUE",
+  "tag": "T11.2",
+  "title": "DailyXP · TUE 2026-10-06",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 2x - 1, when x = 4, y = 7",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "When x = 4, y = 2(4) - 1 = 8 - 1 = 7, so this is correct.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo kills Tybalt in Act 1",
+      "prompt": "y = 3x - 2, when x = 2, y = 4",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Tybalt's death happens in Act 3, not Act 1 — Act 1 only sets up the feud and the party.",
+      "why": "When x = 2, y = 3(2) - 2 = 4 is wrong because 3×2=6, 6-2=4 — wait check: 6-2=4, so actually true. Use care substituting values into a rule before checking a table.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Romeo kills Paris at Juliet's tomb",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "In the final act Romeo kills Paris outside the tomb before taking his own life — this happens later in the play, beyond Act 1.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A shogun could appoint daimyo to control regions",
+      "prompt": "A shogun's title could be inherited by his son",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun held real military power and granted land and authority to daimyo lords beneath him.",
+      "why": "Shogun titles were typically hereditary, passed down within a ruling family line, unlike an elected or randomly-assigned position.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast used loose, expressive brushwork",
+      "prompt": "Paint Like a Beast used sponges and rags as well as brushes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The activities focused on capturing texture and movement with loose marks, not fine photo-realistic detail.",
+      "why": "Students experimented with varied tools like sponges and rags to create texture, not just fine brushwork.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who does Romeo marry in secret?",
+      "prompt": "Who is killed by Tybalt in Act 3, sparking Romeo's revenge?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Juliet",
-      "why": "Romeo secretly marries Juliet with Friar Laurence's help, not Rosaline, whom Romeo only admired before meeting Juliet.",
+      "answer": "Mercutio",
+      "why": "Tybalt kills Mercutio, Romeo's close friend, in Act 3 — this revenge killing leads Romeo to kill Tybalt and causes his banishment.",
       "options": [
-        "Juliet",
-        "Rosaline",
-        "Lady Capulet",
-        "Paris"
+        "Mercutio",
+        "Paris",
+        "Benvolio",
+        "Friar Laurence"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What usually happens to layers when a chorus repeats?",
+      "prompt": "What usually happens to instrument layers in a song's bridge?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Layers get fuller",
-      "why": "Choruses usually add more instrument layers to build energy and make the section feel bigger.",
+      "answer": "They thin out",
+      "why": "A bridge often strips back instrumentation to create contrast before the final chorus returns with fuller sound.",
       "options": [
-        "Layers get fuller",
-        "Layers get thinner",
-        "Tempo slows down",
-        "Key signature changes"
+        "They thin out",
+        "They stay identical",
+        "They double tempo",
+        "They mute completely"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Why does an arctic fox grow a thick white coat in winter?",
+      "prompt": "In food chains, what term means the total mass of living material in a given area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Structural adaptation for survival",
-      "why": "A thick white coat is a physical body feature the fox is born with, so it's a structural adaptation, not a learned behaviour.",
+      "answer": "Biomass",
+      "why": "Biomass is the total mass of living material in an area — it's not a count of organisms, a measure of sunlight, or soil nutrients.",
       "options": [
-        "Structural adaptation for survival",
-        "Behavioural adaptation for survival",
-        "Learned habit from its parents",
-        "Random change with no cause"
+        "Biomass",
+        "Population count",
+        "Light intensity",
+        "Nutrient level"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack brief, what does the 'need' describe?",
+      "prompt": "In the spice rack design brief, what must the specification state?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "The problem to solve",
-      "why": "The 'need' section explains the problem the design must address, before any material or finish choices are made.",
+      "answer": "Size and materials",
+      "why": "The specification lists concrete requirements like size, materials, and function, turning the general need into measurable design criteria.",
       "options": [
-        "The problem to solve",
-        "The exact timber type",
-        "The finishing coat",
-        "The sandpaper grit"
+        "Size and materials",
+        "The student's name",
+        "The teacher's grade",
+        "The tools' prices"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In spice rack assembly, what is a mitre joint mainly used for?",
+      "prompt": "What is usually added to strengthen a glued butt joint?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Neat 45° corners",
-      "why": "A mitre joint uses two 45° angled cuts to form a neat corner where no end grain is visible, mainly for appearance.",
+      "answer": "Reinforcing nails",
+      "why": "Because a butt joint relies only on glue across flat end grain, nails, screws, or dowels are usually added to stop it pulling apart.",
       "options": [
-        "Neat 45° corners",
-        "Hidden interior shelves",
-        "Joining end to middle",
-        "Extra strength only"
+        "Reinforcing nails",
+        "Extra sandpaper",
+        "A wood stain",
+        "More varnish"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What grit sandpaper finishes a surface ready for a finish coat?",
+      "prompt": "What should you do to timber dust before applying a finish?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Fine grit paper",
-      "why": "Fine grit paper is used last to leave a smooth surface ready for finish, after coarser grits have shaped and smoothed the wood.",
+      "answer": "Wipe it off",
+      "why": "Leftover sanding dust stops finish from bonding smoothly, so timber must be wiped clean before any stain or varnish goes on.",
       "options": [
-        "Fine grit paper",
-        "Coarse grit paper",
-        "Medium grit paper",
-        "Wet grit paper"
+        "Wipe it off",
+        "Leave it on",
+        "Wet it down",
+        "Paint over it"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 20?",
+      "prompt": "What is the Japanese word for the number 10?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Nijuu",
-      "why": "Nijuu (2x10) means 20. Juuni is 12, sanjuu is 30, and yonjuu is 40.",
+      "answer": "Juu",
+      "why": "'Juu' means 10 in Japanese; 'hyaku' is 100, 'sen' is 1000, and 'man' is 10,000.",
       "options": [
-        "Nijuu",
-        "Juuni",
-        "Sanjuu",
-        "Yonjuu"
+        "Juu",
+        "Hyaku",
+        "Sen",
+        "Man"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for 500?",
+      "prompt": "What is the Japanese word for the number 100?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Gohyaku, meaning 500",
-      "why": "Gohyaku (5x hyaku) means 500. Gojuu is 50, hyaku alone is 100, and gosen is 5000.",
+      "answer": "Hyaku means 100",
+      "why": "'Hyaku' means 100 in Japanese; 'juu' is 10, 'sen' is 1000, and 'man' is 10,000.",
       "options": [
-        "Gohyaku, meaning 500",
-        "Gojuu, meaning 50",
-        "Hyaku, meaning 100",
-        "Gosen, meaning 5000"
+        "Hyaku means 100",
+        "Juu means 10",
+        "Sen means 1000",
+        "Man means 10,000"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what is the term for a boundary where two tectonic plates move apart?",
+      "prompt": "From a while back: what term describes rock, ash, and gas erupting violently from a volcano?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "divergent boundary",
-        "divergent"
+        "eruption",
+        "volcanic eruption"
       ],
-      "why": "A divergent boundary is where plates move apart, often forming new crust or rift valleys.",
+      "why": "An eruption is the violent release of magma, ash, and gas from a volcano, usually linked to tectonic plate activity.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten?",
-      "answer": "Death for fighting",
-      "why": "Prince Escalus declares that if the Capulets and Montagues disturb the peace again, the punishment will be death.",
+      "prompt": "In Act 1 Scene 1, who tries to break up the servants' fight?",
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to stop the brawl, showing his peacemaking role, while Tybalt arrives wanting to fight instead.",
       "options": [
-        "Death for fighting",
-        "Exile from Verona",
-        "Loss of land",
-        "Public whipping"
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "Romeo"
       ],
       "fresh": false
     },
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the key of C major, which chord is built on the fourth scale degree?",
-      "answer": "F",
-      "why": "F is built on the fourth note of the C major scale, making it the 'IV' chord in the progression.",
+      "prompt": "In C–Am–F–G, which chord acts as the 'vi', built on the sixth scale degree?",
+      "answer": "Am chord",
+      "why": "Am is the 'vi' chord, built on the sixth scale degree of C major — it often gives the progression a sadder, minor colour.",
       "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
+        "Am chord",
+        "C chord",
+        "F chord",
+        "G chord"
       ],
       "fresh": false
     },
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what did students mostly paint?",
-      "answer": "Wild animals",
-      "why": "The 'Paint Like a Beast' activities centred on painting wild animals with loose, expressive brushwork, not fruit, people, or scenery.",
+      "prompt": "In Paint Like a Beast, what quality did students avoid aiming for?",
+      "answer": "Photo-realistic detail",
+      "why": "Students deliberately avoided exact photo-realism, instead using loose, expressive marks to capture texture and movement.",
       "options": [
-        "Wild animals",
-        "Still life fruit",
-        "Human portraits",
-        "Landscapes"
+        "Photo-realistic detail",
+        "Bold expressive colour",
+        "Loose confident brushwork",
+        "Dynamic animal movement"
       ],
       "fresh": false
     },
@@ -330,7 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these roles in japan's feudal system by how directly they farmed the land, from most to least",
+      "prompt": "Order these steps of a feudal land exchange in Japan by what happens, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
-        "Peasants",
-        "Samurai",
-        "Daimyo",
-        "Shogun"
+        "Daimyo pledges loyalty",
+        "Shogun grants land",
+        "Samurai defends territory",
+        "Peasants farm the land"
       ],
-      "top": "Most hands-on farming",
-      "bot": "Least hands-on farming",
-      "why": "Peasants worked the land directly, samurai guarded it for their lord, daimyo owned and managed the domains, and the shogun oversaw the whole country without farming himself.",
+      "top": "First",
+      "bot": "Last",
+      "why": "A daimyo pledged loyalty to the shogun, who granted land in return; samurai then defended that land, while peasants farmed it to produce food and tax.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages of a continuity-and-change enquiry by scale, from one single detail to the widest view",
+      "prompt": "Order these stages of a continuity-and-change enquiry, from narrowest focus to widest",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +364,21 @@
       },
       "type": "order",
       "sequence": [
-        "A single event",
-        "A short time period",
-        "A whole era",
-        "Change across centuries"
+        "A single source",
+        "One event",
+        "A specific period",
+        "The whole era"
       ],
       "top": "Narrowest",
       "bot": "Widest",
-      "why": "Historians often zoom out: starting with one event, then a short period, then a whole era, before comparing change across centuries.",
+      "why": "Historians often zoom out: starting with one source, then an event, then a wider period, before judging change across a whole era.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on G instead of C can change how a song feels, even though the chords used are identical."
+      "prompt": "A friend says changing the order of C-Am-F-G to start on F instead of C doesn't matter because it's 'still the same four chords'. Explain why starting on a different chord can change how the song feels, even though the notes used are identical."
     }
   ]
 }
