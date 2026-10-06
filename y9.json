@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-05",
-  "day": "MON",
-  "tag": "R11.1",
-  "title": "DailyXP · MON 2026-10-05",
+  "date": "2026-10-06",
+  "day": "TUE",
+  "tag": "R11.2",
+  "title": "DailyXP · TUE 2026-10-06",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Rusting iron in a sealed, closed jar",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Mass unchanged",
-      "right": "Mass changes",
-      "answer": "Mass unchanged",
-      "why": "In a closed system nothing can enter or leave, so the total mass of reactants and products stays exactly the same.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Nanjing massacre driven by military strategy, not just individual cruelty",
+      "prompt": "Burning wood in a sealed, closed jar keeps the same total mass",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Japan's army wanted a fast, total collapse of Chinese resistance, and commanders allowed mass violence against civilians to achieve it — it wasn't only soldiers acting alone.",
+      "why": "In a closed system nothing escapes, so the gases produced stay trapped and mass is conserved — it only looks like mass is lost in an open container.",
       "fresh": false
     },
     {
-      "id": "S3",
+      "id": "S2",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food selection only means what you buy at the shop",
+      "subject": "History",
+      "prompt": "The Nanjing Massacre happened only because of random soldier cruelty, with no military strategy involved",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Food selection also covers why we choose foods — taste, cost, culture, and health — not just the act of buying.",
+      "why": "Japan's army wanted fast, total submission from China, and this military goal drove orders that allowed mass violence — it wasn't just isolated cruelty.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food selection only means deciding what to buy at the shop",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Food selection also covers why we choose foods — taste, cost, culture, health — not just the shopping decision itself.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Calcium is mainly for strong bones",
+      "prompt": "Protein helps repair muscle",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Calcium builds and maintains strong bones and teeth — one of the specific jobs nutrients do beyond just giving energy.",
+      "why": "Protein's main job is building and repairing body tissue, like muscle — not supplying quick energy.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which food group should take up the smallest part of a balanced diet?",
+      "prompt": "Which food group should make up the smallest part of a balanced diet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -94,7 +94,7 @@
         "cta": "Keep going →"
       },
       "answer": "Fats and sugars",
-      "why": "Fats and sugars should only make up a small part of a balanced diet, while fruit, vegetables, and starchy carbs take up much larger portions.",
+      "why": "The eatwell plate shows fats and sugars should be the smallest portion, while fruit, vegetables, and carbohydrates take up most of the plate.",
       "options": [
         "Fats and sugars",
         "Fruit and vegetables",
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Testing how well the finished promo video performs online counts as which task?",
+      "prompt": "In a promo video, testing how it performs online falls under which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,11 +116,11 @@
         "cta": "Keep going →"
       },
       "answer": "Evaluation",
-      "why": "Evaluation happens after the video is made, checking how well it performed against its original goals — a separate task from creating the content itself.",
+      "why": "Checking how a finished video performs online is evaluation, separate from creating the content itself.",
       "options": [
         "Evaluation",
         "Content creation",
-        "Market research",
+        "Market analysis",
         "Financial planning"
       ],
       "fresh": false
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What was the profession of Oscar Wilde's father, Sir William Wilde?",
+      "prompt": "What was the profession of Oscar Wilde's father?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -138,12 +138,12 @@
         "cta": "Keep going →"
       },
       "answer": "Surgeon",
-      "why": "Oscar Wilde's father, Sir William Wilde, was a leading eye and ear surgeon in Dublin, while his mother Jane was a poet and writer.",
+      "why": "Sir William Wilde, Oscar Wilde's father, was a surgeon, while his mother was a writer.",
       "options": [
         "Surgeon",
-        "Barrister",
-        "Clergyman",
-        "Journalist"
+        "Lawyer",
+        "Playwright",
+        "Teacher"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which writer is famous for the satire Gulliver's Travels?",
+      "prompt": "What technique does satire often use to make its target look ridiculous?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Jonathan Swift",
-      "why": "Jonathan Swift wrote Gulliver's Travels, a classic satire that mocks politics and human nature through exaggerated fantasy.",
+      "answer": "Exaggeration",
+      "why": "Satire often exaggerates a flaw or behaviour to absurd levels, making it look ridiculous and exposing it to criticism.",
       "options": [
-        "Jonathan Swift",
-        "Charles Dickens",
-        "Oscar Wilde",
-        "William Shakespeare"
+        "Exaggeration",
+        "Rhyme",
+        "Alliteration",
+        "Flashback"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 9 cm. What is its area?",
+      "prompt": "A triangle has a base of 10 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "72 cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 9 = 72 cm². Halving is the step rushing skips.",
+      "answer": "35 cm²",
+      "why": "Area = ½ × base × height = ½ × 10 × 7 = 35 cm². Halving is the step rushing skips.",
       "options": [
-        "72 cm²",
-        "144 cm²",
-        "80 cm²",
-        "100 cm²"
+        "35 cm²",
+        "70 cm²",
+        "17 cm²",
+        "42 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A cylinder has radius 4 cm. What is the area of one circular end?",
+      "prompt": "A closed cylinder has radius 2 cm and height 5 cm. What two areas make up its total surface area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "16π cm²",
-      "why": "The area of a circle is πr², so with radius 4 cm the end area is π × 4² = 16π cm². Doubling the radius instead of squaring it is a common slip.",
+      "answer": "Curved area plus two ends",
+      "why": "Total surface area = curved surface area + area of both circular ends; forgetting the ends is a common mistake.",
       "options": [
-        "16π cm²",
-        "8π cm²",
-        "4π cm²",
-        "32π cm²"
+        "Curved area plus two ends",
+        "Curved area only",
+        "Two ends only",
+        "Base area times height"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is the term for Australia's post-1970s policy of accepting migrants from many countries?",
+      "prompt": "What is the term for Australia's post-1970s policy of accepting migrants from many different countries?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -228,12 +228,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Multiculturalism",
-      "why": "Since the 1970s Australia shifted to multiculturalism, welcoming migrants from diverse countries rather than favouring one group.",
+      "why": "Since the 1970s Australia adopted multiculturalism, accepting migrants from diverse countries rather than restricting by origin.",
       "options": [
         "Multiculturalism",
-        "Populate or perish",
-        "Assisted passage",
-        "White Australia policy"
+        "White Australia Policy",
+        "Populate or Perish",
+        "Assisted Passage"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What book did Hitler write while in prison after the Munich Putsch?",
+      "prompt": "Where did Hitler flee to immediately after the Munich Putsch collapsed?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Mein Kampf",
-      "why": "Hitler wrote Mein Kampf during his prison sentence after the failed 1923 Munich Putsch, setting out his ideas and beliefs.",
+      "answer": "A supporter's house",
+      "why": "After the march was broken up by police gunfire, Hitler fled and hid at a supporter's house before his arrest two days later.",
       "options": [
-        "Mein Kampf",
-        "The Communist Manifesto",
-        "Das Kapital",
-        "Twilight of the Idols"
+        "A supporter's house",
+        "The Austrian border",
+        "Back to the beer hall",
+        "Police headquarters"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 20 cm and a height of 11 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 20 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 110,
-      "calc": true,
+      "answer": 70,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 20 × 11 = 110 cm². Say the formula before multiplying so you don't skip the halving step.",
+      "why": "Area = ½ × base × height = ½ × 20 × 7 = 70 cm². Say the formula before multiplying to avoid rushing past the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does Piggy's role mainly show?",
-      "answer": "That intelligence is ignored in a savage group",
-      "why": "Piggy consistently offers the most rational, sensible ideas, but the boys mock and sideline him — showing how reason gets pushed aside as the group turns savage.",
+      "prompt": "From a while back — why does Ralph's signal fire going out matter so much in Lord of the Flies?",
+      "answer": "A ship passes by unseen",
+      "why": "The fire going out means a passing ship doesn't spot the island, showing the boys have abandoned rescue and civilisation for hunting and savagery.",
       "options": [
-        "That intelligence is ignored in a savage group",
-        "That weak boys always become leaders",
-        "That glasses are a symbol of weakness",
-        "That the group respects careful thinking"
+        "A ship passes by unseen",
+        "Piggy loses his glasses",
+        "The boys run out of food",
+        "Jack becomes chief early"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 24g of reactants react completely. What is the mass of the products?",
+      "prompt": "In a sealed, closed container, what happens to total mass during a chemical reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "24g",
-        "24 grams"
+        "stays the same",
+        "conserved",
+        "unchanged"
       ],
-      "why": "In a closed system, mass is conserved — the products must total the same 24g as the reactants.",
+      "why": "Mass is conserved in a closed system because no matter can enter or escape, so reactants' mass equals products' mass.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a reaction releases heat and makes things feel warmer?",
+      "prompt": "What is it called when a reaction gives off heat and feels warm?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -331,23 +332,24 @@
       },
       "type": "text",
       "accept": [
-        "exothermic"
+        "exothermic",
+        "exothermic reaction"
       ],
-      "why": "A reaction that releases heat energy to its surroundings, making them feel warmer, is called exothermic.",
+      "why": "A reaction that releases heat energy, making its surroundings feel warmer, is called exothermic.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do ads place sugary snacks near supermarket checkouts?",
-      "answer": "To tempt impulse buying",
-      "why": "Placing sugary snacks at checkouts targets impulse buying, as people grab them while waiting without planning the purchase in advance.",
+      "prompt": "Why do ads often place sugary snacks near supermarket checkouts?",
+      "answer": "To tempt impulse buys",
+      "why": "Checkout placement targets impulse buying, when shoppers are waiting and more likely to grab a tempting snack without thinking.",
       "options": [
-        "To tempt impulse buying",
+        "To tempt impulse buys",
         "To show nutrition facts",
-        "To lower the price",
-        "To prove they are healthy"
+        "To highlight fresh produce",
+        "To display price comparisons"
       ],
       "fresh": false
     },
@@ -355,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is usually listed under carbohydrates?",
-      "answer": "Sugar",
-      "why": "Sugar is listed as a type of carbohydrate on nutrition labels, shown separately to show how much of the carbs come from sugars.",
+      "prompt": "On a nutrition label, which nutrient usually gives the most energy per gram?",
+      "answer": "Fat",
+      "why": "Fat provides about 9 calories per gram, roughly double the energy of carbohydrate or protein, which each give about 4.",
       "options": [
-        "Sugar",
+        "Fat",
         "Protein",
-        "Fibre",
-        "Sodium"
+        "Carbohydrate",
+        "Fibre"
       ],
       "fresh": false
     },
@@ -370,7 +372,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
+      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while streaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
