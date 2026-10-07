@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-10-06",
-  "day": "TUE",
-  "tag": "H11.2",
-  "title": "DailyXP · TUE 2026-10-06",
+  "date": "2026-10-07",
+  "day": "WED",
+  "tag": "H11.3",
+  "title": "DailyXP · WED 2026-10-07",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The prologue is written as a sonnet",
+      "prompt": "Juliet is a Capulet",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The prologue is a 14-line sonnet, a tightly structured poem form Shakespeare uses to introduce the story.",
+      "why": "Juliet belongs to the Capulet family, while Romeo belongs to the rival Montague family.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun answered to the emperor in name only",
+      "prompt": "The shogun ruled Japan while bowing to the emperor only in name",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The emperor was a symbolic figurehead; the shogun actually held and used the real military and political power.",
+      "why": "The shogun held the real military and political power; the emperor was a figurehead the shogun technically served.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'sanjuu' means 30",
+      "prompt": "'Juuhachi' means 80",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "'Sanjuu' combines san (3) and juu (10) to make 30.",
+      "answer": "False",
+      "why": "'Juuhachi' means 18 (juu=10 + hachi=8). 80 would be 'hachijuu' — mixing up the order of juu and the digit flips tens and teens.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'sanzen' means 3,000",
+      "prompt": "'Nihyaku' means 200",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'San' means 3 and 'sen' means thousand, so 'sanzen' is 3,000.",
+      "why": "'Ni' means 2 and 'hyaku' marks hundreds, so 'nihyaku' is 200.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What do we call something that changed a lot over a period of history?",
+      "prompt": "What do we call a factor that sets off an event, built on deeper causes?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A change",
-      "why": "A 'change' is something that was different by the end of the period; a 'continuity' is something that stayed the same.",
+      "answer": "A trigger cause",
+      "why": "A trigger cause is the spark that sets an event off, even though long-term causes built up beforehand.",
       "options": [
-        "A change",
+        "A trigger cause",
+        "A consequence",
         "A continuity",
-        "A trigger",
-        "A consequence"
+        "A primary source"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who orders the fighting families to stop?",
+      "prompt": "In Act 1 Scene 1, who stops the servants' street fight?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,12 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Prince Escalus",
-      "why": "Prince Escalus is the ruler of Verona and threatens death if the families fight again in the streets.",
+      "why": "Prince Escalus arrives and threatens death if the families fight in the streets again.",
       "options": [
         "Prince Escalus",
-        "Benvolio",
         "Tybalt",
-        "Friar Lawrence"
+        "Friar Laurence",
+        "Lord Capulet"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord comes right after Am in the sequence?",
+      "prompt": "In C–Am–F–G, which chord is built on the 5th note of the scale?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "F major chord",
-      "why": "The order is C, Am, F, G — so F follows Am directly, acting as the IV chord before the progression resolves on G.",
+      "answer": "G chord, the fifth",
+      "why": "G is the 'V' chord, built on the 5th note of the C major scale. C is 'I', F is 'IV', and Am is 'vi'.",
       "options": [
-        "C major chord",
-        "Am minor chord",
-        "F major chord",
-        "G major chord"
+        "C chord, the root",
+        "Am chord, the sixth",
+        "F chord, the fourth",
+        "G chord, the fifth"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a food chain, what usually happens to biomass at each stage?",
+      "prompt": "What usually happens to biomass at each stage of a food chain?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "It decreases each stage",
-      "why": "Energy is lost as heat at each feeding stage, so less biomass can be built up further along the food chain.",
+      "answer": "It decreases",
+      "why": "Energy is lost at each stage, so biomass gets smaller as you move up a food chain.",
       "options": [
-        "It decreases each stage",
-        "It increases each stage",
-        "It stays exactly equal",
-        "It doubles each stage"
+        "It decreases",
+        "It increases",
+        "It stays equal",
+        "It doubles"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what mark-making tool creates rough fur texture?",
+      "prompt": "In 'Paint Like a Beast', what tool creates rough fur-like marks?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A dry stiff brush",
-      "why": "A dry, stiff brush drags paint unevenly across the surface, creating the scratchy marks that mimic rough fur.",
+      "answer": "A stiff dry brush",
+      "why": "A stiff dry brush drags paint unevenly across the surface, creating rough, fur-like texture, unlike smooth tools like sponges or palette knives.",
       "options": [
-        "A dry stiff brush",
+        "A stiff dry brush",
         "A soft wet sponge",
-        "A thin fine liner",
-        "A smooth roller"
+        "A thin ink pen",
+        "A smooth palette knife"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 2x + 1, what is y when x = 5?",
+      "prompt": "For y = 2x + 3, what is y when x = 2?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "11",
-      "why": "Substitute x = 5: y = 2(5) + 1 = 11.",
+      "answer": "7",
+      "why": "2 × 2 = 4, then 4 + 3 = 7, so y equals 7 when x is 2.",
       "options": [
-        "11",
-        "10",
-        "9",
-        "13"
+        "7",
+        "5",
+        "8",
+        "6"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which London theatre is most linked to Shakespeare's plays?",
+      "prompt": "Shakespeare mainly wrote during which two monarchs' reigns?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "The Globe",
-      "why": "The Globe Theatre was built for Shakespeare's acting company and staged many of his plays.",
+      "answer": "Elizabeth I and James I",
+      "why": "Shakespeare's career spanned the reigns of Elizabeth I and her successor James I.",
       "options": [
-        "The Globe",
-        "The Old Vic",
-        "The Palladium",
-        "Sadler's Wells"
+        "Elizabeth I and James I",
+        "Henry VIII and Mary I",
+        "James I and Charles I",
+        "Elizabeth I and Victoria"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Which song section usually introduces a brand new melody?",
+      "prompt": "In song structure, what is the main job of the outro?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Bridge",
-      "why": "The bridge usually brings a fresh, contrasting melody to break up the repeated verse and chorus pattern.",
+      "answer": "Wind the track down",
+      "why": "The outro closes a song, gradually fading or stripping back instruments rather than introducing anything new.",
       "options": [
-        "Bridge",
-        "Chorus",
-        "Verse",
-        "Intro"
+        "Wind the track down",
+        "Repeat the hook loudly",
+        "Introduce a new theme",
+        "Build the fullest layers"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A scientist tests how much water (in mL) affects seed growth, keeping the type of seed and pot size the same. What type of variable is 'type of seed'?",
+      "prompt": "A student tests if the amount of fertiliser affects plant height, keeping pot size the same for every plant. What type of variable is 'amount of fertiliser'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "controlled"
+        "independent variable",
+        "independent"
       ],
-      "why": "It's a controlled variable — kept the same on purpose so it can't affect the result, unlike the independent variable (water) which is deliberately changed.",
+      "why": "The amount of fertiliser is the independent variable because it's the one the student deliberately changes.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 2x + 9 = 19",
+      "prompt": "Solve for x: 5x - 4 = 3x + 10",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 5,
+      "answer": 7,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 9 from both sides to get 2x = 10, then divide by 2 to get x = 5.",
+      "why": "Subtract 3x from both sides to get 2x - 4 = 10, then add 4 and divide by 2 to find x = 7.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these by who they could legally overthrow or dismiss, from most power to least",
+      "prompt": "Order these groups by how much military power they held in the shogunate system",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -322,21 +322,21 @@
       ],
       "top": "Most power",
       "bot": "Least power",
-      "why": "The shogun held supreme military and political control, daimyo ruled their own domains under him, samurai served the daimyo, and peasants had no political power at all.",
+      "why": "The shogun commanded all military force, daimyo led armies in their own regions, samurai served as warriors under daimyo, and peasants held no military power at all.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "What should a design brief describe first, before choosing materials?",
+      "prompt": "What should a design brief describe before choosing radiata pine as the material?",
       "answer": "The storage need",
-      "why": "A design brief should start with the problem or need it solves — like messy spice storage — before deciding on materials like radiata pine.",
+      "why": "A good design brief identifies the problem or need first, so the material choice actually solves it.",
       "options": [
         "The storage need",
-        "The exact wood type",
-        "The sandpaper grit",
-        "The glue brand"
+        "The screw sizes",
+        "The sanding steps",
+        "The glue type"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "Why is radiata pine often chosen for the spice rack?",
-      "answer": "Easy to work with",
-      "why": "Radiata pine is soft and easy to cut, sand, and finish, which makes it popular for beginner timber projects like the spice rack.",
+      "prompt": "What tool is mainly used to cut the spice rack timber to length?",
+      "answer": "Tenon saw",
+      "why": "A tenon saw has a stiff back and fine teeth, making it the right choice for cutting timber accurately to length in the workshop.",
       "options": [
-        "Easy to work with",
-        "Naturally waterproof",
-        "Heaviest timber type",
-        "Darkest natural colour"
+        "Tenon saw",
+        "Coping saw",
+        "Hacksaw",
+        "Junior hacksaw"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '9' in Japanese?",
-      "answer": "Kyuu",
-      "why": "'Kyuu' means 9 in Japanese number counting.",
+      "prompt": "How do you say '18' in Japanese?",
+      "answer": "Juuhachi",
+      "why": "'Juuhachi' combines 'juu' (10) and 'hachi' (8) to make 18.",
       "options": [
-        "Kyuu",
-        "Hachi",
-        "Juu",
-        "Roku"
+        "Juuhachi",
+        "Juuroku",
+        "Juuichi",
+        "Juusan"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should identify the storage need before choosing radiata pine as the material, using your own example of what could go wrong if a designer picked the material first."
+      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, and what could go wrong if a designer picked the material first."
     }
   ]
 }
