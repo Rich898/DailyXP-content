@@ -1,15 +1,53 @@
 {
   "student": "t1",
-  "date": "2026-10-06",
-  "day": "TUE",
-  "tag": "T11.2",
-  "title": "DailyXP · TUE 2026-10-06",
+  "date": "2026-10-07",
+  "day": "WED",
+  "tag": "T11.3",
+  "title": "DailyXP · WED 2026-10-07",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 3x - 2, when x = 2, y = 4",
+      "prompt": "y = 2x + 5, when x = 1, y = 7",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "2×1+5 = 7, so this rule holds for this pair.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Romeo attends the Capulet party uninvited to see Rosaline",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Romeo sneaks into the party hoping to see Rosaline, not knowing he will meet Juliet instead.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A shogun's power came from his position below the daimyo",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,52 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "When x = 2, y = 3(2) - 2 = 4 is wrong because 3×2=6, 6-2=4 — wait check: 6-2=4, so actually true. Use care substituting values into a rule before checking a table.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo kills Paris at Juliet's tomb",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In the final act Romeo kills Paris outside the tomb before taking his own life — this happens later in the play, beyond Act 1.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A shogun's title could be inherited by his son",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Shogun titles were typically hereditary, passed down within a ruling family line, unlike an elected or randomly-assigned position.",
+      "why": "A shogun was Japan's top military ruler, above the daimyo, who answered to him.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast used sponges and rags as well as brushes",
+      "prompt": "'Paint Like a Beast' aimed for photo-realistic detail",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Students experimented with varied tools like sponges and rags to create texture, not just fine brushwork.",
+      "answer": "False",
+      "why": "The activities focused on texture and movement, not exact photo-like likeness.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who is killed by Tybalt in Act 3, sparking Romeo's revenge?",
+      "prompt": "What does the Prologue reveal about Romeo and Juliet before the play begins?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Mercutio",
-      "why": "Tybalt kills Mercutio, Romeo's close friend, in Act 3 — this revenge killing leads Romeo to kill Tybalt and causes his banishment.",
+      "answer": "They will die",
+      "why": "The Prologue calls them 'star-crossed lovers' and tells the audience upfront that they will die, creating dramatic irony.",
       "options": [
-        "Mercutio",
-        "Paris",
-        "Benvolio",
-        "Friar Laurence"
+        "They will die",
+        "They will marry happily",
+        "They will move away",
+        "They will reconcile families"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What usually happens to instrument layers in a song's bridge?",
+      "prompt": "What usually happens to layers when a song's chorus repeats later in the track?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They thin out",
-      "why": "A bridge often strips back instrumentation to create contrast before the final chorus returns with fuller sound.",
+      "answer": "Layers get fuller",
+      "why": "Repeated choruses often add instrument layers to build energy and feel bigger than the first time.",
       "options": [
-        "They thin out",
-        "They stay identical",
-        "They double tempo",
-        "They mute completely"
+        "Layers get fuller",
+        "Layers disappear",
+        "Tempo slows down",
+        "Key signature changes"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In food chains, what term means the total mass of living material in a given area?",
+      "prompt": "What term describes the total mass of living material in an ecosystem?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -138,12 +138,12 @@
         "cta": "Keep going →"
       },
       "answer": "Biomass",
-      "why": "Biomass is the total mass of living material in an area — it's not a count of organisms, a measure of sunlight, or soil nutrients.",
+      "why": "Biomass measures the total mass of living matter, often used to compare energy at each level of a food chain.",
       "options": [
         "Biomass",
-        "Population count",
-        "Light intensity",
-        "Nutrient level"
+        "Biodiversity",
+        "Biosphere",
+        "Biome"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack design brief, what must the specification state?",
+      "prompt": "In the Spice Rack design brief, what prompts the whole project in the first place?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Size and materials",
-      "why": "The specification lists concrete requirements like size, materials, and function, turning the general need into measurable design criteria.",
+      "answer": "An identified need",
+      "why": "Every design project starts from an identified need — a problem or gap the product must solve — before any specification or drawing is made.",
       "options": [
-        "Size and materials",
-        "The student's name",
-        "The teacher's grade",
-        "The tools' prices"
+        "An identified need",
+        "A finished prototype",
+        "A sanding schedule",
+        "A client invoice"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What is usually added to strengthen a glued butt joint?",
+      "prompt": "Why does a basic butt joint rely so heavily on glue for strength?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Reinforcing nails",
-      "why": "Because a butt joint relies only on glue across flat end grain, nails, screws, or dowels are usually added to stop it pulling apart.",
+      "answer": "No interlocking surfaces",
+      "why": "A butt joint is just two flat ends pushed together with no interlocking shape, so the glued surface alone must hold the joint, making it inherently weak.",
       "options": [
-        "Reinforcing nails",
-        "Extra sandpaper",
-        "A wood stain",
-        "More varnish"
+        "No interlocking surfaces",
+        "The wood is too thin",
+        "Nails split the grain",
+        "It uses softwood only"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What should you do to timber dust before applying a finish?",
+      "prompt": "What should be done to timber dust before applying a finish?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,12 +204,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Wipe it off",
-      "why": "Leftover sanding dust stops finish from bonding smoothly, so timber must be wiped clean before any stain or varnish goes on.",
+      "why": "Dust must be wiped away before finishing, or it gets trapped under the finish and ruins the smooth surface.",
       "options": [
         "Wipe it off",
-        "Leave it on",
         "Wet it down",
-        "Paint over it"
+        "Sand it smoother",
+        "Leave it alone"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 10?",
+      "prompt": "What is the Japanese word for the number 17?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Juu",
-      "why": "'Juu' means 10 in Japanese; 'hyaku' is 100, 'sen' is 1000, and 'man' is 10,000.",
+      "answer": "Juunana",
+      "why": "Juunana (juu + nana, '10 + 7') means 17; juuroku is 16, juuhachi is 18, and nanajuu means 70, not 17.",
       "options": [
-        "Juu",
-        "Hyaku",
-        "Sen",
-        "Man"
+        "Juunana",
+        "Juuroku",
+        "Juuhachi",
+        "Nanajuu"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 100?",
+      "prompt": "What is the Japanese word for the number 1000?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Hyaku means 100",
-      "why": "'Hyaku' means 100 in Japanese; 'juu' is 10, 'sen' is 1000, and 'man' is 10,000.",
+      "answer": "Sen",
+      "why": "Sen means 1000; hyaku is 100, juu is 10, and man is 10,000, each a different counting unit.",
       "options": [
-        "Hyaku means 100",
-        "Juu means 10",
-        "Sen means 1000",
-        "Man means 10,000"
+        "Sen",
+        "Hyaku",
+        "Juu",
+        "Man"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what term describes rock, ash, and gas erupting violently from a volcano?",
+      "prompt": "From a while back: what is the term for a violent mudflow of volcanic ash and water?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,9 @@
       },
       "type": "text",
       "accept": [
-        "eruption",
-        "volcanic eruption"
+        "lahar"
       ],
-      "why": "An eruption is the violent release of magma, ash, and gas from a volcano, usually linked to tectonic plate activity.",
+      "why": "A lahar is a fast-moving mudflow made of volcanic ash mixed with water, often triggered by eruptions or heavy rain on ash.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +284,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to break up the servants' fight?",
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword to stop the brawl, showing his peacemaking role, while Tybalt arrives wanting to fight instead.",
+      "prompt": "What does Benvolio try to do in Act 1 Scene 1?",
+      "answer": "Stop the servants fighting",
+      "why": "Benvolio tries to break up the brawl between the Capulet and Montague servants, showing his peacemaking role early in the play.",
       "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Romeo"
+        "Stop the servants fighting",
+        "Start a fight with Tybalt",
+        "Introduce Romeo to Juliet",
+        "Warn the Prince of danger"
       ],
       "fresh": false
     },
@@ -300,14 +299,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord acts as the 'vi', built on the sixth scale degree?",
-      "answer": "Am chord",
-      "why": "Am is the 'vi' chord, built on the sixth scale degree of C major — it often gives the progression a sadder, minor colour.",
+      "prompt": "In the progression C-Am-F-G, which chord acts as the tonic, or 'home' chord?",
+      "answer": "C",
+      "why": "C is the tonic in this key — the chord that feels like 'home' and where the progression resolves.",
       "options": [
-        "Am chord",
-        "C chord",
-        "F chord",
-        "G chord"
+        "C",
+        "Am",
+        "F",
+        "G"
       ],
       "fresh": false
     },
@@ -315,14 +314,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what quality did students avoid aiming for?",
-      "answer": "Photo-realistic detail",
-      "why": "Students deliberately avoided exact photo-realism, instead using loose, expressive marks to capture texture and movement.",
+      "prompt": "In 'Paint Like a Beast', what did students use besides brushes to apply paint?",
+      "answer": "Sponges and rags",
+      "why": "Students used sponges and rags alongside brushes to build up expressive texture rather than relying on fine, controlled lines.",
       "options": [
-        "Photo-realistic detail",
-        "Bold expressive colour",
-        "Loose confident brushwork",
-        "Dynamic animal movement"
+        "Sponges and rags",
+        "Rulers and stencils",
+        "Pencils and erasers",
+        "Rollers and tape"
       ],
       "fresh": false
     },
@@ -330,7 +329,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of a feudal land exchange in Japan by what happens, from first to last",
+      "prompt": "Order these steps of how a shogun kept control over Japan, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +339,21 @@
       },
       "type": "order",
       "sequence": [
-        "Daimyo pledges loyalty",
-        "Shogun grants land",
-        "Samurai defends territory",
-        "Peasants farm the land"
+        "Shogun seizes military power",
+        "Shogun grants land to daimyo",
+        "Daimyo command local samurai",
+        "Samurai enforce order over peasants"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "A daimyo pledged loyalty to the shogun, who granted land in return; samurai then defended that land, while peasants farmed it to produce food and tax.",
+      "why": "The shogun took power first, then granted land to daimyo in return for loyalty, who relied on samurai to enforce control down to the peasants who worked the land.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages of a continuity-and-change enquiry, from narrowest focus to widest",
+      "prompt": "Order these stages of assessing historical significance, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +363,21 @@
       },
       "type": "order",
       "sequence": [
-        "A single source",
-        "One event",
-        "A specific period",
-        "The whole era"
+        "Describe the event",
+        "Assess its impact",
+        "Compare to other events",
+        "Judge its significance"
       ],
-      "top": "Narrowest",
-      "bot": "Widest",
-      "why": "Historians often zoom out: starting with one source, then an event, then a wider period, before judging change across a whole era.",
+      "top": "First",
+      "bot": "Last",
+      "why": "Historians first describe what happened, assess its impact, compare it against other events, then judge how significant it truly was.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "A friend says changing the order of C-Am-F-G to start on F instead of C doesn't matter because it's 'still the same four chords'. Explain why starting on a different chord can change how the song feels, even though the notes used are identical."
+      "prompt": "A friend says changing the order of the same four chords (C-Am-F-G) to start on F instead of C can't change how a song feels, since it's still the same four chords. Explain why they're wrong."
     }
   ]
 }
