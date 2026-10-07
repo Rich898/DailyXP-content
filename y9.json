@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-06",
-  "day": "TUE",
-  "tag": "R11.2",
-  "title": "DailyXP · TUE 2026-10-06",
+  "date": "2026-10-07",
+  "day": "WED",
+  "tag": "R11.3",
+  "title": "DailyXP · WED 2026-10-07",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Burning wood in a sealed, closed jar keeps the same total mass",
+      "prompt": "Rusting iron in an open dish gains mass from oxygen in the air",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In a closed system nothing escapes, so the gases produced stay trapped and mass is conserved — it only looks like mass is lost in an open container.",
+      "why": "Rusting is iron combining with oxygen from the air, so the solid actually gains mass — mass isn't lost, it's just that the extra comes from an unmeasured gas.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Nanjing Massacre happened only because of random soldier cruelty, with no military strategy involved",
+      "prompt": "The Nanjing Massacre was driven only by individual soldiers' cruelty, not military strategy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan's army wanted fast, total submission from China, and this military goal drove orders that allowed mass violence — it wasn't just isolated cruelty.",
+      "why": "Japan's military leadership wanted to break Chinese resistance quickly and ordered brutal tactics — it was strategic, not just random soldier cruelty.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food selection only means deciding what to buy at the shop",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Food selection also covers why we choose foods — taste, cost, culture, health — not just the shopping decision itself.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Protein helps repair muscle",
+      "prompt": "Food selection is shaped by culture and religion",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Protein's main job is building and repairing body tissue, like muscle — not supplying quick energy.",
+      "why": "Culture and religion influence what foods people eat or avoid, making them genuine factors in food selection alongside cost and health.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food helps repair and build body tissue",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Food provides protein and nutrients that build and repair muscle and tissue, not just energy for activity.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which food group should make up the smallest part of a balanced diet?",
+      "prompt": "In the Eatwell Plate, which food group should be eaten in the smallest amount?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -94,7 +94,7 @@
         "cta": "Keep going →"
       },
       "answer": "Fats and sugars",
-      "why": "The eatwell plate shows fats and sugars should be the smallest portion, while fruit, vegetables, and carbohydrates take up most of the plate.",
+      "why": "The Eatwell Plate shows fats and sugars taking up the smallest section, while fruit, vegetables, and starchy carbs should fill most of the plate.",
       "options": [
         "Fats and sugars",
         "Fruit and vegetables",
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "In a promo video, testing how it performs online falls under which task?",
+      "prompt": "In a promo video, writing the script is part of which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Evaluation",
-      "why": "Checking how a finished video performs online is evaluation, separate from creating the content itself.",
+      "answer": "Content creation",
+      "why": "Scripting, filming and editing are all part of creating the video's content, before it's shared or marketed.",
       "options": [
-        "Evaluation",
         "Content creation",
         "Market analysis",
-        "Financial planning"
+        "Financial planning",
+        "Distribution"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What was the profession of Oscar Wilde's father?",
+      "prompt": "What was the name of Oscar Wilde's wife?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Surgeon",
-      "why": "Sir William Wilde, Oscar Wilde's father, was a surgeon, while his mother was a writer.",
+      "answer": "Constance Lloyd",
+      "why": "Oscar Wilde married Constance Lloyd in 1884, and they had two sons together.",
       "options": [
-        "Surgeon",
-        "Lawyer",
-        "Playwright",
-        "Teacher"
+        "Constance Lloyd",
+        "Florence Balcombe",
+        "Ellen Terry",
+        "Ada Leverson"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What technique does satire often use to make its target look ridiculous?",
+      "prompt": "What does Animal Farm mainly satirise?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Exaggeration",
-      "why": "Satire often exaggerates a flaw or behaviour to absurd levels, making it look ridiculous and exposing it to criticism.",
+      "answer": "Soviet totalitarianism",
+      "why": "Orwell used the farm and its pigs to mock the Russian Revolution and the corrupt, totalitarian rule that followed under Stalin.",
       "options": [
-        "Exaggeration",
-        "Rhyme",
-        "Alliteration",
-        "Flashback"
+        "Soviet totalitarianism",
+        "English upper-class greed",
+        "American consumer culture",
+        "French revolutionary politics"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 10 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 6 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "35 cm²",
-      "why": "Area = ½ × base × height = ½ × 10 × 7 = 35 cm². Halving is the step rushing skips.",
+      "answer": "48 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 16 × 6 = 48 cm². Slow down and halve before writing the answer.",
       "options": [
-        "35 cm²",
-        "70 cm²",
-        "17 cm²",
-        "42 cm²"
+        "48 cm²",
+        "96 cm²",
+        "44 cm²",
+        "52 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 2 cm and height 5 cm. What two areas make up its total surface area?",
+      "prompt": "A cylinder's total surface area combines the curved surface with what else?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Curved area plus two ends",
-      "why": "Total surface area = curved surface area + area of both circular ends; forgetting the ends is a common mistake.",
+      "answer": "Two circular ends",
+      "why": "A cylinder has two circular ends (top and bottom) plus the curved side — both circles must be included in the total.",
       "options": [
-        "Curved area plus two ends",
-        "Curved area only",
-        "Two ends only",
-        "Base area times height"
+        "Two circular ends",
+        "One circular end",
+        "Four flat sides",
+        "A square base"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is the term for Australia's post-1970s policy of accepting migrants from many different countries?",
+      "prompt": "What term describes Australia's post-1970s policy of accepting migrants from many countries?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -228,12 +228,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Multiculturalism",
-      "why": "Since the 1970s Australia adopted multiculturalism, accepting migrants from diverse countries rather than restricting by origin.",
+      "why": "Since the 1970s, Australia moved away from restrictive policies toward multiculturalism, welcoming migrants from diverse countries.",
       "options": [
         "Multiculturalism",
         "White Australia Policy",
         "Populate or Perish",
-        "Assisted Passage"
+        "Urbanisation"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Where did Hitler flee to immediately after the Munich Putsch collapsed?",
+      "prompt": "What book did Hitler write while in prison after the Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "A supporter's house",
-      "why": "After the march was broken up by police gunfire, Hitler fled and hid at a supporter's house before his arrest two days later.",
+      "answer": "Mein Kampf",
+      "why": "Hitler wrote Mein Kampf during his imprisonment after the failed 1923 Munich Putsch, setting out his political ideas.",
       "options": [
-        "A supporter's house",
-        "The Austrian border",
-        "Back to the beer hall",
-        "Police headquarters"
+        "Mein Kampf",
+        "The Third Reich",
+        "Triumph of Will",
+        "My New Order"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 20 cm and a height of 7 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 18 cm and a height of 7 cm. Slow down and work it through: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 70,
+      "answer": 63,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 20 × 7 = 70 cm². Say the formula before multiplying to avoid rushing past the halving step.",
+      "why": "Area = ½ × base × height = ½ × 18 × 7 = 63 cm². Halving first, then multiplying, keeps the step calm and accurate.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — why does Ralph's signal fire going out matter so much in Lord of the Flies?",
-      "answer": "A ship passes by unseen",
-      "why": "The fire going out means a passing ship doesn't spot the island, showing the boys have abandoned rescue and civilisation for hunting and savagery.",
+      "prompt": "From a while back — why do the boys paint their faces before hunting?",
+      "answer": "It hides who they are",
+      "why": "The face-paint acts as a mask, letting the boys shed their identity and civilised restraint, freeing them to act savagely without shame.",
       "options": [
-        "A ship passes by unseen",
-        "Piggy loses his glasses",
-        "The boys run out of food",
-        "Jack becomes chief early"
+        "It hides who they are",
+        "It scares the beast away",
+        "It copies Ralph's rules",
+        "It marks hunting ranks"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed, closed container, what happens to total mass during a chemical reaction?",
+      "prompt": "In a sealed container, what happens to the total mass during a chemical reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -312,17 +312,17 @@
       "type": "text",
       "accept": [
         "stays the same",
-        "conserved",
-        "unchanged"
+        "unchanged",
+        "conserved"
       ],
-      "why": "Mass is conserved in a closed system because no matter can enter or escape, so reactants' mass equals products' mass.",
+      "why": "In a closed system, mass is conserved — atoms are rearranged into new products but none are created or destroyed.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a reaction gives off heat and feels warm?",
+      "prompt": "What is it called when bubbles appear, showing a gas has been made in a reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,24 +332,25 @@
       },
       "type": "text",
       "accept": [
-        "exothermic",
-        "exothermic reaction"
+        "effervescence",
+        "fizzing",
+        "bubbling"
       ],
-      "why": "A reaction that releases heat energy, making its surroundings feel warmer, is called exothermic.",
+      "why": "Fizzing or bubbling (effervescence) shows a gas is being produced, a sign that a chemical reaction is happening.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do ads often place sugary snacks near supermarket checkouts?",
-      "answer": "To tempt impulse buys",
-      "why": "Checkout placement targets impulse buying, when shoppers are waiting and more likely to grab a tempting snack without thinking.",
+      "prompt": "Free samples handed out in supermarkets are an example of what?",
+      "answer": "A marketing technique",
+      "why": "Free samples are used to encourage shoppers to try and then buy a product, making them a marketing technique rather than a health or safety measure.",
       "options": [
-        "To tempt impulse buys",
-        "To show nutrition facts",
-        "To highlight fresh produce",
-        "To display price comparisons"
+        "A marketing technique",
+        "A government health rule",
+        "A nutrition label",
+        "A food safety check"
       ],
       "fresh": false
     },
@@ -357,14 +358,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient usually gives the most energy per gram?",
-      "answer": "Fat",
-      "why": "Fat provides about 9 calories per gram, roughly double the energy of carbohydrate or protein, which each give about 4.",
+      "prompt": "On a nutrition label, which nutrient is mainly needed to build and repair muscle tissue?",
+      "answer": "Protein",
+      "why": "Protein supplies amino acids used to build and repair muscle and other body tissue, unlike fat and carbohydrate which mainly supply energy.",
       "options": [
-        "Fat",
         "Protein",
+        "Fat",
         "Carbohydrate",
-        "Fibre"
+        "Dietary fibre"
       ],
       "fresh": false
     },
@@ -372,7 +373,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while streaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
+      "prompt": "A teenager sees an influencer eat a sugary snack during a livestream. Explain how this could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
