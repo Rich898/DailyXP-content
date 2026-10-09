@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-08",
-  "day": "THU",
-  "tag": "R11.4",
-  "title": "DailyXP · THU 2026-10-08",
+  "date": "2026-10-09",
+  "day": "FRI",
+  "tag": "R11.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-09",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "A reaction in a sealed, closed flask loses mass",
+      "subject": "Food Technology",
+      "prompt": "Choosing a sandwich because it's on sale",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "In a closed system nothing escapes, so mass stays the same — only open systems can appear to lose mass as gas escapes.",
+      "left": "Food Selection",
+      "right": "Nutrition",
+      "answer": "Food Selection",
+      "why": "Picking food based on price, taste or habit is about food SELECTION — the choosing process. Nutrition is what's actually in the food.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "The Nanjing Massacre had a military strategy behind it",
+      "subject": "Food Technology",
+      "prompt": "Iron carrying oxygen in the blood",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,235 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Japan's army wanted to crush Chinese resistance quickly and force total surrender, not just act out of random cruelty.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food selection includes why we choose certain foods",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Food selection covers the reasons behind choices — like cost, culture or health — not just what ends up in the trolley.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Protein is mainly needed for quick energy",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Protein is mainly needed for growth and tissue repair — carbohydrates are the body's main quick-energy source.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Which nutrient gives the body the most energy per gram?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Fat, with the most energy per gram",
-      "why": "Fat provides about 9 calories per gram, more than protein or carbohydrate, while fibre and water provide no usable energy at all.",
-      "options": [
-        "Fat, with the most energy per gram",
-        "Protein, with the most energy per gram",
-        "Fibre, with the most energy per gram",
-        "Water, with the most energy per gram"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Filming the footage for a promo video is part of which task?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Content creation",
-      "why": "Filming the footage is part of creating the actual video content, separate from research, finance, or sharing it.",
-      "options": [
-        "Content creation",
-        "Market research",
-        "Financial planning",
-        "Distribution"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What was the name of Oscar Wilde's only novel?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "The Picture of Dorian Gray",
-      "why": "Wilde wrote only one novel, The Picture of Dorian Gray; The Importance of Being Earnest was a play, not a novel.",
-      "options": [
-        "The Picture of Dorian Gray",
-        "A Tale of Two Cities",
-        "Great Expectations",
-        "The Importance of Being Earnest"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which device does satire often use to make its target look ridiculous?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Exaggeration",
-      "why": "Satire often exaggerates flaws or behaviour to make a target look ridiculous and expose its faults.",
-      "options": [
-        "Exaggeration",
-        "Rhyme scheme",
-        "Alliteration",
-        "Flashback"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 4 cm. What is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "32 cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 4 = 32 cm². Halving is the step that's easy to rush past.",
-      "options": [
-        "32 cm²",
-        "64 cm²",
-        "20 cm²",
-        "36 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "For a cylinder's total surface area, which two measurements do you actually need?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Radius and height",
-      "why": "A cylinder's total surface area is calculated using its radius and height, which give the curved surface and the two circular ends.",
-      "options": [
-        "Radius and height",
-        "Diameter and width",
-        "Height and volume",
-        "Radius and volume"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What is the term for people moving from the countryside to cities for work?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Urbanisation",
-      "why": "Urbanisation describes people moving from rural areas to cities, usually for jobs and services.",
-      "options": [
-        "Urbanisation",
-        "Multiculturalism",
-        "Assisted passage",
-        "Deportation"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What book did Hitler write in prison after the Munich Putsch?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Mein Kampf",
-      "why": "Hitler wrote Mein Kampf while imprisoned after the failed 1923 Munich Putsch, setting out his political ideas.",
-      "options": [
-        "Mein Kampf",
-        "The Third Reich",
-        "Mein Volk",
-        "Das Kapital"
-      ],
-      "mode": "scrub",
+      "left": "Function",
+      "right": "Not a function",
+      "answer": "Function",
+      "why": "Iron helping carry oxygen is a real function of food in the body — nutrients don't just give energy, they also support body processes like this.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 18 cm and a height of 10 cm. What is its area?",
+      "prompt": "A triangle has a base of 21 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,39 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 90,
+      "answer": 63,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 18 × 10 = 90 cm². Slow down and halve before writing the answer.",
+      "why": "Area = ½ × base × height = ½ × 21 × 6 = 63 cm². Say the ½ out loud before multiplying so you don't skip it.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Lord of the Flies, what does Jack's face-paint mainly let him do?",
-      "answer": "Hide his identity",
-      "why": "The face-paint acts as a mask, freeing Jack from shame and civilised restraint so he can act savagely.",
-      "options": [
-        "Hide his identity",
-        "Keep warm at night",
-        "Signal to Ralph",
-        "Scare off the beast"
+      "subject": "Science",
+      "prompt": "In an open dish, burning wood seems to lose mass. Where did that mass actually go?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "escaped as gas",
+        "gas escaped into the air",
+        "released as gas"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "Mass isn't destroyed — gases produced by burning escape into the air and aren't weighed, so the system only looks lighter.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 22g of reactants react completely. What is the mass of the products?",
+      "prompt": "What word describes a solid that suddenly forms when two liquids react together?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,68 +98,82 @@
       },
       "type": "text",
       "accept": [
-        "22g",
-        "22"
+        "precipitate"
       ],
-      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants: 22g.",
+      "why": "A precipitate is a solid that suddenly appears when two solutions react — a clear visible sign a chemical change has happened.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "Name one sign that shows a new gas has been produced in a reaction.",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "bubbles",
-        "fizzing",
-        "bubbling"
+      "subject": "PDHPE",
+      "prompt": "A snack ad shows teenagers laughing together at a party while eating chips. What technique is this?",
+      "answer": "Appeal to belonging",
+      "why": "Showing happy teens at a party links the snack to fitting in and having fun — an appeal to belonging, not any fact about the food's nutrition.",
+      "options": [
+        "Appeal to belonging",
+        "Price discount",
+        "Nutrition labelling",
+        "Product recall"
       ],
-      "why": "Bubbles or fizzing forming in a liquid is a sign that a gas has been produced during the reaction.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why might an ad featuring a famous athlete drinking a sugary drink influence a teenager's food choice?",
-      "answer": "It links the drink to success",
-      "why": "Celebrity endorsement works by linking a product to admired qualities like success, even if the product itself isn't healthy.",
+      "prompt": "On a nutrition label, which nutrient is usually the highest in a packet of chips?",
+      "answer": "Fat, for its energy density",
+      "why": "Chips are usually highest in fat, since fat packs more energy per gram than protein or carbs. Students often assume protein or fibre dominates savoury snacks when fat is really the main contributor.",
       "options": [
-        "It links the drink to success",
-        "It proves the drink is healthy",
-        "It lowers the drink's price",
-        "It shows the drink's ingredients"
+        "Fat, for its energy density",
+        "Protein, for muscle repair",
+        "Fibre, for digestion support",
+        "Calcium, for bone strength"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "When two substances react and form a new substance, what has actually changed?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "chemical bonds broke and reformed",
+        "bonds rearranged",
+        "atoms rearranged into new bonds"
+      ],
+      "why": "In a chemical reaction, atoms don't disappear — their bonds break and rearrange into new substances, which is why the properties change.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the 'per serving' column actually tell you?",
-      "answer": "Nutrients in one serving size",
-      "why": "'Per serving' shows the nutrient amounts in one single serving, not the entire packet — mixing the two up makes people misjudge how much they're actually eating.",
+      "prompt": "Why might grilled chicken be a healthier pick than fried chicken?",
+      "answer": "Less added fat",
+      "why": "Frying adds extra oil, raising the fat content well above grilling. Protein stays roughly the same either way, so that's not the real difference.",
       "options": [
-        "Nutrients in one serving size",
-        "Nutrients in the whole packet",
-        "Calories burned during exercise",
-        "Price charged per gram"
+        "Less added fat",
+        "Less added protein",
+        "Less added fibre",
+        "Less added flavour"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "Explain why a sports drink ad featuring a famous athlete can shape a teenager's food choice, even though the drink itself might not be a healthy option."
+      "subject": "Food Technology",
+      "prompt": "Explain why 'food selection' means more than just what you buy at the shop — what other things actually shape it?"
     }
   ]
 }
