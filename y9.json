@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-09",
-  "day": "FRI",
-  "tag": "R11.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-09",
+  "date": "2026-10-12",
+  "day": "MON",
+  "tag": "R12.1",
+  "title": "DailyXP · MON 2026-10-12",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Choosing a sandwich because it's on sale",
+      "subject": "Science",
+      "prompt": "A reaction in a sealed jar: total mass stays the same",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Food Selection",
-      "right": "Nutrition",
-      "answer": "Food Selection",
-      "why": "Picking food based on price, taste or habit is about food SELECTION — the choosing process. Nutrition is what's actually in the food.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "In a closed system no matter can enter or leave, so mass before equals mass after — conservation of mass holds.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Iron carrying oxygen in the blood",
+      "subject": "History",
+      "prompt": "Japan's army wanted a quick military victory over China in 1937",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,17 +37,235 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "Function",
-      "right": "Not a function",
-      "answer": "Function",
-      "why": "Iron helping carry oxygen is a real function of food in the body — nutrients don't just give energy, they also support body processes like this.",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Japan's commanders aimed to force a fast, total collapse of Chinese resistance, and the Nanjing Massacre grew out of that strategic goal, not just random cruelty.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Religion can affect which foods a person chooses",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Religious beliefs often set rules about which foods are allowed or forbidden, so religion is a real factor in food selection.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food helps the body fight off infection",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Nutrients like vitamins and minerals support the immune system, so food helps protect the body from illness, not just provide energy.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Why should a balanced diet include fibre?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "It helps digestion work properly",
+      "why": "Fibre keeps the digestive system working well; it isn't a quick energy source or a muscle-builder like protein and carbohydrates are.",
+      "options": [
+        "It helps digestion work properly",
+        "It builds strong muscle tissue fast",
+        "It gives the body quick bursts of energy",
+        "It mainly helps wounds heal faster"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "For a promo video, writing the script is part of which task?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Content creation",
+      "why": "Scripting, filming, and editing are all part of content creation — the stage of actually making the video.",
+      "options": [
+        "Content creation",
+        "Market research",
+        "Financial planning",
+        "Distribution"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "After his 1895 trial, which city held the prison where Oscar Wilde was imprisoned?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "London",
+      "why": "Wilde was held in several London prisons, including Pentonville, Wandsworth and Newgate, before being moved to Reading Gaol — so 'London' is the safe, correct answer rather than naming just one prison.",
+      "options": [
+        "London",
+        "Dublin",
+        "Paris",
+        "Oxford"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What is satire's main purpose, beyond just making people laugh?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "To criticise society",
+      "why": "Satire uses humour to expose and criticise human folly, vice, or society's problems — the comedy serves a critical purpose, not just entertainment.",
+      "options": [
+        "To criticise society",
+        "To describe nature",
+        "To teach grammar rules",
+        "To record historical dates"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 12 cm and a height of 7 cm. Slow down and work it through: what is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "42 cm²",
+      "why": "Area = ½ × base × height = ½ × 12 × 7 = 42 cm². Halving is the step that's easy to skip when rushing.",
+      "options": [
+        "42 cm²",
+        "84 cm²",
+        "19 cm²",
+        "49 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A closed cylinder has radius 3 cm and height 8 cm. What two areas make up its total surface area?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Two circles plus curved side",
+      "why": "A cylinder's total surface area is the two circular ends plus the curved side wrapped around — missing either part gives an incomplete total.",
+      "options": [
+        "Two circles plus curved side",
+        "One circle plus curved side",
+        "Two circles only",
+        "Curved side only"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "A family moves because a drought ruined their farm. What kind of factor is the drought?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Push factor",
+      "why": "A push factor drives people away from a place, like drought, war, or poverty — unlike a pull factor, which attracts them somewhere new.",
+      "options": [
+        "Push factor",
+        "Pull factor",
+        "Visa requirement",
+        "Trade agreement"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What happened to Hitler after the failed 1923 Putsch?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "He was arrested and tried",
+      "why": "Hitler was arrested after the failed Putsch and put on trial, receiving a lenient sentence that let him write Mein Kampf in prison.",
+      "options": [
+        "He was arrested and tried",
+        "He fled the country for years",
+        "He was executed immediately",
+        "He was elected chancellor"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 21 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 17 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,39 +274,34 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 63,
+      "answer": 42.5,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 21 × 6 = 63 cm². Say the ½ out loud before multiplying so you don't skip it.",
+      "why": "Area = ½ × base × height = ½ × 17 × 5 = 42.5 cm². Say the formula before multiplying so you don't forget to halve.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "In an open dish, burning wood seems to lose mass. Where did that mass actually go?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "escaped as gas",
-        "gas escaped into the air",
-        "released as gas"
+      "subject": "English",
+      "prompt": "From a while back — what does Piggy's role mainly show in Lord of the Flies?",
+      "answer": "Reason without power",
+      "why": "Piggy represents intelligence and logical thinking, but the other boys ignore him, showing how reason loses out once civilisation breaks down.",
+      "options": [
+        "Reason without power",
+        "Brute strength ruling",
+        "Blind loyalty to Jack",
+        "Total independence"
       ],
-      "why": "Mass isn't destroyed — gases produced by burning escape into the air and aren't weighed, so the system only looks lighter.",
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What word describes a solid that suddenly forms when two liquids react together?",
+      "prompt": "In a sealed container, what happens to total mass during a chemical reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -98,82 +311,68 @@
       },
       "type": "text",
       "accept": [
-        "precipitate"
+        "stays the same",
+        "unchanged",
+        "conserved"
       ],
-      "why": "A precipitate is a solid that suddenly appears when two solutions react — a clear visible sign a chemical change has happened.",
+      "why": "In a closed system, mass is conserved — no matter enters or leaves, so total mass before and after the reaction is equal.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "A snack ad shows teenagers laughing together at a party while eating chips. What technique is this?",
-      "answer": "Appeal to belonging",
-      "why": "Showing happy teens at a party links the snack to fitting in and having fun — an appeal to belonging, not any fact about the food's nutrition.",
-      "options": [
-        "Appeal to belonging",
-        "Price discount",
-        "Nutrition labelling",
-        "Product recall"
+      "subject": "Science",
+      "prompt": "What is it called when a reaction releases heat and feels warm?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "exothermic",
+        "exothermic reaction"
       ],
+      "why": "A reaction that releases heat into its surroundings, making things feel warmer, is called exothermic.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is usually the highest in a packet of chips?",
-      "answer": "Fat, for its energy density",
-      "why": "Chips are usually highest in fat, since fat packs more energy per gram than protein or carbs. Students often assume protein or fibre dominates savoury snacks when fat is really the main contributor.",
+      "prompt": "Why do cereal ads use cartoon mascots aimed at children?",
+      "answer": "To make the product appealing",
+      "why": "Cartoon mascots make a product feel fun and exciting to children, encouraging them to want it regardless of its nutritional value.",
       "options": [
-        "Fat, for its energy density",
-        "Protein, for muscle repair",
-        "Fibre, for digestion support",
-        "Calcium, for bone strength"
+        "To make the product appealing",
+        "To explain nutrition facts",
+        "To meet packaging laws",
+        "To lower the price"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "When two substances react and form a new substance, what has actually changed?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "chemical bonds broke and reformed",
-        "bonds rearranged",
-        "atoms rearranged into new bonds"
-      ],
-      "why": "In a chemical reaction, atoms don't disappear — their bonds break and rearrange into new substances, which is why the properties change.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why might grilled chicken be a healthier pick than fried chicken?",
-      "answer": "Less added fat",
-      "why": "Frying adds extra oil, raising the fat content well above grilling. Protein stays roughly the same either way, so that's not the real difference.",
+      "prompt": "On a nutrition label, which nutrient is mainly needed for growth and tissue repair?",
+      "answer": "Protein",
+      "why": "Protein builds and repairs body tissue, unlike carbohydrate and fat, which are mainly used for energy.",
       "options": [
-        "Less added fat",
-        "Less added protein",
-        "Less added fibre",
-        "Less added flavour"
+        "Protein",
+        "Fat",
+        "Carbohydrate",
+        "Fibre"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Food Technology",
-      "prompt": "Explain why 'food selection' means more than just what you buy at the shop — what other things actually shape it?"
+      "subject": "PDHPE",
+      "prompt": "A teenager sees an ad where a popular streamer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
