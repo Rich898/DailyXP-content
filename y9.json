@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-12",
-  "day": "MON",
-  "tag": "R12.1",
-  "title": "DailyXP · MON 2026-10-12",
+  "date": "2026-10-13",
+  "day": "TUE",
+  "tag": "R12.2",
+  "title": "DailyXP · TUE 2026-10-13",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A reaction in a sealed jar: total mass stays the same",
+      "prompt": "A reaction happens in a sealed, closed jar — total mass changes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "In a closed system no matter can enter or leave, so mass before equals mass after — conservation of mass holds.",
+      "answer": "False",
+      "why": "In a closed system no matter can enter or leave, so total mass stays the same — mass is conserved even though substances change.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japan's army wanted a quick military victory over China in 1937",
+      "prompt": "The Nanjing Massacre happened purely because individual soldiers snapped, with no military reasoning behind it",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,15 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Japan's commanders aimed to force a fast, total collapse of Chinese resistance, and the Nanjing Massacre grew out of that strategic goal, not just random cruelty.",
+      "answer": "False",
+      "why": "Japan's army wanted a fast, total collapse of Chinese resistance — the massacre served a military strategy, not just random cruelty.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Religion can affect which foods a person chooses",
+      "prompt": "Cost is one factor affecting food selection",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Religious beliefs often set rules about which foods are allowed or forbidden, so religion is a real factor in food selection.",
+      "why": "Cost genuinely shapes food choice — families often choose cheaper options regardless of taste or health, alongside culture and religion.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food helps the body fight off infection",
+      "prompt": "Food in the body only provides energy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Nutrients like vitamins and minerals support the immune system, so food helps protect the body from illness, not just provide energy.",
+      "answer": "False",
+      "why": "Food also builds and repairs body tissue and helps the body fight infection — energy is just one of its jobs.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Why should a balanced diet include fibre?",
+      "prompt": "Which food group should be the smallest part of a balanced diet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "It helps digestion work properly",
-      "why": "Fibre keeps the digestive system working well; it isn't a quick energy source or a muscle-builder like protein and carbohydrates are.",
+      "answer": "Fats and sugars",
+      "why": "The eatwell model shows fats and sugars should only take up a small portion, while fruit, veg, and starchy carbs form the bulk of the plate.",
       "options": [
-        "It helps digestion work properly",
-        "It builds strong muscle tissue fast",
-        "It gives the body quick bursts of energy",
-        "It mainly helps wounds heal faster"
+        "Fats and sugars",
+        "Fruit and vegetables",
+        "Starchy carbohydrates",
+        "Protein foods"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "For a promo video, writing the script is part of which task?",
+      "prompt": "Testing how a finished promo video performs online falls under which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Content creation",
-      "why": "Scripting, filming, and editing are all part of content creation — the stage of actually making the video.",
+      "answer": "Evaluation",
+      "why": "Checking views, feedback and engagement after release is evaluation — a separate stage from creating the content itself.",
       "options": [
+        "Evaluation",
         "Content creation",
-        "Market research",
-        "Financial planning",
-        "Distribution"
+        "Scriptwriting",
+        "Filming"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "After his 1895 trial, which city held the prison where Oscar Wilde was imprisoned?",
+      "prompt": "Where was Oscar Wilde born?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "London",
-      "why": "Wilde was held in several London prisons, including Pentonville, Wandsworth and Newgate, before being moved to Reading Gaol — so 'London' is the safe, correct answer rather than naming just one prison.",
+      "answer": "Dublin",
+      "why": "Wilde was born in Dublin, Ireland, in 1854 — though he later became famous in London's literary scene, which is why students often mistake London for his birthplace.",
       "options": [
-        "London",
         "Dublin",
-        "Paris",
-        "Oxford"
+        "London",
+        "Edinburgh",
+        "Belfast"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What is satire's main purpose, beyond just making people laugh?",
+      "prompt": "What is satire's main purpose?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To criticise society",
-      "why": "Satire uses humour to expose and criticise human folly, vice, or society's problems — the comedy serves a critical purpose, not just entertainment.",
+      "answer": "Criticise through humour",
+      "why": "Satire uses humour and exaggeration to criticise people, ideas, or society, not just to entertain or record facts.",
       "options": [
-        "To criticise society",
-        "To describe nature",
-        "To teach grammar rules",
-        "To record historical dates"
+        "Criticise through humour",
+        "Describe events accurately",
+        "Entertain with romance",
+        "Record historical facts"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 7 cm. Slow down and work it through: what is its area?",
+      "prompt": "A triangle has a base of 12 cm and a height of 8 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "42 cm²",
-      "why": "Area = ½ × base × height = ½ × 12 × 7 = 42 cm². Halving is the step that's easy to skip when rushing.",
+      "answer": "48 cm²",
+      "why": "Area = ½ × base × height = ½ × 12 × 8 = 48 cm². Halving matters — skipping it doubles the answer.",
       "options": [
-        "42 cm²",
-        "84 cm²",
-        "19 cm²",
-        "49 cm²"
+        "48 cm²",
+        "96 cm²",
+        "60 cm²",
+        "40 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 3 cm and height 8 cm. What two areas make up its total surface area?",
+      "prompt": "Which formula gives the area of a cylinder's curved surface alone?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Two circles plus curved side",
-      "why": "A cylinder's total surface area is the two circular ends plus the curved side wrapped around — missing either part gives an incomplete total.",
+      "answer": "2πrh",
+      "why": "The curved surface 'unrolls' into a rectangle of width equal to the circumference (2πr) and height h, giving area 2πrh.",
       "options": [
-        "Two circles plus curved side",
-        "One circle plus curved side",
-        "Two circles only",
-        "Curved side only"
+        "2πrh",
+        "πr²h",
+        "2πr²",
+        "πr²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A family moves because a drought ruined their farm. What kind of factor is the drought?",
+      "prompt": "Since the 1970s, what has Australia's immigration policy accepted?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Push factor",
-      "why": "A push factor drives people away from a place, like drought, war, or poverty — unlike a pull factor, which attracts them somewhere new.",
+      "answer": "Migrants from many nations",
+      "why": "Since the 1970s Australia moved to a multicultural policy, accepting migrants from many different countries, not a restricted list.",
       "options": [
-        "Push factor",
-        "Pull factor",
-        "Visa requirement",
-        "Trade agreement"
+        "Migrants from many nations",
+        "Only British settlers",
+        "Only war refugees",
+        "Only skilled tradespeople"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What happened to Hitler after the failed 1923 Putsch?",
+      "prompt": "What did Hitler receive as his sentence for leading the Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "He was arrested and tried",
-      "why": "Hitler was arrested after the failed Putsch and put on trial, receiving a lenient sentence that let him write Mein Kampf in prison.",
+      "answer": "Five years in prison",
+      "why": "Hitler was sentenced to five years for treason but served less than one year, using the lenient trial to gain publicity.",
       "options": [
-        "He was arrested and tried",
-        "He fled the country for years",
-        "He was executed immediately",
-        "He was elected chancellor"
+        "Five years in prison",
+        "Life imprisonment",
+        "A large fine only",
+        "Exile from Germany"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 17 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 15 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 42.5,
+      "answer": 60,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 17 × 5 = 42.5 cm². Say the formula before multiplying so you don't forget to halve.",
+      "why": "Area = ½ × base × height = ½ × 15 × 8 = 60 cm². Say the formula before multiplying so you don't skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does Piggy's role mainly show in Lord of the Flies?",
-      "answer": "Reason without power",
-      "why": "Piggy represents intelligence and logical thinking, but the other boys ignore him, showing how reason loses out once civilisation breaks down.",
+      "prompt": "From a while back — what does Ralph mainly represent in Lord of the Flies?",
+      "answer": "Order and leadership",
+      "why": "Ralph represents civilisation, democracy and organised leadership, standing in contrast to Jack's descent into savagery.",
       "options": [
-        "Reason without power",
-        "Brute strength ruling",
-        "Blind loyalty to Jack",
-        "Total independence"
+        "Order and leadership",
+        "Fear of the unknown",
+        "Pure savagery",
+        "Scientific thinking"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, what happens to total mass during a chemical reaction?",
+      "prompt": "In a sealed flask, 10g of reactants react completely. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,18 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "stays the same",
-        "unchanged",
-        "conserved"
+        "10g",
+        "10 grams"
       ],
-      "why": "In a closed system, mass is conserved — no matter enters or leaves, so total mass before and after the reaction is equal.",
+      "why": "Mass is conserved in a closed system, so the products must weigh the same as the reactants — 10g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a reaction releases heat and feels warm?",
+      "prompt": "What gas is often seen bubbling off during a chemical reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,24 +331,25 @@
       },
       "type": "text",
       "accept": [
-        "exothermic",
-        "exothermic reaction"
+        "carbon dioxide",
+        "co2",
+        "hydrogen"
       ],
-      "why": "A reaction that releases heat into its surroundings, making things feel warmer, is called exothermic.",
+      "why": "Many reactions, like acids with metals or carbonates, produce a gas such as carbon dioxide or hydrogen, seen as bubbles — a key sign a reaction has happened.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do cereal ads use cartoon mascots aimed at children?",
-      "answer": "To make the product appealing",
-      "why": "Cartoon mascots make a product feel fun and exciting to children, encouraging them to want it regardless of its nutritional value.",
+      "prompt": "What does a 'buy one get one free' deal mainly encourage shoppers to do?",
+      "answer": "Buy more than planned",
+      "why": "Deals like 'buy one get one free' are designed to push shoppers into buying extra items they hadn't planned to, increasing sales rather than helping them eat better.",
       "options": [
-        "To make the product appealing",
-        "To explain nutrition facts",
-        "To meet packaging laws",
-        "To lower the price"
+        "Buy more than planned",
+        "Compare nutrition labels",
+        "Choose fresh produce",
+        "Shop less often"
       ],
       "fresh": false
     },
@@ -357,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is mainly needed for growth and tissue repair?",
-      "answer": "Protein",
-      "why": "Protein builds and repairs body tissue, unlike carbohydrate and fat, which are mainly used for energy.",
+      "prompt": "On a nutrition label, what unit is energy usually measured in?",
+      "answer": "Kilojoules",
+      "why": "Energy on Australian nutrition labels is measured in kilojoules (kJ), while nutrients like protein, fat and sugar are measured in grams.",
       "options": [
-        "Protein",
-        "Fat",
-        "Carbohydrate",
-        "Fibre"
+        "Kilojoules",
+        "Grams",
+        "Milligrams",
+        "Litres"
       ],
       "fresh": false
     },
