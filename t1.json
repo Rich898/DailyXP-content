@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-10-12",
-  "day": "MON",
-  "tag": "T12.1",
-  "title": "DailyXP · MON 2026-10-12",
+  "date": "2026-10-13",
+  "day": "TUE",
+  "tag": "T12.2",
+  "title": "DailyXP · TUE 2026-10-13",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 5x - 2, when x = 3, y = 13",
+      "prompt": "y = 3x + 1, when x = 2, y = 7",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "5 × 3 = 15, then 15 − 2 = 13, so the pair (3, 13) fits the rule.",
+      "why": "Substitute x=2: 3(2)+1 = 7, so this pair is correct.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Lord Capulet and Lord Montague start Act 1 as friends",
+      "prompt": "Act 1 Scene 5 ends with Romeo and Juliet already married",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The two families share an 'ancient grudge', not friendship — this feud drives the whole play.",
+      "why": "They only meet and fall for each other at the party in Scene 5 — the secret marriage happens later with Friar Laurence.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A shogun outranked the emperor in real military power",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "The emperor was a figurehead; the shogun actually commanded the armies and held real political control.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "'Paint Like a Beast' aimed for smooth, exact photo-realism",
+      "prompt": "A shogun's authority came from being elected by the daimyo",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The activities focused on loose, expressive brushwork capturing texture and movement, not photo-realism.",
+      "why": "The shogun held power through military strength and the emperor's nominal title, not election by daimyo.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, students used masking tape for crisp straight edges",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The activities focused on loose, expressive brushwork and texture, not precise taped edges.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What does the prologue reveal before the play even starts?",
+      "prompt": "Why does Romeo go to the Capulet party in Act 1?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Romeo and Juliet will die",
-      "why": "The prologue calls them 'star-crossed lovers' and tells the audience the tragic ending in advance.",
+      "answer": "To see Rosaline",
+      "why": "Romeo goes hoping to see Rosaline, the girl he's infatuated with before he ever meets Juliet there.",
       "options": [
-        "Romeo and Juliet will die",
-        "Romeo will marry Rosaline",
-        "The Capulets will win the feud",
-        "Juliet will survive alone"
+        "To see Rosaline",
+        "To meet Juliet",
+        "To fight Tybalt",
+        "To see the Prince"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What usually happens to instruments in a song's bridge section?",
+      "prompt": "What does a film score's low sustained drone note usually create?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They strip back sparser",
-      "why": "A bridge often pulls instruments back to create contrast before the final chorus returns fuller.",
+      "answer": "A tense, uneasy mood",
+      "why": "A low sustained drone note is often used in film music to build tension or unease, holding the listener on edge without a clear melody.",
       "options": [
-        "They strip back sparser",
-        "They double in volume",
-        "They switch to a new key",
-        "They repeat the chorus exactly"
+        "A tense, uneasy mood",
+        "A cheerful, bright mood",
+        "A fast dance rhythm",
+        "A sudden silence"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What word describes a cactus storing water in its stem?",
+      "prompt": "What term describes offspring made by sexual reproduction?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A structural adaptation",
-      "why": "A structural adaptation is a physical body feature, like a thick water-storing stem, not a behaviour the organism does.",
+      "answer": "Genetically varied",
+      "why": "Sexual reproduction mixes genes from two parents, so offspring show genetic variation, unlike asexual reproduction which produces identical clones.",
       "options": [
-        "A behavioural adaptation",
-        "A structural adaptation",
-        "A mutation",
-        "A habitat"
+        "Genetically varied",
+        "Genetically identical",
+        "Immediately mature",
+        "Seedless"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "In the spice rack project, what tool checks a cut is truly square?",
+      "prompt": "What prompts the whole spice rack project in the first place?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A try square",
-      "why": "A try square checks that an edge or cut forms a true 90-degree angle, which a tape measure or saw cannot confirm.",
+      "answer": "An identified need",
+      "why": "Every design project starts from a 'need' — a problem or gap to solve — before the brief, specification, and material choices are worked out.",
       "options": [
-        "A try square",
-        "A tape measure",
-        "A coping saw",
-        "A mallet"
+        "An identified need",
+        "A finished prototype",
+        "A chosen timber type",
+        "A completed specification"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What is usually applied over a glued butt joint to add strength?",
+      "prompt": "What tool checks a joint corner is exactly 90 degrees?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Nails or screws",
-      "why": "Because a butt joint has little surface contact, nails or screws are added to reinforce the glue, which alone is often too weak.",
+      "answer": "Try square",
+      "why": "A try square checks that two surfaces meet at a true right angle, which is essential for a neat, strong butt joint corner.",
       "options": [
-        "Nails or screws",
-        "A thin coat of paint",
-        "Extra wood glue only",
-        "Masking tape"
+        "Try square",
+        "Tape measure",
+        "Coping saw",
+        "G-clamp"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What type of glue suits a strong timber joint?",
+      "prompt": "What should you do before switching to a finer sandpaper grit?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "PVA wood glue",
-      "why": "PVA wood glue bonds timber fibres strongly and dries hard, making it the standard choice for wood joints rather than quick-bond or paper glues.",
+      "answer": "Remove dust from surface",
+      "why": "Dust left from a coarser grit gets dragged around by the next paper and causes scratches, so surfaces must be wiped clean between grits.",
       "options": [
-        "PVA wood glue",
-        "Super glue",
-        "Contact adhesive",
-        "Glue stick"
+        "Remove dust from surface",
+        "Apply the finish first",
+        "Wet the timber",
+        "Skip straight to painting"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 11?",
+      "prompt": "What is the Japanese word for the number 13?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Juuichi",
-      "why": "Juuichi combines juu (10) and ichi (1) to make 11, following the regular counting pattern after ten.",
+      "answer": "Juusan",
+      "why": "Juusan (10+3) is 13; juuyon, juuni and juuichi are 14, 12 and 11.",
       "options": [
-        "Juuichi",
+        "Juusan",
         "Juuyon",
-        "Juuhachi",
-        "Nijuu"
+        "Juuni",
+        "Juuichi"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 300?",
+      "prompt": "What is the Japanese word for the number 400?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Sanbyaku",
-      "why": "Sanbyaku combines san (3) and hyaku (100) to make 300, following the counting pattern for hundreds.",
+      "answer": "Yonhyaku",
+      "why": "Yonhyaku (4 x hyaku) is 400; nihyaku, sanbyaku and roppyaku are 200, 300 and 600.",
       "options": [
-        "Sanbyaku",
-        "Nihyaku",
         "Yonhyaku",
-        "Sen"
+        "Nihyaku",
+        "Sanbyaku",
+        "Roppyaku"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what structural feature helps a building sway safely instead of cracking during an earthquake?",
+      "prompt": "From a while back: what word describes rock fragments, ash and gas blasting out violently from a volcano?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,11 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "base isolators",
-        "flexible foundation",
-        "shock absorbers"
+        "pyroclastic flow",
+        "pyroclastic"
       ],
-      "why": "Buildings can use flexible foundations or base isolators to absorb and sway with earthquake shaking instead of cracking.",
+      "why": "A pyroclastic flow is the fast-moving mix of hot gas and volcanic debris that erupts violently from a volcano.",
       "fresh": false,
       "throwback": true
     },
@@ -286,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, what does Capulet tell Tybalt to do about Romeo?",
-      "answer": "Leave him alone",
-      "why": "Capulet refuses to let Tybalt start trouble at the party, praising Romeo's good conduct and insisting he be left in peace as a guest.",
+      "prompt": "In Act 1 Scene 1, who tries to break up the servants' brawl?",
+      "answer": "Benvolio",
+      "why": "Benvolio arrives trying to keep the peace between the servants, drawing his sword only to stop the fight, before Tybalt escalates it.",
       "options": [
-        "Leave him alone",
-        "Throw him out at once",
-        "Challenge him to a duel",
-        "Report him to the Prince"
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "Prince Escalus"
       ],
       "fresh": false
     },
@@ -301,9 +300,9 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C-Am-F-G, which chord is the tonic or 'home' chord?",
+      "prompt": "In the progression C–Am–F–G, which chord is the tonic or 'home' chord?",
       "answer": "C",
-      "why": "C is the tonic, the 'home' chord the progression starts on and resolves back toward.",
+      "why": "C is built on the first scale degree, making it the tonic — the chord that feels like 'home'.",
       "options": [
         "C",
         "Am",
@@ -316,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what quality did students deliberately avoid in their animal paintings?",
-      "answer": "Photo-realistic detail",
-      "why": "The activities pushed students toward expressive texture and movement, deliberately avoiding tight, photo-realistic detail.",
+      "prompt": "In Paint Like a Beast, what animal feature did students mainly focus on capturing?",
+      "answer": "Texture and movement",
+      "why": "The activities focused on expressive texture and a sense of movement in the animals, not on exact photographic likeness.",
       "options": [
-        "Photo-realistic detail",
-        "Bold, visible brushstrokes",
-        "Rough, varied texture",
-        "Loose, energetic marks"
+        "Texture and movement",
+        "Exact photo-realism",
+        "Precise anatomy",
+        "Symmetry and proportion"
       ],
       "fresh": false
     },
@@ -331,7 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups in Japan's feudal system by how directly they served the shogun, from most direct to least",
+      "prompt": "Order these ranks in Japan's feudal hierarchy",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -341,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
+        "Emperor",
         "Shogun",
         "Daimyo",
-        "Samurai",
-        "Peasants"
+        "Samurai"
       ],
-      "top": "Most direct",
-      "bot": "Least direct",
-      "why": "The daimyo answered straight to the shogun, samurai served the daimyo who employed them, and peasants had no direct tie to the shogun at all, farming land for whichever lord controlled it.",
+      "top": "Most power",
+      "bot": "Least power",
+      "why": "The Emperor held symbolic status, but the Shogun held real power, ruling through daimyo who commanded samurai.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of cause-and-consequence analysis, from first to last",
+      "prompt": "Order these steps of a cause-and-consequence argument",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -366,20 +365,20 @@
       "type": "order",
       "sequence": [
         "Identify the event",
-        "List possible causes",
-        "Weigh each cause's importance",
-        "Explain the consequences"
+        "Find its causes",
+        "Explain how causes link",
+        "State the consequences"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "Good historical analysis starts by naming the event, then finds causes, ranks their importance, then traces effects.",
+      "why": "A strong cause-and-consequence argument starts by identifying the event, then explains its causes and links before stating results.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why swapping the starting chord of C-Am-F-G to Am instead of C can make the song feel sadder, even though the same four chords are used."
+      "prompt": "A friend says changing the order of the same four chords (C-Am-F-G) to start on Am instead of C can't change how the song feels, since the chords are identical. Explain why they're wrong."
     }
   ]
 }
