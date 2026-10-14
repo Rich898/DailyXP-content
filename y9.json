@@ -1,53 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-13",
-  "day": "TUE",
-  "tag": "R12.2",
-  "title": "DailyXP · TUE 2026-10-13",
+  "date": "2026-10-14",
+  "day": "WED",
+  "tag": "R12.3",
+  "title": "DailyXP · WED 2026-10-14",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A reaction happens in a sealed, closed jar — total mass changes",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "In a closed system no matter can enter or leave, so total mass stays the same — mass is conserved even though substances change.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Nanjing Massacre happened purely because individual soldiers snapped, with no military reasoning behind it",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Japan's army wanted a fast, total collapse of Chinese resistance — the massacre served a military strategy, not just random cruelty.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Cost is one factor affecting food selection",
+      "prompt": "A reaction in an open dish loses mass to the air",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Cost genuinely shapes food choice — families often choose cheaper options regardless of taste or health, alongside culture and religion.",
+      "why": "In an open system gas can escape into the air, so the measured mass drops — but no mass is truly lost overall.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S2",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food in the body only provides energy",
+      "subject": "History",
+      "prompt": "Only Japanese soldiers died during the Nanjing Massacre",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +40,52 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Food also builds and repairs body tissue and helps the body fight infection — energy is just one of its jobs.",
+      "why": "The victims were overwhelmingly Chinese civilians and soldiers; Japanese troops carried out the killings.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Cost can affect what food a person chooses",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Cost is a real factor in food selection — cheaper foods are often chosen over pricier options regardless of taste or health.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food helps build and repair muscle tissue",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Protein in food is used by the body to build and repair muscle and other tissue, one of food's key functions beyond energy.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which food group should be the smallest part of a balanced diet?",
+      "prompt": "Why does a balanced diet matter most for teenagers?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Fats and sugars",
-      "why": "The eatwell model shows fats and sugars should only take up a small portion, while fruit, veg, and starchy carbs form the bulk of the plate.",
+      "answer": "Supports growth and development",
+      "why": "Teenagers are growing fast, so a balanced diet gives the nutrients needed for that growth — it doesn't guarantee against illness or replace exercise.",
       "options": [
-        "Fats and sugars",
-        "Fruit and vegetables",
-        "Starchy carbohydrates",
-        "Protein foods"
+        "Supports growth and development",
+        "Stops all future illness",
+        "Replaces need for exercise",
+        "Keeps meals cheaper overall"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Testing how a finished promo video performs online falls under which task?",
+      "prompt": "Choosing the background music for a promo video falls under which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Evaluation",
-      "why": "Checking views, feedback and engagement after release is evaluation — a separate stage from creating the content itself.",
+      "answer": "Content creation",
+      "why": "Music, like script and footage, is part of building the video's content before it is shared or promoted.",
       "options": [
-        "Evaluation",
         "Content creation",
-        "Scriptwriting",
-        "Filming"
+        "Market research",
+        "Financial planning",
+        "Distribution"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Where was Oscar Wilde born?",
+      "prompt": "What subject was Oscar Wilde's most famous play about?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Dublin",
-      "why": "Wilde was born in Dublin, Ireland, in 1854 — though he later became famous in London's literary scene, which is why students often mistake London for his birthplace.",
+      "answer": "Victorian social manners",
+      "why": "Wilde's plays, like The Importance of Being Earnest, satirised the manners and hypocrisy of Victorian high society.",
       "options": [
-        "Dublin",
-        "London",
-        "Edinburgh",
-        "Belfast"
+        "Victorian social manners",
+        "Irish rural farming life",
+        "The French Revolution",
+        "Ancient Greek mythology"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What is satire's main purpose?",
+      "prompt": "Which famous writer is known for the satire Gulliver's Travels?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Criticise through humour",
-      "why": "Satire uses humour and exaggeration to criticise people, ideas, or society, not just to entertain or record facts.",
+      "answer": "Jonathan Swift",
+      "why": "Jonathan Swift wrote Gulliver's Travels, a classic satire mocking politics and human nature of his time.",
       "options": [
-        "Criticise through humour",
-        "Describe events accurately",
-        "Entertain with romance",
-        "Record historical facts"
+        "Jonathan Swift",
+        "Charles Dickens",
+        "Oscar Wilde",
+        "George Orwell"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 8 cm. What is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 4 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "48 cm²",
-      "why": "Area = ½ × base × height = ½ × 12 × 8 = 48 cm². Halving matters — skipping it doubles the answer.",
+      "answer": "28 cm²",
+      "why": "Area = ½ × base × height = ½ × 14 × 4 = 28 cm². Slow down and halve — don't just multiply.",
       "options": [
-        "48 cm²",
-        "96 cm²",
-        "60 cm²",
-        "40 cm²"
+        "28 cm²",
+        "56 cm²",
+        "18 cm²",
+        "24 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Which formula gives the area of a cylinder's curved surface alone?",
+      "prompt": "A closed cylinder has radius 5 cm and height 9 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "2πrh",
-      "why": "The curved surface 'unrolls' into a rectangle of width equal to the circumference (2πr) and height h, giving area 2πrh.",
+      "answer": "439.6 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(25) + 2(3.14)(5)(9) = 157 + 282.6 = 439.6 cm². The distractors miss one part of the formula.",
       "options": [
-        "2πrh",
-        "πr²h",
-        "2πr²",
-        "πr²"
+        "439.6 cm²",
+        "282.6 cm²",
+        "376.8 cm²",
+        "408.2 cm²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "Since the 1970s, what has Australia's immigration policy accepted?",
+      "prompt": "After WWII, what did Australia's 'Populate or Perish' policy mainly aim to do?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Migrants from many nations",
-      "why": "Since the 1970s Australia moved to a multicultural policy, accepting migrants from many different countries, not a restricted list.",
+      "answer": "Boost population fast",
+      "why": "'Populate or Perish' aimed to rapidly grow Australia's population after WWII through mass immigration, fearing low numbers left the country vulnerable.",
       "options": [
-        "Migrants from many nations",
-        "Only British settlers",
-        "Only war refugees",
-        "Only skilled tradespeople"
+        "Boost population fast",
+        "Restrict all migration",
+        "Limit city growth",
+        "End assisted passage"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What did Hitler receive as his sentence for leading the Munich Putsch?",
+      "prompt": "What book did Hitler write during his prison term after the Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Five years in prison",
-      "why": "Hitler was sentenced to five years for treason but served less than one year, using the lenient trial to gain publicity.",
+      "answer": "Mein Kampf",
+      "why": "While imprisoned after the failed Munich Putsch, Hitler wrote Mein Kampf, setting out his political ideas.",
       "options": [
-        "Five years in prison",
-        "Life imprisonment",
-        "A large fine only",
-        "Exile from Germany"
+        "Mein Kampf",
+        "The Third Reich",
+        "My Struggle Years",
+        "Nazi Germany"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 15 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 19 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 60,
-      "calc": false,
+      "answer": 38,
+      "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 15 × 8 = 60 cm². Say the formula before multiplying so you don't skip the halving step.",
+      "why": "Area = ½ × base × height = ½ × 19 × 4 = 38 cm². Halving is the step that's easy to rush past.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does Ralph mainly represent in Lord of the Flies?",
-      "answer": "Order and leadership",
-      "why": "Ralph represents civilisation, democracy and organised leadership, standing in contrast to Jack's descent into savagery.",
+      "prompt": "From a while back — in Lord of the Flies, what finally happens to the conch shell?",
+      "answer": "It is smashed to pieces",
+      "why": "The conch is smashed when Piggy is killed, showing that order and civilisation have been completely destroyed by that point.",
       "options": [
-        "Order and leadership",
-        "Fear of the unknown",
-        "Pure savagery",
-        "Scientific thinking"
+        "It is smashed to pieces",
+        "It is thrown into the sea",
+        "It is painted like the hunters",
+        "It is given to Jack"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed flask, 10g of reactants react completely. What is the mass of the products?",
+      "prompt": "In an open dish, why does the measured mass seem to decrease after burning wood?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "10g",
-        "10 grams"
+        "gas escapes",
+        "gases escape into the air",
+        "mass escapes as gas"
       ],
-      "why": "Mass is conserved in a closed system, so the products must weigh the same as the reactants — 10g.",
+      "why": "Mass isn't really lost — gas products escape into the air in an open system, so the measured mass left behind appears smaller.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What gas is often seen bubbling off during a chemical reaction?",
+      "prompt": "What is it called when a solid suddenly forms as two liquids react?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -331,25 +332,24 @@
       },
       "type": "text",
       "accept": [
-        "carbon dioxide",
-        "co2",
-        "hydrogen"
+        "precipitate",
+        "precipitation"
       ],
-      "why": "Many reactions, like acids with metals or carbonates, produce a gas such as carbon dioxide or hydrogen, seen as bubbles — a key sign a reaction has happened.",
+      "why": "A precipitate is the solid that forms when two solutions react, and it's a clear sign a chemical reaction has happened.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "What does a 'buy one get one free' deal mainly encourage shoppers to do?",
-      "answer": "Buy more than planned",
-      "why": "Deals like 'buy one get one free' are designed to push shoppers into buying extra items they hadn't planned to, increasing sales rather than helping them eat better.",
+      "prompt": "Why do snack ads often use bright packaging colours?",
+      "answer": "To grab attention fast",
+      "why": "Bright, bold packaging is designed to catch the eye quickly on a crowded shelf, making shoppers notice and reach for that product over others.",
       "options": [
-        "Buy more than planned",
-        "Compare nutrition labels",
-        "Choose fresh produce",
-        "Shop less often"
+        "To grab attention fast",
+        "To show nutrition facts",
+        "To list ingredients clearly",
+        "To meet safety rules"
       ],
       "fresh": false
     },
@@ -357,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what unit is energy usually measured in?",
-      "answer": "Kilojoules",
-      "why": "Energy on Australian nutrition labels is measured in kilojoules (kJ), while nutrients like protein, fat and sugar are measured in grams.",
+      "prompt": "On a nutrition label, what does the energy value tell you?",
+      "answer": "Kilojoules per serving",
+      "why": "The energy value on a nutrition label shows how many kilojoules (or calories) are in a serving, telling you how much energy that food provides.",
       "options": [
-        "Kilojoules",
-        "Grams",
-        "Milligrams",
-        "Litres"
+        "Kilojoules per serving",
+        "Grams of protein",
+        "Percent daily fibre",
+        "Sodium in milligrams"
       ],
       "fresh": false
     },
