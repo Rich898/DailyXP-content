@@ -1,15 +1,34 @@
 {
   "student": "t1",
-  "date": "2026-10-13",
-  "day": "TUE",
-  "tag": "T12.2",
-  "title": "DailyXP · TUE 2026-10-13",
+  "date": "2026-10-14",
+  "day": "WED",
+  "tag": "T12.3",
+  "title": "DailyXP · WED 2026-10-14",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 3x + 1, when x = 2, y = 7",
+      "prompt": "y = 2x + 1: when x = 6, y = 13",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "When x = 6, y = 2(6) + 1 = 13 is actually correct — wait, check again: 2×6=12, 12+1=13, so this is True. Always substitute carefully into the rule before judging.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Sampson and Gregory start the brawl in Act 1 Scene 1",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Substitute x=2: 3(2)+1 = 7, so this pair is correct.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Act 1 Scene 5 ends with Romeo and Juliet already married",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "They only meet and fall for each other at the party in Scene 5 — the secret marriage happens later with Friar Laurence.",
+      "why": "Sampson and Gregory, Capulet servants, provoke the Montague servants, sparking the opening street fight.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A shogun's authority came from being elected by the daimyo",
+      "prompt": "A shogun could lose his title if the daimyo rebelled",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "The shogun held power through military strength and the emperor's nominal title, not election by daimyo.",
+      "answer": "True",
+      "why": "A shogun's power depended on daimyo loyalty — widespread daimyo rebellion could topple him, since his authority rested on control, not a fixed guarantee.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, students used masking tape for crisp straight edges",
+      "prompt": "In Paint Like a Beast, students used rulers to keep every line perfectly straight",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The activities focused on loose, expressive brushwork and texture, not precise taped edges.",
+      "why": "The activities encouraged loose, expressive brushwork capturing texture and movement, not careful ruler-drawn precision.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Why does Romeo go to the Capulet party in Act 1?",
+      "prompt": "Who is Juliet's cousin that Romeo kills?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To see Rosaline",
-      "why": "Romeo goes hoping to see Rosaline, the girl he's infatuated with before he ever meets Juliet there.",
+      "answer": "Tybalt",
+      "why": "Tybalt is Juliet's cousin. Romeo kills him in revenge for Mercutio's death, which leads to Romeo's banishment.",
       "options": [
-        "To see Rosaline",
-        "To meet Juliet",
-        "To fight Tybalt",
-        "To see the Prince"
+        "Tybalt",
+        "Paris",
+        "Mercutio",
+        "Benvolio"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What does a film score's low sustained drone note usually create?",
+      "prompt": "In a song's bridge, what usually happens to the instruments?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A tense, uneasy mood",
-      "why": "A low sustained drone note is often used in film music to build tension or unease, holding the listener on edge without a clear melody.",
+      "answer": "Stripped back for contrast",
+      "why": "Bridges often strip instruments back to create a contrasting, more intimate section before the final chorus returns with full energy.",
       "options": [
-        "A tense, uneasy mood",
-        "A cheerful, bright mood",
-        "A fast dance rhythm",
-        "A sudden silence"
+        "Stripped back for contrast",
+        "Doubled for a huge finish",
+        "Replaced by a drum solo",
+        "Muted completely in silence"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What term describes offspring made by sexual reproduction?",
+      "prompt": "What is an arctic fox's thick white coat an example of?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Genetically varied",
-      "why": "Sexual reproduction mixes genes from two parents, so offspring show genetic variation, unlike asexual reproduction which produces identical clones.",
+      "answer": "Structural adaptation",
+      "why": "A structural adaptation is a physical feature, like fur thickness or colour, not a behaviour an animal chooses to do.",
       "options": [
-        "Genetically varied",
-        "Genetically identical",
-        "Immediately mature",
-        "Seedless"
+        "Structural adaptation",
+        "Behavioural adaptation",
+        "Learned adaptation",
+        "Dietary adaptation"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What prompts the whole spice rack project in the first place?",
+      "prompt": "What tool checks a spice rack joint is cut exactly square?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "An identified need",
-      "why": "Every design project starts from a 'need' — a problem or gap to solve — before the brief, specification, and material choices are worked out.",
+      "answer": "A try square",
+      "why": "A try square checks a corner is truly 90 degrees; a tape measure checks length, a marking gauge marks lines, and a saw only cuts.",
       "options": [
-        "An identified need",
-        "A finished prototype",
-        "A chosen timber type",
-        "A completed specification"
+        "A try square",
+        "A tape measure",
+        "A marking gauge",
+        "A tenon saw"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What tool checks a joint corner is exactly 90 degrees?",
+      "prompt": "What is usually applied over a glued butt joint for extra strength?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Try square",
-      "why": "A try square checks that two surfaces meet at a true right angle, which is essential for a neat, strong butt joint corner.",
+      "answer": "Pins or nails",
+      "why": "Because a butt joint has no interlocking shape, pins or nails are often added through the glue line to stop it pulling apart.",
       "options": [
-        "Try square",
-        "Tape measure",
-        "Coping saw",
-        "G-clamp"
+        "Pins or nails",
+        "Extra sandpaper",
+        "A coat of oil",
+        "Wood filler only"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What should you do before switching to a finer sandpaper grit?",
+      "prompt": "What type of glue is best for joining the spice rack's timber?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Remove dust from surface",
-      "why": "Dust left from a coarser grit gets dragged around by the next paper and causes scratches, so surfaces must be wiped clean between grits.",
+      "answer": "PVA wood glue",
+      "why": "PVA wood glue is strong, dries clear, and is designed for timber joints; super glue, hot glue, and tape adhesive don't bond wood as strongly.",
       "options": [
-        "Remove dust from surface",
-        "Apply the finish first",
-        "Wet the timber",
-        "Skip straight to painting"
+        "PVA wood glue",
+        "Super glue",
+        "Hot glue",
+        "Masking tape adhesive"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 13?",
+      "prompt": "What is the Japanese word for the number 16?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Juusan",
-      "why": "Juusan (10+3) is 13; juuyon, juuni and juuichi are 14, 12 and 11.",
+      "answer": "juuroku",
+      "why": "16 is juuroku (ten-six). Students often mix up the ones digit after juu- with nearby numbers like 15 or 17.",
       "options": [
-        "Juusan",
-        "Juuyon",
-        "Juuni",
-        "Juuichi"
+        "juuroku",
+        "juugo",
+        "juushichi",
+        "juuhachi"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 400?",
+      "prompt": "What is the Japanese word for the number 200?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Yonhyaku",
-      "why": "Yonhyaku (4 x hyaku) is 400; nihyaku, sanbyaku and roppyaku are 200, 300 and 600.",
+      "answer": "nihyaku",
+      "why": "200 is nihyaku (ni + hyaku). It's easy to confuse with sanbyaku (300) or yonhyaku (400) since the hundreds words shift sound slightly.",
       "options": [
-        "Yonhyaku",
-        "Nihyaku",
-        "Sanbyaku",
-        "Roppyaku"
+        "nihyaku",
+        "sanbyaku",
+        "hyaku",
+        "yonhyaku"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what word describes rock fragments, ash and gas blasting out violently from a volcano?",
+      "prompt": "From a while back: what is the name for the boundary where two tectonic plates slide past each other sideways?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "pyroclastic flow",
-        "pyroclastic"
+        "transform boundary",
+        "transform fault"
       ],
-      "why": "A pyroclastic flow is the fast-moving mix of hot gas and volcanic debris that erupts violently from a volcano.",
+      "why": "A transform boundary is where plates slide past each other sideways, often causing earthquakes without creating or destroying crust.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to break up the servants' brawl?",
-      "answer": "Benvolio",
-      "why": "Benvolio arrives trying to keep the peace between the servants, drawing his sword only to stop the fight, before Tybalt escalates it.",
+      "prompt": "In Act 1 Scene 5, who does Capulet stop Tybalt from attacking?",
+      "answer": "Romeo",
+      "why": "Tybalt recognises Romeo's voice and wants to fight him, but Capulet insists he be left alone as a guest, showing Capulet's restraint against Tybalt's hot temper.",
       "options": [
+        "Romeo",
         "Benvolio",
-        "Tybalt",
         "Mercutio",
-        "Prince Escalus"
+        "Paris"
       ],
       "fresh": false
     },
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C–Am–F–G, which chord is the tonic or 'home' chord?",
-      "answer": "C",
-      "why": "C is built on the first scale degree, making it the tonic — the chord that feels like 'home'.",
+      "prompt": "In C-Am-F-G, which chord creates tension pulling back to C?",
+      "answer": "G",
+      "why": "G is the dominant (V) chord, which builds tension that naturally resolves back to the tonic C.",
       "options": [
+        "G",
         "C",
         "Am",
-        "F",
-        "G"
+        "F"
       ],
       "fresh": false
     },
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what animal feature did students mainly focus on capturing?",
-      "answer": "Texture and movement",
-      "why": "The activities focused on expressive texture and a sense of movement in the animals, not on exact photographic likeness.",
+      "prompt": "In 'Paint Like a Beast', what did students mostly use to apply paint, besides brushes?",
+      "answer": "Sponges and rags",
+      "why": "Students experimented with sponges and rags alongside brushes to build loose texture, rather than tools suited to precise, controlled lines.",
       "options": [
-        "Texture and movement",
-        "Exact photo-realism",
-        "Precise anatomy",
-        "Symmetry and proportion"
+        "Sponges and rags",
+        "Rulers and set squares",
+        "Masking tape strips",
+        "Fine detail pens"
       ],
       "fresh": false
     },
@@ -330,7 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks in Japan's feudal hierarchy",
+      "prompt": "Order these steps of a feudal land exchange in Japan",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
-        "Emperor",
-        "Shogun",
-        "Daimyo",
-        "Samurai"
+        "Shogun grants land",
+        "Daimyo controls region",
+        "Daimyo commands samurai",
+        "Samurai defends land"
       ],
-      "top": "Most power",
-      "bot": "Least power",
-      "why": "The Emperor held symbolic status, but the Shogun held real power, ruling through daimyo who commanded samurai.",
+      "top": "First",
+      "bot": "Last",
+      "why": "The shogun grants land to a daimyo, who rules that region and commands samurai, who in turn defend the land for their lord.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of a cause-and-consequence argument",
+      "prompt": "Order these stages of judging historical significance",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +364,21 @@
       },
       "type": "order",
       "sequence": [
-        "Identify the event",
-        "Find its causes",
-        "Explain how causes link",
-        "State the consequences"
+        "Describe the event",
+        "Assess its impact at the time",
+        "Assess its lasting effects",
+        "Compare to other events"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "A strong cause-and-consequence argument starts by identifying the event, then explains its causes and links before stating results.",
+      "why": "Judging significance starts with describing what happened, then weighing its immediate impact, its lasting effects, and finally comparing it to other events.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "A friend says changing the order of the same four chords (C-Am-F-G) to start on Am instead of C can't change how the song feels, since the chords are identical. Explain why they're wrong."
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on Am instead of C can make a song feel sadder, even though no notes have changed."
     }
   ]
 }
