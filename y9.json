@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-14",
-  "day": "WED",
-  "tag": "R12.3",
-  "title": "DailyXP · WED 2026-10-14",
+  "date": "2026-10-15",
+  "day": "THU",
+  "tag": "R12.4",
+  "title": "DailyXP · THU 2026-10-15",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A reaction in an open dish loses mass to the air",
+      "prompt": "A reaction in a sealed jar keeps the same total mass",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In an open system gas can escape into the air, so the measured mass drops — but no mass is truly lost overall.",
+      "why": "In a closed system no matter can escape or enter, so mass before equals mass after — conservation of mass holds.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Only Japanese soldiers died during the Nanjing Massacre",
+      "prompt": "The Nanjing Massacre happened only due to random soldier anger",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The victims were overwhelmingly Chinese civilians and soldiers; Japanese troops carried out the killings.",
+      "why": "It was driven by Japanese military strategy aiming to break Chinese resistance quickly, not just individual cruelty.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Cost can affect what food a person chooses",
+      "prompt": "Religion can affect which foods a person eats",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Cost is a real factor in food selection — cheaper foods are often chosen over pricier options regardless of taste or health.",
+      "why": "Religious beliefs often set rules about which foods are allowed or forbidden, so they directly shape food choices.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food helps build and repair muscle tissue",
+      "prompt": "Vitamins and minerals help the body work properly",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Protein in food is used by the body to build and repair muscle and other tissue, one of food's key functions beyond energy.",
+      "why": "Vitamins and minerals aren't just 'extra' — they're needed for things like healthy eyes, strong bones, and nerve function.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Why does a balanced diet matter most for teenagers?",
+      "prompt": "Why does a teenager need a balanced diet with foods from every group?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Supports growth and development",
-      "why": "Teenagers are growing fast, so a balanced diet gives the nutrients needed for that growth — it doesn't guarantee against illness or replace exercise.",
+      "answer": "To support healthy growth and body function",
+      "why": "A balanced diet gives the body the right mix of nutrients for growth, energy, and repair — no single food group alone can do this job.",
       "options": [
-        "Supports growth and development",
-        "Stops all future illness",
-        "Replaces need for exercise",
-        "Keeps meals cheaper overall"
+        "To support healthy growth and body function",
+        "To copy what professional athletes eat daily",
+        "To avoid ever feeling hungry between meals",
+        "To make meals look good on social media"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Choosing the background music for a promo video falls under which task?",
+      "prompt": "Writing a promo video's script is part of which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,11 +116,11 @@
         "cta": "Keep going →"
       },
       "answer": "Content creation",
-      "why": "Music, like script and footage, is part of building the video's content before it is shared or promoted.",
+      "why": "Scripting, filming, and choosing music are all part of content creation when making a promotional video.",
       "options": [
         "Content creation",
         "Market research",
-        "Financial planning",
+        "Budget planning",
         "Distribution"
       ],
       "fresh": false
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What subject was Oscar Wilde's most famous play about?",
+      "prompt": "What was Oscar Wilde's nationality?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Victorian social manners",
-      "why": "Wilde's plays, like The Importance of Being Earnest, satirised the manners and hypocrisy of Victorian high society.",
+      "answer": "Irish",
+      "why": "Wilde was born and raised in Dublin, making him Irish, though he later made his career in England.",
       "options": [
-        "Victorian social manners",
-        "Irish rural farming life",
-        "The French Revolution",
-        "Ancient Greek mythology"
+        "Irish",
+        "Scottish",
+        "English",
+        "Welsh"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which famous writer is known for the satire Gulliver's Travels?",
+      "prompt": "In satire, what term describes a character who stands for a real public figure?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Jonathan Swift",
-      "why": "Jonathan Swift wrote Gulliver's Travels, a classic satire mocking politics and human nature of his time.",
+      "answer": "A caricature",
+      "why": "A caricature exaggerates a real person's traits so readers recognise and mock who is really being targeted.",
       "options": [
-        "Jonathan Swift",
-        "Charles Dickens",
-        "Oscar Wilde",
-        "George Orwell"
+        "A caricature",
+        "A narrator",
+        "A protagonist",
+        "A flashback"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 4 cm. What is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 6 cm. Take your time — what is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "28 cm²",
-      "why": "Area = ½ × base × height = ½ × 14 × 4 = 28 cm². Slow down and halve — don't just multiply.",
+      "answer": "42 cm²",
+      "why": "Area = ½ × base × height = ½ × 14 × 6 = 42 cm². Halving is the step that's easy to rush past.",
       "options": [
-        "28 cm²",
-        "56 cm²",
-        "18 cm²",
-        "24 cm²"
+        "42 cm²",
+        "84 cm²",
+        "40 cm²",
+        "56 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 5 cm and height 9 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
+      "prompt": "A closed cylinder has radius 2 cm and height 6 cm. What is its total surface area? (use π ≈ 3.14)",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "439.6 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(25) + 2(3.14)(5)(9) = 157 + 282.6 = 439.6 cm². The distractors miss one part of the formula.",
+      "answer": "100.5 cm²",
+      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(4) + 2(3.14)(2)(6) = 25.1 + 75.4 = 100.5 cm². You need both the ends and the curved surface.",
       "options": [
-        "439.6 cm²",
-        "282.6 cm²",
-        "376.8 cm²",
-        "408.2 cm²"
+        "100.5 cm²",
+        "75.4 cm²",
+        "37.7 cm²",
+        "62.8 cm²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "After WWII, what did Australia's 'Populate or Perish' policy mainly aim to do?",
+      "prompt": "What did Australia's 'Populate or Perish' policy mainly aim to do?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Boost population fast",
-      "why": "'Populate or Perish' aimed to rapidly grow Australia's population after WWII through mass immigration, fearing low numbers left the country vulnerable.",
+      "answer": "Boost population after WWII",
+      "why": "'Populate or Perish' urged mass immigration after WWII to grow Australia's population and workforce, fearing it was too small and vulnerable.",
       "options": [
-        "Boost population fast",
-        "Restrict all migration",
-        "Limit city growth",
-        "End assisted passage"
+        "Boost population after WWII",
+        "Restrict migrant numbers",
+        "End assisted passage schemes",
+        "Promote one culture only"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What book did Hitler write during his prison term after the Putsch?",
+      "prompt": "How long was Hitler actually imprisoned after the Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Mein Kampf",
-      "why": "While imprisoned after the failed Munich Putsch, Hitler wrote Mein Kampf, setting out his political ideas.",
+      "answer": "Under a year",
+      "why": "Hitler was sentenced to five years but served less than a year, released early due to lenient treatment of his crime.",
       "options": [
-        "Mein Kampf",
-        "The Third Reich",
-        "My Struggle Years",
-        "Nazi Germany"
+        "Under a year",
+        "Five years",
+        "Ten years",
+        "Life sentence"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 19 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 22 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 38,
+      "answer": 66,
       "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 19 × 4 = 38 cm². Halving is the step that's easy to rush past.",
+      "why": "Area = ½ × base × height = ½ × 22 × 6 = 66 cm². Say the formula before multiplying so you don't skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what finally happens to the conch shell?",
-      "answer": "It is smashed to pieces",
-      "why": "The conch is smashed when Piggy is killed, showing that order and civilisation have been completely destroyed by that point.",
+      "prompt": "From a while back — in Lord of the Flies, what happens to Piggy's glasses?",
+      "answer": "Jack's tribe steals them",
+      "why": "Jack's hunters raid Ralph's camp to steal Piggy's glasses, needing them to make fire — showing how power now rests on brute force, not reason.",
       "options": [
-        "It is smashed to pieces",
-        "It is thrown into the sea",
-        "It is painted like the hunters",
-        "It is given to Jack"
+        "Jack's tribe steals them",
+        "Ralph breaks them by accident",
+        "Piggy loses them swimming",
+        "Simon hides them as a joke"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In an open dish, why does the measured mass seem to decrease after burning wood?",
+      "prompt": "If 40g of reactants react fully inside a sealed container, what is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,18 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "gas escapes",
-        "gases escape into the air",
-        "mass escapes as gas"
+        "40g",
+        "40"
       ],
-      "why": "Mass isn't really lost — gas products escape into the air in an open system, so the measured mass left behind appears smaller.",
+      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants — 40g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a solid suddenly forms as two liquids react?",
+      "prompt": "What word describes a chemical reaction that feels cold as it happens?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,24 +331,23 @@
       },
       "type": "text",
       "accept": [
-        "precipitate",
-        "precipitation"
+        "endothermic"
       ],
-      "why": "A precipitate is the solid that forms when two solutions react, and it's a clear sign a chemical reaction has happened.",
+      "why": "An endothermic reaction absorbs heat from its surroundings, so the mixture feels cold — the opposite of an exothermic reaction.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do snack ads often use bright packaging colours?",
-      "answer": "To grab attention fast",
-      "why": "Bright, bold packaging is designed to catch the eye quickly on a crowded shelf, making shoppers notice and reach for that product over others.",
+      "prompt": "What marketing trick makes a snack seem healthier than it is?",
+      "answer": "Vague health claims",
+      "why": "Words like 'natural' or 'light' sound healthy but aren't regulated facts, so shoppers assume a snack is better for them than it is.",
       "options": [
-        "To grab attention fast",
-        "To show nutrition facts",
-        "To list ingredients clearly",
-        "To meet safety rules"
+        "Vague health claims",
+        "Nutrition panel laws",
+        "Use-by date rules",
+        "Standard barcodes"
       ],
       "fresh": false
     },
@@ -357,14 +355,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the energy value tell you?",
-      "answer": "Kilojoules per serving",
-      "why": "The energy value on a nutrition label shows how many kilojoules (or calories) are in a serving, telling you how much energy that food provides.",
+      "prompt": "On a nutrition label, what unit is the energy value usually given in?",
+      "answer": "Kilojoules",
+      "why": "Energy on an Australian nutrition label is measured in kilojoules (kJ), not grams — grams are used for nutrients like fat or protein, not energy.",
       "options": [
-        "Kilojoules per serving",
-        "Grams of protein",
-        "Percent daily fibre",
-        "Sodium in milligrams"
+        "Kilojoules",
+        "Grams",
+        "Milligrams",
+        "Litres"
       ],
       "fresh": false
     },
