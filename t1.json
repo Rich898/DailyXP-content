@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-10-15",
-  "day": "THU",
-  "tag": "T12.4",
-  "title": "DailyXP · THU 2026-10-15",
+  "date": "2026-10-16",
+  "day": "FRI",
+  "tag": "T12.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-16",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "y = 2x + 1, when x = 2, y = 5",
+      "subject": "Visual Arts",
+      "prompt": "Students mixed sand into paint for texture",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Substitute x = 2: y = 2(2) + 1 = 4 + 1 = 5. Multiply by 2 first, then add 1.",
+      "why": "True — students experimented with adding materials like sand to the paint to build rough, textured surfaces that suited animal fur and hide.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo and Juliet marry with Friar Laurence's help",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Friar Laurence secretly marries them, hoping it will end the feud between their families.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun answered only to the emperor's ceremonial title",
+      "prompt": "A shogun outranked the emperor in real power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,249 +40,31 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun held real military and political power while the emperor remained a symbolic figurehead.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "'Paint Like a Beast' used bold, loose brushwork",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "The activity followed Fauvist style, which favours bold, energetic, loose strokes — not soft, smoothly blended edges.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Who is Juliet's father?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Lord Capulet",
-      "why": "Juliet is the daughter of Lord Capulet, head of the Capulet household, which is locked in a feud with the Montagues.",
-      "options": [
-        "Lord Capulet",
-        "Lord Montague",
-        "Friar Laurence",
-        "Prince Escalus"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "What usually happens to instruments in a song's chorus?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "More layers added",
-      "why": "Choruses usually add fuller instrumentation to create a bigger, more energetic contrast with the verse.",
-      "options": [
-        "More layers added",
-        "All instruments stop",
-        "Tempo slows right down",
-        "Only vocals remain"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What do we call an inherited trait that helps survival?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "An adaptation",
-      "why": "An adaptation is a feature passed down through generations that helps an organism survive its environment.",
-      "options": [
-        "An adaptation",
-        "A mutation",
-        "A habitat",
-        "A food chain"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "In the spice rack design brief, what prompts the whole project?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "An identified need",
-      "why": "Every design project starts from a need — a problem to solve — which is later turned into a detailed specification.",
-      "options": [
-        "An identified need",
-        "The final specification",
-        "The chosen joint type",
-        "The sandpaper grit"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What are two timber pieces joined edge to edge at a right angle called?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A butt joint",
-      "why": "A butt joint simply joins two square-cut ends together, relying mostly on glue for strength.",
-      "options": [
-        "A butt joint",
-        "A mitre joint",
-        "A dovetail joint",
-        "A finger joint"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Why is radiata pine often chosen for projects like the spice rack?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "It is soft and easy to work",
-      "why": "Radiata pine is a popular beginner timber because it is soft, light, and easy to cut, shape, and sand.",
-      "options": [
-        "It is soft and easy to work",
-        "It is extremely hard and dense",
-        "It is naturally waterproof",
-        "It never needs sanding"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 18?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "juuhachi",
-      "why": "Juuhachi means 18 — juu (ten) plus hachi (eight). Juuroku is 16, juuni is 12, and hachijuu reverses the order to mean 80.",
-      "options": [
-        "juuhachi",
-        "juuroku",
-        "juuni",
-        "hachijuu"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for 1000?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "sen",
-      "why": "Sen means 1000 in Japanese, a new counting unit distinct from hyaku (100) and man (10,000).",
-      "options": [
-        "sen",
-        "hyaku",
-        "man",
-        "juu"
-      ],
-      "mode": "scrub",
+      "why": "True — the shogun held the real military and political power, while the emperor remained a ceremonial figurehead.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "From a while back: what term describes a giant sea wave caused by an underwater earthquake?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "tsunami"
-      ],
-      "why": "A tsunami is a giant sea wave triggered by sudden undersea movement, often from an earthquake.",
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
       "subject": "English",
-      "prompt": "What does Prince Escalus threaten if fighting continues in Act 1?",
-      "answer": "Death",
-      "why": "The Prince declares that any further street brawling between the families will be punished by death, raising the stakes for the rest of the play.",
+      "prompt": "In the Prologue, what form of poem does Shakespeare use to open the play?",
+      "answer": "A sonnet",
+      "why": "The Prologue is written as a 14-line sonnet, spoken by the Chorus to set up the story before the action begins.",
       "options": [
-        "Death",
-        "Banishment",
-        "A fine",
-        "Imprisonment"
+        "A sonnet",
+        "A limerick",
+        "A haiku",
+        "Free verse"
       ],
       "fresh": false
     },
     {
-      "id": "T3",
+      "id": "T2",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the fourth scale degree, the 'IV'?",
+      "prompt": "In C–Am–F–G, which chord sits between Am and G in the sequence?",
       "answer": "F",
-      "why": "F is built on the fourth note of the C major scale, making it the 'IV' chord in the progression.",
+      "why": "The progression runs C, then Am, then F, then G — F is the third chord, sitting right between Am and G.",
       "options": [
         "F",
         "C",
@@ -311,25 +74,49 @@
       "fresh": false
     },
     {
-      "id": "T4",
+      "id": "T3",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what grip did students mostly use when applying paint?",
-      "answer": "Loose, gestural strokes",
-      "why": "Students used loose, gestural strokes to capture energy and movement, not careful, controlled marks like ruler-guided lines, which would flatten the sense of motion.",
+      "prompt": "In 'Paint Like a Beast', what was the main artistic goal?",
+      "answer": "Capturing texture and movement",
+      "why": "The activities aimed at bold, expressive texture and movement, not photo-realism — a common mix-up is thinking 'good art' means precise, smooth detail.",
       "options": [
-        "Loose, gestural strokes",
-        "Tight, careful pencil grip",
-        "Steady ruler-guided lines",
-        "Slow, controlled dabbing"
+        "Capturing texture and movement",
+        "Achieving photo-realistic detail",
+        "Blending edges for a soft look",
+        "Keeping every line ruler-straight"
       ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order these steps of how a shogun kept control of Japan, from first to last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Shogun grants land to daimyo",
+        "Daimyo commands local samurai",
+        "Samurai enforce order and collect loyalty",
+        "Peasants farm the land for daimyo"
+      ],
+      "top": "First",
+      "bot": "Last",
+      "why": "The shogun granted land to daimyo in exchange for loyalty, daimyo relied on samurai to enforce their rule, and peasants worked the land at the bottom of the system.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of what happened when a lord granted land to a vassal in Japan's feudal system, from first to last",
+      "prompt": "Order these steps of a continuity-and-change argument, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -339,45 +126,51 @@
       },
       "type": "order",
       "sequence": [
-        "Lord offers land",
-        "Vassal swears loyalty",
-        "Vassal receives fief",
-        "Vassal provides military service"
+        "Describe the starting point",
+        "Describe the later point",
+        "Identify what changed",
+        "Explain why it mattered"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "A lord first offered land, the vassal pledged loyalty in return, then took control of the fief, and finally owed military service back to the lord whenever called upon.",
+      "why": "A strong continuity-and-change argument first sets out the earlier situation, then the later one, then pinpoints the actual change, and finally explains its significance.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps of a cause-and-consequence argument, from first to last",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Identify the event",
-        "Find its causes",
-        "Explain the consequences",
-        "Judge long-term significance"
+      "subject": "English",
+      "prompt": "In Act 1, who does Romeo ask to help him sneak into the Capulet party?",
+      "answer": "Benvolio",
+      "why": "Benvolio persuades Romeo to go to the party uninvited so he can compare Rosaline to other girls — a key setup for meeting Juliet.",
+      "options": [
+        "Benvolio",
+        "Tybalt",
+        "Friar Laurence",
+        "Paris"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "A strong historical argument starts with the event, works out its causes, then its consequences, before judging wider significance.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "Which theatre was strongly associated with Shakespeare's plays?",
+      "answer": "The Globe",
+      "why": "The Globe Theatre in London was built by Shakespeare's acting company and staged many of his plays, including Romeo and Juliet.",
+      "options": [
+        "The Globe",
+        "The Old Vic",
+        "Covent Garden",
+        "The Royal Court"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on a different chord can change how a song feels, even though the notes used are identical."
+      "prompt": "Explain why playing the same four chords, C-Am-F-G, but starting on Am instead of C, can make a song feel sadder, even though the chords used are identical."
     }
   ]
 }
