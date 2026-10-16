@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-15",
-  "day": "THU",
-  "tag": "R12.4",
-  "title": "DailyXP · THU 2026-10-15",
+  "date": "2026-10-16",
+  "day": "FRI",
+  "tag": "R12.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-16",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "A reaction in a sealed jar keeps the same total mass",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In a closed system no matter can escape or enter, so mass before equals mass after — conservation of mass holds.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Nanjing Massacre happened only due to random soldier anger",
+      "subject": "Food Technology",
+      "prompt": "Food selection means only deciding what to buy at the shop",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "It was driven by Japanese military strategy aiming to break Chinese resistance quickly, not just individual cruelty.",
+      "why": "False — food selection also covers WHY we choose foods, including culture, cost, health and mood, not just the shopping decision itself.",
       "fresh": false
     },
     {
-      "id": "S3",
+      "id": "S2",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Religion can affect which foods a person eats",
+      "prompt": "Protein is mainly for quick energy",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,214 +39,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Religious beliefs often set rules about which foods are allowed or forbidden, so they directly shape food choices.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Vitamins and minerals help the body work properly",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Vitamins and minerals aren't just 'extra' — they're needed for things like healthy eyes, strong bones, and nerve function.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Why does a teenager need a balanced diet with foods from every group?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "To support healthy growth and body function",
-      "why": "A balanced diet gives the body the right mix of nutrients for growth, energy, and repair — no single food group alone can do this job.",
-      "options": [
-        "To support healthy growth and body function",
-        "To copy what professional athletes eat daily",
-        "To avoid ever feeling hungry between meals",
-        "To make meals look good on social media"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Writing a promo video's script is part of which task?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Content creation",
-      "why": "Scripting, filming, and choosing music are all part of content creation when making a promotional video.",
-      "options": [
-        "Content creation",
-        "Market research",
-        "Budget planning",
-        "Distribution"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What was Oscar Wilde's nationality?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Irish",
-      "why": "Wilde was born and raised in Dublin, making him Irish, though he later made his career in England.",
-      "options": [
-        "Irish",
-        "Scottish",
-        "English",
-        "Welsh"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In satire, what term describes a character who stands for a real public figure?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A caricature",
-      "why": "A caricature exaggerates a real person's traits so readers recognise and mock who is really being targeted.",
-      "options": [
-        "A caricature",
-        "A narrator",
-        "A protagonist",
-        "A flashback"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 6 cm. Take your time — what is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "42 cm²",
-      "why": "Area = ½ × base × height = ½ × 14 × 6 = 42 cm². Halving is the step that's easy to rush past.",
-      "options": [
-        "42 cm²",
-        "84 cm²",
-        "40 cm²",
-        "56 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A closed cylinder has radius 2 cm and height 6 cm. What is its total surface area? (use π ≈ 3.14)",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "100.5 cm²",
-      "why": "Total surface area = 2πr² + 2πrh = 2(3.14)(4) + 2(3.14)(2)(6) = 25.1 + 75.4 = 100.5 cm². You need both the ends and the curved surface.",
-      "options": [
-        "100.5 cm²",
-        "75.4 cm²",
-        "37.7 cm²",
-        "62.8 cm²"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What did Australia's 'Populate or Perish' policy mainly aim to do?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Boost population after WWII",
-      "why": "'Populate or Perish' urged mass immigration after WWII to grow Australia's population and workforce, fearing it was too small and vulnerable.",
-      "options": [
-        "Boost population after WWII",
-        "Restrict migrant numbers",
-        "End assisted passage schemes",
-        "Promote one culture only"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "How long was Hitler actually imprisoned after the Munich Putsch?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Under a year",
-      "why": "Hitler was sentenced to five years but served less than a year, released early due to lenient treatment of his crime.",
-      "options": [
-        "Under a year",
-        "Five years",
-        "Ten years",
-        "Life sentence"
-      ],
-      "mode": "scrub",
+      "answer": "False",
+      "why": "False — protein's main job is growth and repair of body tissue; carbohydrates are the body's main quick-energy source.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 22 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 13 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,39 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 66,
+      "answer": 26,
       "calc": true,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 22 × 6 = 66 cm². Say the formula before multiplying so you don't skip the halving step.",
+      "why": "Area = ½ × base × height = ½ × 13 × 4 = 26 cm². Say the ½ out loud before multiplying so you never skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what happens to Piggy's glasses?",
-      "answer": "Jack's tribe steals them",
-      "why": "Jack's hunters raid Ralph's camp to steal Piggy's glasses, needing them to make fire — showing how power now rests on brute force, not reason.",
-      "options": [
-        "Jack's tribe steals them",
-        "Ralph breaks them by accident",
-        "Piggy loses them swimming",
-        "Simon hides them as a joke"
+      "subject": "Science",
+      "prompt": "In a sealed container, 28g of reactants react completely. What is the mass of the products?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "28g",
+        "28 grams",
+        "28"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "28g — mass is conserved in a closed system, so the total mass of products equals the total mass of reactants.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "If 40g of reactants react fully inside a sealed container, what is the mass of the products?",
+      "prompt": "Name one sign that shows a chemical reaction has happened.",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,66 +98,87 @@
       },
       "type": "text",
       "accept": [
-        "40g",
-        "40"
+        "colour change",
+        "gas produced",
+        "precipitate formed",
+        "temperature change",
+        "new smell"
       ],
-      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants — 40g.",
+      "why": "Signs include a colour change, gas bubbles, a precipitate forming, or a temperature change — these show a new substance has been made.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What word describes a chemical reaction that feels cold as it happens?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "endothermic"
+      "subject": "PDHPE",
+      "prompt": "Why do supermarkets place sugary snacks near the checkout?",
+      "answer": "To tempt shoppers waiting in line",
+      "why": "Checkout placement is a deliberate marketing trick — bored, waiting shoppers grab snacks on impulse. Kids sometimes think it's just shelf organisation, but it's placed there specifically to trigger unplanned buying.",
+      "options": [
+        "To tempt shoppers waiting in line",
+        "To show the snacks are fresher there",
+        "To keep the queue area tidy",
+        "To group items by their price"
       ],
-      "why": "An endothermic reaction absorbs heat from its surroundings, so the mixture feels cold — the opposite of an exothermic reaction.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "What marketing trick makes a snack seem healthier than it is?",
-      "answer": "Vague health claims",
-      "why": "Words like 'natural' or 'light' sound healthy but aren't regulated facts, so shoppers assume a snack is better for them than it is.",
+      "prompt": "On a nutrition label, which nutrient is usually listed under 'carbohydrates'?",
+      "answer": "Sugar",
+      "why": "Sugar is a type of carbohydrate, so labels list it as a sub-item under the carbohydrate total — it's often mistaken for its own separate category.",
       "options": [
-        "Vague health claims",
-        "Nutrition panel laws",
-        "Use-by date rules",
-        "Standard barcodes"
+        "Sugar",
+        "Protein",
+        "Sodium",
+        "Saturated fat"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "What gas is often seen as bubbles when a chemical reaction happens?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "gas",
+        "carbon dioxide",
+        "hydrogen",
+        "oxygen"
+      ],
+      "why": "Bubbling shows a gas is being produced, one of the clear signs a chemical reaction has taken place.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what unit is the energy value usually given in?",
-      "answer": "Kilojoules",
-      "why": "Energy on an Australian nutrition label is measured in kilojoules (kJ), not grams — grams are used for nutrients like fat or protein, not energy.",
+      "prompt": "Why do nutrition labels list 'per serving' alongside 'per 100g'?",
+      "answer": "It shows a realistic single portion",
+      "why": "The 'per serving' column estimates what one actual helping contains, helping you judge real intake. Some assume it covers the whole pack or only tracks sugar, but it's a portion-based figure for all nutrients.",
       "options": [
-        "Kilojoules",
-        "Grams",
-        "Milligrams",
-        "Litres"
+        "It shows a realistic single portion",
+        "It shows the cheapest portion size",
+        "It shows the total package weight",
+        "It shows only the sugar content"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular streamer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
+      "subject": "Food Technology",
+      "prompt": "A friend says food selection just means choosing what to buy at the supermarket. Explain what they're missing and why food selection is actually bigger than that."
     }
   ]
 }
