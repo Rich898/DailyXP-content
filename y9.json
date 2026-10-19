@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-16",
-  "day": "FRI",
-  "tag": "R12.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-16",
+  "date": "2026-10-19",
+  "day": "MON",
+  "tag": "R13.1",
+  "title": "DailyXP · MON 2026-10-19",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food selection means only deciding what to buy at the shop",
+      "subject": "Science",
+      "prompt": "Rusting iron in a sealed jar gains mass",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — food selection also covers WHY we choose foods, including culture, cost, health and mood, not just the shopping decision itself.",
+      "why": "In a closed system nothing can enter or leave, so total mass stays the same even though the iron turns to rust.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Protein is mainly for quick energy",
+      "subject": "History",
+      "prompt": "The Nanjing Massacre happened only because of random soldier cruelty",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,232 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — protein's main job is growth and repair of body tissue; carbohydrates are the body's main quick-energy source.",
+      "why": "There was a military strategy behind it — Japan's army wanted quick, total submission from China, not just isolated acts of cruelty.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food selection includes why people choose certain foods",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Food selection covers the reasons behind choices — like cost, culture and health — not just what ends up in the trolley.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Vitamins and minerals are only needed in large amounts",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Vitamins and minerals are needed only in small amounts, but they are still essential for the body to work properly.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Which meal shows a balanced diet?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Meat, veg, rice, fruit",
+      "why": "A balanced meal mixes food groups together — protein, vegetables, carbs and fruit — rather than relying on just one type of food.",
+      "options": [
+        "Meat, veg, rice, fruit",
+        "Pasta with extra pasta",
+        "Just a protein shake",
+        "Salad with no carbs"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "Testing a finished promo video's reach online is part of which task?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Evaluation",
+      "why": "Checking how a finished video performs online happens after it's made, so it belongs to evaluation, not content creation.",
+      "options": [
+        "Evaluation",
+        "Content creation",
+        "Pre-production",
+        "Scriptwriting"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What crime was Oscar Wilde convicted of in his 1895 trial?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Gross indecency",
+      "why": "Wilde was convicted of gross indecency in 1895 because of his relationship with Lord Alfred Douglas, and was sentenced to two years' hard labour.",
+      "options": [
+        "Gross indecency",
+        "Tax evasion",
+        "Libel against the crown",
+        "Treason"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Which 20th-century novel satirises Soviet communism using farm animals?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Animal Farm",
+      "why": "Animal Farm by George Orwell uses farm animals to satirise the corruption of Soviet communism under Stalin.",
+      "options": [
+        "Animal Farm",
+        "Brave New World",
+        "Lord of the Flies",
+        "1984"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 16 cm and a height of 10 cm. What is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "80 cm²",
+      "why": "Area = ½ × base × height = ½ × 16 × 10 = 80 cm². Halving is the step rushing skips.",
+      "options": [
+        "80 cm²",
+        "160 cm²",
+        "260 cm²",
+        "26 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "What two areas make up a cylinder's total surface area?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Curved area and two circles",
+      "why": "A cylinder's total surface area is the curved side plus the two circular ends — missing one of the circles is a common slip.",
+      "options": [
+        "Curved area and two circles",
+        "Curved area only",
+        "Two circles only",
+        "Curved area and one circle"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What was Australia's immigration policy called before the 1970s, which favoured white European migrants?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "White Australia Policy",
+      "why": "The White Australia Policy restricted migration mostly to white Europeans, before being dismantled and replaced by multiculturalism in the 1970s.",
+      "options": [
+        "White Australia Policy",
+        "Populate or Perish",
+        "Assisted Passage Scheme",
+        "Multiculturalism"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "In which German city did the 1923 Beer Hall Putsch take place?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Munich",
+      "why": "The putsch took place in Munich in 1923, when Hitler tried to seize power starting from a beer hall there.",
+      "options": [
+        "Munich",
+        "Berlin",
+        "Hamburg",
+        "Nuremberg"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 13 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 24 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,39 +274,34 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 26,
-      "calc": true,
+      "answer": 72,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 13 × 4 = 26 cm². Say the ½ out loud before multiplying so you never skip the halving step.",
+      "why": "Area = ½ × base × height = ½ × 24 × 6 = 72 cm². Say the formula first, then multiply.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "In a sealed container, 28g of reactants react completely. What is the mass of the products?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "28g",
-        "28 grams",
-        "28"
+      "subject": "English",
+      "prompt": "From a while back — in Lord of the Flies, what does Piggy's role mainly show about the group?",
+      "answer": "Reason gets ignored",
+      "why": "Piggy represents intelligence and logic, but the other boys repeatedly mock and dismiss him, showing how reason is pushed aside as savagery grows.",
+      "options": [
+        "Reason gets ignored",
+        "Strength always wins",
+        "Rules keep everyone safe",
+        "Fear unites the boys"
       ],
-      "why": "28g — mass is conserved in a closed system, so the total mass of products equals the total mass of reactants.",
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "Name one sign that shows a chemical reaction has happened.",
+      "prompt": "If 50g of reactants react fully in a sealed container, what is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -98,87 +311,69 @@
       },
       "type": "text",
       "accept": [
-        "colour change",
-        "gas produced",
-        "precipitate formed",
-        "temperature change",
-        "new smell"
+        "50g",
+        "50",
+        "50 grams"
       ],
-      "why": "Signs include a colour change, gas bubbles, a precipitate forming, or a temperature change — these show a new substance has been made.",
+      "why": "Mass is conserved in a closed system, so the total mass of products equals the total mass of reactants: 50g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "Why do supermarkets place sugary snacks near the checkout?",
-      "answer": "To tempt shoppers waiting in line",
-      "why": "Checkout placement is a deliberate marketing trick — bored, waiting shoppers grab snacks on impulse. Kids sometimes think it's just shelf organisation, but it's placed there specifically to trigger unplanned buying.",
-      "options": [
-        "To tempt shoppers waiting in line",
-        "To show the snacks are fresher there",
-        "To keep the queue area tidy",
-        "To group items by their price"
+      "subject": "Science",
+      "prompt": "What is it called when a gas forms and causes bubbling during a reaction?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "effervescence",
+        "fizzing",
+        "bubbling"
       ],
+      "why": "Bubbling, or effervescence, happens when a gas is produced during a reaction — a clear sign a chemical change has occurred.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is usually listed under 'carbohydrates'?",
-      "answer": "Sugar",
-      "why": "Sugar is a type of carbohydrate, so labels list it as a sub-item under the carbohydrate total — it's often mistaken for its own separate category.",
+      "prompt": "Why do cereal ads often use cartoon mascots aimed at children?",
+      "answer": "To make it appealing",
+      "why": "Cartoon mascots make a product feel fun and friendly to children, encouraging them to want it regardless of its nutritional value.",
       "options": [
-        "Sugar",
-        "Protein",
-        "Sodium",
-        "Saturated fat"
+        "To make it appealing",
+        "To list ingredients",
+        "To show the price",
+        "To state the weight"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What gas is often seen as bubbles when a chemical reaction happens?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "gas",
-        "carbon dioxide",
-        "hydrogen",
-        "oxygen"
-      ],
-      "why": "Bubbling shows a gas is being produced, one of the clear signs a chemical reaction has taken place.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do nutrition labels list 'per serving' alongside 'per 100g'?",
-      "answer": "It shows a realistic single portion",
-      "why": "The 'per serving' column estimates what one actual helping contains, helping you judge real intake. Some assume it covers the whole pack or only tracks sugar, but it's a portion-based figure for all nutrients.",
+      "prompt": "On a nutrition label, which column shows the amount in one serving?",
+      "answer": "Per serving",
+      "why": "The 'per serving' column shows how much of each nutrient is in a single serving, as opposed to the standard 100g comparison.",
       "options": [
-        "It shows a realistic single portion",
-        "It shows the cheapest portion size",
-        "It shows the total package weight",
-        "It shows only the sugar content"
+        "Per serving",
+        "Per 100g",
+        "Ingredients list",
+        "Use-by date"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Food Technology",
-      "prompt": "A friend says food selection just means choosing what to buy at the supermarket. Explain what they're missing and why food selection is actually bigger than that."
+      "subject": "PDHPE",
+      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while streaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
