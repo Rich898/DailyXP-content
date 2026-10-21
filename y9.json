@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-19",
-  "day": "MON",
-  "tag": "R13.1",
-  "title": "DailyXP · MON 2026-10-19",
+  "date": "2026-10-21",
+  "day": "WED",
+  "tag": "R13.3",
+  "title": "DailyXP · WED 2026-10-21",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Rusting iron in a sealed jar gains mass",
+      "prompt": "A reaction in a sealed, closed container loses mass",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "In a closed system nothing can enter or leave, so total mass stays the same even though the iron turns to rust.",
+      "why": "In a closed system, no matter escapes, so total mass before and after the reaction stays the same.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Nanjing Massacre happened only because of random soldier cruelty",
+      "prompt": "Japanese soldiers followed strict orders to spare civilians in Nanjing",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "There was a military strategy behind it — Japan's army wanted quick, total submission from China, not just isolated acts of cruelty.",
+      "why": "Far from being protected, civilians were deliberately targeted on a massive scale as part of the campaign to break Chinese resistance.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food selection includes why people choose certain foods",
+      "prompt": "Religion can influence which foods a person chooses",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Food selection covers the reasons behind choices — like cost, culture and health — not just what ends up in the trolley.",
+      "why": "Religious beliefs often set rules about which foods are allowed or avoided, making them a real influence on food selection.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Vitamins and minerals are only needed in large amounts",
+      "prompt": "Food helps the body grow and repair tissue",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Vitamins and minerals are needed only in small amounts, but they are still essential for the body to work properly.",
+      "answer": "True",
+      "why": "Protein and other nutrients in food are used to build and repair body tissue, not just to supply energy.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which meal shows a balanced diet?",
+      "prompt": "Why does the body need a balanced diet, not just lots of food?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Meat, veg, rice, fruit",
-      "why": "A balanced meal mixes food groups together — protein, vegetables, carbs and fruit — rather than relying on just one type of food.",
+      "answer": "Needs variety for nutrients",
+      "why": "A balanced diet gives the body a range of nutrients for different jobs — energy, growth, and repair — not just one purpose like taste or warmth.",
       "options": [
-        "Meat, veg, rice, fruit",
-        "Pasta with extra pasta",
-        "Just a protein shake",
-        "Salad with no carbs"
+        "Needs variety for nutrients",
+        "Needs food for taste only",
+        "Needs food for warmth only",
+        "Needs food for bulk only"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Testing a finished promo video's reach online is part of which task?",
+      "prompt": "In a promo video, deciding the overall message to the audience falls under which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Evaluation",
-      "why": "Checking how a finished video performs online happens after it's made, so it belongs to evaluation, not content creation.",
+      "answer": "Content creation",
+      "why": "Deciding the message, visuals and story of the video is part of content creation, before the video is ever distributed.",
       "options": [
-        "Evaluation",
         "Content creation",
-        "Pre-production",
-        "Scriptwriting"
+        "Distribution testing",
+        "Financial planning",
+        "Market analysis"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What crime was Oscar Wilde convicted of in his 1895 trial?",
+      "prompt": "What literary movement is Oscar Wilde linked to?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Gross indecency",
-      "why": "Wilde was convicted of gross indecency in 1895 because of his relationship with Lord Alfred Douglas, and was sentenced to two years' hard labour.",
+      "answer": "Aestheticism",
+      "why": "Wilde championed Aestheticism, the 'art for art's sake' movement, valuing beauty and style over moral or political purpose.",
       "options": [
-        "Gross indecency",
-        "Tax evasion",
-        "Libel against the crown",
-        "Treason"
+        "Aestheticism",
+        "Romanticism",
+        "Modernism",
+        "Realism"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which 20th-century novel satirises Soviet communism using farm animals?",
+      "prompt": "Satire is most commonly used to achieve which purpose?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Animal Farm",
-      "why": "Animal Farm by George Orwell uses farm animals to satirise the corruption of Soviet communism under Stalin.",
+      "answer": "Expose social flaws",
+      "why": "Satire uses humour and exaggeration mainly to expose and criticise flaws in society, people, or institutions.",
       "options": [
-        "Animal Farm",
-        "Brave New World",
-        "Lord of the Flies",
-        "1984"
+        "Expose social flaws",
+        "Build suspense",
+        "Describe scenery",
+        "Teach grammar rules"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 10 cm. What is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 10 cm. Slow down and work through it calmly: what is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "80 cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 10 = 80 cm². Halving is the step rushing skips.",
+      "answer": "70 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 14 × 10 = 70 cm². Halving is the step rushing skips.",
       "options": [
-        "80 cm²",
-        "160 cm²",
-        "260 cm²",
-        "26 cm²"
+        "70 cm²",
+        "140 cm²",
+        "24 cm²",
+        "35 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "What two areas make up a cylinder's total surface area?",
+      "prompt": "A closed cylinder has radius 2 cm and height 5 cm. What is its total surface area? (use π ≈ 3.14, round to 1 decimal place)",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Curved area and two circles",
-      "why": "A cylinder's total surface area is the curved side plus the two circular ends — missing one of the circles is a common slip.",
+      "answer": "87.9 cm²",
+      "why": "Total surface area = curved area (2πrh) + two circle ends (2πr²) = 62.8 + 25.1 = 87.9 cm².",
       "options": [
-        "Curved area and two circles",
-        "Curved area only",
-        "Two circles only",
-        "Curved area and one circle"
+        "87.9 cm²",
+        "62.8 cm²",
+        "25.1 cm²",
+        "31.4 cm²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What was Australia's immigration policy called before the 1970s, which favoured white European migrants?",
+      "prompt": "What did Australia's 'Populate or Perish' slogan mainly encourage after WWII?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "White Australia Policy",
-      "why": "The White Australia Policy restricted migration mostly to white Europeans, before being dismantled and replaced by multiculturalism in the 1970s.",
+      "answer": "Mass immigration intake",
+      "why": "'Populate or Perish' urged Australia to boost its population fast through large-scale immigration, fearing it was vulnerable with so few people.",
       "options": [
-        "White Australia Policy",
-        "Populate or Perish",
-        "Assisted Passage Scheme",
-        "Multiculturalism"
+        "Mass immigration intake",
+        "Multicultural festivals",
+        "Overseas trade deals",
+        "Rural land reform"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "In which German city did the 1923 Beer Hall Putsch take place?",
+      "prompt": "What book did Hitler write during his prison term after the Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Munich",
-      "why": "The putsch took place in Munich in 1923, when Hitler tried to seize power starting from a beer hall there.",
+      "answer": "Mein Kampf",
+      "why": "Hitler wrote Mein Kampf while imprisoned after the failed 1923 Munich Putsch, setting out his ideology.",
       "options": [
-        "Munich",
-        "Berlin",
-        "Hamburg",
-        "Nuremberg"
+        "Mein Kampf",
+        "Das Kapital",
+        "The Myth of the Twentieth Century",
+        "Mein Sturm"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 24 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 20 cm and a height of 13 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 72,
+      "answer": 130,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 24 × 6 = 72 cm². Say the formula first, then multiply.",
+      "why": "Area = ½ × base × height = ½ × 20 × 13 = 130 cm². Pausing to halve stops the rushing mistake.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does Piggy's role mainly show about the group?",
-      "answer": "Reason gets ignored",
-      "why": "Piggy represents intelligence and logic, but the other boys repeatedly mock and dismiss him, showing how reason is pushed aside as savagery grows.",
+      "prompt": "From a while back — what does the killing of Simon mainly reveal about the boys in Lord of the Flies?",
+      "answer": "Savagery has taken over",
+      "why": "Simon's death in the frenzied chant shows the boys have descended into mob savagery, losing their earlier civilised behaviour.",
       "options": [
-        "Reason gets ignored",
-        "Strength always wins",
-        "Rules keep everyone safe",
-        "Fear unites the boys"
+        "Savagery has taken over",
+        "They still respect rules",
+        "Piggy is now the leader",
+        "The fire kept them civilised"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "If 50g of reactants react fully in a sealed container, what is the mass of the products?",
+      "prompt": "If 20g of reactants react completely in a sealed container, what is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,18 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "50g",
-        "50",
-        "50 grams"
+        "20g",
+        "20 grams",
+        "20"
       ],
-      "why": "Mass is conserved in a closed system, so the total mass of products equals the total mass of reactants: 50g.",
+      "why": "Mass is conserved in a closed system, so the products must have the same total mass as the reactants: 20g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a gas forms and causes bubbling during a reaction?",
+      "prompt": "What is it called when a reaction absorbs heat and feels cold?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,25 +332,24 @@
       },
       "type": "text",
       "accept": [
-        "effervescence",
-        "fizzing",
-        "bubbling"
+        "endothermic",
+        "endothermic reaction"
       ],
-      "why": "Bubbling, or effervescence, happens when a gas is produced during a reaction — a clear sign a chemical change has occurred.",
+      "why": "A reaction that takes in heat from its surroundings, making things feel colder, is called endothermic.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do cereal ads often use cartoon mascots aimed at children?",
-      "answer": "To make it appealing",
-      "why": "Cartoon mascots make a product feel fun and friendly to children, encouraging them to want it regardless of its nutritional value.",
+      "prompt": "Why might an ad featuring a famous athlete influence a teenager's food choice?",
+      "answer": "They copy admired role models",
+      "why": "Teenagers are influenced by associating a product with someone they admire, even if the food isn't actually healthy.",
       "options": [
-        "To make it appealing",
-        "To list ingredients",
-        "To show the price",
-        "To state the weight"
+        "They copy admired role models",
+        "The ad lists nutrition facts",
+        "The product is always cheaper",
+        "The ad is longer than others"
       ],
       "fresh": false
     },
@@ -358,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which column shows the amount in one serving?",
+      "prompt": "On a nutrition label, which column shows the amount of a nutrient in one standard portion?",
       "answer": "Per serving",
-      "why": "The 'per serving' column shows how much of each nutrient is in a single serving, as opposed to the standard 100g comparison.",
+      "why": "The 'per serving' column shows how much of each nutrient is in one typical portion, unlike the 'per 100g' column used for comparing products.",
       "options": [
         "Per serving",
         "Per 100g",
-        "Ingredients list",
-        "Use-by date"
+        "Daily intake",
+        "Ingredients list"
       ],
       "fresh": false
     },
@@ -373,7 +372,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while streaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
+      "prompt": "Explain how a marketing technique like a celebrity endorsement could lead a teenager to choose an unhealthy snack, even if they know it isn't the healthiest option."
     }
   ]
 }
