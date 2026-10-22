@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-10-20",
-  "day": "TUE",
-  "tag": "H13.2",
-  "title": "DailyXP · TUE 2026-10-20",
+  "date": "2026-10-22",
+  "day": "THU",
+  "tag": "H13.4",
+  "title": "DailyXP · THU 2026-10-22",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Prince Escalus threatens death for future fighting",
+      "prompt": "Romeo and Juliet die at the very end of the play",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In Act 1 Scene 1, Prince Escalus warns that anyone who disturbs the peace again will be executed.",
+      "why": "The prologue already tells the audience the 'star-crossed lovers' will die, so their deaths at the end are no surprise.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun ruled Japan while bowing only in name to the emperor",
+      "prompt": "The shogun outranked the emperor in real power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun held the real military and political power, while the emperor remained a figurehead in name only.",
+      "why": "The shogun held the actual military and political control, while the emperor remained a figurehead in name only.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'nijuu' (二十) means 20",
+      "prompt": "'gohyaku' means 50",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "'Nijuu' means 20. Don't confuse it with 'juuni' (十二), which means 12.",
+      "answer": "False",
+      "why": "'Gohyaku' (五百) means 500, not 50 — go (5) combines with hyaku (hundred) to make five hundred.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'nisen' means 2,000",
+      "prompt": "'sanzen' means 300",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "'Nisen' combines ni (2) with sen (thousand), giving 2,000.",
+      "answer": "False",
+      "why": "'Sanzen' means 3,000 — 'sen' marks thousands, while 'hyaku' marks hundreds, so 300 would be 'sanbyaku'.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What do we call an event that directly results from an earlier one?",
+      "prompt": "What word describes the immediate event that sets off a larger historical event?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A consequence",
-      "why": "A consequence is something that happens as a result of an earlier cause — the two are always linked in order.",
+      "answer": "Trigger cause",
+      "why": "A trigger cause is the short-term spark, built on deeper long-term causes that made the event possible.",
       "options": [
-        "A consequence",
-        "A trigger",
-        "A continuity",
-        "A prologue"
+        "Trigger cause",
+        "Long-term cause",
+        "Consequence",
+        "Continuity"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who tries to stop the servants fighting in Act 1 Scene 1?",
+      "prompt": "In Act 1 Scene 1, who tries to break up the fight before Prince Escalus arrives?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,12 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Benvolio",
-      "why": "Benvolio draws his sword to part the fighting servants, trying to keep the peace before Tybalt escalates it.",
+      "why": "Benvolio draws his sword only to try to stop the fighting, but Tybalt mistakes his intentions and attacks him instead.",
       "options": [
         "Benvolio",
         "Tybalt",
         "Mercutio",
-        "Prince Escalus"
+        "Paris"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the root note C itself?",
+      "prompt": "In C–Am–F–G, which chord is built on the root note C?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -138,7 +138,7 @@
         "cta": "Keep going →"
       },
       "answer": "C",
-      "why": "C is the tonic chord, built directly on the C major scale's first note, giving the progression its home key.",
+      "why": "C is the 'I' chord, built directly on the key's root note, which is why the progression starts and feels centred there.",
       "options": [
         "C",
         "Am",
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What do we call an animal that eats both plants and animals?",
+      "prompt": "In a food chain, what do we call an animal that eats only plants?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "An omnivore",
-      "why": "An omnivore eats both plants and animals, unlike a herbivore (plants only) or carnivore (meat only).",
+      "answer": "Herbivore",
+      "why": "A herbivore eats only plants, unlike a carnivore (meat only) or omnivore (both), so it occupies the first consumer level.",
       "options": [
-        "An omnivore",
-        "A herbivore",
-        "A carnivore",
-        "A producer"
+        "Herbivore",
+        "Carnivore",
+        "Omnivore",
+        "Predator"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what tool makes rough fur-like marks?",
+      "prompt": "In Paint Like a Beast, what tool creates rough, fur-like marks?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A dry brush",
-      "why": "A dry brush, loaded with little paint, drags and splits to create rough, fur-like texture marks.",
+      "answer": "A dry stiff brush",
+      "why": "A dry, stiff brush drags paint unevenly across the surface, creating broken, textured strokes that mimic real fur.",
       "options": [
-        "A dry brush",
-        "A fine liner",
-        "A paint roller",
-        "A soft sponge"
+        "A dry stiff brush",
+        "A fine liner pen",
+        "A soft round brush",
+        "A sponge roller"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 2x − 1, what is y when x = 4?",
+      "prompt": "For y = 3x + 2, what is y when x = 4?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "7",
-      "why": "Substitute x = 4: 2(4) − 1 = 8 − 1 = 7. Always multiply before subtracting.",
+      "answer": "14",
+      "why": "Substitute x = 4: 3 × 4 = 12, then add 2, giving y = 14.",
       "options": [
-        "7",
-        "8",
-        "6",
-        "9"
+        "14",
+        "12",
+        "9",
+        "18"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What is the name of Shakespeare's wife?",
+      "prompt": "What was the name of Shakespeare's wife?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,11 +227,11 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Anne Hathaway",
-      "why": "Shakespeare married Anne Hathaway in 1582. Anne Boleyn was Henry VIII's queen, Mary Arden was Shakespeare's mother, and Emilia Lanier was a poet sometimes linked to his sonnets.",
+      "why": "Shakespeare married Anne Hathaway in 1582; Mary Arden was his mother and Susanna Hall was his daughter, not his wife.",
       "options": [
         "Anne Hathaway",
-        "Anne Boleyn",
         "Mary Arden",
+        "Susanna Hall",
         "Emilia Lanier"
       ],
       "mode": "scrub",
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Which song section usually plays the same short catchy phrase, repeated word-for-word?",
+      "prompt": "Which song section usually plays the same short catchy phrase, often repeated?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,12 +250,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Hook",
-      "why": "The hook is the short, catchy, repeated phrase designed to stick in the listener's memory.",
+      "why": "The hook is a short, catchy, repeated phrase designed to stick in the listener's memory, unlike the contrasting bridge or the framing intro and outro.",
       "options": [
         "Hook",
-        "Verse",
         "Bridge",
-        "Intro"
+        "Intro",
+        "Outro"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if screen brightness affects how quickly someone gets tired, keeping room temperature the same. What type of variable is 'screen brightness'?",
+      "prompt": "A student tests if cup size affects how fast ice melts, keeping room temperature the same. What type of variable is 'room temperature'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "independent variable",
-        "independent"
+        "controlled variable",
+        "controlled"
       ],
-      "why": "Screen brightness is the one the student deliberately changes, which makes it the independent variable.",
+      "why": "Room temperature is deliberately kept the same for every test, making it the controlled variable, not the one being measured or changed.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 3x + 2 = 14",
+      "prompt": "Solve for x: 2x + 9 = 23",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 4,
+      "answer": 7,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 2 from both sides to get 3x = 12, then divide by 3 to get x = 4.",
+      "why": "Subtract 9 from both sides to get 2x = 14, then divide by 2 to find x = 7.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks by how much loyalty and service they owed upward",
+      "prompt": "Order these ranks by how much military power they held in the shogunate system",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -315,28 +315,28 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun",
-        "Daimyo",
+        "Peasants",
         "Samurai",
-        "Peasants"
+        "Daimyo",
+        "Shogun"
       ],
-      "top": "Owed least upward service",
-      "bot": "Owed most upward service",
-      "why": "The shogun commanded all, daimyo served the shogun, samurai served daimyo, and peasants served everyone above them with labour and taxes.",
+      "top": "Least power",
+      "bot": "Most power",
+      "why": "Peasants held no military power, samurai served as warriors under lords, daimyo commanded regional armies, and the shogun held supreme military authority over all of Japan.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack portfolio, what measurements should a design brief include?",
-      "answer": "The rack's target size",
-      "why": "A design brief should set out size requirements the finished rack must meet, not tool or finishing details decided later.",
+      "prompt": "What should a spice rack's design brief describe first, before choosing materials?",
+      "answer": "The storage need",
+      "why": "A good design brief starts with the need the product solves, so material choices like radiata pine come as a response to that need, not before it.",
       "options": [
-        "The rack's target size",
-        "The sandpaper grit",
-        "The glue drying time",
-        "The saw blade type"
+        "The storage need",
+        "The timber species",
+        "The glue type",
+        "The sandpaper grit"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "What shape are the slots in a butt joint, compared to a finger joint?",
-      "answer": "Plain flat edges",
-      "why": "A butt joint simply joins two plain flat edges together with glue, unlike a finger joint which uses interlocking notches for extra strength.",
+      "prompt": "Which joint does the spice rack mainly use to hold pieces together?",
+      "answer": "Butt joint",
+      "why": "The spice rack uses simple butt joints, where two flat edges are glued together; dovetail, mortise, and finger joints are stronger interlocking joints not used in this build.",
       "options": [
-        "Plain flat edges",
-        "Interlocking notches",
-        "Angled mitre cuts",
-        "Round drilled holes"
+        "Butt joint",
+        "Dovetail joint",
+        "Mortise joint",
+        "Finger joint"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '2,000' in Japanese?",
-      "answer": "nisen",
-      "why": "'Nisen' combines ni (2) and sen (1,000) to make 2,000, unlike 'nihyaku' (200) or 'sanzen' (3,000).",
+      "prompt": "How do you say '1,000' in Japanese?",
+      "answer": "Sen",
+      "why": "'Sen' (千) means 1,000, the base word used for counting in the thousands, unlike hyaku (hundred) or juu (ten).",
       "options": [
-        "nisen",
-        "sanzen",
-        "nihyaku",
-        "nijuu"
+        "Sen",
+        "Hyaku",
+        "Nisen",
+        "Juu"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should name the storage need before choosing radiata pine as the material, and describe what could go wrong if a designer picked the material first."
+      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, and what could go wrong if a designer picked the material first."
     }
   ]
 }
