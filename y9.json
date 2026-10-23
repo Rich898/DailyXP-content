@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-22",
-  "day": "THU",
-  "tag": "R13.4",
-  "title": "DailyXP · THU 2026-10-22",
+  "date": "2026-10-23",
+  "day": "FRI",
+  "tag": "R13.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-23",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Rusting iron in a sealed jar loses mass",
+      "subject": "Food Technology",
+      "prompt": "Food selection means only what you buy at the shop",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "In a sealed jar, iron combines with oxygen already trapped inside, so total mass stays the same — nothing escapes.",
+      "why": "Food selection also includes WHY we choose foods — culture, cost, mood, health, religion — not just the buying step.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Japan's leaders faced no punishment after the Nanjing Massacre",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Several Japanese commanders were later tried and executed for war crimes including the Nanjing Massacre, such as General Matsui Iwane.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Cultural background can shape which foods a family eats",
+      "prompt": "Protein's main job is building and repairing muscle",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,213 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Cultural traditions and upbringing strongly influence which foods feel familiar or acceptable, making culture a real factor in food selection.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food can help the body fight off illness",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Certain nutrients, like vitamin C and zinc, support the immune system, so food plays a role in fighting infection, not just supplying energy.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Why does a balanced diet matter for a growing teenager?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Supports growth, energy and repair",
-      "why": "A balanced diet gives the body energy, supports growth, and helps repair tissue — not just one of these. It isn't about avoiding all illness or only mattering to athletes.",
-      "options": [
-        "Gives energy only, nothing else",
-        "Supports growth, energy and repair",
-        "Prevents all future illness completely",
-        "Only needed for sporty teens"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Deciding the overall message of a promo video falls under which task?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Content creation",
-      "why": "Planning the core message shapes what the video says, so it belongs to content creation alongside scripting and filming.",
-      "options": [
-        "Content creation",
-        "Market analysis",
-        "Budget planning",
-        "Audience testing"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What was the name of Oscar Wilde's only play set at Lady Windermere's house?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Lady Windermere's Fan",
-      "why": "Lady Windermere's Fan (1892) was Wilde's first big society comedy success, about scandal and reputation among the upper classes.",
-      "options": [
-        "Lady Windermere's Fan",
-        "An Ideal Husband",
-        "A Woman of No Importance",
-        "Salome"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which 18th-century writer satirised society through Gulliver's travels to strange lands?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Jonathan Swift",
-      "why": "Jonathan Swift wrote Gulliver's Travels, using fantastical lands to mock human pride and real political life of his time.",
-      "options": [
-        "Jonathan Swift",
-        "Charles Dickens",
-        "Alexander Pope",
-        "Daniel Defoe"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 3 cm. What is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "24 cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 3 = 24 cm². Halving matters — don't just multiply base by height.",
-      "options": [
-        "24 cm²",
-        "48 cm²",
-        "19 cm²",
-        "32 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "Which part of a cylinder's surface uses the formula 2πrh?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "The curved side",
-      "why": "2πrh gives the area of the curved surface only; the two circular ends are found separately using πr² each.",
-      "options": [
-        "The curved side",
-        "Both circular ends",
-        "One circular end",
-        "The cylinder's volume"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What term describes Australia's pre-1970s policy favouring white European migrants?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "White Australia Policy",
-      "why": "The White Australia Policy restricted non-European immigration until it was gradually dismantled and replaced by multiculturalism from the 1970s.",
-      "options": [
-        "White Australia Policy",
-        "Populate or Perish",
-        "Multiculturalism Policy",
-        "Assisted Passage Scheme"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What sentence did Hitler receive for leading the 1923 Munich Putsch?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Five years in prison",
-      "why": "Hitler was sentenced to five years for treason after the failed putsch, though he served less than one year.",
-      "options": [
-        "Five years in prison",
-        "Immediate exile abroad",
-        "Appointment as chancellor",
-        "A large fine only"
-      ],
-      "mode": "scrub",
+      "why": "Protein is mainly used for growth and tissue repair, not quick energy — that's carbohydrate's job.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 20 cm and a height of 5 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 17 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,38 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 50,
+      "answer": 85,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 20 × 5 = 50 cm². Say the formula before multiplying to avoid rushing.",
+      "why": "½ × 17 × 10 = 85 cm². Say the formula first, then multiply, so you never forget to halve.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, why do the boys paint their faces before hunting?",
-      "answer": "It hides who they really are",
-      "why": "The face paint acts like a mask, letting the boys shed their identity and civilised restraint, freeing them to act savagely.",
-      "options": [
-        "It hides who they really are",
-        "It keeps off the sun",
-        "It scares away the beast",
-        "It marks their hunting rank"
+      "subject": "Science",
+      "prompt": "In a sealed container, 35g of reactants react completely. What is the mass of the products?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "35",
+        "35g"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "Mass is conserved in a closed system — nothing can escape, so products equal 35g, same as the reactants.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "If reactants react completely inside a sealed container, how does the mass of the products compare to the reactants?",
+      "prompt": "What do we call the solid that can suddenly appear when two liquids react?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,68 +97,81 @@
       },
       "type": "text",
       "accept": [
-        "equal",
-        "the same",
-        "unchanged"
+        "precipitate"
       ],
-      "why": "In a closed system no matter escapes, so the mass of products equals the mass of reactants.",
+      "why": "A precipitate is a solid that forms when two solutions react — its sudden appearance is a sign a new substance was made.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What is it called when a solid suddenly forms as two liquids react together?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "precipitate",
-        "precipitation"
+      "subject": "PDHPE",
+      "prompt": "A soft drink ad shows a famous swimmer celebrating with the product. What technique is this?",
+      "answer": "Celebrity endorsement",
+      "why": "Using a famous athlete to promote a product is celebrity endorsement — it makes the drink feel desirable even if it isn't healthy.",
+      "options": [
+        "Celebrity endorsement",
+        "Bulk discount pricing",
+        "Nutrition labelling",
+        "Point-of-sale placement"
       ],
-      "why": "A precipitate is a solid that forms unexpectedly when two solutions react, showing a new substance has been made.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do fast food ads often show meals as fun and exciting?",
-      "answer": "To link food with good feelings",
-      "why": "Showing food alongside fun and excitement creates a positive emotional association, encouraging people to choose it regardless of its nutrition.",
+      "prompt": "On a nutrition label, what unit is the energy value usually shown in?",
+      "answer": "Kilojoules",
+      "why": "Energy on a nutrition label is measured in kilojoules (kJ), not grams — grams measure the mass of nutrients like fat or sugar.",
       "options": [
-        "To link food with good feelings",
-        "To list nutrition facts clearly",
-        "To meet food safety laws",
-        "To lower the actual price"
+        "Kilojoules",
+        "Grams",
+        "Millilitres",
+        "Milligrams"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "What is it called when heat is given off during a chemical reaction?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "exothermic",
+        "exothermic reaction"
+      ],
+      "why": "A reaction that releases heat and feels warm is called exothermic — temperature change is another clear sign a new substance has formed.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the energy value mainly tell you?",
-      "answer": "How much fuel the food provides",
-      "why": "The energy value (in kJ or calories) shows how much fuel the food gives the body — it says nothing about freshness, shelf life, or how natural the ingredients are.",
+      "prompt": "What does the energy value on a nutrition label tell you?",
+      "answer": "Energy per serving",
+      "why": "The energy value shows how much energy (in kilojoules) is in a serving of the food — it's not about weight, ingredient count, or freshness.",
       "options": [
-        "How much fuel the food provides",
-        "How fresh the food currently is",
-        "How quickly the food will spoil",
-        "How natural the ingredients are"
+        "Energy per serving",
+        "Total weight of food",
+        "Number of ingredients",
+        "Use-by freshness"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "Explain how a celebrity endorsement in an ad could influence a teenager's food choice, even when the food isn't actually healthy."
+      "subject": "Food Technology",
+      "prompt": "Explain why 'food selection' involves more than just what ends up in your shopping trolley — what other things actually shape it?"
     }
   ]
 }
