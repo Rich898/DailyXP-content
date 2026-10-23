@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-10-21",
-  "day": "WED",
-  "tag": "T13.3",
-  "title": "DailyXP · WED 2026-10-21",
+  "date": "2026-10-23",
+  "day": "FRI",
+  "tag": "T13.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-23",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "y = 2x + 4: when x = 3, y = 9",
+      "subject": "Visual Arts",
+      "prompt": "Paint Like a Beast used fine, precise detail brushes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "y = 2(3) + 4 = 10, not 9 — substitute x first, then multiply before adding.",
+      "why": "False — the project used bold, loose brushwork to capture movement and texture, not fine precise detail.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "The Montagues and Capulets attend Capulet's party together",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Romeo and his Montague friends sneak into the Capulet party uninvited — the families are rivals, not guests together.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "History",
-      "prompt": "A shogun needed daimyo loyalty to keep control of Japan",
+      "prompt": "The shogun held more real power than the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,250 +40,31 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun's power depended on regional lords (daimyo) staying loyal and supplying troops; disloyal daimyo could threaten his rule.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast aimed for photo-realistic detail",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The activities used loose, expressive brushwork to capture texture and movement, not exact photo-realism.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Why do the servants start fighting in Act 1 Scene 1?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "An old family grudge",
-      "why": "The brawl erupts because of the Montagues' and Capulets' ancient feud, not any fresh crime or personal insult — the prologue tells us the hatred is long-standing.",
-      "options": [
-        "An old family grudge",
-        "A stolen bag of coins",
-        "A dispute over land",
-        "An insult about Rosaline"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In a song, what usually happens to layers in the chorus?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Layers add in",
-      "why": "Choruses usually add extra instrument layers to build energy and make the section feel bigger than the verse.",
-      "options": [
-        "Layers add in",
-        "Layers strip out",
-        "Tempo halves",
-        "Key drops low"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What do we call an animal's behaviour, like migrating, that helps it survive?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Behavioural adaptation",
-      "why": "A behavioural adaptation is something an animal DOES, like migrating or hibernating, rather than a body part it HAS.",
-      "options": [
-        "Behavioural adaptation",
-        "Structural adaptation",
-        "Biomass",
-        "Habitat"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "In the spice rack brief, what must the specification state?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Exact finished dimensions",
-      "why": "A good specification states measurable requirements like exact dimensions, so the finished rack can be checked against them.",
-      "options": [
-        "Exact finished dimensions",
-        "The student's timetable",
-        "The teacher's name",
-        "The classroom number"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Which joint uses angled 45° cuts so no end grain is visible?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Mitre joint",
-      "why": "A mitre joint joins two pieces at angled 45° cuts, hiding the end grain for a neater corner than a plain butt joint.",
-      "options": [
-        "Mitre joint",
-        "Butt joint",
-        "Dowel joint",
-        "Lap joint"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Why should timber dust be removed before applying a finish?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Dust causes a rough, bumpy finish",
-      "why": "Leftover sanding dust gets trapped under the finish, leaving a rough, gritty surface instead of a smooth one.",
-      "options": [
-        "Dust causes a rough, bumpy finish",
-        "Dust changes the timber colour",
-        "Dust stops glue from setting",
-        "Dust makes the timber heavier"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 19?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Juuku",
-      "why": "19 is juuku (juu + ku). Juuichi is 11, nijuu is 20, and kyuu alone is just 9 — the 'juu-' prefix shows it's a teen number.",
-      "options": [
-        "Juuku",
-        "Juuichi",
-        "Nijuu",
-        "Kyuu"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 500?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Gohyaku",
-      "why": "Gohyaku (500) is go (5) plus hyaku (100) — larger numbers combine a digit with hyaku, sen, or man.",
-      "options": [
-        "Gohyaku",
-        "Yonhyaku",
-        "Roppyaku",
-        "Sanbyaku"
-      ],
-      "mode": "scrub",
+      "why": "True — the shogun was the real military and political ruler, while the emperor kept only a ceremonial title.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "From a while back: what scale is commonly used to measure the strength of an earthquake?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "richter scale",
-        "richter"
-      ],
-      "why": "The Richter scale measures the magnitude (strength) of an earthquake based on the energy released.",
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T2",
-      "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, what does Romeo call Juliet when he first sees her?",
-      "answer": "A bright torch",
-      "why": "Romeo says Juliet 'teaches the torches to burn bright,' comparing her to a torch that outshines everything else in the room.",
+      "prompt": "Who tries to stop the servants fighting in Act 1 Scene 1?",
+      "answer": "Benvolio",
+      "why": "Benvolio draws his sword to part the brawling servants, showing his peacemaking role, before Tybalt escalates it — Tybalt actually fuels the fight, he doesn't stop it.",
       "options": [
-        "A bright torch",
-        "A fair rose",
-        "A shining moon",
-        "A gentle dove"
+        "Benvolio",
+        "Tybalt",
+        "Mercutio",
+        "Prince Escalus"
       ],
       "fresh": false
     },
     {
-      "id": "T3",
+      "id": "T2",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord creates tension that pulls back to C?",
+      "prompt": "In C–Am–F–G, which chord provides the most tension, wanting to resolve back to C?",
       "answer": "G",
-      "why": "G is the dominant chord — it creates tension that naturally wants to resolve back to the tonic, C.",
+      "why": "G is the 'V' chord, the dominant, which creates tension that naturally pulls the ear back to the tonic C.",
       "options": [
         "G",
         "Am",
@@ -312,25 +74,49 @@
       "fresh": false
     },
     {
-      "id": "T4",
+      "id": "T3",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what quality did students deliberately avoid in their paintings?",
-      "answer": "Photo-realistic detail",
-      "why": "Students avoided photo-realistic detail, instead using loose, expressive brushwork to capture energy and texture.",
+      "prompt": "In 'Paint Like a Beast', what did students mainly use to apply paint, besides brushes?",
+      "answer": "Sponges and rags",
+      "why": "Students used sponges and rags alongside brushes to build loose, textured marks — the activity avoided tools like rulers or fine-tip pens that produce neat, controlled lines.",
       "options": [
-        "Photo-realistic detail",
-        "Bright colour",
-        "Visible brushstrokes",
-        "Large size"
+        "Sponges and rags",
+        "Only fine-tip pens",
+        "Rulers for edges",
+        "Pencils for outlines"
       ],
+      "fresh": false
+    },
+    {
+      "id": "T4",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order these events in Japan's feudal land exchange by what happens, from first to last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Lord offers land",
+        "Vassal accepts duty",
+        "Vassal provides military service",
+        "Lord protects vassal"
+      ],
+      "top": "First",
+      "bot": "Last",
+      "why": "A lord first grants land to a vassal, the vassal accepts the duty owed in return, then provides military service, and the lord protects them in turn — this loyalty exchange held Japan's feudal system together.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups in Japan's feudal system by how much farming work they actually did, from most to least",
+      "prompt": "Order these stages of a continuity-and-change enquiry by scale, from narrowest to widest",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,45 +126,51 @@
       },
       "type": "order",
       "sequence": [
-        "Peasant",
-        "Samurai",
-        "Daimyo",
-        "Shogun"
+        "Single source detail",
+        "One specific event",
+        "A short time period",
+        "The whole era"
       ],
-      "top": "Most farming",
-      "bot": "Least farming",
-      "why": "Peasants did almost all the farming, samurai served as warriors rather than farmers, while daimyo and the shogun ruled and governed rather than working the land.",
+      "top": "Narrowest",
+      "bot": "Widest",
+      "why": "A continuity-and-change enquiry builds outward: starting from one source detail, to an event, to a time period, and finally the whole era, so judgements rest on solid evidence rather than guesswork.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps of writing a cause-and-consequence paragraph, from first to last",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "State the event",
-        "Give the cause",
-        "Explain the link",
-        "State the consequence"
+      "subject": "English",
+      "prompt": "What does the Prologue reveal before the play even begins?",
+      "answer": "Romeo and Juliet will die",
+      "why": "The Prologue tells the audience straight away that these 'star-crossed lovers' will die, creating dramatic irony for everything that follows.",
+      "options": [
+        "Romeo and Juliet will die",
+        "The families will reconcile fully",
+        "Romeo kills Tybalt",
+        "Juliet survives alone"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "A clear cause-and-consequence paragraph names the event, gives its cause, explains how the cause led to the effect, then states the consequence.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "What is the genre of Romeo and Juliet?",
+      "answer": "Tragedy",
+      "why": "Romeo and Juliet is a tragedy — a play that ends in the deaths of its main characters, unlike a comedy (happy ending) or a history (based on real kings and events).",
+      "options": [
+        "Tragedy",
+        "Comedy",
+        "History",
+        "Sonnet"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why starting the same four chords (C-Am-F-G) on Am instead of C can make a song feel sadder, even though the chords used are identical."
+      "prompt": "Explain why playing the same four chords, C-Am-F-G, but starting the sequence on Am instead of C, can make the song feel sadder, even though the chords used are identical."
     }
   ]
 }
