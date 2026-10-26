@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-23",
-  "day": "FRI",
-  "tag": "R13.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-23",
+  "date": "2026-10-26",
+  "day": "MON",
+  "tag": "R14.1",
+  "title": "DailyXP · MON 2026-10-26",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food selection means only what you buy at the shop",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Food selection also includes WHY we choose foods — culture, cost, mood, health, religion — not just the buying step.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Protein's main job is building and repairing muscle",
+      "subject": "Science",
+      "prompt": "If you add 10g of reactants and get 10g of products in a sealed flask, mass was conserved",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,251 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Protein is mainly used for growth and tissue repair, not quick energy — that's carbohydrate's job.",
+      "why": "In a closed system nothing can enter or leave, so the total mass of products always equals the total mass of reactants — mass is conserved.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Only Japanese soldiers were punished for the Nanjing Massacre after the war",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Several Japanese commanders were tried and executed after the war for war crimes, but many perpetrators were never punished at all — punishment was patchy, not thorough.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Religion can influence which foods a person is allowed to eat",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Many religions set rules about food, such as avoiding pork or beef, so religion is a real factor shaping food selection.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Calcium helps build strong teeth",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Calcium is a mineral the body uses to build and maintain strong bones and teeth, so this is true.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "What could happen if a teenager's diet lacks enough iron?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Tiredness from low iron",
+      "why": "Iron helps carry oxygen in the blood, so too little iron can cause tiredness and weakness, a condition called anaemia.",
+      "options": [
+        "Tiredness from low iron",
+        "Weak bones from low calcium",
+        "Weight gain from fat",
+        "Dehydration from low water"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "In making a promo video, what task does filming the raw footage belong to?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Content creation",
+      "why": "Filming footage, writing scripts, and picking music are all content creation — the actual making of the video, not planning or testing it.",
+      "options": [
+        "Content creation",
+        "Market research",
+        "Budget planning",
+        "Audience testing"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In which decade did Oscar Wilde die?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "1900s",
+      "why": "Oscar Wilde died in 1900, early in that decade, not long after his release from prison.",
+      "options": [
+        "1900s",
+        "1880s",
+        "1920s",
+        "1950s"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What is the main purpose of satire, beyond making people laugh?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "To criticise society",
+      "why": "Satire uses humour and exaggeration mainly to criticise and expose flaws in people, society or institutions.",
+      "options": [
+        "To criticise society",
+        "To tell a love story",
+        "To describe nature",
+        "To record history"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 12 cm and a height of 9 cm. What is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "54 cm²",
+      "why": "Area = ½ × base × height = ½ × 12 × 9 = 54 cm². Slow down and halve before multiplying, don't skip that step.",
+      "options": [
+        "54 cm²",
+        "108 cm²",
+        "63 cm²",
+        "21 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "Which formula gives a cylinder's curved surface area alone?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "2πrh",
+      "why": "The curved surface of a cylinder unrolls into a rectangle with area 2πrh; πr² is just one circular end, not the curved part.",
+      "options": [
+        "2πrh",
+        "πr²h",
+        "2πr²",
+        "πr²"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What does the term 'urbanisation' describe?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "People moving to cities",
+      "why": "Urbanisation is the shift of population from rural areas into cities, usually for work, and is distinct from international migration between countries.",
+      "options": [
+        "People moving to cities",
+        "People leaving a country",
+        "People moving to farms",
+        "People crossing a border"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "What did Hitler write during his prison term after the Munich Putsch?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Mein Kampf",
+      "why": "Hitler wrote Mein Kampf while imprisoned after the failed 1923 Munich Putsch, setting out his political ideas.",
+      "options": [
+        "Mein Kampf",
+        "The Communist Manifesto",
+        "Das Kapital",
+        "The Weimar Papers"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 17 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 18 cm and a height of 11 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,38 +274,34 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 85,
+      "answer": 99,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "½ × 17 × 10 = 85 cm². Say the formula first, then multiply, so you never forget to halve.",
+      "why": "Area = ½ × base × height = ½ × 18 × 11 = 99 cm². Halve first, then multiply calmly — don't jump straight to base × height.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "In a sealed container, 35g of reactants react completely. What is the mass of the products?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "35",
-        "35g"
+      "subject": "English",
+      "prompt": "From a while back — what does it mean when the conch shell cracks and shatters?",
+      "answer": "Order has collapsed",
+      "why": "The conch shattering when Piggy dies shows that civilisation and rules have completely broken down among the boys.",
+      "options": [
+        "Order has collapsed",
+        "Ralph has won",
+        "The beast is defeated",
+        "Rescue has arrived"
       ],
-      "why": "Mass is conserved in a closed system — nothing can escape, so products equal 35g, same as the reactants.",
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What do we call the solid that can suddenly appear when two liquids react?",
+      "prompt": "If 15g of reactants react completely in a sealed container, what is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -97,46 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "precipitate"
+        "15g",
+        "15"
       ],
-      "why": "A precipitate is a solid that forms when two solutions react — its sudden appearance is a sign a new substance was made.",
+      "why": "In a closed system no matter escapes, so the total mass of products always equals the total mass of reactants: 15g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "A soft drink ad shows a famous swimmer celebrating with the product. What technique is this?",
-      "answer": "Celebrity endorsement",
-      "why": "Using a famous athlete to promote a product is celebrity endorsement — it makes the drink feel desirable even if it isn't healthy.",
-      "options": [
-        "Celebrity endorsement",
-        "Bulk discount pricing",
-        "Nutrition labelling",
-        "Point-of-sale placement"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T5",
-      "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "On a nutrition label, what unit is the energy value usually shown in?",
-      "answer": "Kilojoules",
-      "why": "Energy on a nutrition label is measured in kilojoules (kJ), not grams — grams measure the mass of nutrients like fat or sugar.",
-      "options": [
-        "Kilojoules",
-        "Grams",
-        "Millilitres",
-        "Milligrams"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "T6",
-      "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when heat is given off during a chemical reaction?",
+      "prompt": "What is it called when a chemical reaction releases heat and feels warm?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -149,29 +334,44 @@
         "exothermic",
         "exothermic reaction"
       ],
-      "why": "A reaction that releases heat and feels warm is called exothermic — temperature change is another clear sign a new substance has formed.",
+      "why": "A reaction that releases heat into its surroundings, making things feel warmer, is called exothermic.",
       "fresh": false
     },
     {
-      "id": "T7",
+      "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "What does the energy value on a nutrition label tell you?",
-      "answer": "Energy per serving",
-      "why": "The energy value shows how much energy (in kilojoules) is in a serving of the food — it's not about weight, ingredient count, or freshness.",
+      "prompt": "Why do cereal ads often use cartoon mascots?",
+      "answer": "To attract young children",
+      "why": "Cartoon mascots are a marketing technique aimed at appealing to kids, making the product seem fun rather than showing it's actually healthy.",
       "options": [
-        "Energy per serving",
-        "Total weight of food",
-        "Number of ingredients",
-        "Use-by freshness"
+        "To attract young children",
+        "To list the ingredients",
+        "To lower the price",
+        "To show nutrition facts"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "T6",
+      "phase": "steady",
+      "subject": "PDHPE",
+      "prompt": "On a nutrition label, what does 'per 100g' let you do?",
+      "answer": "Compare different foods fairly",
+      "why": "The 'per 100g' column gives a standard amount, so you can compare products of different pack sizes fairly, unlike the 'per serving' column which varies between products.",
+      "options": [
+        "Compare different foods fairly",
+        "See the total pack weight",
+        "Find the use-by date",
+        "Check the ingredients order"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Food Technology",
-      "prompt": "Explain why 'food selection' involves more than just what ends up in your shopping trolley — what other things actually shape it?"
+      "subject": "PDHPE",
+      "prompt": "Explain how a cereal ad using a cartoon mascot could influence a child's food choice, even if the cereal is high in sugar."
     }
   ]
 }
