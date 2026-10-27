@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-26",
-  "day": "MON",
-  "tag": "R14.1",
-  "title": "DailyXP · MON 2026-10-26",
+  "date": "2026-10-27",
+  "day": "TUE",
+  "tag": "R14.2",
+  "title": "DailyXP · TUE 2026-10-27",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "If you add 10g of reactants and get 10g of products in a sealed flask, mass was conserved",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In a closed system nothing can enter or leave, so the total mass of products always equals the total mass of reactants — mass is conserved.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Only Japanese soldiers were punished for the Nanjing Massacre after the war",
+      "prompt": "A sealed flask of reacting chemicals weighs more after the reaction",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Several Japanese commanders were tried and executed after the war for war crimes, but many perpetrators were never punished at all — punishment was patchy, not thorough.",
+      "why": "In a closed system no matter can enter or escape, so the total mass before and after stays exactly the same.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Japanese soldiers faced war crimes trials after 1945 for Nanjing",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "After the war, military tribunals charged Japanese commanders with war crimes for the atrocities committed at Nanjing.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Religion can influence which foods a person is allowed to eat",
+      "prompt": "A person's budget can limit which foods they select",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Many religions set rules about food, such as avoiding pork or beef, so religion is a real factor shaping food selection.",
+      "why": "Cost and income affect what people can afford, making budget a real factor in food selection, not just personal taste.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Calcium helps build strong teeth",
+      "prompt": "Food provides materials the body uses to grow new cells",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Calcium is a mineral the body uses to build and maintain strong bones and teeth, so this is true.",
+      "why": "Protein and other nutrients supply building blocks for growth and new tissue, so food does more than just give energy.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "What could happen if a teenager's diet lacks enough iron?",
+      "prompt": "Why does a balanced diet matter for teenagers?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Tiredness from low iron",
-      "why": "Iron helps carry oxygen in the blood, so too little iron can cause tiredness and weakness, a condition called anaemia.",
+      "answer": "Supports growth and repair",
+      "why": "A balanced diet gives teenagers the right mix of nutrients for growth, repair and energy during a key development stage.",
       "options": [
-        "Tiredness from low iron",
-        "Weak bones from low calcium",
-        "Weight gain from fat",
-        "Dehydration from low water"
+        "Supports growth and repair",
+        "Guarantees no illness ever",
+        "Removes need for exercise",
+        "Means eating less food"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "In making a promo video, what task does filming the raw footage belong to?",
+      "prompt": "For a promo video, which task is content creation?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Content creation",
-      "why": "Filming footage, writing scripts, and picking music are all content creation — the actual making of the video, not planning or testing it.",
+      "answer": "Filming the footage",
+      "why": "Content creation covers making the actual video material, like filming footage, scripting and music — not scheduling or analytics.",
       "options": [
-        "Content creation",
-        "Market research",
-        "Budget planning",
-        "Audience testing"
+        "Filming the footage",
+        "Setting the launch date",
+        "Counting total views",
+        "Booking the venue"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In which decade did Oscar Wilde die?",
+      "prompt": "In which London prison term did Oscar Wilde write 'De Profundis'?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "1900s",
-      "why": "Oscar Wilde died in 1900, early in that decade, not long after his release from prison.",
+      "answer": "Reading Gaol",
+      "why": "Wilde was imprisoned at Reading Gaol from 1895-1897, where he wrote the long letter 'De Profundis'.",
       "options": [
-        "1900s",
-        "1880s",
-        "1920s",
-        "1950s"
+        "Reading Gaol",
+        "Newgate Prison",
+        "Pentonville Prison",
+        "The Tower of London"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What is the main purpose of satire, beyond making people laugh?",
+      "prompt": "Which famous satirical novel did George Orwell write about farm animals?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To criticise society",
-      "why": "Satire uses humour and exaggeration mainly to criticise and expose flaws in people, society or institutions.",
+      "answer": "Animal Farm",
+      "why": "George Orwell's Animal Farm uses farm animals to satirise the corruption of power in the Soviet Union.",
       "options": [
-        "To criticise society",
-        "To tell a love story",
-        "To describe nature",
-        "To record history"
+        "Animal Farm",
+        "Brave New World",
+        "Gulliver's Travels",
+        "Lord of the Flies"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 9 cm. What is its area?",
+      "prompt": "A triangle has a base of 12 cm and a height of 8 cm. Slow down and work it through: what is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "54 cm²",
-      "why": "Area = ½ × base × height = ½ × 12 × 9 = 54 cm². Slow down and halve before multiplying, don't skip that step.",
+      "answer": "48 cm²",
+      "why": "Area = ½ × base × height = ½ × 12 × 8 = 48 cm². Halving is the step rushing skips.",
       "options": [
-        "54 cm²",
-        "108 cm²",
-        "63 cm²",
-        "21 cm²"
+        "48 cm²",
+        "96 cm²",
+        "40 cm²",
+        "60 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Which formula gives a cylinder's curved surface area alone?",
+      "prompt": "Which part of a cylinder's formula gives one circular end's area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "2πrh",
-      "why": "The curved surface of a cylinder unrolls into a rectangle with area 2πrh; πr² is just one circular end, not the curved part.",
+      "answer": "πr²",
+      "why": "A single circular end has area πr²; doubling it gives both ends, 2πrh is the curved surface, and πr²h is volume.",
       "options": [
+        "πr²",
         "2πrh",
         "πr²h",
-        "2πr²",
-        "πr²"
+        "2πr²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What does the term 'urbanisation' describe?",
+      "prompt": "What is a push factor in migration?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "People moving to cities",
-      "why": "Urbanisation is the shift of population from rural areas into cities, usually for work, and is distinct from international migration between countries.",
+      "answer": "Drought ruins a farm",
+      "why": "Push factors drive people away from a place, like drought or war; pull factors attract them, like jobs or schools.",
       "options": [
-        "People moving to cities",
-        "People leaving a country",
-        "People moving to farms",
-        "People crossing a border"
+        "Drought ruins a farm",
+        "Better hospitals nearby",
+        "Higher city wages",
+        "Good schools available"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What did Hitler write during his prison term after the Munich Putsch?",
+      "prompt": "What did Hitler write while in prison after the Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -251,12 +251,12 @@
         "cta": "Start scrubbing →"
       },
       "answer": "Mein Kampf",
-      "why": "Hitler wrote Mein Kampf while imprisoned after the failed 1923 Munich Putsch, setting out his political ideas.",
+      "why": "Hitler wrote Mein Kampf during his imprisonment after the failed 1923 Putsch, setting out his political ideas.",
       "options": [
         "Mein Kampf",
         "The Communist Manifesto",
         "Das Kapital",
-        "The Weimar Papers"
+        "The Prince"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 18 cm and a height of 11 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 15 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 99,
+      "answer": 45,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 18 × 11 = 99 cm². Halve first, then multiply calmly — don't jump straight to base × height.",
+      "why": "Area = ½ × base × height = ½ × 15 × 6 = 45 cm². Say the formula first, then multiply, then halve.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does it mean when the conch shell cracks and shatters?",
-      "answer": "Order has collapsed",
-      "why": "The conch shattering when Piggy dies shows that civilisation and rules have completely broken down among the boys.",
+      "prompt": "From a while back — what does the conch shell mainly represent in Lord of the Flies?",
+      "answer": "Order and rules",
+      "why": "The conch gives the boys a system for speaking and voting, symbolising civilised order — it loses power as the group turns savage.",
       "options": [
-        "Order has collapsed",
-        "Ralph has won",
-        "The beast is defeated",
-        "Rescue has arrived"
+        "Order and rules",
+        "Fear and savagery",
+        "Survival instinct",
+        "Natural beauty"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "If 15g of reactants react completely in a sealed container, what is the mass of the products?",
+      "prompt": "A reaction happens in an open test tube and releases a gas. Why might the measured mass appear to drop, even though mass is truly conserved?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "15g",
-        "15"
+        "gas escapes into the air",
+        "gas escapes",
+        "the gas leaves the container"
       ],
-      "why": "In a closed system no matter escapes, so the total mass of products always equals the total mass of reactants: 15g.",
+      "why": "Mass is always conserved, but in an open system the gas product can escape into the air, so the mass left behind in the container appears smaller.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a chemical reaction releases heat and feels warm?",
+      "prompt": "What is it called when a solid suddenly appears as two liquids react together?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -331,24 +332,24 @@
       },
       "type": "text",
       "accept": [
-        "exothermic",
-        "exothermic reaction"
+        "precipitate",
+        "precipitation"
       ],
-      "why": "A reaction that releases heat into its surroundings, making things feel warmer, is called exothermic.",
+      "why": "A precipitate is a solid that forms unexpectedly when two liquids react, showing a new substance has been made.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do cereal ads often use cartoon mascots?",
-      "answer": "To attract young children",
-      "why": "Cartoon mascots are a marketing technique aimed at appealing to kids, making the product seem fun rather than showing it's actually healthy.",
+      "prompt": "Why do food ads often use bright, bold packaging colours?",
+      "answer": "Grabs attention fast",
+      "why": "Bright, bold colours are designed to catch a shopper's eye quickly on a crowded shelf and stand out from competitors.",
       "options": [
-        "To attract young children",
-        "To list the ingredients",
-        "To lower the price",
-        "To show nutrition facts"
+        "Grabs attention fast",
+        "Keeps costs low",
+        "Meets safety rules",
+        "Extends shelf life"
       ],
       "fresh": false
     },
@@ -356,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does 'per 100g' let you do?",
-      "answer": "Compare different foods fairly",
-      "why": "The 'per 100g' column gives a standard amount, so you can compare products of different pack sizes fairly, unlike the 'per serving' column which varies between products.",
+      "prompt": "On a nutrition label, what does the '% daily intake' column mainly show?",
+      "answer": "Share of daily need",
+      "why": "The '% daily intake' shows how much of a nutrient's recommended daily amount one serving provides.",
       "options": [
-        "Compare different foods fairly",
-        "See the total pack weight",
-        "Find the use-by date",
-        "Check the ingredients order"
+        "Share of daily need",
+        "Amount per serving",
+        "Total package weight",
+        "List of ingredients"
       ],
       "fresh": false
     },
@@ -371,7 +372,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "Explain how a cereal ad using a cartoon mascot could influence a child's food choice, even if the cereal is high in sugar."
+      "prompt": "Explain how a celebrity endorsement in an ad could influence a teenager's food choice, even when the food isn't actually healthy."
     }
   ]
 }
