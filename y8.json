@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-10-22",
-  "day": "THU",
-  "tag": "H13.4",
-  "title": "DailyXP · THU 2026-10-22",
+  "date": "2026-10-28",
+  "day": "WED",
+  "tag": "H14.3",
+  "title": "DailyXP · WED 2026-10-28",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo and Juliet die at the very end of the play",
+      "prompt": "The prologue tells us how the play will end",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The prologue already tells the audience the 'star-crossed lovers' will die, so their deaths at the end are no surprise.",
+      "why": "The Chorus's opening sonnet reveals Romeo and Juliet will die, so the audience watches knowing the tragic ending in advance.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun outranked the emperor in real power",
+      "prompt": "The shogun had more real power than the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The shogun held the actual military and political control, while the emperor remained a figurehead in name only.",
+      "why": "The emperor was a figurehead; the shogun actually controlled the military and government, so real power sat with the shogun.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'gohyaku' means 50",
+      "prompt": "'juuni' means 12",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "'Gohyaku' (五百) means 500, not 50 — go (5) combines with hyaku (hundred) to make five hundred.",
+      "answer": "True",
+      "why": "'Juuni' (十二) breaks down as juu (10) + ni (2) = 12.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'sanzen' means 300",
+      "prompt": "'yonhyaku' means 400",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "'Sanzen' means 3,000 — 'sen' marks thousands, while 'hyaku' marks hundreds, so 300 would be 'sanbyaku'.",
+      "answer": "True",
+      "why": "'Yonhyaku' (四百) breaks down as yon (4) + hyaku (100) = 400.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What word describes the immediate event that sets off a larger historical event?",
+      "prompt": "What do historians call an event that directly results from an earlier one?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Trigger cause",
-      "why": "A trigger cause is the short-term spark, built on deeper long-term causes that made the event possible.",
+      "answer": "A consequence",
+      "why": "A consequence is what follows and results from a cause; it comes after, not before, the event that produced it.",
       "options": [
-        "Trigger cause",
-        "Long-term cause",
-        "Consequence",
-        "Continuity"
+        "A consequence",
+        "A trigger",
+        "A continuity",
+        "A primary source"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who tries to break up the fight before Prince Escalus arrives?",
+      "prompt": "In Act 1 Scene 5, who does Tybalt recognise by his voice at the party?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,11 +115,11 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Benvolio",
-      "why": "Benvolio draws his sword only to try to stop the fighting, but Tybalt mistakes his intentions and attacks him instead.",
+      "answer": "Romeo",
+      "why": "Tybalt recognises Romeo's voice among the masked guests and is enraged that a Montague has crashed the Capulet feast.",
       "options": [
+        "Romeo",
         "Benvolio",
-        "Tybalt",
         "Mercutio",
         "Paris"
       ],
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the root note C?",
+      "prompt": "In C–Am–F–G, which chord is built on the root note of the key?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -138,7 +138,7 @@
         "cta": "Keep going →"
       },
       "answer": "C",
-      "why": "C is the 'I' chord, built directly on the key's root note, which is why the progression starts and feels centred there.",
+      "why": "C is the tonic chord, built directly on the root note of the key of C major, giving the progression its home base.",
       "options": [
         "C",
         "Am",
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "In a food chain, what do we call an animal that eats only plants?",
+      "prompt": "In an ecosystem, what do we call an organism that makes its own food from sunlight?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Herbivore",
-      "why": "A herbivore eats only plants, unlike a carnivore (meat only) or omnivore (both), so it occupies the first consumer level.",
+      "answer": "A producer",
+      "why": "Producers, like plants, make their own food through photosynthesis, forming the base of every food chain.",
       "options": [
-        "Herbivore",
-        "Carnivore",
-        "Omnivore",
-        "Predator"
+        "A producer",
+        "A consumer",
+        "A predator",
+        "A decomposer"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what tool creates rough, fur-like marks?",
+      "prompt": "In Paint Like a Beast, what do students mix before painting an animal's fur?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "A dry stiff brush",
-      "why": "A dry, stiff brush drags paint unevenly across the surface, creating broken, textured strokes that mimic real fur.",
+      "answer": "Colour shades",
+      "why": "Students mix and test colour shades first so their fur painting has realistic tone and depth.",
       "options": [
-        "A dry stiff brush",
-        "A fine liner pen",
-        "A soft round brush",
-        "A sponge roller"
+        "Colour shades",
+        "Plaster filler",
+        "Varnish layers",
+        "Clay textures"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 3x + 2, what is y when x = 4?",
+      "prompt": "For y = 2x + 3, what is y when x = 3?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "14",
-      "why": "Substitute x = 4: 3 × 4 = 12, then add 2, giving y = 14.",
+      "answer": "9",
+      "why": "Substitute x = 3: 2(3) + 3 = 6 + 3 = 9.",
       "options": [
-        "14",
-        "12",
         "9",
-        "18"
+        "6",
+        "8",
+        "11"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What was the name of Shakespeare's wife?",
+      "prompt": "In which London theatre did Shakespeare's company mainly perform?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Anne Hathaway",
-      "why": "Shakespeare married Anne Hathaway in 1582; Mary Arden was his mother and Susanna Hall was his daughter, not his wife.",
+      "answer": "The Globe",
+      "why": "Shakespeare's plays, including Romeo and Juliet, were performed at The Globe Theatre in London.",
       "options": [
-        "Anne Hathaway",
-        "Mary Arden",
-        "Susanna Hall",
-        "Emilia Lanier"
+        "The Globe",
+        "The Old Vic",
+        "Sadler's Wells",
+        "The Palladium"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Which song section usually plays the same short catchy phrase, often repeated?",
+      "prompt": "In song structure, which section usually has the fullest layering?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,12 +249,12 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Hook",
-      "why": "The hook is a short, catchy, repeated phrase designed to stick in the listener's memory, unlike the contrasting bridge or the framing intro and outro.",
+      "answer": "Chorus",
+      "why": "The chorus is usually the fullest-layered section, carrying the main hook with more instruments than the verse or intro.",
       "options": [
-        "Hook",
-        "Bridge",
+        "Chorus",
         "Intro",
+        "Bridge",
         "Outro"
       ],
       "mode": "scrub",
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if cup size affects how fast ice melts, keeping room temperature the same. What type of variable is 'room temperature'?",
+      "prompt": "A student tests if pot size affects bean plant height, keeping water amount the same. What type of variable is water amount?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,14 +277,14 @@
         "controlled variable",
         "controlled"
       ],
-      "why": "Room temperature is deliberately kept the same for every test, making it the controlled variable, not the one being measured or changed.",
+      "why": "Water amount is kept the same on purpose so it can't affect the result — that makes it a controlled variable, not the one being measured or changed.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 2x + 9 = 23",
+      "prompt": "Solve for x: 2x - 7 = 11",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 7,
+      "answer": 9,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 9 from both sides to get 2x = 14, then divide by 2 to find x = 7.",
+      "why": "Add 7 to both sides to get 2x = 18, then divide by 2 to get x = 9.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks by how much military power they held in the shogunate system",
+      "prompt": "Order these groups by how much land they owned in the shogunate system",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -315,28 +315,28 @@
       },
       "type": "order",
       "sequence": [
-        "Peasants",
-        "Samurai",
+        "Shogun",
         "Daimyo",
-        "Shogun"
+        "Samurai",
+        "Peasants"
       ],
-      "top": "Least power",
-      "bot": "Most power",
-      "why": "Peasants held no military power, samurai served as warriors under lords, daimyo commanded regional armies, and the shogun held supreme military authority over all of Japan.",
+      "top": "Most land owned",
+      "bot": "Least land owned",
+      "why": "The shogun controlled the most land overall, granting portions to daimyo, who relied on samurai for protection, while peasants owned none and worked the land for others.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "What should a spice rack's design brief describe first, before choosing materials?",
+      "prompt": "What should a design brief describe before choosing a material like radiata pine?",
       "answer": "The storage need",
-      "why": "A good design brief starts with the need the product solves, so material choices like radiata pine come as a response to that need, not before it.",
+      "why": "A good design brief identifies the problem or need first, such as messy spice storage, before deciding which material will solve it.",
       "options": [
         "The storage need",
-        "The timber species",
-        "The glue type",
-        "The sandpaper grit"
+        "The sandpaper grit",
+        "The paint colour",
+        "The delivery date"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "Which joint does the spice rack mainly use to hold pieces together?",
-      "answer": "Butt joint",
-      "why": "The spice rack uses simple butt joints, where two flat edges are glued together; dovetail, mortise, and finger joints are stronger interlocking joints not used in this build.",
+      "prompt": "Why should timber be sanded before applying a finish?",
+      "answer": "To smooth the surface",
+      "why": "Sanding removes roughness and splinters so the finish goes on evenly over a smooth surface.",
       "options": [
-        "Butt joint",
-        "Dovetail joint",
-        "Mortise joint",
-        "Finger joint"
+        "To smooth the surface",
+        "To add colour",
+        "To seal it waterproof",
+        "To strengthen the joints"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '1,000' in Japanese?",
-      "answer": "Sen",
-      "why": "'Sen' (千) means 1,000, the base word used for counting in the thousands, unlike hyaku (hundred) or juu (ten).",
+      "prompt": "How do you say '12' yen items cost in Japanese counting — what is 'juuni'?",
+      "answer": "12",
+      "why": "Juuni (十二) breaks down as juu (10) + ni (2) = 12.",
       "options": [
-        "Sen",
-        "Hyaku",
-        "Nisen",
-        "Juu"
+        "12",
+        "2",
+        "20",
+        "21"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, and what could go wrong if a designer picked the material first."
+      "prompt": "Explain why a spice rack's design brief should describe the storage need before picking radiata pine as the material, using your own example of what could go wrong if the order were reversed."
     }
   ]
 }
