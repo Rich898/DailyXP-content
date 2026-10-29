@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-27",
-  "day": "TUE",
-  "tag": "R14.2",
-  "title": "DailyXP · TUE 2026-10-27",
+  "date": "2026-10-29",
+  "day": "THU",
+  "tag": "R14.4",
+  "title": "DailyXP · THU 2026-10-29",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A sealed flask of reacting chemicals weighs more after the reaction",
+      "prompt": "Total mass stays the same in a sealed, closed reaction",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "In a closed system no matter can enter or escape, so the total mass before and after stays exactly the same.",
+      "answer": "True",
+      "why": "In a closed system no matter can escape or enter, so mass before equals mass after — this is the Law of Conservation of Mass.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Japanese soldiers faced war crimes trials after 1945 for Nanjing",
+      "prompt": "Japanese soldiers were put on trial for war crimes after 1945",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "After the war, military tribunals charged Japanese commanders with war crimes for the atrocities committed at Nanjing.",
+      "why": "After Japan's surrender, some Japanese commanders and soldiers were tried and convicted of war crimes for atrocities committed at Nanjing, including by the Tokyo tribunal.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "A person's budget can limit which foods they select",
+      "prompt": "A person's religion can influence which foods they eat",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Cost and income affect what people can afford, making budget a real factor in food selection, not just personal taste.",
+      "why": "Religious beliefs often set rules about which foods are allowed or forbidden, making religion a real factor in food selection.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food provides materials the body uses to grow new cells",
+      "prompt": "Food provides the materials the body uses to grow",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Protein and other nutrients supply building blocks for growth and new tissue, so food does more than just give energy.",
+      "why": "Food supplies nutrients like protein that the body uses as building blocks for growth and repair, not just energy.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Why does a balanced diet matter for teenagers?",
+      "prompt": "Why does a teenager's body need a balanced diet with foods from every group?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Supports growth and repair",
-      "why": "A balanced diet gives teenagers the right mix of nutrients for growth, repair and energy during a key development stage.",
+      "answer": "Each food group gives different nutrients the body needs",
+      "why": "No single food group supplies everything the body needs — carbs, protein, fats, vitamins, minerals and fibre each play a different role, so a balanced diet needs variety, not just one group eaten more.",
       "options": [
-        "Supports growth and repair",
-        "Guarantees no illness ever",
-        "Removes need for exercise",
-        "Means eating less food"
+        "Each food group gives different nutrients the body needs",
+        "Carbohydrates alone give enough energy for the day",
+        "Protein alone covers all growth and repair needs",
+        "Fruit alone supplies every vitamin the body needs"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "For a promo video, which task is content creation?",
+      "prompt": "Filming the raw footage for a promo video is part of which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Filming the footage",
-      "why": "Content creation covers making the actual video material, like filming footage, scripting and music — not scheduling or analytics.",
+      "answer": "Content creation",
+      "why": "Filming footage, writing scripts, and choosing music are all part of creating the actual video content.",
       "options": [
-        "Filming the footage",
-        "Setting the launch date",
-        "Counting total views",
-        "Booking the venue"
+        "Content creation",
+        "Market research",
+        "Budget planning",
+        "Audience testing"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In which London prison term did Oscar Wilde write 'De Profundis'?",
+      "prompt": "What was the title of Oscar Wilde's only published novel?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Reading Gaol",
-      "why": "Wilde was imprisoned at Reading Gaol from 1895-1897, where he wrote the long letter 'De Profundis'.",
+      "answer": "The Picture of Dorian Gray",
+      "why": "Wilde's only novel was The Picture of Dorian Gray, published in 1890; the other titles echo his real works but are not the novel's actual name.",
       "options": [
-        "Reading Gaol",
-        "Newgate Prison",
-        "Pentonville Prison",
-        "The Tower of London"
+        "The Picture of Dorian Gray",
+        "The Importance of Living",
+        "A House of Pomegranates",
+        "The Happy Prince Tale"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which famous satirical novel did George Orwell write about farm animals?",
+      "prompt": "Which term describes a character in satire who stands for a real public figure?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Animal Farm",
-      "why": "George Orwell's Animal Farm uses farm animals to satirise the corruption of power in the Soviet Union.",
+      "answer": "Caricature",
+      "why": "A caricature exaggerates a real person's traits to mock or criticise them, a technique satire often relies on.",
       "options": [
-        "Animal Farm",
-        "Brave New World",
-        "Gulliver's Travels",
-        "Lord of the Flies"
+        "Caricature",
+        "Narrator",
+        "Protagonist",
+        "Antihero"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 8 cm. Slow down and work it through: what is its area?",
+      "prompt": "A triangle has a base of 10 cm and a height of 4 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "48 cm²",
-      "why": "Area = ½ × base × height = ½ × 12 × 8 = 48 cm². Halving is the step rushing skips.",
+      "answer": "20 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 10 × 4 = 20 cm². Slow down and halve before multiplying.",
       "options": [
-        "48 cm²",
-        "96 cm²",
+        "20 cm²",
         "40 cm²",
-        "60 cm²"
+        "14 cm²",
+        "24 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "Which part of a cylinder's formula gives one circular end's area?",
+      "prompt": "What two measurements do you need to find a cylinder's curved surface area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "πr²",
-      "why": "A single circular end has area πr²; doubling it gives both ends, 2πrh is the curved surface, and πr²h is volume.",
+      "answer": "Radius and height",
+      "why": "The curved surface area formula 2πrh only needs the radius and height; diameter and volume are not used directly in that formula.",
       "options": [
-        "πr²",
-        "2πrh",
-        "πr²h",
-        "2πr²"
+        "Radius and height",
+        "Radius and diameter",
+        "Height and volume",
+        "Diameter and volume"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is a push factor in migration?",
+      "prompt": "What is the term for Australia's post-1970s policy accepting migrants from many countries?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Drought ruins a farm",
-      "why": "Push factors drive people away from a place, like drought or war; pull factors attract them, like jobs or schools.",
+      "answer": "Multiculturalism",
+      "why": "From the 1970s, Australia moved to multiculturalism, replacing the earlier White Australia Policy that favoured European migrants.",
       "options": [
-        "Drought ruins a farm",
-        "Better hospitals nearby",
-        "Higher city wages",
-        "Good schools available"
+        "Multiculturalism",
+        "White Australia Policy",
+        "Populate or Perish",
+        "Assisted Passage Scheme"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What did Hitler write while in prison after the Munich Putsch?",
+      "prompt": "What sentence did Hitler receive for leading the Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Mein Kampf",
-      "why": "Hitler wrote Mein Kampf during his imprisonment after the failed 1923 Putsch, setting out his political ideas.",
+      "answer": "Five years",
+      "why": "Hitler was sentenced to five years for treason after the failed 1923 Munich Putsch, but he served less than a year thanks to a lenient court.",
       "options": [
-        "Mein Kampf",
-        "The Communist Manifesto",
-        "Das Kapital",
-        "The Prince"
+        "Five years",
+        "Life imprisonment",
+        "Ten years",
+        "Two years"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 15 cm and a height of 6 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 11 cm and a height of 8 cm. Work through it calmly: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 45,
+      "answer": 44,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 15 × 6 = 45 cm². Say the formula first, then multiply, then halve.",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 11 × 8 = 44 cm². Say the formula first, then halve before multiplying.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does the conch shell mainly represent in Lord of the Flies?",
-      "answer": "Order and rules",
-      "why": "The conch gives the boys a system for speaking and voting, symbolising civilised order — it loses power as the group turns savage.",
+      "prompt": "From a while back — what does Jack's growing obsession with hunting mainly represent?",
+      "answer": "Rising savagery",
+      "why": "Jack's obsession with hunting tracks his descent from civilised boy to savage leader, showing the pull of primal instinct over order.",
       "options": [
-        "Order and rules",
-        "Fear and savagery",
-        "Survival instinct",
-        "Natural beauty"
+        "Rising savagery",
+        "Love of nature",
+        "Fear of Ralph",
+        "Desire for food"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A reaction happens in an open test tube and releases a gas. Why might the measured mass appear to drop, even though mass is truly conserved?",
+      "prompt": "A reaction happens in an open dish and releases a gas. Why might the measured mass seem to drop?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,18 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "gas escapes into the air",
         "gas escapes",
+        "gas escapes into the air",
         "the gas leaves the container"
       ],
-      "why": "Mass is always conserved, but in an open system the gas product can escape into the air, so the mass left behind in the container appears smaller.",
+      "why": "In an open system, gas produced by the reaction escapes into the air, so the measured mass appears to drop even though no mass was truly lost overall.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a solid suddenly appears as two liquids react together?",
+      "prompt": "What do we call a solid that suddenly forms when two liquids react together?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,24 +332,23 @@
       },
       "type": "text",
       "accept": [
-        "precipitate",
-        "precipitation"
+        "precipitate"
       ],
-      "why": "A precipitate is a solid that forms unexpectedly when two liquids react, showing a new substance has been made.",
+      "why": "A precipitate is the solid that forms unexpectedly when two liquids react, signalling a chemical change.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do food ads often use bright, bold packaging colours?",
-      "answer": "Grabs attention fast",
-      "why": "Bright, bold colours are designed to catch a shopper's eye quickly on a crowded shelf and stand out from competitors.",
+      "prompt": "Why might a cereal ad with a cartoon mascot affect a child's food choice?",
+      "answer": "Makes sugary food appealing",
+      "why": "Cartoon mascots make sugary cereals seem fun and friendly, influencing choice regardless of actual health value.",
       "options": [
-        "Grabs attention fast",
-        "Keeps costs low",
-        "Meets safety rules",
-        "Extends shelf life"
+        "Makes sugary food appealing",
+        "Lists nutrition facts clearly",
+        "Shows the ingredients list",
+        "Compares different prices"
       ],
       "fresh": false
     },
@@ -357,14 +356,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the '% daily intake' column mainly show?",
-      "answer": "Share of daily need",
-      "why": "The '% daily intake' shows how much of a nutrient's recommended daily amount one serving provides.",
+      "prompt": "On a nutrition label, which nutrient is mainly needed to build and repair muscle?",
+      "answer": "Protein",
+      "why": "Protein supplies the amino acids the body uses to build and repair muscle tissue, unlike carbohydrate and fat, which mainly supply energy, or fibre, which aids digestion.",
       "options": [
-        "Share of daily need",
-        "Amount per serving",
-        "Total package weight",
-        "List of ingredients"
+        "Protein",
+        "Carbohydrate",
+        "Fat",
+        "Fibre"
       ],
       "fresh": false
     },
@@ -372,7 +371,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "Explain how a celebrity endorsement in an ad could influence a teenager's food choice, even when the food isn't actually healthy."
+      "prompt": "Explain how an ad showing a popular athlete drinking a sugary sports drink could influence a teenager's food choice, even though the drink isn't actually healthy."
     }
   ]
 }
