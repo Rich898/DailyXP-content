@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-29",
-  "day": "THU",
-  "tag": "R14.4",
-  "title": "DailyXP · THU 2026-10-29",
+  "date": "2026-10-30",
+  "day": "FRI",
+  "tag": "R14.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-10-30",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Total mass stays the same in a sealed, closed reaction",
+      "subject": "Food Technology",
+      "prompt": "Religion can influence someone's food choices",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In a closed system no matter can escape or enter, so mass before equals mass after — this is the Law of Conservation of Mass.",
+      "why": "True — religious beliefs can restrict or encourage certain foods, such as avoiding pork or beef, so religion is a real factor in food selection.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Japanese soldiers were put on trial for war crimes after 1945",
+      "subject": "Food Technology",
+      "prompt": "Vitamins and minerals are only needed in tiny amounts but still keep the body working properly",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,232 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "After Japan's surrender, some Japanese commanders and soldiers were tried and convicted of war crimes for atrocities committed at Nanjing, including by the Tokyo tribunal.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "A person's religion can influence which foods they eat",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Religious beliefs often set rules about which foods are allowed or forbidden, making religion a real factor in food selection.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food provides the materials the body uses to grow",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Food supplies nutrients like protein that the body uses as building blocks for growth and repair, not just energy.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Why does a teenager's body need a balanced diet with foods from every group?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Each food group gives different nutrients the body needs",
-      "why": "No single food group supplies everything the body needs — carbs, protein, fats, vitamins, minerals and fibre each play a different role, so a balanced diet needs variety, not just one group eaten more.",
-      "options": [
-        "Each food group gives different nutrients the body needs",
-        "Carbohydrates alone give enough energy for the day",
-        "Protein alone covers all growth and repair needs",
-        "Fruit alone supplies every vitamin the body needs"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Filming the raw footage for a promo video is part of which task?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Content creation",
-      "why": "Filming footage, writing scripts, and choosing music are all part of creating the actual video content.",
-      "options": [
-        "Content creation",
-        "Market research",
-        "Budget planning",
-        "Audience testing"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What was the title of Oscar Wilde's only published novel?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "The Picture of Dorian Gray",
-      "why": "Wilde's only novel was The Picture of Dorian Gray, published in 1890; the other titles echo his real works but are not the novel's actual name.",
-      "options": [
-        "The Picture of Dorian Gray",
-        "The Importance of Living",
-        "A House of Pomegranates",
-        "The Happy Prince Tale"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which term describes a character in satire who stands for a real public figure?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Caricature",
-      "why": "A caricature exaggerates a real person's traits to mock or criticise them, a technique satire often relies on.",
-      "options": [
-        "Caricature",
-        "Narrator",
-        "Protagonist",
-        "Antihero"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 10 cm and a height of 4 cm. What is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "20 cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 10 × 4 = 20 cm². Slow down and halve before multiplying.",
-      "options": [
-        "20 cm²",
-        "40 cm²",
-        "14 cm²",
-        "24 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "What two measurements do you need to find a cylinder's curved surface area?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Radius and height",
-      "why": "The curved surface area formula 2πrh only needs the radius and height; diameter and volume are not used directly in that formula.",
-      "options": [
-        "Radius and height",
-        "Radius and diameter",
-        "Height and volume",
-        "Diameter and volume"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What is the term for Australia's post-1970s policy accepting migrants from many countries?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Multiculturalism",
-      "why": "From the 1970s, Australia moved to multiculturalism, replacing the earlier White Australia Policy that favoured European migrants.",
-      "options": [
-        "Multiculturalism",
-        "White Australia Policy",
-        "Populate or Perish",
-        "Assisted Passage Scheme"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What sentence did Hitler receive for leading the Munich Putsch?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Five years",
-      "why": "Hitler was sentenced to five years for treason after the failed 1923 Munich Putsch, but he served less than a year thanks to a lenient court.",
-      "options": [
-        "Five years",
-        "Life imprisonment",
-        "Ten years",
-        "Two years"
-      ],
-      "mode": "scrub",
+      "why": "True — vitamins and minerals are needed in small amounts, but they're still essential for processes like vision, bone strength and healing.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 11 cm and a height of 8 cm. Work through it calmly: what is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 7 cm. Work through it calmly — what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,38 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 44,
+      "answer": 49,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 11 × 8 = 44 cm². Say the formula first, then halve before multiplying.",
+      "why": "Area = ½ × base × height = ½ × 14 × 7 = 49 cm². Say the ½ out loud before multiplying so you don't skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — what does Jack's growing obsession with hunting mainly represent?",
-      "answer": "Rising savagery",
-      "why": "Jack's obsession with hunting tracks his descent from civilised boy to savage leader, showing the pull of primal instinct over order.",
-      "options": [
-        "Rising savagery",
-        "Love of nature",
-        "Fear of Ralph",
-        "Desire for food"
+      "subject": "Science",
+      "prompt": "In a sealed container, 32g of reactants react completely. What is the mass of the products?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "32g",
+        "32"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "32g — in a closed system no matter enters or leaves, so the total mass of products equals the total mass of reactants.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A reaction happens in an open dish and releases a gas. Why might the measured mass seem to drop?",
+      "prompt": "What do we call the gas bubbles you often see forming during a chemical reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,67 +97,83 @@
       },
       "type": "text",
       "accept": [
-        "gas escapes",
-        "gas escapes into the air",
-        "the gas leaves the container"
+        "gas",
+        "a gas"
       ],
-      "why": "In an open system, gas produced by the reaction escapes into the air, so the measured mass appears to drop even though no mass was truly lost overall.",
+      "why": "Bubbling shows a gas has been produced — one of the clear signs that a chemical reaction has taken place.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What do we call a solid that suddenly forms when two liquids react together?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "precipitate"
+      "subject": "PDHPE",
+      "prompt": "A cereal box uses a cartoon mascot and bright colours to appeal to kids. What technique is this?",
+      "answer": "Cartoon mascot appeal",
+      "why": "This is cartoon mascot appeal — using fun characters and bright colours to make a product attractive to children, regardless of how healthy it actually is. The misconception is thinking ads rely on facts rather than emotional appeal to kids.",
+      "options": [
+        "Cartoon mascot appeal",
+        "Price discount",
+        "Nutritional labelling",
+        "Taste testing"
       ],
-      "why": "A precipitate is the solid that forms unexpectedly when two liquids react, signalling a chemical change.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why might a cereal ad with a cartoon mascot affect a child's food choice?",
-      "answer": "Makes sugary food appealing",
-      "why": "Cartoon mascots make sugary cereals seem fun and friendly, influencing choice regardless of actual health value.",
+      "prompt": "On a nutrition label, what does the 'per 100g' column let you do?",
+      "answer": "Compare different brands fairly",
+      "why": "The 'per 100g' column uses a fixed amount so you can compare products fairly, since 'per serving' sizes differ between brands and can't be compared directly.",
       "options": [
-        "Makes sugary food appealing",
-        "Lists nutrition facts clearly",
-        "Shows the ingredients list",
-        "Compares different prices"
+        "Compare different brands fairly",
+        "See the total pack energy",
+        "See one serving's weight",
+        "Work out the product's price"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "When two substances react and form a new substance, what has actually happened to them chemically?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "chemical change",
+        "a chemical reaction occurred",
+        "new bonds formed"
+      ],
+      "why": "A chemical change has occurred — the atoms have rearranged and formed new bonds, creating a substance with different properties, not just a mixture.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is mainly needed to build and repair muscle?",
-      "answer": "Protein",
-      "why": "Protein supplies the amino acids the body uses to build and repair muscle tissue, unlike carbohydrate and fat, which mainly supply energy, or fibre, which aids digestion.",
+      "prompt": "Why should a healthy meal include vegetables?",
+      "answer": "They provide vitamins and fibre",
+      "why": "Vegetables are a key source of vitamins, minerals and fibre, not protein or quick-energy carbs — a common mix-up is crediting veggies with the roles other food groups play.",
       "options": [
-        "Protein",
-        "Carbohydrate",
-        "Fat",
-        "Fibre"
+        "They provide vitamins and fibre",
+        "They provide mostly protein",
+        "They provide mostly quick energy",
+        "They replace the need for water"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "Explain how an ad showing a popular athlete drinking a sugary sports drink could influence a teenager's food choice, even though the drink isn't actually healthy."
+      "subject": "Food Technology",
+      "prompt": "Explain why 'food selection' involves more than just what ends up in your shopping trolley — what other things actually shape it, and why does ignoring those make the definition too narrow?"
     }
   ]
 }
