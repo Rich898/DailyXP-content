@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-10-30",
-  "day": "FRI",
-  "tag": "R14.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-30",
+  "date": "2026-11-02",
+  "day": "MON",
+  "tag": "R15.1",
+  "title": "DailyXP · MON 2026-11-02",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Religion can influence someone's food choices",
+      "subject": "Science",
+      "prompt": "A reaction happens in a sealed glass flask — the total mass stays the same",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,52 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — religious beliefs can restrict or encourage certain foods, such as avoiding pork or beef, so religion is a real factor in food selection.",
+      "why": "In a closed system, no matter can enter or leave, so mass before and after a reaction stays equal — this is conservation of mass.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
+      "subject": "History",
+      "prompt": "The Nanjing Massacre happened purely by random chance, with no military goal behind it",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Japan's army wanted a swift, total collapse of Chinese resistance, and the massacre served that military strategy — it wasn't random.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Vitamins and minerals are only needed in tiny amounts but still keep the body working properly",
+      "prompt": "Food selection means only choosing what to buy at the shop",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Food selection also covers why we choose foods — things like cost, culture, and health, not just the act of buying.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Iron carries oxygen around the body",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +78,194 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — vitamins and minerals are needed in small amounts, but they're still essential for processes like vision, bone strength and healing.",
+      "why": "Iron is used to make haemoglobin, which carries oxygen in the blood — a growth/repair-type function of food, not energy.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Why does a balanced diet matter most during the teenage years?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Rapid growth needs more nutrients",
+      "why": "Teenagers are growing and developing quickly, so their bodies need extra nutrients like protein, calcium and iron to support this growth — more than at a slower-growth stage of life.",
+      "options": [
+        "Rapid growth needs more nutrients",
+        "Teenagers burn almost no energy",
+        "Teenagers stop growing by twelve",
+        "Growth needs are lowest at this age"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "Deciding the overall message a promo video should send is part of which task?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Content creation",
+      "why": "Shaping the message, script, and footage of the video is content creation; that work happens before any testing or evaluation.",
+      "options": [
+        "Content creation",
+        "Evaluation",
+        "Financial planning",
+        "Market research"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What was the profession of Oscar Wilde's mother, Jane Wilde?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Poet",
+      "why": "Oscar Wilde's mother, Jane Wilde, was a published poet and writer who used the pen name 'Speranza'.",
+      "options": [
+        "Poet",
+        "Painter",
+        "Novelist",
+        "Actress"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "What is satire's main purpose, beyond making people laugh?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "To criticise through mockery",
+      "why": "Satire uses humour and exaggeration to expose and criticise flaws in people or society, not just to entertain.",
+      "options": [
+        "To criticise through mockery",
+        "To describe events factually",
+        "To record historical dates",
+        "To teach grammar rules"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 10 cm and a height of 5 cm. What is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "25 cm²",
+      "why": "Area equals half of base times height, so ½ × 10 × 5 = 25 cm² — don't forget to halve.",
+      "options": [
+        "25 cm²",
+        "50 cm²",
+        "15 cm²",
+        "30 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A cylinder's total surface area is made up of which two areas?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Curved area and two ends",
+      "why": "A closed cylinder's total surface area is the curved side plus both circular ends — missing either part gives an incomplete answer.",
+      "options": [
+        "Curved area and two ends",
+        "Curved area and one end",
+        "Two ends only",
+        "Base area and height only"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What was Australia's immigration policy called before the 1970s, favouring white European migrants?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "White Australia policy",
+      "why": "Before the 1970s, the White Australia policy restricted immigration to mainly white Europeans, unlike the multiculturalism that followed.",
+      "options": [
+        "White Australia policy",
+        "Multiculturalism",
+        "Populate or perish",
+        "Assisted passage scheme"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Which political party did Hitler lead during the Munich Putsch?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Nazi Party",
+      "why": "Hitler led the Nazi Party (NSDAP) when it attempted to seize power in the 1923 Munich Putsch.",
+      "options": [
+        "Nazi Party",
+        "Communist Party",
+        "Centre Party",
+        "Social Democrats"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 7 cm. Work through it calmly — what is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 5 cm. Slow down and work through it calmly: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,38 +274,34 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 49,
+      "answer": 35,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 14 × 7 = 49 cm². Say the ½ out loud before multiplying so you don't skip the halving step.",
+      "why": "Area equals ½ × base × height, so ½ × 14 × 5 = 35 cm² — say the formula first, then multiply.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "In a sealed container, 32g of reactants react completely. What is the mass of the products?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "32g",
-        "32"
+      "subject": "English",
+      "prompt": "From a while back — in Lord of the Flies, what happens to Piggy's glasses during the story?",
+      "answer": "Jack's hunters steal them",
+      "why": "Jack's tribe raids the camp to steal Piggy's glasses for firemaking, leaving Piggy half-blind — a theft that shows power now belongs to whoever controls fire, not reason.",
+      "options": [
+        "Jack's hunters steal them",
+        "Ralph accidentally breaks them",
+        "Piggy loses them swimming",
+        "Simon borrows them at night"
       ],
-      "why": "32g — in a closed system no matter enters or leaves, so the total mass of products equals the total mass of reactants.",
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What do we call the gas bubbles you often see forming during a chemical reaction?",
+      "prompt": "In a sealed container, 25g of reactants react completely. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -97,83 +311,67 @@
       },
       "type": "text",
       "accept": [
-        "gas",
-        "a gas"
+        "25g",
+        "25 grams"
       ],
-      "why": "Bubbling shows a gas has been produced — one of the clear signs that a chemical reaction has taken place.",
+      "why": "Mass is conserved in a closed system, so the products weigh the same as the reactants: 25g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "A cereal box uses a cartoon mascot and bright colours to appeal to kids. What technique is this?",
-      "answer": "Cartoon mascot appeal",
-      "why": "This is cartoon mascot appeal — using fun characters and bright colours to make a product attractive to children, regardless of how healthy it actually is. The misconception is thinking ads rely on facts rather than emotional appeal to kids.",
-      "options": [
-        "Cartoon mascot appeal",
-        "Price discount",
-        "Nutritional labelling",
-        "Taste testing"
+      "subject": "Science",
+      "prompt": "What is it called when a chemical reaction gives off light?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "light energy",
+        "luminous"
       ],
+      "why": "Some reactions release energy as light, which is a visible sign that a chemical change has occurred.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the 'per 100g' column let you do?",
-      "answer": "Compare different brands fairly",
-      "why": "The 'per 100g' column uses a fixed amount so you can compare products fairly, since 'per serving' sizes differ between brands and can't be compared directly.",
+      "prompt": "Why do supermarkets often place sugary snacks near the checkout?",
+      "answer": "To tempt impulse buys",
+      "why": "Checkout placement targets impulse buying, when shoppers are waiting and more likely to grab something without planning to.",
       "options": [
-        "Compare different brands fairly",
-        "See the total pack energy",
-        "See one serving's weight",
-        "Work out the product's price"
+        "To tempt impulse buys",
+        "To list their ingredients",
+        "To keep them fresh longer",
+        "To match their price tags"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "When two substances react and form a new substance, what has actually happened to them chemically?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "chemical change",
-        "a chemical reaction occurred",
-        "new bonds formed"
-      ],
-      "why": "A chemical change has occurred — the atoms have rearranged and formed new bonds, creating a substance with different properties, not just a mixture.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why should a healthy meal include vegetables?",
-      "answer": "They provide vitamins and fibre",
-      "why": "Vegetables are a key source of vitamins, minerals and fibre, not protein or quick-energy carbs — a common mix-up is crediting veggies with the roles other food groups play.",
+      "prompt": "On a chip packet's nutrition label, which nutrient gives the most energy per gram?",
+      "answer": "Fat",
+      "why": "Fat provides about 9 calories per gram, nearly double carbohydrate's 4 — so even though chips often contain more carbohydrate by mass, fat still delivers the most energy per gram.",
       "options": [
-        "They provide vitamins and fibre",
-        "They provide mostly protein",
-        "They provide mostly quick energy",
-        "They replace the need for water"
+        "Fat",
+        "Carbohydrate",
+        "Protein",
+        "Fibre"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Food Technology",
-      "prompt": "Explain why 'food selection' involves more than just what ends up in your shopping trolley — what other things actually shape it, and why does ignoring those make the definition too narrow?"
+      "subject": "PDHPE",
+      "prompt": "Explain how a sports drink ad featuring a famous athlete could shape a teenager's food choice, even though the drink itself isn't a healthy option."
     }
   ]
 }
