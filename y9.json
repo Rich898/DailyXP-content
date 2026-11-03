@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-02",
-  "day": "MON",
-  "tag": "R15.1",
-  "title": "DailyXP · MON 2026-11-02",
+  "date": "2026-11-03",
+  "day": "TUE",
+  "tag": "R15.2",
+  "title": "DailyXP · TUE 2026-11-03",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A reaction happens in a sealed glass flask — the total mass stays the same",
+      "prompt": "A reaction happens in a sealed jar — total mass changes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -20,15 +20,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "In a closed system, no matter can enter or leave, so mass before and after a reaction stays equal — this is conservation of mass.",
+      "answer": "False",
+      "why": "In a closed system no matter escapes or enters, so mass stays exactly the same before and after the reaction.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Nanjing Massacre happened purely by random chance, with no military goal behind it",
+      "prompt": "The Nanjing Massacre happened purely because soldiers lost their tempers, with no military goal behind it",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,33 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Japan's army wanted a swift, total collapse of Chinese resistance, and the massacre served that military strategy — it wasn't random.",
+      "why": "Japan's army wanted a fast, total collapse of Chinese resistance, so the violence served a deliberate military strategy, not just individual rage.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food selection means only choosing what to buy at the shop",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Food selection also covers why we choose foods — things like cost, culture, and health, not just the act of buying.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Iron carries oxygen around the body",
+      "prompt": "A person's culture can shape their food choices",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +59,33 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Iron is used to make haemoglobin, which carries oxygen in the blood — a growth/repair-type function of food, not energy.",
+      "why": "Food selection is shaped by many factors including culture and tradition, not just personal taste or price.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food can help protect the body against infection",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Certain nutrients in food support the immune system, helping the body resist and fight off infection.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Why does a balanced diet matter most during the teenage years?",
+      "prompt": "Which best describes a balanced diet?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Rapid growth needs more nutrients",
-      "why": "Teenagers are growing and developing quickly, so their bodies need extra nutrients like protein, calcium and iron to support this growth — more than at a slower-growth stage of life.",
+      "answer": "Foods from every group",
+      "why": "A balanced diet includes appropriate amounts from every food group, not just one type of food or a restricted selection.",
       "options": [
-        "Rapid growth needs more nutrients",
-        "Teenagers burn almost no energy",
-        "Teenagers stop growing by twelve",
-        "Growth needs are lowest at this age"
+        "Foods from every group",
+        "Only low-fat foods",
+        "Mostly protein meals",
+        "Any food in small amounts"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Deciding the overall message a promo video should send is part of which task?",
+      "prompt": "For a promo video, choosing the background music falls under which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -116,12 +116,12 @@
         "cta": "Keep going →"
       },
       "answer": "Content creation",
-      "why": "Shaping the message, script, and footage of the video is content creation; that work happens before any testing or evaluation.",
+      "why": "Choosing music, like scripting and filming, is part of making the actual content of the video.",
       "options": [
         "Content creation",
-        "Evaluation",
+        "Market research",
         "Financial planning",
-        "Market research"
+        "Staff rostering"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What was the profession of Oscar Wilde's mother, Jane Wilde?",
+      "prompt": "Which prison did Oscar Wilde write 'De Profundis' in?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Poet",
-      "why": "Oscar Wilde's mother, Jane Wilde, was a published poet and writer who used the pen name 'Speranza'.",
+      "answer": "Reading Gaol",
+      "why": "Wilde wrote De Profundis, a long letter, while imprisoned at Reading Gaol. The other prisons are real Victorian jails but were not where he was held.",
       "options": [
-        "Poet",
-        "Painter",
-        "Novelist",
-        "Actress"
+        "Reading Gaol",
+        "Pentonville Prison",
+        "Wandsworth Prison",
+        "Newgate Prison"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "What is satire's main purpose, beyond making people laugh?",
+      "prompt": "What device does satire often use to exaggerate flaws?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To criticise through mockery",
-      "why": "Satire uses humour and exaggeration to expose and criticise flaws in people or society, not just to entertain.",
+      "answer": "Irony",
+      "why": "Satire commonly uses irony and exaggeration to highlight and mock flaws in people or society.",
       "options": [
-        "To criticise through mockery",
-        "To describe events factually",
-        "To record historical dates",
-        "To teach grammar rules"
+        "Irony",
+        "Rhyme scheme",
+        "Flashback",
+        "Alliteration"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 10 cm and a height of 5 cm. What is its area?",
+      "prompt": "A triangle has a base of 24 cm and a height of 7 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "25 cm²",
-      "why": "Area equals half of base times height, so ½ × 10 × 5 = 25 cm² — don't forget to halve.",
+      "answer": "84 cm²",
+      "why": "Area equals half of base times height: ½ × 24 × 7 = 84 cm². Take your time rather than rushing to multiply.",
       "options": [
-        "25 cm²",
-        "50 cm²",
-        "15 cm²",
-        "30 cm²"
+        "84 cm²",
+        "168 cm²",
+        "31 cm²",
+        "96 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A cylinder's total surface area is made up of which two areas?",
+      "prompt": "A cylinder has radius 3 cm. What is the area of one circular end?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Curved area and two ends",
-      "why": "A closed cylinder's total surface area is the curved side plus both circular ends — missing either part gives an incomplete answer.",
+      "answer": "28.3 cm²",
+      "why": "One circular end uses πr², so π × 3² ≈ 28.3 cm². A common error is using the diameter or forgetting to square the radius.",
       "options": [
-        "Curved area and two ends",
-        "Curved area and one end",
-        "Two ends only",
-        "Base area and height only"
+        "28.3 cm²",
+        "18.8 cm²",
+        "9.4 cm²",
+        "56.5 cm²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What was Australia's immigration policy called before the 1970s, favouring white European migrants?",
+      "prompt": "What term describes people moving within the same country, like farm to city?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "White Australia policy",
-      "why": "Before the 1970s, the White Australia policy restricted immigration to mainly white Europeans, unlike the multiculturalism that followed.",
+      "answer": "Internal migration",
+      "why": "Internal migration is movement within one country's borders, unlike international migration, which crosses countries.",
       "options": [
-        "White Australia policy",
-        "Multiculturalism",
-        "Populate or perish",
-        "Assisted passage scheme"
+        "Internal migration",
+        "International migration",
+        "Emigration",
+        "Assisted passage"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which political party did Hitler lead during the Munich Putsch?",
+      "prompt": "What did Hitler write while imprisoned after the Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Nazi Party",
-      "why": "Hitler led the Nazi Party (NSDAP) when it attempted to seize power in the 1923 Munich Putsch.",
+      "answer": "Mein Kampf",
+      "why": "Hitler wrote Mein Kampf during his prison term, setting out his political ideas and ambitions.",
       "options": [
-        "Nazi Party",
-        "Communist Party",
-        "Centre Party",
-        "Social Democrats"
+        "Mein Kampf",
+        "The Communist Manifesto",
+        "Das Kapital",
+        "The Protocols"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 5 cm. Slow down and work through it calmly: what is its area?",
+      "prompt": "A triangle has a base of 20 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 35,
+      "answer": 40,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area equals ½ × base × height, so ½ × 14 × 5 = 35 cm² — say the formula first, then multiply.",
+      "why": "Area is ½ × base × height: ½ × 20 × 4 = 40 cm². Say the formula first, then multiply, to avoid rushing.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what happens to Piggy's glasses during the story?",
-      "answer": "Jack's hunters steal them",
-      "why": "Jack's tribe raids the camp to steal Piggy's glasses for firemaking, leaving Piggy half-blind — a theft that shows power now belongs to whoever controls fire, not reason.",
+      "prompt": "From a while back — in Lord of the Flies, what are Jack's hunters originally, before they become hunters?",
+      "answer": "The choir",
+      "why": "Jack leads a group of choirboys at the start; they gradually transform into his tribe of savage hunters, showing the shift from order to savagery.",
       "options": [
-        "Jack's hunters steal them",
-        "Ralph accidentally breaks them",
-        "Piggy loses them swimming",
-        "Simon borrows them at night"
+        "The choir",
+        "Ralph's twins",
+        "The littluns",
+        "Piggy's helpers"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 25g of reactants react completely. What is the mass of the products?",
+      "prompt": "A reaction happens in an open test tube and releases a gas. Has mass actually been lost?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,17 @@
       },
       "type": "text",
       "accept": [
-        "25g",
-        "25 grams"
+        "no",
+        "no, it escaped as gas"
       ],
-      "why": "Mass is conserved in a closed system, so the products weigh the same as the reactants: 25g.",
+      "why": "Mass is never truly lost — the escaping gas carries mass away into the air, so the apparent loss is matter leaving the open system, not destruction of mass.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What is it called when a chemical reaction gives off light?",
+      "prompt": "What do we call the leftover substances remaining after a chemical reaction finishes?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -331,24 +331,23 @@
       },
       "type": "text",
       "accept": [
-        "light energy",
-        "luminous"
+        "products"
       ],
-      "why": "Some reactions release energy as light, which is a visible sign that a chemical change has occurred.",
+      "why": "The products are the new substances formed once reactants have chemically changed during a reaction.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do supermarkets often place sugary snacks near the checkout?",
-      "answer": "To tempt impulse buys",
-      "why": "Checkout placement targets impulse buying, when shoppers are waiting and more likely to grab something without planning to.",
+      "prompt": "Why do snack ads often use bright, bold packaging colours?",
+      "answer": "To grab attention quickly",
+      "why": "Bright, bold colours are designed to catch the eye on a crowded shelf, making a product stand out regardless of what's actually inside it.",
       "options": [
-        "To tempt impulse buys",
-        "To list their ingredients",
-        "To keep them fresh longer",
-        "To match their price tags"
+        "To grab attention quickly",
+        "To list ingredients clearly",
+        "To show nutrition facts",
+        "To state the price"
       ],
       "fresh": false
     },
@@ -356,14 +355,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a chip packet's nutrition label, which nutrient gives the most energy per gram?",
-      "answer": "Fat",
-      "why": "Fat provides about 9 calories per gram, nearly double carbohydrate's 4 — so even though chips often contain more carbohydrate by mass, fat still delivers the most energy per gram.",
+      "prompt": "On a nutrition label, what does the 'per 100g' column let you compare?",
+      "answer": "Different foods fairly",
+      "why": "The 'per 100g' column uses a fixed amount so you can fairly compare nutrients between different foods, regardless of serving size.",
       "options": [
-        "Fat",
-        "Carbohydrate",
-        "Protein",
-        "Fibre"
+        "Different foods fairly",
+        "The total pack weight",
+        "The cooking instructions",
+        "The use-by date"
       ],
       "fresh": false
     },
@@ -371,7 +370,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "Explain how a sports drink ad featuring a famous athlete could shape a teenager's food choice, even though the drink itself isn't a healthy option."
+      "prompt": "Explain how a celebrity endorsement in an ad could influence a teenager's food choice, even when the food itself isn't actually healthy."
     }
   ]
 }
