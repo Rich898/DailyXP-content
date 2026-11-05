@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-04",
-  "day": "WED",
-  "tag": "R15.3",
-  "title": "DailyXP · WED 2026-11-04",
+  "date": "2026-11-05",
+  "day": "THU",
+  "tag": "R15.4",
+  "title": "DailyXP · THU 2026-11-05",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "Burning wood in a sealed, closed jar releases heat but no mass escapes",
+      "prompt": "A reaction in a sealed jar: total mass stays constant",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "In a closed system nothing can enter or leave, so the total mass stays exactly the same even though energy is released as heat.",
+      "why": "In a closed system nothing escapes or enters, so mass before equals mass after — conservation of mass holds.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The Nanjing Massacre happened only because individual soldiers lost control, with no military reasoning behind it",
+      "prompt": "Japanese soldiers were punished for the Nanjing Massacre at the time",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The massacre was driven by a deliberate military strategy to force a fast, total surrender from China, not just random cruelty by individual soldiers.",
+      "why": "At the time, Japan's military leaders largely ignored or covered up the killings — real war crimes trials only happened after Japan's defeat in 1945.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food selection only means choosing what to buy at the shop",
+      "prompt": "Cost never affects which foods people select",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Food selection includes why we choose foods too — things like culture, religion, cost and health, not just the act of buying.",
+      "why": "Cost is a major factor in food selection — price limits what many people can afford to buy, alongside culture, religion and health.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Fibre is only needed for quick energy",
+      "prompt": "Food provides materials for body growth",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "Fibre mainly helps digestion run smoothly — carbohydrates, not fibre, are the body's main quick-energy source.",
+      "answer": "True",
+      "why": "Food supplies proteins and other nutrients the body uses as building materials to grow new cells, not just fuel for energy.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "What could happen if a teenager's diet lacks enough calcium?",
+      "prompt": "What is the Eatwell Plate used to show?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Weak bones develop",
-      "why": "Calcium builds strong bones and teeth, so a diet lacking calcium during teenage growth years can lead to weak, poorly developed bones.",
+      "answer": "Recommended food group proportions",
+      "why": "The Eatwell Plate shows the recommended proportions of each food group in a balanced diet — it's the standard model used in UK food technology, not a 'pyramid' or exercise guide.",
       "options": [
-        "Weak bones develop",
-        "Faster muscle growth",
-        "Better concentration",
-        "Improved eyesight"
+        "Recommended food group proportions",
+        "Daily recommended water intake",
+        "Calories burned per exercise",
+        "Cooking times for meats"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "For a promo video, writing the script falls under which task?",
+      "prompt": "Testing a finished promo video's online performance is which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,12 +115,12 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Content creation",
-      "why": "Writing the script is part of creating the actual content of the video, alongside filming footage and choosing music.",
+      "answer": "Audience testing",
+      "why": "Checking how a finished video performs with viewers is audience testing, separate from actually creating the content.",
       "options": [
+        "Audience testing",
         "Content creation",
         "Market research",
-        "Online testing",
         "Budget planning"
       ],
       "fresh": false
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "At which Irish university did Oscar Wilde study before Oxford?",
+      "prompt": "Which university in England did Oscar Wilde attend?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Trinity College Dublin",
-      "why": "Oscar Wilde studied classics at Trinity College Dublin before winning a scholarship to Oxford.",
+      "answer": "Oxford",
+      "why": "Oscar Wilde studied at Magdalen College, Oxford, after first attending Trinity College Dublin.",
       "options": [
-        "Trinity College Dublin",
-        "Queen's University Belfast",
-        "University College Cork",
-        "National University Galway"
+        "Oxford",
+        "Cambridge",
+        "Durham",
+        "Bristol"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which satirical technique makes something seem far more extreme than it really is?",
+      "prompt": "What term describes a satirical character who represents a real public figure?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Exaggeration",
-      "why": "Satire often uses exaggeration, stretching a flaw to absurd extremes so readers see how ridiculous it really is.",
+      "answer": "Caricature",
+      "why": "A caricature exaggerates a real person's traits to mock or criticise them, a common satirical technique.",
       "options": [
-        "Exaggeration",
-        "Metaphor",
-        "Onomatopoeia",
-        "Personification"
+        "Caricature",
+        "Protagonist",
+        "Narrator",
+        "Antagonist"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 7 cm. Take your time: what is its area?",
+      "prompt": "A triangle has a base of 12 cm and a height of 5 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "56 cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 7 = 56 cm². Halving matters — skipping it doubles the answer to 112.",
+      "answer": "30 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 5 = 30 cm². Don't forget to halve after multiplying.",
       "options": [
-        "56 cm²",
-        "112 cm²",
-        "46 cm²",
-        "63 cm²"
+        "30 cm²",
+        "60 cm²",
+        "17 cm²",
+        "35 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A cylinder has radius 3 cm. What is the circumference of its circular end?",
+      "prompt": "A cylinder's total surface area combines the curved surface with which other area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "18.84 cm",
-      "why": "Circumference = 2πr = 2 × π × 3 ≈ 18.84 cm; mixing this up with area (πr²) or doubling incorrectly gives the wrong distractors.",
+      "answer": "Both circular ends",
+      "why": "A cylinder has two circular ends plus the curved side, so total surface area needs both circles, not just one.",
       "options": [
-        "18.84 cm",
-        "28.26 cm",
-        "9.42 cm",
-        "56.52 cm"
+        "Both circular ends",
+        "One circular end",
+        "The base perimeter",
+        "The diagonal cross-section"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What is the term for Australia's post-1970s policy accepting migrants from many different countries?",
+      "prompt": "What was Australia's pre-1970s immigration policy called, which favoured white European migrants?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,11 +227,11 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Multiculturalism",
-      "why": "Since the 1970s, Australia's policy shifted to multiculturalism, accepting migrants from many countries rather than favouring one group.",
+      "answer": "White Australia Policy",
+      "why": "The White Australia Policy restricted immigration mostly to white Europeans; it was dismantled in the 1970s in favour of multiculturalism.",
       "options": [
-        "Multiculturalism",
         "White Australia Policy",
+        "Multiculturalism",
         "Populate or Perish",
         "Assisted Passage Scheme"
       ],
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Which party did Hitler lead into the Munich Putsch?",
+      "prompt": "Where did Hitler flee after the Munich Putsch collapsed?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Nazi Party",
-      "why": "Hitler led the Nazi Party (NSDAP) in the failed 1923 Munich Putsch, attempting to seize power in Bavaria.",
+      "answer": "A countryside house",
+      "why": "Hitler fled to a house in the countryside outside Munich after the Putsch collapsed, where he was soon arrested.",
       "options": [
-        "Nazi Party",
-        "Communist Party",
-        "Social Democrats",
-        "Centre Party"
+        "A countryside house",
+        "Across the Austrian border",
+        "Into hiding in Berlin",
+        "Onto a ship abroad"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 19 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 22 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 95,
+      "answer": 44,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 19 × 10 = 95 cm². Always halve after multiplying base and height.",
+      "why": "½ × 22 × 4 = 44 cm². Say the formula first, then multiply, then halve — don't rush straight to an answer.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does Ralph mainly represent?",
-      "answer": "Order and leadership",
-      "why": "Ralph represents democratic order and civilised leadership, trying to keep rules and the signal fire going.",
+      "prompt": "In Lord of the Flies, what finally happens to Piggy's glasses?",
+      "answer": "They are stolen",
+      "why": "Jack's hunters raid the camp and steal Piggy's remaining glasses to make fire, leaving him almost blind — a key step toward his death.",
       "options": [
-        "Order and leadership",
-        "Savagery and violence",
-        "Fear and superstition",
-        "Intellect alone"
+        "They are stolen",
+        "They are mended",
+        "They are returned",
+        "They are buried"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 27g of reactants react completely. What is the mass of the products?",
+      "prompt": "In a sealed container, 20g of reactants react fully. What is the mass of the products?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,17 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "27g",
-        "27"
+        "20g",
+        "20 grams",
+        "20"
       ],
-      "why": "Mass is conserved in a closed system, so the products weigh the same as the reactants that formed them: 27g.",
+      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants: 20g.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What do we call the solid that suddenly forms when two liquids react together?",
+      "prompt": "What do we call it when a reaction produces a colour change?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -331,23 +332,24 @@
       },
       "type": "text",
       "accept": [
-        "precipitate"
+        "colour change",
+        "change in colour"
       ],
-      "why": "A precipitate is a solid that suddenly forms and settles out when two liquids react together, showing a chemical change.",
+      "why": "A colour change is another visible sign that a new substance has formed during a chemical reaction.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do fast food ads often show meals being shared with friends?",
-      "answer": "Link food to fun times",
-      "why": "These ads connect the food to happy social moments, making it more appealing regardless of its nutritional value.",
+      "prompt": "Why do supermarkets often place sweets near the checkout?",
+      "answer": "To tempt impulse buys",
+      "why": "Checkout placement targets people waiting in line, encouraging unplanned, impulse purchases of sugary snacks.",
       "options": [
-        "Link food to fun times",
-        "List exact ingredients",
-        "Show cooking methods",
-        "Compare nutrition facts"
+        "To tempt impulse buys",
+        "To keep them cool",
+        "To match store colours",
+        "To save shelf space"
       ],
       "fresh": false
     },
@@ -355,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which column tells you how much of a nutrient is in a single standard portion?",
-      "answer": "Per serving",
-      "why": "The 'per serving' column shows amounts for one standard portion, while 'per 100g' is used to compare products fairly regardless of pack size.",
+      "prompt": "On a nutrition label, which nutrient is usually listed under the 'carbohydrates' heading?",
+      "answer": "Sugar",
+      "why": "Sugar is a type of carbohydrate, so labels list it as a sub-category under 'carbohydrates', alongside the total carbohydrate amount.",
       "options": [
-        "Per serving",
-        "Per 100g",
-        "Ingredients list",
-        "Percentage daily intake"
+        "Sugar",
+        "Protein",
+        "Sodium",
+        "Saturated fat"
       ],
       "fresh": false
     },
@@ -370,7 +372,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular influencer eats a sugary snack while streaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
+      "prompt": "Explain how a celebrity endorsement in an ad could lead a teenager to choose an unhealthy food, even if they know it isn't the healthiest option."
     }
   ]
 }
