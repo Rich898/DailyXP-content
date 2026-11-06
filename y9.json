@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-05",
-  "day": "THU",
-  "tag": "R15.4",
-  "title": "DailyXP · THU 2026-11-05",
+  "date": "2026-11-06",
+  "day": "FRI",
+  "tag": "R15.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-06",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "A reaction in a sealed jar: total mass stays constant",
+      "subject": "Food Technology",
+      "prompt": "Choosing cereal because of its mascot",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,55 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In a closed system nothing escapes or enters, so mass before equals mass after — conservation of mass holds.",
+      "left": "Food Selection",
+      "right": "Not Food Selection",
+      "answer": "Food Selection",
+      "why": "Food selection covers everything that shapes what we eat, including being influenced by advertising — not just the act of buying.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Japanese soldiers were punished for the Nanjing Massacre at the time",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "At the time, Japan's military leaders largely ignored or covered up the killings — real war crimes trials only happened after Japan's defeat in 1945.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Cost never affects which foods people select",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Cost is a major factor in food selection — price limits what many people can afford to buy, alongside culture, religion and health.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food provides materials for body growth",
+      "prompt": "Food helps repair damaged muscle tissue",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,194 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Food supplies proteins and other nutrients the body uses as building materials to grow new cells, not just fuel for energy.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "What is the Eatwell Plate used to show?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Recommended food group proportions",
-      "why": "The Eatwell Plate shows the recommended proportions of each food group in a balanced diet — it's the standard model used in UK food technology, not a 'pyramid' or exercise guide.",
-      "options": [
-        "Recommended food group proportions",
-        "Daily recommended water intake",
-        "Calories burned per exercise",
-        "Cooking times for meats"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Testing a finished promo video's online performance is which task?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Audience testing",
-      "why": "Checking how a finished video performs with viewers is audience testing, separate from actually creating the content.",
-      "options": [
-        "Audience testing",
-        "Content creation",
-        "Market research",
-        "Budget planning"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which university in England did Oscar Wilde attend?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Oxford",
-      "why": "Oscar Wilde studied at Magdalen College, Oxford, after first attending Trinity College Dublin.",
-      "options": [
-        "Oxford",
-        "Cambridge",
-        "Durham",
-        "Bristol"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What term describes a satirical character who represents a real public figure?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Caricature",
-      "why": "A caricature exaggerates a real person's traits to mock or criticise them, a common satirical technique.",
-      "options": [
-        "Caricature",
-        "Protagonist",
-        "Narrator",
-        "Antagonist"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 5 cm. What is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "30 cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 5 = 30 cm². Don't forget to halve after multiplying.",
-      "options": [
-        "30 cm²",
-        "60 cm²",
-        "17 cm²",
-        "35 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A cylinder's total surface area combines the curved surface with which other area?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Both circular ends",
-      "why": "A cylinder has two circular ends plus the curved side, so total surface area needs both circles, not just one.",
-      "options": [
-        "Both circular ends",
-        "One circular end",
-        "The base perimeter",
-        "The diagonal cross-section"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What was Australia's pre-1970s immigration policy called, which favoured white European migrants?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "White Australia Policy",
-      "why": "The White Australia Policy restricted immigration mostly to white Europeans; it was dismantled in the 1970s in favour of multiculturalism.",
-      "options": [
-        "White Australia Policy",
-        "Multiculturalism",
-        "Populate or Perish",
-        "Assisted Passage Scheme"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Where did Hitler flee after the Munich Putsch collapsed?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "A countryside house",
-      "why": "Hitler fled to a house in the countryside outside Munich after the Putsch collapsed, where he was soon arrested.",
-      "options": [
-        "A countryside house",
-        "Across the Austrian border",
-        "Into hiding in Berlin",
-        "Onto a ship abroad"
-      ],
-      "mode": "scrub",
+      "why": "Food provides materials like protein that the body uses to grow and repair tissue — energy is only one of food's jobs.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 22 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 13 cm and a height of 12 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,38 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 44,
+      "answer": 78,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "½ × 22 × 4 = 44 cm². Say the formula first, then multiply, then halve — don't rush straight to an answer.",
+      "why": "Area = ½ × base × height = ½ × 13 × 12 = 78 cm². Say the ½ out loud before multiplying so you never skip it.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Lord of the Flies, what finally happens to Piggy's glasses?",
-      "answer": "They are stolen",
-      "why": "Jack's hunters raid the camp and steal Piggy's remaining glasses to make fire, leaving him almost blind — a key step toward his death.",
-      "options": [
-        "They are stolen",
-        "They are mended",
-        "They are returned",
-        "They are buried"
+      "subject": "Science",
+      "prompt": "In a sealed container, 36g of reactants react completely. What is the mass of the products?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "36g",
+        "36"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants: 36g.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a sealed container, 20g of reactants react fully. What is the mass of the products?",
+      "prompt": "What do we call the fizzing you see when a gas is produced in a reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,68 +97,82 @@
       },
       "type": "text",
       "accept": [
-        "20g",
-        "20 grams",
-        "20"
+        "bubbling",
+        "effervescence"
       ],
-      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants: 20g.",
+      "why": "Bubbling (effervescence) is a visible sign that a gas has formed, showing a chemical reaction has happened.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What do we call it when a reaction produces a colour change?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "colour change",
-        "change in colour"
+      "subject": "PDHPE",
+      "prompt": "A snack ad shows a famous gamer enjoying chips while streaming. What technique is this?",
+      "answer": "Celebrity endorsement",
+      "why": "Using a popular, trusted figure to promote food is a celebrity endorsement — it makes the product feel appealing by association, not because it's actually healthier.",
+      "options": [
+        "Celebrity endorsement",
+        "Price discount",
+        "Nutritional labelling",
+        "Packaging redesign"
       ],
-      "why": "A colour change is another visible sign that a new substance has formed during a chemical reaction.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do supermarkets often place sweets near the checkout?",
-      "answer": "To tempt impulse buys",
-      "why": "Checkout placement targets people waiting in line, encouraging unplanned, impulse purchases of sugary snacks.",
+      "prompt": "On a nutrition label, what does the 'serving size' tell you?",
+      "answer": "Amount in one typical portion",
+      "why": "Serving size tells you how much is in one typical portion, which is often smaller than the whole packet — people mix it up with the pack's total weight or the per-100g figure.",
       "options": [
-        "To tempt impulse buys",
-        "To keep them cool",
-        "To match store colours",
-        "To save shelf space"
+        "Amount in one typical portion",
+        "Total weight of the packet",
+        "Daily energy a person needs",
+        "Amount in 100g only"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "When two substances react and form a new substance, what type of change has occurred?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "chemical change",
+        "chemical reaction"
+      ],
+      "why": "A new substance forming means a chemical change has happened, not just a physical one like mixing or melting.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is usually listed under the 'carbohydrates' heading?",
-      "answer": "Sugar",
-      "why": "Sugar is a type of carbohydrate, so labels list it as a sub-category under 'carbohydrates', alongside the total carbohydrate amount.",
+      "prompt": "What mainly counts as a 'healthy' food choice?",
+      "answer": "A food that fits your nutrient needs",
+      "why": "A healthy choice is one that suits what your body actually needs, not just taste, cost, or what others eat — those can influence the choice but don't define 'healthy'.",
       "options": [
-        "Sugar",
-        "Protein",
-        "Sodium",
-        "Saturated fat"
+        "A food that fits your nutrient needs",
+        "A food that is low in price only",
+        "A food that tastes the sweetest",
+        "A food that is eaten by friends"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "Explain how a celebrity endorsement in an ad could lead a teenager to choose an unhealthy food, even if they know it isn't the healthiest option."
+      "subject": "Food Technology",
+      "prompt": "Explain why 'food selection' means more than just what ends up in your shopping trolley — what other things actually shape it?"
     }
   ]
 }
