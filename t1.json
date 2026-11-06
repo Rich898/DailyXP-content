@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-10-30",
+  "date": "2026-11-06",
   "day": "FRI",
-  "tag": "T14.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-10-30",
+  "tag": "T15.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-06",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast used smooth, exact outlines",
+      "prompt": "Paint Like a Beast used fine detail brushes for photo-realism",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — the project used bold, loose brushwork to capture movement and texture, not precise, exact outlines.",
+      "why": "False — the activities used bold, loose brushwork to capture texture and movement, not fine photo-realistic detail.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun held real military power in Japan",
+      "prompt": "A daimyo answered directly to the emperor, not the shogun",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -39,22 +39,22 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "True — the shogun was Japan's top military ruler, holding real power while the emperor remained a ceremonial figurehead.",
+      "answer": "False",
+      "why": "False — daimyo swore loyalty to the shogun, who held real power; the emperor was only a ceremonial figurehead with no command over them.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, who stops the servants' brawl?",
-      "answer": "Benvolio",
-      "why": "Benvolio tries to break up the servants' fight; Tybalt instead arrives and escalates it, which is a common mix-up.",
+      "prompt": "In Act 1 Scene 1, who does Benvolio try to stop fighting?",
+      "answer": "The Capulet servants",
+      "why": "Benvolio draws his sword trying to break up the brawling servants, not to join the fight — Tybalt then arrives and accuses him of wanting war, not peace.",
       "options": [
-        "Benvolio",
-        "Tybalt",
-        "Mercutio",
-        "Friar Laurence"
+        "The Capulet servants",
+        "Tybalt and Mercutio",
+        "Romeo and Paris",
+        "Lord Capulet himself"
       ],
       "fresh": false
     },
@@ -62,14 +62,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In the progression C-Am-F-G, which chord is built on the sixth scale degree?",
-      "answer": "Am chord",
-      "why": "Am is the 'vi' chord, built on the sixth note of the C major scale. Students often confuse it with F (the 'IV', fourth degree) or G (the 'V', fifth degree).",
+      "prompt": "In C-Am-F-G, which chord sits between Am and G in the sequence?",
+      "answer": "F",
+      "why": "The progression runs C then Am then F then G, so F is the third chord, sitting right between Am and G.",
       "options": [
-        "Am chord",
-        "F chord",
-        "G chord",
-        "C chord"
+        "F",
+        "C",
+        "G",
+        "Am"
       ],
       "fresh": false
     },
@@ -77,14 +77,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what tool did students use besides brushes to apply paint?",
-      "answer": "Sponges and rags",
-      "why": "Students used sponges and rags alongside brushes to build texture, not rulers or tape, which would create unwanted sharp, precise edges.",
+      "prompt": "What did students mainly aim to capture in Paint Like a Beast?",
+      "answer": "Texture and movement",
+      "why": "The goal was capturing the texture and movement of the animals through bold brushwork, not achieving photo-realistic likeness.",
       "options": [
-        "Sponges and rags",
-        "Rulers and tape",
-        "Cotton buds only",
-        "Printed stencils"
+        "Texture and movement",
+        "Exact photo-likeness",
+        "Perfectly straight lines",
+        "Smooth blended edges"
       ],
       "fresh": false
     },
@@ -92,7 +92,7 @@
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups in Japan's feudal system by how much rice they typically produced through their own labour, from most to least",
+      "prompt": "Order these groups in Japan's feudal system by how much land they typically controlled",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -102,21 +102,21 @@
       },
       "type": "order",
       "sequence": [
-        "Peasants",
+        "Shogun",
         "Daimyo",
         "Samurai",
-        "Shogun"
+        "Peasants"
       ],
-      "top": "Most",
-      "bot": "Least",
-      "why": "Peasants farmed the land and produced the rice; daimyo, samurai, and the shogun lived off rice collected as tax rather than growing it themselves.",
+      "top": "Most land",
+      "bot": "Least land",
+      "why": "The shogun controlled the most territory overall, daimyo governed large regional domains granted to them, samurai held no land of their own but served those who did, and peasants farmed land owned by others.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these stages of tracing continuity and change, from first to last",
+      "prompt": "Order these stages of a continuity-and-change enquiry by scale",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -126,28 +126,28 @@
       },
       "type": "order",
       "sequence": [
-        "Pick a starting point in time",
-        "Pick a later point in time",
-        "Compare the two points",
-        "Decide what changed and what stayed the same"
+        "Single detail",
+        "One event",
+        "One period",
+        "Wider era"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Tracing change starts by fixing two points in time, comparing them, then deciding what actually shifted versus what continued unchanged.",
+      "top": "Narrowest",
+      "bot": "Widest",
+      "why": "A continuity-and-change enquiry zooms outward: starting from one small detail, widening to an event, then a whole period, then the broadest era, to see what really shifted over time.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does the Prince threaten if the families fight in the streets again?",
-      "answer": "Death",
-      "why": "Prince Escalus declares that any further street brawling between the Capulets and Montagues will be punished by death, raising the stakes for the rest of the play.",
+      "prompt": "What do the Montagues and Capulets share, according to the Prologue?",
+      "answer": "An ancient grudge",
+      "why": "The Prologue describes the two households sharing 'an ancient grudge', establishing the feud that drives the whole tragedy.",
       "options": [
-        "Death",
-        "Exile",
-        "A heavy fine",
-        "Public whipping"
+        "An ancient grudge",
+        "A family business",
+        "A royal title",
+        "A peace treaty"
       ],
       "fresh": false
     },
@@ -155,14 +155,14 @@
       "id": "T7",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What genre is Romeo and Juliet classed as?",
-      "answer": "Tragedy",
-      "why": "Romeo and Juliet is a tragedy, a play centred on a hero's downfall that ends in death. Students sometimes call it a history play or comedy because it has light early scenes, but the genre is fixed by its tragic ending.",
+      "prompt": "What is the approximate span of years in which Shakespeare's plays were written?",
+      "answer": "1590-1613",
+      "why": "Shakespeare's plays were written roughly between 1590 and 1613, during the late Elizabethan and early Jacobean eras — well before 1650 and long after 1500.",
       "options": [
-        "Tragedy",
-        "Comedy",
-        "History play",
-        "Sonnet cycle"
+        "1590-1613",
+        "1500-1520",
+        "1650-1670",
+        "1700-1720"
       ],
       "fresh": false
     },
@@ -170,7 +170,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting on Am instead of C can make a song feel sadder, even though the chords used are identical."
+      "prompt": "Explain why playing the same four chords, C-Am-F-G, but starting the sequence on G instead of C, can change how the song feels, even though the chords used are identical."
     }
   ]
 }
