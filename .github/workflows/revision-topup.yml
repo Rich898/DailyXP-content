@@ -1,0 +1,69 @@
+# DailyXP — revision Part-2 "top-up" author (exam-week revision tool)
+#
+# Authors each boy's Part-2 top-up autonomously, so it no longer depends on an
+# unattended Claude session completing a privileged DB write between the two
+# phases. A plain cron reads the just-finished Part-1 run with the Supabase
+# service key, asks the Claude API to re-teach the themes he got wrong and test
+# them with NEW similar-but-different questions, and writes the result into
+# `revision_reteach` (status='ready'). See scripts/revision_topup.py.
+#
+# Idempotent: each run skips any (student, day) whose top-up is already 'ready'
+# from the same Part-1 run (source_ts match), and skips students who haven't
+# finished Part 1 yet. So the frequent schedule is cheap — most ticks are two
+# GETs and no API call. The ONE run after a boy submits Part 1 does the work.
+#
+# SECRETS (already defined for daily-quiz — nothing new to add):
+#   SUPABASE_URL, SUPABASE_SERVICE_KEY   read runs + write reteach (apikey header)
+#   ANTHROPIC_API_KEY                    author the top-up
+#
+# No private-repo checkout, no git writes: all state lives in Supabase.
+
+name: revision-topup
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report candidates only — no Claude call, no DB write"
+        required: false
+        default: false
+        type: boolean
+      force:
+        description: "Rebuild even if a top-up already exists for today"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    # Every 15 min across Sydney study hours. AEDT = UTC+11 (Nov); this window is
+    # 14:00–23:00 Sydney, covering afternoon + evening study with margin either
+    # side. Idempotent, so the wide window just means low latency from "finished
+    # Part 1" to "top-up ready", not repeated work.
+    - cron: "*/15 3-12 * * *"
+
+concurrency:
+  group: revision-topup
+  cancel-in-progress: false
+
+jobs:
+  topup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (script only)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Author top-ups (log prints student keys + counts only)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          ARGS=""
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && ARGS="$ARGS --dry-run"
+          [ "${{ github.event.inputs.force }}" = "true" ] && ARGS="$ARGS --force"
+          echo "revision_topup $ARGS"
+          python scripts/revision_topup.py $ARGS
