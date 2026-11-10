@@ -182,29 +182,35 @@ SYSTEM = (
     "confidence-building 'top-up' revision set for one student, in the week "
     "before end-of-year exams. The student has just finished a practice test; "
     "you are given the exact questions they got WRONG, grouped by subject.\n\n"
-    "YOUR JOB, per weak theme:\n"
-    "  1) a 'teach' card that re-explains the underlying CONCEPT simply and "
-    "memorably (not the one question) — 2-4 short sentences, light HTML only "
-    "(<b>, <br>) allowed;\n"
-    "  2) then 2 NEW practice cards on that SAME concept, using DIFFERENT "
-    "numbers / examples / wording — NEVER replay or lightly reword the exact "
-    "question they missed. The point is to prove they understand the idea, not "
-    "to memorise one answer.\n\n"
+    "TEACH BY WORKED EXAMPLE. Per weak theme:\n"
+    "  1) a 'teach' card that WORKS THROUGH a clear example of this kind of "
+    "problem or idea, step by step — show HOW it is done, do not just define "
+    "it. For maths/numeric themes, fully solve one example with FRESH numbers "
+    "(different from the question they missed), showing each line of working "
+    "on its own line. For written/concept themes, give the key idea plus a "
+    "short annotated model of a good answer. 2-5 short lines; light HTML only "
+    "(<b>, and <br> to break each working line).\n"
+    "  2) then 2 NEW 'now you try' practice cards on that SAME theme, "
+    "SCAFFOLDED: the first closely mirrors the worked example, the second a "
+    "little harder toward exam level. Use DIFFERENT numbers / examples / "
+    "wording — NEVER replay or lightly reword the exact question they missed. "
+    "The point is for them to copy the method from the worked example, then "
+    "stretch it.\n\n"
     "Pitch it at their year level, encouraging and plain. Cover the weak themes "
     "(aim 4-7 themes); keep the whole set doable in ~25-30 minutes.\n\n"
     "OUTPUT: STRICT JSON ONLY (no prose, no markdown fences). An object:\n"
     '{ "intro": "<=200 chars, warm 1-2 sentence framing of what this top-up '
     'covers and why", "questions": [ ...cards... ] }\n\n'
     "Card schemas (use EXACTLY these keys):\n"
-    '  teach:  {"s":"<subject>","t":"teach","title":"<short>","body":"<2-4 '
-    'sentences, <b>/<br> ok>"}\n'
+    '  teach:  {"s":"<subject>","t":"teach","title":"<short>","body":"<worked '
+    'example, step by step; <b>/<br> ok>"}\n'
     '  mc:     {"s":"<subject>","t":"mc","q":"<new question>","opts":["A","B",'
     '"C","D"],"a":<0-based index of the correct option>,"e":"<1-sentence why>"}\n'
     '  short:  {"s":"<subject>","t":"short","q":"<new question>","keys":'
     '["accepted","keyword","synonyms"],"model":"<one model answer sentence>"}\n\n'
-    "Order the cards so each 'teach' is immediately followed by its own 2 "
-    "practice cards. Every question must be answerable from its own teach card. "
-    "Return ONLY the JSON object."
+    "Order the cards so each 'teach' worked example is immediately followed by "
+    "its own 2 'now you try' cards. Every question must be solvable by copying "
+    "the method shown in its teach card. Return ONLY the JSON object."
 )
 
 
@@ -216,8 +222,8 @@ def build_user_prompt(student_label, day, wrongs, weaks):
         for subj, c, n in weaks:
             lines.append(f"  - {subj}: {c}/{n}")
         lines.append("")
-    lines.append("Exact questions they got WRONG (re-teach the theme, then test "
-                 "with NEW similar-but-different questions):")
+    lines.append("Exact questions they got WRONG (for each theme: a step-by-step "
+                 "WORKED EXAMPLE, then NEW scaffolded 'now you try' questions):")
     by = {}
     for w in wrongs:
         by.setdefault(w["s"], []).append(w["q"])
