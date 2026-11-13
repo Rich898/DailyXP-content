@@ -1,15 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-09",
-  "day": "MON",
-  "tag": "R16.1",
-  "title": "DailyXP · MON 2026-11-09",
+  "date": "2026-11-13",
+  "day": "FRI",
+  "tag": "R16.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-13",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "Burning wood in an open dish: measured mass decreases",
+      "subject": "Food Technology",
+      "prompt": "Choosing food only based on taste",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,17 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In an open system, gas products escape into the air, so the measured mass of what's left behind appears to drop — but no mass is truly lost overall.",
+      "left": "Food Selection",
+      "right": "Not Food Selection",
+      "answer": "Food Selection",
+      "why": "Taste is one of many factors (cost, culture, religion, health) that shape food selection — it's still part of the concept, not separate from it.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Nanjing Massacre: random soldier cruelty with no military reasoning",
+      "subject": "Food Technology",
+      "prompt": "Food fighting off infection",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -37,235 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The violence was driven by a deliberate military strategy to force a quick, total surrender from China, not just uncontrolled individual cruelty.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "A person's religion can affect their food choices",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Religious beliefs often restrict or encourage certain foods, making religion a genuine influence on food selection.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food helps the body grow new cells",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Food supplies proteins and other nutrients the body uses as building blocks to grow and form new cells, not just energy.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "On a nutrition label, which nutrient is linked to tooth decay?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Sugar in high amounts",
-      "why": "Too much sugar feeds bacteria in the mouth, which damage tooth enamel — calcium, fibre and protein don't cause decay in this way.",
-      "options": [
-        "Sugar in high amounts",
-        "Calcium in high amounts",
-        "Fibre in high amounts",
-        "Protein in high amounts"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "In a promo video, what task is content creation?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Writing the script",
-      "why": "Content creation covers the creative tasks that make the video, like writing the script, filming, and choosing music.",
-      "options": [
-        "Writing the script",
-        "Counting total views",
-        "Signing a contract",
-        "Booking a venue"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What was the title of Oscar Wilde's only play set at Lady Windermere's house?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Lady Windermere's Fan",
-      "why": "Lady Windermere's Fan (1892) was Wilde's first great stage success, built around the character of Lady Windermere.",
-      "options": [
-        "Lady Windermere's Fan",
-        "The Importance of Being Earnest",
-        "An Ideal Husband",
-        "A Woman of No Importance"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which 18th-century writer satirised society in 'A Modest Proposal'?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Jonathan Swift",
-      "why": "Jonathan Swift wrote 'A Modest Proposal', a savage satire mocking British treatment of the Irish poor by proposing a shocking solution.",
-      "options": [
-        "Jonathan Swift",
-        "George Orwell",
-        "Charles Dickens",
-        "Aldous Huxley"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 11 cm. Slow down and work through it step by step: what is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "66 cm²",
-      "why": "Area = ½ × base × height = ½ × 12 × 11 = 66 cm². Halving comes before anything else, not after.",
-      "options": [
-        "66 cm²",
-        "132 cm²",
-        "23 cm²",
-        "72 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A closed cylinder's total surface area combines the curved surface with which other area?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Both circular ends",
-      "why": "Total surface area = curved surface area + the area of BOTH circular ends, since a closed cylinder has a top and a bottom.",
-      "options": [
-        "Both circular ends",
-        "The base only",
-        "The height only",
-        "One circular end"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "What was Australia's pre-1970s immigration policy called?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "White Australia Policy",
-      "why": "Before the 1970s, Australia's White Australia Policy favoured white European migrants, restricting entry for other groups.",
-      "options": [
-        "White Australia Policy",
-        "Multiculturalism",
-        "Populate or Perish",
-        "Assisted Passage Scheme"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What did Hitler attempt to seize control of during the 1923 Munich Putsch?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Local government",
-      "why": "Hitler's plan was to seize control of the Bavarian local government first, hoping to then march on Berlin, but the putsch collapsed within a day.",
-      "options": [
-        "Local government",
-        "The national army",
-        "The royal palace",
-        "The parliament building"
-      ],
-      "mode": "scrub",
+      "left": "Function of Food",
+      "right": "Not a Function",
+      "answer": "Function of Food",
+      "why": "Food provides nutrients like vitamins that help the immune system fight infection — this is a real function beyond just energy.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 21 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 17 cm and a height of 12 cm. What is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,39 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 105,
-      "calc": true,
+      "answer": 102,
+      "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 21 × 10 = 105 cm². Say the formula first, then multiply, then halve.",
+      "why": "Area = ½ × base × height = ½ × 17 × 12 = 102 cm². Say the ½ step out loud before multiplying so it never gets skipped.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what happens to the conch shell by the end?",
-      "answer": "It is smashed",
-      "why": "The conch is smashed when Piggy is killed, marking the final collapse of order and rules among the boys.",
-      "options": [
-        "It is smashed",
-        "It is buried",
-        "It is lost at sea",
-        "It is kept safe"
+      "subject": "Science",
+      "prompt": "A reaction happens in a sealed, closed container. What happens to the total mass?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "stays the same",
+        "unchanged",
+        "conserved"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "Mass is conserved in a closed system — no matter can enter or escape, so the total mass of reactants equals the total mass of products.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "If 30g of reactants react completely in a sealed container, what is the mass of the products?",
+      "prompt": "What word describes a reaction that feels cold as it happens?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,67 +98,80 @@
       },
       "type": "text",
       "accept": [
-        "30g",
-        "30"
+        "endothermic"
       ],
-      "why": "Mass is conserved in a closed system, so the total mass of products always equals the total mass of reactants.",
+      "why": "A reaction that absorbs heat and feels cold is called endothermic — the opposite of exothermic, which releases heat and feels warm.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What do we call it when a chemical reaction produces a colour change?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "colour change",
-        "change in colour"
+      "subject": "PDHPE",
+      "prompt": "Why do supermarkets place sweets at the checkout?",
+      "answer": "To tempt impulse buys",
+      "why": "Checkout placement is a deliberate marketing technique to trigger impulse buying while people wait in line, not about safety, temperature, or space.",
+      "options": [
+        "To tempt impulse buys",
+        "To meet food safety rules",
+        "To keep sweets cool",
+        "To save shelf space"
       ],
-      "why": "A colour change is one of the key signs that a chemical reaction has taken place, showing a new substance has formed.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do food ads often target children using cartoon characters?",
-      "answer": "Kids pester parents to buy it",
-      "why": "Advertisers use characters children like because kids then ask parents to buy the product, known as 'pester power'.",
+      "prompt": "On a chip packet's label, why is 'per serving' listed next to 'per 100g'?",
+      "answer": "To let you check real portion sizes",
+      "why": "'Per serving' tells you what you actually get in a typical portion, while 'per 100g' lets you compare products fairly — together they stop you being misled by pack size.",
       "options": [
-        "Kids pester parents to buy it",
-        "Kids read ingredient lists",
-        "Kids compare prices",
-        "Kids check nutrition labels"
+        "To let you check real portion sizes",
+        "To show the use-by date clearly",
+        "To list ingredients by weight",
+        "To show where it was made"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "In a word equation for a chemical reaction, what do we call the starting substances?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "reactants"
+      ],
+      "why": "The starting substances in a chemical reaction are called reactants — they are used up and chemically changed into new products.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the serving size tell you?",
-      "answer": "A typical single portion",
-      "why": "Serving size shows the amount the label considers one typical portion, which the per-serving figures are based on.",
+      "prompt": "Why is water usually the best drink choice with a meal?",
+      "answer": "It has no added sugar",
+      "why": "Water is recommended because it has no added sugar or kilojoules, unlike soft drinks and juices, which add extra sugar without much nutritional benefit.",
       "options": [
-        "A typical single portion",
-        "The total pack weight",
-        "The daily kilojoule limit",
-        "The cheapest ingredient"
+        "It has no added sugar",
+        "It tastes sweeter than juice",
+        "It contains more vitamins",
+        "It fills you up longest"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "Explain how a marketing technique, like a celebrity endorsement, could lead a teenager to choose an unhealthy snack even if they know it isn't the healthiest option."
+      "subject": "Food Technology",
+      "prompt": "A friend says 'food selection' just means picking what tastes nice. Explain what they're missing, and name at least two other real factors that shape what people actually choose to eat."
     }
   ]
 }
