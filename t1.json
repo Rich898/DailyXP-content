@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-11-09",
-  "day": "MON",
-  "tag": "T16.1",
-  "title": "DailyXP · MON 2026-11-09",
+  "date": "2026-11-13",
+  "day": "FRI",
+  "tag": "T16.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-13",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "y = 3x + 2: when x = 5, y = 16",
+      "subject": "Visual Arts",
+      "prompt": "Used masking tape for crisp straight lines",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "When x = 5, y = 3(5) + 2 = 17, not 16 — substitute first, then add.",
+      "why": "False — the animals were painted with loose, bold brushwork and deliberately avoided crisp, ruler-straight lines.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Act 1 Scene 5 ends with Romeo knowing Juliet's surname",
+      "subject": "History",
+      "prompt": "Shogun outranked the emperor in real power",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,296 +40,83 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The Nurse tells Romeo that Juliet is a Capulet, which is how the scene ends on a note of dread.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The shogun inherited his title automatically from the emperor",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "A shogun's title usually passed to his own son, not from the emperor — the emperor was a separate, ceremonial figure.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "'Paint Like a Beast' used masking tape for crisp, ruler-straight lines",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The project used loose, expressive brushwork to capture movement and texture, not careful ruled lines.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In the prologue, what does the Chorus call the feud between the families?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "An ancient grudge",
-      "why": "The prologue describes the feud as an 'ancient grudge', showing the hatred is old and long-running, not something new.",
-      "options": [
-        "An ancient grudge",
-        "A new quarrel",
-        "A royal dispute",
-        "A trade rivalry"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "What usually happens to instrument layers in a song's verse compared to the chorus?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Kept thinner",
-      "why": "Verses are usually kept thinner so the chorus feels bigger and more powerful when the fuller layers arrive.",
-      "options": [
-        "Kept thinner",
-        "Made fuller",
-        "Removed entirely",
-        "Doubled in volume"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What word describes an inherited trait that boosts an organism's survival?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Adaptation",
-      "why": "An adaptation is an inherited feature that helps an organism survive and reproduce in its environment.",
-      "options": [
-        "Adaptation",
-        "Biomass",
-        "Pollination",
-        "Variation"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What does the spice rack's specification usually list?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Size and timber type",
-      "why": "A specification turns the general need into concrete requirements, like dimensions, timber type, and joints to be used, so the maker knows exactly what to build.",
-      "options": [
-        "Size and timber type",
-        "The student's name only",
-        "A price for materials",
-        "The teacher's marking scheme"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Why is a basic butt joint considered a weak joint?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "It relies mainly on glue",
-      "why": "A butt joint just presses two flat edges together, so its strength depends almost entirely on the glue bond, not interlocking shapes.",
-      "options": [
-        "It relies mainly on glue",
-        "It uses interlocking fingers",
-        "It has angled 45° cuts",
-        "It uses overlapping notches"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What usually strengthens a basic glued butt joint?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Pins or dowels added",
-      "why": "A butt joint has little surface contact, so glue alone is weak; adding pins or dowels gives mechanical strength the glue can't provide on its own.",
-      "options": [
-        "Pins or dowels added",
-        "Extra layers of finish",
-        "A thicker coat of glue",
-        "Rougher sanding of edges"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 3?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "San",
-      "why": "'San' means three in Japanese; 'shi' is four, 'go' is five, and 'ni' is two — easy to mix up when learning the sequence.",
-      "options": [
-        "San",
-        "Shi",
-        "Go",
-        "Ni"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for 50?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "gojuu",
-      "why": "50 is 'gojuu' (五十) — go (5) + juu (10). Yonjuu is 40, sanjuu is 30, rokujuu is 60.",
-      "options": [
-        "gojuu",
-        "yonjuu",
-        "rokujuu",
-        "sanjuu"
-      ],
-      "mode": "scrub",
+      "why": "True — the emperor was a ceremonial figurehead while the shogun actually controlled the military and government.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "From a while back: what is the term for a wall of water that floods inland after an undersea earthquake?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "tsunami"
+      "subject": "English",
+      "prompt": "In the Prologue, what poetic form does Shakespeare use for the opening speech?",
+      "answer": "A sonnet",
+      "why": "The Prologue is written as a sonnet (14 lines, strict rhyme scheme) — students often assume Shakespeare's plays only use loose blank verse throughout.",
+      "options": [
+        "A sonnet",
+        "A limerick",
+        "Blank verse only",
+        "A ballad"
       ],
-      "why": "A tsunami is a giant sea wave usually triggered by a sudden movement of the seafloor during an undersea earthquake.",
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1, what title does Prince Escalus hold over Verona?",
-      "answer": "Ruler of the city",
-      "why": "Prince Escalus is Verona's ruling authority, which is why he has the power to threaten death if the feuding families fight again.",
+      "subject": "Music",
+      "prompt": "In C-Am-F-G, which chord is built on the fifth scale degree?",
+      "answer": "G",
+      "why": "G is the fifth scale degree in the key of C, acting as the dominant chord — students often confuse it with F (the fourth) since both come before returning to C.",
       "options": [
-        "Ruler of the city",
-        "Head of the Capulets",
-        "Friar Laurence's master",
-        "Juliet's guardian"
+        "G",
+        "C",
+        "Am",
+        "F"
       ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord sits between Am and G?",
-      "answer": "F",
-      "why": "The progression runs C, then Am, then F, then G, so F is the chord placed directly between Am and G in the sequence.",
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, what did students mostly use to mix colours on the page?",
+      "answer": "Wet-on-wet blending",
+      "why": "Students mixed colours directly on the page using wet-on-wet blending for lively, unpredictable effects — a common assumption is that colours were carefully pre-mixed before applying, like a precise palette.",
       "options": [
-        "F",
-        "C",
-        "Am",
-        "G"
+        "Wet-on-wet blending",
+        "Pre-mixed single tones",
+        "Only black outlines",
+        "Dry pastel layering"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In 'Paint Like a Beast', what quality did students deliberately avoid?",
-      "answer": "Photo-realistic detail",
-      "why": "The activities encouraged loose, expressive brushwork to capture texture and movement, deliberately avoiding exact, photo-like realism.",
-      "options": [
-        "Photo-realistic detail",
-        "Bright colour choices",
-        "Large brush strokes",
-        "Animal subject matter"
+      "subject": "History",
+      "prompt": "Order these roles in Japan's feudal system by how much farming work they actually did, from most to least",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Peasants",
+        "Samurai",
+        "Daimyo",
+        "Shogun"
       ],
+      "top": "Most farming work",
+      "bot": "Least farming work",
+      "why": "Peasants did almost all the physical farming, while samurai, daimyo, and the shogun did none themselves — students often assume samurai or daimyo also worked the land they controlled.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of how a shogun kept control of Japan",
+      "prompt": "Order these examples of change in Japan's feudal history by scale, from the smallest detail to the biggest shift",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -339,45 +126,51 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun grants land to daimyo",
-        "Daimyo pledges loyalty and troops",
-        "Daimyo commands local samurai",
-        "Peasants farm the daimyo's land"
+        "One daimyo loses a battle",
+        "A region changes ruling family",
+        "Warrior rule replaces court rule",
+        "Japan's whole social structure is reshaped"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "Control flowed from the shogun granting land in exchange for loyalty, down through daimyo and samurai, to peasants who worked the land.",
+      "top": "Smallest",
+      "bot": "Biggest",
+      "why": "Historians separate small, local changes from the huge structural shifts that reorganise a whole society — treating every change as equally significant blurs cause and consequence.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these stages of a cause-and-consequence argument",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Identify the event",
-        "Explain the causes",
-        "Explain the consequences",
-        "Judge long-term impact"
+      "subject": "English",
+      "prompt": "What does Prince Escalus threaten if the families fight again?",
+      "answer": "Death",
+      "why": "Prince Escalus threatens death for further street brawling, showing how serious Verona's feud has become.",
+      "options": [
+        "Death",
+        "Banishment",
+        "Fines",
+        "Imprisonment"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "A strong cause-and-consequence argument starts by identifying the event, then explains causes, consequences, and finally weighs long-term impact.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "In which city and country is Romeo and Juliet primarily set?",
+      "answer": "Verona, Italy",
+      "why": "The play is set in Verona, Italy — students often confuse it with Venice, another famous Italian city Shakespeare wrote about.",
+      "options": [
+        "Verona, Italy",
+        "Venice, Italy",
+        "Rome, Italy",
+        "Florence, Italy"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "A friend says changing the order of C-Am-F-G to start on Am instead of C doesn't matter because it's 'still the same four chords'. Explain why starting on a different chord can change how the song feels, even though the chords used are identical."
+      "prompt": "Explain why playing the same four chords, C-Am-F-G, but starting the sequence on Am instead of C, can make a song feel sadder, even though the chords used are identical."
     }
   ]
 }
