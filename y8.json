@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-11-06",
-  "day": "FRI",
-  "tag": "H15.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-11-06",
+  "date": "2026-11-16",
+  "day": "MON",
+  "tag": "H17.1",
+  "title": "DailyXP · MON 2026-11-16",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Radiata pine is cheap and easy to work with",
+      "subject": "English",
+      "prompt": "The prologue tells the audience the ending in advance",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — radiata pine is popular for school projects because it's affordable, soft enough to cut and sand easily, and widely available.",
+      "why": "The Chorus's opening sonnet openly reveals that Romeo and Juliet will die, so the audience watches knowing the outcome.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'nijuu' means 12",
+      "subject": "History",
+      "prompt": "The shogun needed the emperor's permission to rule",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,231 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — 'nijuu' means 20 (ni = 2, juu = 10, so 2x10). 12 is 'juuni' (10 + 2).",
+      "why": "The shogun held the real military and political power; the emperor was a figurehead the shogun only bowed to in name.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'kyuu' means 9",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'Kyuu' (九) is the Japanese number 9, used when counting items or yen.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'yonjuu' means 400",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "'yonjuu' (四十) means 40. 400 is 'yonhyaku' (四百) — 'juu' is the ten-word, 'hyaku' is the hundred-word.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "A country's building codes are a cause of damage, not a result. True or false?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "True",
+      "why": "Building codes exist before the disaster and shape how much damage occurs — that makes them a cause, not a consequence.",
+      "options": [
+        "True",
+        "False",
+        "Only in rich countries",
+        "Only after an earthquake"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Why does Benvolio draw his sword in Act 1 Scene 1?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "To stop the fighting",
+      "why": "Benvolio draws his sword trying to separate the servants and end the fight, showing his peacemaking role.",
+      "options": [
+        "To join the brawl",
+        "To stop the fighting",
+        "To challenge Tybalt",
+        "To defend Romeo"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord is built on the 6th note of the scale?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Am chord",
+      "why": "Am is the 'vi' chord, built on the 6th scale degree of C major, giving it its minor, sadder sound.",
+      "options": [
+        "C chord",
+        "Am chord",
+        "F chord",
+        "G chord"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What do we call a trait that helps an animal survive in its habitat?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "An adaptation",
+      "why": "An adaptation is a feature that helps an organism survive and thrive in its specific environment.",
+      "options": [
+        "An adaptation",
+        "A biomass trait",
+        "A food chain",
+        "A population"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, what do students study before painting fur texture?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Reference photos",
+      "why": "Students closely study reference photos of real animal fur to understand texture and pattern before painting it.",
+      "options": [
+        "Reference photos",
+        "Colour wheels",
+        "Famous paintings",
+        "Brush brands"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "For y = 3x + 1, what is y when x = 2?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "7",
+      "why": "Substitute x = 2: y = 3(2) + 1 = 7. Always multiply by x before adding the constant.",
+      "options": [
+        "7",
+        "6",
+        "9",
+        "8"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Where was William Shakespeare born?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Stratford-upon-Avon",
+      "why": "Shakespeare was born in Stratford-upon-Avon, though he later moved to London to work in theatre.",
+      "options": [
+        "Stratford-upon-Avon",
+        "London's West End",
+        "Oxford city centre",
+        "Canterbury township"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "Which song section usually comes right before the final chorus?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "The bridge",
+      "why": "The bridge usually sits before the final chorus, offering contrast before the song returns to its main theme.",
+      "options": [
+        "The bridge",
+        "The intro",
+        "The outro",
+        "The hook"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the amount of sugar affects how long a candle burns, keeping candle size the same. What type of variable is 'candle size'?",
+      "prompt": "A student tests if the amount of water changes how fast a candle burns, keeping the candle's size the same. What type of variable is the candle's size?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -66,8 +283,29 @@
     {
       "id": "T2",
       "phase": "steady",
+      "subject": "Maths",
+      "prompt": "Solve for x: 3x + 4 = 16",
+      "block": {
+        "label": "Numeric",
+        "hue": "#14C7C7",
+        "icon": "#",
+        "sub": "Type the answer",
+        "cta": "Start →"
+      },
+      "type": "numeric",
+      "answer": 4,
+      "calc": false,
+      "pre": "",
+      "post": "",
+      "why": "Subtract 4 from both sides to get 3x = 12, then divide by 3 to get x = 4.",
+      "fresh": false,
+      "throwback": true
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these roles in the shogunate hierarchy",
+      "prompt": "Order these groups by how much land they farmed themselves",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -77,58 +315,43 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun",
-        "Daimyo",
+        "Peasants",
         "Samurai",
-        "Peasants"
+        "Daimyo",
+        "Shogun"
       ],
-      "top": "Most power",
-      "bot": "Least power",
-      "why": "The shogun held real military and political control, daimyo were powerful regional lords below him, samurai served the daimyo as warriors, and peasants were at the bottom of the hierarchy.",
-      "fresh": false
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
-      "subject": "Technology",
-      "prompt": "In the spice rack project, what should a design brief describe first?",
-      "answer": "The storage need",
-      "why": "A design brief should start with the problem to solve — like messy spice storage — before any material or tool choices are made. Jumping straight to materials is a common mistake.",
-      "options": [
-        "The storage need",
-        "The exact timber type",
-        "The sandpaper grit",
-        "The glue brand"
-      ],
+      "top": "Farmed most",
+      "bot": "Farmed least",
+      "why": "Peasants worked the land directly, samurai served without farming, daimyo controlled estates without working them, and the shogun ruled over all without farming at all.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "Why is timber sanded before applying a finish?",
-      "answer": "So the finish sits smoothly",
-      "why": "Sanding removes rough patches and splinters so the finish (like varnish or paint) goes on evenly instead of catching on bumps.",
+      "prompt": "What should a design brief describe before choosing a material?",
+      "answer": "The storage need",
+      "why": "A design brief should describe the problem or need it solves first — the material choice, like radiata pine, comes afterward to suit that need.",
       "options": [
-        "So the finish sits smoothly",
-        "So the glue dries faster",
-        "So the wood changes colour",
-        "So the joints fit tighter"
+        "The storage need",
+        "The exact price",
+        "The wood's colour",
+        "The sanding grit"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Japanese",
-      "prompt": "How do you say '11' yen in Japanese?",
-      "answer": "juuichi",
-      "why": "Juuichi is juu (10) + ichi (1), making 11. Juuni is 12 and juuyon is 14, pairing 10 with different numbers, while ichijuu wrongly reverses the correct word order.",
+      "subject": "Technology",
+      "prompt": "In the spice rack build, what grit of sandpaper gives the smoothest final finish?",
+      "answer": "Fine grit",
+      "why": "Fine-grit sandpaper is used last to smooth the surface ready for finishing — coarse grit is only for shaping or removing rough marks first.",
       "options": [
-        "juuichi",
-        "juuni",
-        "ichijuu",
-        "juuyon"
+        "Fine grit",
+        "Coarse grit",
+        "Medium grit",
+        "Wet grit"
       ],
       "fresh": false
     },
@@ -136,46 +359,22 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "What does 'sanbyaku' mean?",
-      "answer": "300",
-      "why": "Sanbyaku means 300 — san (3) + hyaku (hundred). Sen is used for thousands, so 'sanzen' would be 3,000, not sanbyaku.",
+      "prompt": "How do you say '12' yen in Japanese?",
+      "answer": "juuni",
+      "why": "'Juuni' (十二) combines juu (10) and ni (2) to make 12 — Japanese numbers above 10 add the ones digit straight after juu.",
       "options": [
-        "300",
-        "3,000",
-        "30",
-        "3"
+        "juuni",
+        "juuyon",
+        "juusan",
+        "nijuu"
       ],
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these parts of a historical explanation from deepest cause to final event",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Years of heavy taxes",
-        "Growing anger among the people",
-        "A new tax law announced",
-        "The revolt breaks out"
-      ],
-      "top": "Deepest cause",
-      "bot": "Final event",
-      "why": "The long-term cause (years of heavy taxes) builds resentment, a trigger (the new tax law) sets it off, and the revolt is the final consequence — trigger causes are not the whole explanation on their own.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "History",
-      "prompt": "Explain why calling the shogun 'just a servant following the emperor's orders' misunderstands how real power worked in the shogunate system."
+      "subject": "Technology",
+      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, using an example of what could go wrong if the order were reversed."
     }
   ]
 }
