@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-11-13",
-  "day": "FRI",
-  "tag": "T16.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-11-13",
+  "date": "2026-11-16",
+  "day": "MON",
+  "tag": "T17.1",
+  "title": "DailyXP · MON 2026-11-16",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "Used masking tape for crisp straight lines",
+      "subject": "Maths",
+      "prompt": "y = 2x + 7, when x = 3, y = 11",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — the animals were painted with loose, bold brushwork and deliberately avoided crisp, ruler-straight lines.",
+      "why": "2(3)+7 = 13, not 11 — substitute carefully and do the multiplication before adding.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "Shogun outranked the emperor in real power",
+      "subject": "English",
+      "prompt": "Romeo kills himself after finding Juliet apparently dead",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,83 +40,297 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — the emperor was a ceremonial figurehead while the shogun actually controlled the military and government.",
+      "why": "Romeo believes Juliet is truly dead and takes poison beside her in the tomb.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The shogun's court was based in Kyoto with the emperor",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "The shogun ruled from his own military capital, separate from the emperor's ceremonial court in Kyoto.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Visual Arts",
+      "prompt": "Students used sponges and rags to apply paint",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Paint Like a Beast encouraged loose, varied tools beyond brushes to capture texture and movement.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Who is Juliet's mother in the play?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Lady Capulet",
+      "why": "Lady Capulet is Juliet's mother; the Nurse raised her but is not her birth mother.",
+      "options": [
+        "Lady Capulet",
+        "Lady Montague",
+        "The Nurse",
+        "Rosaline"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Music",
+      "prompt": "What usually happens to vocals during an instrumental breakdown?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "They drop out",
+      "why": "A breakdown strips the song back to instruments, letting the vocal rest before it returns.",
+      "options": [
+        "They drop out",
+        "They get louder",
+        "They double in harmony",
+        "They slow down"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "Science",
+      "prompt": "What do we call a trait an organism develops during its life, not inherited?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Acquired trait",
+      "why": "Acquired traits are gained through experience or environment, unlike inherited adaptations passed through genes.",
+      "options": [
+        "Acquired trait",
+        "Structural adaptation",
+        "Inherited trait",
+        "Behavioural adaptation"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "Why was radiata pine chosen for the spice rack project?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Fast-growing and affordable",
+      "why": "Radiata pine is chosen because it grows quickly and is cheap and easy to work with, not because of waterproofing or weight.",
+      "options": [
+        "Fast-growing and affordable",
+        "Naturally waterproof forever",
+        "Heaviest timber available",
+        "Only timber that glues"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "Which joint interlocks finger-like cuts for extra strength?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Finger joint",
+      "why": "A finger joint interlocks notched fingers of timber, giving far more glue surface and strength than a plain butt joint.",
+      "options": [
+        "Finger joint",
+        "Butt joint",
+        "Mitre joint",
+        "Lap joint"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Technology",
+      "prompt": "What should you do right before applying wood glue to a joint?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Wipe away dust",
+      "why": "Dust weakens glue bonds, so surfaces must be clean and dust-free before gluing for a strong joint.",
+      "options": [
+        "Wipe away dust",
+        "Soak in water",
+        "Apply finish first",
+        "Leave it rough"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is the Japanese word for the number 2?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "ni",
+      "why": "'Ni' means two; san, yon and go are three, four and five.",
+      "options": [
+        "ni",
+        "san",
+        "yon",
+        "go"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "What is the Japanese word for the number 30?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "sanjuu",
+      "why": "'Sanjuu' is 3 (san) times 10 (juu) = 30; the tens digit comes first, then 'juu'.",
+      "options": [
+        "sanjuu",
+        "juusan",
+        "sanjuujuu",
+        "juuyon"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In the Prologue, what poetic form does Shakespeare use for the opening speech?",
-      "answer": "A sonnet",
-      "why": "The Prologue is written as a sonnet (14 lines, strict rhyme scheme) — students often assume Shakespeare's plays only use loose blank verse throughout.",
-      "options": [
-        "A sonnet",
-        "A limerick",
-        "Blank verse only",
-        "A ballad"
+      "subject": "Science",
+      "prompt": "From a while back: what is the term for the slow process of magma cooling to form new ocean floor at a divergent boundary?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "seafloor spreading",
+        "sea floor spreading"
       ],
-      "fresh": false
+      "why": "Seafloor spreading happens as plates move apart and magma rises to form new crust along the boundary.",
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C-Am-F-G, which chord is built on the fifth scale degree?",
-      "answer": "G",
-      "why": "G is the fifth scale degree in the key of C, acting as the dominant chord — students often confuse it with F (the fourth) since both come before returning to C.",
+      "subject": "English",
+      "prompt": "In Act 1 Scene 5, what does Romeo do immediately after speaking to Juliet?",
+      "answer": "Kisses her",
+      "why": "Their shared sonnet dialogue ends with Romeo kissing Juliet, showing their instant connection.",
       "options": [
-        "G",
-        "C",
-        "Am",
-        "F"
+        "Kisses her",
+        "Leaves the party",
+        "Fights Tybalt",
+        "Tells his friends"
       ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what did students mostly use to mix colours on the page?",
-      "answer": "Wet-on-wet blending",
-      "why": "Students mixed colours directly on the page using wet-on-wet blending for lively, unpredictable effects — a common assumption is that colours were carefully pre-mixed before applying, like a precise palette.",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord is built on the third scale degree instead of appearing in this progression?",
+      "answer": "Em",
+      "why": "Em (iii) is not part of C–Am–F–G; the progression uses I, vi, IV and V, not the iii chord.",
       "options": [
-        "Wet-on-wet blending",
-        "Pre-mixed single tones",
-        "Only black outlines",
-        "Dry pastel layering"
+        "Em",
+        "Am",
+        "F",
+        "G"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these roles in Japan's feudal system by how much farming work they actually did, from most to least",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "Peasants",
-        "Samurai",
-        "Daimyo",
-        "Shogun"
+      "subject": "Visual Arts",
+      "prompt": "In Paint Like a Beast, why did students avoid fine detail brushes for most of the work?",
+      "answer": "To capture texture and movement",
+      "why": "Loose, bold brushwork suited the goal of expressive texture and movement over photo-realistic precision.",
+      "options": [
+        "To capture texture and movement",
+        "To save paint",
+        "To copy photographs exactly",
+        "To keep colours pale"
       ],
-      "top": "Most farming work",
-      "bot": "Least farming work",
-      "why": "Peasants did almost all the physical farming, while samurai, daimyo, and the shogun did none themselves — students often assume samurai or daimyo also worked the land they controlled.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these examples of change in Japan's feudal history by scale, from the smallest detail to the biggest shift",
+      "prompt": "Order these events in a shogun's control of Japan, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -126,51 +340,45 @@
       },
       "type": "order",
       "sequence": [
-        "One daimyo loses a battle",
-        "A region changes ruling family",
-        "Warrior rule replaces court rule",
-        "Japan's whole social structure is reshaped"
+        "Shogun takes military title",
+        "Shogun grants land to daimyo",
+        "Daimyo commands samurai",
+        "Samurai keeps peasants in line"
       ],
-      "top": "Smallest",
-      "bot": "Biggest",
-      "why": "Historians separate small, local changes from the huge structural shifts that reorganise a whole society — treating every change as equally significant blurs cause and consequence.",
+      "top": "First",
+      "bot": "Last",
+      "why": "The shogun first seized the top military title, then granted land to daimyo to secure loyalty, daimyo commanded samurai armies, and samurai enforced order over peasants below.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "What does Prince Escalus threaten if the families fight again?",
-      "answer": "Death",
-      "why": "Prince Escalus threatens death for further street brawling, showing how serious Verona's feud has become.",
-      "options": [
-        "Death",
-        "Banishment",
-        "Fines",
-        "Imprisonment"
+      "subject": "History",
+      "prompt": "Order these steps of tracing continuity and change, from first to last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Pick a starting point in time",
+        "Pick an ending point in time",
+        "List what stayed the same",
+        "List what changed between them"
       ],
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
-      "subject": "English",
-      "prompt": "In which city and country is Romeo and Juliet primarily set?",
-      "answer": "Verona, Italy",
-      "why": "The play is set in Verona, Italy — students often confuse it with Venice, another famous Italian city Shakespeare wrote about.",
-      "options": [
-        "Verona, Italy",
-        "Venice, Italy",
-        "Rome, Italy",
-        "Florence, Italy"
-      ],
+      "top": "First",
+      "bot": "Last",
+      "why": "To trace continuity and change, you first fix a start and end point in time, then identify what stayed the same, then identify what changed between those two points.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords, C-Am-F-G, but starting the sequence on Am instead of C, can make a song feel sadder, even though the chords used are identical."
+      "prompt": "A friend says that because C–Am–F–G repeats the same four chords every time, the song can't build in intensity. Explain what else changes across repeats to create a sense of build, even though the chords stay the same."
     }
   ]
 }
