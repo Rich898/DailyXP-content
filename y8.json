@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-11-16",
-  "day": "MON",
-  "tag": "H17.1",
-  "title": "DailyXP · MON 2026-11-16",
+  "date": "2026-11-17",
+  "day": "TUE",
+  "tag": "H17.2",
+  "title": "DailyXP · TUE 2026-11-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "English",
-      "prompt": "The prologue tells the audience the ending in advance",
+      "prompt": "The play is set in Verona",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,33 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "The Chorus's opening sonnet openly reveals that Romeo and Juliet will die, so the audience watches knowing the outcome.",
+      "why": "Romeo and Juliet takes place in Verona, Italy, where the two feuding families live.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun needed the emperor's permission to rule",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The shogun held the real military and political power; the emperor was a figurehead the shogun only bowed to in name.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'kyuu' means 9",
+      "prompt": "The shogun held more real power than the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "'Kyuu' (九) is the Japanese number 9, used when counting items or yen.",
+      "why": "The emperor was a figurehead; the shogun actually controlled the military and government.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S3",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'yonjuu' means 400",
+      "prompt": "'nanahyaku' means 700",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +58,34 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "False",
-      "why": "'yonjuu' (四十) means 40. 400 is 'yonhyaku' (四百) — 'juu' is the ten-word, 'hyaku' is the hundred-word.",
+      "answer": "True",
+      "why": "'nanahyaku' (七百) is 7 x 100 = 700 in Japanese numbers.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Japanese",
+      "prompt": "'sen' is used for counting thousands",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "'sen' (千) is the word for 1,000, used as the base for counting thousands like nisen (2,000).",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A country's building codes are a cause of damage, not a result. True or false?",
+      "prompt": "What word describes something that stayed the same across a time period?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "True",
-      "why": "Building codes exist before the disaster and shape how much damage occurs — that makes them a cause, not a consequence.",
+      "answer": "Continuity",
+      "why": "Continuity means things stayed roughly the same, unlike change, which describes what shifted over time.",
       "options": [
-        "True",
-        "False",
-        "Only in rich countries",
-        "Only after an earthquake"
+        "Continuity",
+        "A consequence",
+        "A trigger",
+        "A revolution"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Why does Benvolio draw his sword in Act 1 Scene 1?",
+      "prompt": "In Act 1 Scene 1, what punishment does Prince Escalus threaten for future street fighting?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "To stop the fighting",
-      "why": "Benvolio draws his sword trying to separate the servants and end the fight, showing his peacemaking role.",
+      "answer": "Death",
+      "why": "Escalus declares that anyone who disturbs the peace again will be executed — he is trying to end the feud with the harshest threat possible, not a lesser punishment like exile or a fine.",
       "options": [
-        "To join the brawl",
-        "To stop the fighting",
-        "To challenge Tybalt",
-        "To defend Romeo"
+        "Death",
+        "Exile",
+        "A heavy fine",
+        "Public whipping"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the 6th note of the scale?",
+      "prompt": "In C–Am–F–G, which chord comes immediately before the final G?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Am chord",
-      "why": "Am is the 'vi' chord, built on the 6th scale degree of C major, giving it its minor, sadder sound.",
+      "answer": "F",
+      "why": "The progression runs C–Am–F–G in order, so F is the chord played right before the final G.",
       "options": [
-        "C chord",
-        "Am chord",
-        "F chord",
-        "G chord"
+        "C",
+        "Am",
+        "F",
+        "G"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What do we call a trait that helps an animal survive in its habitat?",
+      "prompt": "What do we call an organism that makes its own food using sunlight?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "An adaptation",
-      "why": "An adaptation is a feature that helps an organism survive and thrive in its specific environment.",
+      "answer": "A producer",
+      "why": "Producers like plants make their own food through photosynthesis, forming the base of the food chain.",
       "options": [
-        "An adaptation",
-        "A biomass trait",
-        "A food chain",
-        "A population"
+        "A producer",
+        "A consumer",
+        "A predator",
+        "A decomposer"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what do students study before painting fur texture?",
+      "prompt": "In Paint Like a Beast, what tool creates rough fur-like marks?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Reference photos",
-      "why": "Students closely study reference photos of real animal fur to understand texture and pattern before painting it.",
+      "answer": "A dry brush",
+      "why": "A dry brush with little paint drags and splits to create rough, fur-like texture marks.",
       "options": [
-        "Reference photos",
-        "Colour wheels",
-        "Famous paintings",
-        "Brush brands"
+        "A dry brush",
+        "A fine liner pen",
+        "A roller",
+        "A palette knife"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For y = 3x + 1, what is y when x = 2?",
+      "prompt": "For y = 3x - 1, what is y when x = 5?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "7",
-      "why": "Substitute x = 2: y = 3(2) + 1 = 7. Always multiply by x before adding the constant.",
+      "answer": "14",
+      "why": "Substitute x = 5: 3x5 = 15, minus 1 = 14.",
       "options": [
-        "7",
-        "6",
-        "9",
-        "8"
+        "14",
+        "15",
+        "13",
+        "16"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Where was William Shakespeare born?",
+      "prompt": "What is the name of the London theatre most linked to Shakespeare's plays?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Stratford-upon-Avon",
-      "why": "Shakespeare was born in Stratford-upon-Avon, though he later moved to London to work in theatre.",
+      "answer": "The Globe",
+      "why": "The Globe Theatre in London was built for Shakespeare's company and staged most of his famous plays.",
       "options": [
-        "Stratford-upon-Avon",
-        "London's West End",
-        "Oxford city centre",
-        "Canterbury township"
+        "The Globe",
+        "The Royal Albert Hall",
+        "The Old Vic",
+        "The Rose Garden"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "Which song section usually comes right before the final chorus?",
+      "prompt": "What does a song's intro mainly do?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "The bridge",
-      "why": "The bridge usually sits before the final chorus, offering contrast before the song returns to its main theme.",
+      "answer": "Sets up the mood",
+      "why": "The intro establishes the song's feel and key before the verse and chorus develop it further.",
       "options": [
-        "The bridge",
-        "The intro",
-        "The outro",
-        "The hook"
+        "Sets up the mood",
+        "Repeats the hook",
+        "Ends the track",
+        "Adds the most layers"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the amount of water changes how fast a candle burns, keeping the candle's size the same. What type of variable is the candle's size?",
+      "prompt": "A student tests if the amount of water given affects bean plant height, keeping the pot size the same for all plants. What type of variable is 'amount of water given'?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,17 +274,17 @@
       },
       "type": "text",
       "accept": [
-        "controlled variable",
-        "controlled"
+        "independent variable",
+        "independent"
       ],
-      "why": "Candle size is kept the same on purpose so it doesn't affect the result — that makes it the controlled variable, not the one being measured or changed.",
+      "why": "The amount of water is what the student deliberately changes, so it is the independent variable.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "Solve for x: 3x + 4 = 16",
+      "prompt": "Solve for x: 4x + 3 = 27.",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -293,11 +293,11 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 4,
+      "answer": 6,
       "calc": false,
       "pre": "",
       "post": "",
-      "why": "Subtract 4 from both sides to get 3x = 12, then divide by 3 to get x = 4.",
+      "why": "Subtract 3 from both sides to get 4x = 24, then divide by 4 to get x = 6.",
       "fresh": false,
       "throwback": true
     },
@@ -305,7 +305,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these groups by how much land they farmed themselves",
+      "prompt": "Order these ranks by how much land they owned",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -315,28 +315,28 @@
       },
       "type": "order",
       "sequence": [
-        "Peasants",
-        "Samurai",
+        "Shogun",
         "Daimyo",
-        "Shogun"
+        "Samurai",
+        "Peasants"
       ],
-      "top": "Farmed most",
-      "bot": "Farmed least",
-      "why": "Peasants worked the land directly, samurai served without farming, daimyo controlled estates without working them, and the shogun ruled over all without farming at all.",
+      "top": "Most land owned",
+      "bot": "Least land owned",
+      "why": "The shogun controlled the most land overall, granting territory to daimyo, who relied on samurai, while peasants owned none of the land they farmed.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "What should a design brief describe before choosing a material?",
-      "answer": "The storage need",
-      "why": "A design brief should describe the problem or need it solves first — the material choice, like radiata pine, comes afterward to suit that need.",
+      "prompt": "In the spice rack portfolio, what does identifying a 'need' come from?",
+      "answer": "A real storage problem",
+      "why": "A design need comes from a genuine problem, like messy spice storage, which then shapes the whole brief.",
       "options": [
-        "The storage need",
-        "The exact price",
-        "The wood's colour",
-        "The sanding grit"
+        "A real storage problem",
+        "The timber supplier",
+        "The sandpaper grit",
+        "The glue type chosen"
       ],
       "fresh": false
     },
@@ -344,14 +344,14 @@
       "id": "T5",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack build, what grit of sandpaper gives the smoothest final finish?",
-      "answer": "Fine grit",
-      "why": "Fine-grit sandpaper is used last to smooth the surface ready for finishing — coarse grit is only for shaping or removing rough marks first.",
+      "prompt": "In the spice rack build, why do you sand wood before adding a finish?",
+      "answer": "Smooths surface for even finish",
+      "why": "Sanding removes rough patches and scratches so the finish sits evenly on a smooth surface, giving a neater final look.",
       "options": [
-        "Fine grit",
-        "Coarse grit",
-        "Medium grit",
-        "Wet grit"
+        "Smooths surface for even finish",
+        "Makes the wood heavier",
+        "Replaces need for glue joints",
+        "Changes the wood's colour"
       ],
       "fresh": false
     },
@@ -359,14 +359,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '12' yen in Japanese?",
-      "answer": "juuni",
-      "why": "'Juuni' (十二) combines juu (10) and ni (2) to make 12 — Japanese numbers above 10 add the ones digit straight after juu.",
+      "prompt": "How do you say '9' yen in Japanese?",
+      "answer": "kyuu",
+      "why": "kyuu (九) means 9; juu is 10, hyaku is 100, and sen is 1,000.",
       "options": [
-        "juuni",
-        "juuyon",
-        "juusan",
-        "nijuu"
+        "kyuu",
+        "juu",
+        "hyaku",
+        "sen"
       ],
       "fresh": false
     },
@@ -374,7 +374,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, using an example of what could go wrong if the order were reversed."
+      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, using an example of what could go wrong if a designer picked the material first."
     }
   ]
 }
