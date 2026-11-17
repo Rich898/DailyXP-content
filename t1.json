@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-11-16",
-  "day": "MON",
-  "tag": "T17.1",
-  "title": "DailyXP · MON 2026-11-16",
+  "date": "2026-11-17",
+  "day": "TUE",
+  "tag": "T17.2",
+  "title": "DailyXP · TUE 2026-11-17",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "y = 2x + 7, when x = 3, y = 11",
+      "prompt": "y = 2x - 3, when x = 5, y = 7",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "2(3)+7 = 13, not 11 — substitute carefully and do the multiplication before adding.",
+      "why": "When x = 5, y = 2(5) - 3 = 7 is wrong — it's actually 10 - 3 = 7... check again: 2x = 10, 10 - 3 = 7 is correct, so this should be True. Recompute: 2(5)=10, 10-3=7, matches given y=7, so statement is True.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Romeo kills himself after finding Juliet apparently dead",
+      "prompt": "Romeo kills himself before Juliet wakes up",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Romeo believes Juliet is truly dead and takes poison beside her in the tomb.",
+      "why": "Romeo drinks poison believing Juliet is dead, and dies just before she wakes — the tragic timing drives the ending.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "History",
-      "prompt": "The shogun's court was based in Kyoto with the emperor",
+      "prompt": "A shogun's power came from being above the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +59,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "The shogun ruled from his own military capital, separate from the emperor's ceremonial court in Kyoto.",
+      "why": "The shogun held the real military power, but the emperor still held the higher ceremonial rank — the shogun ruled in his name.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "Students used sponges and rags to apply paint",
+      "prompt": "In Paint Like a Beast, only brushes were used to apply paint",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -77,15 +77,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Paint Like a Beast encouraged loose, varied tools beyond brushes to capture texture and movement.",
+      "answer": "False",
+      "why": "Students also used sponges and rags alongside brushes to build up varied texture on their animal paintings.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Who is Juliet's mother in the play?",
+      "prompt": "Whose party do Romeo and his friends crash uninvited?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Lady Capulet",
-      "why": "Lady Capulet is Juliet's mother; the Nurse raised her but is not her birth mother.",
+      "answer": "Capulet's",
+      "why": "Romeo and his friends sneak into the Capulet party, where he first sees Juliet.",
       "options": [
-        "Lady Capulet",
-        "Lady Montague",
-        "The Nurse",
-        "Rosaline"
+        "Capulet's",
+        "Montague's",
+        "Prince Escalus's",
+        "Friar Laurence's"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Music",
-      "prompt": "What usually happens to vocals during an instrumental breakdown?",
+      "prompt": "In a song's chorus, what usually happens to the layers?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "They drop out",
-      "why": "A breakdown strips the song back to instruments, letting the vocal rest before it returns.",
+      "answer": "They get fuller",
+      "why": "Choruses usually add more instrument layers to build energy and make the section feel bigger.",
       "options": [
-        "They drop out",
-        "They get louder",
-        "They double in harmony",
-        "They slow down"
+        "They get fuller",
+        "They disappear",
+        "They stay thin",
+        "They go silent"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "What do we call a trait an organism develops during its life, not inherited?",
+      "prompt": "What word describes an inherited trait that helps an animal survive?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Acquired trait",
-      "why": "Acquired traits are gained through experience or environment, unlike inherited adaptations passed through genes.",
+      "answer": "Adaptation",
+      "why": "An adaptation is an inherited feature that helps an organism survive in its environment, unlike a trait gained during life.",
       "options": [
-        "Acquired trait",
-        "Structural adaptation",
-        "Inherited trait",
-        "Behavioural adaptation"
+        "Adaptation",
+        "Mutation",
+        "Habitat",
+        "Camouflage"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "Why was radiata pine chosen for the spice rack project?",
+      "prompt": "In the spice rack brief, what prompts the whole project?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Fast-growing and affordable",
-      "why": "Radiata pine is chosen because it grows quickly and is cheap and easy to work with, not because of waterproofing or weight.",
+      "answer": "A need",
+      "why": "Every design project starts with a need — a problem or gap that the final product must solve.",
       "options": [
-        "Fast-growing and affordable",
-        "Naturally waterproof forever",
-        "Heaviest timber available",
-        "Only timber that glues"
+        "A need",
+        "A material list",
+        "A test result",
+        "A finished sketch"
       ],
       "fresh": false
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "Which joint interlocks finger-like cuts for extra strength?",
+      "prompt": "Why is a basic glued butt joint considered weak?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Finger joint",
-      "why": "A finger joint interlocks notched fingers of timber, giving far more glue surface and strength than a plain butt joint.",
+      "answer": "Glue alone holds end grain",
+      "why": "A butt joint relies on glue bonding to end grain, which soaks up glue poorly and gives a weak bond — that's why extra support like pins or screws is usually added.",
       "options": [
-        "Finger joint",
-        "Butt joint",
-        "Mitre joint",
-        "Lap joint"
+        "Glue alone holds end grain",
+        "Nails always split the wood",
+        "Screws never grip pine well",
+        "Clamps leave visible marks"
       ],
       "fresh": false
     },
@@ -195,7 +195,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Technology",
-      "prompt": "What should you do right before applying wood glue to a joint?",
+      "prompt": "What tool checks that two glued timber pieces meet at a true right angle?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -203,13 +203,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Wipe away dust",
-      "why": "Dust weakens glue bonds, so surfaces must be clean and dust-free before gluing for a strong joint.",
+      "answer": "Try square",
+      "why": "A try square checks a corner is exactly 90 degrees; a tape measure checks length, a coping saw cuts curves, and a mallet drives joints together.",
       "options": [
-        "Wipe away dust",
-        "Soak in water",
-        "Apply finish first",
-        "Leave it rough"
+        "Try square",
+        "Tape measure",
+        "Coping saw",
+        "Mallet"
       ],
       "mode": "scrub",
       "fresh": false
@@ -218,7 +218,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 2?",
+      "prompt": "What is the Japanese word for the number 5?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -226,13 +226,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "ni",
-      "why": "'Ni' means two; san, yon and go are three, four and five.",
+      "answer": "Go",
+      "why": "'Go' means five in Japanese; 'ni' is two, 'yon' is four, and 'kyuu' is nine.",
       "options": [
-        "ni",
-        "san",
-        "yon",
-        "go"
+        "Go",
+        "Ni",
+        "Yon",
+        "Kyuu"
       ],
       "mode": "scrub",
       "fresh": false
@@ -241,7 +241,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 30?",
+      "prompt": "What is the Japanese word for 10,000?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -249,13 +249,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "sanjuu",
-      "why": "'Sanjuu' is 3 (san) times 10 (juu) = 30; the tens digit comes first, then 'juu'.",
+      "answer": "Man",
+      "why": "'Man' means 10,000; 'sen' is 1,000, 'hyaku' is 100, and 'juu' is 10.",
       "options": [
-        "sanjuu",
-        "juusan",
-        "sanjuujuu",
-        "juuyon"
+        "Man",
+        "Sen",
+        "Hyaku",
+        "Juu"
       ],
       "mode": "scrub",
       "fresh": false
@@ -264,7 +264,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "From a while back: what is the term for the slow process of magma cooling to form new ocean floor at a divergent boundary?",
+      "prompt": "From a while back: what scale is commonly used to measure earthquake strength?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -274,10 +274,10 @@
       },
       "type": "text",
       "accept": [
-        "seafloor spreading",
-        "sea floor spreading"
+        "richter scale",
+        "richter"
       ],
-      "why": "Seafloor spreading happens as plates move apart and magma rises to form new crust along the boundary.",
+      "why": "The Richter scale measures the magnitude, or energy released, by an earthquake.",
       "fresh": false,
       "throwback": true
     },
@@ -285,14 +285,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "In Act 1 Scene 5, what does Romeo do immediately after speaking to Juliet?",
-      "answer": "Kisses her",
-      "why": "Their shared sonnet dialogue ends with Romeo kissing Juliet, showing their instant connection.",
+      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if the fighting continues?",
+      "answer": "Death",
+      "why": "Prince Escalus declares that any further street brawling between the families will be punished by death.",
       "options": [
-        "Kisses her",
-        "Leaves the party",
-        "Fights Tybalt",
-        "Tells his friends"
+        "Death",
+        "Exile",
+        "Fines",
+        "Imprisonment"
       ],
       "fresh": false
     },
@@ -300,14 +300,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord is built on the third scale degree instead of appearing in this progression?",
-      "answer": "Em",
-      "why": "Em (iii) is not part of C–Am–F–G; the progression uses I, vi, IV and V, not the iii chord.",
+      "prompt": "In C-Am-F-G, which chord is built on the fourth scale degree?",
+      "answer": "F",
+      "why": "F is the 'IV' chord, built on the fourth note of the C major scale.",
       "options": [
-        "Em",
-        "Am",
         "F",
-        "G"
+        "G",
+        "Am",
+        "C"
       ],
       "fresh": false
     },
@@ -315,14 +315,14 @@
       "id": "T4",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, why did students avoid fine detail brushes for most of the work?",
-      "answer": "To capture texture and movement",
-      "why": "Loose, bold brushwork suited the goal of expressive texture and movement over photo-realistic precision.",
+      "prompt": "In Paint Like a Beast, what animal feature did students mainly aim to capture?",
+      "answer": "Texture and movement",
+      "why": "The project focused on capturing texture and movement through loose brushwork, not exact photo-like detail or precise proportions.",
       "options": [
-        "To capture texture and movement",
-        "To save paint",
-        "To copy photographs exactly",
-        "To keep colours pale"
+        "Texture and movement",
+        "Exact facial detail",
+        "Precise colour matching",
+        "Accurate body size"
       ],
       "fresh": false
     },
@@ -330,7 +330,7 @@
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events in a shogun's control of Japan, from first to last",
+      "prompt": "Order these roles in Japan's feudal system by how much land they typically controlled, from most to least",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,21 +340,21 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun takes military title",
-        "Shogun grants land to daimyo",
-        "Daimyo commands samurai",
-        "Samurai keeps peasants in line"
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasant"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "The shogun first seized the top military title, then granted land to daimyo to secure loyalty, daimyo commanded samurai armies, and samurai enforced order over peasants below.",
+      "top": "Most land",
+      "bot": "Least land",
+      "why": "The shogun held supreme authority over the most land, daimyo controlled large regions granted to them, samurai served without owning land themselves, and peasants farmed small plots they did not own.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these steps of tracing continuity and change, from first to last",
+      "prompt": "Order these steps of writing a continuity-and-change argument, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -364,21 +364,21 @@
       },
       "type": "order",
       "sequence": [
-        "Pick a starting point in time",
-        "Pick an ending point in time",
-        "List what stayed the same",
-        "List what changed between them"
+        "State the time period",
+        "Describe what stayed the same",
+        "Describe what changed",
+        "Explain why it matters"
       ],
       "top": "First",
       "bot": "Last",
-      "why": "To trace continuity and change, you first fix a start and end point in time, then identify what stayed the same, then identify what changed between those two points.",
+      "why": "A continuity-and-change argument first sets the time period, then describes continuities, then changes, and finally explains their significance.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "A friend says that because C–Am–F–G repeats the same four chords every time, the song can't build in intensity. Explain what else changes across repeats to create a sense of build, even though the chords stay the same."
+      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on a different chord can change how the song feels, even though the notes used are identical."
     }
   ]
 }
