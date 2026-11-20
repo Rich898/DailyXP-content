@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-11-17",
-  "day": "TUE",
-  "tag": "T17.2",
-  "title": "DailyXP · TUE 2026-11-17",
+  "date": "2026-11-20",
+  "day": "FRI",
+  "tag": "T17.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-20",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Maths",
-      "prompt": "y = 2x - 3, when x = 5, y = 7",
+      "subject": "Visual Arts",
+      "prompt": "Paint Like a Beast students blended edges smoothly",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "When x = 5, y = 2(5) - 3 = 7 is wrong — it's actually 10 - 3 = 7... check again: 2x = 10, 10 - 3 = 7 is correct, so this should be True. Recompute: 2(5)=10, 10-3=7, matches given y=7, so statement is True.",
+      "why": "False — the project favoured loose, energetic brushwork over smooth blending, since the goal was texture and movement, not a soft, careful finish.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "Romeo kills himself before Juliet wakes up",
+      "subject": "History",
+      "prompt": "A daimyo controlled land on behalf of the shogun",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,297 +40,83 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Romeo drinks poison believing Juliet is dead, and dies just before she wakes — the tragic timing drives the ending.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "A shogun's power came from being above the emperor",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "The shogun held the real military power, but the emperor still held the higher ceremonial rank — the shogun ruled in his name.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, only brushes were used to apply paint",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Students also used sponges and rags alongside brushes to build up varied texture on their animal paintings.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Whose party do Romeo and his friends crash uninvited?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Capulet's",
-      "why": "Romeo and his friends sneak into the Capulet party, where he first sees Juliet.",
-      "options": [
-        "Capulet's",
-        "Montague's",
-        "Prince Escalus's",
-        "Friar Laurence's"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In a song's chorus, what usually happens to the layers?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "They get fuller",
-      "why": "Choruses usually add more instrument layers to build energy and make the section feel bigger.",
-      "options": [
-        "They get fuller",
-        "They disappear",
-        "They stay thin",
-        "They go silent"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What word describes an inherited trait that helps an animal survive?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Adaptation",
-      "why": "An adaptation is an inherited feature that helps an organism survive in its environment, unlike a trait gained during life.",
-      "options": [
-        "Adaptation",
-        "Mutation",
-        "Habitat",
-        "Camouflage"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "In the spice rack brief, what prompts the whole project?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A need",
-      "why": "Every design project starts with a need — a problem or gap that the final product must solve.",
-      "options": [
-        "A need",
-        "A material list",
-        "A test result",
-        "A finished sketch"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "Why is a basic glued butt joint considered weak?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Glue alone holds end grain",
-      "why": "A butt joint relies on glue bonding to end grain, which soaks up glue poorly and gives a weak bond — that's why extra support like pins or screws is usually added.",
-      "options": [
-        "Glue alone holds end grain",
-        "Nails always split the wood",
-        "Screws never grip pine well",
-        "Clamps leave visible marks"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Technology",
-      "prompt": "What tool checks that two glued timber pieces meet at a true right angle?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Try square",
-      "why": "A try square checks a corner is exactly 90 degrees; a tape measure checks length, a coping saw cuts curves, and a mallet drives joints together.",
-      "options": [
-        "Try square",
-        "Tape measure",
-        "Coping saw",
-        "Mallet"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for the number 5?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Go",
-      "why": "'Go' means five in Japanese; 'ni' is two, 'yon' is four, and 'kyuu' is nine.",
-      "options": [
-        "Go",
-        "Ni",
-        "Yon",
-        "Kyuu"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "What is the Japanese word for 10,000?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Man",
-      "why": "'Man' means 10,000; 'sen' is 1,000, 'hyaku' is 100, and 'juu' is 10.",
-      "options": [
-        "Man",
-        "Sen",
-        "Hyaku",
-        "Juu"
-      ],
-      "mode": "scrub",
+      "why": "True — daimyo were regional lords who governed land granted by the shogun, in exchange for loyalty and military support.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "From a while back: what scale is commonly used to measure earthquake strength?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "richter scale",
-        "richter"
+      "subject": "English",
+      "prompt": "What title does Prince Escalus hold over Verona?",
+      "answer": "Prince",
+      "why": "Escalus is called 'Prince' of Verona, the ruler who tries to keep peace between the feuding families; students sometimes assume a bigger title like King since he has supreme authority.",
+      "options": [
+        "Prince",
+        "King",
+        "Duke",
+        "Lord Mayor"
       ],
-      "why": "The Richter scale measures the magnitude, or energy released, by an earthquake.",
-      "fresh": false,
-      "throwback": true
+      "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, what does Prince Escalus threaten if the fighting continues?",
-      "answer": "Death",
-      "why": "Prince Escalus declares that any further street brawling between the families will be punished by death.",
+      "subject": "Music",
+      "prompt": "In C–Am–F–G, which chord plays the dominant 'V' role?",
+      "answer": "G, tension back to C",
+      "why": "G is the 'V' chord, creating tension that pulls strongly back to the tonic C. Students often mix it up with F (the 'IV'), which supports rather than pulls.",
       "options": [
-        "Death",
-        "Exile",
-        "Fines",
-        "Imprisonment"
+        "G, tension back to C",
+        "F, built on degree four",
+        "Am, built on degree six",
+        "C, the tonic chord"
       ],
       "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
-      "subject": "Music",
-      "prompt": "In C-Am-F-G, which chord is built on the fourth scale degree?",
-      "answer": "F",
-      "why": "F is the 'IV' chord, built on the fourth note of the C major scale.",
+      "subject": "Visual Arts",
+      "prompt": "What did Paint Like a Beast students mostly use to apply paint, besides brushes?",
+      "answer": "Sponges and rags",
+      "why": "Sponges and rags were used alongside brushes to build texture and loose marks; rulers and tape would create the precise, controlled edges the project deliberately avoided.",
       "options": [
-        "F",
-        "G",
-        "Am",
-        "C"
+        "Sponges and rags",
+        "Rulers and tape",
+        "Fine detail pens",
+        "Cotton buds only"
       ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what animal feature did students mainly aim to capture?",
-      "answer": "Texture and movement",
-      "why": "The project focused on capturing texture and movement through loose brushwork, not exact photo-like detail or precise proportions.",
-      "options": [
-        "Texture and movement",
-        "Exact facial detail",
-        "Precise colour matching",
-        "Accurate body size"
+      "subject": "History",
+      "prompt": "Order these events in a feudal land grant, from what happens first to what happens last",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Daimyo pledges loyalty",
+        "Shogun grants land",
+        "Daimyo collects rice tax",
+        "Samurai are paid for service"
       ],
+      "top": "First",
+      "bot": "Last",
+      "why": "A daimyo first pledged loyalty to the shogun, who then granted land in return; the daimyo collected rice tax from that land and used it to pay the samurai who served him.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these roles in Japan's feudal system by how much land they typically controlled, from most to least",
+      "prompt": "Order these questions a historian asks about change, from the shortest timescale to the longest",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -340,45 +126,51 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun",
-        "Daimyo",
-        "Samurai",
-        "Peasant"
+        "What changed this year?",
+        "What changed this decade?",
+        "What changed this century?",
+        "What stayed the same for centuries?"
       ],
-      "top": "Most land",
-      "bot": "Least land",
-      "why": "The shogun held supreme authority over the most land, daimyo controlled large regions granted to them, samurai served without owning land themselves, and peasants farmed small plots they did not own.",
+      "top": "Shortest timescale",
+      "bot": "Longest timescale",
+      "why": "Historians weigh change across different timescales, from a single year up to centuries, to judge whether something was a quick shift or a deep continuity.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "History",
-      "prompt": "Order these steps of writing a continuity-and-change argument, from first to last",
-      "block": {
-        "label": "Drag It",
-        "hue": "#FFB800",
-        "icon": "⇅",
-        "sub": "Drag the tiles into order",
-        "cta": "Start dragging →"
-      },
-      "type": "order",
-      "sequence": [
-        "State the time period",
-        "Describe what stayed the same",
-        "Describe what changed",
-        "Explain why it matters"
+      "subject": "English",
+      "prompt": "What does Juliet ask Romeo to send word of, the day after the party?",
+      "answer": "His intention to marry her",
+      "why": "Juliet tells the Nurse to find Romeo and ask if he intends marriage; if so, she'll send word of a time and place. Students sometimes forget how fast the plot moves — marriage is arranged within a day of meeting.",
+      "options": [
+        "His intention to marry her",
+        "His family's forgiveness",
+        "A list of wedding guests",
+        "The Prince's permission"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "A continuity-and-change argument first sets the time period, then describes continuities, then changes, and finally explains their significance.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "English",
+      "prompt": "Which theatre in London was strongly associated with Shakespeare's plays?",
+      "answer": "The Globe",
+      "why": "The Globe Theatre was where Shakespeare's company performed most of his plays; students sometimes confuse it with The Rose, an earlier, separate Elizabethan playhouse.",
+      "options": [
+        "The Globe",
+        "The Old Vic",
+        "Drury Lane",
+        "The Rose"
+      ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why playing the same four chords (C-Am-F-G) but starting the sequence on a different chord can change how the song feels, even though the notes used are identical."
+      "prompt": "Explain why starting the same four chords, C-Am-F-G, on Am instead of C can make a song feel sadder, even though the chords used are identical."
     }
   ]
 }
