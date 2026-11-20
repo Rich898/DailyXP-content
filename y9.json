@@ -1,53 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-18",
-  "day": "WED",
-  "tag": "R17.3",
-  "title": "DailyXP · WED 2026-11-18",
+  "date": "2026-11-20",
+  "day": "FRI",
+  "tag": "R17.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-20",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Science",
-      "prompt": "A reaction in an open flask releases gas and the scale reading drops",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "Mass lost",
-      "right": "Mass conserved",
-      "answer": "Mass conserved",
-      "why": "Mass is always conserved — the dropping scale reading just means gas escaped into the air unmeasured, not that mass was destroyed.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "Japan's army wanted a fast, total surrender from China in 1937",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Japan's military aimed to crush Chinese resistance quickly and completely, and the Nanjing Massacre was part of that strategy of terror, not just random cruelty.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "A person's budget has no effect on food selection",
+      "prompt": "Food selection is only about what you buy at the shop",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -59,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "Budget is a major factor in food selection — people with less money to spend often have to choose cheaper foods over others they might prefer.",
+      "why": "False — food selection also includes WHY we choose foods: taste, cost, culture, religion, and health all shape our choices, not just the shopping trip.",
       "fresh": false
     },
     {
-      "id": "S4",
+      "id": "S2",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food helps protect the body against infection",
+      "prompt": "Vitamins and minerals are only needed in tiny amounts",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,194 +40,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Nutrients like vitamins and minerals support the immune system, helping the body defend itself against infection — not just supplying energy.",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "What tool shows the recommended proportions of food groups in a diet?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Eatwell plate",
-      "why": "The eatwell plate (or Australian Guide to Healthy Eating) shows the recommended proportions of each food group needed for a balanced diet.",
-      "options": [
-        "Eatwell plate",
-        "Nutrition label",
-        "Shopping list",
-        "Recipe card"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "Commerce",
-      "prompt": "Deciding the overall message a promo video should send falls under which task?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Content creation",
-      "why": "Deciding the message, tone and story of the video is part of content creation — shaping what the video actually says before it's filmed or released.",
-      "options": [
-        "Content creation",
-        "Market research",
-        "Evaluation",
-        "Distribution"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which prison term did Oscar Wilde serve after his 1895 trial?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Two years hard labour",
-      "why": "Wilde was sentenced to two years' hard labour, mostly spent at Reading Gaol — a brutal punishment that broke his health and finances.",
-      "options": [
-        "Two years hard labour",
-        "One year house arrest",
-        "Six months exile",
-        "Five years hard labour"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "Which 18th-century writer is known for the satire Gulliver's Travels?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Jonathan Swift",
-      "why": "Jonathan Swift wrote Gulliver's Travels, using fantastical voyages to satirise society and politics of his time.",
-      "options": [
-        "Jonathan Swift",
-        "Charles Dickens",
-        "George Orwell",
-        "Oscar Wilde"
-      ],
-      "fresh": true
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A triangle has a base of 9 cm and a height of 10 cm. What is its area?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "45 cm²",
-      "why": "Area = ½ × base × height = ½ × 9 × 10 = 45 cm². Slow down and halve after multiplying, not before — the rush mistake is skipping the ½ step.",
-      "options": [
-        "45 cm²",
-        "90 cm²",
-        "19 cm²",
-        "54 cm²"
-      ],
-      "fresh": false,
-      "repair": true
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "A cylinder has height 10 cm and radius 2 cm. Which measurement do you multiply by 2πr to get curved surface area?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "The height",
-      "why": "Curved surface area = 2πr × height, since 2πr is the circumference and the curved face unrolls into a rectangle that long and that tall.",
-      "options": [
-        "The height",
-        "The radius",
-        "The diameter",
-        "The slant length"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "Geography",
-      "prompt": "Which group did Australia's White Australia Policy mainly favour for immigration?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "White Europeans",
-      "why": "The White Australia Policy, in place before the 1970s, favoured white European migrants and restricted non-European immigration.",
-      "options": [
-        "White Europeans",
-        "Skilled Asians",
-        "Pacific Islanders",
-        "Any refugees"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What building did Hitler's 1923 putsch march begin from?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "A Munich beer hall",
-      "why": "The putsch began at the Bürgerbräukeller, a Munich beer hall, where Hitler interrupted a meeting to declare his revolution — hence its name, the Beer Hall Putsch.",
-      "options": [
-        "A Munich beer hall",
-        "A Berlin railway station",
-        "A Bavarian army barracks",
-        "A Nuremberg stadium"
-      ],
-      "mode": "scrub",
+      "why": "True — vitamins and minerals are needed only in small amounts, but they're still essential for the body to work properly, unlike the misconception that small amounts mean they don't matter.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 22 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 16 cm and a height of 5 cm. Work through it calmly — what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,34 +56,38 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 88,
+      "answer": 40,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 22 × 8 = 88 cm². Say the formula before multiplying so the halving step doesn't get rushed past.",
+      "why": "Area = ½ × base × height = ½ × 16 × 5 = 40 cm². Say the ½ step out loud before multiplying to stop the rushing slip.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "English",
-      "prompt": "From a while back — in Lord of the Flies, what does the fire on the mountain mainly represent?",
-      "answer": "Hope of rescue",
-      "why": "The signal fire represents the boys' hope of being rescued and returning to civilisation — letting it go out shows that hope fading.",
-      "options": [
-        "Hope of rescue",
-        "Order and rules",
-        "Fear of the beast",
-        "Savagery and violence"
+      "subject": "Science",
+      "prompt": "If 33g of reactants react completely in a sealed container, what is the mass of the products?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "33g",
+        "33"
       ],
-      "fresh": false,
-      "throwback": true
+      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants: 33g.",
+      "fresh": false
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a word equation for a chemical reaction, what do we call the new substances formed?",
+      "prompt": "What do we call the new substances left over after a chemical reaction finishes?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,66 +97,80 @@
       },
       "type": "text",
       "accept": [
-        "products",
-        "product"
+        "products"
       ],
-      "why": "The new substances formed in a chemical reaction are called products; they are made from the reactants combining or changing.",
+      "why": "The substances formed at the end of a reaction are called the products — made from the atoms of the original reactants rearranged into new bonds.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What word describes a chemical reaction that gives off heat and feels warm?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "exothermic"
+      "subject": "PDHPE",
+      "prompt": "A cereal ad uses a cartoon mascot and bright colours aimed at kids. What is this marketing technique mainly trying to do?",
+      "answer": "Appeal to children directly",
+      "why": "Mascots and bright colours are designed to appeal directly to children, making the product feel fun and exciting so kids ask parents to buy it — not to inform about health or price.",
+      "options": [
+        "Appeal to children directly",
+        "Lower the price for families",
+        "List the nutrition facts clearly",
+        "Reduce the sugar content"
       ],
-      "why": "An exothermic reaction releases heat energy to its surroundings, which is why it feels warm as it happens.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "What is it called when a company pays a celebrity to use their product in ads?",
-      "answer": "Celebrity endorsement",
-      "why": "Celebrity endorsement means a famous person is paid to be shown using a product, making it seem more appealing even if it isn't actually healthy.",
+      "prompt": "On a nutrition label, which nutrient usually gives the body the most energy per gram?",
+      "answer": "Fat",
+      "why": "Fat provides about 9 calories per gram, almost double carbohydrate or protein (about 4 each), so it packs the most energy per gram, a common mix-up on labels.",
       "options": [
-        "Celebrity endorsement",
-        "Nutrition labelling",
-        "Food safety testing",
-        "Portion control"
+        "Fat",
+        "Protein",
+        "Carbohydrate",
+        "Fibre"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
+      "subject": "Science",
+      "prompt": "What do we call the substances you start with before a chemical reaction takes place?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "reactants"
+      ],
+      "why": "The starting substances in a chemical reaction are called the reactants — they are used up and rearranged to form the products.",
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the fat content mainly tell you about a food?",
-      "answer": "Its energy density",
-      "why": "Fat provides more energy per gram than protein or carbohydrate, so the fat content on a label is a key clue to how energy-dense a food is.",
+      "prompt": "Which of these best describes a healthy food choice?",
+      "answer": "Balanced across food groups",
+      "why": "A healthy choice balances foods from all groups in sensible amounts — cutting out whole groups (like all fat) or relying only on taste misses that balance is the key factor.",
       "options": [
-        "Its energy density",
-        "Its vitamin levels",
-        "Its serving count",
-        "Its salt levels"
+        "Balanced across food groups",
+        "Low in all fat always",
+        "Only fruit and vegetables",
+        "Whatever tastes best"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning a match. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
+      "subject": "Food Technology",
+      "prompt": "A friend says 'food selection' just means choosing what to buy at the shop. Explain what's missing from this idea, and name at least two other real factors that shape what people actually eat."
     }
   ]
 }
