@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-20",
-  "day": "FRI",
-  "tag": "R17.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-11-20",
+  "date": "2026-11-23",
+  "day": "MON",
+  "tag": "R18.1",
+  "title": "DailyXP · MON 2026-11-23",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food selection is only about what you buy at the shop",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "False — food selection also includes WHY we choose foods: taste, cost, culture, religion, and health all shape our choices, not just the shopping trip.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Vitamins and minerals are only needed in tiny amounts",
+      "subject": "Science",
+      "prompt": "A reaction in a sealed jar: total mass before equals total mass after",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,251 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — vitamins and minerals are needed only in small amounts, but they're still essential for the body to work properly, unlike the misconception that small amounts mean they don't matter.",
+      "why": "In a closed system no matter can enter or escape, so mass is conserved exactly as the law states.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The Nanjing Massacre happened purely by chance, with no military reasoning",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "It was driven by Japan's military strategy to force a quick, total surrender from China, not random chance.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "A person's religion can affect what they eat",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Religion often sets rules about which foods are allowed or forbidden, so it directly shapes food selection.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food can protect the body from illness",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Certain nutrients, like vitamin C, help the immune system fight off infections, so food plays a protective role too.",
+      "fresh": false
+    },
+    {
+      "id": "S5",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Which tool shows the recommended proportions of food groups?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Eatwell plate",
+      "why": "The eatwell plate is a visual guide showing how much of each food group should make up a balanced diet.",
+      "options": [
+        "Eatwell plate",
+        "Nutrition label",
+        "Shopping list",
+        "Recipe card"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S6",
+      "phase": "speed",
+      "subject": "Commerce",
+      "prompt": "Testing how a finished promo video performs online is part of which task?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Audience testing",
+      "why": "Checking views, shares and reactions after release is audience testing, separate from creating the content itself.",
+      "options": [
+        "Audience testing",
+        "Content creation",
+        "Budget planning",
+        "Script writing"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S7",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "In which London court was Oscar Wilde tried in 1895?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Old Bailey",
+      "why": "Oscar Wilde's famous 1895 trial for gross indecency was held at the Old Bailey, London's central criminal court.",
+      "options": [
+        "Old Bailey",
+        "Westminster Hall",
+        "Royal Courts",
+        "Marylebone Court"
+      ],
+      "fresh": false
+    },
+    {
+      "id": "S8",
+      "phase": "speed",
+      "subject": "English",
+      "prompt": "Which classic novel satirises Soviet communism using farm animals?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "Animal Farm",
+      "why": "George Orwell's Animal Farm uses farm animals to satirise the corruption of Soviet communism under Stalin.",
+      "options": [
+        "Animal Farm",
+        "Gulliver's Travels",
+        "Brave New World",
+        "Lord of the Flies"
+      ],
+      "fresh": true
+    },
+    {
+      "id": "S9",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "A triangle has a base of 12 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "block": {
+        "label": "Quick Recall",
+        "hue": "#16E08C",
+        "icon": "●",
+        "sub": "Four options, one answer — keep it fast",
+        "cta": "Keep going →"
+      },
+      "answer": "60 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 10 = 60 cm². Halving is the step that's easy to rush past.",
+      "options": [
+        "60 cm²",
+        "120 cm²",
+        "132 cm²",
+        "22 cm²"
+      ],
+      "fresh": false,
+      "repair": true
+    },
+    {
+      "id": "S10",
+      "phase": "speed",
+      "subject": "Maths",
+      "prompt": "For a cylinder's curved surface area, which two measurements do you need?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Radius and height",
+      "why": "Curved surface area uses 2πrh, so you only need the radius and the height of the cylinder.",
+      "options": [
+        "Radius and height",
+        "Radius only",
+        "Height and diameter squared",
+        "Diameter and volume"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S11",
+      "phase": "speed",
+      "subject": "Geography",
+      "prompt": "What job did many post-WWII migrants to Australia do first?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Factory labour",
+      "why": "Many post-WWII migrants were directed into factory and manual labour jobs, since Australia's growing industries urgently needed workers.",
+      "options": [
+        "Factory labour",
+        "Bank management",
+        "Medical research",
+        "University teaching"
+      ],
+      "mode": "scrub",
+      "fresh": false
+    },
+    {
+      "id": "S12",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Who marched alongside Hitler at the front of the Munich Putsch?",
+      "block": {
+        "label": "Scrub It",
+        "hue": "#B18CFF",
+        "icon": "⌫",
+        "sub": "Rub out the wrong answers with your finger",
+        "cta": "Start scrubbing →"
+      },
+      "answer": "Erich Ludendorff",
+      "why": "Erich Ludendorff, a respected WWI general, marched beside Hitler to lend the putsch credibility, though it still collapsed.",
+      "options": [
+        "Erich Ludendorff",
+        "Heinrich Himmler",
+        "Joseph Goebbels",
+        "Hermann Göring Sr"
+      ],
+      "mode": "scrub",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 16 cm and a height of 5 cm. Work through it calmly — what is its area?",
+      "prompt": "A triangle has a base of 23 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -56,38 +274,34 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 40,
+      "answer": 92,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 16 × 5 = 40 cm². Say the ½ step out loud before multiplying to stop the rushing slip.",
+      "why": "Area = ½ × base × height = ½ × 23 × 8 = 92 cm². Say the formula in your head before multiplying so you don't skip the halving step.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "If 33g of reactants react completely in a sealed container, what is the mass of the products?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "33g",
-        "33"
+      "subject": "English",
+      "prompt": "From a while back — what does Piggy's role mainly show about the group in Lord of the Flies?",
+      "answer": "That intelligence is undervalued",
+      "why": "Piggy offers the clearest, most rational thinking, but the other boys mock and ignore him, showing the group values strength over intelligence.",
+      "options": [
+        "That intelligence is undervalued",
+        "That strength always wins out",
+        "That fear controls everyone",
+        "That rules keep everyone safe"
       ],
-      "why": "Mass is conserved in a closed system, so the products weigh exactly the same as the reactants: 33g.",
-      "fresh": false
+      "fresh": false,
+      "throwback": true
     },
     {
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What do we call the new substances left over after a chemical reaction finishes?",
+      "prompt": "What word describes a container that lets no matter in or out during a reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -97,80 +311,68 @@
       },
       "type": "text",
       "accept": [
-        "products"
+        "closed",
+        "closed system",
+        "sealed"
       ],
-      "why": "The substances formed at the end of a reaction are called the products — made from the atoms of the original reactants rearranged into new bonds.",
+      "why": "A closed (sealed) system has no matter entering or leaving, so mass measured before and after a reaction stays the same.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
-      "subject": "PDHPE",
-      "prompt": "A cereal ad uses a cartoon mascot and bright colours aimed at kids. What is this marketing technique mainly trying to do?",
-      "answer": "Appeal to children directly",
-      "why": "Mascots and bright colours are designed to appeal directly to children, making the product feel fun and exciting so kids ask parents to buy it — not to inform about health or price.",
-      "options": [
-        "Appeal to children directly",
-        "Lower the price for families",
-        "List the nutrition facts clearly",
-        "Reduce the sugar content"
+      "subject": "Science",
+      "prompt": "What term describes two substances reacting to form a new material with different properties?",
+      "block": {
+        "label": "Short Answer",
+        "hue": "#E0559B",
+        "icon": "✎",
+        "sub": "Type it — spelling never counts",
+        "cta": "Start →"
+      },
+      "type": "text",
+      "accept": [
+        "chemical change",
+        "chemical reaction"
       ],
+      "why": "A chemical change produces a new substance with different properties, unlike a physical change where no new substance forms.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient usually gives the body the most energy per gram?",
-      "answer": "Fat",
-      "why": "Fat provides about 9 calories per gram, almost double carbohydrate or protein (about 4 each), so it packs the most energy per gram, a common mix-up on labels.",
+      "prompt": "Why do snack packets often use bright, bold colours?",
+      "answer": "To grab attention fast",
+      "why": "Bright, bold packaging is designed to catch the eye quickly on a crowded shelf, not to inform buyers about nutrition or ingredients.",
       "options": [
-        "Fat",
-        "Protein",
-        "Carbohydrate",
-        "Fibre"
+        "To grab attention fast",
+        "To show nutrition facts",
+        "To list ingredients clearly",
+        "To meet food safety law"
       ],
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
-      "subject": "Science",
-      "prompt": "What do we call the substances you start with before a chemical reaction takes place?",
-      "block": {
-        "label": "Short Answer",
-        "hue": "#E0559B",
-        "icon": "✎",
-        "sub": "Type it — spelling never counts",
-        "cta": "Start →"
-      },
-      "type": "text",
-      "accept": [
-        "reactants"
-      ],
-      "why": "The starting substances in a chemical reaction are called the reactants — they are used up and rearranged to form the products.",
-      "fresh": false
-    },
-    {
-      "id": "T7",
-      "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Which of these best describes a healthy food choice?",
-      "answer": "Balanced across food groups",
-      "why": "A healthy choice balances foods from all groups in sensible amounts — cutting out whole groups (like all fat) or relying only on taste misses that balance is the key factor.",
+      "prompt": "On a nutrition label, what does the '% Daily Intake' column show?",
+      "answer": "Share of daily needs",
+      "why": "The '% Daily Intake' column shows how much of your recommended daily amount of a nutrient one serving provides.",
       "options": [
-        "Balanced across food groups",
-        "Low in all fat always",
-        "Only fruit and vegetables",
-        "Whatever tastes best"
+        "Share of daily needs",
+        "Total serving weight",
+        "Price per serving",
+        "List of ingredients"
       ],
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Food Technology",
-      "prompt": "A friend says 'food selection' just means choosing what to buy at the shop. Explain what's missing from this idea, and name at least two other real factors that shape what people actually eat."
+      "subject": "PDHPE",
+      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning a match. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
     }
   ]
 }
