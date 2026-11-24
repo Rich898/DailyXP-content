@@ -1,34 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-23",
-  "day": "MON",
-  "tag": "R18.1",
-  "title": "DailyXP · MON 2026-11-23",
+  "date": "2026-11-24",
+  "day": "TUE",
+  "tag": "R18.2",
+  "title": "DailyXP · TUE 2026-11-24",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A reaction in a sealed jar: total mass before equals total mass after",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "In a closed system no matter can enter or escape, so mass is conserved exactly as the law states.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Nanjing Massacre happened purely by chance, with no military reasoning",
+      "prompt": "A reaction in an open flask loses mass as gas escapes",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,14 +21,33 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "It was driven by Japan's military strategy to force a quick, total surrender from China, not random chance.",
+      "why": "Mass is always conserved — in an open flask the escaping gas still has mass, it just leaves the container, so it only looks like mass was lost.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "The Nanjing Massacre was just soldiers losing control, not military strategy",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Japan's army wanted a fast, total collapse of Chinese resistance, so terror against civilians served a deliberate military goal, not just random cruelty.",
       "fresh": false
     },
     {
       "id": "S3",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "A person's religion can affect what they eat",
+      "prompt": "A person's taste preferences never affect food selection",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -58,15 +58,15 @@
       "type": "swipe",
       "left": "True",
       "right": "False",
-      "answer": "True",
-      "why": "Religion often sets rules about which foods are allowed or forbidden, so it directly shapes food selection.",
+      "answer": "False",
+      "why": "Taste is a major factor in food selection — people often choose foods they enjoy the flavour of, alongside cost, culture and health.",
       "fresh": false
     },
     {
       "id": "S4",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Food can protect the body from illness",
+      "prompt": "Food can help protect the body from disease",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +78,14 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Certain nutrients, like vitamin C, help the immune system fight off infections, so food plays a protective role too.",
+      "why": "Certain nutrients, like vitamin C, support the immune system and help the body resist infection, so food plays a protective role too.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Which tool shows the recommended proportions of food groups?",
+      "prompt": "Why does a balanced diet need foods from several different groups?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Eatwell plate",
-      "why": "The eatwell plate is a visual guide showing how much of each food group should make up a balanced diet.",
+      "answer": "Different foods supply different nutrients",
+      "why": "No single food group gives everything the body needs, so eating a variety of groups ensures you get all the different nutrients required for health.",
       "options": [
-        "Eatwell plate",
-        "Nutrition label",
-        "Shopping list",
-        "Recipe card"
+        "Different foods supply different nutrients",
+        "It makes meals look more colourful",
+        "It keeps grocery shopping more varied",
+        "It stops meals from tasting the same"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "Testing how a finished promo video performs online is part of which task?",
+      "prompt": "In a promo video, which task counts as content creation?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Audience testing",
-      "why": "Checking views, shares and reactions after release is audience testing, separate from creating the content itself.",
+      "answer": "Filming the footage",
+      "why": "Content creation covers making the material itself, like filming footage and writing scripts — testing and tracking happen after the content exists.",
       "options": [
-        "Audience testing",
-        "Content creation",
-        "Budget planning",
-        "Script writing"
+        "Filming the footage",
+        "Testing online reach",
+        "Measuring audience views",
+        "Tracking ad spend"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "In which London court was Oscar Wilde tried in 1895?",
+      "prompt": "At which university did Oscar Wilde study in England?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Old Bailey",
-      "why": "Oscar Wilde's famous 1895 trial for gross indecency was held at the Old Bailey, London's central criminal court.",
+      "answer": "Oxford",
+      "why": "Oscar Wilde studied at Oxford University after attending Trinity College Dublin, and it shaped his wit and aesthetic style.",
       "options": [
-        "Old Bailey",
-        "Westminster Hall",
-        "Royal Courts",
-        "Marylebone Court"
+        "Oxford",
+        "Cambridge",
+        "Durham",
+        "Bristol"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which classic novel satirises Soviet communism using farm animals?",
+      "prompt": "Which technique does satire often use to exaggerate flaws?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Animal Farm",
-      "why": "George Orwell's Animal Farm uses farm animals to satirise the corruption of Soviet communism under Stalin.",
+      "answer": "Mockery and irony",
+      "why": "Satire relies on mockery, irony and exaggeration to highlight flaws, rather than stating facts plainly or formally.",
       "options": [
-        "Animal Farm",
-        "Gulliver's Travels",
-        "Brave New World",
-        "Lord of the Flies"
+        "Mockery and irony",
+        "Detailed statistics",
+        "Formal footnotes",
+        "Plain description"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 12 cm and a height of 10 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 14 cm and a height of 6 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "60 cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 12 × 10 = 60 cm². Halving is the step that's easy to rush past.",
+      "answer": "42 cm²",
+      "why": "Area of a triangle is ½ × base × height, so ½ × 14 × 6 = 42 cm². Slow down and halve before multiplying, don't just multiply base by height.",
       "options": [
-        "60 cm²",
-        "120 cm²",
-        "132 cm²",
-        "22 cm²"
+        "42 cm²",
+        "84 cm²",
+        "20 cm²",
+        "48 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "For a cylinder's curved surface area, which two measurements do you need?",
+      "prompt": "A closed cylinder has radius 3 cm and height 5 cm. What is its total surface area? (use π ≈ 3.14)",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Radius and height",
-      "why": "Curved surface area uses 2πrh, so you only need the radius and the height of the cylinder.",
+      "answer": "150.7 cm²",
+      "why": "Total surface area = 2πrh + 2πr² = (2×3.14×3×5) + (2×3.14×9) = 94.2 + 56.5 = 150.7 cm². The distractors come from forgetting one of the two parts or adding them wrongly.",
       "options": [
-        "Radius and height",
-        "Radius only",
-        "Height and diameter squared",
-        "Diameter and volume"
+        "150.7 cm²",
+        "94.2 cm²",
+        "56.5 cm²",
+        "203.1 cm²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "What job did many post-WWII migrants to Australia do first?",
+      "prompt": "A family moves overseas and is granted permanent protection after fleeing war. What is this an example of?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Factory labour",
-      "why": "Many post-WWII migrants were directed into factory and manual labour jobs, since Australia's growing industries urgently needed workers.",
+      "answer": "Refugee migration",
+      "why": "Fleeing war and being granted permanent protection makes this refugee migration, not a voluntary move for jobs or family ties.",
       "options": [
-        "Factory labour",
-        "Bank management",
-        "Medical research",
-        "University teaching"
+        "Refugee migration",
+        "Rural-to-urban migration",
+        "Pull-factor migration",
+        "Chain migration"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "Who marched alongside Hitler at the front of the Munich Putsch?",
+      "prompt": "What did Hitler attempt during the 1923 Munich Putsch?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Erich Ludendorff",
-      "why": "Erich Ludendorff, a respected WWI general, marched beside Hitler to lend the putsch credibility, though it still collapsed.",
+      "answer": "Seize power in Bavaria",
+      "why": "The Munich Putsch was a failed attempt to seize power in Bavaria and march on Berlin, not an election campaign or peaceful reform.",
       "options": [
-        "Erich Ludendorff",
-        "Heinrich Himmler",
-        "Joseph Goebbels",
-        "Hermann Göring Sr"
+        "Seize power in Bavaria",
+        "Win a national election",
+        "Negotiate with Britain",
+        "Reform the Weimar constitution"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 23 cm and a height of 8 cm. Slow down and work through it step by step: what is its area?",
+      "prompt": "A triangle has a base of 13 cm and a height of 6 cm. What is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 92,
+      "answer": 39,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 23 × 8 = 92 cm². Say the formula in your head before multiplying so you don't skip the halving step.",
+      "why": "Area = ½ × base × height = ½ × 13 × 6 = 39 cm². Pause and halve before multiplying, don't rush straight to base × height.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — what does Piggy's role mainly show about the group in Lord of the Flies?",
-      "answer": "That intelligence is undervalued",
-      "why": "Piggy offers the clearest, most rational thinking, but the other boys mock and ignore him, showing the group values strength over intelligence.",
+      "prompt": "From a while back — why does Ralph's signal fire going out matter so much?",
+      "answer": "It means a rescue ship passes unseen",
+      "why": "The fire is the boys' only link to rescue, so letting it die while hunting shows how survival and savagery have overtaken civilisation and hope of being saved.",
       "options": [
-        "That intelligence is undervalued",
-        "That strength always wins out",
-        "That fear controls everyone",
-        "That rules keep everyone safe"
+        "It means a rescue ship passes unseen",
+        "It means the boys run out of food",
+        "It means Piggy loses his glasses",
+        "It means the littluns get lost"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What word describes a container that lets no matter in or out during a reaction?",
+      "prompt": "In a reaction, what do we call the starting substances before they react?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,18 +311,16 @@
       },
       "type": "text",
       "accept": [
-        "closed",
-        "closed system",
-        "sealed"
+        "reactants"
       ],
-      "why": "A closed (sealed) system has no matter entering or leaving, so mass measured before and after a reaction stays the same.",
+      "why": "The reactants are the starting substances; their total mass equals the total mass of the products formed in a closed system.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What term describes two substances reacting to form a new material with different properties?",
+      "prompt": "What do we call it when a chemical reaction releases heat and feels warm?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -332,24 +330,23 @@
       },
       "type": "text",
       "accept": [
-        "chemical change",
-        "chemical reaction"
+        "exothermic"
       ],
-      "why": "A chemical change produces a new substance with different properties, unlike a physical change where no new substance forms.",
+      "why": "An exothermic reaction releases heat energy to its surroundings, which is why it feels warm to touch.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do snack packets often use bright, bold colours?",
-      "answer": "To grab attention fast",
-      "why": "Bright, bold packaging is designed to catch the eye quickly on a crowded shelf, not to inform buyers about nutrition or ingredients.",
+      "prompt": "Why do snack ads often include a free collectible toy or sticker?",
+      "answer": "To make kids want that snack to get it",
+      "why": "A free extra like a toy or sticker makes a product more appealing for reasons that have nothing to do with the food itself, pulling kids toward it regardless of nutrition.",
       "options": [
-        "To grab attention fast",
-        "To show nutrition facts",
-        "To list ingredients clearly",
-        "To meet food safety law"
+        "To make kids want that snack to get it",
+        "To list allergy warnings clearly",
+        "To meet government labelling rules",
+        "To show the snack's true nutrition"
       ],
       "fresh": false
     },
@@ -357,14 +354,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, what does the '% Daily Intake' column show?",
-      "answer": "Share of daily needs",
-      "why": "The '% Daily Intake' column shows how much of your recommended daily amount of a nutrient one serving provides.",
+      "prompt": "On a nutrition label, which nutrient is usually highest in a packet of crisps?",
+      "answer": "Fat",
+      "why": "Crisps are fried or cooked in oil, so fat is usually the dominant nutrient on their label, far more than protein, fibre, or vitamins.",
       "options": [
-        "Share of daily needs",
-        "Total serving weight",
-        "Price per serving",
-        "List of ingredients"
+        "Fat",
+        "Protein",
+        "Fibre",
+        "Vitamin C"
       ],
       "fresh": false
     },
@@ -372,7 +369,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a famous athlete drinks a sugary sports drink after winning a match. Explain how this ad could shape their food choice, even though the drink isn't actually a healthy option."
+      "prompt": "A teenager sees an ad where a popular athlete drinks a sugary energy drink after winning a race. Explain how this ad could influence the teenager's food choice, even though the drink isn't a healthy option."
     }
   ]
 }
