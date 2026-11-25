@@ -1,6 +1,6 @@
 # EXAM REVISION — source of truth
 
-**Status:** DRAFT for Rich's approval (2026-11-25).
+**Status:** APPROVED by Rich (2026-11-25).
 **Scope:** The exam-revision system only. This is a *separate* system from the daily
 DailyXP game (`QUIZ-GENERATION.md`). See §1.
 
