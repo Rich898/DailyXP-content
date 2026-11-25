@@ -3,269 +3,687 @@
   "year": "Year 9",
   "school": "Balgowlah Boys College",
   "page_url": "comfy-gnome-ab3891.netlify.app",
-  "_doc": "Built per EXAM-REVISION.md. Every bank item cites `src` into revision/sources/roshan/. Starting subjects: Science, History, Geography (English, Core Maths, PDHPE, Commerce, Food Tech to follow — formats noted below).",
-
+  "_model": "TOPIC-DRIVEN (like the daily game's menu). This blueprint holds each subject's exam FORMAT + a TOPIC OUTLINE with source GROUNDING. The dedicated generator writes exam-format questions AGAINST these topics, grounded in the grounding/src, then the validator gates them (EXAM-REVISION.md). It does NOT store final questions — generation is unlimited and ledger-steered by topic id.",
+  "_scope": "English and Maths done (excluded). Covers the remaining examined subjects: Science, History, Geography, PDHPE, Commerce, Food Technology.",
+  "topic_schema": {
+    "id": "stable",
+    "topic": "name",
+    "section": "which exam section",
+    "asks_as": [
+      "mc|short|tb"
+    ],
+    "src": "source ref under revision/sources/roshan/",
+    "grounding": "the facts/model-answer essence the generator must stay faithful to",
+    "exemplar": "one example question (style guide, not the only question)"
+  },
   "subjects": {
     "Science": {
       "exam": {
-        "time_min": 80, "marks": 70, "multiple_choice": false,
+        "time_min": 80,
+        "marks": 70,
+        "multiple_choice": false,
         "sections": [
-          { "name": "Part A — Chemistry of New Substances", "marks": 25, "style": "short + extended" },
-          { "name": "Part B — Global Patterns", "marks": 25, "style": "short + extended" },
-          { "name": "Part C — Skills", "marks": 20, "style": "short, applied (data/graphs/method)" }
+          {
+            "name": "Part A — Chemistry of New Substances",
+            "marks": 25,
+            "style": "short + extended"
+          },
+          {
+            "name": "Part B — Global Patterns",
+            "marks": 25,
+            "style": "short + extended"
+          },
+          {
+            "name": "Part C — Skills",
+            "marks": 20,
+            "style": "short, applied (data/method/graphs)"
+          }
         ],
-        "src": "Year9_Yearly_Exam_Study_Pack.md §1 (Format 70 marks)"
+        "src": "Year9_Yearly_Exam_Study_Pack.md §1"
       },
-      "sources": ["revision/sources/roshan/Year9_Yearly_Exam_Study_Pack.md §1",
-                  "revision/sources/roshan/Roshan_Y9_Revision_Extract.md §SCIENCE"],
-      "paper_only": ["Draw & label the 3 fault types", "Draw ionic/covalent/metallic bonding diagrams",
-                     "Graph tabulated data with CUTLAS", "Scientific drawing / labelling a figure"],
-      "bank": [
-        { "id": "SCI-A-indicators", "section": "Part A", "t": "short", "topic": "Indicators of chemical change",
-          "src": "Study Pack §1 Part A Q1",
-          "ask": "Name the FOUR indicators that a chemical change has taken place.",
-          "keys": ["colour", "precipitate", "gas", "temperature"],
-          "model": "Colour change; a gas produced (bubbles/fizzing); a precipitate forms; a temperature change (heat or light). (A new smell is also accepted.)" },
-        { "id": "SCI-A-physchem", "section": "Part A", "t": "short", "topic": "Physical vs chemical change",
-          "src": "Study Pack §1 Part A Q2",
-          "ask": "Classify each as a PHYSICAL or CHEMICAL change: (i) dissolving sugar (ii) burning paper (iii) boiling water.",
-          "model": "Dissolving sugar = physical; burning paper = chemical; boiling water = physical." },
-        { "id": "SCI-A-wordeq", "section": "Part A", "t": "short", "topic": "Word equations",
-          "src": "Study Pack §1 Part A Q3",
-          "ask": "Write the word equation: when magnesium is heated in oxygen it forms magnesium oxide. Label the reactants and the product.",
-          "keys": ["magnesium oxide"],
-          "model": "magnesium + oxygen -> magnesium oxide. Reactants (left): magnesium, oxygen. Product (right): magnesium oxide." },
-        { "id": "SCI-A-consmass-def", "section": "Part A", "t": "tb", "topic": "Conservation of mass (open/closed)",
-          "src": "Study Pack §1 Part A Q4; Extract §SCIENCE model answer 1",
-          "ask": "State the Law of Conservation of Mass. A scientist runs the same reaction once in a closed jar and once in an open beaker and gets different masses. Why?",
-          "model": "Mass is neither created nor destroyed in a reaction, so mass of reactants = mass of products. In the closed jar no gas escapes so mass stays constant; in the open beaker a gas product escapes into the air, so the measured mass drops. Mass is still conserved." },
-        { "id": "SCI-A-consmass-calc1", "section": "Part A", "t": "short", "topic": "Conservation of mass calculation",
-          "src": "Study Pack §1 Part A Q5a (answer 49.6 g)",
-          "ask": "Hydrogen and oxygen react to form water. What mass of water forms if 14.8 g of hydrogen reacts with 34.8 g of oxygen? Show working.",
-          "keys": ["49.6"],
-          "model": "Mass of products = mass of reactants = 14.8 + 34.8 = 49.6 g of water." },
-        { "id": "SCI-A-consmass-calc2", "section": "Part A", "t": "short", "topic": "Conservation of mass calculation (gas lost)",
-          "src": "Study Pack §1 Part A Q5b (answer 1 g)",
-          "ask": "10 g of magnesium is placed in 15 g of hydrochloric acid and hydrogen gas is produced. The solution then weighs 24 g. How many grams of hydrogen gas were released? Show working.",
-          "keys": ["1 g", "1g", "= 1"],
-          "model": "Start = 10 + 15 = 25 g. 25 - 24 = 1 g of hydrogen gas escaped." },
-        { "id": "SCI-A-reactiontype", "section": "Part A", "t": "tb", "topic": "Synthesis vs decomposition (apply)",
-          "src": "Study Pack §1 Part A Q7; Extract §SCIENCE model answer 2 (elephant's toothpaste)",
-          "ask": "Hydrogen peroxide breaks down into water and oxygen (2H2O2 -> 2H2O + O2). What TYPE of reaction is this and how do you know? (Apply the definition.)",
-          "model": "Decomposition: one reactant breaks down into two or more products (AB -> A + B). Hydrogen peroxide (one reactant) breaks into water and oxygen (two products), so it is decomposition." },
-        { "id": "SCI-A-rusting", "section": "Part A", "t": "tb", "topic": "Corrosion / rusting",
-          "src": "Study Pack §1 Part A Q8; Extract §SCIENCE (corrosion)",
-          "ask": "(a) What conditions are needed for iron to rust? (b) Write the word equation. (c) Give TWO ways to prevent rusting.",
-          "model": "(a) Iron + oxygen + water (all three needed). (b) iron + oxygen + water -> hydrated iron oxide (rust). (c) Any two: paint it; oil/grease/plastic-coat it; galvanise with zinc; use a sacrificial metal; keep it dry." },
-        { "id": "SCI-A-bonding-id", "section": "Part A", "t": "short", "topic": "Identify bond type",
-          "src": "Study Pack §1 Part A Q9",
-          "ask": "Identify the bonding in each: MgF2 (metal + non-metal), CO2 (two non-metals), Cu (a metal).",
-          "model": "MgF2 = ionic (metal + non-metal); CO2 = covalent (two non-metals); Cu = metallic (a metal)." },
-        { "id": "SCI-A-bonding-compare", "section": "Part A", "t": "tb", "topic": "Compare ionic and covalent bonding",
-          "src": "Extract §SCIENCE model answer 3",
-          "ask": "Compare covalent and ionic bonding — the elements involved, what happens to the electrons, the structures formed, with an example of each.",
-          "model": "Both fill their outer electron shells for stability. Covalent bonding is between non-metals that SHARE electrons, forming individual molecules (e.g. H2O, CO2, O2). Ionic bonding is between a metal and a non-metal that TRANSFER electrons, forming lattices of charged ions (e.g. NaCl, CaCO3)." },
-        { "id": "SCI-A-solubility", "section": "Part A", "t": "short", "topic": "Solubility rules",
-          "src": "Study Pack §1 Part A Q10",
-          "ask": "Soluble or insoluble? (i) barium sulfate (ii) potassium chloride (iii) aluminium hydroxide.",
-          "model": "Barium sulfate = insoluble; potassium chloride = soluble; aluminium hydroxide = insoluble. (Nitrates and group-1 salts dissolve; most carbonates/hydroxides and barium/lead sulfates are insoluble.)" },
-        { "id": "SCI-A-precipitation", "section": "Part A", "t": "tb", "topic": "Precipitation reactions",
-          "src": "Study Pack §1 Part A Q11",
-          "ask": "Lithium carbonate + barium nitrate react. (a) Name the two products. (b) Which product is the insoluble precipitate?",
-          "model": "(a) barium carbonate + lithium nitrate. (b) Barium carbonate is the precipitate (carbonates are insoluble except group 1); lithium nitrate stays dissolved." },
-        { "id": "SCI-B-wegener", "section": "Part B", "t": "tb", "topic": "Continental drift / Wegener",
-          "src": "Extract §SCIENCE model answer (Wegener); Study Pack §1 Part B Q",
-          "ask": "Describe the Theory of Continental Drift, the evidence Alfred Wegener used, and explain why other scientists dismissed it at the time.",
-          "model": "Continents were once joined and have drifted apart. Wegener saw the continents fit like a jigsaw and collected evidence of matching rock types, mountain formations and fossils across continents now separated by oceans, proposing a supercontinent (Pangaea). But he was not a geologist and could not explain HOW continents move (the mechanism), so his theory was dismissed." },
-        { "id": "SCI-B-boundaries", "section": "Part B", "t": "tb", "topic": "Convergent vs divergent boundaries",
-          "src": "Extract §SCIENCE model answer (plate boundaries)",
-          "ask": "Distinguish between a convergent and a divergent plate boundary — the movement, what happens to the crust, and the features formed at each.",
-          "model": "Convergent: plates move towards each other; continental crust compresses or oceanic crust subducts, forming mountain ranges, trenches or volcanic islands. Divergent: plates move apart; continental crust rifts or magma rises to form new oceanic crust, forming mid-ocean ridges." },
-        { "id": "SCI-B-volcano-quake", "section": "Part B", "t": "short", "topic": "Volcanoes & earthquakes by boundary",
-          "src": "Study Pack §1 Part B Qs (volcanoes/earthquakes)",
-          "ask": "Which plate boundaries are most linked to volcanoes, and name ONE hazard an earthquake can cause.",
-          "model": "Volcanoes are most linked to convergent and divergent boundaries. An earthquake hazard: ground shaking, building collapse, tsunamis, landslides or fires (any one)." },
-        { "id": "SCI-B-crust", "section": "Part B", "t": "short", "topic": "Oceanic vs continental crust",
-          "src": "Study Pack §1 Part B (quick facts)",
-          "ask": "Compare oceanic and continental crust (thickness, density, age).",
-          "model": "Oceanic crust is thinner, denser and younger (basalt); continental crust is thicker, less dense and older (granite). Oceanic crust subducts under continental crust." },
-        { "id": "SCI-B-seafloor-calc", "section": "Part B", "t": "tb", "topic": "Seafloor spreading calculation",
-          "src": "Study Pack §1 Part B calculation (answer 1.3 cm/yr)",
-          "ask": "A strip of seafloor basalt is 72,000,000 years old and 936 km from the mid-ocean ridge. (a) Convert the distance to cm. (b) Calculate the spreading rate in cm/year. Show working. (1 km = 100,000 cm)",
-          "model": "(a) 936 x 100,000 = 93,600,000 cm. (b) Rate = distance / time = 93,600,000 / 72,000,000 = 1.3 cm/year." },
-        { "id": "SCI-B-seafloor-why", "section": "Part B", "t": "short", "topic": "Why rocks older from ridge",
-          "src": "Study Pack §1 Part B",
-          "ask": "Why do ocean-floor rocks get older the further they are from a mid-ocean ridge?",
-          "keys": ["new crust", "ridge", "pushed", "spreading"],
-          "model": "New crust forms at the ridge (youngest there) and seafloor spreading pushes it outwards, so rock further away was made longer ago and is older." },
-        { "id": "SCI-C-hypothesis", "section": "Part C — Skills", "t": "tb", "topic": "Plan an investigation (hypothesis + variables)",
-          "src": "Study Pack §1 Part C Skills list; Extract §SCIENCE (variables)",
-          "ask": "A student investigates whether warmer water makes sugar dissolve faster. (a) Write a hypothesis in the 'If... then...' form. (b) State the independent and dependent variables. (c) Name TWO controlled variables.",
-          "model": "(a) If the water temperature is increased, then the sugar dissolves faster. (b) Independent = water temperature; dependent = time taken to dissolve. (c) Any two: mass of sugar, volume of water, stirring, type of sugar." },
-        { "id": "SCI-C-relval", "section": "Part C — Skills", "t": "short", "topic": "Reliability vs validity",
-          "src": "Study Pack §1 Part C; Extract §SCIENCE (reliability/validity)",
-          "ask": "What is the difference between the RELIABILITY and the VALIDITY of an experiment?",
-          "model": "Reliability = repeating the experiment (at least 3 times) to get consistent results. Validity = a fair test that measures what it is meant to, with only the independent variable changed." },
-        { "id": "SCI-C-trend", "section": "Part C — Skills", "t": "tb", "topic": "Describe a trend (both variables) + interpolate",
-          "src": "Study Pack §1 Part C (describing trends — must mention both variables; interpolating)",
-          "ask": "A reaction's temperature over time: Time(s) 0,10,20,30,40 -> Temp(C) 20,26,31,34,35. (a) Name the independent variable. (b) Describe the trend, mentioning BOTH variables. (c) Estimate the temperature at 25 s.",
-          "model": "(a) Time. (b) As time increased, temperature increased, but the rate of increase slowed and levelled off near 35 C. (c) About 32-33 C (interpolating between 31 and 34)." }
+      "paper_only": [
+        "Draw & label the 3 fault types",
+        "Draw ionic/covalent/metallic bonding diagrams",
+        "Graph tabulated data with CUTLAS",
+        "Scientific drawing / labelling a figure"
+      ],
+      "topics": [
+        {
+          "id": "SCI-physchem",
+          "section": "Part A",
+          "asks_as": [
+            "short"
+          ],
+          "src": "Study Pack §1 A Q1-2",
+          "grounding": "Physical change: no new substance, often reversible (melt/boil/dissolve/change state). Chemical change: new substance, usually not reversible. FOUR indicators: colour change; gas/bubbles; precipitate forms; temperature change (heat/light). Examples: burning=chemical, boiling water=physical, boiling egg=chemical, dissolving sugar=physical.",
+          "exemplar": "Classify as physical or chemical: burning a match; boiling water; boiling an egg."
+        },
+        {
+          "id": "SCI-wordeq",
+          "section": "Part A",
+          "asks_as": [
+            "short"
+          ],
+          "src": "Study Pack §1 A Q3",
+          "grounding": "Reactants -> products. Patterns: fuel + oxygen -> carbon dioxide + water; metal + oxygen -> metal oxide (magnesium + oxygen -> magnesium oxide). Label reactants (left) and products (right).",
+          "exemplar": "Write the word equation for methane burning in oxygen and label reactants and products."
+        },
+        {
+          "id": "SCI-consmass",
+          "section": "Part A",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §1 A Q4-5; Extract §SCIENCE model 1",
+          "grounding": "Mass of reactants = mass of products (mass not created/destroyed). Closed system: mass constant. Open system: a gas product escapes so measured mass drops. Calc style: add reactant masses to get product mass (14.8+34.8=49.6g); or start-final = gas lost (10+15-24=1g).",
+          "exemplar": "10 g magnesium in 15 g hydrochloric acid produces hydrogen gas; the solution then weighs 24 g. How much hydrogen gas was released?"
+        },
+        {
+          "id": "SCI-reactiontypes",
+          "section": "Part A",
+          "asks_as": [
+            "tb"
+          ],
+          "src": "Study Pack §1 A Q6-7; Extract model 2",
+          "grounding": "Synthesis: 2+ reactants combine into one (A+B->AB). Decomposition: one reactant breaks into 2+ products (AB->A+B), e.g. 2H2O2->2H2O+O2, CaCO3->CaO+CO2. Justify by counting reactants/products. Balancing: change the big numbers in front only, never subscripts.",
+          "exemplar": "Elephant's toothpaste is hydrogen peroxide breaking into water and oxygen. What reaction type is it and how do you know?"
+        },
+        {
+          "id": "SCI-corrosion",
+          "section": "Part A",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §1 A Q8; Extract §SCIENCE corrosion",
+          "grounding": "Corrosion/rusting = metal degrading. Needs ALL of iron + oxygen + water. Word eq: iron + oxygen + water -> hydrated iron oxide (rust). It is a synthesis reaction. Prevent: paint; oil/grease/plastic coat; galvanise (zinc, more reactive); sacrificial metal; keep dry.",
+          "exemplar": "What conditions are needed for rusting, and give two ways to prevent it."
+        },
+        {
+          "id": "SCI-bonding",
+          "section": "Part A",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §1 A Q9; Extract model 3",
+          "grounding": "Ionic = metal + non-metal, TRANSFER electrons, form lattices of charged ions (NaCl, CaCO3). Covalent = non-metal + non-metal, SHARE electrons, form molecules (H2O, CO2, O2). Metallic = a metal alone. Both ionic & covalent fill outer shells for stability.",
+          "exemplar": "Compare ionic and covalent bonding with an example of each."
+        },
+        {
+          "id": "SCI-solubility",
+          "section": "Part A",
+          "asks_as": [
+            "short"
+          ],
+          "src": "Study Pack §1 A Q10",
+          "grounding": "Soluble: nitrates, group-1 (Na/K) salts, most chlorides. Insoluble: most carbonates & hydroxides (except group 1); sulfates insoluble for barium & lead. e.g. barium sulfate insoluble; potassium chloride soluble; aluminium hydroxide insoluble.",
+          "exemplar": "Is barium sulfate soluble or insoluble?"
+        },
+        {
+          "id": "SCI-precipitation",
+          "section": "Part A",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §1 A Q11",
+          "grounding": "Two soluble salts react and swap partners (AB+CD->AD+CB); the precipitate is whichever product is insoluble. e.g. lithium carbonate + barium nitrate -> barium carbonate (precipitate) + lithium nitrate.",
+          "exemplar": "Magnesium chloride + sodium hydroxide react. Name the products and which is the precipitate."
+        },
+        {
+          "id": "SCI-wegener",
+          "section": "Part B",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Extract §SCIENCE Wegener model",
+          "grounding": "Continental drift: continents were joined and drifted apart. Wegener's evidence: jigsaw fit of coastlines, matching rocks, mountains and fossils across oceans; supercontinent Pangaea. Dismissed because he couldn't explain the MECHANISM (what moved them); he wasn't a geologist.",
+          "exemplar": "Describe Wegener's theory, his evidence, and why it was dismissed at first."
+        },
+        {
+          "id": "SCI-boundaries",
+          "section": "Part B",
+          "asks_as": [
+            "tb"
+          ],
+          "src": "Extract §SCIENCE plate boundaries model",
+          "grounding": "Convergent: plates move together; crust compresses or subducts; forms mountains, trenches, volcanic islands. Divergent: plates move apart; crust rifts or magma rises to make new crust; forms mid-ocean ridges. Transform: slide past; strong earthquakes, no volcanoes. Convection currents in the mantle drive plates.",
+          "exemplar": "Distinguish between a convergent and a divergent plate boundary and the features formed at each."
+        },
+        {
+          "id": "SCI-faults",
+          "section": "Part B",
+          "asks_as": [
+            "short"
+          ],
+          "src": "Study Pack §1 B (fault types); paper_only for drawing",
+          "grounding": "Normal fault: tension (pulled apart), hanging wall drops. Reverse fault: compression (pushed together), hanging wall rises. Strike-slip: blocks slide sideways. (Diagrams are paper-only.)",
+          "exemplar": "Describe what happens at a normal fault."
+        },
+        {
+          "id": "SCI-crust-quakes",
+          "section": "Part B",
+          "asks_as": [
+            "short"
+          ],
+          "src": "Study Pack §1 B",
+          "grounding": "Oceanic crust: thinner, denser, younger (basalt), subducts. Continental: thicker, less dense, older (granite). Volcanoes at convergent/divergent boundaries. Earthquake hazards: shaking, building collapse, tsunamis, landslides, fires.",
+          "exemplar": "Compare oceanic and continental crust."
+        },
+        {
+          "id": "SCI-seafloor",
+          "section": "Part B",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §1 B calc (1.3 cm/yr)",
+          "grounding": "Seafloor spreading: new crust at the ridge (youngest), pushed outwards, so rock gets older away from the ridge. Rate = distance / time; 1 km = 100,000 cm. e.g. 936 km old 72,000,000 yr -> 93,600,000 cm / 72,000,000 = 1.3 cm/yr.",
+          "exemplar": "A strip of seafloor is 936 km from the ridge and 72 million years old. Calculate the spreading rate in cm/year."
+        },
+        {
+          "id": "SCI-skills-method",
+          "section": "Part C — Skills",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §1 C skills list; Extract §SCIENCE variables",
+          "grounding": "Hypothesis: 'If [IV changes], then [DV will...]'. Independent variable = what you change; dependent = what you measure; controlled = kept the same (list several). Reliability = repeat >=3 times for consistent results. Validity = fair test, measures what it should, only IV changed.",
+          "exemplar": "A student tests if warmer water dissolves sugar faster. Write a hypothesis and state the independent, dependent and a controlled variable."
+        },
+        {
+          "id": "SCI-skills-data",
+          "section": "Part C — Skills",
+          "asks_as": [
+            "tb"
+          ],
+          "src": "Study Pack §1 C (CUTLAS, trends, interpolate)",
+          "grounding": "Describe a trend mentioning BOTH variables (e.g. 'as time increased, temperature increased then levelled off'). Interpolate = read a value between data points; extrapolate = beyond. Bar graph for categorical IV, line graph for continuous IV. A valid conclusion restates the result referring to the data.",
+          "exemplar": "Given a table of time vs temperature, describe the trend (both variables) and estimate a value between two points."
+        }
       ]
     },
-
     "History": {
       "exam": {
-        "time_min": null, "marks": 25, "multiple_choice": false,
-        "sections": [ { "name": "Short-answer questions", "marks": 25, "style": "short written responses" } ],
-        "src": "Study Pack §2 (Format: short-answer, 25 marks); Extract §HISTORY"
+        "marks": 25,
+        "multiple_choice": false,
+        "sections": [
+          {
+            "name": "Short-answer questions",
+            "marks": 25,
+            "style": "short written responses"
+          }
+        ],
+        "src": "Study Pack §2 (short-answer, 25 marks); Extract §HISTORY"
       },
-      "sources": ["revision/sources/roshan/Year9_Yearly_Exam_Study_Pack.md §2",
-                  "revision/sources/roshan/Roshan_Y9_Revision_Extract.md §HISTORY"],
       "paper_only": [],
-      "bank": [
-        { "id": "HIS-pearl-why", "t": "short", "topic": "Pearl Harbour — reasons",
-          "src": "Study Pack §2 Topic 1; Extract §HISTORY (Pearl Harbour)",
-          "ask": "Give TWO reasons why Japan attacked Pearl Harbour on 7 December 1941.",
-          "model": "Any two: to cripple the US Pacific Fleet so it could not stop Japanese expansion; to secure resources (e.g. oil) and territory across South-East Asia and the Pacific; in response to US sanctions / the oil embargo." },
-        { "id": "HIS-singapore", "t": "tb", "topic": "Fall of Singapore + propaganda",
-          "src": "Study Pack §2 Topic 2; Extract §HISTORY (Fall of Singapore)",
-          "ask": "Explain how the threat of Japanese expansion changed Australia's sense of security in 1942, and how the government used propaganda posters (e.g. 'He's Coming South') to shape public feeling.",
-          "model": "The fall of Singapore (Feb 1942), a major British base, shattered Australia's security and shifted its alliance towards the USA. With Japan advancing south and Darwin bombed, Australians feared invasion. Posters such as 'He's Coming South' and 'Ringed with Menace' created panic and urgency, pushing people to enlist, work and support the war." },
-        { "id": "HIS-northforces", "t": "tb", "topic": "Defending the north (Lark/Gull/Sparrow)",
-          "src": "Study Pack §2 Topic 3; Extract §HISTORY (Lark/Gull/Sparrow Force)",
-          "ask": "Describe what happened to ONE of the forces sent to defend Australia's north (Lark Force at Rabaul, Gull Force at Ambon, or Sparrow Force at Timor): who they were, what happened, and the outcome.",
-          "model": "e.g. Gull Force (Ambon): ~1,100 troops sent to defend Laha airfield; Japan invaded 30 Jan 1942 and they surrendered 3 Feb. In the Laha Massacre 300+ POWs were killed; the rest suffered starvation and disease at Tan Toey and nearly 80% died in captivity. (Lark Force/Montevideo Maru, or Sparrow Force's guerrilla war, also valid.)" },
-        { "id": "HIS-geneva", "t": "tb", "topic": "Geneva Convention + POW treatment",
-          "src": "Study Pack §2 Topic 4; Extract §HISTORY (POW camps / Geneva)",
-          "ask": "Did the Japanese treat POWs in accordance with the 1929 Geneva Convention? Justify your answer with at least TWO Geneva standards and evidence from the Thai-Burma Railway.",
-          "model": "No. The Convention required humane treatment, adequate food/shelter/medical care, safe non-military work and protection from arbitrary punishment. The Japanese breached these: watery-rice rations, up-to-18-hour 'Speedo' shifts, beatings (68 men beaten to death at Hellfire Pass) and little medical care, leading to 16,000+ POW deaths." },
-        { "id": "HIS-pow-deathrate", "t": "short", "topic": "POW death-rate comparison",
-          "src": "Extract §HISTORY (27% vs 4%)",
-          "ask": "The death rate in Japanese POW camps was about 27% vs about 4% in German/Italian camps. Give ONE reason why.",
-          "keys": ["geneva", "starvation", "disease", "brutal", "forced labour", "beatings"],
-          "model": "The Japanese did not follow the Geneva Convention — starvation, forced labour, brutal beatings and disease with little medical care caused far more deaths." },
-        { "id": "HIS-railway-facts", "t": "short", "topic": "Thai-Burma Railway facts",
-          "src": "Study Pack §2 Topic 5; Extract §HISTORY (railway facts)",
-          "ask": "Give TWO facts about the Thai-Burma ('Death') Railway (e.g. length, route, number of Australians, a named location).",
-          "model": "Any two: ~415 km long; ran Ban Pong (Thailand) to Thanbyuzayat (Burma); ~13,000 of ~60,000 Allied POWs were Australian; included 'Hellfire Pass'; 2,800+ Australians died building it." },
-        { "id": "HIS-railway-conditions", "t": "tb", "topic": "Thai-Burma conditions (scaffold)",
-          "src": "Extract §HISTORY (model paragraph, F Force ~44%)",
-          "ask": "Describe a major challenge Australian POWs faced on the Thai-Burma Railway. Use the scaffold: challenge -> effect -> specific example -> impact.",
-          "model": "Starvation and tropical disease: tiny watery-rice rations and little clean water left men too weak to fight off cholera, dysentery and malaria. Exemplified by the 1943 'Speedo' with 18-hour shifts; F Force suffered ~44% deaths. Impact: 16,000+ Allied POWs died, 2,800+ Australians." },
-        { "id": "HIS-railway-why", "t": "short", "topic": "Why the railway was built",
-          "src": "Extract §HISTORY (shipping dangerous after Midway)",
-          "ask": "Why did the Japanese build the Thai-Burma Railway instead of supplying by sea?",
-          "keys": ["sea", "dangerous", "midway", "shipping"],
-          "model": "Shipping by sea had become too dangerous (especially after Midway), so the railway gave a safer overland supply route into Burma." },
-        { "id": "HIS-darwin", "t": "short", "topic": "Bombing of Darwin",
-          "src": "Study Pack §2 Topic 6; Extract §HISTORY (Darwin)",
-          "ask": "When was Darwin first bombed, and why was it significant for Australia?",
-          "model": "19 February 1942. Significant because it was the first attack on the Australian mainland, it shocked the nation and showed Australia was directly under threat." },
-        { "id": "HIS-kokoda", "t": "tb", "topic": "Kokoda challenge (scaffold)",
-          "src": "Study Pack §2 Topic 7; Extract §HISTORY (Kokoda model paragraph)",
-          "ask": "Describe a significant challenge Australian and Papuan soldiers faced on the Kokoda Trail. Use the scaffold: challenge -> effect -> example -> impact.",
-          "model": "Extreme mountain terrain: steep, muddy ridges and dense jungle exhausted the troops and made moving food and medical supplies nearly impossible. Exemplified by the climbs over the Owen Stanley Range, causing severe shortages. Impact: high casualties as units could not be supplied or wounded evacuated." },
-        { "id": "HIS-kokoda-importance", "t": "short", "topic": "Why Kokoda mattered",
-          "src": "Study Pack §2 Topic 7; Extract §HISTORY",
-          "ask": "Why was the Kokoda campaign important for Australia?",
-          "keys": ["port moresby", "stopped", "halted", "advance", "invasion"],
-          "model": "Australian and Papuan troops halted the Japanese advance towards Port Moresby, helping protect Australia from invasion — a crucial defensive victory in brutal conditions." },
-        { "id": "HIS-fuzzy", "t": "short", "topic": "Fuzzy Wuzzy Angels",
-          "src": "Extract §HISTORY (Fuzzy Wuzzy Angels)",
-          "ask": "On the Kokoda Trail, who were the 'Fuzzy Wuzzy Angels' and what did they do?",
-          "keys": ["papuan", "carriers", "wounded", "new guinea"],
-          "model": "Papuan (New Guinean) carriers who carried supplies and wounded soldiers over the difficult terrain and cared for the injured." },
-        { "id": "HIS-indigenous", "t": "short", "topic": "Indigenous service in WWII",
-          "src": "Study Pack §2 Topic 8; Extract §HISTORY (Indigenous service — stated on exam)",
-          "ask": "Name ONE way the WWII service of Aboriginal and Torres Strait Islander people was restricted or treated differently from other Australians.",
-          "keys": ["legislative", "restrict", "segregat", "discrimin", "recognition", "benefits", "pay"],
-          "model": "Any one: restrictions on enlisting; serving in segregated units; discrimination; or being denied the same recognition, pay or benefits as other veterans after the war." }
+      "topics": [
+        {
+          "id": "HIS-pearl",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §2 T1; Extract §HISTORY Pearl Harbour",
+          "grounding": "7 Dec 1941 Japan attacked the US naval base at Pearl Harbour (Hawaii). Reasons: cripple the US Pacific Fleet so it couldn't stop Japanese expansion; secure resources (oil) and territory across SE Asia/Pacific; response to US sanctions/oil embargo. Consequence: brought the USA into the war -> ultimately Japan's defeat.",
+          "exemplar": "Give two reasons why Japan attacked Pearl Harbour."
+        },
+        {
+          "id": "HIS-singapore",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §2 T2; Extract §HISTORY Fall of Singapore",
+          "grounding": "Feb 1942 Singapore (major British base) fell to Japan; shattered Australia's security and shifted alliance to the USA. Propaganda posters 'He's Coming South', 'Ringed with Menace' created panic/urgency to enlist and support the war.",
+          "exemplar": "Explain how Japanese expansion changed Australia's sense of security in 1942 and how propaganda was used."
+        },
+        {
+          "id": "HIS-northforces",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §2 T3; Extract §HISTORY Lark/Gull/Sparrow",
+          "grounding": "Lark Force (Rabaul): defeated Jan 1942; ~1,050 prisoners died when the Montevideo Maru was torpedoed. Gull Force (Ambon): Laha Massacre, 300+ killed; ~80% of the force died in captivity. Sparrow Force (Timor): commandos fought a year-long guerrilla war ('They alone did not surrender').",
+          "exemplar": "Describe what happened to one of the forces defending Australia's north."
+        },
+        {
+          "id": "HIS-pow-geneva",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §2 T4; Extract §HISTORY POW/Geneva",
+          "grounding": "1929 Geneva Convention required humane treatment, food/shelter/medical care, safe non-military work, communication, protection from punishment, Red Cross inspections. Japanese death rate ~27% vs ~4% German/Italian. They breached the Convention: starvation, forced labour, beatings, no medical care.",
+          "exemplar": "Did the Japanese treat POWs in line with the Geneva Convention? Justify."
+        },
+        {
+          "id": "HIS-railway",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §2 T5; Extract §HISTORY Thai-Burma",
+          "grounding": "Thai-Burma 'Death' Railway: 415 km, Ban Pong (Thailand) to Thanbyuzayat (Burma); built because sea supply was too dangerous after Midway. ~13,000 of ~60,000 Allied POWs were Australian; 'Hellfire Pass'; 1943 'Speedo' 18-hr shifts; watery-rice rations; cholera/dysentery/malaria; 'Weary' Dunlop. 2,800+ Australians died; F Force ~44% death rate.",
+          "exemplar": "Describe a major challenge POWs faced on the Thai-Burma Railway (challenge -> effect -> example -> impact)."
+        },
+        {
+          "id": "HIS-darwin",
+          "asks_as": [
+            "short"
+          ],
+          "src": "Study Pack §2 T6; Extract §HISTORY Darwin",
+          "grounding": "Darwin first bombed 19 Feb 1942 (bombing continued to Nov 1943). Significant: first attack on the Australian mainland; shocked the nation; showed Australia directly under threat.",
+          "exemplar": "When was Darwin first bombed and why was it significant?"
+        },
+        {
+          "id": "HIS-kokoda",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §2 T7; Extract §HISTORY Kokoda",
+          "grounding": "Kokoda Trail (Port Moresby to Buna): Australians/Papuans halted the Japanese advance on Port Moresby. Challenges: extreme mountain terrain, mud, jungle, disease, supply difficulty over the Owen Stanley Range. 'Fuzzy Wuzzy Angels' = Papuan carriers who carried supplies/wounded. Importance: crucial defensive victory protecting Australia.",
+          "exemplar": "Why was the Kokoda campaign important for Australia?"
+        },
+        {
+          "id": "HIS-indigenous",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §2 T8; Extract §HISTORY Indigenous service",
+          "grounding": "Aboriginal & Torres Strait Islander service (stated to be on the exam): legislative restrictions on enlistment; often segregated units/support roles; discrimination; after the war frequently denied the same recognition, pay, land or benefits as other veterans.",
+          "exemplar": "Name one way Aboriginal and Torres Strait Islander WWII service was treated differently."
+        }
       ]
     },
-
     "Geography": {
       "exam": {
-        "time_min": null, "marks": 30, "multiple_choice": true,
+        "marks": 30,
+        "multiple_choice": true,
         "sections": [
-          { "name": "Section I — Multiple choice", "marks": 10, "style": "10 MC: skills, terms, graph reading, rate-of-change" },
-          { "name": "Section II — Short answers", "marks": 20, "style": "5 structured short answers (4-6 marks), Changing Places / Dee Why" }
+          {
+            "name": "Section I — Multiple choice",
+            "marks": 10,
+            "style": "10 MC: skills, terms, graphs, rate-of-change"
+          },
+          {
+            "name": "Section II — Short answers",
+            "marks": 20,
+            "style": "5 structured short answers (4-6 marks), Changing Places / Dee Why"
+          }
         ],
-        "src": "Study Pack §3 (Format 30 marks: Section I MC 10, Section II short 20)"
+        "src": "Study Pack §3 (30 marks: Section I MC 10, Section II short 20)"
       },
-      "sources": ["revision/sources/roshan/Year9_Yearly_Exam_Study_Pack.md §3",
-                  "revision/sources/roshan/Roshan_Y9_Revision_Extract.md §GEOGRAPHY"],
       "paper_only": [],
-      "bank": [
-        { "id": "GEO-mc-restructuring", "section": "Section I", "t": "mc", "topic": "Define economic restructuring",
-          "src": "Study Pack §3 practice exam Section I Q1 (ans b)",
-          "ask": "Which statement best defines economic restructuring?",
-          "opts": ["Growth of primary industries and agriculture", "Shift from manufacturing to service and knowledge-based economies", "Movement of people from urban to rural areas", "Redevelopment of older industrial areas"],
-          "a": 1, "e": "Economic restructuring = shift from manufacturing towards service/knowledge industries." },
-        { "id": "GEO-mc-overurban", "section": "Section I", "t": "mc", "topic": "Over-urbanisation (NOT)",
-          "src": "Study Pack §3 practice exam Section I Q5 (ans c)",
-          "ask": "Which is NOT an issue of over-urbanisation in the Global South?",
-          "opts": ["Growth of informal settlements", "Limited sanitation and waste management", "Expansion of high-tech, service-based economies", "Informal economies and congestion"],
-          "a": 2, "e": "High-tech service economies are a Global North feature, not an over-urbanisation issue." },
-        { "id": "GEO-mc-rent", "section": "Section I", "t": "mc", "topic": "Dee Why rent reflects gentrification",
-          "src": "Study Pack §3 practice exam Section I Q7 (ans a)",
-          "ask": "Between 2001 and 2024 Dee Why's median rent went from $220 to $740/week. This reflects:",
-          "opts": ["Gentrification and housing pressure", "Rural decline", "Government rent controls", "A decrease in land value"],
-          "a": 0, "e": "Rising rents reflect gentrification and housing pressure." },
-        { "id": "GEO-mc-wsud", "section": "Section I", "t": "mc", "topic": "WSUD reduces runoff",
-          "src": "Study Pack §3 practice exam Section I Q9 (ans b)",
-          "ask": "Which strategy most directly reduces stormwater runoff and coastal erosion?",
-          "opts": ["High-density infill", "Water Sensitive Urban Design (WSUD)", "New highways and impermeable surfaces", "More retail floor space"],
-          "a": 1, "e": "WSUD captures, treats and reuses stormwater, reducing runoff and erosion." },
-        { "id": "GEO-mc-traffic", "section": "Section I", "t": "mc", "topic": "Car dependence vs walkability",
-          "src": "Study Pack §3 practice exam Section I Q10 (ans a)",
-          "ask": "Despite renewal, Pittwater Rd traffic rose 21% (2015-2023). This shows:",
-          "opts": ["Car dependence limiting walkability strategies", "A complete shift to active transport", "Successful congestion management", "Decline in population density"],
-          "a": 0, "e": "Rising traffic shows continued car dependence despite walkability efforts." },
-        { "id": "GEO-mc-rate", "section": "Section I", "t": "mc", "topic": "Rate of change calculation",
-          "src": "Study Pack §3 data skills Q1 (ans b, 236%)",
-          "ask": "Rate of change (%) = (new - old) / old x 100. Dee Why's median rent rose from $220 to $740. The % increase is closest to:",
-          "opts": ["136%", "236%", "288%", "318%"],
-          "a": 1, "e": "(740 - 220)/220 x 100 = 236%." },
-        { "id": "GEO-mc-income", "section": "Section I", "t": "mc", "topic": "Rate of change (income)",
-          "src": "Study Pack §3 data skills Q2 (ans a, 184%)",
-          "ask": "Median weekly household income rose from $930 to $2,640. The % increase is closest to:",
-          "opts": ["184%", "204%", "224%", "244%"],
-          "a": 0, "e": "(2640 - 930)/930 x 100 ≈ 184%." },
-        { "id": "GEO-liveability-def", "section": "Section II", "t": "short", "topic": "Define liveability",
-          "src": "Extract §GEOGRAPHY (liveability definition)",
-          "ask": "Define 'liveability'.",
-          "keys": ["quality of life", "environmental", "social", "economic"],
-          "model": "Liveability refers to the quality of life experienced by people in a place, based on environmental, social and economic factors." },
-        { "id": "GEO-consolidation-def", "section": "Section II", "t": "short", "topic": "Define urban consolidation",
-          "src": "Extract §GEOGRAPHY (urban consolidation)",
-          "ask": "Define 'urban consolidation'.",
-          "keys": ["density", "existing", "apartment", "townhouse", "infill", "sprawl"],
-          "model": "Increasing population density within existing urban areas through higher-density housing (apartments, townhouses, infill) to reduce urban sprawl and use infrastructure efficiently." },
-        { "id": "GEO-gentrification-def", "section": "Section II", "t": "short", "topic": "Define gentrification",
-          "src": "Extract §GEOGRAPHY (gentrification)",
-          "ask": "Define 'gentrification'.",
-          "keys": ["higher-income", "higher income", "property values", "social character"],
-          "model": "The process by which higher-income residents and businesses move into previously lower-income urban areas, raising property values and transforming the social character of the place." },
-        { "id": "GEO-renewal-why", "section": "Section II", "t": "tb", "topic": "Why Dee Why was renewed (4 marks)",
-          "src": "Study Pack §3 Section II Q11; Extract §GEOGRAPHY (drivers)",
-          "ask": "Explain why Dee Why underwent urban renewal. Give at least TWO reasons. (4 marks)",
-          "model": "Sydney's growth and the Metropolis of Three Cities plan pushed for higher density to reduce sprawl; Dee Why's rising land value made redevelopment viable; it was already a central, established Northern Beaches hub; and parts of the town centre had decayed, making it ripe for renewal." },
-        { "id": "GEO-wsud-assess", "section": "Section II", "t": "tb", "topic": "Assess WSUD + tree canopy (6 marks)",
-          "src": "Study Pack §3 Section II Q13; Extract §GEOGRAPHY (environmental sustainability)",
-          "ask": "Assess how effective WSUD and increased tree canopy have been for Dee Why's environmental sustainability. Use evidence and include ONE limitation. (6 marks)",
-          "model": "Moderately effective. WSUD restored the lagoon/dunes, grew beach width ~11 m and improved water quality (WQI 80/100); tree canopy rose 15%->23%, each 10% gain lowering temperature ~1 C. Limitation: 70% of canopy gain was public land while private fell 6%, drains blocked in the 2023 storms, and Pittwater Rd traffic rose 21%." },
-        { "id": "GEO-liveability-eval", "section": "Section II", "t": "tb", "topic": "Evaluate liveability (8 marks)",
-          "src": "Extract §GEOGRAPHY (model evaluation); Study Pack §3 Section III Q16",
-          "ask": "Evaluate the extent to which urban renewal has improved overall liveability in Dee Why. Use at least THREE indicators, give a clear judgement, support with evidence. (8 marks)",
-          "model": "Renewal driven by gentrification raised apartment investment but escalated prices/rents — median unit $340k (2001) -> $1.11m (2024), renters in stress +19%. Transport (B-Line) and canopy (15%->23%) improved, but overall liveability declined as renewal prioritised profit over affordability. Judgement: moderate gains to economic/environmental liveability, but reduced social liveability through unaffordability." },
-        { "id": "GEO-3cities", "section": "Section II", "t": "short", "topic": "Metropolis of Three Cities",
-          "src": "Extract §GEOGRAPHY (Metropolis of Three Cities)",
-          "ask": "Name the THREE cities in the NSW 'Metropolis of Three Cities' plan for Greater Sydney.",
-          "model": "Eastern Harbour City (Sydney CBD), Central River City (Parramatta), Western Parkland City (around the new Western Sydney Airport)." },
-        { "id": "GEO-rate-calc", "section": "Section II", "t": "short", "topic": "Rate of change + implication",
-          "src": "Extract §GEOGRAPHY (rate of change; rent +236% vs income +184%)",
-          "ask": "Dee Why's income rose from $930 to $2,640 and rent from $220 to $740. Which rose by a greater percentage, and what does that mean for affordability?",
-          "model": "Rent rose ~236% vs income ~184%, so rent rose faster than income. Affordability declined and rental stress increased." }
+      "topics": [
+        {
+          "id": "GEO-terms",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Extract §GEOGRAPHY key urban processes",
+          "grounding": "Economic restructuring = shift from manufacturing to service/knowledge industries. Urban consolidation = higher density in existing suburbs (apartments/infill) to cut sprawl. Urban renewal = redeveloping decayed areas. Urban sprawl = outward low-density spread. Gentrification = higher-income residents move in, raising prices and changing character. Urbanisation = rising share living in cities.",
+          "exemplar": "Define urban consolidation."
+        },
+        {
+          "id": "GEO-liveability",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Extract §GEOGRAPHY liveability",
+          "grounding": "Liveability = quality of life based on environmental, social and economic factors. Indicators (5 Ds): Density, Diversity of use/income, Design, Distance to transit, Destination access. Judged with social/economic/environmental indicators.",
+          "exemplar": "Define liveability and name three indicators used to judge it."
+        },
+        {
+          "id": "GEO-ratechange",
+          "asks_as": [
+            "mc",
+            "short",
+            "tb"
+          ],
+          "src": "Extract §GEOGRAPHY rate of change; Study Pack §3 data skills",
+          "grounding": "% change = (new - old) / old x 100. Dee Why: rent $220->$740 = 236%; income $930->$2,640 = 184%; so rent rose faster than income -> rental stress up, affordability down. Manufacturing 17%->6% ~= -65%.",
+          "exemplar": "Rent rose from $220 to $740. Calculate the percentage change and state one implication."
+        },
+        {
+          "id": "GEO-threecities",
+          "asks_as": [
+            "short",
+            "mc"
+          ],
+          "src": "Extract §GEOGRAPHY Metropolis of Three Cities",
+          "grounding": "NSW plan: Eastern Harbour City (Sydney CBD), Central River City (Parramatta), Western Parkland City (Western Sydney Airport). Aims to cut sprawl, raise density and connectivity. 80% of new dwellings within the existing footprint.",
+          "exemplar": "Name the three cities in the Metropolis of Three Cities plan."
+        },
+        {
+          "id": "GEO-renewal-why",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Study Pack §3 Section II Q11; Extract §GEOGRAPHY drivers",
+          "grounding": "Why Dee Why was renewed: Metropolis of Three Cities push for density to cut sprawl; rising land value made redevelopment viable; already a central established Northern Beaches hub; partial decay of the town centre. Chain: economic restructuring -> rising land value -> population growth -> urban decay -> investment -> renewal.",
+          "exemplar": "Explain why Dee Why underwent urban renewal (two reasons). (4 marks)"
+        },
+        {
+          "id": "GEO-economic",
+          "asks_as": [
+            "tb",
+            "mc"
+          ],
+          "src": "Study Pack §3 Section II Q12; Extract §GEOGRAPHY economic viability",
+          "grounding": "Local jobs +50% (2001-2024); unemployment 6.8%->2.9%; income +184% but rent +236%; only 3% of new dwellings affordable; retail vacancy 12%->3%; 30,000 m2 new retail since 2019. Shows renewal drove economic change but reduced affordability.",
+          "exemplar": "Using data, explain how urban renewal has caused economic change in Dee Why. (6 marks)"
+        },
+        {
+          "id": "GEO-environment",
+          "asks_as": [
+            "tb"
+          ],
+          "src": "Study Pack §3 Section II Q13; Extract §GEOGRAPHY environmental sustainability",
+          "grounding": "WSUD captures/treats/reuses stormwater; beach width +11 m, Water Quality Index 80/100. Tree canopy 15%->23% (each 10% = ~1C cooler). Limitations: 70% of canopy gain on public land, private fell 6%; 2023 storm drains blocked; Pittwater Rd traffic +21%. Walkability index 74.",
+          "exemplar": "Assess how effective WSUD and tree canopy have been for Dee Why's sustainability, with one limitation. (6 marks)"
+        },
+        {
+          "id": "GEO-liveability-eval",
+          "asks_as": [
+            "tb"
+          ],
+          "src": "Extract §GEOGRAPHY model evaluation; Study Pack §3 Section III Q16",
+          "grounding": "Evaluate liveability: gentrification raised investment but escalated prices (unit $340k->$1.11m) and rental stress (+19%). Transport (B-Line) and canopy improved, but social liveability (affordability) declined. Judgement: moderate economic/environmental gains, reduced social liveability. Use 3+ indicators + clear judgement + evidence.",
+          "exemplar": "Evaluate the extent to which urban renewal has improved overall liveability in Dee Why. (8 marks)"
+        },
+        {
+          "id": "GEO-northsouth",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §3 practice exam Section I; Extract §GEOGRAPHY",
+          "grounding": "Global North restructuring: growth of service/professional sectors. Global South: increased informal employment, inequality, over-urbanisation (informal settlements, poor sanitation, congestion, infrastructure outpaced by growth). Megacity = 10m+ people.",
+          "exemplar": "In the Global South, restructuring and globalisation have often caused what?"
+        }
+      ]
+    },
+    "PDHPE": {
+      "exam": {
+        "marks": 50,
+        "multiple_choice": true,
+        "sections": [
+          {
+            "name": "Part A — Multiple choice",
+            "marks": 15,
+            "style": "MC"
+          },
+          {
+            "name": "Part B — Short answer",
+            "marks": 25,
+            "style": "short written"
+          },
+          {
+            "name": "Part C — Extended response",
+            "marks": 10,
+            "style": "extended; likely 'how physical activity positively affects health'"
+          }
+        ],
+        "src": "Study Pack §4 (50 marks: MC 15, short 25, extended 10)"
+      },
+      "paper_only": [],
+      "topics": [
+        {
+          "id": "PE-fitness-components",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §4 Q17-18",
+          "grounding": "5 HEALTH-related: cardiorespiratory endurance (running), muscular strength (heavy lift), muscular endurance (push-ups), flexibility (stretching), body composition (fat vs lean). 6 SKILL-related: agility, balance, coordination, power (strength x speed), reaction time, speed. Exercise = planned, structured, repetitive activity to improve fitness. Physical fitness = doing daily tasks with energy and reserves.",
+          "exemplar": "Describe two health-related components of fitness with an example of each."
+        },
+        {
+          "id": "PE-activity-health",
+          "asks_as": [
+            "tb"
+          ],
+          "src": "Study Pack §4 Q19 (the actual extended-response question)",
+          "grounding": "Extended response: how physical activity positively affects health. Physical: stronger heart/lungs, healthy weight, stronger bones/muscles, lower risk of heart disease/type-2 diabetes/some cancers, better sleep. Mental/emotional: endorphins, less stress/anxiety/depression, self-esteem. Social: teamwork, friendships, belonging. Guideline: 13-17 yr olds >=60 min moderate-vigorous activity daily. Use an example per point.",
+          "exemplar": "Explain how physical activity can positively affect the health of individuals."
+        },
+        {
+          "id": "PE-nutrients",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §4 Q9,12; Extract §PDHPE nutrition",
+          "grounding": "6 nutrients: carbohydrates (main energy; bread/rice/pasta), protein (growth/repair building blocks; meat/eggs), fats (dense energy; unsaturated in avocado/nuts/oily fish), vitamins, minerals (calcium=bones, iron=oxygen transport), water (~60% of body, 6-8 cups/day).",
+          "exemplar": "Which nutrient is the building block for cell growth and repair, and name food sources?"
+        },
+        {
+          "id": "PE-bodyimage",
+          "asks_as": [
+            "short",
+            "mc"
+          ],
+          "src": "Study Pack §4 Q11,13-14",
+          "grounding": "Body image = how a person sees, thinks and feels about their own body. Stereotype = oversimplified generalised belief about a group. Social norms = expected behaviours of a group. Eating disorders = serious illnesses with disturbed eating behaviours/thoughts about food, weight, body shape.",
+          "exemplar": "What is meant by 'body image'?"
+        },
+        {
+          "id": "PE-drugs",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §4 Q8; Extract §PDHPE drugs",
+          "grounding": "Depressant = slows the central nervous system (alcohol, cannabis). Drugs classified by effect (depressant/stimulant/hallucinogen) and legal status (licit/illicit). Risk taking is a consequence of poor decision making. Illicit drugs harm individuals and families.",
+          "exemplar": "What is a depressant? Give an example."
+        },
+        {
+          "id": "PE-prevention",
+          "asks_as": [
+            "short"
+          ],
+          "src": "Study Pack §4 Q4-7",
+          "grounding": "Primary prevention = stop a problem before it starts (school drug education, ad campaigns). Secondary = early detection/intervention (screening, counselling). Tertiary = treatment/rehabilitation (rehab, support groups). Predisposition = greater likelihood (e.g. of addiction) from genetics/family/environment.",
+          "exemplar": "What is primary prevention? Give an example."
+        },
+        {
+          "id": "PE-sexualhealth",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §4 Q1-3",
+          "grounding": "STI = sexually transmitted infection. Contraception = methods to prevent pregnancy (barrier methods like condoms also protect against STIs). Four classifications: barrier, hormonal, natural/behavioural, permanent/surgical.",
+          "exemplar": "What are the four classifications of contraception?"
+        }
+      ]
+    },
+    "Commerce": {
+      "exam": {
+        "multiple_choice": true,
+        "sections": [
+          {
+            "name": "Section I — Multiple choice",
+            "style": "MC on key terms"
+          },
+          {
+            "name": "Section II — Gap-fill",
+            "style": "circular flow: 5 sectors, 3 leakages, 3 injections; business cycle"
+          },
+          {
+            "name": "Section III — Short responses",
+            "style": "circular flow, inflation, fiscal & monetary policy"
+          }
+        ],
+        "src": "Study Pack §5 (MC / gap-fill / short)"
+      },
+      "paper_only": [],
+      "topics": [
+        {
+          "id": "COM-scarcity",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Extract §COMMERCE scarcity/opportunity cost",
+          "grounding": "Scarcity = unlimited wants but finite resources, forcing choices and trade-offs. Opportunity cost = the value of the next-best alternative given up when you choose. e.g. $20 to spend on a shirt OR a movie; choosing one gives up the other.",
+          "exemplar": "Define opportunity cost with an example."
+        },
+        {
+          "id": "COM-indicators",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §5; Extract §COMMERCE",
+          "grounding": "Inflation = sustained rise in the general price level. Unemployment = people willing and able to work but without jobs. GDP = total value of goods and services produced in a country in a year (a measure of economic performance). ('GDP — this is in the test!')",
+          "exemplar": "What does GDP measure?"
+        },
+        {
+          "id": "COM-circularflow",
+          "asks_as": [
+            "short",
+            "mc"
+          ],
+          "src": "Study Pack §5 gap-fill; Extract §COMMERCE circular flow",
+          "grounding": "Circular flow 5 sectors: households, businesses/firms, government, financial sector, overseas/international. 3 LEAKAGES (withdrawals): savings, taxes, imports. 3 INJECTIONS: investment, government spending, exports. A diagram will be in the exam.",
+          "exemplar": "Name the three leakages and three injections in the circular flow of income."
+        },
+        {
+          "id": "COM-cycle",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §5",
+          "grounding": "Business/economic cycle: the ups and downs of economic activity over time — boom (peak), downturn/contraction, trough (recession), recovery/upturn. Governments aim to smooth it.",
+          "exemplar": "Name the phases of the business cycle."
+        },
+        {
+          "id": "COM-fiscal",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Extract §COMMERCE fiscal policy model",
+          "grounding": "Fiscal policy = the GOVERNMENT using spending and taxation to shape the economy. Expansionary (downturn): more spending + tax cuts -> injects funds, creates jobs. Contractionary (curb inflation): less spending + higher taxes -> withdrawals.",
+          "exemplar": "Explain how expansionary fiscal policy works."
+        },
+        {
+          "id": "COM-monetary",
+          "asks_as": [
+            "tb",
+            "short"
+          ],
+          "src": "Extract §COMMERCE monetary policy model",
+          "grounding": "Monetary policy = the RESERVE BANK changing the cash rate (interest rates). Expansionary: lower rates -> more borrowing/spending -> injection; lower mortgage repayments raise disposable income. Contractionary: higher rates -> less spending -> curbs inflation but can slow growth.",
+          "exemplar": "Explain how the Reserve Bank uses monetary policy to slow inflation."
+        }
+      ]
+    },
+    "Food Technology": {
+      "exam": {
+        "multiple_choice": true,
+        "sections": [
+          {
+            "name": "Section I — Multiple choice",
+            "style": "MC"
+          },
+          {
+            "name": "Section II — Short answer",
+            "style": "short written"
+          },
+          {
+            "name": "Section III — Structured response",
+            "style": "school scaffold: Topic -> linking word -> knowledge (Is.../Occurs.../Causes.../Avoided by...). Key topics: handwashing, cleaning & sanitising, FIFO"
+          }
+        ],
+        "src": "Study Pack §6 (MC / short / structured)"
+      },
+      "paper_only": [],
+      "topics": [
+        {
+          "id": "FT-dangerzone",
+          "asks_as": [
+            "mc",
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §6 structured (danger zone)",
+          "grounding": "Danger zone = 5 C to 60 C, where bacteria grow and multiply. Affects perishable foods (raw meat, dairy). Causes food poisoning. Avoid by storing perishables at 4 C or below. Example: raw chicken left on the bench too long.",
+          "exemplar": "Explain why it is important to keep food out of the danger zone."
+        },
+        {
+          "id": "FT-crosscontam",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §6 structured (cross contamination)",
+          "grounding": "Cross contamination = bacteria transferred from one object/food to another, esp. raw to cooked. Occurs via the same knife/board for raw and cooked. Causes food poisoning (vomiting, diarrhoea, cramps). Avoid with colour-coded boards (yellow raw chicken, brown cooked) and washing knives.",
+          "exemplar": "Identify and explain how cross contamination can occur in a commercial kitchen."
+        },
+        {
+          "id": "FT-hygiene",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §6 structured (handwashing; cleaning & sanitising)",
+          "grounding": "Handwashing: wet, soap, scrub 20s (palms, backs, between fingers, nails), rinse, dry with paper towel; before handling food, after raw meat/toilet/face. Cleaning = remove visible dirt with hot water + detergent; Sanitising = reduce bacteria with sanitiser/very hot water, AFTER cleaning. Order: scrape, wash, rinse, sanitise, air dry.",
+          "exemplar": "Describe the difference between cleaning and sanitising, and the correct order."
+        },
+        {
+          "id": "FT-fifo",
+          "asks_as": [
+            "short",
+            "tb"
+          ],
+          "src": "Study Pack §6 structured (FIFO)",
+          "grounding": "FIFO = First In, First Out: oldest stock used first. New deliveries go behind/under older stock; label with dates. Prevents food passing its use-by date, reduces waste, saves money. Example: new milk to the back of the cool room.",
+          "exemplar": "What is FIFO stock rotation and why is it used?"
+        },
+        {
+          "id": "FT-productdev",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §6 (food product development)",
+          "grounding": "Types of new products: LINE EXTENSION (new variant of an existing product, e.g. a new flavour), NEW-TO-WORLD (a genuinely new product), ME-TOO (a copy of a competitor's product). Reasons to develop: new markets, trends, tech, profit.",
+          "exemplar": "Distinguish between line extension, new-to-world and me-too products."
+        },
+        {
+          "id": "FT-nutrients",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §6 (food selection, health & nutrition)",
+          "grounding": "Six nutrients: carbohydrates, protein, fats, vitamins, minerals, water. Macronutrients (carbs/protein/fats) needed in large amounts; micronutrients (vitamins/minerals) in small amounts. Each has a function and food sources (see PDHPE nutrients).",
+          "exemplar": "Name the six essential nutrients and classify them as macro or micro."
+        },
+        {
+          "id": "FT-bushfoods",
+          "asks_as": [
+            "mc",
+            "short"
+          ],
+          "src": "Study Pack §6 (Food in Australia)",
+          "grounding": "Bush foods = native Australian foods used traditionally by Aboriginal peoples and increasingly in modern cuisine (e.g. Davidson's plum - high in vitamin E, zinc, a dairy-free calcium source). Topics: consumption patterns, traditional vs modern uses.",
+          "exemplar": "Give an example of a bush food and one of its nutritional benefits."
+        }
       ]
     }
   }
