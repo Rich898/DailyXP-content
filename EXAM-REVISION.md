@@ -128,6 +128,26 @@ Either reframe honestly ("explain how you would set up the axes / what the graph
 or mark them as paper-only in the blueprint and leave them out.
 - *Why:* the "which graph would you draw, describe it in a textbox" questions felt artificial.
 
+### LAW E8 — Coaching builds up; it never marks down
+Coaching (the Part‑2 top‑up, and any dedicated coaching session) exists to **teach, not to
+test**. In coaching mode the coach names what's right, gives **one** next step, and offers a
+**retry** — a `partly` means "good, add this, go again," never a lost mark. Coaching produces
+**no pass/fail number that competes with the Part‑1 exam mark**; it reports *progress* ("did
+the shaky bits improve?"). Only Part‑1 graded practice yields an exam‑equivalent score.
+- *Why:* the demoralising scores came from treating *learning* like *testing*. Separating them
+  keeps the practice honest and the coaching kind.
+- *Enforced:* page runs Part‑2/coaching in "coach" behaviour (feedback + retry), records
+  progress not a competing score; read‑out reports the Part‑1 mark and Part‑2 progress separately.
+
+### LAW E9 — Track what's been asked; never repeat blindly
+Every question carries a stable **bank `id`**; every sitting is recorded (`revision_runs`). A
+coverage **ledger** (derived from the bank + runs) tells the planner what's been asked, how
+long ago, and his record on it, so a new set favours **unseen** and **weak** items and avoids
+recent repeats. We can always see coverage of the bank — what we have and haven't asked.
+- *Why:* "do we know what questions we have and haven't asked?" — without this, sets repeat or leave gaps.
+- *Enforced:* `tools/build_revision.py` selects from the ledger; `validate_revision.py` flags a
+  set that repeats an item asked within the last N days.
+
 ---
 
 ## 5. The blueprint (`revision/<student>.json`)
@@ -145,8 +165,10 @@ Shape:
                 "sections": [ {"name":"Part A — Chemistry of New Substances","marks":25,"style":"short + extended"},
                               {"name":"Part B — Global Patterns","marks":25,"style":"short + extended"},
                               {"name":"Part C — Skills","marks":20,"style":"short, applied"} ] },
-      "sources": ["e4e13da9-Year9_Yearly_Exam_Study_Pack.md §1", "cfb2852f-Roshan_Y9_Revision_Extract.md §SCIENCE"],
-      "bank": [ { "topic":"Conservation of mass (open/closed)", "src":"...", "ask":"...", "model":"..." }, ... ],
+      "sources": ["revision/sources/roshan/Year9_Yearly_Exam_Study_Pack.md §1",
+                  "revision/sources/roshan/Roshan_Y9_Revision_Extract.md §SCIENCE"],
+      "bank": [ { "id":"SCI-consmass-01", "topic":"Conservation of mass (open/closed)",
+                  "src":"...", "ask":"...", "model":"..." }, ... ],
       "paper_only": ["draw & label the 3 fault types", "graph data with CUTLAS"]
     },
     "History": { ... },
@@ -158,6 +180,22 @@ The `bank` is distilled from the real teacher revision sheets / sample papers (e
 Science conservation-of-mass and seafloor calculations, the solubility list; the Geography
 Canvas practice-exam MC; the 8 WWII-Pacific History topics). A session samples from the bank,
 honours each subject's `exam` format, and copies each item's `src`.
+
+---
+
+## 5A. Source materials — the durable home (`revision/sources/<student>/`)
+
+**The school materials must live in the repo, not in session upload scratch** (which is
+ephemeral — a future session or the loader trigger will not have the original uploads).
+
+- `revision/sources/roshan/` holds the committed source of truth: the distilled markdown
+  (`Roshan_Y9_Revision_Extract.md`, `Year9_Yearly_Exam_Study_Pack.md`) — exact content, per-
+  subject formats, teacher model answers, sample-exam questions and answer keys.
+- Original PDFs (study guides, sample papers, the Earnest booklet) are referenced by name in a
+  `MANIFEST.md`; store the PDFs themselves too if repo size allows, else keep the markdown
+  extraction as the authority.
+- LAW E1 (cite your source) and the blueprint's `src` fields point **here**, so provenance
+  survives across sessions.
 
 ---
 
@@ -174,6 +212,38 @@ honours each subject's `exam` format, and copies each item's `src`.
   *Why:* the grader ran on a dead API key for days, silently self-marking everything "fine."
 
 Full detail in `revision/MARKING.md`.
+
+---
+
+## 6A. Coaching & the two-phase flow
+
+The exam system always runs as **two phases** (LAW E8):
+
+| Phase | When | What happens | Score |
+|---|---|---|---|
+| **Part 1 — graded practice** | the exam-sim sitting | each answer marked, substance-based, **partial credit** (E5) | an **honest exam-equivalent mark** — this is the measurement |
+| **Part 2 — coached top-up** | after a break, built from Part-1 gaps | re-teach the tricky bits (`teach` cards) → easy-win practice; warm *"what you got right / one thing to add / **try again**"* | **progress, not a competing grade** — "did the shaky bits improve?" |
+
+- Part 2 is **auto-offered** after every graded practice; he can take it or leave it.
+- **Dedicated coaching** (on demand, for a weak subject — like the Maths / English-decon
+  rounds) is teach-first, multi-round, gentle, and **ungraded**.
+- The coach's *behaviour* differs by mode: in graded practice it **marks** (verdict → score);
+  in coaching it **teaches** (encourages, one next step, retry, re-teach). Same engine, two
+  jobs — never confuse them (LAW E8).
+
+---
+
+## 6B. The bank & the ledger — coverage (LAW E9)
+
+Mirrors the daily game's menu + ledger:
+
+- **Bank** (in the blueprint) = the universe of askable items, each with a stable `id` + `src`.
+- **Runs** (`revision_runs`, Supabase) = every sitting, every answer, verdict and score.
+- **Ledger** = coverage/mastery, **derived** from bank ∪ runs (one source of truth, no hand-
+  kept file to drift): per item — times asked, last asked, right/partly/wrong history.
+- **The planner** (`tools/build_revision.py`) uses the ledger to pick **unseen** and **weak**
+  items, avoid recent repeats, and keep each subject's format (E2). Coverage is reportable:
+  "asked 34 / 120 bank items; Science Skills 2/18 — thin."
 
 ---
 
@@ -194,11 +264,13 @@ Every time a set is loaded (by hand or by the loader trigger):
 ## 8. Versioned artifacts & deployment
 
 These stop living only in chat:
+- `revision/sources/roshan/` — the committed school materials (§5A) + `MANIFEST.md`.
+- `revision/roshan.json` — the blueprint (bank + per-subject format).
+- `revision/MARKING.md` — the marking spec.
 - `revision/pages/roshan.html` — the quiz page (source of the Netlify drop).
 - `revision/coach/index.ts` — the grader edge function.
-- `revision/MARKING.md` — the marking spec.
-- `revision/roshan.json` — the blueprint.
-- `tools/validate_revision.py` — the gate.
+- `tools/validate_revision.py` — the gate (E1–E4, E9 repeat check).
+- `tools/build_revision.py` — the planner: reads blueprint + ledger, composes a set.
 - `RUNBOOK.md` gets an "Exam revision" section: how to redeploy the page (Netlify drop) and
   the function (Supabase), and how to pause/rewire the triggers.
 
@@ -237,3 +309,6 @@ Changes land as commits on the dev branch, reviewable — not blind drag-and-dro
 7. Faked graph/diagram tasks in a text box. → E7
 8. Grader ran on a dead key, silently self-passing everything. → §6 health check
 9. Stale Netlify cache / broken bookmark / unverified saves. → §7 verify step
+10. Learning treated like testing (coaching scored pass/fail). → E8
+11. School materials lived only in ephemeral upload scratch. → §5A
+12. No record of what's been asked, so sets could repeat or leave gaps. → E9 / ledger
