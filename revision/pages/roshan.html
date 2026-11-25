@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#0B1220" />
+<title>Roshan — Exam Revision</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap');
+:root{--ink:#EAF0F7;--flare:#FF6A47;--reef:#5AA9E6;--kelp:#4FD6A0;--haze:#8B97AC;--line:#243247;--card:#101F35;--amber:#E8963C}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#0B1220;background-image:radial-gradient(120% 90% at 50% 2%,#16273f 0%,#0B1220 55%,#070c15 100%);background-attachment:fixed;color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:620px;margin:0 auto;padding:18px 16px 60px}
+.display{font-family:'Archivo Black','Arial Black',sans-serif;letter-spacing:-.01em}
+.num{font-family:'Space Mono',monospace;font-weight:700}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.brand{font-size:11px;letter-spacing:.16em;color:var(--haze)}
+.daytag{font-size:11px;color:var(--haze)}
+h1{font-size:30px;line-height:1.05;margin:16px 0 4px}
+.lede{font-size:15px;color:var(--haze);line-height:1.45;margin:0 0 20px;max-width:46ch}
+.bar{height:7px;border-radius:99px;background:#1C2B42;overflow:hidden;margin:14px 0 18px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--reef),var(--kelp));border-radius:99px;transition:width .4s ease;width:0}
+.bar.p2 span{background:linear-gradient(90deg,var(--amber),var(--kelp))}
+.meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--haze);margin-bottom:10px}
+.meta .t{font-family:'Space Mono',monospace}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px}
+.subj{display:inline-block;font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:.1em;padding:3px 9px;border-radius:6px;background:#122C42;color:var(--reef);margin-bottom:12px}
+.q{font-size:18px;line-height:1.4;margin:0 0 16px}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;background:#0C1728;border:1.5px solid var(--line);color:var(--ink);border-radius:11px;padding:13px 14px;font:inherit;font-size:15.5px;line-height:1.35;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--reef)}
+.opt .k{font-family:'Space Mono',monospace;font-weight:700;color:var(--haze);flex:0 0 auto}
+.opt.correct{border-color:var(--kelp);background:#0d2b20}
+.opt.wrong{border-color:var(--flare);background:#2a1512}
+.opt.dim{opacity:.5}
+.opt[disabled]{cursor:default}
+input.short{width:100%;background:#0C1728;border:1.5px solid var(--line);color:var(--ink);border-radius:11px;padding:13px 14px;font:inherit;font-size:16px}
+input.short:focus{outline:none;border-color:var(--reef)}
+textarea.tb{width:100%;min-height:110px;background:#0C1728;border:1.5px solid var(--line);color:var(--ink);border-radius:11px;padding:13px 14px;font:inherit;font-size:15.5px;line-height:1.45;resize:vertical}
+textarea.tb:focus{outline:none;border-color:var(--reef)}
+.btn{margin-top:16px;width:100%;background:linear-gradient(135deg,var(--reef),var(--kelp));color:#06231a;border:none;border-radius:12px;padding:14px;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
+.btn.warm{background:linear-gradient(135deg,var(--amber),var(--kelp))}
+.btn.ghost{background:none;border:1.5px solid var(--line);color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:default}
+.fb{margin-top:15px;border-radius:12px;padding:13px 15px;font-size:14.5px;line-height:1.5;display:none}
+.fb.show{display:block}
+.fb.ok{background:#0d2b20;border:1px solid #1E5C46}
+.fb.no{background:#241019;border:1px solid #5c1e2e}
+.fb .verdict{font-weight:700;display:block;margin-bottom:5px}
+.fb.ok .verdict{color:var(--kelp)}
+.fb.no .verdict{color:var(--flare)}
+.fb .model{color:var(--haze);margin-top:6px}
+.fb .model b{color:var(--ink)}
+.selfcheck{display:flex;gap:9px;margin-top:12px}
+.selfcheck button{flex:1;background:#0C1728;border:1.5px solid var(--line);color:var(--ink);border-radius:10px;padding:10px;font:inherit;font-size:14px;cursor:pointer}
+.selfcheck button.yes:hover{border-color:var(--kelp)}
+.selfcheck button.no:hover{border-color:var(--amber)}
+.coachline{margin-top:10px;line-height:1.45;font-size:14px}
+.coachline b{color:var(--sun,#e9c46a)}
+.result h1{font-size:34px}
+.score{font-family:'Space Mono',monospace;font-weight:700;font-size:46px;color:var(--kelp);margin:4px 0}
+.score small{font-size:18px;color:var(--haze)}
+.timechip{display:inline-block;font-family:'Space Mono',monospace;font-size:13px;color:var(--haze);background:#1C2B42;border-radius:8px;padding:5px 10px;margin:2px 0 10px}
+.row{display:flex;align-items:center;gap:10px;margin:9px 0}
+.row .nm{flex:0 0 118px;font-size:13.5px}
+.row .track{flex:1;height:10px;border-radius:99px;background:#1C2B42;overflow:hidden}
+.row .track span{display:block;height:100%;border-radius:99px}
+.row .pc{flex:0 0 42px;text-align:right;font-family:'Space Mono',monospace;font-size:12.5px;color:var(--haze)}
+.focus{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;padding:14px 16px;margin-top:16px;font-size:14.5px;line-height:1.5}
+.focus b{color:var(--amber)}
+.note{font-size:12px;color:var(--haze);margin-top:18px;line-height:1.5}
+.spin{width:26px;height:26px;border-radius:50%;border:3px solid #1C2B42;border-top-color:var(--reef);animation:sp 0.8s linear infinite;margin:40px auto}
+@keyframes sp{to{transform:rotate(360deg)}}
+.kicker{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--kelp);margin-bottom:8px}
+.teachbody{font-size:15.5px;line-height:1.6;color:var(--ink)}
+.teachbody b{color:var(--kelp)}
+.teachbody .ex{display:block;background:#0C1728;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;font-family:'Space Mono',monospace;font-size:14px;line-height:1.5;color:var(--ink);white-space:pre-wrap}
+.breakbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-top:18px}
+.breakbox h2{font-size:20px;margin:0 0 8px}
+.breakbox .pend{display:flex;align-items:center;gap:12px;color:var(--haze);font-size:14px;margin:14px 0 4px}
+.dots{width:18px;height:18px;border-radius:50%;border:2.5px solid #1C2B42;border-top-color:var(--amber);animation:sp .8s linear infinite;flex:0 0 auto}
+.linkbtn{display:inline-block;background:none;border:none;color:var(--haze);font:inherit;font-size:12.5px;text-decoration:underline;cursor:pointer;margin-top:16px;padding:0}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+const SUPA_URL="https://ftknumgdmalxyjxvqlux.supabase.co";
+const SUPA_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0a251bWdkbWFseHlqeHZxbHV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY5Mzc2MTYsImV4cCI6MjEwMjUxMzYxNn0.hynBqLOOsu8Hr7etMlFBhNMUSutZ0Hb8HXL5rpL3rDc";
+const STUDENT="roshan";
+const COACH_URL=SUPA_URL+"/functions/v1/coach";   // AI coach for Part-2 typed answers
+const app=document.getElementById('app');
+const BR=`<div class="top"><span class="brand">XP DAILY · EXAM REVISION</span></div>`;
+
+let QUESTIONS=[], DAY="day", TITLE="Today's revision", INTRO="", subjects=[];
+let i=0; const answered=[]; let startMs=0, timer=null;
+let PHASE="p1";                 // 'p1' practice, 'p2' reteach top-up
+let RETEACH=null;               // {intro,questions} once fetched ready
+let pollT=null;
+// --- per-question authenticity capture -----------------------------------
+// For typed answers (short / written) we record how the answer arrived: time
+// on the question, keystrokes, and whether it was pasted. `flag` is a gentle,
+// deterministic "looks like it wasn't typed here" signal (pasted, or a long
+// answer that appeared with too few keystrokes or implausibly fast). It never
+// changes the score — it's only stored so a grown-up can glance at it.
+let qShown=0, qKeys=0, qPaste=false, lastCap=null, coachRecorded=false;
+
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function fmt(ms){const s=Math.max(0,Math.round(ms/1000));const m=Math.floor(s/60);return m+"m "+String(s%60).padStart(2,'0')+"s";}
+function lsKey(part){return "xp."+STUDENT+"."+DAY+"."+part;}
+function lsGet(part){try{return localStorage.getItem(lsKey(part))==="1";}catch(e){return false;}}
+function lsSet(part){try{localStorage.setItem(lsKey(part),"1");}catch(e){}}
+
+// --- autosave / resume ---------------------------------------------------
+// Progress is written to localStorage after every question so a closed tab,
+// crash or sleep can be resumed instead of restarting the part from scratch.
+let PENDING_PROG=null;
+function progKey(){return "xp."+STUDENT+"."+DAY+".prog";}
+function saveProg(){try{localStorage.setItem(progKey(),JSON.stringify(
+  {phase:PHASE,day:DAY,i:i,answered:answered,elapsedMs:Date.now()-startMs,savedAt:Date.now()}));}catch(e){}}
+function loadProg(){try{const r=localStorage.getItem(progKey()); if(!r)return null;
+  const p=JSON.parse(r);
+  if(!p||p.day!==DAY||(p.phase!=='p1'&&p.phase!=='p2')||!Array.isArray(p.answered)||typeof p.i!=='number'||p.i<=0)return null;
+  return p;}catch(e){return null;}}
+function clearProg(){try{localStorage.removeItem(progKey());}catch(e){}}
+function startTimer(){ if(timer) clearInterval(timer);
+  timer=setInterval(()=>{const el=document.getElementById('clock'); if(el) el.textContent=fmt(Date.now()-startMs);},1000); }
+
+async function fetchReteach(){
+  try{
+    const r=await fetch(SUPA_URL+"/rest/v1/revision_reteach?student=eq."+STUDENT+"&day=eq."+encodeURIComponent(DAY)+"&status=eq.ready&select=intro,questions",
+      {headers:{apikey:SUPA_ANON,Authorization:"Bearer "+SUPA_ANON}});
+    const rows=await r.json();
+    if(rows&&rows.length&&rows[0].questions&&rows[0].questions.length){return rows[0];}
+  }catch(e){}
+  return null;
+}
+
+async function boot(){
+  app.innerHTML=BR+`<div class="spin"></div><p class="note" style="text-align:center">Loading today's questions…</p>`;
+  try{
+    const r=await fetch(SUPA_URL+"/rest/v1/revision_quiz?student=eq."+STUDENT+"&active=eq.true&select=day,title,intro,questions",
+      {headers:{apikey:SUPA_ANON,Authorization:"Bearer "+SUPA_ANON}});
+    const rows=await r.json();
+    if(!rows||!rows.length||!rows[0].questions||!rows[0].questions.length){
+      app.innerHTML=BR+`<h1 class="display">All done for now</h1><p class="lede">There's no quiz loaded for today yet — check back a little later. Nice work keeping it up.</p>`;
+      return;
+    }
+    const q=rows[0];
+    QUESTIONS=q.questions; DAY=q.day||"day"; TITLE=q.title||"Today's revision"; INTRO=q.intro||"";
+    subjects=[...new Set(QUESTIONS.map(x=>x.s))];
+
+    // Resume logic: both done -> finished; mid-part -> offer resume; part 1 done -> break/top-up; else -> practice.
+    if(lsGet("p2")){ return finalDone(); }
+    const rt=await fetchReteach(); RETEACH=rt;
+    const prog=loadProg();
+    if(prog && prog.phase==='p2' && rt){ return resumeScreen(prog); }   // mid top-up
+    if(lsGet("p1")||rt){ return breakScreen(); }                         // practice done -> break/top-up
+    if(prog && prog.phase==='p1'){ return resumeScreen(prog); }          // mid practice
+    intro();
+  }catch(e){
+    app.innerHTML=BR+`<h1 class="display">Hmm — couldn't load</h1><p class="lede">Something got in the way loading today's questions. Check your connection and refresh the page.</p><button class="btn" onclick="boot()">Try again</button>`;
+  }
+}
+
+function intro(){
+  PHASE="p1";
+  app.innerHTML=`
+   <div class="top"><span class="brand">XP DAILY · EXAM REVISION</span><span class="daytag">${esc(DAY)}</span></div>
+   <h1 class="display">${esc(TITLE)}</h1>
+   <p class="lede">${esc(INTRO)}</p>
+   <button class="btn" onclick="startRun()">Start →</button>
+   <p class="note">${QUESTIONS.filter(x=>x.t!=='teach').length} questions · we're timing it, so just work steadily — it's not a race. After this you'll get a short break, then a custom top-up built from how you go.</p>`;
+}
+
+function startRun(){ i=0; answered.length=0; startMs=Date.now(); clearProg(); PHASE="p1";
+  startTimer(); render(); }
+
+function scoredTotal(){return QUESTIONS.filter(x=>x.t!=='teach').length;}
+function scoredBefore(){return QUESTIONS.slice(0,i).filter(x=>x.t!=='teach').length;}
+
+function render(){
+  if(i>=QUESTIONS.length) return finish();
+  saveProg();
+  const q=QUESTIONS[i]; const pct=Math.round(i/QUESTIONS.length*100);
+  const p2=PHASE==="p2";
+
+  if(q.t==='teach'){
+    app.innerHTML=`
+     <div class="meta"><span>Quick refresher</span><span class="t"><span id="clock">${fmt(Date.now()-startMs)}</span> · ${esc(q.s||'')}</span></div>
+     <div class="bar ${p2?'p2':''}"><span style="width:${pct}%"></span></div>
+     <div class="card"><div class="kicker">Refresher${q.s?' · '+esc(q.s):''}</div>${q.title?`<p class="q" style="margin-bottom:12px">${q.title}</p>`:''}<div class="teachbody">${q.body||''}</div>
+     <button class="btn warm" onclick="next()">Got it — keep going →</button></div>`;
+    window.scrollTo(0,0);
+    return;
+  }
+
+  let body='';
+  if(q.t==='mc'){
+    body=`<div class="opts">`+q.opts.map((o,k)=>`<button class="opt" onclick="pickMC(${k})"><span class="k">${String.fromCharCode(65+k)}</span><span>${esc(o)}</span></button>`).join('')+`</div>`;
+  }else if(q.t==='short'){
+    // Part 1 and Part 2 both grade typed answers with the lenient AI coach.
+    body=`<input class="short" id="in" autocomplete="off" placeholder="Type your answer…" onkeydown="if(event.key==='Enter')submitCoached()"><button class="btn" id="go" onclick="submitCoached()">Check my answer</button>`;
+  }else{
+    // Written/extended answers are AI-marked on substance (ideas & structure), not exact wording.
+    body=`<textarea class="tb" id="in" placeholder="Explain it in your own words…"></textarea><button class="btn" id="go" onclick="submitCoached()">Check my answer</button>`;
+  }
+  const num=scoredBefore()+1, tot=scoredTotal();
+  app.innerHTML=`
+   <div class="meta"><span>${p2?'Top-up ':''}Question ${num} of ${tot}</span><span class="t"><span id="clock">${fmt(Date.now()-startMs)}</span> · ${esc(q.s)}</span></div>
+   <div class="bar ${p2?'p2':''}"><span style="width:${pct}%"></span></div>
+   <div class="card"><span class="subj">${esc(q.s)}</span><p class="q">${q.q}</p>${body}<div class="fb" id="fb"></div></div>`;
+  armCapture();
+}
+function next(){ i++; render(); window.scrollTo(0,0); }
+
+// Start timing/keystroke capture for the question just rendered.
+function armCapture(){
+  qShown=Date.now(); qKeys=0; qPaste=false; lastCap=null; coachRecorded=false;
+  const el=document.getElementById('in');
+  if(el){
+    el.addEventListener('paste',function(){qPaste=true;});
+    el.addEventListener('keydown',function(e){ if(e.key&&e.key.length===1) qKeys++; });
+  }
+}
+// Freeze the authenticity signals for a typed answer at submit time.
+function grab(raw){
+  const txt=String(raw==null?'':raw), len=txt.trim().length;
+  const ms=qShown?Date.now()-qShown:null;
+  const fast=(ms!=null&&len>60&&ms<len*30);   // sustained >~33 chars/sec over a long answer
+  const low=(len>60&&qKeys<len*0.5);           // far fewer keystrokes than characters (pasted/autofilled)
+  lastCap={text:txt.slice(0,2000),ms:ms,keys:qKeys,pasted:qPaste,flag:!!(qPaste||fast||low)};
+}
+// Build an answer record, attaching capture fields for typed questions.
+function mk(score){
+  // score: a number 0..1 (partial credit, E5). Accepts a legacy boolean too.
+  const q=QUESTIONS[i];
+  const sc=(score===true)?1:(score===false?0:score);
+  const a={s:q.s,q:q.q,t:q.t,score:sc,correct:sc>=1,id:q.id||null,src:q.src||null};
+  if(lastCap){ a.ms=lastCap.ms; a.text=lastCap.text; a.keys=lastCap.keys; a.pasted=lastCap.pasted; a.flag=lastCap.flag; }
+  else if(qShown){ a.ms=Date.now()-qShown; }
+  return a;
+}
+
+function pickMC(k){
+  const q=QUESTIONS[i], btns=[...document.querySelectorAll('.opt')];
+  btns.forEach((b,idx)=>{b.disabled=true; if(idx===q.a)b.classList.add('correct'); else if(idx===k)b.classList.add('wrong'); else b.classList.add('dim');});
+  const ok=k===q.a; lastCap=null; answered.push(mk(ok));
+  showFB(ok,`<span class="verdict">${ok?'Correct ✓':'Not quite ✗'}</span>${esc(q.e||'')}`);
+}
+function norm(s){return String(s==null?'':s).toLowerCase().replace(/\s+/g,'');}
+function submitShort(){
+  const q=QUESTIONS[i], el=document.getElementById('in'), raw=(el.value||''), v=raw.trim().toLowerCase();
+  if(!v) return;
+  el.disabled=true; document.getElementById('go').style.display='none';
+  const ok=(q.keys||[]).some(key=>norm(raw).includes(norm(key)));
+  grab(raw); answered.push(mk(ok));
+  showFB(ok,`<span class="verdict">${ok?'Looks right ✓':'Check this one'}</span><div class="model"><b>Model answer:</b> ${esc(q.model||'')}</div>`+
+    (ok?'':`<div class="selfcheck"><button class="yes" onclick="override(true)">I actually got it</button><button class="no" onclick="next()">No, got it wrong</button></div>`));
+}
+function submitTB(){
+  const q=QUESTIONS[i], el=document.getElementById('in'), raw=(el.value||'');
+  el.disabled=true; document.getElementById('go').style.display='none';
+  grab(raw);
+  showFB(true,`<span class="verdict" style="color:var(--reef)">Compare with the model</span><div class="model"><b>Model answer:</b> ${esc(q.model||'')}</div>`+
+    `<div class="selfcheck"><button class="yes" onclick="override(true)">I covered the key ideas</button><button class="no" onclick="override(false)">I missed some</button></div>`);
+}
+function override(ok){ answered.push(mk(ok)); next(); }
+
+// ---- Part-2 AI coach: real feedback on typed answers (no self-marking) ------
+function yearLabel(){ return STUDENT==="roshan"?"Year 9":(STUDENT==="harrison"?"Year 8":"high school"); }
+async function coachGrade(q, raw){
+  for(let attempt=0; attempt<2; attempt++){
+    try{
+      const r=await fetch(COACH_URL,{method:"POST",
+        headers:{"Content-Type":"application/json","apikey":SUPA_ANON,"Authorization":"Bearer "+SUPA_ANON},
+        body:JSON.stringify({subject:q.s,question:q.q,model:q.model||"",answer:raw,year:yearLabel()})});
+      const d=await r.json();
+      if(d&&d.verdict) return d;
+    }catch(e){}
+  }
+  return {verdict:"partly",good:"Good effort giving it a go.",improve:"Compare your answer with the model answer below and note anything you missed.",fallback:true};
+}
+async function submitCoached(){
+  const q=QUESTIONS[i], el=document.getElementById('in'), raw=(el.value||'');
+  if(!raw.trim()) return;
+  el.disabled=true; const go=document.getElementById('go'); if(go) go.style.display='none';
+  const fb=document.getElementById('fb'); fb.className='fb show';
+  fb.innerHTML='<span class="verdict">Checking your answer…</span><div class="spin" style="margin:10px auto 0"></div>';
+  if(!coachRecorded) grab(raw);
+  const res=await coachGrade(q,raw);
+  // Questions with a known answer are marked by exact match - the coach only adds feedback,
+  // it can never overturn a correct answer (or mark it wrong because the coach call failed).
+  const hasKeys=Array.isArray(q.keys)&&q.keys.length;
+  const km=hasKeys?q.keys.some(key=>norm(raw).includes(norm(String(key)))):null;
+  let ok;
+  let score;
+  if(km===true){ score=1; }                 // exact-answer match (spelling/spacing ignored): full mark
+  else if(res.fallback){ score=1; }          // coach unavailable: don't penalise
+  else { score = res.verdict==="got_it" ? 1 : (res.verdict==="partly" ? 0.5 : 0); }  // E5 partial credit
+  ok = score>=1;
+  if(!coachRecorded){ const a=mk(score); a.coach=res.verdict; a.km=km; if(res.good)a.good=res.good; if(res.improve)a.improve=res.improve; answered.push(a); coachRecorded=true; }
+  renderCoachFB(q,res,ok,km);
+}
+function renderCoachFB(q,res,ok,km){
+  const fb=document.getElementById('fb');
+  const vlabel=ok?'Nailed it ✓':(res.verdict==='partly'?'Almost — half marks ✓':'Let’s build this one up');
+  const vcol=ok?'var(--kelp)':'var(--amber)';
+  let html=`<span class="verdict" style="color:${vcol}">${vlabel}</span>`;
+  if(ok && km===true){
+    // Answer matches the known result - keep feedback positive and consistent (never contradict a correct mark).
+    html+=`<div class="coachline"><b>What you got right:</b> ${esc(res.good&&res.verdict==='got_it'?res.good:'That matches the correct answer.')}</div>`;
+  } else {
+    if(res.good) html+=`<div class="coachline"><b>What you got right:</b> ${esc(res.good)}</div>`;
+    if(res.improve) html+=`<div class="coachline"><b>To make it even better:</b> ${esc(res.improve)}</div>`;
+  }
+  html+=`<div class="model"><b>Model answer:</b> ${esc(q.model||'')}</div>`;
+  fb.className='fb show '+(ok?'ok':'no'); fb.innerHTML=html;
+  const last=i+1>=QUESTIONS.length;
+  if(!ok){
+    const t=document.createElement('button'); t.className='btn warm'; t.style.marginTop='12px'; t.textContent='Try it again ↻'; t.onclick=retryCoached; fb.appendChild(t);
+  }
+  const n=document.createElement('button'); n.className='btn ghost'; n.style.marginTop='10px'; n.textContent=last?'Finish →':'Next →'; n.onclick=next; fb.appendChild(n);
+}
+function retryCoached(){
+  const el=document.getElementById('in'); if(el){ el.disabled=false; el.focus(); }
+  const go=document.getElementById('go'); if(go) go.style.display='';
+  const fb=document.getElementById('fb'); fb.className='fb'; fb.innerHTML='';
+}
+function showFB(ok,html){
+  const fb=document.getElementById('fb'); fb.className='fb show '+(ok?'ok':'no'); fb.innerHTML=html;
+  const q=QUESTIONS[i];
+  if(q.t==='mc'||q.t==='short'){
+    if(!(q.t==='short'&&!ok)){
+      const nb=document.createElement('button'); nb.className='btn ghost'; nb.style.marginTop='14px';
+      const last=i+1>=QUESTIONS.length;
+      nb.textContent=last?(PHASE==="p2"?'Finish →':'See how you went →'):'Next →'; nb.onclick=next; fb.appendChild(nb);
+    }
+  }
+}
+
+function scoreOf(a){ return (typeof a.score==='number')?a.score:(a.correct?1:0); }  // E5
+function tally(){
+  const bySub={}; answered.forEach(a=>{const sc=scoreOf(a); if(!bySub[a.s])bySub[a.s]={c:0,n:0}; bySub[a.s].n++; bySub[a.s].c+=sc;});
+  const total=answered.reduce((s,a)=>s+scoreOf(a),0);
+  return {bySub,total};
+}
+function fmtScore(x){ return Number.isInteger(x)?String(x):x.toFixed(1); }  // 14.5 etc
+function subjectRows(bySub){
+  return Object.entries(bySub).sort((a,b)=>(a[1].c/a[1].n)-(b[1].c/b[1].n)).map(([s,v])=>{
+    const p=Math.round(100*v.c/v.n); const col=p>=75?'var(--kelp)':p>=50?'var(--reef)':'var(--amber)';
+    return `<div class="row"><span class="nm">${esc(s)}</span><span class="track"><span style="width:${p}%;background:${col}"></span></span><span class="pc">${v.c}/${v.n}</span></div>`;
+  }).join('');
+}
+
+function finish(){ return PHASE==="p2" ? finishPart2() : finishPart1(); }
+
+function finishPart1(){
+  if(timer){clearInterval(timer); timer=null;}
+  const durationSec=Math.round((Date.now()-startMs)/1000);
+  const {bySub,total}=tally();
+  lsSet("p1"); clearProg();
+  app.innerHTML=`<div class="result">
+   <div class="top"><span class="brand">XP DAILY · EXAM REVISION</span><span class="daytag">${esc(DAY)} · practice done</span></div>
+   <h1 class="display">Nice work.</h1>
+   <div class="score num">${fmtScore(total)}<small> / ${answered.length}</small></div>
+   <div class="timechip">⏱ ${fmt(durationSec*1000)}</div>
+   <p class="lede">Here's how each subject went, weakest first:</p>
+   ${subjectRows(bySub)}
+   <div class="breakbox" id="breakbox"></div>
+   </div>`;
+  window.scrollTo(0,0);
+
+  const payload={student:STUDENT,day:DAY,part:1,date:new Date().toISOString().slice(0,10),
+                 total,n:answered.length,duration_seconds:durationSec,answers:answered,bySubject:bySub,ts:Date.now()};
+  saveResults(payload);
+  breakScreen();
+}
+
+function breakScreen(){
+  PHASE="p1";
+  // Shown either right after Part 1, or on returning to the link mid-break.
+  let box=document.getElementById('breakbox');
+  if(!box){
+    app.innerHTML=`<div class="result">
+     <div class="top"><span class="brand">XP DAILY · EXAM REVISION</span><span class="daytag">${esc(DAY)} · break</span></div>
+     <div class="breakbox" id="breakbox"></div></div>`;
+    box=document.getElementById('breakbox');
+  }
+  if(RETEACH){ return offerTopup(); }
+  box.innerHTML=`
+    <div class="kicker">Take a break</div>
+    <h2>Great effort — go take a break.</h2>
+    <p class="lede" style="margin:0 0 6px">Have a snack, get some downtime. Behind the scenes we're building you a short <b style="color:var(--kelp)">custom top-up</b> from exactly what you just did — a quick re-teach on the tricky bits, then some easy wins to lock them in. It'll be waiting right here.</p>
+    <div class="pend"><span class="dots"></span><span id="pendmsg">Building your top-up — pop back a little later (even after dinner). Same link, it'll be ready.</span></div>
+    <button class="btn" id="topupbtn" style="display:none" onclick="startTopup()">Start my top-up →</button>
+    <button class="linkbtn" onclick="checkNow()">Check now</button>
+    <button class="linkbtn" style="margin-left:14px" onclick="finalDone()">I'm done for today</button>`;
+  startPolling();
+}
+
+function startPolling(){
+  if(pollT) clearInterval(pollT);
+  pollT=setInterval(checkNow,20000);
+}
+async function checkNow(){
+  const rt=await fetchReteach();
+  if(rt){ RETEACH=rt; if(pollT){clearInterval(pollT);pollT=null;} offerTopup(); }
+}
+function offerTopup(){
+  if(pollT){clearInterval(pollT);pollT=null;}
+  const box=document.getElementById('breakbox');
+  if(!box){ return breakScreen(); }
+  box.innerHTML=`
+    <div class="kicker" style="color:var(--amber)">Your top-up is ready</div>
+    <h2>Built just for you.</h2>
+    <p class="lede" style="margin:0 0 8px">${esc(RETEACH.intro||"A quick re-teach on the bits worth another look, then some easy wins to build confidence. No pressure — just getting it to stick.")}</p>
+    <button class="btn warm" onclick="startTopup()">Start my top-up →</button>
+    <button class="linkbtn" onclick="finalDone()">Maybe later</button>`;
+}
+
+function startTopup(){
+  if(!RETEACH||!RETEACH.questions||!RETEACH.questions.length){ return finalDone(); }
+  PHASE="p2"; QUESTIONS=RETEACH.questions;
+  i=0; answered.length=0; startMs=Date.now(); clearProg();
+  startTimer(); render();
+}
+
+function resumeScreen(prog){
+  if(timer){clearInterval(timer); timer=null;}
+  if(pollT){clearInterval(pollT); pollT=null;}
+  PENDING_PROG=prog;
+  const isP2=prog.phase==='p2';
+  const qs=isP2?((RETEACH&&RETEACH.questions)||[]):QUESTIONS;
+  const scoredTot=qs.filter(x=>x.t!=='teach').length;
+  const pos=Math.min(prog.answered.filter(a=>a&&a.t!=='teach').length+1, scoredTot||1);
+  app.innerHTML=`<div class="result">
+   <div class="top"><span class="brand">XP DAILY · EXAM REVISION</span><span class="daytag">${esc(DAY)}</span></div>
+   <h1 class="display">Welcome back.</h1>
+   <p class="lede">You were partway through ${isP2?'your top-up':'your practice'} — around question ${pos} of ${scoredTot}. Want to pick up where you left off?</p>
+   <button class="btn ${isP2?'warm':''}" onclick="resume()">Resume →</button>
+   <button class="linkbtn" style="margin-top:14px" onclick="startOver('${prog.phase}')">Start this part over</button>
+   </div>`;
+  window.scrollTo(0,0);
+}
+function resume(){
+  const prog=PENDING_PROG; if(!prog){ return boot(); }
+  PHASE=prog.phase;
+  if(PHASE==='p2'){ if(!RETEACH||!RETEACH.questions||!RETEACH.questions.length){ return breakScreen(); } QUESTIONS=RETEACH.questions; }
+  answered.length=0; prog.answered.forEach(a=>answered.push(a));
+  i=prog.i; startMs=Date.now()-(prog.elapsedMs||0);
+  startTimer(); render();
+}
+function startOver(phase){ clearProg(); if(phase==='p2'){ startTopup(); } else { startRun(); } }
+
+function finishPart2(){
+  if(timer){clearInterval(timer); timer=null;}
+  const durationSec=Math.round((Date.now()-startMs)/1000);
+  const {bySub,total}=tally();
+  lsSet("p2"); clearProg();
+  const payload={student:STUDENT,day:DAY,part:2,date:new Date().toISOString().slice(0,10),
+                 total,n:answered.length,duration_seconds:durationSec,answers:answered,bySubject:bySub,ts:Date.now()};
+  saveResults(payload);
+  app.innerHTML=`<div class="result">
+   <div class="top"><span class="brand">XP DAILY · EXAM REVISION</span><span class="daytag">${esc(DAY)} · all done</span></div>
+   <h1 class="display">That's the lot. 💪</h1>
+   <div class="score num" style="color:var(--amber)">${fmtScore(total)}<small> / ${answered.length}</small></div>
+   <div class="timechip">⏱ top-up ${fmt(durationSec*1000)}</div>
+   <p class="lede">You did the practice <b style="color:var(--ink)">and</b> the top-up today — that's exactly how the tricky stuff turns into easy marks. Dad gets the full picture tonight.</p>
+   <div class="focus"><b>Nice one.</b> Come back to this same link tomorrow for a fresh set.</div>
+   </div>`;
+  window.scrollTo(0,0);
+}
+
+function finalDone(){
+  if(timer){clearInterval(timer); timer=null;}
+  if(pollT){clearInterval(pollT); pollT=null;}
+  clearProg();
+  app.innerHTML=`<div class="result">
+   <div class="top"><span class="brand">XP DAILY · EXAM REVISION</span><span class="daytag">${esc(DAY)} · done</span></div>
+   <h1 class="display">All done for today.</h1>
+   <p class="lede">Great work getting it done. Come back to this same link tomorrow for a fresh set.</p>
+   ${(!lsGet("p2")&&RETEACH)?`<button class="btn warm" onclick="startTopup()">Actually, do my top-up →</button>`:''}
+   </div>`;
+  window.scrollTo(0,0);
+}
+
+async function saveResults(payload){
+  try{
+    const r=await fetch(SUPA_URL+"/rest/v1/revision_runs",{method:"POST",
+      headers:{"Content-Type":"application/json","apikey":SUPA_ANON,"Authorization":"Bearer "+SUPA_ANON,"Prefer":"return=minimal"},
+      body:JSON.stringify({payload:payload})});
+    return r.ok?'saved':'error';
+  }catch(e){return 'error';}
+}
+boot();
+</script>
+</body>
+</html>

@@ -93,7 +93,7 @@ def main():
 
     # Science must carry a Skills item (E2)
     sci = [q for q in qs if q.get("s") == "Science"]
-    if sci and not any("Skills" in str(q.get("section", "")) or "SKILLS" in q.get("q", "") for q in sci):
+    if sci and not any("Skills" in str(q.get("section", "")) or "skills" in str(q.get("src", "")).lower() or "SKILLS" in q.get("q", "") for q in sci):
         warnings.append("E2: Science set has no Part-C Skills item")
 
     print(f"Validated {len(qs)} questions | MC: {len(mc)}")

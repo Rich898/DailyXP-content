@@ -6,7 +6,7 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 // The caller (orchestrator) then runs tools/validate_revision.py before loading.
 // Key is the project edge-function secret ANTHROPIC_API_KEY (shared with `coach`).
 
-const MODEL = "claude-sonnet-5-5";   // generation model — change to dial quality (e.g. claude-opus-5-5)
+const MODEL = "claude-opus-5-5";   // generation model — change to dial quality/cost (e.g. claude-sonnet-5-5)
 
 const ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0a251bWdkbWFseHlqeHZxbHV4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY5Mzc2MTYsImV4cCI6MjEwMjUxMzYxNn0.hynBqLOOsu8Hr7etMlFBhNMUSutZ0Hb8HXL5rpL3rDc";
 
@@ -52,7 +52,8 @@ RULES — follow strictly:
 - Match the exam FORMAT. ${allowMc ? "Multiple choice is allowed for this subject where a topic lists 'mc'." : "This subject has NO multiple choice — never produce an 'mc' question."}
 - Use each topic's allowed types (asks_as): "mc", "short" (one or two sentence answer), or "tb" (extended written response).
 - Multi-part items (a)/(b) are allowed only where the real exam bundles them; keep them answerable and part-creditable. Prefer one focus otherwise.
-- For "mc": give 4 options, set "a" to the correct index, and spread correct answers across A/B/C/D over the set (do NOT make the correct one always the longest).
+- Cover the exam's SECTIONS: if the format has multiple sections, include questions from each; for Science always include at least one Part C — Skills question.
+- For "mc": give 4 options and set "a" to the correct index. CRITICAL — length must NOT reveal the answer: write all four options as complete statements of the SAME length (within ~2-3 words of each other). A common mistake is a long fully-worded correct answer with short distractors — never do that; each distractor must be as detailed and plausible as the correct one. Vary which position is correct.
 - For "short"/"tb": give a concise, correct "model" answer drawn from the grounding. For "short" you may add "keys": a few distinctive words (omit keys when the answer needs several parts).
 - Set "src" to the topic id you used. Set "s" to "${subject}".
 - Do NOT repeat or lightly reword any question in the AVOID list.
