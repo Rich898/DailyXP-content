@@ -20,12 +20,37 @@ ANON = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im
         "Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY5Mzc2MTYsImV4cCI6MjEwMjUxMzYxNn0.hynBqLOOsu8Hr7etMlFBhNMUSutZ0Hb8HXL5rpL3rDc")
 DEFAULT_PER_SUBJECT = 10
 
-def call_generate(subject, d, count, avoid):
+def fetch_coverage(student, recent_hours=36):
+    """Read the coverage ledger (LAW E9). Returns (recent_ids:set, weak_ids:set)."""
+    url = (f"{SUPA}/rest/v1/revision_coverage?student=eq.{student}"
+           "&select=topic_id,last_asked,avg_score")
+    req = urllib.request.Request(url, headers={"apikey": ANON, "Authorization": "Bearer " + ANON})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            rows = json.load(r)
+    except Exception as e:
+        print(f"  (coverage unavailable, steering off: {e})"); return set(), set()
+    import datetime
+    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=recent_hours)
+    recent, weak = set(), set()
+    for row in rows:
+        la = row.get("last_asked")
+        try:
+            t = datetime.datetime.fromisoformat(la.replace("Z", "+00:00")) if la else None
+        except Exception:
+            t = None
+        if t and t >= cutoff:
+            recent.add(row["topic_id"])
+        if row.get("avg_score") is not None and float(row["avg_score"]) < 0.5:
+            weak.add(row["topic_id"])
+    return recent, weak
+
+def call_generate(subject, d, topics, count, avoid):
     payload = {
         "subject": subject, "year": "Year 9",
         "allow_mc": d["exam"]["multiple_choice"],
         "sections": d["exam"]["sections"],
-        "topics": d["topics"], "count": count, "avoid": avoid,
+        "topics": topics, "count": count, "avoid": avoid,
     }
     req = urllib.request.Request(
         f"{SUPA}/functions/v1/generate",
@@ -56,6 +81,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--counts", default=None, help="Science=11,Geography=9")
     ap.add_argument("--recent", default=None, help="file of recently-asked topic ids")
+    ap.add_argument("--no-steer", action="store_true", help="ignore the coverage ledger (no skip/prioritise)")
     ap.add_argument("--seed", type=int, default=None)
     args = ap.parse_args()
 
@@ -71,12 +97,21 @@ def main():
         try: avoid = [l.strip() for l in open(args.recent) if l.strip()]
         except FileNotFoundError: pass
 
+    recent_ids, weak_ids = (set(), set())
+    if not args.no_steer:
+        recent_ids, weak_ids = fetch_coverage(bp["student"])
+        print(f"  ledger: skip {len(recent_ids)} recently-asked, prioritise {len(weak_ids)} weak")
+
     questions = []
     for s in subjects:
         d = bp["subjects"].get(s)
         if not d:
             print(f"  (skip {s}: not in blueprint)"); continue
-        qs = call_generate(s, d, counts[s], avoid)
+        avail = [t for t in d["topics"] if t["id"] not in recent_ids]
+        if len(avail) < max(3, counts[s] // 2):   # not enough fresh topics -> allow recent back in
+            avail = list(d["topics"])
+        avail.sort(key=lambda t: 0 if t["id"] in weak_ids else 1)   # weak topics first
+        qs = call_generate(s, d, avail, counts[s], avoid)
         # enrich each question with its topic's section (from the blueprint) for coverage + validation
         sec = {t["id"]: t.get("section", "") for t in d["topics"]}
         for q in qs:

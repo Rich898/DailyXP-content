@@ -255,17 +255,21 @@ There are **three** session kinds (don't confuse them):
 
 ---
 
-## 6B. The bank & the ledger — coverage (LAW E9)
+## 6B. Topics & the coverage ledger (LAW E9)
 
-Mirrors the daily game's menu + ledger:
+Topic-driven, mirroring the daily game's menu + ledger:
 
-- **Bank** (in the blueprint) = the universe of askable items, each with a stable `id` + `src`.
-- **Runs** (`revision_runs`, Supabase) = every sitting, every answer, verdict and score.
-- **Ledger** = coverage/mastery, **derived** from bank ∪ runs (one source of truth, no hand-
-  kept file to drift): per item — times asked, last asked, right/partly/wrong history.
-- **The planner** (`tools/build_revision.py`) uses the ledger to pick **unseen** and **weak**
-  items, avoid recent repeats, and keep each subject's format (E2). Coverage is reportable:
-  "asked 34 / 120 bank items; Science Skills 2/18 — thin."
+- **Topics** (in the blueprint) = the universe the generator writes against, each with a stable
+  `id` + `src` + grounding.
+- **Runs** (`revision_runs`) = every sitting; each answer stores its topic `id`, `src` and
+  `score` (the page saves these from day37 on).
+- **Ledger** = the `revision_coverage` SQL view (migration `supabase/009_revision_coverage.sql`),
+  **derived** from the runs (one source of truth, nothing hand-kept): per student + topic —
+  times asked, last asked, average and last score.
+- **Steering:** `tools/generate_revision.py` reads `revision_coverage` and **skips topics asked
+  in the last ~36 h** and **prioritises weak topics** (avg score < 0.5), so sessions target
+  unseen/weak areas and don't repeat. `--no-steer` disables it. Coverage is reportable from the
+  view (e.g. "Science: 8/15 topics asked; SCI-skills-data unseen").
 - **Subject mix:** a session covers the subjects being examined, weighted by the exam's own
   marks — **not** an even split, and **not** collapsing into only his weakest subject (per
   Rich). Within each subject the planner favours weak/unseen items.
@@ -274,15 +278,16 @@ Mirrors the daily game's menu + ledger:
 
 ## 7. Build & verify workflow
 
-Every time a set is loaded (by hand or by the loader trigger):
-1. **Read** `EXAM-REVISION.md` + `revision/<student>.json`.
-2. **Compose** the set by sampling the bank, honouring each subject's format (E2), MC fairness
-   (E3), single-focus (E4), copying `src` (E1).
-3. **Validate** with `tools/validate_revision.py` — must pass, or do not write.
-4. **Write** the single `active` row (fresh `day` label to avoid stale state).
-5. **Verify** live: the page renders the set, MC options show, and a test fetch returns it.
-   Confirm the grader returns a real verdict (not fallback).
-6. Never advance a student's day unless a Part-1 run exists for the current day (the guard).
+Every time a session is made:
+1. **Generate** — `tools/generate_revision.py --subjects A,B --day dayN --out set.json`. It reads
+   the blueprint, applies ledger steering (§6B), calls the `generate` edge function per subject
+   (grounded in each topic, E1/E2/E3), and assembles the set carrying each question's `id`/`src`.
+2. **Validate** — `tools/validate_revision.py set.json` must PASS, or do not load (it caught a
+   real MC length-tell during the build and forced a regenerate).
+3. **Write** the single `active` row (fresh `day` label to avoid stale state).
+4. **Verify** live: the page renders the set, MC options show, a test fetch returns it, and the
+   grader returns a real verdict (not fallback).
+5. Never advance a student's day unless a Part-1 run exists for the current day (the guard).
 
 ---
 
@@ -290,12 +295,14 @@ Every time a set is loaded (by hand or by the loader trigger):
 
 These stop living only in chat:
 - `revision/sources/roshan/` — the committed school materials (§5A) + `MANIFEST.md`.
-- `revision/roshan.json` — the blueprint (bank + per-subject format).
+- `revision/roshan.json` — the blueprint (per-subject exam format + grounded TOPICS).
 - `revision/MARKING.md` — the marking spec.
 - `revision/pages/roshan.html` — the quiz page (source of the Netlify drop).
-- `revision/coach/index.ts` — the grader edge function.
-- `tools/validate_revision.py` — the gate (E1–E4, E9 repeat check).
-- `tools/build_revision.py` — the planner: reads blueprint + ledger, composes a set.
+- `revision/coach/index.ts` — the grader edge function (deployed as `coach`).
+- `revision/generate/index.ts` — the generator edge function (deployed as `generate`, Opus).
+- `supabase/009_revision_coverage.sql` — the coverage-ledger view.
+- `tools/generate_revision.py` — the orchestrator: ledger-steer → generate per subject → assemble.
+- `tools/validate_revision.py` — the gate (E1–E4, E9).
 - `RUNBOOK.md` gets an "Exam revision" section: how to redeploy the page (Netlify drop) and
   the function (Supabase), and how to pause/rewire the triggers.
 
