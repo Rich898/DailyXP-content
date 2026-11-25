@@ -103,14 +103,16 @@ sole-longest-correct share ≤ 34% (per-set). Same rule as `SEASONS.md` LAW 1 / 
 - *Why:* an earlier set had **every** correct MC answer = option A.
 - *Enforced:* `validate_revision.py` runs the position-distribution and length-tell checks.
 
-### LAW E4 — One question, one judgement (no multi-part)
-No question may bundle multiple parts (a/b/c) into a single graded item, because the grader
-returns one verdict for the whole thing and a correct part-b is thrown away when part-a slips.
-Split each part into its own question (or a short multi-mark item the grader is told to
-part-credit — see E5).
+### LAW E4 — Multi-part questions must be part-credited (never all-or-nothing)
+Keep multi-part items where the real exam bundles them (Science and Geography both do); prefer
+one focus where the parts are independent and splitting is clean. Whatever the shape, a
+multi-part answer is **never** scored all-or-nothing — the grader credits each part, so a
+2-of-3 answer scores half (E5), not zero.
 - *Why:* Roshan wrote a correct trend **and** a correct interpolation but mislabelled part (a),
-  and the whole question scored 0. Repeatedly.
-- *Enforced:* `validate_revision.py` flags a `q` that contains "(a)" and "(b)" patterns.
+  and the whole thing scored 0 — the harm was the **zero**, not the multi-part shape. Banning
+  multi-part would also make practice less like the real paper (fights E2).
+- *Enforced:* E5 partial credit (grader prompt + page tally); `validate_revision.py` surfaces
+  multi-part items as INFO to confirm they're part-credited, not a hard fail.
 
 ### LAW E5 — Partial-credit marking
 A substantially-correct answer must never score zero. The grader returns `got_it` / `partly`

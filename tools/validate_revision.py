@@ -57,8 +57,8 @@ def main():
         tag = f"#{i} ({q.get('s','?')}/{q.get('t','?')})"
         if not q.get("src"):                                   # E1
             errors.append(f"E1 {tag}: missing `src`")
-        if "(a)" in q.get("q", "") and "(b)" in q.get("q", ""):  # E4
-            errors.append(f"E4 {tag}: multi-part question (has (a) and (b)) — split it")
+        if "(a)" in q.get("q", "") and "(b)" in q.get("q", ""):  # E4 (info, not a fail)
+            warnings.append(f"E4 {tag}: multi-part item — ensure it is part-credited (E5), never all-or-nothing")
         t = q.get("t")
         if t == "mc":
             if "opts" not in q or "a" not in q or not (0 <= q.get("a", -1) < len(q.get("opts", []))):
