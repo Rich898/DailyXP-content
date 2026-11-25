@@ -1,72 +1,15 @@
 {
   "student": "y9",
-  "date": "2026-11-24",
-  "day": "TUE",
-  "tag": "R18.2",
-  "title": "DailyXP · TUE 2026-11-24",
+  "date": "2026-11-25",
+  "day": "WED",
+  "tag": "R18.3",
+  "title": "DailyXP · WED 2026-11-25",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Science",
-      "prompt": "A reaction in an open flask loses mass as gas escapes",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Mass is always conserved — in an open flask the escaping gas still has mass, it just leaves the container, so it only looks like mass was lost.",
-      "fresh": false
-    },
-    {
-      "id": "S2",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "The Nanjing Massacre was just soldiers losing control, not military strategy",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Japan's army wanted a fast, total collapse of Chinese resistance, so terror against civilians served a deliberate military goal, not just random cruelty.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "A person's taste preferences never affect food selection",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "False",
-      "why": "Taste is a major factor in food selection — people often choose foods they enjoy the flavour of, alongside cost, culture and health.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Food Technology",
-      "prompt": "Food can help protect the body from disease",
+      "prompt": "A sealed jar of reacting chemicals weighs the same before and after",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -78,14 +21,71 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "Certain nutrients, like vitamin C, support the immune system and help the body resist infection, so food plays a protective role too.",
+      "why": "In a closed system no matter can enter or leave, so mass is conserved — the total mass of reactants equals the total mass of products.",
+      "fresh": false
+    },
+    {
+      "id": "S2",
+      "phase": "speed",
+      "subject": "History",
+      "prompt": "Japan's army wanted total submission from China in 1937, with military strategy behind the massacre",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "The Nanjing Massacre was driven by a deliberate military strategy to terrorise China into surrender, not just random cruelty by individual soldiers.",
+      "fresh": false
+    },
+    {
+      "id": "S3",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Food selection includes why people choose foods, not just what they buy",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "True",
+      "why": "Food selection covers the reasons behind choices — cost, culture, taste, religion — not merely the act of purchasing.",
+      "fresh": false
+    },
+    {
+      "id": "S4",
+      "phase": "speed",
+      "subject": "Food Technology",
+      "prompt": "Protein's only job is giving the body energy",
+      "block": {
+        "label": "Swipe Sort",
+        "hue": "#39A7DE",
+        "icon": "⇆",
+        "sub": "Flick each card up into its bucket",
+        "cta": "Start swiping →"
+      },
+      "type": "swipe",
+      "left": "True",
+      "right": "False",
+      "answer": "False",
+      "why": "Protein's main role is building and repairing body tissue — carbohydrates and fats are the body's main energy sources.",
       "fresh": false
     },
     {
       "id": "S5",
       "phase": "speed",
       "subject": "Food Technology",
-      "prompt": "Why does a balanced diet need foods from several different groups?",
+      "prompt": "On a food label, why is protein especially important for a teenager?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -93,13 +93,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Different foods supply different nutrients",
-      "why": "No single food group gives everything the body needs, so eating a variety of groups ensures you get all the different nutrients required for health.",
+      "answer": "Protein builds and repairs growing body tissue",
+      "why": "Protein's main job is growth and repair of muscle and other tissue — carbohydrate and fat are the body's main quick-energy sources, not protein.",
       "options": [
-        "Different foods supply different nutrients",
-        "It makes meals look more colourful",
-        "It keeps grocery shopping more varied",
-        "It stops meals from tasting the same"
+        "Protein builds and repairs growing body tissue",
+        "Protein is mainly used for quick bursts of energy",
+        "Protein is only needed to keep skin looking clear",
+        "Protein mainly helps digestion run more smoothly"
       ],
       "fresh": false
     },
@@ -107,7 +107,7 @@
       "id": "S6",
       "phase": "speed",
       "subject": "Commerce",
-      "prompt": "In a promo video, which task counts as content creation?",
+      "prompt": "Editing and finalising footage for a promo video is part of which task?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -115,13 +115,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Filming the footage",
-      "why": "Content creation covers making the material itself, like filming footage and writing scripts — testing and tracking happen after the content exists.",
+      "answer": "Content creation",
+      "why": "Editing footage into the finished video is part of content creation, the stage where the actual video material is produced.",
       "options": [
-        "Filming the footage",
-        "Testing online reach",
-        "Measuring audience views",
-        "Tracking ad spend"
+        "Content creation",
+        "Market analysis",
+        "Online testing",
+        "Budget planning"
       ],
       "fresh": false
     },
@@ -129,7 +129,7 @@
       "id": "S7",
       "phase": "speed",
       "subject": "English",
-      "prompt": "At which university did Oscar Wilde study in England?",
+      "prompt": "Which Oxford college did Oscar Wilde attend?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -137,13 +137,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Oxford",
-      "why": "Oscar Wilde studied at Oxford University after attending Trinity College Dublin, and it shaped his wit and aesthetic style.",
+      "answer": "Magdalen College",
+      "why": "Wilde studied classics at Magdalen College, Oxford, where he won the Newdigate Prize for poetry.",
       "options": [
-        "Oxford",
-        "Cambridge",
-        "Durham",
-        "Bristol"
+        "Magdalen College",
+        "Trinity College",
+        "King's College",
+        "Balliol College"
       ],
       "fresh": false
     },
@@ -151,7 +151,7 @@
       "id": "S8",
       "phase": "speed",
       "subject": "English",
-      "prompt": "Which technique does satire often use to exaggerate flaws?",
+      "prompt": "Which 18th-century writer is famous for the satire Gulliver's Travels?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -159,13 +159,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "Mockery and irony",
-      "why": "Satire relies on mockery, irony and exaggeration to highlight flaws, rather than stating facts plainly or formally.",
+      "answer": "Jonathan Swift",
+      "why": "Jonathan Swift wrote Gulliver's Travels, using satire to mock politics and society of his time.",
       "options": [
-        "Mockery and irony",
-        "Detailed statistics",
-        "Formal footnotes",
-        "Plain description"
+        "Jonathan Swift",
+        "Charles Dickens",
+        "William Blake",
+        "Jane Austen"
       ],
       "fresh": true
     },
@@ -173,7 +173,7 @@
       "id": "S9",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 14 cm and a height of 6 cm. What is its area?",
+      "prompt": "A triangle has a base of 25 cm and a height of 6 cm. What is its area?",
       "block": {
         "label": "Quick Recall",
         "hue": "#16E08C",
@@ -181,13 +181,13 @@
         "sub": "Four options, one answer — keep it fast",
         "cta": "Keep going →"
       },
-      "answer": "42 cm²",
-      "why": "Area of a triangle is ½ × base × height, so ½ × 14 × 6 = 42 cm². Slow down and halve before multiplying, don't just multiply base by height.",
+      "answer": "75 cm²",
+      "why": "Area equals ½ × base × height, so ½ × 25 × 6 = 75 cm². Rushing to skip the halving step gives double the real answer.",
       "options": [
-        "42 cm²",
-        "84 cm²",
-        "20 cm²",
-        "48 cm²"
+        "75 cm²",
+        "150 cm²",
+        "31 cm²",
+        "90 cm²"
       ],
       "fresh": false,
       "repair": true
@@ -196,7 +196,7 @@
       "id": "S10",
       "phase": "speed",
       "subject": "Maths",
-      "prompt": "A closed cylinder has radius 3 cm and height 5 cm. What is its total surface area? (use π ≈ 3.14)",
+      "prompt": "A cuboid is 5 cm long, 4 cm wide, and 3 cm high. What is its total surface area?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -204,13 +204,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "150.7 cm²",
-      "why": "Total surface area = 2πrh + 2πr² = (2×3.14×3×5) + (2×3.14×9) = 94.2 + 56.5 = 150.7 cm². The distractors come from forgetting one of the two parts or adding them wrongly.",
+      "answer": "94 cm²",
+      "why": "Add the areas of all six faces: 2(5×4) + 2(5×3) + 2(4×3) = 40+30+24 = 94 cm². A common error is only finding the volume (60 cm³) or forgetting to double each pair of faces.",
       "options": [
-        "150.7 cm²",
-        "94.2 cm²",
-        "56.5 cm²",
-        "203.1 cm²"
+        "94 cm²",
+        "60 cm²",
+        "47 cm²",
+        "120 cm²"
       ],
       "mode": "scrub",
       "fresh": false
@@ -219,7 +219,7 @@
       "id": "S11",
       "phase": "speed",
       "subject": "Geography",
-      "prompt": "A family moves overseas and is granted permanent protection after fleeing war. What is this an example of?",
+      "prompt": "What was Australia's post-WWII slogan urging mass immigration?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -227,13 +227,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Refugee migration",
-      "why": "Fleeing war and being granted permanent protection makes this refugee migration, not a voluntary move for jobs or family ties.",
+      "answer": "Populate or perish",
+      "why": "'Populate or perish' reflected fears that Australia needed a much bigger population for defence and economic growth after WWII.",
       "options": [
-        "Refugee migration",
-        "Rural-to-urban migration",
-        "Pull-factor migration",
-        "Chain migration"
+        "Populate or perish",
+        "Advance Australia",
+        "Unity in diversity",
+        "Fair go for all"
       ],
       "mode": "scrub",
       "fresh": false
@@ -242,7 +242,7 @@
       "id": "S12",
       "phase": "speed",
       "subject": "History",
-      "prompt": "What did Hitler attempt during the 1923 Munich Putsch?",
+      "prompt": "What building did Hitler's 1923 Munich Putsch march set out from?",
       "block": {
         "label": "Scrub It",
         "hue": "#B18CFF",
@@ -250,13 +250,13 @@
         "sub": "Rub out the wrong answers with your finger",
         "cta": "Start scrubbing →"
       },
-      "answer": "Seize power in Bavaria",
-      "why": "The Munich Putsch was a failed attempt to seize power in Bavaria and march on Berlin, not an election campaign or peaceful reform.",
+      "answer": "A large beer hall",
+      "why": "The putsch began at the Bürgerbräukeller, a large Munich beer hall, where Hitler declared a revolution before the failed march.",
       "options": [
-        "Seize power in Bavaria",
-        "Win a national election",
-        "Negotiate with Britain",
-        "Reform the Weimar constitution"
+        "A large beer hall",
+        "The city parliament",
+        "A railway station",
+        "An army barracks"
       ],
       "mode": "scrub",
       "fresh": false
@@ -265,7 +265,7 @@
       "id": "T1",
       "phase": "steady",
       "subject": "Maths",
-      "prompt": "A triangle has a base of 13 cm and a height of 6 cm. What is its area?",
+      "prompt": "A triangle has a base of 15 cm and a height of 4 cm. Slow down and work through it step by step: what is its area?",
       "block": {
         "label": "Numeric",
         "hue": "#14C7C7",
@@ -274,25 +274,25 @@
         "cta": "Start →"
       },
       "type": "numeric",
-      "answer": 39,
+      "answer": 30,
       "calc": false,
       "pre": "",
       "post": " cm²",
-      "why": "Area = ½ × base × height = ½ × 13 × 6 = 39 cm². Pause and halve before multiplying, don't rush straight to base × height.",
+      "why": "Area = ½ × base × height = ½ × 15 × 4 = 30 cm². Always halve after multiplying base and height.",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
       "subject": "English",
-      "prompt": "From a while back — why does Ralph's signal fire going out matter so much?",
-      "answer": "It means a rescue ship passes unseen",
-      "why": "The fire is the boys' only link to rescue, so letting it die while hunting shows how survival and savagery have overtaken civilisation and hope of being saved.",
+      "prompt": "From a while back — in Lord of the Flies, what finally happens to Ralph's signal fire that lets a ship pass by?",
+      "answer": "It goes out",
+      "why": "The hunters let the signal fire die out while off hunting, so a passing ship misses them — showing survival has replaced rescue as their priority.",
       "options": [
-        "It means a rescue ship passes unseen",
-        "It means the boys run out of food",
-        "It means Piggy loses his glasses",
-        "It means the littluns get lost"
+        "It goes out",
+        "It burns the whole island",
+        "Piggy puts it out",
+        "It is moved to the beach"
       ],
       "fresh": false,
       "throwback": true
@@ -301,7 +301,7 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "In a reaction, what do we call the starting substances before they react?",
+      "prompt": "What do we call a container that lets no gas or matter escape during a reaction?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -311,16 +311,18 @@
       },
       "type": "text",
       "accept": [
-        "reactants"
+        "closed system",
+        "sealed container",
+        "closed container"
       ],
-      "why": "The reactants are the starting substances; their total mass equals the total mass of the products formed in a closed system.",
+      "why": "A closed (sealed) system traps all gases and matter, so no mass can escape or enter — this is why mass appears conserved.",
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "What do we call it when a chemical reaction releases heat and feels warm?",
+      "prompt": "What is it called when a chemical reaction produces a colour change?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -330,23 +332,24 @@
       },
       "type": "text",
       "accept": [
-        "exothermic"
+        "colour change",
+        "color change"
       ],
-      "why": "An exothermic reaction releases heat energy to its surroundings, which is why it feels warm to touch.",
+      "why": "A colour change is one visible sign that a new substance has formed during a chemical reaction.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "Why do snack ads often include a free collectible toy or sticker?",
-      "answer": "To make kids want that snack to get it",
-      "why": "A free extra like a toy or sticker makes a product more appealing for reasons that have nothing to do with the food itself, pulling kids toward it regardless of nutrition.",
+      "prompt": "What marketing trick makes a snack seem healthier than it actually is?",
+      "answer": "Misleading health claims",
+      "why": "Words like 'natural' or 'low fat' on packaging can make a snack appear healthier than its full nutrition label shows.",
       "options": [
-        "To make kids want that snack to get it",
-        "To list allergy warnings clearly",
-        "To meet government labelling rules",
-        "To show the snack's true nutrition"
+        "Misleading health claims",
+        "Loud background music",
+        "A low shelf price",
+        "A long use-by date"
       ],
       "fresh": false
     },
@@ -354,14 +357,14 @@
       "id": "T6",
       "phase": "steady",
       "subject": "PDHPE",
-      "prompt": "On a nutrition label, which nutrient is usually highest in a packet of crisps?",
-      "answer": "Fat",
-      "why": "Crisps are fried or cooked in oil, so fat is usually the dominant nutrient on their label, far more than protein, fibre, or vitamins.",
+      "prompt": "On a nutrition label, what does the energy value usually measure in?",
+      "answer": "Kilojoules",
+      "why": "Energy on an Australian nutrition label is given in kilojoules (kJ), not grams or milligrams, which are used for nutrients like fat or sugar.",
       "options": [
-        "Fat",
-        "Protein",
-        "Fibre",
-        "Vitamin C"
+        "Kilojoules",
+        "Grams",
+        "Milligrams",
+        "Percent"
       ],
       "fresh": false
     },
@@ -369,7 +372,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "PDHPE",
-      "prompt": "A teenager sees an ad where a popular athlete drinks a sugary energy drink after winning a race. Explain how this ad could influence the teenager's food choice, even though the drink isn't a healthy option."
+      "prompt": "A teenager sees an ad where a popular streamer eats a sugary snack while gaming. Explain how this ad could shape the teenager's food choice, even though the snack isn't a healthy option."
     }
   ]
 }
