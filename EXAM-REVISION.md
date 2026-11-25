@@ -44,11 +44,18 @@ the exam system. Do not fold one into the other.
   short: + "keys": [...]  (OPTIONAL rescue only), "model": "<model answer>"
   tb:    + "model": "<model answer>"     (extended written response)
 ```
-`teach` cards exist only in Part-2 reteach, never in Part-1 practice.
+`teach` cards (the "what you need to know" cards) appear in **coaching/learn modes** — the
+Part-2 top-up and dedicated learn-first sessions — and **never in a graded exam-sim Part 1**
+(a test contains no teaching). See §6A.
 
 **Delivery:** per-student static page on Netlify reads the active row over the REST API
 and posts runs back. Roshan → `comfy-gnome-ab3891.netlify.app`. The AI grader is the
-Supabase edge function `coach`. Page + function sources are versioned here (§8).
+Supabase edge function `coach`. Page + function sources are versioned here (§8). The page
+**must confirm a completed sitting saved, and tell the student if it didn't** — never silently
+drop a run. *(Why: a completed day34 sitting never reached the DB and nobody knew.)*
+There is **one canonical page URL per student** (the blueprint's `page_url`); old Netlify
+generations are retired so a stale bookmark can't serve a dead page. *(Why: Harrison's old
+bookmark pointed at a retired page.)*
 
 ---
 
@@ -204,6 +211,11 @@ ephemeral — a future session or the loader trigger will not have the original 
 - Grader: Supabase edge function `coach`, model **`claude-sonnet-5-5`** (one-line `MODEL`
   const), `effort: low`, `max_tokens: 1024`. Prompt grades substance, ignores
   wording/spelling/order, tie-breaks generous. Returns `{verdict, good, improve}`.
+  *(Sonnet over Haiku chosen for marking quality — judging a reworded extended answer is a
+  real reasoning task; cost is ~a few cents a month at this volume.)*
+- **No self-marking in graded practice.** Written answers are AI-marked; the old "I actually
+  got it" self-assessment buttons are gone from Part 1 — a student passing himself is not a
+  measurement. (Self-judgement is fine in coaching, which isn't scored.)
 - Page scoring: `got_it`=1, `partly`=0.5, `not_yet`=0; MC auto-marked by position; a short
   answer whose `keys` match is an instant full mark (rescue only, never a false pass on
   multi-point questions — those omit `keys`).
@@ -224,11 +236,19 @@ The exam system always runs as **two phases** (LAW E8):
 | **Part 1 — graded practice** | the exam-sim sitting | each answer marked, substance-based, **partial credit** (E5) | an **honest exam-equivalent mark** — this is the measurement |
 | **Part 2 — coached top-up** | after a break, built from Part-1 gaps | re-teach the tricky bits (`teach` cards) → easy-win practice; warm *"what you got right / one thing to add / **try again**"* | **progress, not a competing grade** — "did the shaky bits improve?" |
 
+There are **three** session kinds (don't confuse them):
+1. **Graded exam-sim** (Part 1) — no teach cards, AI-marked, honest score.
+2. **Coached top-up** (Part 2) — teach cards + easy wins on the Part-1 gaps; progress, not a score.
+3. **Dedicated learn-first session** — on demand for a new/weak topic (like the Maths /
+   English-decon rounds): "what you need to know" teach cards → gentle practice, multi-round,
+   **ungraded**. This is a coaching mode, not an exam sim.
+
 - Part 2 is **auto-offered** after every graded practice; he can take it or leave it.
-- **Dedicated coaching** (on demand, for a weak subject — like the Maths / English-decon
-  rounds) is teach-first, multi-round, gentle, and **ungraded**.
-- The coach's *behaviour* differs by mode: in graded practice it **marks** (verdict → score);
-  in coaching it **teaches** (encourages, one next step, retry, re-teach). Same engine, two
+- **Part 1 must be completed before Part 2 is offered.** A fresh day must route to the
+  practice intro, never straight into the top-up. *(Why: a 'ready' reteach once made the page
+  skip Part 1 entirely — the learn/practice never ran.)*
+- The coach's *behaviour* differs by mode: in a graded sim it **marks** (verdict → score); in
+  coaching/learn it **teaches** (encourages, one next step, retry, re-teach). Same engine, two
   jobs — never confuse them (LAW E8).
 
 ---
@@ -244,6 +264,9 @@ Mirrors the daily game's menu + ledger:
 - **The planner** (`tools/build_revision.py`) uses the ledger to pick **unseen** and **weak**
   items, avoid recent repeats, and keep each subject's format (E2). Coverage is reportable:
   "asked 34 / 120 bank items; Science Skills 2/18 — thin."
+- **Subject mix:** a session covers the subjects being examined, weighted by the exam's own
+  marks — **not** an even split, and **not** collapsing into only his weakest subject (per
+  Rich). Within each subject the planner favours weak/unseen items.
 
 ---
 
@@ -284,8 +307,12 @@ Changes land as commits on the dev branch, reviewable — not blind drag-and-dro
   "read `EXAM-REVISION.md` + the blueprint, follow the LAWS, run `validate_revision.py`,
   then write" — not free-form "invent questions." It stays paused until the blueprint +
   validator exist.
-- **Evening read-out** (`trig_012D6eP…`): reports the honest run (E6). May also carry the
-  grader health check (§6).
+- **Evening read-out** (`trig_012D6eP…`): a parent-friendly read-out for Rich (read in the
+  app). Reports the honest Part-1 mark (E6) **plus**: how each subject is tracking across
+  sittings (improving / holding / weak, from the ledger E9), the **specific topics** he's
+  getting wrong, a **short plain-English explainer** for any topic he keeps missing, and —
+  if he did the top-up — whether the shaky bits improved (E8 progress, not a second score).
+  If he didn't sit it, a brief friendly nudge. May also carry the grader health check (§6).
 
 ---
 
@@ -295,6 +322,13 @@ Changes land as commits on the dev branch, reviewable — not blind drag-and-dro
   school's yearly-exam formats and still apply for the deferred sitting.
 - Harrison is **parked** (stopped using it); his blueprint/page are out of scope until he returns.
 - Everything here is Year 9 / Roshan. A second student = a second blueprint, same LAWS.
+- **All of Roshan's examined subjects already have a documented format in his sources** and
+  the blueprint should ultimately cover them all — each with its OWN format (E2):
+  English (Earnest short-answer + Lord of the Flies essay), Core Maths (calculation paper),
+  Science, History, Geography, PDHPE (MC + short + extended), Commerce (gapfill + short),
+  Food Tech (structured responses). We start with **Science, History, Geography**.
+- **Study aids** (printable cram sheets, e.g. the Earnest / Lord of the Flies ones) are a valid
+  optional output, generated from `revision/sources/` — same source-of-truth rule (E1).
 
 ---
 
@@ -312,3 +346,5 @@ Changes land as commits on the dev branch, reviewable — not blind drag-and-dro
 10. Learning treated like testing (coaching scored pass/fail). → E8
 11. School materials lived only in ephemeral upload scratch. → §5A
 12. No record of what's been asked, so sets could repeat or leave gaps. → E9 / ledger
+13. A 'ready' top-up once skipped Part 1 entirely (the learn/practice never ran). → §6A
+14. Self-marking ("I actually got it") let a student pass himself — no real measurement. → §6
