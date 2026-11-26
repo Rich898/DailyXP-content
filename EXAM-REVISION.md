@@ -157,6 +157,22 @@ recent repeats. We can always see coverage of the bank — what we have and have
 - *Enforced:* `tools/build_revision.py` selects from the ledger; `validate_revision.py` flags a
   set that repeats an item asked within the last N days.
 
+### LAW E10 — Pitch answers at real Year-9 standard (not maximal)
+A `model` answer is what a capable **Year-9** student would realistically write **to earn the
+marks under exam time**, NOT a textbook-perfect, data-crammed answer. A `short` is 1–2
+sentences; an extended/`tb` answer is a short paragraph covering the few points the marks need
+— include a figure or named example only where the real exam genuinely expects it for that
+mark value. The grader marks **to that standard**: a clear, correct answer covering the main
+idea(s) is `got_it` even if it is shorter/simpler than the model and omits extra examples,
+figures or dates. `partly` is only for a genuinely missing/wrong **key** idea — never for
+"wrote less detail than the model."
+- *Why:* model answers were pitched at top-band essay level (e.g. a Singapore answer demanding
+  Britain's base + USA shift + a named poster). That made solid Year-9 answers read as `partly`,
+  showed Roshan an over-the-top "expected" answer, and the coaching then nagged him to cram in
+  detail the exam doesn't require. Rich: "way over the top and not what's expected in the exams."
+- *Enforced:* `revision/generate/index.ts` (model-answer calibration rule) + `revision/coach/index.ts`
+  (mark to what earns the marks at year level; model answer is a guide, not a checklist).
+
 ---
 
 ## 5. The blueprint (`revision/<student>.json`)
