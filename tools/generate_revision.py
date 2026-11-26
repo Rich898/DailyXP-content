@@ -81,6 +81,8 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--counts", default=None, help="Science=11,Geography=9")
     ap.add_argument("--recent", default=None, help="file of recently-asked topic ids")
+    ap.add_argument("--order", choices=["interleave", "block"], default="interleave",
+                    help="interleave=vary subject question-to-question (default); block=all of one subject then the next")
     ap.add_argument("--no-steer", action="store_true", help="ignore the coverage ledger (no skip/prioritise)")
     ap.add_argument("--seed", type=int, default=None)
     args = ap.parse_args()
@@ -102,7 +104,7 @@ def main():
         recent_ids, weak_ids = fetch_coverage(bp["student"])
         print(f"  ledger: skip {len(recent_ids)} recently-asked, prioritise {len(weak_ids)} weak")
 
-    questions = []
+    by_subject = {}   # subject -> its generated questions, in subject order
     for s in subjects:
         d = bp["subjects"].get(s)
         if not d:
@@ -118,7 +120,32 @@ def main():
             if q.get("src") in sec and sec[q["src"]]:
                 q["section"] = sec[q["src"]]
         print(f"  {s}: generated {len(qs)}")
-        questions.extend(qs)
+        by_subject[s] = qs
+
+    if args.order == "interleave":
+        # Round-robin across subjects so it varies question-to-question (no subject chunks).
+        # Each subject's internal order (weak-first) is preserved within its own slots.
+        cursors = {s: iter(by_subject.get(s, [])) for s in subjects}
+        active = [s for s in subjects if by_subject.get(s)]
+        questions = []
+        last = None
+        while active:
+            # rotate the subject order each round so the lead subject changes, and never
+            # start a round with the same subject that just went (avoids an accidental pair)
+            round_order = [s for s in active]
+            if last is not None and len(round_order) > 1 and round_order[0] == last:
+                round_order = round_order[1:] + round_order[:1]
+            progressed = []
+            for s in round_order:
+                nxt = next(cursors[s], None)
+                if nxt is None:
+                    continue
+                questions.append(nxt); last = s; progressed.append(s)
+            active = [s for s in active if s in progressed]
+    else:  # block
+        questions = []
+        for s in subjects:
+            questions.extend(by_subject.get(s, []))
 
     balance_mc([q for q in questions if q.get("t") == "mc"], rng)
 
