@@ -1,15 +1,15 @@
 {
   "student": "t1",
-  "date": "2026-11-20",
+  "date": "2026-11-27",
   "day": "FRI",
-  "tag": "T17.5 · BATTLEGROUND",
-  "title": "DailyXP · FRI 2026-11-20",
+  "tag": "T18.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-27",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
       "subject": "Visual Arts",
-      "prompt": "Paint Like a Beast students blended edges smoothly",
+      "prompt": "Paint Like a Beast used fine detail brushes for precision",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -21,14 +21,14 @@
       "left": "True",
       "right": "False",
       "answer": "False",
-      "why": "False — the project favoured loose, energetic brushwork over smooth blending, since the goal was texture and movement, not a soft, careful finish.",
+      "why": "False — the activities used bold, loose brushwork to capture energy and texture, not fine precise detail.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
       "subject": "History",
-      "prompt": "A daimyo controlled land on behalf of the shogun",
+      "prompt": "A shogun held more real power than the emperor",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -40,21 +40,21 @@
       "left": "True",
       "right": "False",
       "answer": "True",
-      "why": "True — daimyo were regional lords who governed land granted by the shogun, in exchange for loyalty and military support.",
+      "why": "True — the emperor was a ceremonial figurehead while the shogun actually commanded the military and political power.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What title does Prince Escalus hold over Verona?",
-      "answer": "Prince",
-      "why": "Escalus is called 'Prince' of Verona, the ruler who tries to keep peace between the feuding families; students sometimes assume a bigger title like King since he has supreme authority.",
+      "prompt": "In Act 1 Scene 1, what punishment does Prince Escalus threaten for future fighting?",
+      "answer": "Death",
+      "why": "Escalus declares that anyone who disturbs the peace again will be put to death, trying to end the feud by force of law.",
       "options": [
-        "Prince",
-        "King",
-        "Duke",
-        "Lord Mayor"
+        "Death",
+        "Exile",
+        "Prison",
+        "A fine"
       ],
       "fresh": false
     },
@@ -62,14 +62,14 @@
       "id": "T2",
       "phase": "steady",
       "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord plays the dominant 'V' role?",
-      "answer": "G, tension back to C",
-      "why": "G is the 'V' chord, creating tension that pulls strongly back to the tonic C. Students often mix it up with F (the 'IV'), which supports rather than pulls.",
+      "prompt": "In C-Am-F-G, which chord is the tonic 'home' chord?",
+      "answer": "C",
+      "why": "C is the 'I' or tonic chord, built on the first scale degree — the point of rest the progression returns to.",
       "options": [
-        "G, tension back to C",
-        "F, built on degree four",
-        "Am, built on degree six",
-        "C, the tonic chord"
+        "C",
+        "Am",
+        "F",
+        "G"
       ],
       "fresh": false
     },
@@ -77,14 +77,14 @@
       "id": "T3",
       "phase": "steady",
       "subject": "Visual Arts",
-      "prompt": "What did Paint Like a Beast students mostly use to apply paint, besides brushes?",
+      "prompt": "In Paint Like a Beast, besides brushes, what else did students use to apply paint?",
       "answer": "Sponges and rags",
-      "why": "Sponges and rags were used alongside brushes to build texture and loose marks; rulers and tape would create the precise, controlled edges the project deliberately avoided.",
+      "why": "Students used sponges and rags alongside brushes to build up loose texture, not just fine brushwork.",
       "options": [
         "Sponges and rags",
         "Rulers and tape",
-        "Fine detail pens",
-        "Cotton buds only"
+        "Cotton buds",
+        "Palette knives only"
       ],
       "fresh": false
     },
@@ -92,7 +92,7 @@
       "id": "T4",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these events in a feudal land grant, from what happens first to what happens last",
+      "prompt": "Order these roles in Japan's feudal hierarchy, from most power to least",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -102,21 +102,21 @@
       },
       "type": "order",
       "sequence": [
-        "Daimyo pledges loyalty",
-        "Shogun grants land",
-        "Daimyo collects rice tax",
-        "Samurai are paid for service"
+        "Shogun",
+        "Daimyo",
+        "Samurai",
+        "Peasants"
       ],
-      "top": "First",
-      "bot": "Last",
-      "why": "A daimyo first pledged loyalty to the shogun, who then granted land in return; the daimyo collected rice tax from that land and used it to pay the samurai who served him.",
+      "top": "Most power",
+      "bot": "Least power",
+      "why": "Power ran Shogun, then Daimyo (regional lords), then Samurai (warriors serving them), then Peasants at the base.",
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
       "subject": "History",
-      "prompt": "Order these questions a historian asks about change, from the shortest timescale to the longest",
+      "prompt": "Order these steps of judging whether an event marks continuity or change, from first to last",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -126,28 +126,28 @@
       },
       "type": "order",
       "sequence": [
-        "What changed this year?",
-        "What changed this decade?",
-        "What changed this century?",
-        "What stayed the same for centuries?"
+        "Describe the situation before",
+        "Describe the situation after",
+        "Identify what actually differs",
+        "Decide how significant the difference is"
       ],
-      "top": "Shortest timescale",
-      "bot": "Longest timescale",
-      "why": "Historians weigh change across different timescales, from a single year up to centuries, to judge whether something was a quick shift or a deep continuity.",
+      "top": "First",
+      "bot": "Last",
+      "why": "To judge continuity and change you first describe before and after, then pinpoint what actually differs, then weigh how significant that difference really is.",
       "fresh": false
     },
     {
       "id": "T6",
       "phase": "steady",
       "subject": "English",
-      "prompt": "What does Juliet ask Romeo to send word of, the day after the party?",
-      "answer": "His intention to marry her",
-      "why": "Juliet tells the Nurse to find Romeo and ask if he intends marriage; if so, she'll send word of a time and place. Students sometimes forget how fast the plot moves — marriage is arranged within a day of meeting.",
+      "prompt": "What does Prince Escalus threaten if the families fight in Verona's streets again?",
+      "answer": "Death",
+      "why": "Escalus declares that anyone caught brawling again will be put to death — he's trying to end the feud with the harshest possible threat.",
       "options": [
-        "His intention to marry her",
-        "His family's forgiveness",
-        "A list of wedding guests",
-        "The Prince's permission"
+        "Death",
+        "Banishment",
+        "A heavy fine",
+        "Imprisonment"
       ],
       "fresh": false
     },
@@ -155,14 +155,14 @@
       "id": "T7",
       "phase": "steady",
       "subject": "English",
-      "prompt": "Which theatre in London was strongly associated with Shakespeare's plays?",
-      "answer": "The Globe",
-      "why": "The Globe Theatre was where Shakespeare's company performed most of his plays; students sometimes confuse it with The Rose, an earlier, separate Elizabethan playhouse.",
+      "prompt": "Roughly what years did Shakespeare live, birth to death?",
+      "answer": "1564-1616",
+      "why": "Shakespeare was born in 1564 and died in 1616, placing his life firmly in the Elizabethan and early Jacobean era.",
       "options": [
-        "The Globe",
-        "The Old Vic",
-        "Drury Lane",
-        "The Rose"
+        "1564-1616",
+        "1600-1660",
+        "1500-1550",
+        "1616-1670"
       ],
       "fresh": false
     },
@@ -170,7 +170,7 @@
       "id": "TB1",
       "phase": "teach",
       "subject": "Music",
-      "prompt": "Explain why starting the same four chords, C-Am-F-G, on Am instead of C can make a song feel sadder, even though the chords used are identical."
+      "prompt": "Explain why playing the same four chords, C-Am-F-G, but starting the sequence on Am instead of C, can make a song feel sadder, even though the chords used are identical."
     }
   ]
 }
