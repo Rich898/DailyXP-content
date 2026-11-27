@@ -1,15 +1,15 @@
 {
   "student": "y8",
-  "date": "2026-11-17",
-  "day": "TUE",
-  "tag": "H17.2",
-  "title": "DailyXP · TUE 2026-11-17",
+  "date": "2026-11-27",
+  "day": "FRI",
+  "tag": "H18.5 · BATTLEGROUND",
+  "title": "DailyXP · FRI 2026-11-27",
   "questions": [
     {
       "id": "S1",
       "phase": "speed",
-      "subject": "English",
-      "prompt": "The play is set in Verona",
+      "subject": "Technology",
+      "prompt": "Radiata pine is chosen for the spice rack",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -18,36 +18,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "Romeo and Juliet takes place in Verona, Italy, where the two feuding families live.",
+      "left": "Materials theory",
+      "right": "Design brief",
+      "answer": "Materials theory",
+      "why": "Choosing radiata pine is part of materials theory, not the design brief — the brief describes the storage need, not the material.",
       "fresh": false
     },
     {
       "id": "S2",
       "phase": "speed",
-      "subject": "History",
-      "prompt": "The shogun held more real power than the emperor",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "The emperor was a figurehead; the shogun actually controlled the military and government.",
-      "fresh": false
-    },
-    {
-      "id": "S3",
-      "phase": "speed",
       "subject": "Japanese",
-      "prompt": "'nanahyaku' means 700",
+      "prompt": "Juuyon",
       "block": {
         "label": "Swipe Sort",
         "hue": "#39A7DE",
@@ -56,215 +37,17 @@
         "cta": "Start swiping →"
       },
       "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "'nanahyaku' (七百) is 7 x 100 = 700 in Japanese numbers.",
-      "fresh": false
-    },
-    {
-      "id": "S4",
-      "phase": "speed",
-      "subject": "Japanese",
-      "prompt": "'sen' is used for counting thousands",
-      "block": {
-        "label": "Swipe Sort",
-        "hue": "#39A7DE",
-        "icon": "⇆",
-        "sub": "Flick each card up into its bucket",
-        "cta": "Start swiping →"
-      },
-      "type": "swipe",
-      "left": "True",
-      "right": "False",
-      "answer": "True",
-      "why": "'sen' (千) is the word for 1,000, used as the base for counting thousands like nisen (2,000).",
-      "fresh": false
-    },
-    {
-      "id": "S5",
-      "phase": "speed",
-      "subject": "History",
-      "prompt": "What word describes something that stayed the same across a time period?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Continuity",
-      "why": "Continuity means things stayed roughly the same, unlike change, which describes what shifted over time.",
-      "options": [
-        "Continuity",
-        "A consequence",
-        "A trigger",
-        "A revolution"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S6",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "In Act 1 Scene 1, what punishment does Prince Escalus threaten for future street fighting?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "Death",
-      "why": "Escalus declares that anyone who disturbs the peace again will be executed — he is trying to end the feud with the harshest threat possible, not a lesser punishment like exile or a fine.",
-      "options": [
-        "Death",
-        "Exile",
-        "A heavy fine",
-        "Public whipping"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S7",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "In C–Am–F–G, which chord comes immediately before the final G?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "F",
-      "why": "The progression runs C–Am–F–G in order, so F is the chord played right before the final G.",
-      "options": [
-        "C",
-        "Am",
-        "F",
-        "G"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S8",
-      "phase": "speed",
-      "subject": "Science",
-      "prompt": "What do we call an organism that makes its own food using sunlight?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A producer",
-      "why": "Producers like plants make their own food through photosynthesis, forming the base of the food chain.",
-      "options": [
-        "A producer",
-        "A consumer",
-        "A predator",
-        "A decomposer"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S9",
-      "phase": "speed",
-      "subject": "Visual Arts",
-      "prompt": "In Paint Like a Beast, what tool creates rough fur-like marks?",
-      "block": {
-        "label": "Quick Recall",
-        "hue": "#16E08C",
-        "icon": "●",
-        "sub": "Four options, one answer — keep it fast",
-        "cta": "Keep going →"
-      },
-      "answer": "A dry brush",
-      "why": "A dry brush with little paint drags and splits to create rough, fur-like texture marks.",
-      "options": [
-        "A dry brush",
-        "A fine liner pen",
-        "A roller",
-        "A palette knife"
-      ],
-      "fresh": false
-    },
-    {
-      "id": "S10",
-      "phase": "speed",
-      "subject": "Maths",
-      "prompt": "For y = 3x - 1, what is y when x = 5?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
+      "left": "14",
+      "right": "40",
       "answer": "14",
-      "why": "Substitute x = 5: 3x5 = 15, minus 1 = 14.",
-      "options": [
-        "14",
-        "15",
-        "13",
-        "16"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S11",
-      "phase": "speed",
-      "subject": "English",
-      "prompt": "What is the name of the London theatre most linked to Shakespeare's plays?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "The Globe",
-      "why": "The Globe Theatre in London was built for Shakespeare's company and staged most of his famous plays.",
-      "options": [
-        "The Globe",
-        "The Royal Albert Hall",
-        "The Old Vic",
-        "The Rose Garden"
-      ],
-      "mode": "scrub",
-      "fresh": false
-    },
-    {
-      "id": "S12",
-      "phase": "speed",
-      "subject": "Music",
-      "prompt": "What does a song's intro mainly do?",
-      "block": {
-        "label": "Scrub It",
-        "hue": "#B18CFF",
-        "icon": "⌫",
-        "sub": "Rub out the wrong answers with your finger",
-        "cta": "Start scrubbing →"
-      },
-      "answer": "Sets up the mood",
-      "why": "The intro establishes the song's feel and key before the verse and chorus develop it further.",
-      "options": [
-        "Sets up the mood",
-        "Repeats the hook",
-        "Ends the track",
-        "Adds the most layers"
-      ],
-      "mode": "scrub",
+      "why": "Juuyon (十四) means 14 — juu (10) + yon (4). Don't confuse it with yonjuu (40), which reverses the order.",
       "fresh": false
     },
     {
       "id": "T1",
       "phase": "steady",
       "subject": "Science",
-      "prompt": "A student tests if the amount of water given affects bean plant height, keeping the pot size the same for all plants. What type of variable is 'amount of water given'?",
+      "prompt": "A student changes the amount of water given to plants and measures their height, keeping pot size the same. What is the word for the variable that is deliberately changed?",
       "block": {
         "label": "Short Answer",
         "hue": "#E0559B",
@@ -277,35 +60,14 @@
         "independent variable",
         "independent"
       ],
-      "why": "The amount of water is what the student deliberately changes, so it is the independent variable.",
+      "why": "The independent variable is the one YOU change on purpose (amount of water). The dependent variable is what you measure (height), and the controlled variable is what you keep the same (pot size).",
       "fresh": false
     },
     {
       "id": "T2",
       "phase": "steady",
-      "subject": "Maths",
-      "prompt": "Solve for x: 4x + 3 = 27.",
-      "block": {
-        "label": "Numeric",
-        "hue": "#14C7C7",
-        "icon": "#",
-        "sub": "Type the answer",
-        "cta": "Start →"
-      },
-      "type": "numeric",
-      "answer": 6,
-      "calc": false,
-      "pre": "",
-      "post": "",
-      "why": "Subtract 3 from both sides to get 4x = 24, then divide by 4 to get x = 6.",
-      "fresh": false,
-      "throwback": true
-    },
-    {
-      "id": "T3",
-      "phase": "steady",
       "subject": "History",
-      "prompt": "Order these ranks by how much land they owned",
+      "prompt": "Order these shogunate groups by how much land they personally farmed",
       "block": {
         "label": "Drag It",
         "hue": "#FFB800",
@@ -315,43 +77,58 @@
       },
       "type": "order",
       "sequence": [
-        "Shogun",
-        "Daimyo",
+        "Peasants",
         "Samurai",
-        "Peasants"
+        "Daimyo",
+        "Shogun"
       ],
-      "top": "Most land owned",
-      "bot": "Least land owned",
-      "why": "The shogun controlled the most land overall, granting territory to daimyo, who relied on samurai, while peasants owned none of the land they farmed.",
+      "top": "Most farming",
+      "bot": "Least farming",
+      "why": "Peasants did the actual farm labour; samurai served as warriors rather than farmers; daimyo owned and managed land through others; the shogun ruled over all of it without working any land himself.",
+      "fresh": false
+    },
+    {
+      "id": "T3",
+      "phase": "steady",
+      "subject": "Technology",
+      "prompt": "What should a spice rack's design brief describe before choosing the material?",
+      "answer": "The storage need",
+      "why": "A design brief must first describe the storage need the product solves, before any material like radiata pine is chosen — otherwise the design might not fit the real problem.",
+      "options": [
+        "The storage need",
+        "The sanding grit",
+        "The glue type",
+        "The paint colour"
+      ],
       "fresh": false
     },
     {
       "id": "T4",
       "phase": "steady",
       "subject": "Technology",
-      "prompt": "In the spice rack portfolio, what does identifying a 'need' come from?",
-      "answer": "A real storage problem",
-      "why": "A design need comes from a genuine problem, like messy spice storage, which then shapes the whole brief.",
+      "prompt": "What grit of sandpaper should you finish with for the smoothest surface?",
+      "answer": "Fine grit",
+      "why": "You always finish with fine grit sandpaper to leave the smoothest surface — coarse grit is only for removing rough material early on, not for a final finish.",
       "options": [
-        "A real storage problem",
-        "The timber supplier",
-        "The sandpaper grit",
-        "The glue type chosen"
+        "Fine grit",
+        "Coarse grit",
+        "Medium grit",
+        "Any grit works"
       ],
       "fresh": false
     },
     {
       "id": "T5",
       "phase": "steady",
-      "subject": "Technology",
-      "prompt": "In the spice rack build, why do you sand wood before adding a finish?",
-      "answer": "Smooths surface for even finish",
-      "why": "Sanding removes rough patches and scratches so the finish sits evenly on a smooth surface, giving a neater final look.",
+      "subject": "Japanese",
+      "prompt": "How do you say '20' yen in Japanese?",
+      "answer": "Nijuu",
+      "why": "Nijuu (二十) means 20 — ni (2) + juu (10). Nihyaku is 200, a common mix-up between tens and hundreds.",
       "options": [
-        "Smooths surface for even finish",
-        "Makes the wood heavier",
-        "Replaces need for glue joints",
-        "Changes the wood's colour"
+        "Nijuu",
+        "Juuni",
+        "Ninjuu",
+        "Nihyaku"
       ],
       "fresh": false
     },
@@ -359,22 +136,46 @@
       "id": "T6",
       "phase": "steady",
       "subject": "Japanese",
-      "prompt": "How do you say '9' yen in Japanese?",
-      "answer": "kyuu",
-      "why": "kyuu (九) means 9; juu is 10, hyaku is 100, and sen is 1,000.",
+      "prompt": "How do you say '300' in Japanese?",
+      "answer": "Sanbyaku",
+      "why": "Sanbyaku means 300 (san + hyaku, hundred). Sanjuu is 30 and sanzen is 3,000 — easy to confuse the hundreds, tens, and thousands endings.",
       "options": [
-        "kyuu",
-        "juu",
-        "hyaku",
-        "sen"
+        "Sanbyaku",
+        "Sanjuu",
+        "Sanzen",
+        "Nihyaku"
       ],
+      "fresh": false
+    },
+    {
+      "id": "T7",
+      "phase": "steady",
+      "subject": "History",
+      "prompt": "Order these by how power could be legally removed, from most power to least",
+      "block": {
+        "label": "Drag It",
+        "hue": "#FFB800",
+        "icon": "⇅",
+        "sub": "Drag the tiles into order",
+        "cta": "Start dragging →"
+      },
+      "type": "order",
+      "sequence": [
+        "Monarch",
+        "Noble lords",
+        "Knights",
+        "Peasants"
+      ],
+      "top": "Most power",
+      "bot": "Least power",
+      "why": "A monarch could lose a throne through rebellion or law, nobles could lose lands and titles, knights could lose service and status, and peasants held no formal power to lose at all.",
       "fresh": false
     },
     {
       "id": "TB1",
       "phase": "teach",
-      "subject": "Technology",
-      "prompt": "Explain why a spice rack's design brief should describe the storage need before choosing radiata pine as the material, using an example of what could go wrong if a designer picked the material first."
+      "subject": "History",
+      "prompt": "A classmate says 'the shogun was just a servant who followed the emperor's orders.' Explain why this is wrong, describing where real political power actually sat in the shogunate system."
     }
   ]
 }
